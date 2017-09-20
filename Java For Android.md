@@ -145,15 +145,11 @@
         <em>
             AoT
         </em>
-        compilation only occurs in Android KitKat (4.4) and above, but it also
-        provides backwards compatibility. Prior versions of Android relied on another
-        virtual machine known as
+        的编译机制只有在Android KitKat（4.4）以上的版本中才可以生效，但它也提供了向后的兼容。之前的Android版本依赖于另一个被称作
         <em>
             Dalvik
         </em>
-        . Like ART, Dalvik made changes to the Java Bytecode, converting it into
-        a specific form that made various efficiency changes to optimize the app
-        for the kinds of low-powered devices Android was originally designed for.
+        的虚拟机机制。像ART一样，Dalvik改变了Java的Bytecode，并将它转为为特定的形式，以进行各种效率上的优化，以适应一开始的那些低性能的Android设备。
     </p>
     <p>
         However, unlike ART, Dalvik didn’t compile the Bytecode into machine code
