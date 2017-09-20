@@ -1,2 +1,247 @@
-# Android-Development-Tutorials-translation
-Translation of Android development tutorials.
+# Android 开发教程翻译
+---
+#### [原文地址](https://www.raywenderlich.com/category/android) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
+<div class="content-wrapper taxonomy-description">
+    <p>
+        Want to learn how to develop apps for Android using Java and Kotlin?
+    </p>
+    <p>
+        Check out our collection of over 25 free Android development tutorials,
+        covering everything you need to know to get started!
+    </p>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        Many Android tutorials on our site use Java. If you are new to Java, be
+        sure to read a book on the subject first. We’ve started to update our Android
+        tutorials to Kotlin. Look for more Kotlin updates soon!
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <h2 style="clear:both; padding-top: 20px;">
+        Getting Started
+    </h2>
+    <img src="https://koenig-media.raywenderlich.com/uploads/2014/10/AndroidRW.png"
+    alt="AndroidRW" width="250" height="250" class="alignright size-full wp-image-87100">
+    <p>
+        The best way to get started is by going through our
+        <a href="https://www.raywenderlich.com/120177/beginning-android-development-tutorial-installing-android-studio"
+        sl-processed="1">
+            Beginning Android Development
+        </a>
+        tutorial series.
+    </p>
+    <p>
+        If you need a quick crash course on Java, check out our
+        <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
+            Java For Android tutorial
+        </a>
+        and
+        <a href="https://www.raywenderlich.com/119175/java-for-android-cheat-sheet-and-quick-reference"
+        sl-processed="1">
+            cheat sheet
+        </a>
+        .
+    </p>
+    <ul>
+        <li>
+            <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
+                Java For Android
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/119175/java-for-android-cheat-sheet-and-quick-reference"
+            sl-processed="1">
+                Java for Android Cheat Sheet and Quick Reference
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+            sl-processed="1">
+                Kotlin For Android: An Introduction
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/154676/android-studio-tutorial-introduction"
+            sl-processed="1">
+                Beginning Android Development Part Two: Using Android Studio
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+            sl-processed="1">
+                Beginning Android Development Part One: Installing Android Studio
+            </a>
+        </li>
+    </ul>
+    <h2 style="clear:both; padding-top: 20px;">
+        Core Concepts
+    </h2>
+    <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/Android-jetpack.png"
+    alt="" future="" you ""="" width="250" height="250" class="size-full wp-image-119228 bordered alignright">
+    <p>
+        Once you have gone through the basics, you should learn about some core
+        concepts you need to know for Android development, such as activities,
+        fragments, intents, and some important design patterns.
+    </p>
+    <ul>
+        <li>
+            <a href="https://www.raywenderlich.com/149112/android-fragments-tutorial-introduction"
+            sl-processed="1">
+                Android Fragments Tutorial: An Introduction
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/160019/android-intents-tutorial-2"
+            sl-processed="1">
+                Android: Intents Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/165824/introduction-android-activities-kotlin"
+            sl-processed="1">
+                Introduction to Android Activities with Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
+            sl-processed="1">
+                Common Design Patterns for Android with Kotlin
+            </a>
+        </li>
+    </ul>
+    <h2 style="clear:both; padding-top: 20px;">
+        User Interface
+    </h2>
+    <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/ListView-feature.png"
+    alt="" width="250" height="250" class="alignright size-thumbnail bordered">
+    <p>
+        An important part of creating an Android app is creating a delightful
+        user interface. In this section, you'll learn how to create user interfaces
+        that look and feel great on a variety of screen sizes.
+    </p>
+    <ul>
+        <li>
+            <a href="https://www.raywenderlich.com/124438/android-listview-tutorial"
+            sl-processed="1">
+                Android ListView Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
+            sl-processed="1">
+                Android RecyclerView Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/127544/android-gridview-getting-started"
+            sl-processed="1">
+                Android GridView Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/128105/introduction-android-animations"
+            sl-processed="1">
+                Android Animation Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/155838/responsive-ui-tutorial-android"
+            sl-processed="1">
+                Responsive UI Tutorial for Android
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/168916/android-an-introduction-to-material-design"
+            sl-processed="1">
+                Android: An Introduction to Material Design with Kotlin
+            </a>
+        </li>
+    </ul>
+    <h2 style="clear:both; padding-top: 20px;">
+        Other Android Tutorials
+    </h2>
+    <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Android-sdk-versions-feature-250x250.png"
+    alt="Android-sdk-versions-feature" width="250" height="250" class="alignright size-thumbnail wp-image-124606 bordered">
+    <p>
+        But wait, there's more! In this section, you'll learn how to work with
+        different Android SDK versions, how to distribute your app on the Android
+        App Store, and much more.
+    </p>
+    <ul>
+        <li>
+            <a href="https://www.raywenderlich.com/103540/geofences-googleapiclient"
+            sl-processed="1">
+                Geofences on Android with GoogleApiClient
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/118966/android-sdk-versions-tutorial"
+            sl-processed="1">
+                Android SDK Versions Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/122114/android-app-distribution-tutorial-zero-google-play-store"
+            sl-processed="1">
+                Android App Distribution Tutorial: From Zero to Google Play Store
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/124936/whats-new-android-studio-2-0"
+            sl-processed="1">
+                What’s New in Android Studio 2.0
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/126770/android-networking-tutorial-getting-started"
+            sl-processed="1">
+                Android Networking Tutorial: Getting Started
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/134752/couchbase-tutorial-android"
+            sl-processed="1">
+                Couchbase Tutorial for Android: Getting Started
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/141980/rxandroid-tutorial" sl-processed="1">
+                RxAndroid Tutorial
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/144066/introduction-google-maps-api-android"
+            sl-processed="1">
+                Introduction to Google Maps API for Android
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/146804/dependency-injection-dagger-2"
+            sl-processed="1">
+                Dependency Injection in Android with Dagger 2
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/155534/researchstack-tutorial-getting-started"
+            sl-processed="1">
+                ResearchStack Tutorial: Getting Started
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/158580/augmented-reality-android-googles-face-api"
+            sl-processed="1">
+                Augmented Reality in Android with Google’s Face API
+            </a>
+        </li>
+        <li>
+            <a href="https://www.raywenderlich.com/170520/getting-started-arcore-kotlin"
+            sl-processed="1">
+                Getting Started with ARCore with Kotlin
+            </a>
+        </li>
+    </ul>
+</div>
