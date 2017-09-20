@@ -33,7 +33,6 @@
     </p>
     <p>
         如果你需要一个Java的速成教程，请访问我们的
-        If you need a quick crash course on Java, check out our
         <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
             Java For Android tutorial
         </a>
