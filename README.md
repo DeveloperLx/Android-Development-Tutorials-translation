@@ -33,8 +33,8 @@
     </p>
     <p>
         如果你需要一个Java的速成教程，请访问我们的
-        <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
-            Java For Android tutorial
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Java%20For%20Android.md" sl-processed="1">
+            Java在Android中的应用
         </a>
         和
         <a href="https://www.raywenderlich.com/119175/java-for-android-cheat-sheet-and-quick-reference"
@@ -45,8 +45,8 @@
     </p>
     <ul>
         <li>
-            <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
-                Java For Android
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Java%20For%20Android.md" sl-processed="1">
+                Java在Android中的应用
             </a>
         </li>
         <li>
