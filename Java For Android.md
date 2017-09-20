@@ -78,13 +78,10 @@
         尽管对于有经验的Java开发者来说，编写和开发Android app会让他们感到比较熟悉，但当你编译和运行项目的时候，这种熟悉感还是会突然中止。原因是Android在编译过程中，处理app的方式处于你未知的领域。
     </p>
     <p>
-        Java’s major appeal is its ability to “Write once, run everywhere”. This
-        language is sold as the silver bullet to the expensive process&nbsp;of
-        porting software from one platform to another.
+        Java最吸引人的一点，就是“一次编写，处处运行”。这门语言的最大卖点就是降低了将软件从一个平台迁移到另一个平台的巨大代价。
     </p>
     <p>
-        This veritable marvel of software engineering is made possible thanks
-        to what happens when a Java program compiles.
+        这个软件工程的真正奇迹，在于Java程序编译过程中可以发生的无限可能。
     </p>
     <p>
         对于大多数其它的语言，编译器会首先连接和优化程序，然后将它翻译为
@@ -111,44 +108,37 @@
         使用了虚拟机，就意味着只要能够阅读和翻译Bytecode的指令集，这个程序就可以很愉快地运行相应的平台上了，这就确保了跨平台的兼容性。
     </p>
     <p>
-        现在你就懂了，为何大多数的Java程序，会在你还没有的情况下，提示你下载Java Runtime Environment（JRE）- 它是大多数平台默认的VM程序。e it – it’s the default
-        VM for the majority of platforms.
+        现在你就懂了，为何大多数的Java程序，会在你还没有的情况下，提示你下载Java Runtime Environment（JRE）- 它是大多数平台默认的VM程序。
     </p>
     <h2>
         Android中的Java...有一点不同
     </h2>
     <p>
-        Compiling an app for Android follows the same path as converting Java
-        files into Bytecode. Except that it doesn’t. When the app (composed of
-        Bytecode) installs on a device, a second step occurs during installation.
-        The app’s Bytecode is converted into machine code that’s optimized for
-        that Android device, improving the app’s runtime performance. This process
-        is known as
+        编译android的app也是相同的过程，将Java文件转换为Bytecode。与此有所不同的是，在安装的过程中会发生第二个步骤。app的Bytecode会被优化为适合Android设备的机器码，这样就提示了app运行时的性能。这个过程被称作
         <em>
             Ahead of Time compilation
         </em>
-        (AoT) and is made possible by the
+        （AoT），它是由
         <em>
             Android Runtime
         </em>
-        (ART) virtual machine.
+        （ART）虚拟机实现的。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            :
+            ：
             <em>
                 Ahead of Time Compilation
             </em>
-            (AoT) is a concept used across many programming languages. You can read
-            more about it
+            （AoT）是在很多的编程语言中通用的概念。你可以在
             <a title="on Wikipedia" href="https://en.wikipedia.org/wiki/Ahead-of-time_compilation"
             target="_blank" sl-processed="1">
-                on Wikipedia
+                维基百科
             </a>
-            .
+            上阅读更多有关它的内容。
         </p>
     </div>
     <p>
