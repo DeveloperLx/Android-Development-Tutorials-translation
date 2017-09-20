@@ -12,69 +12,56 @@
         </a>
     </p>
     <p>
-        While a number of languages can be used to build Android apps,
+        尽管大量的语言都可以用来开发Android app，但Google推荐开发者使用
         <em>
             Java
         </em>
-        is the language Google encourages developers to use. However, it’s not
-        precisely the same as the Java you may have encountered on other platforms.
-        There are&nbsp;some subtle differences and peculiarities and it’s important
-        for you as an Android developer to get your head around them.
+        语言。然而，和你在其它平台上所用到的Java不同，作为一个Android开发者用到的Java会有一些微妙的差别和特殊性，它们是非常重要的，可能会把你的脑袋绕晕。
     </p>
     <p>
-        In this tutorial, you’ll take a quick tour of Java in the Android world
-        and find out more about the features it offers. Along the way you’ll also
-        learn:
+        在本教程中，你将对Android世界中的Java进行一次快速的旅程，发现更多它所提供的特性。你还将了解到：
     </p>
     <ul>
         <li>
-            How an app on Android differs from a Java program on a PC
+            Android的app和PC上的Java程序有什么区别
         </li>
         <li>
-            How to make use of
+            在Android中如何应用
             <em>
-                Object Oriented Programming
+                面向对象编程
             </em>
-            for Android
         </li>
         <li>
-            What a Java
+            Java的
             <em>
                 Interface
             </em>
-            is and how you might use it to communicate with other parts of your app
+            是什么，以及你如何使用它来同你app的其它部分进行交流
         </li>
         <li>
-            What Java
+            什么是Java的
             <em>
                 Annotations
             </em>
-            are and how they provide extra information about parts of your app
+            ，以及它们如何为你的部分app提供额外的信息
         </li>
     </ul>
     <p>
-        This tutorial assumes you are familiar with at least one Object Oriented
-        Programming language. It isn’t absolutely essential if you’re not, but
-        the concepts discussed in this article will make more sense if you do.
+        本教程假定你已经熟悉了至少一种的面向对象编程语言。当然这并不是绝对必要的，但这将有助于你理解在本教程中所讨论到的概念。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : This article is somewhat different to a standard raywenderlich.com tutorial,
-            in that it describes lots of high-level topics rather than having a follow-along
-            sample app. You’re encouraged to give this a read before embarking on building
-            Android apps as it gives you a great grounding in the quirks of Java for
-            Android.
+            ：这篇文章和标准的raywenderlich.com教程会有一点不同，它会讨论很多高级的话题，而不是一个让你跟着来做的示例app。我们推荐你在着手开发Android app之前首先进行阅读，以便你能够快速地适应Android中独特的Java代码。
         </p>
     </div>
     <p>
-        Grab a cup of your favourite “Java” and strap yourself in for a magical
-        tour of the language — Android style!
+        用你最喜爱的“Java”进入到这门语言的魔法旅程 - Android风格！
     </p>
     <h2>
-        Java and Android
+        Java在Android中的应用
     </h2>
     <p>
         Fun fact: Android doesn’t use “pure” Java! This may sound strange, because
