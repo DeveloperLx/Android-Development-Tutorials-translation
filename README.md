@@ -19,29 +19,30 @@
 
 <div class="content-wrapper">
     <h2 style="clear:both; padding-top: 20px;">
-        Getting Started
+        入门
     </h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2014/10/AndroidRW.png"
     alt="AndroidRW" width="250" height="250" class="alignright size-full wp-image-87100">
     <p>
-        The best way to get started is by going through our
+        入门的最佳方式就是通过我们的
         <a href="https://www.raywenderlich.com/120177/beginning-android-development-tutorial-installing-android-studio"
         sl-processed="1">
-            Beginning Android Development
+            开始Android开发
         </a>
-        tutorial series.
+        系列教程。
     </p>
     <p>
+        如果你需要一个Java的速成教程，请访问我们的
         If you need a quick crash course on Java, check out our
         <a href="https://www.raywenderlich.com/110452/java-for-android" sl-processed="1">
             Java For Android tutorial
         </a>
-        and
+        和
         <a href="https://www.raywenderlich.com/119175/java-for-android-cheat-sheet-and-quick-reference"
         sl-processed="1">
             cheat sheet
         </a>
-        .
+        。
     </p>
     <ul>
         <li>
@@ -75,14 +76,12 @@
         </li>
     </ul>
     <h2 style="clear:both; padding-top: 20px;">
-        Core Concepts
+        核心概念
     </h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/Android-jetpack.png"
     alt="" future="" you ""="" width="250" height="250" class="size-full wp-image-119228 bordered alignright">
     <p>
-        Once you have gone through the basics, you should learn about some core
-        concepts you need to know for Android development, such as activities,
-        fragments, intents, and some important design patterns.
+        当你完成基础的部分之后，你应当来学习一些Android开发所需掌握的核心概念，例如activities，fragments，intents，和一些重要的设计模式。
     </p>
     <ul>
         <li>
@@ -111,14 +110,12 @@
         </li>
     </ul>
     <h2 style="clear:both; padding-top: 20px;">
-        User Interface
+        用户交互界面
     </h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/ListView-feature.png"
     alt="" width="250" height="250" class="alignright size-thumbnail bordered">
     <p>
-        An important part of creating an Android app is creating a delightful
-        user interface. In this section, you'll learn how to create user interfaces
-        that look and feel great on a variety of screen sizes.
+        创建Android app的一个重要的部分就创建一个漂亮的用户交互界面。在这一部分，你将学习如何创建在各种屏幕的尺寸下都看起来很赞的用户交互界面。
     </p>
     <ul>
         <li>
@@ -159,14 +156,12 @@
         </li>
     </ul>
     <h2 style="clear:both; padding-top: 20px;">
-        Other Android Tutorials
+        其它Android教程
     </h2>
     <img src="https://koenig-media.raywenderlich.com/uploads/2016/01/Android-sdk-versions-feature-250x250.png"
     alt="Android-sdk-versions-feature" width="250" height="250" class="alignright size-thumbnail wp-image-124606 bordered">
     <p>
-        But wait, there's more! In this section, you'll learn how to work with
-        different Android SDK versions, how to distribute your app on the Android
-        App Store, and much more.
+        等下，还有更多的内容！在这一部分，你会学习如何处理Android不同的SDK版本，如何把你的app发布到Android App Store中，等等。
     </p>
     <ul>
         <li>
