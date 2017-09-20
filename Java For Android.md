@@ -64,9 +64,7 @@
         Java在Android中的应用
     </h2>
     <p>
-        Fun fact: Android doesn’t use “pure” Java! This may sound strange, because
-        when you compare code from a traditional Java program to similar code from
-        an Android app, you’d struggle to see the difference.
+        有趣的事实：Android并不会使用“pure”的Java！这听起来很奇怪，因为当你对比传统的程序和Android app中的代码时，你会纠结于其中的差别。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/08/no_java_rager.png"
@@ -77,10 +75,7 @@
         </a>
     </p>
     <p>
-        Although writing and developing an Android app will feel somewhat familiar
-        to experienced Java developers, the familiarity ends abruptly when you
-        compile and run. The reason you’ll find yourself in uncharted territory
-        is the way Android handles its apps during the compilation process.
+        尽管对于有经验的Java开发者来说，编写和开发Android app会让他们感到比较熟悉，但当你编译和运行项目的时候，这种熟悉感还是会突然中止。原因是Android在编译过程中，处理app的方式处于你未知的领域。
     </p>
     <p>
         Java’s major appeal is its ability to “Write once, run everywhere”. This
@@ -92,45 +87,35 @@
         to what happens when a Java program compiles.
     </p>
     <p>
-        During the compilation process for most other languages, the compiler
-        links and optimizes the program, and then it translates it into
+        对于大多数其它的语言，编译器会首先连接和优化程序，然后将它翻译为
         <em>
-            Machine Code
+            机器语言
         </em>
-        , which is a set of instructions a computer can understand and execute
-        when you run the program.
+        ，也就是当你运行程序的时候，计算机可以理解和执行的指令集。
     </p>
     <p>
-        Although execution of machine code is fast, it’s limited because it targets
-        the platform on which it runs. If you ever wondered why a program written
-        for iOS platform doesn’t just work on Windows, this is one of the reasons.
+        尽管执行机器代码是非常快速的，但由于会依赖于它所运行的平台，因而会受到一些限制。如果你曾好奇，为何一个为iOS平台所写的程序无法运行在Windows上，这是其中的原因之一。
     </p>
     <p>
-        Java, in contrast, does something different; instead of translating a
-        program into machine code, the Java compiler translates it an intermediate
-        form called
+        Java与之不同；它会将源码翻译为一种中间形式的叫做
         <em>
             Bytecode
         </em>
-        . It creates a set of instructions that are similar to machine code, but
-        are targeted to run on a
+        的代码，而不是机器码。它会创建一系列的类似于机器码的指令集，它定位于运行在
         <em>
-            Virtual Machine
+            虚拟机
         </em>
-        (VM) instead of some specified architecture.
+        （VM）上而非指定架构的平台。
     </p>
     <p>
-        Using a VM means that as long as it can read and interpret the Bytecode’s
-        instructions, the program will happily run on its host platform, ensuring
-        cross-platform compatibility.
+        使用了虚拟机，就意味着只要能够阅读和翻译Bytecode的指令集，这个程序就可以很愉快地运行相应的平台上了，这就确保了跨平台的兼容性。
     </p>
     <p>
-        And now you can see why most Java programs prompt you to download the
-        Java Runtime Environment (JRE) when you don’t have it – it’s the default
+        现在你就懂了，为何大多数的Java程序，会在你还没有的情况下，提示你下载Java Runtime Environment（JRE）- 它是大多数平台默认的VM程序。e it – it’s the default
         VM for the majority of platforms.
     </p>
     <h2>
-        Java for Android is…Different
+        Android中的Java...有一点不同
     </h2>
     <p>
         Compiling an app for Android follows the same path as converting Java
