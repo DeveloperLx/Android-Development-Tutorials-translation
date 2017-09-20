@@ -4,19 +4,16 @@
 
 <div class="content-wrapper taxonomy-description">
     <p>
-        Want to learn how to develop apps for Android using Java and Kotlin?
+        你想学习如何使用Java和Kotlin来为Android系统开发app么？
     </p>
     <p>
-        Check out our collection of over 25 free Android development tutorials,
-        covering everything you need to know to get started!
+        欢迎访问我们超过25个的免费Android开发教程，覆盖了你入门Android开发所需要了解的所有事情！
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Many Android tutorials on our site use Java. If you are new to Java, be
-        sure to read a book on the subject first. We’ve started to update our Android
-        tutorials to Kotlin. Look for more Kotlin updates soon!
+        在我们的网站上很多的Android教程都使用了Java编程语言。如果你是一个Java的新手，请首先阅读一本相关的读物。我们正在逐步地将我们的Android教程更新为Kotlin语言。敬请期待更多的教程将更新至Kotlin！
     </div>
 </div>
 
