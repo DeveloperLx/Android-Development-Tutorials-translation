@@ -257,51 +257,44 @@
 }
 </pre>
     <p>
-        Just like that, you stub out an area of your app for a specific purpose.
-        Your
+        就像这样，你为了特定的目的在你的app中划定了一个区域。
         <code>
             Activity
         </code>
-        doesn’t yet know its purpose because you haven’t told it what to do or
-        how to appear.
+        现在还不知道它该做什么，因为你还没有告诉它该做什么或如何出现。
     </p>
     <p>
-        You can create your activity’s appearance, aka
+        你现在就可以创建activity的界面了，也就是
         <em>
             Layout
         </em>
-        , one of two ways:
+        ，可以在下面的两种方式中进行选择：
     </p>
     <ul>
         <li>
-            Declare it in an XML file
+            在一个XML文件中进行声明
         </li>
         <li>
-            Programatically create it in a Java class
+            用一个Java类以编程的方式来创建
         </li>
     </ul>
     <p>
-        The more common approach is creating the layout in an XML file. You’d
-        take the programmatic approach if you need to tailor some aspect of your
-        layout.
+        用一个XML文件来创建UI是更常用的方式。如果你需要对部分的布局进行定做，也可以使用编程的方式。
     </p>
     <p>
-        This article won’t take you take through either process for creating layouts,
-        but understanding how to do it is helpful if you intend to write apps for
-        Android, because it’s a regular task. Learn more about layouts from
+        这篇文章不会带你走遍创建布局的过程，但如果你想要为Android编写app的话，理解如何去创建是非常有帮助的，因为这是一个常规的工作。了解更多关于布局的内容，可以参考
         <a title="Android's documentation" href="http://developer.android.com/guide/topics/ui/declaring-layout.html"
         target="_blank" sl-processed="1">
-            Android’s documentation
+            Android的官方文档
         </a>
-        .
+        。
     </p>
     <p>
-        The following code snippet&nbsp;demonstrates how you would specify that
-        an activity should determine its appearance using the XML layout in&nbsp;
+        下列的代码片段演示了，如何将一个activity指定为
         <em>
             res/layout/activity_main_menu.xml
         </em>
-        .
+        这个XML布局文件中所表示的外观。
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
   <span class="hljs-comment">// 1</span>
