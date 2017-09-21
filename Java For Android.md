@@ -411,27 +411,22 @@
             </span>
             findViewById()
         </code>
-        , which searches the XML layout for view objects specified by their ID,
-        allowing you to manipulate them from Java.&nbsp;Note that you have to&nbsp;typecast
-        each call into an appropriate&nbsp;
+        ，它会通过指定的ID来搜索XML布局中相应的对象，以便你在Java代码中对他们进行操作。注意，你必须在每次调用时将返回的对象强转为恰当的
         <code>
             View
         </code>
-        subclass, since&nbsp;
+        的子类，因为
         <code>
             findViewById()
         </code>
-        only returns a&nbsp;
+        只会返回
         <code>
             View
         </code>
-        object—the root object from which all UI components inherit.
+        类型的对象-它是所有UI组件共有的基类。
     </p>
     <p>
-        Once you have access to the individual view elements within the Java code,
-        you would be able to interact with them and make them perform actions as
-        you see fit. The following code segment demonstrates adding an action for
-        when the user clicks a button:
+        当你可以在Java的代码中访问到每个视图元素后，你就可以和它们进行交互，并让它按照你的需要来执行操作。下面的代码演示了如何添加一个当用户点击按钮时去执行的操作：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
 
@@ -441,12 +436,9 @@
   <span class="hljs-meta">@Override</span>
   <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
     <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-
     setContentView(R.layout.activity_main_menu); 
-
     mTextView = (TextView) findViewById(R.id.textview_main_menu);
     mButton = (Button) findViewById(R.id.button_main_menu);
-
     mButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
       <span class="hljs-meta">@Override</span>
       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
@@ -457,14 +449,15 @@
 }
 </pre>
     <p>
-        The code above runs
+        上述代码实现了当你每次点击按钮的时候，都会执行
         <code>
             onClick()
         </code>
-        every time your button is clicked. In
+        方法。在
         <code>
             onClick()
         </code>
+        中，
         , you tell your
         <code>
             TextView
