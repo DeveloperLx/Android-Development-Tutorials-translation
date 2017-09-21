@@ -195,91 +195,67 @@
         &nbsp;
     </p>
     <h2>
-        漫步在Android中的Java
+        漫步于Android中的Java
     </h2>
     <p>
-        Android makes extensive use of Java’s adoption of the
+        Android针对于Java的
         <em>
-            Object Oriented Programming
+            面向对象特性
         </em>
-        paradigm, and it’s designed to work around the concepts of
+        进行了扩展，旨在解决有关
         <em>
-            encapsulation
+            封装
         </em>
-        ,
+        ，
         <em>
-            inheritance
+            继承
         </em>
-        and
+        和
         <em>
-            polymorphism
+            多态
         </em>
-        . You utilize all of these when you build apps.
+        的相关概念。你会使用所有的这些特性来构建你的app。
     </p>
     <p>
-        All objects in Android inherit from the
+        所有在Android中的对象，都以某种方式继承了
         <code>
             Object
         </code>
-        class in some form, building upon its functions to provide specialized
-        behaviour and features. Take a look at some of the objects available through
-        the
+        类，以基于此提供一些特定的功能和特性。你可以在
         <a title="Android API" href="http://developer.android.com/reference/android/package-summary.html"
         target="_blank" sl-processed="1">
             Android API
         </a>
-        ; you can see the hierarchy that each object inherits, and all of them
-        eventually inherit
+        中找到一些可用的对象；你会发现它们最终都继承自
         <code>
             Object
         </code>
-        .
+        。
     </p>
     <h3>
-        Not-So-Paranormal Activity
+        并非那么超常的Activity
     </h3>
     <p>
-        The
         <code>
             Activity
         </code>
-        class is an object dedicated to a specific screen of an app. Think of
-        it as something that handles and displays all the associated work that
-        drives the functionality for that screen.
+        类用来表示app的一个特定的屏幕。可以认为它处理和展示了所有在屏幕上的发生的工作。
     </p>
     <p>
-        Since your app will have at least have one or two functions, it would
-        make sense to spread them across a few screens so your interface isn’t
-        cluttery. To create a screen, you
+        由于你的app至少也会有一到两个功能，这必须得跨越若干个屏幕实现，再能不让你的界面变得混乱。要创建一个“屏幕”，你需要
         <em>
-            create a new Java class
+            创建一个新的Java类
         </em>
-        and have it extend
+        并让它继承自
         <code>
             Activity
         </code>
-        like so:
+        ，就像这样：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainMenuActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Activity
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
+
+}
+</pre>
     <p>
         Just like that, you stub out an area of your app for a specific purpose.
         Your
@@ -327,59 +303,16 @@
         </em>
         .
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainMenuActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Activity
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState);
-        <span class="hljs-comment">
-            // 2
-        </span>
-        setContentView(R.layout.activity_main_menu);
-        <span class="hljs-comment">
-            // 3
-        </span>
-        } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState); <span class="hljs-comment">// 2</span>
+
+    setContentView(R.layout.activity_main_menu); <span class="hljs-comment">// 3</span>
+  }
+}
+</pre>
     <p>
         Take a look at it bit-by-bit:
     </p>
@@ -468,50 +401,22 @@
         </code>
         , like this:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainMenuActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Activity
-            </span>
-        </span>
-        { TextView mTextView; Button mButton;
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState); setContentView(R.layout.activity_main_menu);
-        mTextView = (TextView) findViewById(R.id.textview_main_menu); mButton =
-        (Button) findViewById(R.id.button_main_menu); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
+
+  TextView mTextView;
+  Button mButton;
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+
+    setContentView(R.layout.activity_main_menu); 
+
+    mTextView = (TextView) findViewById(R.id.textview_main_menu);
+    mButton = (Button) findViewById(R.id.button_main_menu);
+  }
+}
+</pre>
     <p>
         <code>
             <span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif;">
@@ -541,76 +446,29 @@
         you see fit. The following code segment demonstrates adding an action for
         when the user clicks a button:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainMenuActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Activity
-            </span>
-        </span>
-        { TextView mTextView; Button mButton;
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState); setContentView(R.layout.activity_main_menu);
-        mTextView = (TextView) findViewById(R.id.textview_main_menu); mButton =
-        (Button) findViewById(R.id.button_main_menu); mButton.setOnClickListener(
-        <span class="hljs-keyword">
-            new
-        </span>
-        View.OnClickListener() {
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (View v)
-            </span>
-        </span>
-        { mTextView.setText(
-        <span class="hljs-string">
-            "Hello World"
-        </span>
-        ); } }); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
+
+  TextView mTextView;
+  Button mButton;
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+
+    setContentView(R.layout.activity_main_menu); 
+
+    mTextView = (TextView) findViewById(R.id.textview_main_menu);
+    mButton = (Button) findViewById(R.id.button_main_menu);
+
+    mButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+      <span class="hljs-meta">@Override</span>
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+        mTextView.setText(<span class="hljs-string">"Hello World"</span>);
+      }
+    });
+  }
+}
+</pre>
     <p>
         The code above runs
         <code>
@@ -649,100 +507,29 @@
     <p>
         A typical model looks something like this:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                ReminderList
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            private
-        </span>
-        ArrayList mReminderArrayList;
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-title">
-                ReminderList
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { mReminderArrayList =
-        <span class="hljs-keyword">
-            new
-        </span>
-        ArrayList&lt;&gt;(); }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                setReminderArrayList
-            </span>
-            <span class="hljs-params">
-                (ArrayList reminderArrayList)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            this
-        </span>
-        .mReminderArrayList = reminderArrayList; }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            ArrayList
-            <span class="hljs-title">
-                getReminderArrayList
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        mReminderArrayList; }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                removeLastItemFromList
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (!mReminderArrayList.isEmpty()) { mReminderArrayList.remove(mReminderArrayList.size()
-        -
-        <span class="hljs-number">
-            1
-        </span>
-        ); } } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReminderList</span> </span>{
+    
+  <span class="hljs-keyword">private</span> ArrayList mReminderArrayList;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReminderList</span><span class="hljs-params">()</span> </span>{
+    mReminderArrayList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setReminderArrayList</span><span class="hljs-params">(ArrayList reminderArrayList)</span> </span>{
+    <span class="hljs-keyword">this</span>.mReminderArrayList = reminderArrayList;
+  }
+    
+  <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList <span class="hljs-title">getReminderArrayList</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> mReminderArrayList;
+  }
+    
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeLastItemFromList</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span> (!mReminderArrayList.isEmpty()) {
+        mReminderArrayList.remove(mReminderArrayList.size() - <span class="hljs-number">1</span>);
+    }
+  }
+}
+</pre>
     <p>
         No mentions of a view or activity in sight! Just data structures, raw
         data types and various functions. In fact this is just a Plain Old Java
@@ -787,31 +574,12 @@
         One final piece of the puzzle that helps setters and getters work is access
         modifiers. Take a look at the following snippet from the model above:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        ArrayList mReminderArrayList;
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                setReminderArrayList
-            </span>
-            <span class="hljs-params">
-                (ArrayList reminderArrayList)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            this
-        </span>
-        .mReminderArrayList = reminderArrayList; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> ArrayList mReminderArrayList;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setReminderArrayList</span><span class="hljs-params">(ArrayList reminderArrayList)</span> </span>{
+  <span class="hljs-keyword">this</span>.mReminderArrayList = reminderArrayList;
+}
+</pre>
     <p>
         Notice the
         <em>
@@ -906,53 +674,14 @@
         </em>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                EmbeddedFragment
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Fragment
-            </span>
-        </span>
-        {
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // Inflate the layout for this fragment
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        inflater.inflate(R.layout.fragment_embedded, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        ); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmbeddedFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-comment">// Inflate the layout for this fragment</span>
+    <span class="hljs-keyword">return</span> inflater.inflate(R.layout.fragment_embedded, container, <span class="hljs-keyword">false</span>);
+  }
+}
+</pre>
     <p>
         You first extend your class to inherit the behavior of a fragment and
         then use one of its lifecycle methods, namely
@@ -967,28 +696,11 @@
         in isolation, but what if you need them to communicate? Here’s an example
         method inside an activity that is trying to communicate with a fragment:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                private
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                updateFragment
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { EmbeddedFragment fragment = (EmbeddedFragment) getFragmentManager().findFragmentById(R.id.fragment_embedded);
-        fragment.setTextViewText(
-        <span class="hljs-string">
-            "Hello Little Fragment"
-        </span>
-        ); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateFragment</span><span class="hljs-params">()</span> </span>{
+  EmbeddedFragment fragment = (EmbeddedFragment) getFragmentManager().findFragmentById(R.id.fragment_embedded);
+  fragment.setTextViewText(<span class="hljs-string">"Hello Little Fragment"</span>);
+}
+</pre>
     <p>
         Because the fragment exists within the activity, you access it with
         <code>
@@ -1051,132 +763,33 @@
         In Android, interfaces are useful for facilitating communication fragment
         to activity, or fragment to fragment. It works like this:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                EmbeddedFragment
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Fragment
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        OnItemInListSelectedListener mCallback;
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                OnItemInListSelectedListener
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onItemInListSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                position)
-            </span>
-        </span>
-        ; }
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onAttach
-            </span>
-            <span class="hljs-params">
-                (Activity activity)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onAttach(activity);
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            try
-        </span>
-        { mCallback = (OnItemInListSelectedListener) activity; }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        (ClassCastException e) {
-        <span class="hljs-keyword">
-            throw
-        </span>
-        <span class="hljs-keyword">
-            new
-        </span>
-        ClassCastException(activity.toString() +
-        <span class="hljs-string">
-            " must implement OnItemInListSelectedListener"
-        </span>
-        ); } }
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        inflater.inflate(R.layout.fragment_embedded, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        ); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmbeddedFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
+  <span class="hljs-comment">// 1</span>
+  OnItemInListSelectedListener mCallback;
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnItemInListSelectedListener</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemInListSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span></span>;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(Activity activity)</span> </span>{
+    <span class="hljs-keyword">super</span>.onAttach(activity);
+    <span class="hljs-comment">// 3      </span>
+    <span class="hljs-keyword">try</span> {
+      mCallback = (OnItemInListSelectedListener) activity;
+    } 
+    <span class="hljs-keyword">catch</span> (ClassCastException e) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ClassCastException(activity.toString()  + <span class="hljs-string">" must implement OnItemInListSelectedListener"</span>);
+    }
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">return</span> inflater.inflate(R.layout.fragment_embedded, container, <span class="hljs-keyword">false</span>);
+  }
+}
+</pre>
     <p>
         Look at this in detail:
     </p>
@@ -1218,59 +831,15 @@
     <p>
         The next thing is to make your activity use the interface:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainMenuActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Activity
-            </span>
-            <span class="hljs-keyword">
-                implements
-            </span>
-            <span class="hljs-title">
-                EmbeddedFragment
-            </span>
-            .
-            <span class="hljs-title">
-                OnItemInListSelectedListener
-            </span>
-        </span>
-        { ...
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onItemInListSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                position)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // Received a message from the Fragment, you'll do something neat here
-        </span>
-        } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">EmbeddedFragment</span>.<span class="hljs-title">OnItemInListSelectedListener</span> </span>{
+
+  ...
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemInListSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
+      <span class="hljs-comment">// Received a message from the Fragment, you'll do something neat here</span>
+  }
+}
+</pre>
     <p>
         The
         <code>
@@ -1299,28 +868,11 @@
         . To get them talking, you simply do what you did earlier to establish
         activity to fragment communications with one of the fragment’s public methods:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onItemInListSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                position)
-            </span>
-        </span>
-        { ListDetailFragment listDetailFragment = (ListDetailFragment) getFragmentManager.findFragmentById(R.id.fragment_list_detail);
-        listDetailFragment.showListItemDetails(position); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemInListSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
+  ListDetailFragment listDetailFragment = (ListDetailFragment) getFragmentManager.findFragmentById(R.id.fragment_list_detail);
+  listDetailFragment.showListItemDetails(position);   
+}
+</pre>
     <p>
         Just like that, you’ve built a way to communicate between fragments and
         activities. Interfaces are useful for establishing communication while
@@ -1334,30 +886,11 @@
         Have you noticed those peculiar lines of code above some of the method
         names in this article?
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+  <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+}
+</pre>
     <p>
         Those words prefixed with an
         <em>
