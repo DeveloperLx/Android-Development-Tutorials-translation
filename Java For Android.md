@@ -470,18 +470,13 @@
         开始建模
     </h2>
     <p>
-        Models are integral to writing an Android app. Not to be confused with
-        the kind of model that struts down the catwalk, they allow you to create
-        objects that consist of data structures and functionality that you can
-        utilize to great effect.
+        模型是编写Android app的关键。不要困惑于如同时装秀般繁杂的model的种类，Java允许你创建由数据结构和功能组成的对象。你可以使用它们发挥出巨大的作用。
     </p>
     <p>
-        Models exist in separate classes from your UI classes. This separation
-        not only helps keep your app organized, but it conforms to the idea of
-        encapsulation in Object Oriented Programming.
+        模型存在于你的UI类之外的类中。这种分离式的结构不止有助于你的app保持组织性，还遵循了面向对象的编程思想。
     </p>
     <p>
-        A typical model looks something like this:
+        一个典型的模型看起来就像下面这样：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReminderList</span> </span>{
     
