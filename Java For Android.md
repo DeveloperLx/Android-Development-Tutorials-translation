@@ -152,61 +152,50 @@
         的虚拟机机制。像ART一样，Dalvik改变了Java的Bytecode，并将它转为为特定的形式，以进行各种效率上的优化，以适应一开始的那些低性能的Android设备。
     </p>
     <p>
-        However, unlike ART, Dalvik didn’t compile the Bytecode into machine code
-        until runtime — using an approach&nbsp;known as
+        然而，和ART不同，Dalvik在运行之前并不能将Bytecode转化为机器码 - 它会使用一种叫做
         <em>
             Just in Time
         </em>
-        compilation (JIT). This process is much closer to that used&nbsp;in Java
-        Virtual Environments on a PC.
+        （JIT）的编译方法。这个过程会更接近于Java在PC机上的虚拟环境。
     </p>
     <p>
-        Android Froyo (2.2) saw an improvement when Dalvik gained the ability
-        to profile the app during runtime for commonly used portions of Dalvik
-        Bytecode. These instructions were then permanently translated into machine
-        code by Dalvik to boost the app’s speed.
+        Android Froyo（2.2）进行了一个改进，Dalvik获取了 在运行时为Dalvik Bytecode中的常用部分“profile”app的能力。这些指令会通过Dalvik将代码永久地翻译为机器码，以提升启动app的速度。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : Trace Based Just in Time Compilation (JIT) is not unique to Java, and
-            once again,&nbsp;
+            ：基于JIT追踪的机制并不仅仅在于Java之中，同上，你可以在
             <a title="Wikipedia" href="https://en.wikipedia.org/wiki/Tracing_just-in-time_compilation"
             target="_blank" sl-processed="1">
                 Wikipedia
+                维基百科
             </a>
-            does a nice job of explaining it.
+            中获取关于这点的很好的解释。
         </p>
     </div>
     <p>
-        In either case of Android app compilation, it’s the conversion of Bytecode
-        that makes the Java written for Android less “pure”.
+        任何一种Android app的编译模式都是Bytecode的转换，它会使得为Android撰写Java变得不怎么“pure”。
     </p>
     <p>
-        The changes to the Bytecode constrain the app’s portability, thereby negating
-        one of the promises of Java language: “Write once, run everywhere”.
+        上述对于Bytecode的改变会束缚app的可移植性，因而销蚀了Java语言：“一次编写，处处运行”的特性。
     </p>
     <p>
-        Another way Android diverges from Java is with the availability of standard
-        libraries. Java is so portable is because it relies on a standardized collection
-        of libraries it can use across various platforms, such as networking and
-        UI libraries.
+        Android相应于Java的另一个差别，是标准库的可用性。Java如此得方便，是因为它依赖于一套标准库的集合，它能够在多个平台下生效，例如网络和UI的标准库。
     </p>
     <p>
-        Android offers a subset of what Java provides, and what it does provide
-        is
+        Android提供的是Java中的一个子集，它提供的这些是
         <i>
-            only
+            仅仅
         </i>
-        for Android.
+        为了Android所用的。
     </p>
     <p>
         &nbsp;
     </p>
     <h2>
-        Walking Through Java on Android
+        漫步在Android中的Java
     </h2>
     <p>
         Android makes extensive use of Java’s adoption of the
