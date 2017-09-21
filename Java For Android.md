@@ -378,16 +378,15 @@
         </p>
     </div>
     <p>
-        The XML layout will most likely include elements which make up the UI.
-        You access these elements though&nbsp;
-        <code>
-            R
-        </code>
-        &nbsp;in an&nbsp;
+        这个XML几乎包含了所有构成UI的元素。你在
         <code>
             Activity
         </code>
-        , like this:
+        中就通过这个
+        <code>
+            R
+        </code>
+        来访问这些元素，就像这样：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
 
@@ -408,7 +407,7 @@
     <p>
         <code>
             <span style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif;">
-                The key aspect is&nbsp;
+                这其中的关键就是
             </span>
             findViewById()
         </code>
