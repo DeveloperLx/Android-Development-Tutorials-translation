@@ -457,21 +457,17 @@
         <code>
             onClick()
         </code>
-        中，
-        , you tell your
+        中，你将
         <code>
             TextView
         </code>
-        , initially empty, to show the text “Hello World”.
+        中的文本设置成了“Hello World”。
     </p>
     <p>
-        Using this simple approach to link views to your class and provide actions
-        to perform on a certain event, you can build highly complex activities.
-        Remember these basic steps, and you’ll be on your way to grasping how Java
-        and Android come together.
+        通过简单的方法把view连接到你的类中，并提供动作以在确定的事件发生时去执行，记住这些基本的步骤，你就可以逐步地把Java和Android应用起来。
     </p>
     <h2>
-        Lets Go Modeling
+        开始建模
     </h2>
     <p>
         Models are integral to writing an Android app. Not to be confused with
