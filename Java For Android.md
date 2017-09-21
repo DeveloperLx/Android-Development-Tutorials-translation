@@ -502,48 +502,36 @@
 }
 </pre>
     <p>
-        No mentions of a view or activity in sight! Just data structures, raw
-        data types and various functions. In fact this is just a Plain Old Java
-        Object (POJO) — no secret sauce at all. This model is perfectly encapsulated,
-        meaning you could drop it into any Android app and start using it straight
-        away.
+        这其中没有提到一个view或activity！只有数据的结构，原始的数据类型以及各种功能。事实上它就是一个平常的Java对象（POJO） - 完全没有什么神秘。这个模型被完美地封装，意味着你就可以把它放入到任何的Android app，并直接去使用它。
     </p>
     <p>
-        When creating objects in other OOP based languages, it’s conventional
-        to create instance variables that are defined globally within the context
-        of the object.&nbsp;In Android, it’s also conventional to prefix these
-        instance variables with an
+        在其它基于面向对象的语言中，通常都会基于对象的上下文，来定义全局的实例变量以创建对象。在Android中，通常也会以
         <em>
             m
         </em>
-        so it’s easy to tell what is a non-public, non-static instance variable
-        and what isn’t. It feels a bit odd at first but is a good habit to get
-        into, especially since Android source code
+        前缀标记这种实例变量，这样就可以轻松地看出哪些是非公开，非静态的实例变量，哪些不是。开始你会感到有一点奇怪，但这是一种很好的编码习惯，尤其因为Android的源码中
         <a title="specifies this convention" href="http://source.android.com/source/code-style.html#follow-field-naming-conventions"
         target="_blank" sl-processed="1">
-            specifies this convention
+            指定了这个惯例
         </a>
-        and you’d need to do it to contribute to Android source code directly.
+        ，你需要这样做以直接为Android的源码做贡献。
     </p>
     <p>
+        成员变量的
         <em>
             Getters
         </em>
-        and
+        和
         <em>
             setters
         </em>
-        for member variables are also a staple of Android development. These short
-        methods provide the rest of your app with a way to change a member variable
-        if needed, and they allow you to provide extra behavior when getting and
-        setting member variables.
+        也是Android开发的主要内容。这些短小的方法组成了你app的剩余部分，以在你需要的时候改变成员变量；当然你也可以在获取和设置成员变量时，执行一些额外的操作。
     </p>
     <h2>
-        Access Modifiers
+        访问修饰符
     </h2>
     <p>
-        One final piece of the puzzle that helps setters and getters work is access
-        modifiers. Take a look at the following snippet from the model above:
+        帮助setter和getter工作的最后一个难题就是访问修饰符了。看一下上述模型中的下述代码片段：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> ArrayList mReminderArrayList;
 
@@ -552,21 +540,19 @@
 }
 </pre>
     <p>
-        Notice the
+        注意到
         <em>
             private
         </em>
-        and
+        和
         <em>
             public
         </em>
-        keywords? These are
+        这些关键字了么？它们就是
         <em>
-            access modifiers
+            访问修饰符
         </em>
-        and they’re responsible for&nbsp;specifying&nbsp;which elements of your
-        model class are accessible to other classes, helping to encapsulate your
-        objects.
+        ，负责指定你的模型中的哪些元素是可以被其它的类访问的，以协助封装你的对象。
     </p>
     <ul>
         <li>
