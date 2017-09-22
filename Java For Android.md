@@ -673,25 +673,16 @@
         的Java特性。
     </p>
     <p>
-        An interface is like a class, but without the implementation. Instead
-        it defines the public API. Classes can then implement these interfaces
-        and your code no longer relies on concrete class implementations, instead
-        knowing only&nbsp;that “this is an unknown object upon which I can call
-        these interface methods”.
+        一个interface看起来就像是一个类，但是没有实现的部分。它定义了公共的API。之后的类就可以实现这些interface，并且你的代码可以不再依赖具体类的实现，只需知道“这是一个我可以调用这些interface方法的未知的对象”。
     </p>
     <p>
-        Interfaces allow your objects to work indirectly with other objects without
-        exposing their inner workings. Think of something that is extremely complicated
-        to build but quite simple to use: a car, a television set or even the device
-        you’re using to read this tutorial.
+        Interface让你可以在不暴露对象内部工作方式的情况下，间接地与其它对象之间交互。想象一些构建极其复杂，但使用却相当简单的东西：汽车，电视机，甚至是你此刻正在用于阅读本教程的设备。
     </p>
     <p>
-        You probably don’t know all of the inner workings of these things, but
-        you certainly know how to operate them. Interfaces do the same thing.
+        你可能并不知道这些东西内部是如何工作的，当你肯定知道如何去操作它们。Interface就起到了同样的作用。
     </p>
     <p>
-        In Android, interfaces are useful for facilitating communication fragment
-        to activity, or fragment to fragment. It works like this:
+        在Android中，interface对于处理fragment到activity，或fragment之间的信息传递是非常有用的。它工作时就如同下面的样子：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmbeddedFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
   <span class="hljs-comment">// 1</span>
@@ -721,45 +712,41 @@
 }
 </pre>
     <p>
-        Look at this in detail:
+        详细地看一下：
     </p>
     <ol>
         <li>
-            In the fragment, you declare a member variable to store a custom object
-            that implements
+            在fragment中，你声明了一个成员变量来储存定制的实现了
             <code>
                 OnItemInListSelectedListener
             </code>
-            and you name it
+            interface的对象，这个成员变量被命名为
             <code>
                 mCallback
             </code>
-            .
+            。
         </li>
         <li>
-            Next, you create the interface and declare the required methods — your
-            interface can have many methods.
+            接下来，你创建了interface并声明要求的方法 - 你的interface可以有很多的方法。
         </li>
         <li>
-            In
+            在
             <code>
                 onAttach()
             </code>
-            , a fragment lifecycle method, you check if the activity your fragment
-            is attached to conforms to
+            （一个fragment的生命周期方法）中，你首先检查了你的fragment是否遵循了
             <code>
                 OnItemInListSelectedListener
             </code>
-            . If not, then it can’t serve your purposes and you have a problem. The
+            。如果没有的话，它就不能服务于你的目标，并且你会遇到一个问题。
             <code>
                 ClassCastException
             </code>
-            describes this during runtime. It’s best to signal this to yourself and
-            other programmers so you can catch the problem early.
+            ClassCastException就代表了这个运行时的错误。这样就可以把这个消息发送给你自己和其他的程序员，尽早地解决问题。
         </li>
     </ol>
     <p>
-        The next thing is to make your activity use the interface:
+        下面要做的事是让你的activity使用interface：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainMenuActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">EmbeddedFragment</span>.<span class="hljs-title">OnItemInListSelectedListener</span> </span>{
 
