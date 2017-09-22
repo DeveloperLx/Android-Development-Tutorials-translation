@@ -592,37 +592,28 @@
         Fragments
     </h2>
     <p>
-        Before tackling the next topic in Java for Android, you need to know a
-        little bit more about how the UI of an Android app is constructed. Activities
-        are great for managing the entire content of the screen, but they don’t
-        like to share. Luckily there’s a great way to break down the UI into smaller
-        component called
+        在进入下一个话题之前，你需要对Android app如何构建它的UI进行更多的了解。Activity用于管理屏幕上的全部内容，但并不便于进行分享。幸运的是，有一种很棒的方式，可以将UI拆分为较小的称作
         <em>
             fragments
         </em>
-        .
+        的组件。
     </p>
     <p>
-        Fragments are&nbsp;like activities, but with the added bonus of being
-        able to be embed in activities as though they were views. They have lifecycle
-        methods similar to an activity’s
+        Fragment和activity非常得像，但可以被嵌入到activity中就好像它是view一样。它拥有类似于activity的生命周期方法
         <code>
             onCreate()
         </code>
-        and can receive input just like an activity.
+        并可以像一个activity一样接受输入。
     </p>
     <p>
-        A layout for a fragment looks exactly the same as a layout for an activity;
-        it contains a few view declarations. You even hook them up to the code
-        in the same way, by declaring the view as a variable and finding the view
-        through the identifier you provide in the layout.
+        一个fragment的布局文件几乎和activity的完全一样，它包含了若干view的声明。你甚至会使用相同的方法把它们接入到代码中，通过将view声明为一个变量，并通过你在布局文件中提供的标识符找到它们。
     </p>
     <p>
-        The following code creates a fragment from a layout file at&nbsp;
+        下列的代码就创建了一个fragment的布局文件，位于
         <em>
             res/layout/fragment_embedded.xml
         </em>
-        :
+        ：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmbeddedFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
   <span class="hljs-meta">@Override</span>
