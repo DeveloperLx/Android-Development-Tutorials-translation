@@ -42,41 +42,36 @@
     <h2>获取Android Studio</h2>
     <p>Google会不断地更新这个页面，因此你看到的版本可能会比上面截图中的更新。点击<em>Download Android Studio</em>按钮，你会看到一个同意条款条件的请求。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-650x427.png" alt="android-studio-terms-conditions" width="650" height="427" class="aligncenter size-large wp-image-161334" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-650x427.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-480x315.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>After reading these carefully (everybody takes the time to fully read these, right?) accept and click the blue button underneath titled <em>Download Android Studio For Mac</em>. Once the download is complete, you can install Android Studio just like how you install any other program.</p>
-    <p>The download link will redirect to a page that contains installation instructions for OS X, Windows and Linux Operating Systems. If the instructions don’t appear, then you can view them 
+    <p>仔细阅读之后（每个人都会花时间进行完整的阅读，对么？）接受并点击下面蓝色的<em>Download Android Studio For Mac</em>按钮。下载完成后，你就可以像安装其它程序一样地安装Android Studio了。</p>
+    <p>下载的链接将会重定向到包含OS X，Windows和Linux操作系统安装引导的页面中。如果这个引导没有出现的话，你可以直接访问
     <a href="https://developer.android.com/studio/install.html"
-            target="_blank" title="here" sl-processed="1">here</a>.</p>
-    <p>Once installation wraps itself up, go ahead and launch <em>Android Studio</em>!</p>
+            target="_blank" title="here" sl-processed="1">这里</a>。</p>
+    <p>安装完成之后，你就可以运行<em>Android Studio</em>了！</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2014/12/3.-Android-Studio-Loading.png" sl-processed="1"><img class="aligncenter size-medium wp-image-56524" src="https://koenig-media.raywenderlich.com/uploads/2014/12/3.-Android-Studio-Loading.png" alt="opening_studio_3" width="313" height="240"></a></p>
-    <h2>Setting up Android Studio</h2>
-    <p>The setup wizard will greet you the first time it loads.</p>
+    <h2>设置Android Studio</h2>
+    <p>第一次加载的时候，你会看到一个设置向导。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.08.50-PM.png" sl-processed="1"><img class="aligncenter size-medium wp-image-120269" src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.08.50-PM-426x320.png" alt="Screen Shot 2015-11-08 at 8.08.50 PM" width="426" height="320" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.08.50-PM-426x320.png 426w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.08.50-PM-666x500.png 666w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.08.50-PM.png 1598w" sizes="(max-width: 426px) 100vw, 426px"></a></p>
-    <p>Click <em>Next</em> to move to the <em>Install Type</em> screen. This whole process will probably take several minutes.
+    <p>点击<em>Next</em>移动到<em>Install Type</em>页。整个过程可能需要花费几分钟的时间。
     </p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.09.21-PM.png" sl-processed="1"><img class="aligncenter size-large wp-image-120356" src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.09.21-PM-664x500.png" alt="Screen Shot 2015-11-08 at 8.09.21 PM" width="664" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.09.21-PM-664x500.png 664w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.09.21-PM-425x320.png 425w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-08-at-8.09.21-PM.png 1598w" sizes="(max-width: 664px) 100vw, 664px"></a></p>
-    <p>Check the box for <em>Standard</em> and click <em>Next</em>. </p>
+    <p>选择<em>Standard</em>并点击<em>Next</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-settings.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-settings-650x487.png" alt="verify settings" width="650" height="487" class="aligncenter size-large wp-image-161668" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-settings-650x487.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/verify-settings-427x320.png 427w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>On the <em>Verify Settings</em> window, you’ll have an opportunity to confirm your setup. Click <em>Finish</em> to start
-        downloading the SDK components. </p>
+    <p>在<em>Verify Settings</em>窗口中，你可以有机会来确认你的设置。点击<em>Finish</em>来开始下载SDK组件。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/downloading-components.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/downloading-components-650x489.png" alt="downloading components" width="650" height="489" class="aligncenter size-large wp-image-161670" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/downloading-components-650x489.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/downloading-components-426x320.png 426w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>When the download is complete, click <em>Finish</em>.</p>
+    <p>下载完成之后，点击<em>Finish</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/component-download-complete.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/component-download-complete-650x490.png" alt="component download complete" width="650" height="490" class="aligncenter size-large wp-image-161671" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/component-download-complete-650x490.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/component-download-complete-424x320.png 424w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h3>Android Studio Welcome Screen</h3>
-    <p>After a few minutes, you’ll have the welcome screen, which serves as your gateway to building all things Android.</p>
+    <h3>Android Studio的欢迎屏幕</h3>
+    <p>几分钟后，你会看到一个欢迎屏幕，它可以作为构建所有Android的大门口。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/welcome-screen.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/welcome-screen-650x450.png" alt="welcome screen" width="650" height="450" class="aligncenter size-large wp-image-161672" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/welcome-screen-650x450.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/welcome-screen-462x320.png 462w, https://koenig-media.raywenderlich.com/uploads/2017/05/welcome-screen.png 1334w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Even though you just downloaded Android Studio, it’s possible that it’s not the latest version. Select <em>Configure/Check for Update</em>        at the bottom of the welcome screen to check whether any updates are available.</p>
+    <p>即使你刚刚下载的Android Studio，它也有可能不是最新的版本。在欢迎窗口的屏幕底部，依次选择<em>Configure/Check for Update</em>来检查是否有更新的版本可用。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/check-for-updates-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/check-for-updates-1-543x500.png" alt="check for updates" width="543" height="500" class="aligncenter size-large wp-image-161677" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/check-for-updates-1-543x500.png 543w, https://koenig-media.raywenderlich.com/uploads/2017/05/check-for-updates-1-348x320.png 348w, https://koenig-media.raywenderlich.com/uploads/2017/05/check-for-updates-1.png 1334w" sizes="(max-width: 543px) 100vw, 543px"></a></p>
-    <p>If an update is available, a window like the screenshot below will appear. Click the <em>Update and Restart</em> button
-        and let it do its thing.</p>
+    <p>如果有新的版本可用，就会弹出一个类似下面截图的窗口。点击<em>Update and Restart</em>按钮来让它完成更新的工作。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/update-screen.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/update-screen-650x452.png" alt="update screen" width="650" height="452" class="aligncenter size-large wp-image-161678" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/update-screen-650x452.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/update-screen-460x320.png 460w, https://koenig-media.raywenderlich.com/uploads/2017/05/update-screen.png 1332w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h2>The Android SDK Manager</h2>
-    <p>Each version of Android has its own <em>SDK </em> (Software Development Kit) that enables you to create applications
-        for the Android platform. Since you just went through the setup wizard, you’ll already have the latest version of
-        the SDK available to you. </p>
-    <h3>Installing a New SDK</h3>
-    <p>It’s useful to know how to install additional versions of the SDK to help you develop for all supported versions of Android.</p>
-    <p>SDKs allow you to create <em> AVDs </em> (Android Virtual Devices) according to your personal configuration for the purpose
-        of testing your app.</p>
+    <h2>Android SDK管理器</h2>
+    <p>每个版本的Android都有它自己的<em>SDK</em>（Software Development Kit）来让你创建Android平台上的app。由于你刚刚已经过了安装向导，你就已经拥有了最新版本的SDK。</p>
+    <h3>安装新的SDK</h3>
+    <p>了解如何安装其它版本的SDK，对于你开发支持全部版本Android的app是非常有用的。</p>
+    <p>SDKs allow you to create <em> AVDs </em> (Android Virtual Devices) according to your personal configuration for the purpose of testing your app.</p>
     <p>From the Android Studio welcome screen, select <em>Configure/SDK Manager</em>.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-545x500.png" alt="configure sdk manager" width="545" height="500" class="aligncenter size-large wp-image-161683" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-545x500.png 545w, https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-349x320.png 349w, https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager.png 1334w" sizes="(max-width: 545px) 100vw, 545px"></a></p>
     <p>Once it launches, you’ll see a window like the one below:</p>
