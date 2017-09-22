@@ -827,22 +827,17 @@
         这是一个抱怨，但同时也是一个很有礼貌的警告。你仍然可以运行你的app，但也已经可以准备遭遇随之而来的崩溃了。
     </p>
     <p>
-        When you’re building an Android app, you can almost count on needing these
-        two annotations. There are others, and you can learn about the form the
-        Android API documentation. It’s also possible to create your own annotations
-        to automate specific tasks, generate code and other helpful functions.
+        当你构建Android app的时候，你基本依靠这两个annotation就可以了。你还可以从Android的API文档中了解其它的annotation。你还可以创建自己的annotation来自动执行特定的任务，生成代码和其它有用的功能。
     </p>
     <p>
-        A shining example of this is the third party library
+        关于annotation的一个经典的例子就是第三方库
         <a href="http://androidannotations.org" sl-processed="1">
             AndroidAnnotations
         </a>
-        . It provides a variety of custom annotations that simplify multi-line
-        functions into single-line annotations and other useful features. Take
-        a look at what annotations are available and what they offer to your apps.
+        。它提供了各种定制的annotation，以将多行的功能简化为单行的annotation，还包含了其它有用的功能。你可以查看一下哪些是有用的，以及它们可以为你的app提供什么。
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -854,10 +849,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
