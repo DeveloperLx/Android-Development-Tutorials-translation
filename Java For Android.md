@@ -559,41 +559,34 @@
             <em>
                 Public
             </em>
-            &nbsp;— accessible by all other objects. The public methods and variables
-            form the API of the class.
+            - 允许被其它所有的对象访问。被标记为public的方法和变量构成了这个类的API。
         </li>
         <li>
             <em>
                 Private
             </em>
-            — only accessible to this object. Not even available to subclasses.
+            - 只允许被自己访问。甚至连它的子类都不可以访问。
         </li>
         <li>
             <em>
                 Protected
             </em>
-            — accessible to this object and its subclasses. Not available to any other
-            objects.
+            - 可以被自己和自己的子类访问。其它的对象则不可以访问。
         </li>
     </ul>
     <p>
-        Member variables should always be set to private or protected. Access
-        to them from outside the class should be via public getters and setters,
-        as demonstrated in the above code snippet. This avoids hard-to-trace side-effects
-        and tightly-coupled code.
+        成员变量应当总是被设置成private或protected的。要在类的外部访问它们，必须通过public的getter和setter方法，就像在上面的代码片段中演示的一样。这样就避免了难以被追踪的副作用和高耦合的代码。
     </p>
     <p>
-        If you made a subclass of the model above and wanted your subclass to
-        have access to
+        如果你想要创建一个上述model的子类，并希望你的子类能够访问
         <code>
             mReminderArrayList
         </code>
-        , you would change its access modifier to
+        ，你就要把它的访问修饰符修改为
         <em>
             protected
         </em>
-        . This grants access to that variable in your subclass, while allowing
-        you to further customize or work with that variable.
+        。这样就能够在子类中访问这些变量了，以便你进行更进一步的定制和处理这些变量。
     </p>
     <h2>
         Fragments
