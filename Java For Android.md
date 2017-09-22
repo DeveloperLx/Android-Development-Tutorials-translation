@@ -861,60 +861,36 @@
         </div>
     </div>
     <p>
-        Building an Android app requires time, patience and compiling multiple
-        subjects under one roof. Hopefully this article has shed some light on
-        the inner workings and the tricky relationship between Android and Java.
+        构建Android的app需要时间，耐心，以及在一个“屋顶”下编译多个对象。希望这篇文章可以为你揭示一些内部的工作原理，以及Android和Java间Tricky的关系。
     </p>
     <p>
-        You’ve had a brief intro into these topics:
+        你已对下面的话题有了一个简要的理解：
     </p>
     <ul>
         <li>
-            The Android VM. One of the key ways that Java for Android differs from
-            standard Java is in its compilation process, and its virtual machines.
+            Android的VM。Java for Android和标注Java的不同之处就在于它的编译过程及虚拟机。
         </li>
         <li>
-            Use of POJOs. Plain old java objects are extensively used within Android
-            to form the basis of model objects.
+            使用POJO。普通的java对象在Android中被广泛地使用，构成了模型对象的基础。
         </li>
         <li>
-            Access Modifiers. These are key to making your code readable and easy
-            to reason about.
+            访问修饰符。它是使你的代码可读和易于理解的关键。
         </li>
         <li>
-            Interfaces. A hugely important topic in Android, as they are in the wider
-            world of Java. Referring to objects via interfaces rather than concrete
-            class implementations will really help to decouple code and create nicely
-            reusable components.
+            Interface。一个Android中非常重要的话题，就如同他们在更广泛的Java世界中一样。通过interface，而不是实际类的实现去访问对象会非常有益于代码的解耦，以及创建便于重用的组件。
         </li>
         <li>
-            Annotations. The Android-specific Java annotations that you’ll be using
-            right from day 1.
+            Annotation。你从第一天起就直接使用了Android特定的Java annotation。
         </li>
     </ul>
     <p>
-        There is no substitute for actually making an app; creating an app and
-        experimenting with some of the concepts demonstrated here, and see what
-        works and what fails.
+        这里并没有实际地创建app；请创建一个app并这里试验演示的一些概念，观察哪些生效了哪些没有。
     </p>
     <p>
-        If you’re new to Java, or want to refresh your memory, you can download
-        a
+        如果你是一个Java的新手，或是想要进行一下复习，你可以下载一个
         <a href="http://www.raywenderlich.com/?p=119175" sl-processed="1">
             free PDF cheat sheet and quick reference
         </a>
-        that’ll make writing your first Java much smoother.
-    </p>
-    <p>
-        The forums, found below, are open to you to discuss this tutorial, ask
-        questions, share ideas and muse on the larger theme of developing with
-        Java for Android. There certainly is a lot to talk about!
-    </p>
-    <p>
-        <i>
-            The Android robot is reproduced or modified from work created and shared
-            by Google and used according to terms described in the Creative Commons
-            3.0 Attribution License.
-        </i>
+        ，它可以让你首次撰写Java更加的顺利。
     </p>
 </div>
