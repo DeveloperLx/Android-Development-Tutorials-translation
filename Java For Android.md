@@ -799,38 +799,30 @@
 }
 </pre>
     <p>
-        Those words prefixed with an
+        这些带有
         <em>
             @
         </em>
-        are
+        前缀的关键字就是
         <em>
-            Annotations
+            Annotation
         </em>
-        . They provide extra information at a variety of stages of an app. Annotations
-        provide extra information to the compiler at runtime or even to generate
-        extra code.
+        。它们会在app的各个阶段提供额外的信息。Annotation会在运行时向编译器提供额外的信息，甚至生成额外的代码。
     </p>
     <p>
-        The most common annotation in Android is
+        在Android中最常用的annotation就是
         <em>
             @Override
         </em>
-        , which exists to inform the compiler that a specific method should override
-        one from the super class. If your method doesn’t actually override anything,
-        then the compiler will fail and tell you, providing a nice safety net from
-        any oddities you might have encountered.
+        了，它会告诉编译器，它指定给的这个方法应当覆盖父类中相应的方法。如果这个方法事实上并没有覆盖父类中的方法，就会导致编译器的失败并通知给你，这样就提供了一个非常棒的安全特性，以避免任何你可能遇到的奇怪状况。
     </p>
     <p>
-        Another well-known annotation is
+        另一个有名的annotation就是
         <em>
             @TargetApi
         </em>
-        . It exists to allow your methods to indicate they are for use on a specific
-        or newer version of Android. Using a method with @TargetApi set to a version
-        higher than the current target of your app will cause the compiler to complain
-        that you’re using functionality that isn’t available for your version of
-        Android.
+        。它表明你的方法只可以应用于特定或更新版本的Android上。
+        Using a method with @TargetApi set to a version higher than the current target of your app will cause the compiler to complain that you’re using functionality that isn’t available for your version of Android.
     </p>
     <p>
         It’s a complaint, but it’s also a polite warning. You can still run your
