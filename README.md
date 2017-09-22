@@ -64,13 +64,13 @@
         <li>
             <a href="https://www.raywenderlich.com/154676/android-studio-tutorial-introduction"
             sl-processed="1">
-                Beginning Android Development Part Two: Using Android Studio
+                开始Android开发教程第二部分：使用Android Studio
             </a>
         </li>
         <li>
             <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
             sl-processed="1">
-                Beginning Android Development Part One: Installing Android Studio
+                开始Android开发教程第一部分：安装Android Studio
             </a>
         </li>
     </ul>
