@@ -4,41 +4,31 @@
 
 <div class="content-wrapper">
     <div class="note">
-        <p><em>Update Note</em>: This Beginning android development is now up to date with the latest version of Android Studio.
-            Update by Eunice Obugyei. <a href="http://www.raywenderlich.com/56107/make-first-android-app-part-1" target="_blank"
-                title="Original tutorial" sl-processed="1">Original tutorial</a> by Matt Luedke. Previous updates by Darryl Bayliss
-            and Megha Bambra.</p>
+        <p><em>更新笔记</em>： 本教程已由Eunice Obugyei更新至适配最新版本的Android Studio。
+            <a href="http://www.raywenderlich.com/56107/make-first-android-app-part-1" target="_blank"
+                title="Original tutorial" sl-processed="1">原教程</a>是由Matt Luedke编写的。上次的更新是由Darryl Bayliss和Megha Bambra完成的。</p>
     </div>
     <p><img src="https://koenig-media.raywenderlich.com/uploads/2017/06/AndroidStudio-feature-1.png" alt="AndroidRW" width="250"
             height="250" class="alignright size-full wp-image-87100"></p>
-    <p>Clearly there’s a demand for Android app development since there are over <i>two billion</i> monthly active users around
-        the globe. To say that it’s an exciting platform and space to make apps for is an understatement.</p>
-    <h2>Beginning Android Development</h2>
-    <p>There aren’t any prerequisites for this tutorial, other than a willing mind and a Mac — you can certainly develop for
-        Android on PC, but these instructions are tooled for Mac-based developers. </p>
-    <p>You’ll learn how to set up all the tools needed to start you on your way to becoming an Android developer. Here’s what
-        you’ll do in this beginning Android development tutorial:</p>
+    <p>人们对Android app的开发有着强劲的需求，因为全球每月有超过<i>20亿</i>的Android活跃用户。这是一个令人激动的平台，它为创建app提供了广阔的空间。</p>
+    <h2>开始Android开发</h2>
+    <p>本教程不需要任何的预备知识，除了你的意愿和一台Mac - 当然你也可以在PC上开发Android，但这些教程主要是提供给使用Mac的开发者的。</p>
+    <p>你将要学到如何设置全部所需的工具，来开启你成为一名Android开发者的道路。下面是你将在本教程中所做的事情：</p>
     <ol>
-        <li>Download and install Android Studio.</li>
-        <li>Set up testing for your app on devices and emulators.</li>
-        <li>Create a simple “Hello World!” Android app that prints to your device’s or emulator’s screen.</li>
-        <li>Import a sample project into Android Studio.</li>
+        <li>下载并安装Android Studio.</li>
+        <li>在模拟器和真机上测试你的app。</li>
+        <li>创建一个简单的“Hello World!” Android app。把这句话展示到你设备或模拟器的屏幕上。</li>
+        <li>导入一个样本工程到Android Studio中。</li>
     </ol>
-    <h2>Installing Android Studio</h2>
-    <p>One of the most important parts of getting started with any new platform is setting up your environment, and this is
-        no different with Android.</p>
-    <p>It’s important to take your time and follow each step methodically. Even if you follow the steps perfectly, you may have
-        to troubleshoot a small issue or few. Your system configuration or product versions can make for unexpected results.</p>
-    <h2>Installing Java</h2>
-    <p>With all of this in mind, let’s quickly check that you have the Java Development Kit (JDK) installed. To check, you’ll
-        use trusty old <em>Terminal</em>. </p>
+    <h2>安装Android Studio</h2>
+    <p>开始任何新平台，最重要的事就是配置你的环境了，Android也不例外。</p>
+    <p>花一点时间，有条不紊地遵循每一步完成任务非常得重要。即使完全遵循了这些步骤，你也可能需要去解决一个或多个的问题。你的系统配置或是产品的版本都有可能导致意外结果的发生。</p>
+    <h2>安装Java</h2>
+    <p>记住刚提到的一切，让我们来快速检查一个你是否已安装了Java开发的工具包（JDK）。你最好使用值得信赖的老版<em>Terminal</em>来完成检查。</p>
     <div class="note">
-        <p><em>Note</em>: You’ll learn the essential steps for this tutorial in the next few paragraphs, but if you’d like to
-            deepen your knowledge of the Terminal, you’ll find a good introductory tutorial about it in this blog from
-            <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank" title=" teamtreehouse.com "
-                sl-processed="1">teamtreehouse.com</a>.</p>
+        <p><em>注意</em>：你将在接下来的几段中了解到本教程的基本步骤，但如果你想要深入了解Terminal的知识，你可以在这篇博客<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank" title=" teamtreehouse.com " sl-processed="1">teamtreehouse.com</a>中找到一个很好介绍性的教程。</p>
     </div>
-    <h3>The Terminal</h3>
+    <h3>Terminal</h3>
     <p>In a nutshell, using Terminal is kind of like looking under your car’s hood. It’s how you really get to know the machine
         face-to-face, without any complex graphical interface to interfere.</p>
     <p>You can find the Terminal app quite easily on a Mac: open Launchpad and type <em>terminal</em> into the search at the
