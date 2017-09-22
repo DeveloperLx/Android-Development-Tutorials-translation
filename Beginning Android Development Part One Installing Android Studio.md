@@ -77,33 +77,25 @@
     <p>启动之后，你会看到一个像下面这样的窗口：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-650x435.png" alt="Android Studio - SDK Platfors" width="650" height="435" class="aligncenter size-large wp-image-161692" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-650x435.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-478x320.png 478w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>SDK平台</h3>
-    <p>The first tab of this window, <em>SDK Platforms</em>, lists the Android SDK platforms available for download. </p>
-    <p>Enabling the <em>Show Package Details</em> option displays the individual SDK components, such as the platform itself and the sources pertaining to the API level like system image.</p>
+    <p>该窗口的第一个tab<em>SDK Platforms</em>，列出了全部可供下载的Android SDK平台。</p>
+    <p>打开<em>Show Package Details</em>选项可以展示各个SDK组件，例如其平台本身或和API级别相关的源，如系统映像。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-650x381.png" alt="sdk platforms with details" width="650" height="381" class="aligncenter size-large wp-image-161695" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-650x381.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-480x281.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Take note of the checkbox next to the SDK platform; it will be pre-selected if an update is available.</p>
-    <p>By default, the SDK Manager installs the latest packages and tools. Select the SDKs as shown in the screenshot above.
-        If you wish to install other SDKs, just select them for installation.</p>
+    <p>注意SDK平台旁边的选框；如果有更新的话，它就会是可用的。</p>
+    <p>默认情况下，SDK Manager会安装最新版本的包和工具。选择如上图所示的SDK。如果你希望安装其它的SDK，就选择它们安装即可。</p>
     <h3>SDK Tools</h3>
-    <p>The <em>SDK Tools</em> tab lists developer tools and documentation along with the latest versions. Similar to the first
-        tab, checking the <em>Show Package Details</em> will display available version of SDK tools. </p>
-    <p>Three of the selected components in this list, for example, are <em>Android SDK Build-Tools</em>, <em>Android SDK Tools</em>        and <em>Android SDK Platform-Tools</em>. Each contains components that are designed to assist in the development
-        of Android and work across multiple SDKs. Go with the default selection on this tab.</p>
+    <p><em>SDK Tools</em>这个tab列出了最新版本的开发者工具和文档。类似于第一个tab，点击<em>Show Package Details</em>可以展示可用的SDK工具的版本。</p>
+    <p>例如，这个列表中选择的三个组件是<em>Android SDK Build-Tools</em>，<em>Android SDK Tools</em>和<em>Android SDK Platform-Tools</em>。每个包含的组件旨在协助Android的开发及跨多个SDK进行工作。使用此tab上的默认选择。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-tools.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-tools-650x378.png" alt="sdk tools" width="650" height="378" class="aligncenter size-large wp-image-161700" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-tools-650x378.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-tools-480x279.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>SDK Update Sites</h3>
-    <p>The <em>SDK Update Sites</em> tab displays the update sites for Android SDK tools and add-ons. You’re not limited to
-        what’s listed under that tab. You can add other sites that host their own Android SDK add-ons, and then download
-        them from those sites. </p>
+    <p><em>SDK Update Sites</em>tab展示了Android SDK工具和插件的更新地址。你并不限制于在这个tab下列出的地址。你还可以添加托管自己Android SDK插件的其它网站，然后从这些网站中进行下载。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-update-sites.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-update-sites-650x378.png" alt="sdk update sites" width="650" height="378" class="aligncenter size-large wp-image-161704" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-update-sites-650x378.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-update-sites-480x279.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>For the purpose of setting up correctly, select the options that are checked in the screenshot above. Click <em>Apply</em>        at the bottom if it’s active. You’ll see a confirmation dialog for the chosen packages; accept and continue. Click
-        <em>OK</em> to close the window.</p>
-    <p>The confirmation dialog will disappear and a license agreement will popup. </p>
+    <p>为了正确地进行设置，请选择上面截图中的选项。点击屏幕底部的<em>Apply</em>。你会看到一个确认选择的包的对话框，接受并继续。点击<em>OK</em>来关闭窗口。</p>
+    <p>确认对话框关闭后，会弹出一个许可协议。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/license-agreement.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/license-agreement-594x500.png" alt="Beginning Android development - Android Studio license agreement" width="594" height="500" class="aligncenter size-large wp-image-161716" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/license-agreement-594x500.png 594w, https://koenig-media.raywenderlich.com/uploads/2017/05/license-agreement-380x320.png 380w, https://koenig-media.raywenderlich.com/uploads/2017/05/license-agreement.png 1596w" sizes="(max-width: 594px) 100vw, 594px"></a></p>
-    <p>Read through it, select the <em>Accept</em> checkbox and click <em>Next</em>. The SDK Manager will download and install
-        the selected items. Once it’s done, click <em>Finish</em>. You’ll be directed back to the SDK Manager window where
-        clicking <em>OK</em> will take you back to the <em>Welcome to Android Studio</em> screen. </p>
-    <p>This is where the fun begins!</p>
-    <h2>Creating Your First Project</h2>
-    <p>Android Studio has a nice little step-by-step tool to help you create your project. Click <em>Start a new Android Studio Project</em>        from the <em>Welcome to Android Studio</em> screen:</p>
+    <p>阅读后，选择<em>Accept</em>并点击<em>Next</em>。SDK管理器就会下载并安装这些项目。完成之后，点击<em>Finish</em>。你就会返回到SDK管理器窗口。然后点击<em>OK</em>就会将你带回到<em>Welcome to Android Studio</em>页。</p>
+    <p>现在就是有趣的事将要开始的地方了！</p>
+    <h2>创建你的第一个项目</h2>
+    <p>Android Studio有一个小工具可以帮助你一步一步来创建项目。在<em>Welcome to Android Studio</em>页中点击<em>Start a new Android Studio Project</em>：
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-650x449.png" alt="Beginning Android development - Start new project" width="650" height="449" class="aligncenter size-large wp-image-161718" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-650x449.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-463x320.png 463w, https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project.png 1326w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <div class="note">
         <p><em>Note</em>: If you currently have an Android Studio project open and can’t see the welcome screen, select <em>File\New Project</em>            from the menu to create a new project.</p>
