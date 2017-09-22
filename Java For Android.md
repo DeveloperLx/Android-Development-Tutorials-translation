@@ -758,32 +758,26 @@
 }
 </pre>
     <p>
-        The
+        在类定义中的关键字
         <code>
             implements
         </code>
-        keyword in the class definition states that this class will implement
-        the specified interface. You then need to provide implementations for all
-        the methods specified on the interface. On this custom interface there
-        is only one method, and you can see that it has a skeleton implementation
-        in the above code snippet.
+        表明了这个类将会实现指定的interface。接下来你就需要为所有interface中声明的方法提供具体的实现。在这个自定义的interface中，现在只有一个方法，你可以看到在上述代码中有一个骨架的实现。
     </p>
     <p>
-        That’s the hard part, but you’re still not communicating fragment to fragment.
-        Say you have defined a second fragment,
-        <em>
-            ListDetailFragment
-        </em>
-        , with identifier
+        这是一个困难的部分，但你现在仍然没有在fragment之间进行信息传递。假定你使用标识符
         <em>
             fragment_list_detail
         </em>
-        and a method named
+        和一个名为
         <em>
             showListItemDetails(int)
         </em>
-        . To get them talking, you simply do what you did earlier to establish
-        activity to fragment communications with one of the fragment’s public methods:
+        的方法，定义了第二个
+        <em>
+            ListDetailFragment
+        </em>
+        的fragment。为了让它们之间可以进行信息传递，你只需跟之前一样，使用fragment的一个public的方法来建立activity到fragment的信息传递：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemInListSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>{
   ListDetailFragment listDetailFragment = (ListDetailFragment) getFragmentManager.findFragmentById(R.id.fragment_list_detail);
@@ -791,17 +785,13 @@
 }
 </pre>
     <p>
-        Just like that, you’ve built a way to communicate between fragments and
-        activities. Interfaces are useful for establishing communication while
-        keeping components separate. Learning how components work with fragments
-        and activities is a vital part of keeping your app architecture flexible.
+        就像这样，你构建了fragment到activity之间的信息交流。学习组件如何同fragment和activity进行协同工作，是保持你的app架构灵活性的关键部分。
     </p>
     <h2>
         Annotations
     </h2>
     <p>
-        Have you noticed those peculiar lines of code above some of the method
-        names in this article?
+        注意到本文代码中的一些方法上面，特殊代码标记了么？
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
