@@ -639,24 +639,22 @@
 }
 </pre>
     <p>
-        Because the fragment exists within the activity, you access it with
+        由于fragment是存在于activity中的，因此你要通过
         <code>
             findFragmentById
         </code>
-        and an identifier defined in XML. Then, you can easily invoke a fragment’s
-        public methods, as shown&nbsp;in the above example,
+        以及定义在XML中的identifier来访问它。之后，你就可以调用fragment的公有方法了，就像上面例子中的  
         <code>
             setTextViewText()
         </code>
-        .
+        一样。
     </p>
     <p>
-        Conversely, a fragment can access its associated activity by calling
+        相应的，fragment可以通过调用
         <code>
             getActivity()
         </code>
-        . This works in many simple situations, but it’s more fun to discuss in
-        terms of an intricate scenario.
+        方法来访问所在的activity。上述的方案可以作用在很多简单的情况下，但在更复杂的场景中来讨论会更加的有趣。
     </p>
     <h2>
         Interfaces
