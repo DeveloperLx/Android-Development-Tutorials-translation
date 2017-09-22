@@ -821,12 +821,10 @@
         <em>
             @TargetApi
         </em>
-        。它表明你的方法只可以应用于特定或更新版本的Android上。
-        Using a method with @TargetApi set to a version higher than the current target of your app will cause the compiler to complain that you’re using functionality that isn’t available for your version of Android.
+        。它表明你的方法只可以应用于特定或更新版本的Android上。如果你使用@TargetApi将一个方法标记为高于你当前app target的版本，编译器就会抱怨你正在使用的功能在你当前版本的Android上并不可用。
     </p>
     <p>
-        It’s a complaint, but it’s also a polite warning. You can still run your
-        app despite the warning, but you can pretty much count on an ensuing crash.
+        这是一个抱怨，但同时也是一个很有礼貌的警告。你仍然可以运行你的app，但也已经可以准备遭遇随之而来的崩溃了。
     </p>
     <p>
         When you’re building an Android app, you can almost count on needing these
