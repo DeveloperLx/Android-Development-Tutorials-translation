@@ -71,15 +71,14 @@
     <p>每个版本的Android都有它自己的<em>SDK</em>（Software Development Kit）来让你创建Android平台上的app。由于你刚刚已经过了安装向导，你就已经拥有了最新版本的SDK。</p>
     <h3>安装新的SDK</h3>
     <p>了解如何安装其它版本的SDK，对于你开发支持全部版本Android的app是非常有用的。</p>
-    <p>SDKs allow you to create <em> AVDs </em> (Android Virtual Devices) according to your personal configuration for the purpose of testing your app.</p>
-    <p>From the Android Studio welcome screen, select <em>Configure/SDK Manager</em>.</p>
+    <p>SDK允许你根据个人的配置，创建<em>AVD</em>（Android虚拟设备）来测试你的app。</p>
+    <p>在Android Studio的欢迎屏幕上，选择<em>Configure/SDK Manager</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-545x500.png" alt="configure sdk manager" width="545" height="500" class="aligncenter size-large wp-image-161683" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-545x500.png 545w, https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager-349x320.png 349w, https://koenig-media.raywenderlich.com/uploads/2017/05/configure-sdk-manager.png 1334w" sizes="(max-width: 545px) 100vw, 545px"></a></p>
-    <p>Once it launches, you’ll see a window like the one below:</p>
+    <p>启动之后，你会看到一个像下面这样的窗口：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-650x435.png" alt="Android Studio - SDK Platfors" width="650" height="435" class="aligncenter size-large wp-image-161692" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-650x435.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-2-478x320.png 478w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h3>SDK Platforms</h3>
+    <h3>SDK平台</h3>
     <p>The first tab of this window, <em>SDK Platforms</em>, lists the Android SDK platforms available for download. </p>
-    <p>Enabling the <em>Show Package Details</em> option displays the individual SDK components, such as the platform itself
-        and the sources pertaining to the API level like system image.</p>
+    <p>Enabling the <em>Show Package Details</em> option displays the individual SDK components, such as the platform itself and the sources pertaining to the API level like system image.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-650x381.png" alt="sdk platforms with details" width="650" height="381" class="aligncenter size-large wp-image-161695" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-650x381.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/sdk-platforms-expanded-1-480x281.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>Take note of the checkbox next to the SDK platform; it will be pre-selected if an update is available.</p>
     <p>By default, the SDK Manager installs the latest packages and tools. Select the SDKs as shown in the screenshot above.
