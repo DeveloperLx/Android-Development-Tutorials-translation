@@ -624,18 +624,14 @@
 }
 </pre>
     <p>
-        You first extend your class to inherit the behavior of a fragment and
-        then use one of its lifecycle methods, namely
+        你首先继承了Fragment类的行为，然后使用了它其中一个的生命周期方法，也就是
         <code>
             onCreateView()
         </code>
-        , to set up the fragment. Then you return a layout to show for that particular
-        fragment.
+        来设置fragment。然后你返回了一个布局以展示特定的fragment。
     </p>
     <p>
-        This is all simple enough when your activity and embedded fragment work
-        in isolation, but what if you need them to communicate? Here’s an example
-        method inside an activity that is trying to communicate with a fragment:
+        当你的activity和fragment相互隔离时，上述的代码就已足够，但如果你需要在它们之间传递信息的时候呢？以下是一个简单的示例，在一个activity中的方法，尝试与fragment进行信息传递：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateFragment</span><span class="hljs-params">()</span> </span>{
   EmbeddedFragment fragment = (EmbeddedFragment) getFragmentManager().findFragmentById(R.id.fragment_embedded);
