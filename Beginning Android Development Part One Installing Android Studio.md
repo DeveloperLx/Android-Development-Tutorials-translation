@@ -29,33 +29,22 @@
         <p><em>注意</em>：你将在接下来的几段中了解到本教程的基本步骤，但如果你想要深入了解Terminal的知识，你可以在这篇博客<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank" title=" teamtreehouse.com " sl-processed="1">teamtreehouse.com</a>中找到一个很好介绍性的教程。</p>
     </div>
     <h3>Terminal</h3>
-    <p>In a nutshell, using Terminal is kind of like looking under your car’s hood. It’s how you really get to know the machine
-        face-to-face, without any complex graphical interface to interfere.</p>
-    <p>You can find the Terminal app quite easily on a Mac: open Launchpad and type <em>terminal</em> into the search at the
-        top of the screen and select Terminal when it shows up. </p>
+    <p>简单地说，使用Terminal就像是你在车罩下面看。这时你是在真正面对面地了解机器，没有任何复杂的图形界面。</p>
+    <p>你可以在Mac上轻松地找到Terminal：打开启动版并输入<em>terminal</em>到屏幕顶部的搜索框中，并当Terminal被展示出来的时候，选择它。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/launchpad-terminal.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/launchpad-terminal-480x207.png" alt="Find Terminal in Launchpad" width="480" height="207" class="aligncenter size-medium wp-image-161322" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/launchpad-terminal-480x207.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/launchpad-terminal-650x280.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/launchpad-terminal.png 1004w" sizes="(max-width: 480px) 100vw, 480px"></a></p>
-    <p>Once you have Terminal open, type in <code>java -version</code>. You should see some output that mentions a version number,
-        like below.</p>
+    <p>打开Terminal之后，输入<code>java -version</code>。你应该会看到一些带有版本号的输出，就像下面这样。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/terminal-java-version.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/terminal-java-version-480x124.png" alt="Beginning Android development - Check Java version" width="480" height="124" class="aligncenter size-medium wp-image-161328" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/terminal-java-version-480x124.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/terminal-java-version-650x167.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/terminal-java-version.png 1142w" sizes="(max-width: 480px) 100vw, 480px"></a></p>
-    <p>If that’s not what you see, then you don’t have the JDK installed. Terminal might tell you <code>-bash: java: command not found</code>,
-        or it could say <code>No Java runtime present, requesting install.</code> and trigger a pop up that will lead you
-        down the yellow brick road…to Oracle’s website.<br>
-        <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-3.13.48-PM-e1449423724199.png"
-            sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-3.13.48-PM-e1449423724199.png" alt="Beginning Android development - Install Java" width="413" height="155" class="aligncenter size-full wp-image-122395"></a></p>
-    <p>You can either click <em>More Info…</em> or head over to Oracle to <a href=" http://www.oracle.com/technetwork/java/javase/downloads/index.html"
-            target="_blank" sl-processed="1">download the JDK</a> from Oracle.</p>
-    <p>Install the JDK if needed, and once you’re done, head over to the <a href="https://developer.android.com/sdk/installing/studio.html"
-            target="_blank" title="Android Studio page" sl-processed="1">Android Studio page</a> and click the <em>Download Android Studio</em>        button.</p>
+    <p>如果你看到的不是这样，就说明你还没有安装JDK。Terminal可能会告诉你<code>-bash: java: command not found</code>，或是<code>No Java runtime present, requesting install.</code>并弹出一个窗口引导你前往Oracle的网站进行下载。<br>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-3.13.48-PM-e1449423724199.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-3.13.48-PM-e1449423724199.png" alt="Beginning Android development - Install Java" width="413" height="155" class="aligncenter size-full wp-image-122395"></a></p>
+    <p>你可以点击<em>More Info…</em>或到<a href=" http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" sl-processed="1">Oracle</a>上去下载JDK。</p>
+    <p>安装完JDK之后，前往<a href="https://developer.android.com/sdk/installing/studio.html" target="_blank" title="Android Studio page" sl-processed="1">Android Studio页</a>，点击<em>Download Android Studio</em>按钮。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-download-page.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-download-page-650x394.png" alt="Download Android Studio" width="650" height="394" class="aligncenter size-large wp-image-161331" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-download-page-650x394.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-download-page-480x291.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h2>Getting Android Studio</h2>
-    <p>Google constantly updates this page, so the version you see may very well be newer than the screenshot above. Once you
-        click the <em>Download Android Studio</em> button, you’ll see a request to agree to the terms and conditions.</p>
+    <h2>获取Android Studio</h2>
+    <p>Google会不断地更新这个页面，因此你看到的版本可能会比上面截图中的更新。点击<em>Download Android Studio</em>按钮，你会看到一个同意条款条件的请求。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-650x427.png" alt="android-studio-terms-conditions" width="650" height="427" class="aligncenter size-large wp-image-161334" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-650x427.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-terms-conditions-480x315.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>After reading these carefully (everybody takes the time to fully read these, right?) accept and click the blue button
-        underneath titled <em>Download Android Studio For Mac</em>. Once the download is complete, you can install Android
-        Studio just like how you install any other program.</p>
-    <p>The download link will redirect to a page that contains installation instructions for OS X, Windows and Linux Operating
-        Systems. If the instructions don’t appear, then you can view them <a href="https://developer.android.com/studio/install.html"
+    <p>After reading these carefully (everybody takes the time to fully read these, right?) accept and click the blue button underneath titled <em>Download Android Studio For Mac</em>. Once the download is complete, you can install Android Studio just like how you install any other program.</p>
+    <p>The download link will redirect to a page that contains installation instructions for OS X, Windows and Linux Operating Systems. If the instructions don’t appear, then you can view them 
+    <a href="https://developer.android.com/studio/install.html"
             target="_blank" title="here" sl-processed="1">here</a>.</p>
     <p>Once installation wraps itself up, go ahead and launch <em>Android Studio</em>!</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2014/12/3.-Android-Studio-Loading.png" sl-processed="1"><img class="aligncenter size-medium wp-image-56524" src="https://koenig-media.raywenderlich.com/uploads/2014/12/3.-Android-Studio-Loading.png" alt="opening_studio_3" width="313" height="240"></a></p>
