@@ -660,22 +660,17 @@
         Interfaces
     </h2>
     <p>
-        What if your activity was home to three lively fragments, each doing its
-        own job, but needing to inform other fragments of what it’s doing at specific
-        times?
+        如果你的activity有三个活跃的fragment，每个都负责各自的工作，但需要通知其它fragment，它们在特定的时刻执行了某个动作，该怎么办？
     </p>
     <p>
-        In theory, fragments should only concern themselves with their own purpose
-        and needn’t know they exist next to others; the activity is the mastermind
-        in a sense. It’s the only one that has access to all the fragments and
-        knows what they do.
+        理论上，fragment应当只关心它们自己的目标，不需要知道他们存在于其它fragment的旁边；activity某种意义上是一个策划者。它是唯一可以访问所有的fragment，并了解它们在做什么的对象。
     </p>
     <p>
-        This calls for a Java feature known as
+        这就需要一个被叫做
         <em>
             Interfaces
         </em>
-        .
+        的Java特性。
     </p>
     <p>
         An interface is like a class, but without the implementation. Instead
