@@ -115,22 +115,17 @@
     <p>想要了解更多关于每个版本SDK中的特性，可以点击下拉菜单下方的<em>Help me choose</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png" alt="API Version Distribution" width="650" height="441" class="aligncenter size-large wp-image-161754" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>关于更多API版本统计的信息，可以访问定期更新的<a href="https://developer.android.com/about/dashboards/index.html" target="_blank" title="Android Dashboards" sl-processed="1">Android Dashboards</a>。</p>
-    <p>For now, you just want an App that works on an Android Phone, and that is what you’ll see by default, alongside the default<em> Minimum SDK</em>.
-        For this project, select SDK of <em>API 16: Android 4.1 (Jelly Bean)</em> and click <em>Next</em>.</p>
+    <p>现在，你只是想要一个运行在Android手机上的App，它将会是你在默认的<em>Minimum SDK</em>下，默认看到的内容。对于本项目，请选择<em>API 16: Android 4.1 (Jelly Bean)</em>并点击<em>Next</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png" alt="target android devices" width="650" height="440" class="aligncenter size-large wp-image-161755" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h3>Set the Default Activity</h3>
-    <p>The next step is to select your default <a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank"
-            sl-processed="1">Activity</a>.</p>
+    <h3>设置默认的Activity</h3>
+    <p>下面的一步是选择你默认的<a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" sl-processed="1">Activity</a>.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png" alt="Beginning Android development - Add activity" width="650" height="442" class="aligncenter size-large wp-image-161756" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-470x320.png 470w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Think of an Activity as a window within your app that displays content with which the user can interact. An Activity
-        can take up the entire screen or it could be a simple pop-up.</p>
-    <p>Your options on this particular template range from a Basic Activity, which is a blank screen with an <em>Action Bar</em>        and a <em>Floating Button</em> right up to an Activity with an embedded <em>MapView</em>. </p>
+    <p>Think of an Activity as a window within your app that displays content with which the user can interact. An Activity can take up the entire screen or it could be a simple pop-up.</p>
+    <p>Your options on this particular template range from a Basic Activity, which is a blank screen with an <em>Action Bar</em> and a <em>Floating Button</em> right up to an Activity with an embedded <em>MapView</em>. </p>
     <p>You’ll make a lot of activities as you develop more apps, so get to know them and know them well.</p>
     <p>Select the <em>Basic Activity</em> and click <em>Next</em>.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png" alt="Beginning Android development - Customize activity" width="650" height="442" class="aligncenter size-large wp-image-161758" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-471x320.png 471w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>To speed this part up a little bit you’ll use the pre-populated default values, but what is actually done with these
-        values?
-    </p>
+    <p>To speed this part up a little bit you’ll use the pre-populated default values, but what is actually done with these values?</p>
     <ul>
         <li><em>Activity Name</em>: This gives your Activity a name to refer to in code. A <code>.java</code> class will be created
             and will use the contents of this text field to give the class a name, which will ultimately be the name you
