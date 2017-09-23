@@ -127,23 +127,17 @@
     <p>随着你开发更多的app，你会创建更多的activity，因此必须进行很好的掌握。</p>
     <p>选择<em>Basic Activity</em>并点击<em>Next</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png" alt="Beginning Android development - Customize activity" width="650" height="442" class="aligncenter size-large wp-image-161758" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-471x320.png 471w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>To speed this part up a little bit you’ll use the pre-populated default values, but what is actually done with these values?</p>
+    <p>为了加速完成这一部分的内容，你可以使用默认预填充的值，但这些值实际上做了什么？</p>
     <ul>
-        <li><em>Activity Name</em>: This gives your Activity a name to refer to in code. A <code>.java</code> class will be created
-            and will use the contents of this text field to give the class a name, which will ultimately be the name you
-            use to refer to this Activity in your code.</li>
-        <li><em>Layout Name</em>: You’re going to define your Activity in Java, but the layout it shows to the user is defined
-            in a special sort of <a href="https://developer.android.com/guide/topics/ui/overview.html" target="_blank" title="Android XML"
-                sl-processed="1">Android XML</a>. You’ll learn how to read and edit those files shortly.</li>
+        <li><em>Activity Name</em>：为你的Activity起了一个名字，以便在代码中进行引用。系统将使用这个名称创建一个<code>.java</code>的类，它将最终成为你代码中用来引用此Activity的名称。</li>
+        <li><em>Layout Name</em>：你要用Java来定义你的Activity，但展示给用户的布局是一个特别的<a href="https://developer.android.com/guide/topics/ui/overview.html" target="_blank" title="Android XML" sl-processed="1">Android XML</a>文件。你很快就会学习如何阅读和编辑这些文件。</li>
     </ul>
-    <p>Click <em>Finish</em>. </p>
-    <h3>Building the Project</h3>
-    <p>Android Studio takes this as a cue to go do a bunch of behind-the-scenes operations and create your project. As it shoots
-        out descriptions of what it’s doing, you may notice it says something like this:</p>
+    <p>点击<em>Finish</em>。</p>
+    <h3>运行项目</h3>
+    <p>Android Studio执行了一系列背后的操作，并创建你的项目。当Android Studio展示当前正在做什么的描述时，你可能会注意到如下的信息：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-650x156.png" alt="project building" width="650" height="156" class="aligncenter size-large wp-image-161759" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-650x156.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-480x115.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/project-building.png 936w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>Here, you see your project name, which is familiar. But then there is this <em>Gradle</em> word as well.</p>
-    <p>The benefit of having a modern IDE like Android Studio is that it handles a lot for you. But, as you’re learning how
-        to use the software, it’s good to have a general sense of <i>what</i> it does for you.</p>
+    <p>The benefit of having a modern IDE like Android Studio is that it handles a lot for you. But, as you’re learning how to use the software, it’s good to have a general sense of <i>what</i> it does for you.</p>
     <h3>Gradle</h3>
     <p><a href="https://gradle.org/" target="_blank" title="Gradle" sl-processed="1">Gradle</a> is a build tool that’s easy
         to use, and if you investigate further, you’ll find it contains advanced options. It takes your Java code, XML layouts
