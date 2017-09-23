@@ -107,15 +107,14 @@
     <p><em>Package name</em>用来唯一地标识你的app，以便在一台设备上的任何工作都能找到合适的源，避免app之间的冲突。</p>
     <p>你可以将<em>Project location</em>设置为硬盘上的任一位置 - 如果你没有特定偏好的话，保持默认即可。点击窗口底部的<em>Next</em>按钮。</p>
     <h3>选择SDK</h3>
-    <p>The next screen is the <em>Target Android Devices</em> window. This is where you select device types and operating systems to target. </p>
-    <p>The <em>Minimum SDK</em> drop-down menu sets the minimum version of Android requires to run your app. The newer the SDK, the more features you’ll have at your disposal; however, newer SDKs support fewer devices. </p>
-    <p>Selecting this value is simply a matter of balancing the capabilities you want and the devices you want to support. This is where developing for Android can get a little tricky.</p>
-    <p>If you really want to get into the details of what Minimum SDK version is best for your App, let Android Studio help you out. </p>
-    <p>As you change the Minimum SDK in the drop down menu, the percentage in the text underneath reflects what percentage of devices currently run that version of Android. </p>
-    <p>Click <em>Help me choose</em> underneath the drop down list to learn more about each SDK’s set of features.</p>
+    <p>接下来的一页是<em>Target Android Devices</em>窗口。这里是你选择设备类型的操作系统的地方。</p>
+    <p><em>Minimum SDK</em>这个下拉菜单设置了运行你的app所要求的Android的最低版本。这个SDk越新，你就可以使用更多的特性；然而，这个SDk越新的话，就只能支持越少的设备。</p>
+    <p>选择这个值是一个在你想要的功能和你想要支持的设备之间进行平衡的问题。这是开发Android的一个比较tricky的地方。</p>
+    <p>如果想要了解，你的App选择什么最低版本的SDK最合适，Android Studio可以帮助你。</p>
+    <p>随着你在下拉菜单中改变最低支持的SDK，在下面文本中就会反映运行这个Android版本所占的百分比。</p>
+    <p>想要了解更多关于每个版本SDK中的特性，可以点击下拉菜单下方的<em>Help me choose</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png" alt="API Version Distribution" width="650" height="441" class="aligncenter size-large wp-image-161754" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>For more on API versions statistics, check out the <a href="https://developer.android.com/about/dashboards/index.html"
-            target="_blank" title="Android Dashboards" sl-processed="1">Android Dashboards</a>, which are updated periodically.</p>
+    <p>关于更多API版本统计的信息，可以访问定期更新的<a href="https://developer.android.com/about/dashboards/index.html" target="_blank" title="Android Dashboards" sl-processed="1">Android Dashboards</a>。</p>
     <p>For now, you just want an App that works on an Android Phone, and that is what you’ll see by default, alongside the default<em> Minimum SDK</em>.
         For this project, select SDK of <em>API 16: Android 4.1 (Jelly Bean)</em> and click <em>Next</em>.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png" alt="target android devices" width="650" height="440" class="aligncenter size-large wp-image-161755" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
