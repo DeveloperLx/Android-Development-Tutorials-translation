@@ -98,28 +98,20 @@
     <p>Android Studio有一个小工具可以帮助你一步一步来创建项目。在<em>Welcome to Android Studio</em>页中点击<em>Start a new Android Studio Project</em>：
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-650x449.png" alt="Beginning Android development - Start new project" width="650" height="449" class="aligncenter size-large wp-image-161718" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-650x449.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project-463x320.png 463w, https://koenig-media.raywenderlich.com/uploads/2017/05/start-new-project.png 1326w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <div class="note">
-        <p><em>Note</em>: If you currently have an Android Studio project open and can’t see the welcome screen, select <em>File\New Project</em>            from the menu to create a new project.</p>
+        <p><em>注意</em>：如果你当前已打开了一个Android Studio的项目，因而无法看到欢迎页。可以从菜单栏中选择<em>File/New Project</em>来创建新的项目。</p>
     </div>
-    <h3>Identify Your Project</h3>
-    <p>Android Studio will present you with a project creation screen:</p>
+    <h3>标识你的Project</h3>
+    <p>Android Studio会弹出一个项目创建页：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/new-project-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/new-project-1-650x442.png" alt="configure project" width="650" height="442" class="aligncenter size-large wp-image-161721" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/new-project-1-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/new-project-1-471x320.png 471w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Enter <em>OMG Android</em> in <em>Application name</em> as shown above. Feel free to put your own name in the <em>Company domain</em>        text field. As you type, you’ll notice the <em>Package name</em> automatically changes to create a reverse domain
-        style name per your entries.</p>
-    <p>The <em>Package name</em> is used to uniquely identify your app so that any work done on a device is always properly
-        attributed to the source, thus preventing confusion between apps.</p>
-    <p>You can set the <em>Project location</em> to any location on your hard drive — keep the default if you don’t have a preference.
-        Click <em>Next</em> at the bottom of the window.</p>
-    <h3>Choose an SDK</h3>
-    <p>The next screen is the <em>Target Android Devices</em> window. This is where you select device types and operating systems
-        to target. </p>
-    <p>The <em>Minimum SDK</em> drop-down menu sets the minimum version of Android requires to run your app. The newer the SDK,
-        the more features you’ll have at your disposal; however, newer SDKs support fewer devices. </p>
-    <p>Selecting this value is simply a matter of balancing the capabilities you want and the devices you want to support. This
-        is where developing for Android can get a little tricky.</p>
-    <p>If you really want to get into the details of what Minimum SDK version is best for your App, let Android Studio help
-        you out. </p>
-    <p>As you change the Minimum SDK in the drop down menu, the percentage in the text underneath reflects what percentage of
-        devices currently run that version of Android. </p>
+    <p>像上面这样在<em>Application name</em>中输入<em>OMG Android</em>。并在<em>Company domain</em>文本框中输入你自己的名称。在你输入的过程中，你会注意到<em>Package name</em>自动地发生变化生成一个逆向风格的域名。</p>
+    <p><em>Package name</em>用来唯一地标识你的app，以便在一台设备上的任何工作都能找到合适的源，避免app之间的冲突。</p>
+    <p>你可以将<em>Project location</em>设置为硬盘上的任一位置 - 如果你没有特定偏好的话，保持默认即可。点击窗口底部的<em>Next</em>按钮。</p>
+    <h3>选择SDK</h3>
+    <p>The next screen is the <em>Target Android Devices</em> window. This is where you select device types and operating systems to target. </p>
+    <p>The <em>Minimum SDK</em> drop-down menu sets the minimum version of Android requires to run your app. The newer the SDK, the more features you’ll have at your disposal; however, newer SDKs support fewer devices. </p>
+    <p>Selecting this value is simply a matter of balancing the capabilities you want and the devices you want to support. This is where developing for Android can get a little tricky.</p>
+    <p>If you really want to get into the details of what Minimum SDK version is best for your App, let Android Studio help you out. </p>
+    <p>As you change the Minimum SDK in the drop down menu, the percentage in the text underneath reflects what percentage of devices currently run that version of Android. </p>
     <p>Click <em>Help me choose</em> underneath the drop down list to learn more about each SDK’s set of features.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png" alt="API Version Distribution" width="650" height="441" class="aligncenter size-large wp-image-161754" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-650x441.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/API-Version-Distribution-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>For more on API versions statistics, check out the <a href="https://developer.android.com/about/dashboards/index.html"
