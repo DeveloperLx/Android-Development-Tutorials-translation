@@ -118,12 +118,14 @@
     <p>现在，你只是想要一个运行在Android手机上的App，它将会是你在默认的<em>Minimum SDK</em>下，默认看到的内容。对于本项目，请选择<em>API 16: Android 4.1 (Jelly Bean)</em>并点击<em>Next</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png" alt="target android devices" width="650" height="440" class="aligncenter size-large wp-image-161755" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-650x440.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/target-android-devices-472x320.png 472w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>设置默认的Activity</h3>
-    <p>下面的一步是选择你默认的<a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" sl-processed="1">Activity</a>.</p>
+    <p>下面的一步是选择你默认的<a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" sl-processed="1">Activity</a>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png" alt="Beginning Android development - Add activity" width="650" height="442" class="aligncenter size-large wp-image-161756" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-470x320.png 470w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Think of an Activity as a window within your app that displays content with which the user can interact. An Activity can take up the entire screen or it could be a simple pop-up.</p>
-    <p>Your options on this particular template range from a Basic Activity, which is a blank screen with an <em>Action Bar</em> and a <em>Floating Button</em> right up to an Activity with an embedded <em>MapView</em>. </p>
-    <p>You’ll make a lot of activities as you develop more apps, so get to know them and know them well.</p>
-    <p>Select the <em>Basic Activity</em> and click <em>Next</em>.</p>
+    <p>可以把Activity看作一个你app中展示内容，且用户可以进行交互的窗口。Activity可以占据全部的屏幕，也可以只是一个简单的弹窗窗口。</p>
+    <p>
+        这个特定模板的选项范围，从一个基本的Activity开始，也就是是一个带有<em>Action Bar</em>和<em>Floating Button</em>的黑色屏幕，直到一个嵌入了<em>MapView</em>的Activity。 
+    </p>
+    <p>随着你开发更多的app，你会创建更多的activity，因此必须进行很好的掌握。</p>
+    <p>选择<em>Basic Activity</em>并点击<em>Next</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png" alt="Beginning Android development - Customize activity" width="650" height="442" class="aligncenter size-large wp-image-161758" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/customize-activity-471x320.png 471w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>To speed this part up a little bit you’ll use the pre-populated default values, but what is actually done with these values?</p>
     <ul>
