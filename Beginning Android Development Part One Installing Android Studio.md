@@ -297,8 +297,7 @@
             </a>
         </div>
     </div>
-    <p>You’ve covered a lot of ground in this beginning Android development tutorial: from downloading and installing Android Studio, through creating your first “Hello World!” app, to deploying it on a physical device!</p>
-    <p>Keep reading for the <a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">next part of the series</a>, where you’ll take a tour of Android Studio.</p>
-    <p>In the meantime, you can follow Android — like any language or framework, Android’s development community is a strong asset and supplier of endless reference. It’s never too soon or too late to start checking out Google’s <a href="https://events.google.com/io/ " target="_blank " title="Google I/O " sl-processed="1">I/O conference</a>, <a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog " sl-processed="1">Android Developers blog</a> or <a href="https://www.youtube.com/user/androiddevelopers " target="_blank " title="Android Developer videos" sl-processed="1 ">Android Developer videos</a>.</p>
-    <p><i>The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</i></p>
+    <p>你已在这篇教程中学到了很多基础的内容：从下载和安装Android Studio，到创建你的第一个“Hello World!” app，再到将它不熟到一个屋里的设备上！</p>
+    <p>继续阅读本系列的<a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">下一部分</a>，你将从中开启一段Android Studio的旅程。</p>
+    <p>在此期间，就像其它的语言或框架一样，Android的开发者社区拥有大量优秀的资源和参考文档。记住，任何时候访问Google的<a href="https://events.google.com/io/ " target="_blank " title="Google I/O " sl-processed="1">I/O conference</a>，<a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog " sl-processed="1">Android Developers blog</a>或<a href="https://www.youtube.com/user/androiddevelopers " target="_blank " title="Android Developer videos" sl-processed="1 ">Android Developer videos</a>都不会太晚。</p>
 </div>
