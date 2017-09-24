@@ -173,10 +173,10 @@
     <p>Android Studio可以在计算机上模拟一个基于软件的Android设备，并在它的上面进行运行app，浏览网址，debug等一切你想做到的事情。这个功能就被称作<a href="https://developer.android.com/studio/run/emulator.html" target="_blank" title="Android Emulator" sl-processed="1">Android模拟器</a>。</p>
     <p>你可以配置多个模拟器，并为每个模拟器设置屏幕的尺寸和平台的版本。由于设备是如此得多，你可能需要一整个房间来进行储存 - ok，可能有一点夸张，但你会有这样的想法。:]</p>
     <p>如果你之前是通过标准的安装过程完成了设置向导，现在就已经有一个模拟器准备好了。</p>
-    <p>Up until recently, your computer would have to emulate everything an Android device would try to do, right down to its hardware, which runs an ARM-based processor. Most computers make use of x86-based processors, meaning your computer has to translate each instruction to one that an ARM-based processor would understand and this takes a significant amount of time. To reduce this overhead, Android Studio has recently adopted the HAXM driver which is able to speed things up a bit.</p>
+    <p>目前为止，你的计算机不得不模拟你在Android设备上执行的所有事，直到使用基于ARM的硬件前为止。大多数的计算机使用的都是基于x86的处理器，这就意味着你的计算机不得不将每条指令翻译成基于ARM处理器可以理解的，这样就会占用不少的时间。为了降低这个开销，Android Studio最近采取了HAXM驱动，它可以加速这个过程。</p>
     <p>You still have the option to create an emulator that is as close to an actual device as you can, but be aware that the initial load times can drag a bit and have put off many an Android developer from using emulators at all.</p>
     <p>With all that being said…let’s set up an emulator anyway, because you do need to know how!</p>
-    <h3>Creating an Emulator</h3>
+    <h3>创建模拟器</h3>
     <p>Click the <em>AVD Manager</em>. It’s a button near the right side of the toolbar that shows an Android popping its head up next to a device with a purple display:</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png" alt="avd manager" width="650" height="236" class="aligncenter size-large wp-image-162281" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-480x174.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png 1180w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>The AVD Manager will open to a screen with an option to create a new device:</p>
