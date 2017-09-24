@@ -219,8 +219,8 @@
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png" alt="extended controls" width="650" height="338" class="aligncenter size-large wp-image-162457" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-480x250.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h2>在设备上运行</h2>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" sl-processed="1"><img class="alignright size-full wp-image-120237" src="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" alt="androiddevoptions" width="259" height="463"></a></p>
-    <p>If you have an Android device you want to run your app on, follow the animated GIF on the right. It demonstrates how to enable developer mode on your device.</p>
-    <p>Here are the step-by-step instructions to enable <em>Developer Mode</em> on an Android device:</p>
+    <p>如果你拥有Android的设备，并且你想要在上面运行你的app，请跟随上面的GIF动画。它演示了如何在你的设备上打开开发者模式。</p>
+    <p>以下是在Android设备上打开<em>开发者模式</em>的分步骤介绍：</p>
     <ol>
         <li>Go to <em>Settings</em> on your device. </li>
         <li>Scroll all the way down and select <em>About phone.</em></li>
@@ -258,9 +258,8 @@
     <p>As your app is now running, clicking on the floating button, shows the message, <em>Replace with your own action</em> at the bottom of the screen.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162465" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
     <p>Change that message to test out Instant Run.</p>
-    <p>Open <em>MainActivity</em>, in the <em>onCreate()</em> method, replace the text: <em>Replace with your own action</em>        with <em>Hello Instant Run</em>. </p>
-    <p>Then click the <em>Apply Changes</em>. Now when you click the button, you will see the new message. This is an example
-        of a hot swap.</p>
+    <p>Open <em>MainActivity</em>, in the <em>onCreate()</em> method, replace the text: <em>Replace with your own action</em> with <em>Hello Instant Run</em>. </p>
+    <p>Then click the <em>Apply Changes</em>. Now when you click the button, you will see the new message. This is an example of a hot swap.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162467" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
     <p>Instant Run helps you code faster by significantly reducing the time it takes to update your app with code and resource  changes. </p>
     <h2>Importing an Existing Project</h2>
@@ -280,8 +279,7 @@
         <li>You’ll now see all the necessary files of the imported project in the project explorer. </li>
     </ol>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png" alt="import_explorer " width="700 " height="500 " class="aligncenter size-large wp-image-121000 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w " sizes="(max-width:700px) 100vw, 700px "></a></p>
-    <p>It’s build and run time! Click the <em>Run</em> button in the toolbar and select either the emulator or device you’ve
-        already set up.</p>
+    <p>It’s build and run time! Click the <em>Run</em> button in the toolbar and select either the emulator or device you’ve already set up.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png" alt="card_view_run " width="299 " height="500 " class="aligncenter size-large wp-image-121001 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png 299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png 722w " sizes="(max-width: 299px) 100vw, 299px "></a></p>
     <h2>Where To Go From Here?</h2>
     <div class="inline-video-ad " id="sub-banner-inline ">
