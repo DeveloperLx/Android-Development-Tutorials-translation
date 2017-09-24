@@ -262,23 +262,21 @@
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162467" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
     <p>Instant Run可以通过减少更新你代码和资源变化所需的时间，来帮助你快速地coding。</p>
     <h2>导入已存在的项目</h2>
-    <p>During your Android app-making journey, you’ll find times where you need to import existing projects. The steps below will guide you through how to import a project:</p>
+    <p>在你开发Android的过程中，你会经常需要导入已存在的项目。以下是导入一个项目的具体步骤：</p>
     <ol>
-        <li>Download
-            <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this " sl-processed="1 ">this</a> project to use as your test subject. </li>
-        <li>Once downloaded, unzip the contents and place them somewhere easy to get to. </li>
-        <li>In Android Studio, go to <em>File/New/Import Project…</em>.</li>
-        <li>A window labeled <em>Select Eclipse or Gradle Project to Import</em> will appear. Select the unzipped project from Step 1 and click <em>OK</em>.</li>
+        <li>下载 <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this " sl-processed="1 ">这个项目</a>作为你的测试对象。</li>
+        <li>下载完毕后，解压其内容，并将它存放到一个容易获取的地方。</li>
+        <li>在Android Studio中，点击<em>File/New/Import Project…</em>。</li>
+        <li>弹出了一个被标记为<em>Select Eclipse or Gradle Project to Import</em>的窗口。选择在第一步中解压出的项目并点击<em>OK</em>。</li>
         <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png" sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px "></a></p>
-        <li>After Android Studio finishes importing, you’ll be dropped off on the screen below. Select the <em>Project</em> tab on the left panel as shown in the screenshot below. </li>
-        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png
-                " sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
-        <li>You’ll now see all the necessary files of the imported project in the project explorer. </li>
+        <li>完成导入之后，你会看到如下面图片中的样子。选择左侧面板中的<em>Project</em>tab，就像下面截图中所示的一样。</li>
+        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png" sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
+        <li>现在你就可以在项目浏览器中看到刚导入项目中所有的文件了。</li>
     </ol>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png" alt="import_explorer " width="700 " height="500 " class="aligncenter size-large wp-image-121000 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w " sizes="(max-width:700px) 100vw, 700px "></a></p>
-    <p>It’s build and run time! Click the <em>Run</em> button in the toolbar and select either the emulator or device you’ve already set up.</p>
+    <p>运行项目吧！点击工具栏中的<em>Run</em>按钮，并选择你之前设置好的一个设备或模拟器即可。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png" alt="card_view_run " width="299 " height="500 " class="aligncenter size-large wp-image-121001 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png 299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png 722w " sizes="(max-width: 299px) 100vw, 299px "></a></p>
-    <h2>Where To Go From Here?</h2>
+    <h2>从这儿去向哪里？</h2>
     <div class="inline-video-ad " id="sub-banner-inline ">
         <div class="inline-video-ad-wrapper ">
             <a href="https://videos.raywenderlich.com/courses " sl-processed="1 ">
@@ -286,8 +284,14 @@
                     <div class="col ">
                         <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png">
                     </div>
-                    <div class="col large-col ">
-                        <span>Want to learn even faster? Save time with our <span>video courses</span></span>
+                    <div class="col large-col">
+                        <span>
+                            想要学习得更快？通过我们的
+                            <span>
+                                视频课程
+                            </span>
+                            来节约时间吧
+                        </span>
                     </div>
                 </div>
             </a>
@@ -297,5 +301,4 @@
     <p>Keep reading for the <a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">next part of the series</a>, where you’ll take a tour of Android Studio.</p>
     <p>In the meantime, you can follow Android — like any language or framework, Android’s development community is a strong asset and supplier of endless reference. It’s never too soon or too late to start checking out Google’s <a href="https://events.google.com/io/ " target="_blank " title="Google I/O " sl-processed="1">I/O conference</a>, <a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog " sl-processed="1">Android Developers blog</a> or <a href="https://www.youtube.com/user/androiddevelopers " target="_blank " title="Android Developer videos" sl-processed="1 ">Android Developer videos</a>.</p>
     <p><i>The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</i></p>
-    <p>I hope you enjoyed this beginning Android development tutorial — you’ve successfully installed Android Studio and are now ready to take on the world of Android development. If you have any questions or comments, please join the discussion in the comments below.</p>
 </div>
