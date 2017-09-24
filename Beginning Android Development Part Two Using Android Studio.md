@@ -14,27 +14,24 @@
     </p>
     <p>
         <em>
-            Update 3/8/17
+            更新于2017年3月8日
         </em>
-        : Updated for the latest version of Android Studio by Brian Voong. Original
-        tutorial by Megha Bambra.
+        ：由Brian Voong更新至适配最新版本的Android Studio。原教材是由Megha Bambra编写的。
     </p>
     <p>
-        Android Studio is an
+        Android Studio是基于
         <a href="https://www.jetbrains.com/idea/" target="_blank" title="IntelliJ IDEA"
         sl-processed="1">
             IntelliJ IDEA
         </a>
-        based IDE and declared by Google as the
+        的IDE，并由Google声明为Android app开发的
         <i>
-            official
+            官方
         </i>
-        IDE for Android application development.
+        IDE。
     </p>
     <p>
-        In this Android Studio tutorial, you’ll learn how to use the tools that
-        every Android developer uses to create a simple fortune-telling app. You’ll
-        learn to use some of Android Studio’s key features such as:
+        在本教程中，你将学习如何使用每个Android开发者都会使用的工具，来创建一个简单的算命app。你会学到一些Android Studio的关键特性，诸如：
     </p>
     <ul>
         <li>
