@@ -240,28 +240,28 @@
         <p><em>注意</em>：如果你的app早已在运行，可能你就不会得到提示。这是因为Android Studio上有一个新的被称作<em>Instant Run</em>的功能。我们将在本教程的下一部分中进行讨论。关闭模拟器，再次点击<em>Run</em>按钮。</p>
     </div>
     <h2>Instant Run</h2>
-    <p>From version 2.0 of Android Studio, a new functionality was introduced called <em>Instant Run</em>. Instant Run allows you to push updates (code and resources) to a running app on a device or emulator without performing a full reinstall. By doing this, you are able to view your changes in a shorter time.</p>
-    <p>There are three kinds of changes you can make to your code: a hot swap, warm swap, or cold swap. Instant Run pushes updates by performing one of the following, depending on the kind of change you made: </p>
+    <p>Android Studio 2.0引入了被称作<em>Instant Run</em>的特性。Instant Run使得你可以将更新（代码和资源）推送到真机或是模拟器正在运行的app上，无需进行重新安装。这样，你就可以在较短的时间内看到你的更改了。</p>
+    <p>你可以对代码进行三种方式的改变：a hot swap，warm swap，和cold swap。Instant Run会根据你所做的改变，通过下列的方式之一来推送更新：</p>
     <ol>
-        <li><em>Hot Swap</em>: This applies to method changes. Your app continues to run but uses a stub method with the changes performed the next time the relevant method is called. This is the fastest swap.</li>
-        <li><em>Warm Swap</em>: This swap applies to resource changes. With this, your the current activity will restart to update the changed resources.</li>
-        <li><em>Cold Swap</em>: With this, Instant run restarts the whole app even though it does not perform a re-install. This swap applies to structural code changes</li>
+        <li><em>Hot Swap</em>：应用于方法的改变。应用于方法的改变。你的app会使用存根的方法继续运行，直到下次调用相关的方法时再进行更改。这是最快的交换。</li>
+        <li><em>Warm Swap</em>：应用于资源的改变。他从重启你当期的activity以更新资源。</li>
+        <li><em>Cold Swap</em>：即使没有执行重新安装，Instant run也会重启整个app。这主要用于结构性的代码更改</li>
     </ol>
-    <h3>Testing Instant Run</h3>
-    <p>Go ahead and try out Instant Run.</p>
-    <p>To enable Instant Run, select <em>Android Studio \ Preferences \ Build, Execution, Deployment \ Instant Run</em>. Ensure that <em>Enable Instant Run to hot swap code/resource changes on deploy</em> is checked and that <em>Restart activity on code changes</em> is unchecked.</p>
+    <h3>测试Instant Run</h3>
+    <p>继续尝试Instant Run。</p>
+    <p>点击<em>Android Studio/Preferences/Build, Execution, Deployment/Instant Run</em>以打开Instant Run。确定勾选了 <em>Enable Instant Run to hot swap code/resource changes on deploy</em>且不勾选<em>Restart activity on code changes</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-650x379.png" alt="" width="650" height="379" class="aligncenter size-large wp-image-162460" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-650x379.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-480x280.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>If your app is not yet running, launch it by clicking the <em>Run</em> button, and wait for it to launch.</p>
-    <p>When the app is running, the <em>Apply Changes</em> button on the right side of the <em>Run</em> becomes enabled.</p>
+    <p>如果你的app还未运行，请点击<em>Run</em>按钮并等待它运行。</p>
+    <p>当app运行起来后，右侧的<em>Apply Changes</em>按钮就会处于可用状态。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-650x168.png" alt="" width="650" height="168" class="aligncenter size-large wp-image-162464" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-650x168.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-480x124.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>As your app is now running, clicking on the floating button, shows the message, <em>Replace with your own action</em> at the bottom of the screen.</p>
+    <p>在你的app运行的时候，点击浮动的按钮，展示消息，在屏幕的底部<em>替换你自己的动作</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162465" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
-    <p>Change that message to test out Instant Run.</p>
-    <p>Open <em>MainActivity</em>, in the <em>onCreate()</em> method, replace the text: <em>Replace with your own action</em> with <em>Hello Instant Run</em>. </p>
-    <p>Then click the <em>Apply Changes</em>. Now when you click the button, you will see the new message. This is an example of a hot swap.</p>
+    <p>改变消息来测试Instant Run。</p>
+    <p>打开<em>MainActivity</em>，在<em>onCreate()</em>方法中，将文本：<em>Replace with your own action</em>替换为：<em>Hello Instant Run</em>。</p>
+    <p>然后点击<em>Apply Changes</em>。现在当你点击按钮的时候，就会看到新的消息。这就是一个hot swap的例子。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162467" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
-    <p>Instant Run helps you code faster by significantly reducing the time it takes to update your app with code and resource  changes. </p>
-    <h2>Importing an Existing Project</h2>
+    <p>Instant Run可以通过减少更新你代码和资源变化所需的时间，来帮助你快速地coding。</p>
+    <h2>导入已存在的项目</h2>
     <p>During your Android app-making journey, you’ll find times where you need to import existing projects. The steps below will guide you through how to import a project:</p>
     <ol>
         <li>Download
