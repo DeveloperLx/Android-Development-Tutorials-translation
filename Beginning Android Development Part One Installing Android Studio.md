@@ -134,60 +134,46 @@
     </ul>
     <p>点击<em>Finish</em>。</p>
     <h3>运行项目</h3>
-    <p>Android Studio执行了一系列背后的操作，并创建你的项目。当Android Studio展示当前正在做什么的描述时，你可能会注意到如下的信息：</p>
+    <p>Android Studio在背后执行了一系列的操作，并创建你的项目。当Android Studio展示当前正在做什么的描述时，你可能会注意到如下的信息：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-650x156.png" alt="project building" width="650" height="156" class="aligncenter size-large wp-image-161759" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-650x156.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/project-building-480x115.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/project-building.png 936w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Here, you see your project name, which is familiar. But then there is this <em>Gradle</em> word as well.</p>
-    <p>The benefit of having a modern IDE like Android Studio is that it handles a lot for you. But, as you’re learning how to use the software, it’s good to have a general sense of <i>what</i> it does for you.</p>
+    <p>你发现了你熟悉的项目名称，但后面还有一个单词<em>Gradle</em>。</p>
+    <p>有一个像Android Studio这样的现代IDE，好处就是它可以帮助你处理很多的事情。但是，当你学习如何使用该软件时，大致地了解一下它为你做了些<i>什么</i>会更加得好。</p>
     <h3>Gradle</h3>
-    <p><a href="https://gradle.org/" target="_blank" title="Gradle" sl-processed="1">Gradle</a> is a build tool that’s easy
-        to use, and if you investigate further, you’ll find it contains advanced options. It takes your Java code, XML layouts
-        and the latest Android build tools to create the app package file, also known as an <em>APK</em> (Android Package
-        Kit) file. </p>
-    <p>You can customize your configurations to have development or production versions of the app that behave differently.
-        You can also add dependencies for third-party libraries.</p>
-    <p>After a brief moment, Android Studio will finish building your project. The project is pretty empty, of course, but it
-        has everything it needs set up so that it can be launched on an Android device or emulator.</p>
+    <p><a href="https://gradle.org/" target="_blank" title="Gradle" sl-processed="1">Gradle</a>是一个很容易使用的build工具，如果你进行更进一步的了解，就会发现它包含很多高级的选项。它会用你的Java代码，XML布局文件和最新的Android build工具构建成app的包文件，也就是被称为<em>APK</em>（Android Package Kit）的文件。</p>
+    <p>你可以定制你自己的配置，来让开发和生产版本的表现有所不同。你也可以添加对第三方库的依赖。</p>
+    <p>过了一会，Android Studio会完成构建你的项目。当然，当前的项目完全是空的，但它已经拥有了运行在Andrdoi设备或模拟器上所需的一切条件。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-650x376.png" alt="android studio screen" width="650" height="376" class="aligncenter size-large wp-image-161820" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-650x376.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-480x277.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Let’s take a brief look at the different parts of the project.</p>
+    <p>简要地查看一下项目的各个部分吧。</p>
     <ul>
         <li>
-            The <em>manifests/AndroidManifest.xml</em> file provides to the Android system important information required
-            to run your app.
+            <em>manifests/AndroidManifest.xml</em>文件提供了运行你的app所需的Android系统的重要信息。
         </li>
         <li>
-            The <em>res</em> directory is your resource directory. Application resources such as images, xml layouts, styles,
-            colors etc. are defined in this directory.
+            <em>res</em>是你的资源目录。App诸如图片，xml布局，风格，颜色等资源文件，均被定义在这个目录中。
         </li>
         <li>
-            The <em>res/layout</em> directory is where all your UI (User Interface) will be designed. You will use Android
-            XML to design your UI.
+            你的所有UI都会被设计到<em>res/layout</em>目录下。你会使用Android XML来设计你的UI。
         </li>
         <li>
-            The <em>res/menu</em> directory is where you define the contents of your application’s menus.
+            <em>res/menu</em>是你定义app菜单内容的地方。
         </li>
         <li>
-            The <em>res/values</em> directory is where you define the resources such as dimensions (<em>res/values/dimens.xml</em>),
-            colors (<em>res/values/colors.xml</em>), strings (<em>res/values/strings.xml</em>), etc.
+            <em>res/values</em>目录是你定义诸如位置尺寸（<em>res/values/dimens.xml</em>），颜色（<em>res/values/colors.xml</em>），字符串（<em>res/values/strings.xml</em>）等资源的地方。
         </li>
     </ul>
-    <p>Open <em>res/layout/activity_main.xml</em> and click <em>Text</em> at the bottom of the screen.</p>
-    <p>This shows you the xml code for your main layout. It also shows a preview of how it will look like on a device on the
-        right side of the screen. </p>
+    <p>打开<em>res/layout/activity_main.xml</em>并点击屏幕底部的<em>Text</em>。</p>
+    <p>这时就会展示出你main layout的xml代码。还会在屏幕的右边展示出它在设备上的预览图。</p>
     <div class="note">
-        <p><em>Note</em>: If the Preview screen is not shown by default for you, open it by selecting <em>View\Tool Windows\Preview</em>            from the menu</p>
+        <p><em>注意</em>：如果默认没有打开预览图，你可以通过在菜单栏中选择<em>View/Tool Windows/Preview</em>来打开它。</p>
         <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/tool-windows-preview-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/tool-windows-preview-1-437x500.png" alt="tool windows preview" width="437" height="500" class="aligncenter size-large wp-image-161923" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/tool-windows-preview-1-437x500.png 437w, https://koenig-media.raywenderlich.com/uploads/2017/05/tool-windows-preview-1-280x320.png 280w, https://koenig-media.raywenderlich.com/uploads/2017/05/tool-windows-preview-1.png 878w" sizes="(max-width: 437px) 100vw, 437px"></a>
         </p>
     </div>
-    <h2>Running on an Emulator</h2>
+    <h2>在模拟器上运行</h2>
     <p>You’ve got Android Studio and you’ve created an app. So how do you run it?</p>
-    <p>Android Studio comes with the ability to set up a software-based Android device on your computer and run apps on it,
-        browse websites, debug and everything you would expect from a simulator. This capability is known as the <a href="https://developer.android.com/studio/run/emulator.html"
+    <p>Android Studio comes with the ability to set up a software-based Android device on your computer and run apps on it, browse websites, debug and everything you would expect from a simulator. This capability is known as the <a href="https://developer.android.com/studio/run/emulator.html"
             target="_blank" title="Android Emulator" sl-processed="1">Android Emulator</a>.</p>
-    <p>You can set up multiple emulators and set the screen size and platform version for each to whatever you like. Good thing,
-        too. You’d need a whole room dedicated to storing devices for testing because there are so many out there — okay,
-        maybe that’s an exaggeration, but you get the idea. :] </p>
-    <p>If you ran through the setup wizard earlier using the standard installation, then you’ll already have an emulator set
-        up and ready for you. </p>
+    <p>You can set up multiple emulators and set the screen size and platform version for each to whatever you like. Good thing, too. You’d need a whole room dedicated to storing devices for testing because there are so many out there — okay, maybe that’s an exaggeration, but you get the idea. :] </p>
+    <p>If you ran through the setup wizard earlier using the standard installation, then you’ll already have an emulator set up and ready for you. </p>
     <p>Up until recently, your computer would have to emulate everything an Android device would try to do, right down to its
         hardware, which runs an ARM-based processor. Most computers make use of x86-based processors, meaning your computer
         has to translate each instruction to one that an ARM-based processor would understand and this takes a significant
@@ -363,21 +349,9 @@
             </a>
         </div>
     </div>
-    <p>You’ve covered a lot of ground in this beginning Android development tutorial: from downloading and installing Android
-        Studio, through creating your first “Hello World!” app, to deploying it on a physical device!</p>
-    <p>Keep reading for the <a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio
-                " sl-processed="1
-                ">next part of the series</a>, where you’ll take a tour of Android Studio.</p>
-    <p>In the meantime, you can follow Android — like any language or framework, Android’s development community is a strong
-        asset and supplier of endless reference. It’s never too soon or too late to start checking out Google’s <a href="https://events.google.com/io/ "
-            target="_blank " title="Google I/O " sl-processed="1
-                ">I/O conference</a>, <a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog "
-            sl-processed="1
-                ">Android Developers blog</a> or <a href="https://www.youtube.com/user/androiddevelopers " target="_blank "
-            title="Android Developer videos
-                " sl-processed="1 ">Android Developer videos</a>.</p>
+    <p>You’ve covered a lot of ground in this beginning Android development tutorial: from downloading and installing Android Studio, through creating your first “Hello World!” app, to deploying it on a physical device!</p>
+    <p>Keep reading for the <a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">next part of the series</a>, where you’ll take a tour of Android Studio.</p>
+    <p>In the meantime, you can follow Android — like any language or framework, Android’s development community is a strong asset and supplier of endless reference. It’s never too soon or too late to start checking out Google’s <a href="https://events.google.com/io/ " target="_blank " title="Google I/O " sl-processed="1">I/O conference</a>, <a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog " sl-processed="1">Android Developers blog</a> or <a href="https://www.youtube.com/user/androiddevelopers " target="_blank " title="Android Developer videos" sl-processed="1 ">Android Developer videos</a>.</p>
     <p><i>The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</i></p>
-    <p>I hope you enjoyed this beginning Android development tutorial — you’ve successfully installed Android Studio and are
-        now ready to take on the world of Android development. If you have any questions or comments, please join the discussion
-        in the comments below.</p>
+    <p>I hope you enjoyed this beginning Android development tutorial — you’ve successfully installed Android Studio and are now ready to take on the world of Android development. If you have any questions or comments, please join the discussion in the comments below.</p>
 </div>
