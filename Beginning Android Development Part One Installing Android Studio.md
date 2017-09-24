@@ -234,10 +234,10 @@
     </ol>
     <p>现在你的设备已配置完毕，点击<em>Run</em>按钮。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Just like before, you’ll get a prompt from the <em>Select Deployment Target</em> dialog. The device should now appear in this dialog. Select it and click <em>OK</em>.</p>
-    <p>Ahh…isn’t it rewarding to see the app on your device? Go ahead and show it off to your friends. :]</p>
+    <p>就像之前一样，这里会弹出<em>Select Deployment Target</em>的对话框。你的设备现在应当出现在这个对话框中了。选择它并点击<em>OK</em>。</p>
+    <p>嗯...在你的设备上看到自己的app是不件很有价值的事？把它向你的朋友们展示一下吧。:]</p>
     <div class="note">
-        <p><em>Note</em>: If the app is already running, you might not get the prompt. This is because of a new functionality in Android Studio know as <em>Instant Run</em>. We’ll talk about it in the next section of this tutorial. Close the emulator, go back and click the <em>Run</em> button again.</p>
+        <p><em>注意</em>：如果你的app早已在运行，可能你就不会得到提示。这是因为Android Studio上有一个新的被称作<em>Instant Run</em>的功能。我们将在本教程的下一部分中进行讨论。关闭模拟器，再次点击<em>Run</em>按钮。</p>
     </div>
     <h2>Instant Run</h2>
     <p>From version 2.0 of Android Studio, a new functionality was introduced called <em>Instant Run</em>. Instant Run allows you to push updates (code and resources) to a running app on a device or emulator without performing a full reinstall. By doing this, you are able to view your changes in a shorter time.</p>
@@ -269,10 +269,8 @@
         <li>Once downloaded, unzip the contents and place them somewhere easy to get to. </li>
         <li>In Android Studio, go to <em>File/New/Import Project…</em>.</li>
         <li>A window labeled <em>Select Eclipse or Gradle Project to Import</em> will appear. Select the unzipped project from Step 1 and click <em>OK</em>.</li>
-        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png
-                " sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px "></a></p>
-        <li>After Android Studio finishes importing, you’ll be dropped off on the screen below. Select the <em>Project</em> tab
-            on the left panel as shown in the screenshot below. </li>
+        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png" sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px "></a></p>
+        <li>After Android Studio finishes importing, you’ll be dropped off on the screen below. Select the <em>Project</em> tab on the left panel as shown in the screenshot below. </li>
         <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png
                 " sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
         <li>You’ll now see all the necessary files of the imported project in the project explorer. </li>
@@ -286,8 +284,7 @@
             <a href="https://videos.raywenderlich.com/courses " sl-processed="1 ">
                 <div class="col-wrapper ">
                     <div class="col ">
-                        <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png
-                " alt="yeti holding videos ">
+                        <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png">
                     </div>
                     <div class="col large-col ">
                         <span>Want to learn even faster? Save time with our <span>video courses</span></span>
