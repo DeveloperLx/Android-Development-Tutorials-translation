@@ -169,31 +169,21 @@
         </p>
     </div>
     <h2>在模拟器上运行</h2>
-    <p>You’ve got Android Studio and you’ve created an app. So how do you run it?</p>
-    <p>Android Studio comes with the ability to set up a software-based Android device on your computer and run apps on it, browse websites, debug and everything you would expect from a simulator. This capability is known as the <a href="https://developer.android.com/studio/run/emulator.html"
-            target="_blank" title="Android Emulator" sl-processed="1">Android Emulator</a>.</p>
+    <p>你已经获得了Android Studio并创建了一个app。如何来运行它？</p>
+    <p>Android Studio可以在计算机上模拟一个基于软件的Android设备，并在它的上面进行运行app，浏览网址，debug等一切你想做到的事情。这个功能就被称作<a href="https://developer.android.com/studio/run/emulator.html" target="_blank" title="Android Emulator" sl-processed="1">Android模拟器</a>。</p>
     <p>You can set up multiple emulators and set the screen size and platform version for each to whatever you like. Good thing, too. You’d need a whole room dedicated to storing devices for testing because there are so many out there — okay, maybe that’s an exaggeration, but you get the idea. :] </p>
     <p>If you ran through the setup wizard earlier using the standard installation, then you’ll already have an emulator set up and ready for you. </p>
-    <p>Up until recently, your computer would have to emulate everything an Android device would try to do, right down to its
-        hardware, which runs an ARM-based processor. Most computers make use of x86-based processors, meaning your computer
-        has to translate each instruction to one that an ARM-based processor would understand and this takes a significant
-        amount of time. To reduce this overhead, Android Studio has recently adopted the HAXM driver which is able to speed
-        things up a bit.</p>
-    <p>You still have the option to create an emulator that is as close to an actual device as you can, but be aware that the
-        initial load times can drag a bit and have put off many an Android developer from using emulators at all.</p>
+    <p>Up until recently, your computer would have to emulate everything an Android device would try to do, right down to its hardware, which runs an ARM-based processor. Most computers make use of x86-based processors, meaning your computer has to translate each instruction to one that an ARM-based processor would understand and this takes a significant amount of time. To reduce this overhead, Android Studio has recently adopted the HAXM driver which is able to speed things up a bit.</p>
+    <p>You still have the option to create an emulator that is as close to an actual device as you can, but be aware that the initial load times can drag a bit and have put off many an Android developer from using emulators at all.</p>
     <p>With all that being said…let’s set up an emulator anyway, because you do need to know how!</p>
     <h3>Creating an Emulator</h3>
-    <p>Click the <em>AVD Manager</em>. It’s a button near the right side of the toolbar that shows an Android popping its head
-        up next to a device with a purple display:</p>
+    <p>Click the <em>AVD Manager</em>. It’s a button near the right side of the toolbar that shows an Android popping its head up next to a device with a purple display:</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png" alt="avd manager" width="650" height="236" class="aligncenter size-large wp-image-162281" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-480x174.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png 1180w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>The AVD Manager will open to a screen with an option to create a new device:</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-650x327.png" alt="avd manager 2" width="650" height="327" class="aligncenter size-large wp-image-162282" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-650x327.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-480x242.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>Virtual Device</h3>
     <p>Click the <em>Create Virtual Device…</em> button to start the process of creating a new virtual device. </p>
-    <p>The first step is to select the type of device. The <em>Category</em> section, on the left side of the screen, shows
-        a list of the different device types you can emulate(TV, Wear, Phone, Tablet). Make sure the <em>Phone</em> option
-        is selected. In the middle of the screen, there is a list of specific devices with their screen size, resolution
-        and density. Take a moment to explore them. </p>
+    <p>The first step is to select the type of device. The <em>Category</em> section, on the left side of the screen, shows a list of the different device types you can emulate(TV, Wear, Phone, Tablet). Make sure the <em>Phone</em> option is selected. In the middle of the screen, there is a list of specific devices with their screen size, resolution and density. Take a moment to explore them. </p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-640x500.png" alt="select hardware" width="640" height="500" class="aligncenter size-large wp-image-162444" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-640x500.png 640w, https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-410x320.png 410w" sizes="(max-width: 640px) 100vw, 640px"></a></p>
     <p>What you need now is just to emulate a phone-sized device, but if you wanted to emulate an Android Wear watch or an Android
         TV then you have options to do so here. </p>
@@ -203,14 +193,11 @@
     <p>For this tutorial, select <em>Nougat</em> and make sure the one selected has the value <em>x86</em> in the <em>ABI</em>        column so the emulator runs as fast as possible on your x86 computer.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-642x500.png" alt="system_image_2" width="642" height="500" class="aligncenter size-large wp-image-162428" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-642x500.png 642w, https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-411x320.png 411w" sizes="(max-width: 642px) 100vw, 642px"></a></p>
     <div class="note">
-        <p><em>Note</em>: If that version is not already downloaded, click on the Download link beside the release name to download
-            before you continue.</p>
+        <p><em>Note</em>: If that version is not already downloaded, click on the Download link beside the release name to download before you continue.</p>
     </div>
     <p>Click <em>Next</em> once you’re done to advance to the final screen.</p>
     <h2>Verify Virtual Device</h2>
-    <p>The last screen lets you confirm your choices and gives options to configure some other properties such as device name
-        and startup orientation. Clicking the <em>Show Advanced Settings</em> button, shows you extra configurations you
-        can change such as Camera, Network and Memory settings.</p>
+    <p>The last screen lets you confirm your choices and gives options to configure some other properties such as device name and startup orientation. Clicking the <em>Show Advanced Settings</em> button, shows you extra configurations you can change such as Camera, Network and Memory settings.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-confirm_pixel-1.gif" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-confirm_pixel-1.gif" alt="avd_confirm_pixel" width="642" height="500" class="aligncenter size-large wp-image-162443"></a></p>
     <p>Use the defaults and click <em>Finish</em>.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-642x500.png" alt="verify configuration pixel" width="642" height="500" class="aligncenter size-large wp-image-162447" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-642x500.png 642w, https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-411x320.png 411w" sizes="(max-width: 642px) 100vw, 642px"></a></p>
@@ -218,17 +205,12 @@
     <p>Close the AVD Manager to go back to Android Studio’s main view. Now that you’ve configured everything, click the <em>Run</em>        button.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>Selecting a Device</h3>
-    <p>A new window will appear, asking you to choose the device you wish to test your App on. You currently have no devices
-        running, so select the Pixel you just created and click <em>OK</em>. </p>
+    <p>A new window will appear, asking you to choose the device you wish to test your App on. You currently have no devices running, so select the Pixel you just created and click <em>OK</em>. </p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png" alt="select deployment target" width="650" height="376" class="aligncenter size-large wp-image-162449" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-480x278.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <div class="note">
-        <p><em>Note</em>: If you get an error that says <i>This AVD’s configuration is missing a kernel file!!</i>, check to
-            make sure that you don’t have the ANDROID_SDK_ROOT environment variable set from a previous installation of the
-            Android SDK. See <a href="http://stackoverflow.com/questions/9712605/emulator-error-this-avds-configuration-is-missing-a-kernel-file/10775330#10775330"
-                sl-processed="1">this thread</a> on Stack Overflow for more troubleshooting tips.</p>
+        <p><em>Note</em>: If you get an error that says <i>This AVD’s configuration is missing a kernel file!!</i>, check to make sure that you don’t have the ANDROID_SDK_ROOT environment variable set from a previous installation of the Android SDK. See <a href="http://stackoverflow.com/questions/9712605/emulator-error-this-avds-configuration-is-missing-a-kernel-file/10775330#10775330" sl-processed="1">this thread</a> on Stack Overflow for more troubleshooting tips.</p>
     </div>
-    <p>In the event that it doesn’t work the first time or takes several minutes for the emulator to fire up correctly, don’t
-        worry, that’s not entirely unexpected. Stick with it. Once it’s ready, you should see something like this:</p>
+    <p>In the event that it doesn’t work the first time or takes several minutes for the emulator to fire up correctly, don’t worry, that’s not entirely unexpected. Stick with it. Once it’s ready, you should see something like this:</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-315x500.png" alt="mobile app 2" width="315" height="500" class="aligncenter size-large wp-image-162456" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-315x500.png 315w, https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-202x320.png 202w, https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2.png 800w" sizes="(max-width: 315px) 100vw, 315px"></a></p>
     <p>Whoa. You just made your first Android app.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" alt="So you're an Android developer now?" width="338" height="230" class="aligncenter size-full wp-image-122394"></a></p>
