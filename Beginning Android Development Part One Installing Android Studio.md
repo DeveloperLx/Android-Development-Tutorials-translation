@@ -171,8 +171,8 @@
     <h2>在模拟器上运行</h2>
     <p>你已经获得了Android Studio并创建了一个app。如何来运行它？</p>
     <p>Android Studio可以在计算机上模拟一个基于软件的Android设备，并在它的上面进行运行app，浏览网址，debug等一切你想做到的事情。这个功能就被称作<a href="https://developer.android.com/studio/run/emulator.html" target="_blank" title="Android Emulator" sl-processed="1">Android模拟器</a>。</p>
-    <p>You can set up multiple emulators and set the screen size and platform version for each to whatever you like. Good thing, too. You’d need a whole room dedicated to storing devices for testing because there are so many out there — okay, maybe that’s an exaggeration, but you get the idea. :] </p>
-    <p>If you ran through the setup wizard earlier using the standard installation, then you’ll already have an emulator set up and ready for you. </p>
+    <p>你可以配置多个模拟器，并为每个模拟器设置屏幕的尺寸和平台的版本。由于设备是如此得多，你可能需要一整个房间来进行储存 - ok，可能有一点夸张，但你会有这样的想法。:]</p>
+    <p>如果你之前是通过标准的安装过程完成了设置向导，现在就已经有一个模拟器准备好了。</p>
     <p>Up until recently, your computer would have to emulate everything an Android device would try to do, right down to its hardware, which runs an ARM-based processor. Most computers make use of x86-based processors, meaning your computer has to translate each instruction to one that an ARM-based processor would understand and this takes a significant amount of time. To reduce this overhead, Android Studio has recently adopted the HAXM driver which is able to speed things up a bit.</p>
     <p>You still have the option to create an emulator that is as close to an actual device as you can, but be aware that the initial load times can drag a bit and have put off many an Android developer from using emulators at all.</p>
     <p>With all that being said…let’s set up an emulator anyway, because you do need to know how!</p>
