@@ -35,77 +35,72 @@
     </p>
     <ul>
         <li>
-            Navigating through different files in your project using the project explorer
+            使用项目浏览器在不同文件间进行切换
         </li>
         <li>
-            Setting up the
+            设置
             <em>
                 AndroidManifest.xml
             </em>
-            file
+            文件
         </li>
         <li>
-            Learning about the
+            了解
             <em>
                 Gradle
             </em>
-            build system
+            build系统
         </li>
         <li>
-            Importing files into your project
+            将文件导入到你的项目中
         </li>
         <li>
-            Learning about the rich layout editor with dynamic layout previews
+            了解丰富的布局编辑器及动态布局预览
         </li>
         <li>
-            Using
+            使用
             <em>
                 Logcat
             </em>
-            and the
+            和
             <em>
                 Android Monitor
             </em>
-            to debug your app
+            来debug你的app
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This tutorial assumes that you’ve already installed Android Studio and
-            have set up an emulator or a device configured for testing. If you haven’t,
-            please refer to our previous tutorial about
-            <a href="http://www.raywenderlich.com/120177/beginning-android-development-tutorial-installing-android-studio"
+            本教程假定你早已安装Android Studio，并设置好了用来测试的模拟器或真机。如果不是的话，请先访问我们的
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
             sl-processed="1">
-                installing Android Studio
+                上一篇教程
             </a>
-            to get up and running in no time!
+            以便快速地启动项目！
         </p>
     </div>
     <h2>
-        Getting Started with Android Studio
+        入门Android Studio
     </h2>
     <p>
-        You’ll start by creating a brand new Android app that you’ll use to explore
-        Android Studio and learn about its capabilities and interface.
+        你将首先创建一个新的Android app，用来探索Android Studio，并了解它的界面和功能。
     </p>
     <p>
-        For bonus points, you’ll also walk away as a bonafide fortune teller —
-        or something to that effect. At least you’ll have a fun app to play around
-        with!
+        作为你奖励，你也可以成为一个算命先生到处走走 - 或是做其它有趣的事。你至少会有一个有趣的app可以玩耍！
     </p>
     <p>
-        Fire up Android Studio and in the
+        打开Android Studio，并在
         <em>
             Android Studio Setup Wizard
         </em>
-        window, select
+        窗口中，选择
         <em>
             Start a new Android Studio project
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-9.47.20-AM.png"
@@ -117,28 +112,27 @@
         </a>
     </p>
     <p>
-        In the
+        在
         <em>
             Create New Project
         </em>
-        window, set the
+        窗口中，将
         <em>
             Application Name
         </em>
-        as Fortune Ball, enter a
+        设置为Fortune Ball，输入你选择的        
         <em>
             Company Domain
         </em>
-        of your choosing, and select a convenient location to host your application
-        in the
+        ，并在
         <em>
             Project location
         </em>
-        field. Click
+        域中输入一个方便的位置来保存你的app。点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-9.55.46-AM.png"
@@ -148,27 +142,27 @@
         </a>
     </p>
     <p>
-        Now you’re looking at the
+        现在你看到的会是
         <em>
             Target Android Devices
         </em>
-        window. Check the
+        窗口。勾选
         <em>
             Phone and Tablet
         </em>
-        box and specify
+        并指定
         <em>
             API 15
         </em>
-        as the
+        作为
         <em>
             Minimum SDK
         </em>
-        . Click
+        。点击
         <em>
             Next
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.00.39-AM.png"
@@ -180,26 +174,24 @@
         </a>
     </p>
     <p>
-        From the
+        在
         <em>
             Add an activity to Mobile
         </em>
-        window, select
+        窗口中，选择
         <em>
             Basic Activity
         </em>
-        . Take a half minute here to look at all your options; this window gives
-        you an overview of the layout template. In this case, it’ll be a blank
-        activity with a toolbar at the top and a
+        。花半分钟来查看一下你的所有选项；这个窗口给出了布局文件的概述。这种情况下，它会是一个空白的activity，顶部带有一个工具栏，底部则是一个
         <a href="https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button"
         target="_blank" title="Floating Action Button" sl-processed="1">
-            floating action button
+            浮动的动作按钮
         </a>
-        at the bottom. Click
+        。点击
         <em>
             Next
         </em>
-        to proceed.
+        来继续。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.05.32-AM.png"
@@ -211,33 +203,31 @@
         </a>
     </p>
     <p>
-        In the
+        在
         <em>
             Customize the Activity
         </em>
-        window, which is shown in the screenshot below, you’ll have the option
-        to change
+        窗口中，就像下面所展示的一样，你可以改变
         <em>
             Activity Name
         </em>
-        ,
+        ，
         <em>
             Layout Name
         </em>
-        ,
+        ，
         <em>
             Title
         </em>
-        and
+        和
         <em>
             Menu Resource Name
         </em>
-        . For the purposes of this tutorial, keep it simple and accept the default
-        values by clicking
+        。在本教程中，让一切保持简单，点击
         <em>
             Finish
         </em>
-        .
+        以保持默认的值。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.08.40-AM.png"
@@ -249,8 +239,7 @@
         </a>
     </p>
     <p>
-        Within a short amount of time (hopefully seconds!), you’ll land on a screen
-        that looks similar to this:
+        稍等一会之后（希望是秒！）你会看到一个这样的界面：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.10.21-AM.png"
@@ -262,9 +251,7 @@
         </a>
     </p>
     <p>
-        Build and run your application and you should see a similar screen on
-        your device or emulator. Note that the emulator acts like a device, so
-        it will need time to boot and load.
+        运行你的app，你会看到一个类似的屏幕出现在你的设备或模拟器上，注意模拟器的作用就像是一个设备，因此需要时间来引导和加载。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.30.07-AM.png"
@@ -276,16 +263,14 @@
         </a>
     </p>
     <p>
-        Voila. That’s an app! There’s not much to it, but it’s enough to dive
-        into the next section.
+        瞧。一个app已经出现了！没有太多的内容，但深入到下一部分已足够了。
     </p>
     <h2>
-        Project and File Structure
+        项目和文件结构
     </h2>
     <p>
-        For this portion of the tutorial, your focus will be on the highlighted
-        section of the screenshot below. This window shows the project files of
-        your application. By default, the files are filtered to show
+        For this portion of the tutorial, your focus will be on the highlighted section of the screenshot below. 
+        This window shows the project files of your application. By default, the files are filtered to show
         <em>
             Android
         </em>
@@ -301,9 +286,9 @@
         </a>
     </p>
     <p>
-        When you select the file dropdown menu as illustrated in the screenshot
-        below, you’ll see several options to filter the files. The key filters
-        here are
+        When you select the file dropdown menu as illustrated in the screenshot below, 
+        you’ll see several options to filter the files. 
+        The key filters here are
         <em>
             Project
         </em>
@@ -318,8 +303,8 @@
         <em>
             Project
         </em>
-        filter will show you all the application modules — there is a minimum
-        of one application module in every project.
+        filter will show you all the application modules — 
+        there is a minimum of one application module in every project.
     </p>
     <p>
         Other types of modules include third-party library modules or other Android
