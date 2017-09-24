@@ -204,21 +204,20 @@
     <p>关闭AVD Manager并返回到Android Studio的主视图中。现在你已完成了所有的配置，点击<em>Run</em>按钮。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>选择一个Device</h3>
-    <p>这时会弹出一个新的窗口，要求你选择测试App所使用的设备。你当前还没有任何运行的设备，因此选择你刚刚创建的Pixel并点击<em>OK</em>。</p>
+    <p>这时会弹出一个新的窗口，要求你选择测试App所使用的设备。当前你还没有任何运行的设备，因此选择刚刚创建的Pixel并点击<em>OK</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png" alt="select deployment target" width="650" height="376" class="aligncenter size-large wp-image-162449" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-480x278.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <div class="note">
-        <p><em>Note</em>: If you get an error that says <i>This AVD’s configuration is missing a kernel file!!</i>, check to make sure that you don’t have the ANDROID_SDK_ROOT environment variable set from a previous installation of the Android SDK. See <a href="http://stackoverflow.com/questions/9712605/emulator-error-this-avds-configuration-is-missing-a-kernel-file/10775330#10775330" sl-processed="1">this thread</a> on Stack Overflow for more troubleshooting tips.</p>
+        <p><em>注意</em>：如果你遇到了一个错误<i>This AVD’s configuration is missing a kernel file!!</i>，请检查先前安装的Android SDK是否包含ANDROID_SDK_ROOT环境变量。可以在Stack Overflow查看<a href="http://stackoverflow.com/questions/9712605/emulator-error-this-avds-configuration-is-missing-a-kernel-file/10775330#10775330" sl-processed="1">此问题</a>的相关探讨。</p>
     </div>
-    <p>In the event that it doesn’t work the first time or takes several minutes for the emulator to fire up correctly, don’t worry, that’s not entirely unexpected. Stick with it. Once it’s ready, you should see something like this:</p>
+    <p>不要担心，第一次不能正常地工作，或花费几分钟让模拟器正确地启动起来，都并非是意料之外。坚持下去，完成之后，你会看到如下的界面：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-315x500.png" alt="mobile app 2" width="315" height="500" class="aligncenter size-large wp-image-162456" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-315x500.png 315w, https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2-202x320.png 202w, https://koenig-media.raywenderlich.com/uploads/2017/05/mobile-app-2.png 800w" sizes="(max-width: 315px) 100vw, 315px"></a></p>
-    <p>Whoa. You just made your first Android app.</p>
+    <p>哇。你刚刚已制作了你的第一个Android app。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" alt="So you're an Android developer now?" width="338" height="230" class="aligncenter size-full wp-image-122394"></a></p>
-    <h3>The Emulator Toolbar</h3>
-    <p>As you may have noticed, there’s a panel on the right side of the emulator. That is the emulator toolbar. The toolbar lets you perform various <a href="https://developer.android.com/studio/run/emulator.html#tasks" target="_blank" sl-processed="1">tasks</a>
-    such as Taking screenshots, Screen rotation, Volume control and perform extended functionalities such as simulating device location, phone calls, message sending, finger print etc. </p>
-    <p>To access the <a href="https://developer.android.com/studio/run/emulator.html#extended" target="_blank" sl-processed="1">extended</a> functionalities, click the More (<em>…</em>) icon at the bottom of the toolbar.</p>
+    <h3>模拟器工具栏</h3>
+    <p>正如你所注意到的，模拟器的右边有一个面板。它就是模拟器的工具栏。你可以使用它执行各种<a href="https://developer.android.com/studio/run/emulator.html#tasks" target="_blank" sl-processed="1">任务</a>，诸如截图，屏幕旋转，音量控制和执行扩展的功能如模拟设备定位，来电，信息发送，指纹等等。</p>
+    <p>要访问<a href="https://developer.android.com/studio/run/emulator.html#extended" target="_blank" sl-processed="1">扩展</a>的功能，请点击屏幕底部的更多（<em>…</em>）图标。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png" alt="extended controls" width="650" height="338" class="aligncenter size-large wp-image-162457" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-480x250.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h2>Running on a Device</h2>
+    <h2>在设备上运行</h2>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" sl-processed="1"><img class="alignright size-full wp-image-120237" src="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" alt="androiddevoptions" width="259" height="463"></a></p>
     <p>If you have an Android device you want to run your app on, follow the animated GIF on the right. It demonstrates how to enable developer mode on your device.</p>
     <p>Here are the step-by-step instructions to enable <em>Developer Mode</em> on an Android device:</p>
