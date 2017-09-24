@@ -26,7 +26,7 @@
     <h2>安装Java</h2>
     <p>记住刚提到的一切，让我们来快速检查一个你是否已安装了Java开发的工具包（JDK）。你最好使用值得信赖的老版<em>Terminal</em>来完成检查。</p>
     <div class="note">
-        <p><em>注意</em>：你将在接下来的几段中了解到本教程的基本步骤，但如果你想要深入了解Terminal的知识，你可以在这篇博客<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank" title=" teamtreehouse.com " sl-processed="1">teamtreehouse.com</a>中找到一个很好介绍性的教程。</p>
+        <p><em>注意</em>：你将在接下来的几段中了解到本教程的基本步骤，但如果你想要深入了解Terminal的知识，你可以在这篇博客<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" target="_blank" title=" teamtreehouse.com" sl-processed="1">teamtreehouse.com</a>中找到一个很好介绍性的教程。</p>
     </div>
     <h3>Terminal</h3>
     <p>简单地说，使用Terminal就像是你在车罩下面看。这时你是在真正面对面地了解机器，没有任何复杂的图形界面。</p>
@@ -264,24 +264,24 @@
     <h2>导入已存在的项目</h2>
     <p>在你开发Android的过程中，你会经常需要导入已存在的项目。以下是导入一个项目的具体步骤：</p>
     <ol>
-        <li>下载 <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this " sl-processed="1 ">这个项目</a>作为你的测试对象。</li>
+        <li>下载 <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this" sl-processed="1">这个项目</a>作为你的测试对象。</li>
         <li>下载完毕后，解压其内容，并将它存放到一个容易获取的地方。</li>
         <li>在Android Studio中，点击<em>File/New/Import Project…</em>。</li>
         <li>弹出了一个被标记为<em>Select Eclipse or Gradle Project to Import</em>的窗口。选择在第一步中解压出的项目并点击<em>OK</em>。</li>
-        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png" sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px "></a></p>
+        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png" sl-processed="1"><img class="aligncenter size-large wp-image-120323" src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM" width="469" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px"></a></p>
         <li>完成导入之后，你会看到如下面图片中的样子。选择左侧面板中的<em>Project</em>tab，就像下面截图中所示的一样。</li>
-        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png" sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
+        <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png" sl-processed="1"><img class="aligncenter size-large wp-image-120324" src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM" width="581" height="500" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w" sizes="(max-width: 581px) 100vw, 581px"></a></p>
         <li>现在你就可以在项目浏览器中看到刚导入项目中所有的文件了。</li>
     </ol>
-    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png" alt="import_explorer " width="700 " height="500 " class="aligncenter size-large wp-image-121000 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w " sizes="(max-width:700px) 100vw, 700px "></a></p>
+    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png" alt="import_explorer" width="700" height="500" class="aligncenter size-large wp-image-121000" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w" sizes="(max-width:700px) 100vw, 700px"></a></p>
     <p>运行项目吧！点击工具栏中的<em>Run</em>按钮，并选择你之前设置好的一个设备或模拟器即可。</p>
-    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png" alt="card_view_run " width="299 " height="500 " class="aligncenter size-large wp-image-121001 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png 299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png 722w " sizes="(max-width: 299px) 100vw, 299px "></a></p>
+    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png" alt="card_view_run" width="299" height="500" class="aligncenter size-large wp-image-121001" srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png 299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png 722w" sizes="(max-width: 299px) 100vw, 299px"></a></p>
     <h2>从这儿去向哪里？</h2>
-    <div class="inline-video-ad " id="sub-banner-inline ">
-        <div class="inline-video-ad-wrapper ">
-            <a href="https://videos.raywenderlich.com/courses " sl-processed="1 ">
-                <div class="col-wrapper ">
-                    <div class="col ">
+    <div class="inline-video-ad" id="sub-banner-inline">
+        <div class="inline-video-ad-wrapper">
+            <a href="https://videos.raywenderlich.com/courses" sl-processed="1">
+                <div class="col-wrapper">
+                    <div class="col">
                         <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png">
                     </div>
                     <div class="col large-col">
@@ -299,5 +299,5 @@
     </div>
     <p>你已在这篇教程中学到了很多基础的内容：从下载和安装Android Studio，到创建你的第一个“Hello World!” app，再到将它不熟到一个屋里的设备上！</p>
     <p>继续阅读本系列的<a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">下一部分</a>，你将从中开启一段Android Studio的旅程。</p>
-    <p>在此期间，就像其它的语言或框架一样，Android的开发者社区拥有大量优秀的资源和参考文档。记住，任何时候访问Google的<a href="https://events.google.com/io/ " target="_blank " title="Google I/O " sl-processed="1">I/O conference</a>，<a href="http://android-developers.blogspot.com/ " target="_blank " title="Android Developers blog " sl-processed="1">Android Developers blog</a>或<a href="https://www.youtube.com/user/androiddevelopers " target="_blank " title="Android Developer videos" sl-processed="1 ">Android Developer videos</a>都不会太晚。</p>
+    <p>在此期间，就像其它的语言或框架一样，Android的开发者社区拥有大量优秀的资源和参考文档。记住，任何时候访问Google的<a href="https://events.google.com/io/" target="_blank" title="Google I/O" sl-processed="1">I/O conference</a>，<a href="http://android-developers.blogspot.com/" target="_blank" title="Android Developers blog" sl-processed="1">Android Developers blog</a>或<a href="https://www.youtube.com/user/androiddevelopers" target="_blank" title="Android Developer videos" sl-processed="1">Android Developer videos</a>都不会太晚。</p>
 </div>

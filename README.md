@@ -62,13 +62,13 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/154676/android-studio-tutorial-introduction"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20Two%20Using%20Android%20Studio.md"
             sl-processed="1">
                 开始Android开发教程第二部分：使用Android Studio
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
             sl-processed="1">
                 开始Android开发教程第一部分：安装Android Studio
             </a>
