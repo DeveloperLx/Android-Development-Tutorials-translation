@@ -174,38 +174,37 @@
     <p>你可以配置多个模拟器，并为每个模拟器设置屏幕的尺寸和平台的版本。由于设备是如此得多，你可能需要一整个房间来进行储存 - ok，可能有一点夸张，但你会有这样的想法。:]</p>
     <p>如果你之前是通过标准的安装过程完成了设置向导，现在就已经有一个模拟器准备好了。</p>
     <p>目前为止，你的计算机不得不模拟你在Android设备上执行的所有事，直到使用基于ARM的硬件前为止。大多数的计算机使用的都是基于x86的处理器，这就意味着你的计算机不得不将每条指令翻译成基于ARM处理器可以理解的，这样就会占用不少的时间。为了降低这个开销，Android Studio最近采取了HAXM驱动，它可以加速这个过程。</p>
-    <p>You still have the option to create an emulator that is as close to an actual device as you can, but be aware that the initial load times can drag a bit and have put off many an Android developer from using emulators at all.</p>
-    <p>With all that being said…let’s set up an emulator anyway, because you do need to know how!</p>
+    <p>你仍然可以创建尽可能接近于实际设备的模拟器，但注意初始化加载的时间可能会久一些，这使得很多Android的开发者不愿使用模拟器。</p>
+    <p>说了这么多之后...无论如何让我们来配置一个模拟器，因为你需要知道如何去做！</p>
     <h3>创建模拟器</h3>
-    <p>Click the <em>AVD Manager</em>. It’s a button near the right side of the toolbar that shows an Android popping its head up next to a device with a purple display:</p>
+    <p>点击<em>AVD Manager</em>。它是靠近工具栏右边的一个紫色的按钮，上面还有一个Android的小小的头像：</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png" alt="avd manager" width="650" height="236" class="aligncenter size-large wp-image-162281" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-650x236.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-480x174.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager.png 1180w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>The AVD Manager will open to a screen with an option to create a new device:</p>
+    <p>AVD Manager会打开一个页面，上面带有一个创新新设备的选项：:</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-650x327.png" alt="avd manager 2" width="650" height="327" class="aligncenter size-large wp-image-162282" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-650x327.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-manager-2-480x242.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h3>Virtual Device</h3>
-    <p>Click the <em>Create Virtual Device…</em> button to start the process of creating a new virtual device. </p>
-    <p>The first step is to select the type of device. The <em>Category</em> section, on the left side of the screen, shows a list of the different device types you can emulate(TV, Wear, Phone, Tablet). Make sure the <em>Phone</em> option is selected. In the middle of the screen, there is a list of specific devices with their screen size, resolution and density. Take a moment to explore them. </p>
+    <p>点击<em>Create Virtual Device…</em>按钮就可以去开始创建一个新的虚拟设备了。</p>
+    <p>第一步是选择设备的类型。在左侧的<em>Category</em>中，展示了一个你能够模拟的（TV，Wear，Phone，Tablet）不同类型设备的列表。选中<em>Phone</em>这个选项。在这页的中部，有一个附带其屏幕尺寸的设备的列表，分辨率和像素密度。让我们花一点时间来探索吧。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-640x500.png" alt="select hardware" width="640" height="500" class="aligncenter size-large wp-image-162444" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-640x500.png 640w, https://koenig-media.raywenderlich.com/uploads/2017/05/select-hardware-410x320.png 410w" sizes="(max-width: 640px) 100vw, 640px"></a></p>
-    <p>What you need now is just to emulate a phone-sized device, but if you wanted to emulate an Android Wear watch or an Android
-        TV then you have options to do so here. </p>
-    <p>Select <em>Pixel</em> in the list of devices available to you from the phone category and click <em>Next</em>.</p>
-    <h2>Select Android Version</h2>
-    <p>On the next screen, you have to select the version of Android the virtual device will run.</p>
-    <p>For this tutorial, select <em>Nougat</em> and make sure the one selected has the value <em>x86</em> in the <em>ABI</em>        column so the emulator runs as fast as possible on your x86 computer.</p>
+    <p>你现在需要的只是模拟手机大小的设备，但如果想要模拟Android Wear手表或Android TV的话，你也可以在这里选择。</p>
+    <p>从phone的category，设备列表中选择对你可用的<em>Pixel</em>，并点击<em>Next</em>。</p>
+    <h2>选择Android版本</h2>
+    <p>在下一页中，你要选择Android设备将要运行的Android系统的版本。</p>
+    <p>在本教程中，选择<em>Nougat</em>，并确保选中的值在<em>ABI</em>这列中的值为<em>x86</em>，这种模拟器就可以在你的x86计算机上尽可能地运行。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-642x500.png" alt="system_image_2" width="642" height="500" class="aligncenter size-large wp-image-162428" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-642x500.png 642w, https://koenig-media.raywenderlich.com/uploads/2017/05/system_image_2-411x320.png 411w" sizes="(max-width: 642px) 100vw, 642px"></a></p>
     <div class="note">
-        <p><em>Note</em>: If that version is not already downloaded, click on the Download link beside the release name to download before you continue.</p>
+        <p><em>注意</em>：如果这个版本还未下载，请点击旁边的下载链接，待下载完成之后再继续后续的工作。</p>
     </div>
-    <p>Click <em>Next</em> once you’re done to advance to the final screen.</p>
-    <h2>Verify Virtual Device</h2>
-    <p>The last screen lets you confirm your choices and gives options to configure some other properties such as device name and startup orientation. Clicking the <em>Show Advanced Settings</em> button, shows you extra configurations you can change such as Camera, Network and Memory settings.</p>
+    <p>完成本页的配置后，点击<em>Next</em>前进到最后一页。</p>
+    <h2>验证虚拟设备</h2>
+    <p>最后一页用来确认你的选择，并给出了一些配置其它属性的选项，诸如设备名称和启动时的方向等。点击<em>Show Advanced Settings</em>按钮，还可以展示更多诸如相机、网络和内存的设置等的额外配置。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-confirm_pixel-1.gif" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-confirm_pixel-1.gif" alt="avd_confirm_pixel" width="642" height="500" class="aligncenter size-large wp-image-162443"></a></p>
-    <p>Use the defaults and click <em>Finish</em>.</p>
+    <p>使用默认的选项并点击<em>Finish</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-642x500.png" alt="verify configuration pixel" width="642" height="500" class="aligncenter size-large wp-image-162447" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-642x500.png 642w, https://koenig-media.raywenderlich.com/uploads/2017/05/verify-configuration-pixel-411x320.png 411w" sizes="(max-width: 642px) 100vw, 642px"></a></p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-list-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-list-pixel-650x327.png" alt="avd list" width="650" height="327" class="aligncenter size-large wp-image-162448" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/avd-list-pixel-650x327.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/avd-list-pixel-480x242.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Close the AVD Manager to go back to Android Studio’s main view. Now that you’ve configured everything, click the <em>Run</em>        button.</p>
+    <p>关闭AVD Manager并返回到Android Studio的主视图中。现在你已完成了所有的配置，点击<em>Run</em>按钮。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <h3>Selecting a Device</h3>
-    <p>A new window will appear, asking you to choose the device you wish to test your App on. You currently have no devices running, so select the Pixel you just created and click <em>OK</em>. </p>
+    <h3>选择一个Device</h3>
+    <p>这时会弹出一个新的窗口，要求你选择测试App所使用的设备。你当前还没有任何运行的设备，因此选择你刚刚创建的Pixel并点击<em>OK</em>。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png" alt="select deployment target" width="650" height="376" class="aligncenter size-large wp-image-162449" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-650x376.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/select-deployment-target-pixel-480x278.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <div class="note">
         <p><em>Note</em>: If you get an error that says <i>This AVD’s configuration is missing a kernel file!!</i>, check to make sure that you don’t have the ANDROID_SDK_ROOT environment variable set from a previous installation of the Android SDK. See <a href="http://stackoverflow.com/questions/9712605/emulator-error-this-avds-configuration-is-missing-a-kernel-file/10775330#10775330" sl-processed="1">this thread</a> on Stack Overflow for more troubleshooting tips.</p>
@@ -215,106 +214,76 @@
     <p>Whoa. You just made your first Android app.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-05-at-6.44.38-PM.png" alt="So you're an Android developer now?" width="338" height="230" class="aligncenter size-full wp-image-122394"></a></p>
     <h3>The Emulator Toolbar</h3>
-    <p>As you may have noticed, there’s a panel on the right side of the emulator. That is the emulator toolbar. The toolbar
-        lets you perform various <a href="https://developer.android.com/studio/run/emulator.html#tasks" target="_blank" sl-processed="1">tasks</a>        such as Taking screenshots, Screen rotation, Volume control and perform extended functionalities such as simulating
-        device location, phone calls, message sending, finger print etc. </p>
-    <p>To access the <a href="https://developer.android.com/studio/run/emulator.html#extended" target="_blank" sl-processed="1">extended</a>        functionalities, click the More (<em>…</em>) icon at the bottom of the toolbar.</p>
+    <p>As you may have noticed, there’s a panel on the right side of the emulator. That is the emulator toolbar. The toolbar lets you perform various <a href="https://developer.android.com/studio/run/emulator.html#tasks" target="_blank" sl-processed="1">tasks</a>
+    such as Taking screenshots, Screen rotation, Volume control and perform extended functionalities such as simulating device location, phone calls, message sending, finger print etc. </p>
+    <p>To access the <a href="https://developer.android.com/studio/run/emulator.html#extended" target="_blank" sl-processed="1">extended</a> functionalities, click the More (<em>…</em>) icon at the bottom of the toolbar.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png" alt="extended controls" width="650" height="338" class="aligncenter size-large wp-image-162457" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-650x338.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/extended-controls-480x250.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <h2>Running on a Device</h2>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" sl-processed="1"><img class="alignright size-full wp-image-120237" src="https://koenig-media.raywenderlich.com/uploads/2015/11/androiddevoptions.gif" alt="androiddevoptions" width="259" height="463"></a></p>
-    <p>If you have an Android device you want to run your app on, follow the animated GIF on the right. It demonstrates how
-        to enable developer mode on your device.</p>
+    <p>If you have an Android device you want to run your app on, follow the animated GIF on the right. It demonstrates how to enable developer mode on your device.</p>
     <p>Here are the step-by-step instructions to enable <em>Developer Mode</em> on an Android device:</p>
     <ol>
         <li>Go to <em>Settings</em> on your device. </li>
         <li>Scroll all the way down and select <em>About phone.</em></li>
-        <li>Scroll to <em>Build number</em> and tap in multiple times. You’ll see a toast come up that states “You’re <i>n</i>            steps away from becoming a developer”. Keep tapping and it will change to “You’re now a developer!” once it’s
-            enabled. </li>
-        <li>Go back to <em>Settings</em> screen and scroll all the way to the bottom. You’ll now see <em>Developer Options</em>            enabled. </li>
+        <li>Scroll to <em>Build number</em> and tap in multiple times. You’ll see a toast come up that states “You’re <i>n</i> steps away from becoming a developer”. Keep tapping and it will change to “You’re now a developer!” once it’s enabled. </li>
+        <li>Go back to <em>Settings</em> screen and scroll all the way to the bottom. You’ll now see <em>Developer Options</em> enabled. </li>
         <li>Select <em>Developer Options</em>. Next, turn on the <em>USB debugging</em> switch under the <em>Debugging</em> section.
         </li>
         <li>Connect your device to your computer via USB.</li>
         <li>Your phone will prompt you to confirm this option via a dialog that states <em>Allow USB debugging?</em> — click
             <em>OK</em>.</li>
-        <li>Next, the phone will ask you to register your computer’s RSA key fingerprint. If this is a trusted machine, then
-            check the <em>Always allow from this computer</em> option. </li>
+        <li>Next, the phone will ask you to register your computer’s RSA key fingerprint. If this is a trusted machine, then check the <em>Always allow from this computer</em> option. </li>
     </ol>
     <p>Now that you’ve configured your device, click the <em>Run</em> button.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>Just like before, you’ll get a prompt from the <em>Select Deployment Target</em> dialog. The device should now appear
-        in this dialog. Select it and click <em>OK</em>.</p>
+    <p>Just like before, you’ll get a prompt from the <em>Select Deployment Target</em> dialog. The device should now appear in this dialog. Select it and click <em>OK</em>.</p>
     <p>Ahh…isn’t it rewarding to see the app on your device? Go ahead and show it off to your friends. :]</p>
     <div class="note">
-        <p><em>Note</em>: If the app is already running, you might not get the prompt. This is because of a new functionality
-            in Android Studio know as <em>Instant Run</em>. We’ll talk about it in the next section of this tutorial. Close
-            the emulator, go back and click the <em>Run</em> button again.</p>
+        <p><em>Note</em>: If the app is already running, you might not get the prompt. This is because of a new functionality in Android Studio know as <em>Instant Run</em>. We’ll talk about it in the next section of this tutorial. Close the emulator, go back and click the <em>Run</em> button again.</p>
     </div>
     <h2>Instant Run</h2>
-    <p>From version 2.0 of Android Studio, a new functionality was introduced called <em>Instant Run</em>. Instant Run allows
-        you to push updates (code and resources) to a running app on a device or emulator without performing a full reinstall.
-        By doing this, you are able to view your changes in a shorter time.</p>
-    <p>There are three kinds of changes you can make to your code: a hot swap, warm swap, or cold swap. Instant Run pushes updates
-        by performing one of the following, depending on the kind of change you made: </p>
+    <p>From version 2.0 of Android Studio, a new functionality was introduced called <em>Instant Run</em>. Instant Run allows you to push updates (code and resources) to a running app on a device or emulator without performing a full reinstall. By doing this, you are able to view your changes in a shorter time.</p>
+    <p>There are three kinds of changes you can make to your code: a hot swap, warm swap, or cold swap. Instant Run pushes updates by performing one of the following, depending on the kind of change you made: </p>
     <ol>
-        <li><em>Hot Swap</em>: This applies to method changes. Your app continues to run but uses a stub method with the changes
-            performed the next time the relevant method is called. This is the fastest swap.</li>
-        <li><em>Warm Swap</em>: This swap applies to resource changes. With this, your the current activity will restart to update
-            the changed resources.</li>
-        <li><em>Cold Swap</em>: With this, Instant run restarts the whole app even though it does not perform a re-install. This
-            swap applies to structural code changes</li>
+        <li><em>Hot Swap</em>: This applies to method changes. Your app continues to run but uses a stub method with the changes performed the next time the relevant method is called. This is the fastest swap.</li>
+        <li><em>Warm Swap</em>: This swap applies to resource changes. With this, your the current activity will restart to update the changed resources.</li>
+        <li><em>Cold Swap</em>: With this, Instant run restarts the whole app even though it does not perform a re-install. This swap applies to structural code changes</li>
     </ol>
     <h3>Testing Instant Run</h3>
     <p>Go ahead and try out Instant Run.</p>
-    <p>To enable Instant Run, select <em>Android Studio \ Preferences \ Build, Execution, Deployment \ Instant Run</em>. Ensure
-        that <em>Enable Instant Run to hot swap code/resource changes on deploy</em> is checked and that <em>Restart activity on code changes</em>        is unchecked.</p>
+    <p>To enable Instant Run, select <em>Android Studio \ Preferences \ Build, Execution, Deployment \ Instant Run</em>. Ensure that <em>Enable Instant Run to hot swap code/resource changes on deploy</em> is checked and that <em>Restart activity on code changes</em> is unchecked.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-650x379.png" alt="" width="650" height="379" class="aligncenter size-large wp-image-162460" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-650x379.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-480x280.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>If your app is not yet running, launch it by clicking the <em>Run</em> button, and wait for it to launch.</p>
     <p>When the app is running, the <em>Apply Changes</em> button on the right side of the <em>Run</em> becomes enabled.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-650x168.png" alt="" width="650" height="168" class="aligncenter size-large wp-image-162464" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-650x168.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM-480x124.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screen-Shot-2017-05-20-at-7.52.44-PM.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
-    <p>As your app is now running, clicking on the floating button, shows the message, <em>Replace with your own action</em>        at the bottom of the screen.</p>
+    <p>As your app is now running, clicking on the floating button, shows the message, <em>Replace with your own action</em> at the bottom of the screen.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162465" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/instant-run-screenshot-1.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
     <p>Change that message to test out Instant Run.</p>
     <p>Open <em>MainActivity</em>, in the <em>onCreate()</em> method, replace the text: <em>Replace with your own action</em>        with <em>Hello Instant Run</em>. </p>
     <p>Then click the <em>Apply Changes</em>. Now when you click the button, you will see the new message. This is an example
         of a hot swap.</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png" alt="" width="281" height="500" class="aligncenter size-large wp-image-162467" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/05/Screenshot_1495312374.png 1080w" sizes="(max-width: 281px) 100vw, 281px"></a></p>
-    <p>Instant Run helps you code faster by significantly reducing the time it takes to update your app with code and resource
-        changes. </p>
+    <p>Instant Run helps you code faster by significantly reducing the time it takes to update your app with code and resource  changes. </p>
     <h2>Importing an Existing Project</h2>
-    <p>During your Android app-making journey, you’ll find times where you need to import existing projects. The steps below
-        will guide you through how to import a project:</p>
+    <p>During your Android app-making journey, you’ll find times where you need to import existing projects. The steps below will guide you through how to import a project:</p>
     <ol>
         <li>Download
-            <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this " sl-processed="1 ">this</a>            project to use as your test subject. </li>
+            <a href="https://developer.android.com/downloads/samples/CardView.zip" title="this " sl-processed="1 ">this</a> project to use as your test subject. </li>
         <li>Once downloaded, unzip the contents and place them somewhere easy to get to. </li>
         <li>In Android Studio, go to <em>File/New/Import Project…</em>.</li>
-        <li>A window labeled <em>Select Eclipse or Gradle Project to Import</em> will appear. Select the unzipped project from
-            Step 1 and click <em>OK</em>.</li>
+        <li>A window labeled <em>Select Eclipse or Gradle Project to Import</em> will appear. Select the unzipped project from Step 1 and click <em>OK</em>.</li>
         <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png
-                " sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png
-                " alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png
-                469w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png
-                300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w
-                " sizes="(max-width: 469px) 100vw, 469px "></a></p>
+                " sl-processed="1 "><img class="aligncenter size-large wp-image-120323 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png" alt="Screen Shot 2015-11-09 at 2.42.57 PM " width="469 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-469x500.png 469w https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM-300x320.png 300w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.42.57-PM.png 1176w" sizes="(max-width: 469px) 100vw, 469px "></a></p>
         <li>After Android Studio finishes importing, you’ll be dropped off on the screen below. Select the <em>Project</em> tab
             on the left panel as shown in the screenshot below. </li>
         <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM.png
-                " sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png
-                " alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png
-                581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png
-                372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
+                " sl-processed="1 "><img class="aligncenter size-large wp-image-120324 " src="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png" alt="Screen Shot 2015-11-09 at 2.43.30 PM " width="581 " height="500 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-581x500.png 581w, https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-09-at-2.43.30-PM-372x320.png 372w " sizes="(max-width: 581px) 100vw, 581px "></a></p>
         <li>You’ll now see all the necessary files of the imported project in the project explorer. </li>
     </ol>
-    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png
-                " alt="import_explorer " width="700 " height="500 " class="aligncenter size-large wp-image-121000 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png
-                700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w " sizes="(max-width:
-                700px) 100vw, 700px "></a></p>
+    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png" alt="import_explorer " width="700 " height="500 " class="aligncenter size-large wp-image-121000 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-700x500.png 700w, https://koenig-media.raywenderlich.com/uploads/2015/11/import_explorer-448x320.png 448w " sizes="(max-width:700px) 100vw, 700px "></a></p>
     <p>It’s build and run time! Click the <em>Run</em> button in the toolbar and select either the emulator or device you’ve
         already set up.</p>
-    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png
-                " alt="card_view_run " width="299 " height="500 " class="aligncenter size-large wp-image-121001 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png
-                299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png
-                722w " sizes="(max-width: 299px) 100vw, 299px "></a></p>
+    <p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png " sl-processed="1 "><img src="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png" alt="card_view_run " width="299 " height="500 " class="aligncenter size-large wp-image-121001 " srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-299x500.png 299w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run-192x320.png 192w, https://koenig-media.raywenderlich.com/uploads/2015/11/card_view_run.png 722w " sizes="(max-width: 299px) 100vw, 299px "></a></p>
     <h2>Where To Go From Here?</h2>
     <div class="inline-video-ad " id="sub-banner-inline ">
         <div class="inline-video-ad-wrapper ">
