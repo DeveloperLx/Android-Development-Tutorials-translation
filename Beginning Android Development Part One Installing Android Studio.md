@@ -222,18 +222,17 @@
     <p>如果你拥有Android的设备，并且你想要在上面运行你的app，请跟随上面的GIF动画。它演示了如何在你的设备上打开开发者模式。</p>
     <p>以下是在Android设备上打开<em>开发者模式</em>的分步骤介绍：</p>
     <ol>
-        <li>Go to <em>Settings</em> on your device. </li>
-        <li>Scroll all the way down and select <em>About phone.</em></li>
-        <li>Scroll to <em>Build number</em> and tap in multiple times. You’ll see a toast come up that states “You’re <i>n</i> steps away from becoming a developer”. Keep tapping and it will change to “You’re now a developer!” once it’s enabled. </li>
-        <li>Go back to <em>Settings</em> screen and scroll all the way to the bottom. You’ll now see <em>Developer Options</em> enabled. </li>
-        <li>Select <em>Developer Options</em>. Next, turn on the <em>USB debugging</em> switch under the <em>Debugging</em> section.
+        <li>打开你设备中的<em>Settings</em>。</li>
+        <li>向下滚动，找到并选择<em>About phone</em>。</li>
+        <li>滚动找到<em>Build number</em>并点击多次。你会看到一个toast提示到“You’re <i>n</i> steps away from becoming a developer”。继续点击，并当提示语改变为“You’re now a developer!”后，开发者模式就打开了。</li>
+        <li>找到<em>Settings</em>页并滚动到页面底部。你现在会看到<em>Developer Options</em>已处于打开状态了。</li>
+        <li>选择<em>Developer Options</em>。接下来，在<em>Debugging</em>部分中打开<em>USB debugging</em>开关。
         </li>
-        <li>Connect your device to your computer via USB.</li>
-        <li>Your phone will prompt you to confirm this option via a dialog that states <em>Allow USB debugging?</em> — click
-            <em>OK</em>.</li>
-        <li>Next, the phone will ask you to register your computer’s RSA key fingerprint. If this is a trusted machine, then check the <em>Always allow from this computer</em> option. </li>
+        <li>通过USB把你的设备连接到计算机上。</li>
+        <li>你的手机会弹出一个对话框<em>Allow USB debugging?</em>来提示你确认这个选项 - 点击<em>OK</em>。</li>
+        <li>接下来，你的手机会要求你注册计算机的RSA秘钥指纹。如果这是受信任的机器，请点击<em>Always allow from this computer</em>选项。</li>
     </ol>
-    <p>Now that you’ve configured your device, click the <em>Run</em> button.</p>
+    <p>现在你的设备已配置完毕，点击<em>Run</em>按钮。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png" alt="run app" width="650" height="180" class="aligncenter size-large wp-image-162437" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-650x180.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app-480x133.png 480w, https://koenig-media.raywenderlich.com/uploads/2017/05/run-app.png 1296w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>Just like before, you’ll get a prompt from the <em>Select Deployment Target</em> dialog. The device should now appear in this dialog. Select it and click <em>OK</em>.</p>
     <p>Ahh…isn’t it rewarding to see the app on your device? Go ahead and show it off to your friends. :]</p>
