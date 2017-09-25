@@ -438,53 +438,40 @@
         <code>
             uses-permission
         </code>
-        : requests a special permission that must be granted to the application
-        in order for it to operate correctly. For example, an app must request
-        permission from the user in order to access the Internet—in this case you
-        must specify the
+        ：你的app需要请求系统某些特定的权限，才能正确地执行某项操作。例如，一个app必须向用户请求许可才能够访问因特网 - 因此你就要请求
         <code>
             android.permission.INTERNET
         </code>
-        permission.
+        的许可。
     </li>
     <li>
         <code>
             activity
         </code>
-        : declares an activity that implements part of the application’s visual
-        user interface and logic. Every activity that your app uses must appear
-        in the manifest—undeclared activities won’t be seen by the system and sadly,
-        they’ll never run.
+        ：声明一个实现了部分用户界面和逻辑的activity。你的app用到的每个activity都必须出现在manifest中 - 未声明的activity是无法被系统看到的，更可悲的是它们永远都不会被运行。
     </li>
     <li>
         <code>
             service
         </code>
-        : declares a service that you’re going to use to implement long-running
-        background operations or a rich communications API that can be called by
-        other applications. An example includes a network call to fetch data for
-        your application. Unlike activities, services have no user interface.
+        ：声明一个service，用来实现你将要长期运行在后台的操作，或是可以被其它app调用的丰富的API。一个例子就是为你的app调用网络来获取数据。不像activity，service是没有用户界面的。
     </li>
     <li>
         <code>
             receiver
         </code>
-        : declares a broadcast receiver that enables applications to receive intents
-        broadcast by the system or by other applications, even when other components
-        of the application are not running. One example of a broadcast receiver
-        would be when the battery is low and you get a system notification within
-        your app, allowing you to write logic to respond.
+        ：声明一个broadcast接收器，它可以让你的app接收来自系统或其它app的代表一定含义的broadcast，即使app的其它组件还未运行。一个例子就是，当电量低的时候，就会在app中获取到一个系统的通知，你就可以撰写逻辑来做出响应。
     </li>
     <p>
-        You can find a full list of tags allowed in the manifest file
+        你可以在Android开发者网站的
         <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html"
         target="_blank" title="" sl-processed="1">
-            here
+            这里
         </a>
-        on the Android Developer site.
+        ，找到manifest文件允许的标签的完整列表。
     </p>
     <h3>
-        Configuring the Manifest
+        配置Manifest
     </h3>
     <p>
         You’re currently looking at an excellent example of a framework, but a
