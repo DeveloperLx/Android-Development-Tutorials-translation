@@ -474,21 +474,18 @@
         配置Manifest
     </h3>
     <p>
-        你当前正在看着一个框架的优秀例子，而不是一个可怕的算命先生；你在这里是因为你想要了解如何玩转Android。这很方便，因为manifest需要一些变化，你可以之后再看。
+        你现在看到的已经是一个优秀的框架的例子，但它无法成为一个厉害的算命先生；你在这里是因为你想要了解如何玩转Android。这是非常方便的，因为manifest需要一些变化，你可以再将来进一步地看。
     </p>
     <p>
-        Under
+        在
         <code>
             activity
         </code>
-        , add the following attribute:
+        下，添加下列的属性：
         <code>
             android:screenOrientation="portrait"
         </code>
-        . to restrict the screen to portrait mode only. If it’s absent, the screen
-        will transform to landscape or portrait mode depending on the device’s
-        orientation. After adding this attribute, your manifest file should look
-        like the screenshot below:
+        ，来限制屏幕只可以是垂直的模式。如果没有这项的话，屏幕就会依赖设备的方向来确定它是横向还是纵向。在添加这个attribute后，你的manifest文件看起来应当就像下面这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/12/manifest-700x478.png"
@@ -497,16 +494,14 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Build and run the app. If you’re testing on your device, rotate your phone.
-        Notice that the screen doesn’t transform into landscape mode as you have
-        restricted this capability in the
+        运行app。旋转你的手机。注意，由于你在
         <em>
             AndroidManifest
         </em>
-        file.
+        文件中限制了这项能力，你的屏幕就不会再旋转至横向模式了。
     </p>
     <h3>
-        Overview of Gradle
+        Gradle的概览
     </h3>
     <p>
         Let’s shift gears to Gradle. In a nutshell, it’s a build system that’s
