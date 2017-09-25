@@ -380,7 +380,7 @@
         <em>
             manifests
         </em>
-        目录中。这个XML文件会告知系统你的app有哪些需要，并且它必须存在，Android系统才能构建你的app。
+        目录中。这个XML文件会告知系统你app的需要，并且它必须存在，Android系统才能构建你的app。
     </p>
     <p>
         打开app的
