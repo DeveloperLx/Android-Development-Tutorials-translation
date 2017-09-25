@@ -403,38 +403,36 @@
         </a>
     </p>
     <p>
-        The
         <code>
             manifest
         </code>
-        and
+        和
         <code>
             application
         </code>
-        tags are required in the manifest file and must only appear once.
+        标签都必须出现在manifest文件中且只能出现一次。
     </p>
     <p>
-        In addition to the element name, each tag also defines a set of attributes.
-        For example, some of the many attributes in the
+        除了元素的名称，每个标签还会定义一组属性。例如，在
         <code>
             application
         </code>
-        tag are:
+        标签中的属性就有：
         <code>
             android:icon
         </code>
-        ,
+        ，
         <code>
             android:label
         </code>
-        and
+        和
         <code>
             android:theme
         </code>
-        .
+        。
     </p>
     <p>
-        Other common elements that can appear in the manifest include:
+        其它会出现在manifest中的常见元素还包括：
     </p>
     <li>
         <code>
