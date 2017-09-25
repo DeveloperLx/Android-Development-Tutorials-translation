@@ -474,9 +474,7 @@
         配置Manifest
     </h3>
     <p>
-        You’re currently looking at an excellent example of a framework, 
-        but a terrible fortune teller; you’re here because you want to learn how to play around on Android. 
-        That’s rather convenient because the manifest needs some changes so you can look into the future.
+        你当前正在看着一个框架的优秀例子，而不是一个可怕的算命先生；你在这里是因为你想要了解如何玩转Android。这很方便，因为manifest需要一些变化，你可以之后再看。
     </p>
     <p>
         Under
