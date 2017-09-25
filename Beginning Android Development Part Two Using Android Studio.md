@@ -263,18 +263,17 @@
         </a>
     </p>
     <p>
-        瞧。一个app已经出现了！没有太多的内容，但深入到下一部分已足够了。
+        瞧。一个app已经出现了！没有太多的内容，但对于深入到下一部分已足够了。
     </p>
     <h2>
         项目和文件结构
     </h2>
     <p>
-        For this portion of the tutorial, your focus will be on the highlighted section of the screenshot below. 
-        This window shows the project files of your application. By default, the files are filtered to show
+        在本教程的这一部分，你将聚焦于下面截图中被红框框起的部分。这个窗口展示了你的app中的项目文件。默认情况下，这些文本会被过滤到只显示
         <em>
             Android
         </em>
-        project files.
+        项目文件的部分。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.19.58-AM.png"
@@ -286,31 +285,24 @@
         </a>
     </p>
     <p>
-        When you select the file dropdown menu as illustrated in the screenshot below, 
-        you’ll see several options to filter the files. 
-        The key filters here are
+        当你选择文件的下拉菜单时，就像下面截图中展示的一样，你会看到几个用来过滤文件的选项。这其中关键的过滤器是
         <em>
             Project
         </em>
-        and
+        和
         <em>
             Android
         </em>
-        .
+        。
     </p>
     <p>
-        The
         <em>
             Project
         </em>
-        filter will show you all the application modules — 
-        there is a minimum of one application module in every project.
+        过滤器会展示给你所有的应用模块 - 这是在所有项目中的一个最小的应用模块。
     </p>
     <p>
-        Other types of modules include third-party library modules or other Android
-        application modules (such as Android wear apps, Android TV, etc…). Each
-        module has its own complete source sets, including a gradle file, resources
-        and source files, e.g. java files.
+        其它类型的模块还包括第三方库的模块，或Android的其它应用模块（如Android wear app，Android TV等等）。每个模块都有自己完整的源集合，包括gradle文件，资源和源文件，例如java文件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-16-at-1.30.25-AM.png"
@@ -324,22 +316,21 @@
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you don’t see the project view open, you can click on the
+            ：如果没有看到项目视图的打开，你可以点击左侧面板中的
             <em>
                 Project
             </em>
-            tab on the left side panel as indicated in the screenshot above.
+            tab，就像上面截图中所展示的一样。
         </p>
     </div>
     <p>
-        The default filter is
+        默认的过滤器就是
         <em>
             Android
         </em>
-        which groups files by specific types. You’ll see the following folders
-        at the very top level:
+        它会依据特定的类型来对文件进行分组。你会在最顶层看到如下的目录：
     </p>
     <li>
         <em>
