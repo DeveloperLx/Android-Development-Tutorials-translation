@@ -474,10 +474,9 @@
         配置Manifest
     </h3>
     <p>
-        You’re currently looking at an excellent example of a framework, but a
-        terrible fortune teller; you’re here because you want to learn how to play
-        around on Android. That’s rather convenient because the manifest needs
-        some changes so you can look into the future.
+        You’re currently looking at an excellent example of a framework, 
+        but a terrible fortune teller; you’re here because you want to learn how to play around on Android. 
+        That’s rather convenient because the manifest needs some changes so you can look into the future.
     </p>
     <p>
         Under
