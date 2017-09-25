@@ -474,7 +474,7 @@
         配置Manifest
     </h3>
     <p>
-        你现在看到的已经是一个优秀的框架的例子，但它无法成为一个厉害的算命先生；你在这里是因为你想要了解如何玩转Android。这是非常方便的，因为manifest需要一些变化，你可以再将来进一步地看。
+        你现在看到的已经是一个优秀的框架的例子，但它无法成为一个厉害的算命先生；你在这里是因为你想要了解如何玩转Android。这是非常方便的，因为manifest需要一些变化，你可以在将来进一步地看。
     </p>
     <p>
         在
@@ -565,66 +565,58 @@ dependencies </span>{
 }
 </span></pre>
     <p>
-        一步一步看一下主要的部分：
+        一步一步来看下主要部分：
     </p>
     <li>
         <code>
             apply plugin: 'com.android.application'
         </code>
-        applies the Android plugin at the parent level and makes available the
-        top level build tasks required to build an Android app.
+        在父层级应用Android plugin，并使构建一个Android app所需的顶级构建任务变得可用。
     </li>
     <li>
-        Next in the
+        下面在
         <code>
             android{...}
         </code>
-        section, you get configuration options such as
+        这一部分，你会获取诸如
         <code>
             targetSdkVersion
         </code>
-        . The target SDK for your application should be kept at the latest API
-        level (
+        的配置选项。你app的target SDK应当保持在最新的API等级（如本教程发布时的
         <em>
             25
         </em>
-        as we publish this tutorial). Another important component is the
+        ）。另一个重要的部分就是
         <code>
             minSDKVersion
         </code>
-        which defines the minimum SDK version a device should have installed in
-        order to run your application. For example, if your device’s SDK version
-        was 14, then this app won’t be able to run on that device since here the
-        minimum supported version is 15.
+        ，它声明了一台设备为了运行你的app，所应当拥有的最低SDK版本。例如，如果你设备的SDK版本是14，这个app就无法运行到这个设备上了。
     </li>
     <li>
-        The last component is
+        最后一部分就是
         <code>
             dependencies{...}
         </code>
-        . The important dependencies to note are
+        了。值得去注意的重要依赖就是
         <code>
             compile 'com.android.support:appcompat-v7:VERSION'
         </code>
-        and
+        和
         <code>
             compile 'com.android.support:design:VERSION'
         </code>
-        . They provide support and compatibility with the new features from the
-        latest API to the older APIs.
+        了。它们提供了从最新API到较旧API中功能的支持和兼容性。
     </li>
     <p>
-        In addition to Android compatibility libraries, you can also add other
-        third party libraries in the
+        除了Android的兼容性库，你还可以在
         <code>
             dependencies{...}
         </code>
-        component. You’ll add an animation library where you’ll be able to add
-        some cool effects to user interface elements in your application. Find
+        的组件中添加其它的第三方库。你会添加一个动画的库，这样就可以在app的用户界面中添加一些很酷的效果。找到
         <code>
             dependencies
         </code>
-        , and add the following two lines at the bottom:
+        ，并添加下列代码到文件的底部：
     </p>
     <pre lang="java" class="language-java hljs">dependencies {
   
@@ -635,22 +627,18 @@ dependencies </span>{
 }
 </pre>
     <p>
-        Here you added two new third-party dependencies that will help you make
-        FortuneBall shine. These libraries will be automatically downloaded and
-        integrated by Android Studio.
+        这里你添加了两个新的第三方依赖，它们将帮助你的FortuneBall闪耀起来。这些库会被Android Studio自动地下载并集成。
     </p>
     <p>
-        In fact, once you add these dependencies, Android Studio realizes that
-        it needs to download them and tells you as much. Look for a bar across
-        the top of the
+        事实上，一旦你添加了这些依赖，Android Studio就会意识到需要去下载它们并告知于你。如下面的截图所示，可以查看
         <em>
             build.gradle
         </em>
-        file as shown the next screenshot. Click
+        文件顶部的一个栏。点击
         <em>
             Sync Now
         </em>
-        to integrate these dependencies in your app.
+        来将这些依赖集成到你的app中。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/12/sync-700x92.png"
@@ -659,13 +647,11 @@ dependencies </span>{
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Syncing takes couple of seconds. You can monitor the Gradle file update
-        in the
+        同步需要花费几秒钟的时间。你可以在底部面板的
         <em>
             Messages
         </em>
-        tab in the bottom panel. Look for a success message in that panel as shown
-        in the screenshot below.
+        tab中监视Gradle文件的更新。在这个面板中查找成功的消息，就如下面的截图所示。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/12/success-700x251.png"
@@ -674,12 +660,10 @@ dependencies </span>{
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <p>
-        Alright, that’s all the config you need to do to Gradle for now. The whole
-        point of this was so that you’re setup to add some fancy animations to
-        your application, which you’ll do in a bit.
+        好了，以上就是你需要为Gradle作出的所有配置。这些都是为了给你的app添加一些神奇的动画。
     </p>
     <h2>
-        Importing files
+        导入文件
     </h2>
     <p>
         An important part of making an Android app involves integrating other
