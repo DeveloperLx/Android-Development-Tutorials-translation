@@ -666,15 +666,10 @@ dependencies </span>{
         导入文件
     </h2>
     <p>
-        An important part of making an Android app involves integrating other
-        resources such as images, custom fonts, sounds, videos etc. These resources
-        have to be imported into Android Studio and must be placed in appropriate
-        folders. This allows the Android operating system to pick the correct resource
-        for your app.
+        创建Android app中的一个重要的事就是集成其它的资源，诸如图片，自定义的字体，声音，视频等等。这些资源必须被导入到Android Studio，并放置到合适的目录下，以便Android的操作系统正确地获取资源。
     </p>
     <p>
-        For Fortune Ball, you’ll be importing image assets and will place them
-        in drawable folders. Drawable folders can hold images or custom XML drawables
+        For Fortune Ball, you’ll be importing image assets and will place them in drawable folders. Drawable folders can hold images or custom XML drawables
         (i.e. you can draw shapes via XML code and use them in your app’s layouts).
     </p>
     <p>
