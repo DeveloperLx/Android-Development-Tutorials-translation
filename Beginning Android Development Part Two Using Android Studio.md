@@ -330,7 +330,7 @@
         <em>
             Android
         </em>
-        它会依据特定的类型来对文件进行分组。你会在最顶层看到如下的目录：
+        它会依据特定的类型来对文件进行分组。你会在顶层看到如下的目录：
     </p>
     <li>
         <em>
@@ -362,37 +362,36 @@
         </a>
     </p>
     <p>
-        You’ll take a deeper dive into each of these folders, starting with the
+        你会深入地了解其中的每一个目录，从下一部分所提到的
         <em>
             manifests
         </em>
-        in the next section.
+        开始。
     </p>
     <h2>
-        Overview of the AndroidManifest.xml
+        AndroidManifest.xml的概述
     </h2>
     <p>
-        Every Android application contains the
+        每个Android的app都包含一个
         <em>
             AndroidManifest.xml
         </em>
-        file found in the
+        文件在
         <em>
             manifests
         </em>
-        folder. This XML file informs your system of the app’s requirements and
-        must be present in order for the Android system to build your app.
+        目录中。这个XML文件会告知系统你的app有哪些需要，并且它必须存在，Android系统才能构建你的app。
     </p>
     <p>
-        Go to the app’s
+        打开app的
         <em>
             manifests
         </em>
-        folder and expand to select
+        目录并选择
         <em>
             AndroidManifest.xml
         </em>
-        . Double click on the file to open.
+        。双击这个文件来将其打开。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-16-at-11.31.53-PM1.png"
