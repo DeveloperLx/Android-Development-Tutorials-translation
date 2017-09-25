@@ -504,21 +504,18 @@
         Gradle的概览
     </h3>
     <p>
-        Let’s shift gears to Gradle. In a nutshell, it’s a build system that’s
-        utilized by Android Studio. It takes the Android project and builds/compiles
-        it into an installable APK that in turn can be installed on devices.
+        让我们换挡到Gradle。它是Android Studio使用的构建系统。它将Android项目构建/编译为一个可以安装到设备上的APK文件。
     </p>
     <p>
-        As shown below, you can find the
-        <em>
-            build.gradle
-        </em>
-        file, located under
+        如下图所示，你可以在
         <em>
             Gradle scripts
         </em>
-        , in your project at two levels: module level and project level. Most
-        of the time, you’ll edit this file at the module level.
+        下找到
+        <em>
+            build.gradle
+        </em>
+        文件，它分为两个级别：模块级别和项目级别。大多情况下，你会在模块级别下编辑这个文件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/gradle.png"
@@ -530,113 +527,45 @@
         </a>
     </p>
     <p>
-        Open up the
+        打开
         <em>
             build.gradle (Module:app)
         </em>
-        file. You’ll see the default gradle setup:
+        文件。你会看到默认的gradle配置：
     </p>
-    <pre lang="java" class="language-java hljs">
-        apply plugin:
-        <span class="hljs-string">
-            'com.android.application'
-        </span>
-        android { compileSdkVersion
-        <span class="hljs-number">
-            25
-        </span>
-        buildToolsVersion
-        <span class="hljs-string">
-            "25.0.2"
-        </span>
-        defaultConfig { applicationId
-        <span class="hljs-string">
-            "com.raywenderlich.fortuneball"
-        </span>
-        minSdkVersion
-        <span class="hljs-number">
-            15
-        </span>
-        targetSdkVersion
-        <span class="hljs-number">
-            25
-        </span>
-        versionCode
-        <span class="hljs-number">
-            1
-        </span>
-        versionName
-        <span class="hljs-string">
-            "1.0"
-        </span>
-        testInstrumentationRunner
-        <span class="hljs-string">
-            "android.support.test.runner.AndroidJUnitRunner"
-        </span>
-        } buildTypes { release {
-        <span class="hljs-function">
-            minifyEnabled
-            <span class="hljs-keyword">
-                false
-            </span>
-            proguardFiles
-            <span class="hljs-title">
-                getDefaultProguardFile
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-string">
-                    'proguard-android.txt'
-                </span>
-                )
-            </span>
-            , 'proguard-rules.pro' } } } dependencies
-        </span>
-        {
-        <span class="hljs-function">
-            compile
-            <span class="hljs-title">
-                fileTree
-            </span>
-            <span class="hljs-params">
-                (dir:
-                <span class="hljs-string">
-                    'libs'
-                </span>
-                , include: [
-                <span class="hljs-string">
-                    '*.jar'
-                </span>
-                ])
-            </span>
-            <span class="hljs-title">
-                androidTestCompile
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-string">
-                    'com.android.support.test.espresso:espresso-core:2.2.2'
-                </span>
-                , { exclude group:
-                <span class="hljs-string">
-                    'com.android.support'
-                </span>
-                ,
-                <span class="hljs-keyword">
-                    module
-                </span>
-                :
-                <span class="hljs-string">
-                    'support-annotations'
-                </span>
-                })
-            </span>
-            compile 'com.android.support:appcompat-v7:25.1.0' compile 'com.android.support:design:25.1.0'
-            testCompile 'junit:junit:4.12' }
-        </span>
-    </pre>
+    <pre lang="java" class="language-java hljs">apply plugin: <span class="hljs-string">'com.android.application'</span>
+
+android {
+    compileSdkVersion <span class="hljs-number">25</span>
+    buildToolsVersion <span class="hljs-string">"25.0.2"</span>
+    defaultConfig {
+        applicationId <span class="hljs-string">"com.raywenderlich.fortuneball"</span>
+        minSdkVersion <span class="hljs-number">15</span>
+        targetSdkVersion <span class="hljs-number">25</span>
+        versionCode <span class="hljs-number">1</span>
+        versionName <span class="hljs-string">"1.0"</span>
+        testInstrumentationRunner <span class="hljs-string">"android.support.test.runner.AndroidJUnitRunner"</span>
+    }
+    buildTypes {
+        release {
+            <span class="hljs-function">minifyEnabled <span class="hljs-keyword">false</span>
+            proguardFiles <span class="hljs-title">getDefaultProguardFile</span><span class="hljs-params">(<span class="hljs-string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies </span>{
+    <span class="hljs-function">compile <span class="hljs-title">fileTree</span><span class="hljs-params">(dir: <span class="hljs-string">'libs'</span>, include: [<span class="hljs-string">'*.jar'</span>])</span>
+    <span class="hljs-title">androidTestCompile</span><span class="hljs-params">(<span class="hljs-string">'com.android.support.test.espresso:espresso-core:2.2.2'</span>, {
+        exclude group: <span class="hljs-string">'com.android.support'</span>, <span class="hljs-keyword">module</span>: <span class="hljs-string">'support-annotations'</span>
+    })</span>
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    testCompile 'junit:junit:4.12'
+}
+</span></pre>
     <p>
-        Let’s step through the major components:
+        一步一步看一下主要的部分：
     </p>
     <li>
         <code>
@@ -697,17 +626,14 @@
         </code>
         , and add the following two lines at the bottom:
     </p>
-    <pre lang="java" class="language-java hljs">
-        dependencies { ... compile
-        <span class="hljs-string">
-            'com.daimajia.easing:library:2.0@aar'
-        </span>
-        compile
-        <span class="hljs-string">
-            'com.daimajia.androidanimations:library:2.2@aar'
-        </span>
-        }
-    </pre>
+    <pre lang="java" class="language-java hljs">dependencies {
+  
+  ...
+
+  compile <span class="hljs-string">'com.daimajia.easing:library:2.0@aar'</span>
+  compile <span class="hljs-string">'com.daimajia.androidanimations:library:2.2@aar'</span>
+}
+</pre>
     <p>
         Here you added two new third-party dependencies that will help you make
         FortuneBall shine. These libraries will be automatically downloaded and
