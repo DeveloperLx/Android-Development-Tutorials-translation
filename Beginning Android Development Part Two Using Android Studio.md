@@ -1085,22 +1085,18 @@ dependencies </span>{
 <span class="hljs-keyword">import</span> com.daimajia.androidanimations.library.YoYo;
 </pre>
     <p>
-        The first five imports indicate that you will be referencing the Random,
-        View, Button, ImageView and TextView classes respectively in your code.
-        The next two imports indicate that you will be using two classes from the
-        libraries included in the
+        前五个import表示你将要在代码证引用Random，View，Button，ImageView和TextView的类。剩下的两个则表示
         <em>
             build.gradle
         </em>
-        earlier for animations. Inside of
+        中包含的两个库中的两个类进行动画的处理。在
         <em>
             MainActivity.java
-        </em>
-        add the following inside the
+        </em>        
         <code>
             MainActivity
         </code>
-        class:
+        类中添加下列的代码：
     </p>
     <pre lang="java" class="language-java hljs">String fortuneList[] = {<span class="hljs-string">"Don’t count on it"</span>,<span class="hljs-string">"Ask again later"</span>,<span class="hljs-string">"You may rely on it"</span>,<span class="hljs-string">"Without a doubt"</span>,<span class="hljs-string">"Outlook not so good"</span>,<span class="hljs-string">"It's decidedly so"</span>,<span class="hljs-string">"Signs point to yes"</span>,<span class="hljs-string">"Yes definitely"</span>,<span class="hljs-string">"Yes"</span>,<span class="hljs-string">"My sources say NO"</span>};
 
@@ -1109,17 +1105,14 @@ Button mGenerateFortuneButton;
 ImageView mFortuneBallImage;
 </pre>
     <p>
-        In this small chunk of code you’ve declared 4 member variables for the
-        activity. The first is an array of strings that represent the possible
-        fortunes, and the remaining three represent the UI elements you created
-        in the layout.
+        在上述的小段代码中，你为activity声明了四个成员变量。第一个成员变量是字符串的的数组，代表可能的命运，剩余三个则代表了你刚在布局中创建的UI元素。
     </p>
     <p>
-        Next, replace the content of the
+        接下来，将
         <code>
             onCreate()
         </code>
-        method with the following:
+        方法的内容替换为下列的代码：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-comment">// 1:</span>
 <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
@@ -1147,52 +1140,46 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
 });
 </pre>
     <p>
-        Taking the numbered sections one-by-one:
+        一步一步来看代码：
     </p>
     <ol>
         <li>
-            Call the superclass implementation to ensure the activity is ready to
-            go.
+            调用父类的实现以确保activity准备就绪。
         </li>
         <li>
-            Specify that the layout for this activity is provided by the layout you
-            created before, and perform some preparation on the toolbar.
+            指定activity的布局是由你之前所创建的提供的，并为toolbar执行一些准备的工作。
         </li>
         <li>
-            Populate the values of the three member variables you created before for
-            the views in the layout using the
+            使用
             <code>
                 findViewById
             </code>
-            method. The
+            方法为你刚创建的三个成员变量赋值。
             <code>
                 id
             </code>
-            value is the same as the one you provided in the XML layout.
+            值要和你在XML布局文件中所指定的一样。
         </li>
         <li>
-            Add an
+            为按钮添加一个
             <code>
                 OnClickListener
             </code>
-            to the button. This is a simple class that encapsulates the functionality
-            you’d like to perform when the button is pressed.
+            。它是一个简单的类，封装了当你点击按钮的时候需要执行的事。
         </li>
         <li>
-            Find a random fortune from the
+            从
             <code>
                 fortuneList
             </code>
-            array, and update the fortune text to show it.
+            数组中随机选取一个命运，并更新以展示它。
         </li>
         <li>
-            Use the third-party animation library you added as a dependency to the
-            gradle file to add a fun animation to the crystal ball image.
+            使用你添加的第三方动画库作为gradle文件的依赖，来为水晶球添加一些有趣的动画。
         </li>
     </ol>
     <p>
-        OK—that wasn’t too bad right? Build and run, and hit the button to test
-        out your fortune-telling powers.
+        OK - 还不算太糟对么？运行项目，点击按钮来测试你算命的能力。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/fortuneball.gif"
@@ -1204,29 +1191,25 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <h2>
-        Tidy Up
+        整理
     </h2>
     <p>
-        You’re almost done. But before you start planning your release party,
-        you have some clean up ahead, like getting rid of that floating button.
-        Head to
+        你几乎全都完成了。但在开始筹划发布会之前，你必须先进行一下清理，例如移除浮动的按钮。找到
         <em>
             res / layout
         </em>
-        and open
+        并打开
         <em>
             activity_main.xml
         </em>
-        .
+        文件。
     </p>
     <p>
-        This layout file contains a reference to
+        这个布局文件包含了你之前编辑的
         <em>
             content_main.xml
         </em>
-        that you previously edited. It wraps the content with the default toolbar
-        and floating action button. However, Fortune Ball doesn’t need a floating
-        action button, so remove the following code block from this xml file:
+        文件的引用。它封装了你默认工具栏中的内容和浮动的动作按钮。然而，Fortune Ball并不需要浮动的动作按钮，因此从文件中移除下面的代码：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.FloatingActionButton</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/fab"</span>
@@ -1237,8 +1220,7 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
     <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@android:drawable/ic_dialog_email"</span>/&gt;</span>
 </pre>
     <p>
-        Build and run. You won’t be seeing that the floating button on the bottom
-        right-hand corner around here anymore:
+        运行项目。你将不会再看到右下角的浮动按钮：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/device-2015-11-23-013050.png"
@@ -1250,31 +1232,28 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        Ask a question, click or tap on
+        问一个问题，点击
         <em>
             What’s my fortune?
         </em>
-        and let your future unfold before your eyes!
+        ，让你的未来展现在眼前！
     </p>
     <h2>
-        Android Monitor
+        Android监视器
     </h2>
     <p>
-        Android Studio provides a bunch of tools to help you look under the hood
-        of your application. Take a look, by opening the
+        Android Studio提供了一大堆的工具，来帮助你查看app的内容。打开你Android Studio窗口的底部的
         <em>
             Android Monitor
         </em>
-        tab on the bottom of your Android Studio window.
+        tab，就可以看到它了。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/02/android_monitor_tab.png"
         alt="android monitor tab" width="470" height="17" class="aligncenter size-full wp-image-156539">
     </p>
     <p>
-        Here, you find a wealth of helpful developer options. Let’s walk through
-        a few of them. Don’t worry; you don’t have to memorize them all and there
-        won’t be a quiz. :]
+        这里你会看到大量有用的开发者选项。我们来看几个。不要担心，你并不需要记住它们，没有测验。:]
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/android_monitor.png"
@@ -1291,8 +1270,7 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         your app’s package name if it’s not already selected).
     </p>
     <p>
-        Continue by hovering over some of the buttons on the left, to reveal their
-        tooltips.
+        Continue by hovering over some of the buttons on the left, to reveal their tooltips.
     </p>
     <ul>
         <li>
