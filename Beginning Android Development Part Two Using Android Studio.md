@@ -1465,12 +1465,12 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </div>
     </div>
     <p>
-        You can
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/FortuneBall-3.zip"
         target="_blank" title="final project" sl-processed="1">
-            download the final project here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
         Practice makes perfect! You’ve learned your way around and can now create
