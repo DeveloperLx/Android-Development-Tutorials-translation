@@ -1056,57 +1056,34 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        Congrats! You’ve designed your app’s layout. However, it’s only a pretty
-        picture at this point — clicking on that button doesn’t do anything. Ready
-        to play around with activities?
+        祝贺！你已经完成了设计你app的布局。然而，它现在实际上只是一张不能进行交互的图 - 点击按钮不会有任何的反映。准备好玩转activity了么？
     </p>
     <h2>
-        Connecting Views with Activities
+        连接view和activity
     </h2>
     <p>
-        You use the java files located in
+        你需要使用位于
         <em>
             app / src / main / java
         </em>
-        to implement your app’s logic.
+        中的java文件完成你app的逻辑。
     </p>
     <p>
-        Open
+        打开
         <em>
             MainActivity.java
         </em>
-        and add these imports directly below the existing imports
+        并在已存在的import的下方添加下列的import
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        java.util.Random;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.View;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.Button;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.ImageView;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.TextView;
-        <span class="hljs-keyword">
-            import
-        </span>
-        com.daimajia.androidanimations.library.Techniques;
-        <span class="hljs-keyword">
-            import
-        </span>
-        com.daimajia.androidanimations.library.YoYo;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> java.util.Random;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.widget.Button;
+<span class="hljs-keyword">import</span> android.widget.ImageView;
+<span class="hljs-keyword">import</span> android.widget.TextView;
+
+<span class="hljs-keyword">import</span> com.daimajia.androidanimations.library.Techniques;
+<span class="hljs-keyword">import</span> com.daimajia.androidanimations.library.YoYo;
+</pre>
     <p>
         The first five imports indicate that you will be referencing the Random,
         View, Button, ImageView and TextView classes respectively in your code.
@@ -1125,49 +1102,12 @@ dependencies </span>{
         </code>
         class:
     </p>
-    <pre lang="java" class="language-java hljs">
-        String fortuneList[] = {
-        <span class="hljs-string">
-            "Don’t count on it"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Ask again later"
-        </span>
-        ,
-        <span class="hljs-string">
-            "You may rely on it"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Without a doubt"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Outlook not so good"
-        </span>
-        ,
-        <span class="hljs-string">
-            "It's decidedly so"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Signs point to yes"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Yes definitely"
-        </span>
-        ,
-        <span class="hljs-string">
-            "Yes"
-        </span>
-        ,
-        <span class="hljs-string">
-            "My sources say NO"
-        </span>
-        }; TextView mFortuneText; Button mGenerateFortuneButton; ImageView mFortuneBallImage;
-    </pre>
+    <pre lang="java" class="language-java hljs">String fortuneList[] = {<span class="hljs-string">"Don’t count on it"</span>,<span class="hljs-string">"Ask again later"</span>,<span class="hljs-string">"You may rely on it"</span>,<span class="hljs-string">"Without a doubt"</span>,<span class="hljs-string">"Outlook not so good"</span>,<span class="hljs-string">"It's decidedly so"</span>,<span class="hljs-string">"Signs point to yes"</span>,<span class="hljs-string">"Yes definitely"</span>,<span class="hljs-string">"Yes"</span>,<span class="hljs-string">"My sources say NO"</span>};
+
+TextView mFortuneText;
+Button mGenerateFortuneButton;
+ImageView mFortuneBallImage;
+</pre>
     <p>
         In this small chunk of code you’ve declared 4 member variables for the
         activity. The first is an array of strings that represent the possible
@@ -1181,71 +1121,31 @@ dependencies </span>{
         </code>
         method with the following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-comment">
-            // 1:
-        </span>
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState);
-        <span class="hljs-comment">
-            // 2:
-        </span>
-        setContentView(R.layout.activity_main); Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        <span class="hljs-comment">
-            // 3:
-        </span>
-        mFortuneText = (TextView) findViewById(R.id.fortuneText); mFortuneBallImage
-        = (ImageView) findViewById(R.id.fortunateImage); mGenerateFortuneButton
-        = (Button) findViewById(R.id.fortuneButton);
-        <span class="hljs-comment">
-            // 4:
-        </span>
-        mGenerateFortuneButton.setOnClickListener(
-        <span class="hljs-keyword">
-            new
-        </span>
-        View.OnClickListener() {
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (View view)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 5:
-        </span>
-        <span class="hljs-keyword">
-            int
-        </span>
-        index =
-        <span class="hljs-keyword">
-            new
-        </span>
-        Random().nextInt(fortuneList.length); mFortuneText.setText(fortuneList[index]);
-        <span class="hljs-comment">
-            // 6:
-        </span>
-        YoYo.with(Techniques.Swing) .duration(
-        <span class="hljs-number">
-            500
-        </span>
-        ) .playOn(mFortuneBallImage); } });
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-comment">// 1:</span>
+<span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+<span class="hljs-comment">// 2:</span>
+setContentView(R.layout.activity_main);
+Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setSupportActionBar(toolbar);
+<span class="hljs-comment">// 3:</span>
+mFortuneText = (TextView) findViewById(R.id.fortuneText);
+mFortuneBallImage = (ImageView) findViewById(R.id.fortunateImage);
+mGenerateFortuneButton = (Button) findViewById(R.id.fortuneButton);
+
+<span class="hljs-comment">// 4:</span>
+mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View view)</span> </span>{
+    <span class="hljs-comment">// 5:</span>
+    <span class="hljs-keyword">int</span> index = <span class="hljs-keyword">new</span> Random().nextInt(fortuneList.length);
+    mFortuneText.setText(fortuneList[index]);
+    <span class="hljs-comment">// 6:</span>
+    YoYo.with(Techniques.Swing)
+        .duration(<span class="hljs-number">500</span>)
+        .playOn(mFortuneBallImage);
+  }
+});
+</pre>
     <p>
         Taking the numbered sections one-by-one:
     </p>
@@ -1328,57 +1228,14 @@ dependencies </span>{
         and floating action button. However, Fortune Ball doesn’t need a floating
         action button, so remove the following code block from this xml file:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.design.widget.FloatingActionButton
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/fab"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "bottom|end"
-            </span>
-            <span class="hljs-attr">
-                android:layout_margin
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/fab_margin"
-            </span>
-            <span class="hljs-attr">
-                android:src
-            </span>
-            =
-            <span class="hljs-string">
-                "@android:drawable/ic_dialog_email"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.FloatingActionButton</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/fab"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"bottom|end"</span>
+    <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"@dimen/fab_margin"</span>
+    <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@android:drawable/ic_dialog_email"</span>/&gt;</span>
+</pre>
     <p>
         Build and run. You won’t be seeing that the floating button on the bottom
         right-hand corner around here anymore:
