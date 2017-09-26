@@ -669,43 +669,42 @@ dependencies </span>{
         创建Android app中的一个重要的事就是集成其它的资源，诸如图片，自定义的字体，声音，视频等等。这些资源必须被导入到Android Studio，并放置到合适的目录下，以便Android的操作系统正确地获取资源。
     </p>
     <p>
-        For Fortune Ball, you’ll be importing image assets and will place them in drawable folders. Drawable folders can hold images or custom XML drawables
-        (i.e. you can draw shapes via XML code and use them in your app’s layouts).
+        对于风水球，你将导入图片资源并将它们放置到drawable目录下。Drawable目录下可以存放图片或自定义的可绘制XML文件（也是就说，你可以通过XML代码绘制图形，并将它们引用到你app的布局中）。
     </p>
     <p>
-        To get started, download the image assets
+        在
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/drawable.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        , then unzip the contents and save them where they can be easily accessed.
+        下载图片资源，然后解压并将它们存放到易于获取的地方。
     </p>
     <p>
-        Back in the project in Android Studio, switch the view from
+        回到Android Studio的项目中，将
         <em>
             Android
         </em>
-        to
+        切换为
         <em>
             Project
         </em>
-        . Open the
-        <em>
-            res
-        </em>
-        folder under
+        。打开
         <em>
             app &gt; src &gt; main
         </em>
-        . Right click on the
+        下的
         <em>
             res
         </em>
-        folder, select
+        目录。鼠标右键点击
+        <em>
+            res
+        </em>
+        目录，选择
         <em>
             New &gt; Android resource directory
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-10-at-7.50.17-PM.png"
@@ -717,27 +716,27 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        You’ll get a window titled
+        你会看到一个标题为
         <em>
             New Resource Directory
         </em>
-        . From the
+        的窗口。从
         <em>
             Resource type
         </em>
-        dropdown select the
+        的下拉菜单中选择
         <em>
             drawable
         </em>
-        option. In the
+        。在
         <em>
             Available qualifiers
         </em>
-        list, select
+        列表中，选择
         <em>
             Density
         </em>
-        and click the button highlighted in the screenshot below:
+        并点击下面截图中高亮的按钮：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-20-at-10.33.43-PM1.png"
@@ -749,19 +748,19 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        In the subsequent window, select
-        <em>
-            XX-High Density
-        </em>
-        from the
+        在后面的窗口中，从
         <em>
             Density
         </em>
-        dropdown. Click
+        的下拉菜单中选择
+        <em>
+            XX-High Density
+        </em>
+        。点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/create_drawable.png"
@@ -773,53 +772,46 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        Repeat the same process and create
-        <em>
-            drawable-xhdpi
-        </em>
-        ,
-        <em>
-            drawable-hdpi
-        </em>
-        and
-        <em>
-            drawable-mdpi
-        </em>
-        folders by selecting X-High, high, and medium density respectively from
-        the
+        从
         <em>
             Density
         </em>
-        dropdown.
+        的下拉菜单中分别选择X-High，high，和medium density，来重复相同的过程创建
+        <em>
+            drawable-xhdpi
+        </em>
+        ，
+        <em>
+            drawable-hdpi
+        </em>
+        和
+        <em>
+            drawable-mdpi
+        </em>
+        目录。
     </p>
     <p>
-        Each drawable folder that has a density qualifier (i.e. xxhdpi, xhdpi,
-        hdpi) houses images corresponding to that particular density or resolution.
-        For example, the folder
+        每个drawable目录都有一个密度修饰符（也就是 xxhdpi，xhdpi，hdpi），存放着相应像素密度或分辨率的图片。例如，
         <em>
             drawable-xxhdpi
         </em>
-        contains the image that is extra high density, meaning an Android device
-        with a high resolution screen will pick the image from this folder. This
-        allows your app to look great on all Android devices, irrespective of the
-        screen quality. To learn more about screen densities, check out the
+        目录就存放着高像素密度的图片，这样一个带有高分辨率的Android设备就会从这个目录下获取图片。这你的app就可以在所有的Android的设备上看起来都不错，不论它的屏幕分辨率是怎样的。了解更多关于屏幕像素密度的信息，请访问
         <a href="https://developer.android.com/guide/practices/screens_support.html"
         target="_blank" sl-processed="1">
-            Android documentation
+            Android文档
         </a>
-        .
+        。
     </p>
     <p>
-        After creating all the drawable folders, go back to the unzipped contents
-        in the finder, and copy (
+        创建完所有的drawable目录后，返回到在drawable目录下未解压的内容，然后从每个目录中copy（
         <em>
             cmd + C
         </em>
-        ) the image from each folder and paste (
+        ）图片然后粘贴（
         <em>
             cmd + V
         </em>
-        ) it into the corresponding folder in Android Studio.
+        ）到Android Studio中相应的目录下。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-20-at-11.26.23-PM.png"
@@ -831,15 +823,15 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        When you paste the files, you’ll be presented with the
+        当你粘贴文件的时候，你会看到一个
         <em>
             Copy
         </em>
-        window. Select
+        窗口。选择
         <em>
             OK
         </em>
-        .
+        。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/Screen-Shot-2015-12-10-at-8.23.16-PM.png"
         sl-processed="1">
@@ -850,11 +842,10 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        You’ve just put the ball in Fortune Ball and know how to import things
-        now. Looks like you just checked another feature off your to-learn list!
+        你刚刚已经把球放入到了Fortune Ball中，并了解了如何导入文件。看起来你已经搞定了你待学习列表中的另一个特性！
     </p>
     <h3>
-        XML View with Dynamic Layout Previews
+        带有动态布局预览图的XML视图
     </h3>
     <p>
         An incredibly important part of building an Android application is creating
