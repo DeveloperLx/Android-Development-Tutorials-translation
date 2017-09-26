@@ -1265,48 +1265,38 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        Start at the top, where you specify the device or emulator you want to
-        monitor, and the “process” you are most interested in (you should select
-        your app’s package name if it’s not already selected).
+        从顶部开始，你需要在这里指定你想要指定的设备或模拟器，以及你最感兴趣的“进程”（你应当选择app的包名，如果不是的话，请更正）。
     </p>
     <p>
-        Continue by hovering over some of the buttons on the left, to reveal their tooltips.
+        将鼠标悬停在左侧的按钮上，以展示相应的工具提示。
     </p>
     <ul>
         <li>
-            The camera and play button in the top left enable taking screenshots or
+            在左上侧的相机和播放按钮，可以进行屏幕截图及
             <a href="https://developer.android.com/studio/debug/am-video.html" sl-processed="1">
-                screen video recordings
+                屏幕录像
             </a>
-            .
+            。
         </li>
         <li>
-            The magnifying glass reveals several more options, like analyzing your
-            app’s memory usage.
+            放大镜按钮可以展示更多的选项，如分析你app内存的使用情况。
         </li>
         <li>
-            The
             <em>
                 Layout Inspector
             </em>
-            gives a very cool visual interface to help you determine exactly why your
-            app’s UI looks the way it does.
+            可以给出一个非常酷的可视化界面，来帮助你了解app为什么看起来是这个样子。
         </li>
     </ul>
     <p>
-        Finally, there is LogCat, which gives you a detailed view into your device’s
-        system messages with the ability to drill down into a specific application,
-        or even use the search bar to filter out messages unless they contain specific
-        text.
+        最后就是LogCat，它会展示给你详细的设备系统信息，以便深入了解特定的app，甚至使用搜索栏来过滤包含特定文本的信息。
     </p>
     <p>
-        Make sure you’ve selected
+        确保你在右上侧选择了
         <em>
             Show only selected application
         </em>
-        in the top right, as shown in the screenshot earlier. Now, you will only
-        see messages from your app, including those you write yourself. Oh, what?
-        You’ve not added any messages for yourself?
+        ，就像上面截图中的一样。现在，你你只会看到来自你app的消息，包括你自己写的那些。噢，什么？你还没有自己添加过任何信息？
     </p>
     <p>
         Head to
@@ -1315,12 +1305,8 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </em>
         and add the following to the list of imports
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.util.Log;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.util.Log;
+</pre>
     <p>
         At the end of
         <code>
@@ -1332,17 +1318,8 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </em>
         add the following line:
     </p>
-    <pre lang="java" class="language-java hljs">
-        Log.v(
-        <span class="hljs-string">
-            "FORTUNE APP TAG"
-        </span>
-        ,
-        <span class="hljs-string">
-            "onCreateCalled"
-        </span>
-        );
-    </pre>
+    <pre lang="java" class="language-java hljs">Log.v(<span class="hljs-string">"FORTUNE APP TAG"</span>,<span class="hljs-string">"onCreateCalled"</span>);
+</pre>
     <p>
         The
         <code>
@@ -1410,11 +1387,8 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </code>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-comment">
-            //mFortuneText = (TextView) findViewById(R.id.fortuneText);
-        </span>
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-comment">//mFortuneText = (TextView) findViewById(R.id.fortuneText);</span>
+</pre>
     <p>
         Build and run the application. Once it launches click the
         <em>
