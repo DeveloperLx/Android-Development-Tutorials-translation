@@ -992,34 +992,31 @@ dependencies </span>{
 <span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
 </pre>
     <p>
+        以上的大段XML代码构建了FortuneBall的布局。在最顶层你添加了一个
         This rather large chunk of XML creates the layout of FortuneBall. 
         At the top level you’ve added a
         <em>
             RelativeLayout
         </em>
-        , whose job it is to layout its contents. 
-        It is stretched to match the size of its parent (i.e. the full activity).
+        标签，它的工作是对内容进行布局。它会拉伸以匹配整个父视图的尺寸（也就是Activity）。
     </p>
     <p>
-        Within the relative layout you added two pieces of text, an image and a button. 
-        These will appear within the container in the order that you added them, 
-        and their content is read from the
+        在relative layout中你添加了两个text，一个image和一个button。它们将会以你添加的顺序展示在容器中，而它们的文本内容会从
         <em>
             strings.xml
         </em>
-        in the case of the text views, 
-        and from the drawable you added in the case of the image.
+        中读取，图片内容则从drawable中读取。
     </p>
     <p>
-        As you’re updating
+        随着你更新
         <em>
             content_main.xml
         </em>
-        , notice how the
+        ，
         <em>
             Preview
         </em>
-        window updates the UI:
+        窗口就会发生相应的变化：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.50.48-AM.png"
@@ -1035,19 +1032,19 @@ dependencies </span>{
             <em>
                 Note
             </em>
-            : If you can’t see the preview window, then click on the
-            <em>
-                Preview
-            </em>
-            button on the right-hand side panel of the layout editor while you’re still in the
+            ：如果你无法看到预览窗口，请在你位于
             <em>
                 Text
             </em>
-            tab.
+            tab的情况下，点击布局编辑器中，右侧面板中的
+            <em>
+                Preview
+            </em>
+            按钮。
         </p>
     </div>
-    <p>
-        Build and run.
+    <p> 
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/device-2015-11-22-213951.png"
