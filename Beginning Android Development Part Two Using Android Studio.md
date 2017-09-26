@@ -912,22 +912,18 @@ dependencies </span>{
         <em>
             strings.xml
         </em>
-        contains all the user-facing strings that appear in your app. Splitting
-        the strings out into their own file makes internationalization a breeze,
-        as you just provide a strings file for each language you wish to support.
-        Although you might not want to translate your app right away, it’s considered
-        a best-practice to use a strings file.
+        文件包含了所有在你的app中将会看到的字符创。将字符串拆分到它们自己的文件中可以使国际化变得非常容易，只需为每种你想要支持的语言提供相应的字符串文件即可。尽管你还不想立刻就翻译你的app，使用一个字符串文件仍是最佳的实践。
     </p>
     <p>
-        Next, open
-        <em>
-            dimens.xml
-        </em>
-        under
+        接下来，打开
         <em>
             res/values
         </em>
-        and add the following:
+        下的
+        <em>
+            dimens.xml
+        </em>
+        文件并添加下列的代码：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">dimen</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"description_text_size"</span>&gt;</span>15sp<span class="hljs-tag">&lt;/<span class="hljs-name">dimen</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dimen</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fortune_text_size"</span>&gt;</span>20sp<span class="hljs-tag">&lt;/<span class="hljs-name">dimen</span>&gt;</span>
@@ -936,16 +932,14 @@ dependencies </span>{
         <em>
             dimens.xml
         </em>
-        contains all the dimensions values such as margin spacing for your layouts,
-        sizes of text etc. Again, it’s a good practice to keep the dimensions in
-        this file so that they can be re-used in constructing layouts.
+        则包含了所有的大小位置等的几何值，注入你布局中的边距，文本的大小等等。同样的，将这些值存放到这个文件中是一种很好的实践，以便在构建布局的时候重新使用。
     </p>
     <p>
-        Head back to
+        找到
         <em>
             content_main.xml
         </em>
-        and replace the entire contents of the file with the code below.
+        文件，并使用下列的代码替换文件中的全部内容。
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span>
@@ -998,23 +992,23 @@ dependencies </span>{
 <span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
 </pre>
     <p>
-        This rather large chunk of XML creates the layout of FortuneBall. At the
-        top level you’ve added a
+        This rather large chunk of XML creates the layout of FortuneBall. 
+        At the top level you’ve added a
         <em>
             RelativeLayout
         </em>
-        , whose job it is to layout its contents. It is stretched to match the
-        size of its parent (i.e. the full activity).
+        , whose job it is to layout its contents. 
+        It is stretched to match the size of its parent (i.e. the full activity).
     </p>
     <p>
-        Within the relative layout you added two pieces of text, an image and
-        a button. These will appear within the container in the order that you
-        added them, and their content is read from the
+        Within the relative layout you added two pieces of text, an image and a button. 
+        These will appear within the container in the order that you added them, 
+        and their content is read from the
         <em>
             strings.xml
         </em>
-        in the case of the text views, and from the drawable you added in the
-        case of the image.
+        in the case of the text views, 
+        and from the drawable you added in the case of the image.
     </p>
     <p>
         As you’re updating
@@ -1045,8 +1039,7 @@ dependencies </span>{
             <em>
                 Preview
             </em>
-            button on the right-hand side panel of the layout editor while you’re
-            still in the
+            button on the right-hand side panel of the layout editor while you’re still in the
             <em>
                 Text
             </em>
