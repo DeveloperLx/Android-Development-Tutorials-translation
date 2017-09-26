@@ -848,22 +848,19 @@ dependencies </span>{
         带有动态布局预览图的XML视图
     </h3>
     <p>
-        An incredibly important part of building an Android application is creating
-        a layout that the users of the application interact with. In Android Studio,
-        you do this task in the layout editor. Open up
-        <em>
-            content_main.xml
-        </em>
-        from
+        构建Android app的一个非常重要的部分，就是创建一个和用户进行交互的界面。在Android Studio中，你会在布局编辑器中完成这个任务。在
         <em>
             res/layout
         </em>
-        . You’ll initially land on the
+        下打开
+        <em>
+            content_main.xml
+        </em>
+        。你开始会位于布局编辑器的
         <em>
             Design
         </em>
-        tab of the layout editor. In this tab, you can drag user interface elements
-        like buttons, text fields etc. in the editor.
+        这个tab上。在这个tab中，你可以在编辑器上拖拽诸如按钮，文本框等等的用户交互元素。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/Screen-Shot-2017-02-03-at-10.45.44-AM.png"
@@ -875,16 +872,15 @@ dependencies </span>{
         </a>
     </p>
     <p>
-        On the right hand side of the
+        在
         <em>
             Design
         </em>
-        tab is the
+        tab的右侧则是
         <em>
             Text
         </em>
-        tab. Switching to this view allows you to edit the XML that makes up the
-        layout directly.
+        tab。切换到这个视图，就可以直接去编辑构成布局的XML文件了。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/12/text_tab-480x204.png"
@@ -893,50 +889,25 @@ dependencies </span>{
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        In both tabs, you’ll be able to preview the layout in the device as you
-        build. Choose the
+        在两个tab中，你都可以在构建时预览设备中的布局。选择
         <em>
             Text
         </em>
-        tab to start building the layout for Fortune Ball.
+        tab来开始构建Fortune Ball的布局。
     </p>
     <p>
-        Before you start building the view, you need to define some values. Open
-        up
-        <em>
-            strings.xml
-        </em>
-        under
+        在你构架视图之前，你需要定义一些特定的值。打开
         <em>
             res/values
         </em>
-        and add the following:
+        下的
+        <em>
+            strings.xml
+        </em>
+        文件，并添加下列的内容：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "fortune_description"
-            </span>
-            &gt;
-        </span>
-        Suggest the question, which you can answer “yes” or “no”, then click on
-        the magic ball.
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fortune_description"</span>&gt;</span>Suggest the question, which you can answer “yes” or “no”, then click on the magic ball.<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+</pre>
     <p>
         <em>
             strings.xml
@@ -958,52 +929,9 @@ dependencies </span>{
         </em>
         and add the following:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                dimen
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "description_text_size"
-            </span>
-            &gt;
-        </span>
-        15sp
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                dimen
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                dimen
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "fortune_text_size"
-            </span>
-            &gt;
-        </span>
-        20sp
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                dimen
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">dimen</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"description_text_size"</span>&gt;</span>15sp<span class="hljs-tag">&lt;/<span class="hljs-name">dimen</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dimen</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fortune_text_size"</span>&gt;</span>20sp<span class="hljs-tag">&lt;/<span class="hljs-name">dimen</span>&gt;</span>
+</pre>
     <p>
         <em>
             dimens.xml
@@ -1019,310 +947,56 @@ dependencies </span>{
         </em>
         and replace the entire contents of the file with the code below.
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                xmlns:app
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res-auto"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_behavior
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/appbar_scrolling_view_behavior"
-            </span>
-            <span class="hljs-attr">
-                tools:showIn
-            </span>
-            =
-            <span class="hljs-string">
-                "@layout/activity_main"
-            </span>
-            <span class="hljs-attr">
-                tools:context
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/descriptionText"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/fortune_description"
-            </span>
-            <span class="hljs-attr">
-                android:gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center"
-            </span>
-            <span class="hljs-attr">
-                android:textSize
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/description_text_size"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/fortunateImage"
-            </span>
-            <span class="hljs-attr">
-                android:src
-            </span>
-            =
-            <span class="hljs-string">
-                "@drawable/img_crystal"
-            </span>
-            <span class="hljs-attr">
-                android:layout_centerHorizontal
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:layout_below
-            </span>
-            =
-            <span class="hljs-string">
-                "@id/descriptionText"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/fortuneText"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_below
-            </span>
-            =
-            <span class="hljs-string">
-                "@id/fortunateImage"
-            </span>
-            <span class="hljs-attr">
-                android:gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "20dp"
-            </span>
-            <span class="hljs-attr">
-                android:textSize
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/fortune_text_size"
-            </span>
-            <span class="hljs-attr">
-                android:textStyle
-            </span>
-            =
-            <span class="hljs-string">
-                "bold"
-            </span>
-            <span class="hljs-attr">
-                android:textColor
-            </span>
-            =
-            <span class="hljs-string">
-                "@android:color/holo_red_dark"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                Button
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/fortuneButton"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "50dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_below
-            </span>
-            =
-            <span class="hljs-string">
-                "@id/fortuneText"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "What's my fortune?"
-            </span>
-            <span class="hljs-attr">
-                android:layout_centerHorizontal
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span>
+  <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+  <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">app:layout_behavior</span>=<span class="hljs-string">"@string/appbar_scrolling_view_behavior"</span>
+  <span class="hljs-attr">tools:showIn</span>=<span class="hljs-string">"@layout/activity_main"</span>
+  <span class="hljs-attr">tools:context</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/descriptionText"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/fortune_description"</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:textSize</span>=<span class="hljs-string">"@dimen/description_text_size"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/fortunateImage"</span>
+    <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@drawable/img_crystal"</span>
+    <span class="hljs-attr">android:layout_centerHorizontal</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">"@id/descriptionText"</span>
+    <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"10dp"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/fortuneText"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">"@id/fortunateImage"</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"20dp"</span>
+    <span class="hljs-attr">android:textSize</span>=<span class="hljs-string">"@dimen/fortune_text_size"</span>
+    <span class="hljs-attr">android:textStyle</span>=<span class="hljs-string">"bold"</span>
+    <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@android:color/holo_red_dark"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/fortuneButton"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"50dp"</span>
+    <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">"@id/fortuneText"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"What's my fortune?"</span>
+    <span class="hljs-attr">android:layout_centerHorizontal</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"10dp"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span>
+</pre>
     <p>
         This rather large chunk of XML creates the layout of FortuneBall. At the
         top level you’ve added a
