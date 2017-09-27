@@ -1265,106 +1265,81 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        Start at the top, where you specify the device or emulator you want to
-        monitor, and the “process” you are most interested in (you should select
-        your app’s package name if it’s not already selected).
+        从顶部开始，你需要在这里指定你想要指定的设备或模拟器，以及你最感兴趣的“进程”（你应当选择app的包名，如果不是的话，请更正）。
     </p>
     <p>
-        Continue by hovering over some of the buttons on the left, to reveal their tooltips.
+        将鼠标悬停在左侧的按钮上，以展示相应的工具提示。
     </p>
     <ul>
         <li>
-            The camera and play button in the top left enable taking screenshots or
+            在左上侧的相机和播放按钮，可以进行屏幕截图及
             <a href="https://developer.android.com/studio/debug/am-video.html" sl-processed="1">
-                screen video recordings
+                屏幕录像
             </a>
-            .
+            。
         </li>
         <li>
-            The magnifying glass reveals several more options, like analyzing your
-            app’s memory usage.
+            放大镜按钮可以展示更多的选项，如分析你app内存的使用情况。
         </li>
         <li>
-            The
             <em>
                 Layout Inspector
             </em>
-            gives a very cool visual interface to help you determine exactly why your
-            app’s UI looks the way it does.
+            可以给出一个非常酷的可视化界面，来帮助你了解app为什么看起来是这个样子。
         </li>
     </ul>
     <p>
-        Finally, there is LogCat, which gives you a detailed view into your device’s
-        system messages with the ability to drill down into a specific application,
-        or even use the search bar to filter out messages unless they contain specific
-        text.
+        最后就是LogCat，它会展示给你详细的设备系统信息，以便深入了解特定的app，甚至使用搜索栏来过滤包含特定文本的信息。
     </p>
     <p>
-        Make sure you’ve selected
+        确保你在右上侧选择了
         <em>
             Show only selected application
         </em>
-        in the top right, as shown in the screenshot earlier. Now, you will only
-        see messages from your app, including those you write yourself. Oh, what?
-        You’ve not added any messages for yourself?
+        ，就像上面截图中的一样。现在，你你只会看到来自你app的消息，包括你自己写的那些。噢，什么？你还没有自己添加过任何信息？
     </p>
     <p>
-        Head to
+        找到
         <em>
             MainActivity.java
         </em>
-        and add the following to the list of imports
+        并添加下列的代码到import的列表中
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.util.Log;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.util.Log;
+</pre>
     <p>
-        At the end of
+        在
+        <em>
+            MainActivity.java
+        </em>
+        ，
         <code>
             onCreate()
         </code>
-        in
-        <em>
-            MainActivity.java
-        </em>
-        add the following line:
+        方法中，添加下列的代码：
     </p>
-    <pre lang="java" class="language-java hljs">
-        Log.v(
-        <span class="hljs-string">
-            "FORTUNE APP TAG"
-        </span>
-        ,
-        <span class="hljs-string">
-            "onCreateCalled"
-        </span>
-        );
-    </pre>
+    <pre lang="java" class="language-java hljs">Log.v(<span class="hljs-string">"FORTUNE APP TAG"</span>,<span class="hljs-string">"onCreateCalled"</span>);
+</pre>
     <p>
-        The
         <code>
             Log.v
         </code>
-        calls for two parameters — a tag and a message. In this case, you’ve defined
-        the tag as
+        引用了两个参数 - 一个tag和一条信息。在本例中，你将tag设为
         <code>
             "FORTUNE APP TAG"
         </code>
-        and the message as
+        ，而message设为
         <code>
             "onCreateCalled"
         </code>
-        .
+        。
     </p>
     <p>
-        Build and run the app so you can see this log message in the
+        运行app，这样你就可以在
         <em>
             Logcat
         </em>
-        panel.
+        面板中看到log信息了。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/full_logcat.png"
@@ -1376,11 +1351,11 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        To filter the LogCat contents to just your message alone, type
+        要将LogCat中的内容过滤到只剩你自己的信息，请输入
         <em>
             onCreateCalled
         </em>
-        into the search box above the console, like this:
+        到控制台上方的搜索框中，就像这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/on_create_called.png"
@@ -1392,35 +1367,30 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        Then remove your search text to see all the log messages again.
+        然后移除你搜索的文本，再次查看所有的信息。
     </p>
     <p>
-        Another very useful utility of logcat is the ability to see stacktrace
-        or error messages from app crashes and exceptions. You’ll add a bug to
-        your perfectly working app to see how that works.
+        logcat的另一个非常有用的功能，就是从app的崩溃和异常中，查看堆栈或错误信息的能力。现在来添加一个bug到你完美工作的app中，来查看logcat如何工作。
     </p>
     <p>
-        Go to
+        前往
         <em>
             MainActivity.java
         </em>
-        and comment out the following line in
+        ，并在中
         <code>
             onCreate()
         </code>
-        :
+        注释掉下面这行：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-comment">
-            //mFortuneText = (TextView) findViewById(R.id.fortuneText);
-        </span>
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-comment">//mFortuneText = (TextView) findViewById(R.id.fortuneText);</span>
+</pre>
     <p>
-        Build and run the application. Once it launches click the
+        运行app。点击屏幕上的
         <em>
             What’s My Fortune?
         </em>
-        button on the screen. Oh no! It crashed.
+        按钮。Oh no！它崩溃了。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/Screen-Shot-2015-11-23-at-11.45.20-AM.png"
@@ -1432,15 +1402,14 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        How would you go about fixing this if you hadn’t put the bug in on purpose?
-        Logcat to the rescue!
+        如果不是故意把这个错误引进来的，你该怎么来解决这个问题？用Logcat来进行抢救！
     </p>
     <p>
-        Head back to the
+        回到
         <em>
             Logcat
         </em>
-        panel — it’ll look something like this:
+        面板 - 它看起来就像是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/02/crash_logcat-1.png"
@@ -1452,30 +1421,24 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         </a>
     </p>
     <p>
-        That sure is a lot of red text, and it’s exactly where to go sniffing
-        around for clues. You’re looking for an exception somewhere. In this case,
-        it’s line 50 in the
+        看到很多红色的文本了么，它们正是该到何处去查找问题的线索。你正在查找异常是从何处暴出的。在本例中，它就在
         <em>
             MainActivity.java
         </em>
-        file. LogCat has even helpfully turned that link into a blue hyperlink,
-        and if you click it you will be taken right to the problematic line!
+        文件中的第50行。LogCat甚至很有帮助地将其转换成了蓝色的超链接，点击它就可以直接跳转到有问题的那行代码！
     </p>
     <p>
-        By commenting out
+        由于注释掉了
         <code>
             mFortuneText = (TextView) findViewById(R.id.fortuneText)
         </code>
-        , you created a variable but didn’t assign it a value — hence the null
-        pointer exception.
+        这行代码，你创建了一个变量，但并没有对它进行赋值 - 因此就造成了空指针的异常。
     </p>
     <p>
-        Go ahead and uncomment that code and build and run the application. This
-        time there’s no crash!
+        取消注释，并再次运行app。这次没有崩溃了！
     </p>
     <p>
-        Logcat is a powerful tool that lets you debug your application errors
-        and exception.
+        Logcat是一个强有力的工具，可以帮助你debug app的错误和异常。
     </p>
     <h2>
         从这儿去向哪里？
