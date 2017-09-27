@@ -1473,52 +1473,47 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         下载最终的项目。
     </p>
     <p>
-        完美的实践！你现在已学会了如何创建一个项目，玩转Gradle，导入assets，设置布局并进行一些测试。
+        实践才是真理！你现在已学会了如何创建一个项目，玩转Gradle，导入assets，设置布局并进行一些测试。
     </p>
     <p>
         Android有很多很酷的工具值得去了解，建议你可以从下列的部分开始：
     </p>
     <ul>
         <li>
-            熟悉Logcat和过滤机制。用不同过的条件进行过滤。
+            熟悉Logcat和过滤机制，依照不同过的条件进行过滤。
         </li>
         <li>
-            There will be times where you’ll want to test your application’s robustness in different network environments. 
-            See the
-            <em>
-                Android Emulator 2.0
-            </em>
-            section of our
+            有时你会想要在不同的网络环境下测试app的稳健性。可以访问我们
             <a href="https://www.raywenderlich.com/124936/whats-new-android-studio-2-0"
             sl-processed="1">
                 Android Studio 2 tour
             </a>
-            for more details.
+            中的
+            <em>
+                Android Emulator 2.0
+            </em>
+            以查看更多的细节。
         </li>
         <li>
-            This beginning Android development tutorial has just touched on some of the tools used to build out the layout and UI. 
-            To learn more, pour over the official
-            <a href="http://developer.android.com/guide/topics/ui/index.html" target="_blank"
-            title="Android documentation for UI" sl-processed="1">
+            本教程刚刚提到了一些用于构建布局和UI的工具。想了解更新的信息，可以访问官方的文档
+            <a href="http://developer.android.com/guide/topics/ui/index.html" target="_blank" title="Android documentation for UI" sl-processed="1">
                 Android documentation for UI
             </a>
-            .
+            。
         </li>
         <li>
-            Keep coming back to raywenderlich.com—- we’ve got some great Android content coming your way over the next days, weeks and months.
+            常回到raywenderlich.com来看看 -- 我们会在接下来的日子陆续更新一些很棒的Android内容。
         </li>
         <li>
-            Talk to other developers. Make use of the forums below and ask your questions,
-            share your findings and pick up tips.
+            和其它开发者进行交流。充分利用下面的论坛并提出你的问题，分享你的发现和技巧。
         </li>
     </ul>
     <div class="note">
         <em>
             注意：
         </em>
-        
-        Also, another great next step would be to check out our Android Core Concepts tutorials:
         <p>
+            另外一个重要的步骤就是访问我们的Android核心概念教程：
         </p>
         <ul>
             <li>
