@@ -1473,7 +1473,7 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
         下载最终的项目。
     </p>
     <p>
-        实践才是真理！你现在已学会了如何创建一个项目，玩转Gradle，导入assets，设置布局并进行一些测试。
+        实践出真理！你现在已学会了如何创建一个项目，玩转Gradle，导入assets，设置布局并进行一些测试等等。
     </p>
     <p>
         Android有很多很酷的工具值得去了解，建议你可以从下列的部分开始：
@@ -1492,7 +1492,7 @@ mGenerateFortuneButton.setOnClickListener(<span class="hljs-keyword">new</span> 
             <em>
                 Android Emulator 2.0
             </em>
-            以查看更多的细节。
+            部分以查看更多的细节。
         </li>
         <li>
             本教程刚刚提到了一些用于构建布局和UI的工具。想了解更新的信息，可以访问官方的文档
