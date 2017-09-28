@@ -58,7 +58,7 @@
         <li>
             <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
             sl-processed="1">
-                Kotlin For Android: An Introduction
+                用Kotlin编写Android：介绍
             </a>
         </li>
         <li>
