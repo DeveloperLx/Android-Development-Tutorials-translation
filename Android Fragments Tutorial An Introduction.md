@@ -32,18 +32,13 @@
         某事物的孤立的或未完成的部分
     </div>
     <p>
-        A fragment is an Android component that holds part of the behavior and/or
-        UI of an activity. As the name intimates, fragments are not independent
-        entities, but are subservient to a single activity.
+        fragment是一个Android的组件，用来管理activity中的一部分UI。正如它的名字所暗示的，fragment并非是一个独立的实体，而是屈从于某个activity下。
     </p>
     <p>
-        In many ways, they resemble and echo the functionality of activities.
+        在很多方面上，它都模仿了activity中的某些特性。
     </p>
     <p>
-        Imagine for a moment that you’re an activity. You have a lot to do, so
-        you’d employ a few mini-me’s to run around and do your laundry and taxes
-        in exchange for lodging and food. That’s kind of like the relationship
-        between activities and fragments.
+        想象一下假如你是一个activity。你有很多的工作想做，因此你就雇佣了很多迷你的自己来运行，通过洗衣和交税来换取住宿和食物。这就非常像是activity和fragment之间的关系。
     </p>
     <p>
         Now just like you don’t actually need a few minions to do your bidding,
