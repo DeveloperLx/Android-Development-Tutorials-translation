@@ -56,7 +56,7 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
             sl-processed="1">
                 用Kotlin编写Android：介绍
             </a>
