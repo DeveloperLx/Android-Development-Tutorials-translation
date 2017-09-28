@@ -41,26 +41,17 @@
         想象一下假如你是一个activity。你有很多的工作想做，因此你就雇佣了很多迷你的自己来运行，通过洗衣和交税来换取住宿和食物。这就非常像是activity和fragment之间的关系。
     </p>
     <p>
-        Now just like you don’t actually need a few minions to do your bidding,
-        you don’t
-        <i>
-            have
-        </i>
-        to use fragments. However, if you do use them and use them well, they
-        can provide:
+        现在，就像你实际上并不需要几个部下听从你的命令，你并不一定需要使用fragment。然而，如果你可以很好地使用fragment，它就可以提供：
     </p>
     <ul>
         <li>
-            Modularity: dividing complex activity code across fragments for better
-            organization and maintenance.
+            模块性：将复杂的activity代码拆分为一个个的fragment，以获得更好的组织性和可维护性。
         </li>
         <li>
-            Reusability: placing behavior or UI parts into fragments that can be shared
-            across multiple activities.
+            可复用性：将行为或UI部分放置到多个fragment中，而fragment可以在多个activity之间进行共享。
         </li>
         <li>
-            Adaptability: representing sections of a UI as different fragments and
-            utilizing different layouts depending on screen orientation and size.
+            可适应性：将UI的部分表示为不同的fragment，并根据屏幕的方向和尺寸使用不同的布局。
         </li>
     </ul>
     <p>
@@ -72,53 +63,48 @@
             sizes="(max-width: 600px) 100vw, 600px">
         </a>
         <br>
-        In this introduction to Android fragments tutorial, you’ll build a mini
-        encyclopedia of Rage Comics. The app will display a list of Rage Comics
-        arranged in a grid. When a Rage Comic is selected, the app displays information
-        about it. In this tutorial, you’ll learn:
+        在本教程中，你将构建一个暴走漫画的迷你百科全书。app将展示一个由暴走漫画构成的格子视图。当选中一副暴走漫画的时候，app就会展示与它相关的信息。在本教程中，你将学到：
     </p>
     <ul>
         <li>
-            How to create and add fragments to an activity.
+            如何创建并添加fragment到activity上。
         </li>
         <li>
-            How to let your fragments send information to an activity.
+            如何让fragment发送信息到activity上。
         </li>
         <li>
-            How to add and replace fragments by using transactions.
+            如何使用事务来添加或交换fragment。
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : This tutorial assumes you’re comfortable the basics of Android programming
-            and understand what activity lifecycle means. If you’re brand new to Android,
-            you should work through both the
+            ：本教程假设你已熟悉Android编程的基础，理解activity的生命周期。如果你是一个Android的纯小白，你应当首先查阅
             <a href="http://www.raywenderlich.com/78574/android-tutorial-for-beginners-part-1"
             target="_blank" title=" Android Tutorial for Beginners " sl-processed="1">
                 Android Tutorial for Beginners
             </a>
-            and the
+            和
             <a href="https://www.raywenderlich.com/116580/introduction-to-android-activities-tutorial"
             target="_blank" title=" Introduction to Activities " sl-processed="1">
                 Introduction to Activities
             </a>
-            first. This tutorial also utilizes an Android
+            。本教程还会用到Android的
             <code>
                 RecyclerView
             </code>
-            . If you have never used
+            。如果你还从未用过
             <code>
                 RecyclerView
             </code>
-            or need a refresher, you should also look at the
+            ，你可以参考
             <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
             target="_blank" title="Android RecyclerView Tutorial" sl-processed="1">
                 Android RecyclerView Tutorial
             </a>
-            .
+            来进行学习。
         </p>
     </div>
     <p>
