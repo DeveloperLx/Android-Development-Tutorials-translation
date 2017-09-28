@@ -10,74 +10,62 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        When creating native apps for Android, you will normally use the Java
-        programming language for your logic. Whilst Java is a battle hardened language,
-        it isn’t without its issues.
+        当为Android创建本地app的时候，你一般都会使用Java作为编程语言来编写逻辑。尽管Java是一种久经考验的语言，但并非没有问题。
     </p>
     <p>
-        When you run a Java application, the app is compiled into a set of instructions
-        called
+        当你运行Java app的时候，app会被编译成一系列称作
         <a href="https://en.wikipedia.org/wiki/Java_bytecode" target="_blank"
         sl-processed="1">
             Bytecode
         </a>
-        and runs in a virtual machine. Over the past several years, a number of
-        new programming languages have been introduced to also run on the
+        的指令，并运行在虚拟机上。在过去的几年中，引入了大量可以运行在
         <a href="https://en.wikipedia.org/wiki/Java_virtual_machine" target="_blank"
         title="Java virtual machine" sl-processed="1">
-            Java virtual machine
+            Java虚拟机
         </a>
-        . Whilst the resulting app looks the same for the virtual machine, the
-        idea is the language features can help developers write simpler code and
-        fix some of Javas issues.
+        上新的编程语言。尽管结果的app看起来对虚拟机都是一样的，但新语言中的特性可以帮助开发者编写更简单的代码，并修复一些Java中的问题。
     </p>
     <p>
         <a href="https://www.jetbrains.com/" target="_blank" title="JetBrains"
         sl-processed="1">
             JetBrains
         </a>
-        , known for IntelliJ IDEA (Android Studio is based on IntelliJ), has introduced
-        the
+        ，因IntelliJ IDEA（Android Studio就基于IntelliJ）而出名，引入了
         <a href="https://kotlinlang.org/" target="_blank" title="Kotlin" sl-processed="1">
             Kotlin
         </a>
-        language.
+        语言。
     </p>
     <p>
-        Kotlin is a statically-typed programming language that runs on the JVM.
-        It can also be compiled to JavaScript source code. Kotlin has some amazingly
-        cool features!
+        Kotlin是运行在JVM上的静态类型的编程语言。它还可以被编译成JavaScript源码。Kotlin有一些令人惊奇的特性！
     </p>
     <p>
-        In this Kotlin for Android tutorial, you’ll learn:
+        在本教程中，你将学到：
     </p>
     <ul>
         <li>
-            How to setup your Kotlin environment.
+            如何设置你的Kotlin环境。
         </li>
         <li>
-            How to work with both Java and Kotlin in the same project.
+            如何在一个工程中同时使用Java和Kotlin两种语言。
         </li>
         <li>
-            What makes Kotlin so exciting as a new language.
+            Kotlin作为一个新语言，有什么令人激动的特性。
         </li>
     </ul>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        This tutorial assumes you’re experienced in Android development with Java.
-        If you’re new to the Android world, have big questions about the starter
-        project or are not familiar with Android Studio, please have a look at
-        our
+        本教程假定你有Java语言下Android开发相关的经验。如果你完全是新手，对起始项目有很大的疑问，或是不熟悉Android Studio，请访问我们的
         <a href="https://www.raywenderlich.com/android-tutorials" target="_blank"
         title="Android tutorials" sl-processed="1">
-            Android tutorials
+            Android教程
         </a>
-        .
+        。
     </div>
     <h2>
-        Why Kotlin For Android?
+        为什么要为Android选择Kotlin？
     </h2>
     <p>
         Since Android took the world by storm, developers have had no alternatives
