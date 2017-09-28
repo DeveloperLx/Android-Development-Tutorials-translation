@@ -84,9 +84,9 @@
     </p>
     <ul>
         <li>
-            <a href="https://www.raywenderlich.com/149112/android-fragments-tutorial-introduction"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction.md"
             sl-processed="1">
-                Android Fragments Tutorial: An Introduction
+                Android Fragment教程：介绍
             </a>
         </li>
         <li>
