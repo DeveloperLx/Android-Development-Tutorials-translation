@@ -11,16 +11,13 @@
             srcset="https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2015/12/Fragments-feature-128x128.png 128w"
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
-        This tutorial is an introduction to Android Fragments. You will learn
-        the fundamental concepts of Android Fragments while creating an app that
-        displays the rage comics.
+        本教程将会介绍Android的Fragment。你将学习Android Fragment的基本概念，并创建一个可以展示暴走漫画的app。
     </p>
     <p>
         <em>
-            Update note:
+            更新日志：
         </em>
-        This tutorial has been updated to API 25 and Android Studio 2.2.2 by Huyen
-        Tue Dao. The original tutorial was written by Huyen Tue Dao.
+        本教程已由Huyen Tue Dao更新至适配API 25和Android Studio 2.2.2的版本。原教程亦由Huyen Tue Dao编写。
     </p>
     <div class="note">
         <em>
@@ -32,7 +29,7 @@
         </i>
         | /’frag-mənt/
         <br>
-        an isolated or incomplete part of something
+        某事物的孤立的或未完成的部分
     </div>
     <p>
         A fragment is an Android component that holds part of the behavior and/or
