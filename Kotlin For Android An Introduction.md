@@ -68,101 +68,89 @@
         为什么要为Android选择Kotlin？
     </h2>
     <p>
-        Since Android took the world by storm, developers have had no alternatives
-        to Java app development. Although its usage is widespread, Java comes with
-        a lot of historical baggage.
+        由于Android如风暴般地席卷了全球，开发者对其app的开发除Java外没有其它选择。尽管它因此被广泛地传播，Java还带来了非常多的历史包袱。
     </p>
     <p>
-        Java 8 solved some language issues and corrected even more with Java 10.
-        In order to get much of a benefit from the corrections made in these two
-        releases, you have to set the minimum SDK to Android 24 just to use Java
-        8, which isn’t an option for many developers. For almost everybody, Java
-        10 isn’t even on the radar.
+        Java 8解决了一些语言的问题，在Java 10则纠正了更多的问题。要从这两个版本中获益，你不得不将minimum SDK的版本设置为Android 24，仅仅是为了使用Java 8，这样的选择是无法被大多数开发者接受的。对于更大多数的开发者，Java 10几乎都压根不在视线范围内。
     </p>
     <p>
-        Kotlin aims to fill that gap of a missing modern language for the Android
-        platform. There are a few core
+        Kotlin旨在填补Android平台与现代语言之间的差距。它有一些核心的
         <a href="http://kotlinlang.org/" target="_blank" title="tenets" sl-processed="1">
-            tenets
+            准则
         </a>
-        that Kotlin lives by; it strives to be:
+        ，使它尽可能地成为：
     </p>
     <ol>
         <li>
-            Concise to reduce the amount of boilerplate code you need to write.
+            简洁，减少你需要编写的样本代码。
         </li>
         <li>
-            Expressive to make your code more readable and understandable.
+            表现力，让你的代码更加地可读和易于理解。
         </li>
         <li>
-            Safe to avoid entire classes of errors such as null pointer exceptions.
+            安全，避免整个类型的错误，比如空指针的异常。
         </li>
         <li>
-            Versatile for building server-side applications, Android apps or frontend
-            code running in the browser.
+            通用性，构建服务端的app，Android app，或在浏览器中运行的前端代码。
         </li>
         <li>
-            Interoperable to leverage existing frameworks and libraries of the JVM
-            with 100 percent Java interoperability.
+            可协作性，100%地利用已存在JVM的框架和库。
         </li>
     </ol>
     <p>
-        Above all, it’s a new language! What could be more exciting? iOS developers
-        can’t have all the fun. :]
+        最重要的是，它是一门全新的语言！有什么可以比这更加激动人心？iOS的开发者无法拥有所有的乐趣。:]
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/omg-android-starter-1.zip"
         sl-processed="1">
-            starter project
+            起始项目
         </a>
-        . Extract and open the starter project in Android Studio.
+        ，提取并在Android Studio中打开它。
     </p>
     <p>
-        You’ll be working with this simple app that allows users to search for
-        books, see book covers, and share books with friends to explore Kotlin.
+        你将会加工这个简单的app，让用户可以搜索书籍，查看书籍的封面，与朋友分享书籍，在这个过程中探索Kotlin。
     </p>
     <p>
-        It contains three source code files; take a moment to get familiar with
-        them:
+        它包含了三个源码文件；花点时间来熟悉一下：
     </p>
     <ul>
         <li>
             <em>
-                MainActivity.java:
+                MainActivity.java：
             </em>
-            an
+            用来搜索并展示书籍列表的
             <code>
                 Activity
             </code>
-            that displays the screen for searching and displaying a list of books.
+            。
         </li>
         <li>
             <em>
                 DetailActivity.java:
             </em>
-            an
+            根据传递过来的ID，来展示书籍的封面的
             <code>
                 Activity
             </code>
-            that displays the book cover for the ID passed to it.
+            。
         </li>
         <li>
             <em>
                 JSONAdapter.java:
             </em>
-            a custom
+            一个自定义的
             <code>
                 BaseAdapter
             </code>
-            that transforms a JSON object into a list view item.
+            ，可以将一个JSON对象转换为一个列表视图的item。
         </li>
     </ul>
     <p>
-        Build and run the project to see what you’re working with.
+        运行项目来查看这个app。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/intro_to_kotlin_25.png"
@@ -174,7 +162,7 @@
         </a>
     </p>
     <h2>
-        Setting up Your Environment
+        设置你的环境
     </h2>
     <p>
         By default, Android Studio has no idea what to do with Kotlin, so the
