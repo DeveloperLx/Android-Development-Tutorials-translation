@@ -165,23 +165,21 @@
         设置你的环境
     </h2>
     <p>
-        By default, Android Studio has no idea what to do with Kotlin, so the
-        first step is to install the Kotlin plugin and configure Kotlin in your
-        project.
+        默认情况下，Android Studio是不知道如何处理Kotlin的，因此第一步是需要按照Kotlin插件，并在你的项目中配置Kotlin。
     </p>
     <h3>
-        Installing the Kotlin Plugin
+        安装Kotlin插件
     </h3>
     <p>
-        Go to
+        在
         <em>
-            Android Studio\Preferences
+            Android Studio/Preferences
         </em>
-        and select the
+        下选择
         <em>
             Plugins
         </em>
-        entry.
+        这项。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_3.png"
