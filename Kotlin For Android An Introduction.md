@@ -190,11 +190,11 @@
         </a>
     </p>
     <p>
-        On the
+        在
         <em>
             Plugins
         </em>
-        screen, click on
+        这一屏中，点击
         <em>
             Install JetBrains plugin…
         </em>
@@ -208,15 +208,15 @@
         </a>
     </p>
     <p>
-        Search for and select
+        搜索并从列表中选择
         <em>
             Kotlin
         </em>
-        from the list and click
+        ，然后点击
         <em>
             Install
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_5.png"
@@ -235,8 +235,7 @@
         </a>
     </p>
     <p>
-        When you’re finished with downloading and installing, the next step is
-        following the prompts to restart the IDE.
+        完成下载和安装之后，接下来跟随提示重启IDE。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/intro_to_kotlin_28.png"
@@ -248,18 +247,17 @@
         </a>
     </p>
     <h3>
-        Configure Kotlin in Project
+        在项目中配置Kotlin
     </h3>
     <p>
-        Now the IDE knows what to do with Kotlin, but your project app doesn’t,
-        so your next move is to modify the project’s build configuration.
+        现在IDE就知道如何处理Kotlin了，但你的项目app还不知道。因此下面的一步就是修改项目的构建配置。
     </p>
     <p>
-        Go to
+        在项目中找到
         <em>
-            Tools\Kotlin\Configure Kotlin in Project
+            Tools/Kotlin/Configure Kotlin
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_7.png"
@@ -270,15 +268,15 @@
         </a>
     </p>
     <p>
-        Select
-        <em>
-            Android with Gradle
-        </em>
-        from the
+        从弹出的菜单
         <em>
             Choose Configurator
         </em>
-        popup that appears.
+        中选择
+        <em>
+            Android with Gradle
+        </em>
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_8.png"
@@ -288,16 +286,15 @@
         </a>
     </p>
     <p>
-        On the
+        在弹出的窗口
         <em>
             Configure Kotlin in Project
         </em>
-        popup, select the plugin version you want to use (at the time of writing
-        this tutorial, the current version is 1.0.3) and click
+        中，选择你想要使用的插件版本（在编写本教程的时候，当前的版本应当是1.0.3），并点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/configure_kotlin_in_project-480x168.png"
@@ -306,79 +303,107 @@
         sizes="(max-width: 480px) 100vw, 480px">
     </p>
     <p>
-        This action will make a number of changes to your
+        这个操作将对你的
         <em>
             build.gradle
         </em>
-        files.
+        文件进行大量的修改。
     </p>
     <p>
         <em>
-            build.gradle (Project: omg-android-starter):
+            build.gradle（Project: omg-android-starter）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">
-        buildscript { ext.kotlin_version = '1.0.3' // 1 repositories { jcenter()
-        } dependencies { classpath 'com.android.tools.build:gradle:2.1.3' classpath
-        "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2 // NOTE:
-        Do not place your application dependencies here; they belong // in the
-        individual module build.gradle files } } allprojects { repositories { jcenter()
-        } }
-    </pre>
+    <pre lang="groovy" class="language-groovy">buildscript {
+  ext.kotlin_version = '1.0.3' // 1
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.1.3'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+</pre>
     <p>
         <em>
-            build.gradle (Module: OMG Android):
+            build.gradle（Module: OMG Android）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">
-        apply plugin: 'com.android.application' apply plugin: 'kotlin-android'
-        // 3 android { compileSdkVersion 23 buildToolsVersion "24.0.2" defaultConfig
-        { minSdkVersion 14 targetSdkVersion 23 } sourceSets { main.java.srcDirs
-        += 'src/main/kotlin' // 4 } } dependencies { compile 'com.android.support:appcompat-v7:23.2.0'
-        compile 'com.loopj.android:android-async-http:1.4.4' compile 'com.squareup.picasso:picasso:2.1.1'
-        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5 } repositories
-        { mavenCentral() }
-    </pre>
+    <pre lang="groovy" class="language-groovy">    
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android' // 3
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+    }
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin' // 4
+  }
+}
+
+dependencies {
+  compile 'com.android.support:appcompat-v7:23.2.0'
+  compile 'com.loopj.android:android-async-http:1.4.4'
+  compile 'com.squareup.picasso:picasso:2.1.1'
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5
+}
+repositories {
+  mavenCentral()
+}
+</pre>
     <p>
-        Let’s go over this step-by-step:
+        一步一步来看：
     </p>
     <ol>
         <li>
-            Declares the version of Kotlin configured in the project
+            声明配置在项目中的Kotlin版本
         </li>
         <li>
-            Declares a classpath dependency artifact that contains the Kotlin Gradle
-            plugin with the version declared earlier
+            声明一个类路径依赖的工件，其中包含有之前声明的Kotlin Gradle的插件
         </li>
         <li>
-            Specifies the use of the Kotlin Android plugin via
+            通过
             <code>
                 apply plugin command
             </code>
+            指定Kotlin Android插件的用途
         </li>
         <li>
-            Defines that source files found in
+            声明在
             <em>
                 src/main/kotlin
             </em>
-            will be compiled. Strictly speaking, gradle will compile source Kotlin
-            files found in
+            中的源码文件将被编译。严格地说，gradle将会编译在
             <em>
                 src/main/java
             </em>
-            , but it’s nice to put to put Kotlin files in a Kotlin directory.
+            中的Kotlin源码文件，但将Kotlin文件都存放到一个Kotlin的目录下显然会更好一些。
         </li>
         <li>
-            Added the Kotlin Standard Library as a compile time dependency to the
-            project
+            添加Kotlin的标准库，作为项目编译时的依赖
         </li>
     </ol>
     <p>
-        Click on
+        点击
         <em>
             Sync Now
         </em>
-        to build the project. Build and run.
+        来构建项目，然后运行。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/intro_to_kotlin_25.png"
@@ -390,8 +415,7 @@
         </a>
     </p>
     <p>
-        Nothing changed visually but you’ve put all the plumbing in place to support
-        Kotlin in your Android project.
+        看不出任何视觉上的变化，但你已在这个Android项目加入了对Kotlin语言的支持。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/can_we_start_already-1.png"
@@ -401,7 +425,7 @@
         </a>
     </p>
     <h2>
-        Working with Java and Kotlin in the Same Project
+        在一个项目中同时使用Java和Kotlin
     </h2>
     <p>
         One of the most amazing qualities of Kotlin is how it can coexist with
