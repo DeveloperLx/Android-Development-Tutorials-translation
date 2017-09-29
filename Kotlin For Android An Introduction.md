@@ -428,15 +428,14 @@ repositories {
         在一个项目中同时使用Java和Kotlin
     </h2>
     <p>
-        One of the most amazing qualities of Kotlin is how it can coexist with
-        Java on a project. Java code can be called from Kotlin and vice versa.
+        Kotlin最令人惊奇的一个特性，就是它可以与Java在一个项目中共存。并且Java代码可以调用Kotlin，Kotlin代码也可调用Java。
     </p>
     <p>
-        From this point of the tutorial forward, you’ll be translating the
+        在本教程后面的部分，你将使用Kotlin来翻译
         <em>
             DetailActivity
         </em>
-        class in Kotlin.
+        这个类。
     </p>
     <p>
         Single click the
@@ -448,8 +447,9 @@ repositories {
         <em>
             File\New\Kotlin File/Class
         </em>
-        to create a new Kotlin class. (Without the package selected, you won’t
-        see the Kotlin file option).
+        to create a new Kotlin class. 
+        (Without the package selected, 
+        you won’t see the Kotlin file option).
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_15.png"
