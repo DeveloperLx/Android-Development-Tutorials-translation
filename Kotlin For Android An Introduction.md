@@ -71,7 +71,8 @@
         由于Android如风暴般地席卷了全球，开发者对其app的开发除Java外没有其它选择。尽管它因此被广泛地传播，Java还带来了非常多的历史包袱。
     </p>
     <p>
-        Java 8解决了一些语言的问题，在Java 10则纠正了更多的问题。要从这两个版本中获益，你不得不将minimum SDK的版本设置为Android 24，仅仅是为了使用Java 8，这样的选择是无法被大多数开发者接受的。对于更大多数的开发者，Java 10几乎都压根不在视线范围内。
+        Java 8解决了一些语言的问题，在Java 10则纠正了更多的问题。要从这两个版本中获益，你不得不将minimum SDK的版本设置为Android
+        24，仅仅是为了使用Java 8，这样的选择是无法被大多数开发者接受的。对于更大多数的开发者，Java 10几乎都压根不在视线范围内。
     </p>
     <p>
         Kotlin旨在填补Android平台与现代语言之间的差距。它有一些核心的
@@ -314,58 +315,28 @@
             build.gradle（Project: omg-android-starter）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">buildscript {
-  ext.kotlin_version = '1.0.3' // 1
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:2.1.3'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2
-
-    // NOTE: Do not place your application dependencies here; they belong
-    // in the individual module build.gradle files
-  }
-}
-
-allprojects {
-  repositories {
-    jcenter()
-  }
-}
-</pre>
+    <pre lang="groovy" class="language-groovy">
+        buildscript { ext.kotlin_version = '1.0.3' // 1 repositories { jcenter()
+        } dependencies { classpath 'com.android.tools.build:gradle:2.1.3' classpath
+        "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2 // NOTE:
+        Do not place your application dependencies here; they belong // in the
+        individual module build.gradle files } } allprojects { repositories { jcenter()
+        } }
+    </pre>
     <p>
         <em>
             build.gradle（Module: OMG Android）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">    
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android' // 3
-
-android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.2"
-
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
-    }
-  sourceSets {
-    main.java.srcDirs += 'src/main/kotlin' // 4
-  }
-}
-
-dependencies {
-  compile 'com.android.support:appcompat-v7:23.2.0'
-  compile 'com.loopj.android:android-async-http:1.4.4'
-  compile 'com.squareup.picasso:picasso:2.1.1'
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5
-}
-repositories {
-  mavenCentral()
-}
-</pre>
+    <pre lang="groovy" class="language-groovy">
+        apply plugin: 'com.android.application' apply plugin: 'kotlin-android'
+        // 3 android { compileSdkVersion 23 buildToolsVersion "24.0.2" defaultConfig
+        { minSdkVersion 14 targetSdkVersion 23 } sourceSets { main.java.srcDirs
+        += 'src/main/kotlin' // 4 } } dependencies { compile 'com.android.support:appcompat-v7:23.2.0'
+        compile 'com.loopj.android:android-async-http:1.4.4' compile 'com.squareup.picasso:picasso:2.1.1'
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5 } repositories
+        { mavenCentral() }
+    </pre>
     <p>
         一步一步来看：
     </p>
@@ -490,11 +461,21 @@ repositories {
     <p>
         你新创建的类现在看起来应当是这样：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">    
-    <span class="hljs-keyword">package</span> com.example.omgandroid
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span> </span>{
-    }
-</pre>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            package
+        </span>
+        com.example.omgandroid
+        <span class="hljs-class">
+            <span class="hljs-keyword">
+                class
+            </span>
+            <span class="hljs-title">
+                DetailActivityKotlin
+            </span>
+        </span>
+        { }
+    </pre>
     <p>
         这里有几件事值得注意：
     </p>
@@ -527,70 +508,119 @@ repositories {
     <p>
         首先在文件的顶部添加如下的import语句
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">  
-  <span class="hljs-keyword">import</span> android.app.Activity
-  <span class="hljs-keyword">import</span> android.os.Bundle
-</pre>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.app.Activity
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.os.Bundle
+    </pre>
     <p>
-        Then make the class a subclass of
+        然后创建一个
         <em>
             Activity
         </em>
-        .
+        的子类。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">  
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main2Activity</span> : <span class="hljs-type">Activity</span></span>() {
-
-}
-</pre>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-class">
+            <span class="hljs-keyword">
+                class
+            </span>
+            <span class="hljs-title">
+                Main2Activity
+            </span>
+            :
+            <span class="hljs-type">
+                Activity
+            </span>
+        </span>
+        () { }
+    </pre>
     <p>
-        Note that you do this in Kotlin a little differently from how you do it
-        in Java. In Kotlin, you append
+        注意这里和Java中有一点不同。在Kotlin中，你用
         <em>
             :NameOfParentClass()
         </em>
-        to the subclass declaration.
+        来表示类的继承。
     </p>
     <p>
-        Now override
+        现在重写
         <em>
             Activity
         </em>
-        ‘s
+        的
         <em>
             onCreate()
         </em>
-        method. It will look something like this.
+        方法，就像下面这样。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">  
-<span class="hljs-keyword">import</span> android.app.Activity
-<span class="hljs-keyword">import</span> android.os.Bundle
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span>: <span class="hljs-type">Activity</span></span>() {
-
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
-    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
-  }
-}
-</pre>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.app.Activity
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.os.Bundle
+        <span class="hljs-class">
+            <span class="hljs-keyword">
+                class
+            </span>
+            <span class="hljs-title">
+                DetailActivityKotlin
+            </span>
+            :
+            <span class="hljs-type">
+                Activity
+            </span>
+        </span>
+        () {
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                fun
+            </span>
+            <span class="hljs-title">
+                onCreate
+            </span>
+            <span class="hljs-params">
+                (savedInstanceState:
+                <span class="hljs-type">
+                    Bundle
+                </span>
+                ?)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            super
+        </span>
+        .onCreate(savedInstanceState) } }
+    </pre>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        You can use Android Studio’s code generation functionality to generate
-        the
+        你可以使用Android Studio的代码生成功能来创建
         <em>
             onCreate
         </em>
-        method signature with
+        方法，快捷键是
         <em>
             control + O
         </em>
-        . Press
+        。按下
         <em>
             control + O
         </em>
-        to see a popup with all overridable methods for the class you’re in.
+        键可以查看你当前所在的类可重载的方法。
         <p>
         </p>
         <p>
@@ -603,64 +633,127 @@ repositories {
         </p>
     </div>
     <p>
-        Open
+        打开
         <em>
             MainActivity.java
         </em>
-        and replace the
-        <code>
-            DetailActivity
-        </code>
-        reference in
+        ，并将
         <code>
             onItemClick()
         </code>
-        with
+        中的
+        <code>
+            DetailActivity
+        </code>
+        替换为
         <code>
             DetailActivityKotlin
         </code>
-        .
+        。
     </p>
     <p>
-        Your intent creation line should change from:
+        将创建intent的这行代码： Your intent creation line should change from:
     </p>
-    <pre lang="java" class="language-java hljs">  
-Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, DetailActivity.class);
-</pre>
+    <pre lang="java" class="language-java hljs">
+        Intent detailIntent =
+        <span class="hljs-keyword">
+            new
+        </span>
+        Intent(
+        <span class="hljs-keyword">
+            this
+        </span>
+        , DetailActivity.class);
+    </pre>
     <p>
-        To this:
+        替换为：？？？？？？？？？？？？？？？？？？？？？？？？？？？？
     </p>
-    <pre lang="java" class="language-java hljs">  
-Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, DetailActivityKotlin.class);
-</pre>
+    <pre lang="java" class="language-java hljs">
+        Intent detailIntent =
+        <span class="hljs-keyword">
+            new
+        </span>
+        Intent(
+        <span class="hljs-keyword">
+            this
+        </span>
+        , DetailActivityKotlin.class);
+    </pre>
     <p>
-        Just like you would do for a Java Activity, you need to declare your Kotlin
-        Activity in
+        就像你在Java中为Activity做的，你需要在
         <em>
             AndroidManifest.xml
         </em>
-        . Add the following code under the
+        中声明你的Kotlin Activity。在
         <em>
             DetailActivity
         </em>
-        declaration:
+        声明的下方添加如下代码：
     </p>
-    <pre lang="xml" class="language-xml hljs">   <span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
-        <span class="hljs-attr">android:name</span>=<span class="hljs-string">".DetailActivityKotlin"</span>
-        <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/activity_details_kotlin"</span>
-        <span class="hljs-attr">android:parentActivityName</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
-          <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.support.PARENT_ACTIVITY"</span>
-          <span class="hljs-attr">android:value</span>=<span class="hljs-string">".MainActivity"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
-</pre>
+    <pre lang="xml" class="language-xml hljs">
+        <span class="hljs-tag">
+            &lt;
+            <span class="hljs-name">
+                activity
+            </span>
+            <span class="hljs-attr">
+                android:name
+            </span>
+            =
+            <span class="hljs-string">
+                ".DetailActivityKotlin"
+            </span>
+            <span class="hljs-attr">
+                android:label
+            </span>
+            =
+            <span class="hljs-string">
+                "@string/activity_details_kotlin"
+            </span>
+            <span class="hljs-attr">
+                android:parentActivityName
+            </span>
+            =
+            <span class="hljs-string">
+                ".MainActivity"
+            </span>
+            &gt;
+        </span>
+        <span class="hljs-tag">
+            &lt;
+            <span class="hljs-name">
+                meta-data
+            </span>
+            <span class="hljs-attr">
+                android:name
+            </span>
+            =
+            <span class="hljs-string">
+                "android.support.PARENT_ACTIVITY"
+            </span>
+            <span class="hljs-attr">
+                android:value
+            </span>
+            =
+            <span class="hljs-string">
+                ".MainActivity"
+            </span>
+            /&gt;
+        </span>
+        <span class="hljs-tag">
+            &lt;/
+            <span class="hljs-name">
+                activity
+            </span>
+            &gt;
+        </span>
+    </pre>
     <p>
-        Build and run. Select a book from the list so you can see that empty screen
-        with the title
+        运行项目。从列表中选择一本书，你就会看到一个带有标题
         <i>
             Kotlin Book Details
         </i>
-        .
+        的空空的屏幕。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_26.png"
@@ -672,82 +765,236 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <h2>
-        How Cool is Kotlin?
+        Kotlin有多酷？
     </h2>
     <p>
-        Before you dive deeper into Kotlin’s features, go back to
+        在你深入Kotlin的特性之前，回到
         <em>
             DetailActivityKotlin.kt
         </em>
-        and replace the contents of the file with the following:
+        ，并将文件的全部内容替换为：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">  
-<span class="hljs-keyword">package</span> com.example.omgandroid
-
-<span class="hljs-keyword">import</span> android.app.Activity
-<span class="hljs-keyword">import</span> android.content.Intent
-<span class="hljs-keyword">import</span> android.os.Bundle
-<span class="hljs-keyword">import</span> android.view.Menu
-<span class="hljs-keyword">import</span> android.widget.ImageView
-<span class="hljs-keyword">import</span> android.widget.ShareActionProvider
-<span class="hljs-keyword">import</span> com.squareup.picasso.Picasso
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span>: <span class="hljs-type">Activity</span></span>() {
-
-  <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> IMAGE_URL_BASE = <span class="hljs-string">"http://covers.openlibrary.org/b/id/"</span>
-  <span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mImageURL = <span class="hljs-string">""</span>
-  <span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mShareActionProvider: ShareActionProvider? = <span class="hljs-literal">null</span>
-
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
-    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
-
-    setContentView(R.layout.activity_detail)
-
-    actionBar?.setDisplayHomeAsUpEnabled(<span class="hljs-literal">true</span>)
-
-    <span class="hljs-keyword">val</span> imageView = findViewById(R.id.img_cover) <span class="hljs-keyword">as</span> ImageView
-
-    <span class="hljs-keyword">val</span> coverId = <span class="hljs-keyword">this</span>.intent.extras.getString(<span class="hljs-string">"coverID"</span>)
-
-    <span class="hljs-keyword">val</span> len = coverId?.length ?: <span class="hljs-number">0</span>
-
-    <span class="hljs-keyword">if</span> (len &gt; <span class="hljs-number">0</span>) {
-      mImageURL = IMAGE_URL_BASE + coverId + <span class="hljs-string">"-L.jpg"</span>
-      Picasso.with(<span class="hljs-keyword">this</span>).load(mImageURL).placeholder(R.drawable.img_books_loading).into(imageView)
-    }
-  }
-
-  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setShareIntent</span><span class="hljs-params">()</span></span> {
-
-    <span class="hljs-keyword">val</span> shareIntent = Intent(Intent.ACTION_SEND)
-    shareIntent.type = <span class="hljs-string">"text/plain"</span>
-    shareIntent.putExtra(Intent.EXTRA_SUBJECT, <span class="hljs-string">"Book Recommendation!"</span>)
-    shareIntent.putExtra(Intent.EXTRA_TEXT, mImageURL)
-
-    mShareActionProvider?.setShareIntent(shareIntent)
-  }
-
-  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateOptionsMenu</span><span class="hljs-params">(menu: <span class="hljs-type">Menu</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
-
-    menuInflater.inflate(R.menu.main, menu)
-
-    <span class="hljs-keyword">val</span> shareItem = menu.findItem(R.id.menu_item_share)
-
-    mShareActionProvider = shareItem!!.actionProvider <span class="hljs-keyword">as</span> ShareActionProvider
-
-    setShareIntent()
-
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
-  }
-}
-</pre>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            package
+        </span>
+        com.example.omgandroid
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.app.Activity
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.content.Intent
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.os.Bundle
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.view.Menu
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.widget.ImageView
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.widget.ShareActionProvider
+        <span class="hljs-keyword">
+            import
+        </span>
+        com.squareup.picasso.Picasso
+        <span class="hljs-class">
+            <span class="hljs-keyword">
+                class
+            </span>
+            <span class="hljs-title">
+                DetailActivityKotlin
+            </span>
+            :
+            <span class="hljs-type">
+                Activity
+            </span>
+        </span>
+        () {
+        <span class="hljs-keyword">
+            private
+        </span>
+        <span class="hljs-keyword">
+            val
+        </span>
+        IMAGE_URL_BASE =
+        <span class="hljs-string">
+            "http://covers.openlibrary.org/b/id/"
+        </span>
+        <span class="hljs-keyword">
+            internal
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        mImageURL =
+        <span class="hljs-string">
+            ""
+        </span>
+        <span class="hljs-keyword">
+            internal
+        </span>
+        <span class="hljs-keyword">
+            var
+        </span>
+        mShareActionProvider: ShareActionProvider? =
+        <span class="hljs-literal">
+            null
+        </span>
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                fun
+            </span>
+            <span class="hljs-title">
+                onCreate
+            </span>
+            <span class="hljs-params">
+                (savedInstanceState:
+                <span class="hljs-type">
+                    Bundle
+                </span>
+                ?)
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            super
+        </span>
+        .onCreate(savedInstanceState) setContentView(R.layout.activity_detail)
+        actionBar?.setDisplayHomeAsUpEnabled(
+        <span class="hljs-literal">
+            true
+        </span>
+        )
+        <span class="hljs-keyword">
+            val
+        </span>
+        imageView = findViewById(R.id.img_cover)
+        <span class="hljs-keyword">
+            as
+        </span>
+        ImageView
+        <span class="hljs-keyword">
+            val
+        </span>
+        coverId =
+        <span class="hljs-keyword">
+            this
+        </span>
+        .intent.extras.getString(
+        <span class="hljs-string">
+            "coverID"
+        </span>
+        )
+        <span class="hljs-keyword">
+            val
+        </span>
+        len = coverId?.length ?:
+        <span class="hljs-number">
+            0
+        </span>
+        <span class="hljs-keyword">
+            if
+        </span>
+        (len &gt;
+        <span class="hljs-number">
+            0
+        </span>
+        ) { mImageURL = IMAGE_URL_BASE + coverId +
+        <span class="hljs-string">
+            "-L.jpg"
+        </span>
+        Picasso.with(
+        <span class="hljs-keyword">
+            this
+        </span>
+        ).load(mImageURL).placeholder(R.drawable.img_books_loading).into(imageView)
+        } }
+        <span class="hljs-keyword">
+            private
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                fun
+            </span>
+            <span class="hljs-title">
+                setShareIntent
+            </span>
+            <span class="hljs-params">
+                ()
+            </span>
+        </span>
+        {
+        <span class="hljs-keyword">
+            val
+        </span>
+        shareIntent = Intent(Intent.ACTION_SEND) shareIntent.type =
+        <span class="hljs-string">
+            "text/plain"
+        </span>
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT,
+        <span class="hljs-string">
+            "Book Recommendation!"
+        </span>
+        ) shareIntent.putExtra(Intent.EXTRA_TEXT, mImageURL) mShareActionProvider?.setShareIntent(shareIntent)
+        }
+        <span class="hljs-keyword">
+            override
+        </span>
+        <span class="hljs-function">
+            <span class="hljs-keyword">
+                fun
+            </span>
+            <span class="hljs-title">
+                onCreateOptionsMenu
+            </span>
+            <span class="hljs-params">
+                (menu:
+                <span class="hljs-type">
+                    Menu
+                </span>
+                )
+            </span>
+        </span>
+        :
+        <span class="hljs-built_in">
+            Boolean
+        </span>
+        { menuInflater.inflate(R.menu.main, menu)
+        <span class="hljs-keyword">
+            val
+        </span>
+        shareItem = menu.findItem(R.id.menu_item_share) mShareActionProvider =
+        shareItem!!.actionProvider
+        <span class="hljs-keyword">
+            as
+        </span>
+        ShareActionProvider setShareIntent()
+        <span class="hljs-keyword">
+            return
+        </span>
+        <span class="hljs-literal">
+            true
+        </span>
+        } }
+    </pre>
     <p>
-        On the surface, the code resembles Java, but there are some Kotlin language
-        specifics that you’ll get into in the next section.
+        表面上看，上述代码非常得像Java，但仍包含着一些Kotlin语言的特性，你将在下一部分进行深入。
     </p>
     <p>
-        Build and run, select a book and see if you get a cover this time. Oh,
-        look, you do!
+        运行项目，选择一本书，检查你是否能看到封面。是的，你做到了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_27.png"
@@ -759,22 +1006,17 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <h3>
-        Null Safety
+        空指针的安全性
     </h3>
     <p>
-        One of the leading points of frustration with most programming languages,
-        including Java, is accessing a member of a null reference. A null reference
-        occurs when you declare an object variable but haven’t given it a value.
-        When the program runs and tries to access that variable it doesn’t know
-        where to look for it memory because it doesn’t exist.
+        包括Java在内的很多语言，一个最头疼的问题就是访问空引用的成员。空引用通常发生在，你声明了一个对象的变量，但却未给它赋值的时候。当程序运行起来，尝试访问这个变量的时候，就无法知道该去哪里来找到它，因为它实际上并不存在。
     </p>
     <p>
-        The most common result of this is your application come to an abrupt halt
-        and crashes! You might be familiar with Java’s “almighty”
+        最常见的结果就是你的app会直接奔溃！你可能熟悉Java的“almighty”
         <em>
             NullPointerException
         </em>
-        . Apologies in advance for any flashbacks! :]
+        。在任何突然闪现的情况前道歉！:]
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/null_pointer_exception.png"
@@ -785,73 +1027,69 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <p>
-        One of Kotlin’s greatest features is that its type system aims to eliminate
-        the
+        Kotlin最棒的特性之一，就是它的类型系统旨在消除
         <em>
             NullPointerException
         </em>
-        (a goal known as
+        （参考
         <a href="https://en.wikipedia.org/wiki/Void_safety" target="_blank" title="void safety"
         sl-processed="1">
             void safety
         </a>
-        ).
+        ）。
     </p>
     <p>
-        In Kotlin, the only possible causes of a
+        在Kotlin中，造成
         <em>
             NullPointerException
         </em>
-        are:
+        的原因只有：
     </p>
     <ul>
         <li>
-            External Java code did it
+            外部的Java代码所导致
         </li>
         <li>
-            An explicit call to throw NullPointerException()
+            显式地抛出NullPointerException()
         </li>
         <li>
-            Usage of the
+            使用了
             <code>
                 !!
             </code>
-            operator (which will be explained shortly)
+            操作符（有短路的特性）
         </li>
         <li>
-            Some data inconsistency in regards to initialization
+            一些数据相关于构造器的内容前后矛盾
         </li>
     </ul>
     <h3>
-        Nullable Types and Non-Null Types
+        可以为空的类型和禁止为空的类型
     </h3>
     <p>
-        Kotlin has
+        Kotlin含有
         <em>
             nullable
         </em>
-        and
+        和
         <em>
             non-null
         </em>
-        types. If you don’t declare a variable as nullable, then you cannot assign
-        it a null value. This is enforced by the compiler meaning it’s much harder
-        to unintentionally crash your app.
+        类型。如果你未将变量声明成nullable的，你就不能给它赋一个空值。这是由编译器所强制规定的，使得因粗心造成你app的崩溃变得更加困难。
     </p>
     <p>
-        In contrast to Java, all variables must be initialized at the point of
-        declaration.
+        不同于Java，kotlin所有的变量都必须在它声明时被初始化。
     </p>
     <p>
-        To declare a variable as nullable, you have to append a
+        要将一个类型声明为nullable的，你就必须在他的类型后添加一个
         <em>
             ?
         </em>
-        to its type at the point of declaration as you see in this
+        ，就像你在
         <em>
             mShareActionProvider
         </em>
-        declaration:
+        的声明中看到的一样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -866,15 +1104,14 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </span>
     </pre>
     <h3>
-        Safe Calls
+        安全的调用
     </h3>
     <p>
-        To access a property or method on a nullable variable in Java, you would
-        first do a null check. You can see this in
+        在Java中，要访问一个property或方法，你需要首先进行一个null的判断。如你在
         <code>
             DetailActivity.java
         </code>
-        :
+        中看到的：
     </p>
     <pre lang="java" class="language-java hljs">
         <span class="hljs-keyword">
@@ -887,52 +1124,50 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         ) { mShareActionProvider.setShareIntent(shareIntent) }
     </pre>
     <p>
-        With Kotlin, you can simplify the above expression with the use of a safe
-        call operator (
+        而在Kotlin中，你可以使用一个安全的调用操作符（
         <em>
             ?.
         </em>
-        ). The property or method is only called when the nullable variable is
+        ）来简化上述的表达式。其后的property或方法只有在这个nullable的变量
         <i>
-            not null
+            不为空时
         </i>
-        .
+        才会被调用。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         mShareActionProvider?.setShareIntent(shareIntent)
     </pre>
     <p>
-        Here,
+        这里，
         <code>
             setShareIntent
         </code>
-        is only called when the
+        只有当
         <code>
             mShareActionProvider
         </code>
-        property is not null.
+        property不为空时才会被调用。
     </p>
     <h3>
-        The !! Operator
+        !! 操作符
     </h3>
     <p>
-        As stated earlier, this is one of possible causes of the dreaded
+        就像前面所提到的，它是造成可怕的
         <em>
             NullPointerException
         </em>
-        . If you’re absolutely sure the object is not null, feel free to use the
-        (
+        可能的原因之一。如果你可以百分之百地确认这个对象不为空，就可以使用（
         <em>
             !!
         </em>
-        ) operator to dereference your object.
+        ）操作符来重新引用你的对象。
     </p>
     <p>
-        You can see an example of this in
+        你可以在
         <code>
             setShareIntent()
         </code>
-        :
+        中看到它的一个例子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         mShareActionProvider = shareItem!!.actionProvider
@@ -942,38 +1177,33 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         ShareActionProvider
     </pre>
     <p>
-        In here, the
+        这里，如果
+        <em>
+            shareItem
+        </em>
+        变量不为空，
         <em>
             actionProvider
         </em>
-        is retrieved if the
-        <em>
-            shareItem
-        </em>
-        variable is not null, but a
+        就会被取用，反之则会抛出一个
         <em>
             NullPointerException
         </em>
-        is thrown when the
-        <em>
-            shareItem
-        </em>
-        variable is null.
+        的异常。
     </p>
     <h3>
-        The Elvis Operator
+        Elvis操作符
     </h3>
     <p>
-        The Elvis Operator (
+        Elvis操作符
         <em>
             ?:
         </em>
-        ) looks like the ternary
+        ）看起来就像Java中的三元
         <code>
             if
         </code>
-        operator in Java but works differently. You can see an example of this
-        when trying to get the length of the cover ID:
+        操作符，但工作方式完全不同。获取封面ID的长度这里可以作为一个例子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -985,33 +1215,28 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </span>
     </pre>
     <p>
-        If the expression to the left of the Elvis operator is not null, the results
-        of the expression are returned. Otherwise, the it returns the expression
-        to the right.
+        如果Elvis操作符左边的表达式不为空，就返回这个表达式的结果。否则，就返回右侧的表达式。
     </p>
     <p>
-        Just like an
+        就像
         <code>
             if-else
         </code>
-        statement, Elvis only evaluates the expression on the right if the one
-        on the left side is null.
+        语句一样，Elvis运算符右边的表达式只会在左边表达式的值为null时，才会进行计算。
     </p>
     <h3>
-        Type Inference
+        类型推断
     </h3>
     <p>
-        Kotlin also supports type inference, meaning the compiler can assume its
-        type from the initializer when a variable is declared and initialized.
-        For example, the types of the
+        Kotlin还支持类型推断，意味着编译器可以从它的初始化中猜测它的类型。例如，
         <code>
             IMAGE_URL_BASE
         </code>
-        and
+        和
         <code>
             mImageURL
         </code>
-        variables are inferred from their initializers.
+        变量的类型就是从它们的初始化中推断出来的。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -1036,47 +1261,42 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </span>
     </pre>
     <p>
-        The compiler tracks the inferred type of each variable (each is a
+        编译器会追踪每个变量的推断类型（
         <code>
             String
         </code>
-        ), and any subsequent values assigned to the variable must also be of
-        that type (
+        ），这样随后被赋予到这些变量的值就必须也是那个类型（
         <code>
             String
         </code>
-        ).
+        ）的了。
     </p>
     <h3>
-        The Coolest of Them All
+        最酷的一点
     </h3>
     <p>
-        Already thinking of rewriting your Java project in Kotlin? Don’t stress
-        — the Kotlin plugin has you covered.
+        早已在考虑用户Kotlin重写你的Java项目了么？不必太有压力 — Kotlin的插件早就为你考虑好了。
     </p>
     <p>
-        Since Kotlin is a programming language made by developers for developers,
-        it’s designed to make your life as easy as possible. The Kotlin plugin
-        even has a handy tool that allows you to convert a Java source file to
-        Kotlin.
+        由于Kotlin是由开发者所发明的语言，且为开发者使用，它会尽可能地让你的生活变得轻松。Kotlin的插件中甚至还包含了一个便利的工具，直接将你的Java源码转化为Kotlin。
     </p>
     <p>
-        Take this sanity-saving feature for a test drive by converting the
+        来测试一下这个功能，把
         <em>
             DetailActivity.java
         </em>
-        file to Kolin.
+        文件转换成Kotlin的吧。
     </p>
     <p>
-        Open the
+        打开
         <em>
             DetailActivity.java
         </em>
-        class and go to
+        类并点击
         <em>
-            Code\Convert Java File to Kotlin File
+            Code/Convert Java File to Kotlin File
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_13.png"
@@ -1087,15 +1307,15 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <p>
-        Click
-        <em>
-            OK
-        </em>
-        on the
+        在
         <em>
             Convert Java to Kotlin
         </em>
-        screen. This will replace the Java file with a Kotlin one!
+        这页上点击
+        <em>
+            OK
+        </em>
+        ，就会将这个Java文件替换为Kotlin的！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/intro_to_kotlin_14.png"
@@ -1106,7 +1326,7 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <p>
-        That’s it. You’ve converted a Java class into a Kotlin class. :]
+        OK了。你已将一个Java的类替换成了Kotlin的。:]
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/not_bad-1.png"
@@ -1116,7 +1336,7 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </a>
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1128,10 +1348,11 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1139,58 +1360,53 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
         </div>
     </div>
     <p>
-        Congratulations! You just learned about the Kotlin programming language
-        and some of it’s amazing features, re-coded a Java Activity in Kotlin,
-        and used the Kotlin plugin to convert a Java source file into a Kotlin
-        source file.
+        祝贺！你刚刚已经了解了一些Kotlin语言中令人惊奇的特性，用Kotlin重写了一个Java的Activity，并使用Kotlin的插件将一个Java的源文件转花成了Kotlin的源文件。
     </p>
     <p>
-        Download the final project for this tutorial
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/07/omg-android-final.zip"
         target="_blank" title="here" sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终完成的项目。
     </p>
     <p>
-        I suggest reading up further on
+        建议对文档
         <a href="https://kotlinlang.org/docs/reference/null-safety.html" title="Null Safety in Kotlin"
         sl-processed="1">
             Null Safety in Kotlin
         </a>
-        in the documentation.
+        进行更深入的阅读。
     </p>
     <p>
-        You can also use the
+        你还可以使用
         <a href="http://try.kotlinlang.org/" target="_blank" title="Kotlin online compiler"
         sl-processed="1">
-            Kotlin online compiler
+            Kotlin在线编译器
         </a>
-        to try out code samples and improve your knowledge of the language.
+        来实验代码样本及提升知识技能。
     </p>
     <p>
-        You’ve only scratched the surface of the amazing possibilities with Kotlin.
-        If you’re excited by what you’ve read here, you can checkout topics such
-        as
+        本文中你仅仅是触及到了Kotlin的皮毛。如果你渴望了解更多内容的话，还可以查阅这些话题：
         <a href="http://kotlinlang.org/docs/reference/data-classes.html" target="_blank"
         title="Data Classes" sl-processed="1">
             Data Classes
         </a>
-        ,
+        ，
         <a href="http://kotlinlang.org/docs/reference/extensions.html" target="_blank"
         title="Extensions" sl-processed="1">
             Extensions
         </a>
-        ,
+        ，
         <a href="http://kotlinlang.org/docs/reference/coding-conventions.html#lambdas"
         target="_blank" title="Lambdas" sl-processed="1">
             Lambdas
         </a>
-        , or
+        ，
         <a href="http://kotlinlang.org/docs/reference/basic-syntax.html#using-string-templates"
         target="_blank" title="String Templates" sl-processed="1">
             String Templates
         </a>
-        if you need to satisfy your appetite for knowledge.
+        等。
     </p>
 </div>
