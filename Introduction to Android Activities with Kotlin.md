@@ -6,10 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update Note
+                更新日志
             </em>
-            : This tutorial has been updated to Kotlin and Android Studio 3.0 by Joe
-            Howard. The original tutorial was written by Namrata Bandekar.
+            ：本教程已由Joe Howard更新至使用Kotlin和Android Studio 3.0的版本。原教程由Namrata Bandekar撰写。
         </p>
     </div>
     <p>
@@ -17,81 +16,71 @@
         alt="Learn how to juggle like an Android!" width="250" height="250" class="alignright size-full bordered">
     </p>
     <p>
-        When you make an Android app, it’s pretty likely that the first thing
-        you’ll do is plot and plan how you’ll take over the world. Just kidding.
-        Actually, the first thing you do is create an
+        当你创建一个Android app的时候，很可能你会做的第一件事就是规划和设计如何去接管世界~开玩笑了。实际上，你会做的第一件事就是创建一个
         <em>
             Activity
         </em>
-        . Activities are where all the action happens, because they are the screens
-        that allow the user to interact with your app.
+        。Activity是所有动作发生的地方，因为它就是用户和你的app进行交互的那块屏幕。
     </p>
     <p>
-        In short, activities are one of the basic building blocks of an Android
-        application.
+        简单地说，activity就是Android app的一个基本构建模块之一。
     </p>
     <p>
-        In this Introduction to Android Activities Tutorial, you’ll dive into
-        how to work with activities. You’ll create a to-do list app named
+        在本教程中，你将深入了解如何使用activity。你会创建一个名为
         <em>
             Forget Me Not
         </em>
-        and along the way learn:
+        的to-do列表app，从中学习到：
     </p>
     <ul>
         <li>
-            The process for creating, starting and stopping an activity, and how to
-            handle navigation between activities.
+            创建，启动和停止一个activity的过程，以及如何处理两个activity之间的导航。
         </li>
         <li>
-            The various stages in the lifecycle of an activity and how to handle each
-            stage gracefully.
+            一个activity生命周期的各个阶段，以及如何优雅地处理各个阶段。
         </li>
         <li>
-            The way to manage configuration changes and persist data within your activity.
+            管理配置的变化，以及在你的activity中持久化数据的方式。
         </li>
     </ul>
     <p>
-        In addition, you’ll use the (newly official)
+        此外，你将使用（官方最新的）
         <em>
             Kotlin
         </em>
-        programming language and Android Studio 3.0. You’ll need to use Kotlin
-        1.1.3 or later and Android Studio 3.0 Canary 5 or later.
+        编程语言以及Android Studio 3.0。你需要使用Kotlin 1.1.3及Android Studio 3.0 Canary或更高地版本来完成。
     </p>
     <p>
-        This tutorial assumes you’re familiar with the basics of Android development.
-        If you’re completely new to Kotlin, XML or Android Studio, you should take
-        a look at the
-        <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+        本教程假定你已熟悉了基本的Android开发。如果你是Kotlin，XML或Android Studio的纯小白，你应当在开始前先学习一下
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
         target="_blank" title="Beginning Android Development Series" sl-processed="1">
-            Beginning Android Development Series
+            开始Android开发系列
         </a>
-        and
-        <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+        和
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
         target="_blank" title="Kotlin For Android: An Introduction" sl-processed="1">
-            Kotlin For Android: An Introduction
+            用Kotlin编写Android：介绍
         </a>
-        before you start.
+        。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Download and extract the
+        打开并提取本教程的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/ForgetMeNot-starter.zip"
         title="starter project" sl-processed="1">
-            starter project
+            初始项目
         </a>
-        for this tutorial. Open
+        。打开
         <em>
             Android Studio
         </em>
-        3.0 or later, and choose
+        3.0或更高的版本，并选择
         <em>
             Open an existing Android Studio project
         </em>
-        . Then select the project you just extracted.
+        。然后选取刚提取的项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/Screen-Shot-2017-06-19-at-11.32.28-AM.png"
@@ -103,19 +92,18 @@
         </a>
     </p>
     <p>
-        Your subject and new best friend for the rest of the tutorial is
+        本教程剩余的主题就是
         <em>
             Forget Me Not
         </em>
-        , which is a simple app that lets you add and delete tasks from a list.
-        It also displays the current date and time so you’re always on top of your
-        game!
+        了，这是一个简单的app，让你可以从列表中添加或删除任务。它还可以展示当前的日期和时间，便于你的查看。
     </p>
     <p>
+        现在
         <em>
-            Run
+            运行
         </em>
-        the project as it is now and you’ll see a very basic screen:
+        项目，你会看到一个非常基本的界面：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn7.png"
@@ -127,36 +115,30 @@
         </a>
     </p>
     <p>
-        At this point, there isn’t much you can do. Your to-do list is empty and
-        the “ADD A TASK” button does nothing when you tap it. Your mission is to
-        liven up this screen by making the to-do list modifiable.
+        现在，你可以做的事情还不多。你的to-do列表是空的，点击“ADD A TASK”按钮也不会有任何的反映。你的任务就是通过让to-do列表变得可以修改，来使整个屏幕活跃起来。
     </p>
     <h2>
-        Activity Lifecycle
+        Activity声明周期
     </h2>
     <p>
-        Before firing up your fingers, indulge yourself in a bit of theory.
+        在启动你的手指之前，先来絮叨一些理论。
     </p>
     <p>
-        As mentioned earlier, activities are the foundations upon which you build
-        screens for your app. They encompass multiple components the user can interact
-        with, and it’s likely that your app will have multiple activities to handle
-        the various screens you create.
+        就像前面所提到的，activity是构建你app的屏幕的基础。它包含了多种用户可以与之交互的组件，并且通常你的app都会有多个activity来处理你创建的各个屏幕。
     </p>
     <p>
-        Having all these activities doing different things makes it sound like
-        developing an Android app is a complicated undertaking.
+        让所有的activity做不同的事，使得开发一个Android app听起来像是一个复杂的任务。
     </p>
     <p>
-        Fortunately, Android handles this with specific
+        幸运的是，Android使用了特定的
         <em>
-            callback methods
+            回调方法
         </em>
-        that initiate code only when it’s needed. This system is known as the
+        来处理这些，其中的代码只有在需要时才会被启动。这个系统就被称为
         <em>
-            activity lifecycle
+            activity的生命周期
         </em>
-        .
+        。
     </p>
     <p>
         Handling the various lifecycle stages of your activities is crucial to
