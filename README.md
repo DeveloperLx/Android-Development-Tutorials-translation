@@ -96,9 +96,9 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/165824/introduction-android-activities-kotlin"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Introduction%20to%20Android%20Activities%20with%20Kotlin.md"
             sl-processed="1">
-                Introduction to Android Activities with Kotlin
+                Android Activity的介绍 - Kotlin
             </a>
         </li>
         <li>
