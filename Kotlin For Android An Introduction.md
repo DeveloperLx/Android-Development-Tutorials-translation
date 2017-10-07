@@ -315,28 +315,58 @@
             build.gradle（Project: omg-android-starter）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">
-        buildscript { ext.kotlin_version = '1.0.3' // 1 repositories { jcenter()
-        } dependencies { classpath 'com.android.tools.build:gradle:2.1.3' classpath
-        "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2 // NOTE:
-        Do not place your application dependencies here; they belong // in the
-        individual module build.gradle files } } allprojects { repositories { jcenter()
-        } }
-    </pre>
+    <pre lang="groovy" class="language-groovy">buildscript {
+  ext.kotlin_version = '1.0.3' // 1
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.1.3'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // 2
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+</pre>
     <p>
         <em>
             build.gradle（Module: OMG Android）：
         </em>
     </p>
-    <pre lang="groovy" class="language-groovy">
-        apply plugin: 'com.android.application' apply plugin: 'kotlin-android'
-        // 3 android { compileSdkVersion 23 buildToolsVersion "24.0.2" defaultConfig
-        { minSdkVersion 14 targetSdkVersion 23 } sourceSets { main.java.srcDirs
-        += 'src/main/kotlin' // 4 } } dependencies { compile 'com.android.support:appcompat-v7:23.2.0'
-        compile 'com.loopj.android:android-async-http:1.4.4' compile 'com.squareup.picasso:picasso:2.1.1'
-        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5 } repositories
-        { mavenCentral() }
-    </pre>
+    <pre lang="groovy" class="language-groovy">    
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android' // 3
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+    }
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin' // 4
+  }
+}
+
+dependencies {
+  compile 'com.android.support:appcompat-v7:23.2.0'
+  compile 'com.loopj.android:android-async-http:1.4.4'
+  compile 'com.squareup.picasso:picasso:2.1.1'
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // 5
+}
+repositories {
+  mavenCentral()
+}
+</pre>
     <p>
         一步一步来看：
     </p>
@@ -461,21 +491,11 @@
     <p>
         你新创建的类现在看起来应当是这样：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            package
-        </span>
-        com.example.omgandroid
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                DetailActivityKotlin
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">    
+    <span class="hljs-keyword">package</span> com.example.omgandroid
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span> </span>{
+    }
+</pre>
     <p>
         这里有几件事值得注意：
     </p>
@@ -508,16 +528,10 @@
     <p>
         首先在文件的顶部添加如下的import语句
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+  <span class="hljs-keyword">import</span> android.app.Activity
+  <span class="hljs-keyword">import</span> android.os.Bundle
+</pre>
     <p>
         然后创建一个
         <em>
@@ -525,21 +539,11 @@
         </em>
         的子类。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                Main2Activity
-            </span>
-            :
-            <span class="hljs-type">
-                Activity
-            </span>
-        </span>
-        () { }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main2Activity</span> : <span class="hljs-type">Activity</span></span>() {
+
+}
+</pre>
     <p>
         注意这里和Java中有一点不同。在Kotlin中，你用
         <em>
@@ -558,52 +562,17 @@
         </em>
         方法，就像下面这样。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                DetailActivityKotlin
-            </span>
-            :
-            <span class="hljs-type">
-                Activity
-            </span>
-        </span>
-        () {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-keyword">import</span> android.app.Activity
+<span class="hljs-keyword">import</span> android.os.Bundle
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span>: <span class="hljs-type">Activity</span></span>() {
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+  }
+}
+</pre>
     <div class="note">
         <em>
             注意：
@@ -654,31 +623,15 @@
     <p>
         将创建intent的这行代码： Your intent creation line should change from:
     </p>
-    <pre lang="java" class="language-java hljs">
-        Intent detailIntent =
-        <span class="hljs-keyword">
-            new
-        </span>
-        Intent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , DetailActivity.class);
-    </pre>
+    <pre lang="java" class="language-java hljs">  
+Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, DetailActivity.class);
+</pre>
     <p>
-        替换为：？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        替换为：
     </p>
-    <pre lang="java" class="language-java hljs">
-        Intent detailIntent =
-        <span class="hljs-keyword">
-            new
-        </span>
-        Intent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , DetailActivityKotlin.class);
-    </pre>
+    <pre lang="java" class="language-java hljs">  
+Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, DetailActivityKotlin.class);
+</pre>
     <p>
         就像你在Java中为Activity做的，你需要在
         <em>
@@ -690,64 +643,15 @@
         </em>
         声明的下方添加如下代码：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".DetailActivityKotlin"
-            </span>
-            <span class="hljs-attr">
-                android:label
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/activity_details_kotlin"
-            </span>
-            <span class="hljs-attr">
-                android:parentActivityName
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                meta-data
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.support.PARENT_ACTIVITY"
-            </span>
-            <span class="hljs-attr">
-                android:value
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                activity
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">   <span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
+        <span class="hljs-attr">android:name</span>=<span class="hljs-string">".DetailActivityKotlin"</span>
+        <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/activity_details_kotlin"</span>
+        <span class="hljs-attr">android:parentActivityName</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span>
+          <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.support.PARENT_ACTIVITY"</span>
+          <span class="hljs-attr">android:value</span>=<span class="hljs-string">".MainActivity"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+</pre>
     <p>
         运行项目。从列表中选择一本书，你就会看到一个带有标题
         <i>
@@ -774,222 +678,66 @@
         </em>
         ，并将文件的全部内容替换为：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            package
-        </span>
-        com.example.omgandroid
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.Intent
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.Menu
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.ImageView
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.ShareActionProvider
-        <span class="hljs-keyword">
-            import
-        </span>
-        com.squareup.picasso.Picasso
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                DetailActivityKotlin
-            </span>
-            :
-            <span class="hljs-type">
-                Activity
-            </span>
-        </span>
-        () {
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        IMAGE_URL_BASE =
-        <span class="hljs-string">
-            "http://covers.openlibrary.org/b/id/"
-        </span>
-        <span class="hljs-keyword">
-            internal
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        mImageURL =
-        <span class="hljs-string">
-            ""
-        </span>
-        <span class="hljs-keyword">
-            internal
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        mShareActionProvider: ShareActionProvider? =
-        <span class="hljs-literal">
-            null
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState) setContentView(R.layout.activity_detail)
-        actionBar?.setDisplayHomeAsUpEnabled(
-        <span class="hljs-literal">
-            true
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        imageView = findViewById(R.id.img_cover)
-        <span class="hljs-keyword">
-            as
-        </span>
-        ImageView
-        <span class="hljs-keyword">
-            val
-        </span>
-        coverId =
-        <span class="hljs-keyword">
-            this
-        </span>
-        .intent.extras.getString(
-        <span class="hljs-string">
-            "coverID"
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        len = coverId?.length ?:
-        <span class="hljs-number">
-            0
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        (len &gt;
-        <span class="hljs-number">
-            0
-        </span>
-        ) { mImageURL = IMAGE_URL_BASE + coverId +
-        <span class="hljs-string">
-            "-L.jpg"
-        </span>
-        Picasso.with(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ).load(mImageURL).placeholder(R.drawable.img_books_loading).into(imageView)
-        } }
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setShareIntent
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        shareIntent = Intent(Intent.ACTION_SEND) shareIntent.type =
-        <span class="hljs-string">
-            "text/plain"
-        </span>
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT,
-        <span class="hljs-string">
-            "Book Recommendation!"
-        </span>
-        ) shareIntent.putExtra(Intent.EXTRA_TEXT, mImageURL) mShareActionProvider?.setShareIntent(shareIntent)
-        }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateOptionsMenu
-            </span>
-            <span class="hljs-params">
-                (menu:
-                <span class="hljs-type">
-                    Menu
-                </span>
-                )
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        { menuInflater.inflate(R.menu.main, menu)
-        <span class="hljs-keyword">
-            val
-        </span>
-        shareItem = menu.findItem(R.id.menu_item_share) mShareActionProvider =
-        shareItem!!.actionProvider
-        <span class="hljs-keyword">
-            as
-        </span>
-        ShareActionProvider setShareIntent()
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-keyword">package</span> com.example.omgandroid
+
+<span class="hljs-keyword">import</span> android.app.Activity
+<span class="hljs-keyword">import</span> android.content.Intent
+<span class="hljs-keyword">import</span> android.os.Bundle
+<span class="hljs-keyword">import</span> android.view.Menu
+<span class="hljs-keyword">import</span> android.widget.ImageView
+<span class="hljs-keyword">import</span> android.widget.ShareActionProvider
+<span class="hljs-keyword">import</span> com.squareup.picasso.Picasso
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailActivityKotlin</span>: <span class="hljs-type">Activity</span></span>() {
+
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> IMAGE_URL_BASE = <span class="hljs-string">"http://covers.openlibrary.org/b/id/"</span>
+  <span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mImageURL = <span class="hljs-string">""</span>
+  <span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mShareActionProvider: ShareActionProvider? = <span class="hljs-literal">null</span>
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+
+    setContentView(R.layout.activity_detail)
+
+    actionBar?.setDisplayHomeAsUpEnabled(<span class="hljs-literal">true</span>)
+
+    <span class="hljs-keyword">val</span> imageView = findViewById(R.id.img_cover) <span class="hljs-keyword">as</span> ImageView
+
+    <span class="hljs-keyword">val</span> coverId = <span class="hljs-keyword">this</span>.intent.extras.getString(<span class="hljs-string">"coverID"</span>)
+
+    <span class="hljs-keyword">val</span> len = coverId?.length ?: <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> (len &gt; <span class="hljs-number">0</span>) {
+      mImageURL = IMAGE_URL_BASE + coverId + <span class="hljs-string">"-L.jpg"</span>
+      Picasso.with(<span class="hljs-keyword">this</span>).load(mImageURL).placeholder(R.drawable.img_books_loading).into(imageView)
+    }
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setShareIntent</span><span class="hljs-params">()</span></span> {
+
+    <span class="hljs-keyword">val</span> shareIntent = Intent(Intent.ACTION_SEND)
+    shareIntent.type = <span class="hljs-string">"text/plain"</span>
+    shareIntent.putExtra(Intent.EXTRA_SUBJECT, <span class="hljs-string">"Book Recommendation!"</span>)
+    shareIntent.putExtra(Intent.EXTRA_TEXT, mImageURL)
+
+    mShareActionProvider?.setShareIntent(shareIntent)
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateOptionsMenu</span><span class="hljs-params">(menu: <span class="hljs-type">Menu</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
+
+    menuInflater.inflate(R.menu.main, menu)
+
+    <span class="hljs-keyword">val</span> shareItem = menu.findItem(R.id.menu_item_share)
+
+    mShareActionProvider = shareItem!!.actionProvider <span class="hljs-keyword">as</span> ShareActionProvider
+
+    setShareIntent()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  }
+}
+</pre>
     <p>
         表面上看，上述代码非常得像Java，但仍包含着一些Kotlin语言的特性，你将在下一部分进行深入。
     </p>
@@ -1091,18 +839,9 @@
         </em>
         的声明中看到的一样：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            internal
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        mShareActionProvider: ShareActionProvider? =
-        <span class="hljs-literal">
-            null
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mShareActionProvider: ShareActionProvider? = <span class="hljs-literal">null</span>
+</pre>
     <h3>
         安全的调用
     </h3>
@@ -1113,16 +852,10 @@
         </code>
         中看到的：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (mShareActionProvider !=
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) { mShareActionProvider.setShareIntent(shareIntent) }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">if</span> (mShareActionProvider != <span class="hljs-keyword">null</span>) {
+  mShareActionProvider.setShareIntent(shareIntent)
+}
+</pre>
     <p>
         而在Kotlin中，你可以使用一个安全的调用操作符（
         <em>
@@ -1134,9 +867,9 @@
         </i>
         才会被调用。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        mShareActionProvider?.setShareIntent(shareIntent)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+mShareActionProvider?.setShareIntent(shareIntent)
+</pre>
     <p>
         这里，
         <code>
@@ -1169,13 +902,8 @@
         </code>
         中看到它的一个例子：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        mShareActionProvider = shareItem!!.actionProvider
-        <span class="hljs-keyword">
-            as
-        </span>
-        ShareActionProvider
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">mShareActionProvider = shareItem!!.actionProvider <span class="hljs-keyword">as</span> ShareActionProvider
+</pre>
     <p>
         这里，如果
         <em>
@@ -1205,15 +933,9 @@
         </code>
         操作符，但工作方式完全不同。获取封面ID的长度这里可以作为一个例子：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        len = coverId?.length ?:
-        <span class="hljs-number">
-            0
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-keyword">val</span> len = coverId?.length ?: <span class="hljs-number">0</span>
+</pre>
     <p>
         如果Elvis操作符左边的表达式不为空，就返回这个表达式的结果。否则，就返回右侧的表达式。
     </p>
@@ -1238,28 +960,10 @@
         </code>
         变量的类型就是从它们的初始化中推断出来的。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        IMAGE_URL_BASE =
-        <span class="hljs-string">
-            "http://covers.openlibrary.org/b/id/"
-        </span>
-        <span class="hljs-keyword">
-            internal
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        mImageURL =
-        <span class="hljs-string">
-            ""
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> IMAGE_URL_BASE = <span class="hljs-string">"http://covers.openlibrary.org/b/id/"</span>
+<span class="hljs-keyword">internal</span> <span class="hljs-keyword">var</span> mImageURL = <span class="hljs-string">""</span>
+</pre>
     <p>
         编译器会追踪每个变量的推断类型（
         <code>
