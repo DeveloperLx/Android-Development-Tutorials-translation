@@ -498,21 +498,19 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         创建一个Activity
     </h2>
     <p>
-        Android Studio makes it very easy to create an activity. Just right-click
-        on the package where you want to add the activity — in this case, the package
-        is
+        在Android Studio中创建一个activity变得非常容易。只需右击你想要将activity添加到的包名 - 在本例中，就是
         <em>
             com.raywenderlich.android.forgetmenot
         </em>
-        . Then navigate to
+        这里。然后找到
         <em>
-            New\Activity
+            New/Activity
         </em>
-        , and choose
+        ，并选择
         <em>
             Empty Activity
         </em>
-        , which is a basic template for an activity:
+        ，它是一个activity的基本模板：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn10.png"
@@ -524,23 +522,22 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </a>
     </p>
     <p>
-        On the next screen, enter
+        在下一页中，输入
         <em>
             TaskDescriptionActivity
         </em>
-        as the
+        作为
         <em>
             Activity Name
         </em>
-        and Android Studio will automatically fill the other fields based on that.
+        ，Android Studio会基于此自动填充其它的字段。
     </p>
     <p>
-        Click
+        点击
         <em>
             Finish
         </em>
-        and put your hands in the air to celebrate. You’ve just created your first
-        activity!
+        。抬起手来庆祝一下吧，你已创建了你的第一个activity！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn11.png"
@@ -552,70 +549,66 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </a>
     </p>
     <p>
-        Android Studio will automatically generate the corresponding resources
-        needed to create the activity. These are:
+        Android Studio会自动生成创建activity所需的相应资源。也就是：
     </p>
     <ul>
         <li>
             <em>
                 Class
             </em>
-            : The class file is named
+            ：类文件名为
             <em>
                 TaskDescriptionActivity.kt
             </em>
-            . This is where you implement the activity’s behavior. This class must
-            subclass the
+            ，你会在这里实现activity的行为。这个类必须继承自
             <a href="http://developer.android.com/reference/android/app/Activity.html"
             title="Activity" target="_blank" sl-processed="1">
                 Activity
             </a>
-            class or an existing subclass of it, such as
+            类或是已存在的它的子类，例如
             <a href="https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html"
             title="AppCompatActivity" target="_blank" sl-processed="1">
                 AppCompatActivity
             </a>
-            .
+            。
         </li>
         <li>
             <em>
                 Layout
             </em>
-            : The layout file is located under
+            ：这个布局文件位于
             <code>
                 res/layout/
             </code>
-            and named
+            下，名为
             <em>
                 activity_task_description.xml
             </em>
-            . It defines the placement of different UI elements on the screen when
-            the activity is created.
+            。它会在activity被创建的时候，确定不同UI元素在屏幕上的位置。
         </li>
     </ul>
     <p>
-        The layout file created from the
+        在Android Studio 3.0中，布局文件是由
         <em>
             Empty Activity
         </em>
-        template in Android Studio 3.0 defaults to using a
+        模板所创建的，对于根view group默认会使用
         <em>
             ConstraintLayout
         </em>
-        for the root view group. For more information on ConstraintLayout, please
-        see the android developer docs
+        。关于ConstraintLayout的更多消息，可以参考
         <a href="https://developer.android.com/training/constraint-layout/index.html"
         title="here" target="_blank" sl-processed="1">
-            here
+            这里
         </a>
-        .
+        的android开发者文档。
     </p>
     <p>
-        In addition to this, you will see a new addition to your app’s
+        除此之外，你还会在
         <em>
             AndroidManifest.xml
         </em>
-        file:
+        文件中看到一行新的代码：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".TaskDescriptionActivity"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
 </pre>
