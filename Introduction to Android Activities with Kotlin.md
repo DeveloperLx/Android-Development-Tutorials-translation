@@ -394,111 +394,108 @@
         <em>
             MainActivity.kt
         </em>
-        文件中，添加以下的property到类的顶部：
+        文件中，添加下列的property到类的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> ADD_TASK_REQUEST = <span class="hljs-number">1</span>
 </pre>
     <p>
-        You’ll use this immutable value to reference your request to add new tasks
-        later on.
+        你将使用这个不可变的值来引用你的请求，以便在后面添加新的任务。
     </p>
     <p>
-        Then add this import statement at the top of the file:
+        然后添加下列的import语句到文件的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.content.Intent
 </pre>
     <p>
-        And add the following implementation for
+        添加下列的实现到
         <code>
             addTaskClicked()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> intent = Intent(<span class="hljs-keyword">this</span>, TaskDescriptionActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
 startActivityForResult(intent, ADD_TASK_REQUEST)
 </pre>
     <p>
-        When the user taps the “ADD A TASK” button, the Android OS calls
+        当用户点击“ADD A TASK”按钮的时候，Android系统就会调用
         <code>
             addTaskClicked()
         </code>
-        . Here you create an
+        方法。然后你就创建一个
         <code>
             Intent
         </code>
-        to launch the
-        <code>
-            TaskDescriptionActivity
-        </code>
-        from
+        来从
         <code>
             MainActivity
         </code>
-        .
+        运行
+        <code>
+            TaskDescriptionActivity
+        </code>
+        。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : There will be a compile error since you have yet to define
+            ：这里会出现一个编译错误，因为你还没有定义
             <code>
                 TaskDescriptionActivity
             </code>
-            .
+            。
         </p>
     </div>
     <p>
+        你可以使用
         You can start an activity with either
         <code>
             startActivity()
         </code>
-        or
+        或
         <code>
             startActivityForResult()
         </code>
-        . They are similar except that
+        方法来启动activity。两个方法是类似的，除了
         <code>
             startActivityForResult()
         </code>
-        will result in
+        会导致
+        <code>
+            TaskDescriptionActivity
+        </code>
+        在完成的时候调用
         <code>
             onActivityResult()
         </code>
-        being called once the
-        <code>
-            TaskDescriptionActivity
-        </code>
-        finishes. You’ll implement this callback later so you can know if there
-        is a new task to add to your list or not.
+        方法。你会在之后实现这个回调，以获知是否有一个新的任务要添加到你的列表中。
     </p>
     <p>
-        But first, you need a way to enter new tasks in Forget Me Not — you’ll
-        do so by creating the
+        但首先，你需要一个方法来进入Forget Me Not中的新任务 - 你可以通过创建
         <code>
             TaskDescriptionActivity
         </code>
-        .
+        来实现它。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            :
+            ：
             <code>
                 Intents
             </code>
-            are used to start activities and pass data between them. For more information,
-            check out the
+            用来启动一个新的activity，并向它传递数据。有关更多的信息，可以访问
             <a href="https://www.raywenderlich.com/?p=160019" target="_blank" title="Android: Intents Tutorial"
             sl-processed="1">
-                Android: Intents Tutorial
+                Android：Intents教程
             </a>
         </p>
     </div>
     <h2>
-        Creating an Activity
+        创建一个Activity
     </h2>
     <p>
         Android Studio makes it very easy to create an activity. Just right-click
