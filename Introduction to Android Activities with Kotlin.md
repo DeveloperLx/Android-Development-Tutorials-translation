@@ -293,105 +293,98 @@
 }
 </pre>
     <p>
-        Here’s a play-by-play of what’s happening above:
+        以下是对于上述代码的详细讲解：
     </p>
     <ol>
         <li>
-            You initialize the activity’s properties, which include an empty mutable
-            list of tasks and an adapter initialized using
+            初始化activity的property，包括一个空的可变列表，以及一个使用
             <code>
                 by lazy
             </code>
-            .
+            初始化的adapter。
         </li>
         <li>
+            用父类调用
             You call
             <code>
                 onCreate()
             </code>
-            on the superclass — remember that this is (usually) the first thing you
-            should do in a callback method. There are some advanced cases in which
-            you may call code prior to calling the superclass.
+            方法 - 记住通常这就是你应当在回调方法中做的第一件事。当然也有一些高级的情况，使得你需要在调用父类方法之前调用其它的代码。
         </li>
         <li>
-            You set the content view of your activity with the corresponding layout
-            file resource.
+            用相应的布局文件设置你activity的content view。
         </li>
         <li>
-            Here you set up the adapter for
+            为
             <code>
                 taskListView
             </code>
-            . The reference to
+            设置adapter。
             <code>
                 taskListView
             </code>
-            is initialized using
+            会使用
             <em>
                 Kotlin Android Extensions
             </em>
-            , on which you can find more info
+            来进行初始化，你可以在
             <a href="https://kotlinlang.org/docs/tutorials/android-plugin.html" sl-processed="1">
-                here
+                这里
             </a>
-            . This replaces
+            找到更多相关的信息。以此取代了
             <code>
                 findViewById()
             </code>
-            calls and the need for other view-binding libraries.
+            的调用，以及对其它view-binding库的需要。
         </li>
         <li>
-            You add an empty
+            添加了一个空的
             <code>
                 OnItemClickListener()
             </code>
-            to the
+            到
             <code>
                 ListView
             </code>
-            to capture the user’s taps on individual list entries. The listener is
-            a Kotlin lambda.
+            上，来捕捉用户在每个条目上的点击事件。listener为一个Kotlin的lambda。
         </li>
         <li>
-            An empty on-click method for the “ADD A TASK” button, designated by the
+            一个为“ADD A TASK”按钮准备的空的点击事件方法，由
             <em>
                 activity_main.xml
             </em>
-            layout.
+            布局所指定。
         </li>
         <li>
-            A private function that initializes the adapter for the list view. Here
-            you are using the Kotlin = syntax for a single-expression function.
+            一个私有方法，为list view来初始化adapter。这里你使用了Kotlin的=语法来表示一个单行表达的方法。
         </li>
     </ol>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : To learn more about
+            ：想了解更多关于
             <code>
                 ListViews
             </code>
-            and
+            和
             <code>
                 Adapters
             </code>
-            , refer to the
+            的内容，可以参考
             <a href="http://developer.android.com/guide/topics/ui/layout/listview.html"
             target="_blank" title="Android Developer docs" sl-processed="1">
-                Android Developer docs
+                Android开发者文档
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        Your implementation follows the theory in the previous section — you’re
-        doing the layout, adapter and click listener initialization for your activity
-        during creation.
+        你的实现遵循了在上一节中提到的理论 - 你在activity创建的期间，完成了布局，adapter和点击事件的监听器的初始化过程。
     </p>
     <h2>
-        Starting an Activity
+        开始一个Activity
     </h2>
     <p>
         In its current state, the app is a fairly useless lump of ones and zeros
