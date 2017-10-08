@@ -617,30 +617,23 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         <code>
             activity
         </code>
-        element declares the activity. Android apps have a strong sense of order,
-        so all available activities must be declared in the manifest to ensure
-        the app only has control of activities declared here. You don’t want your
-        app to accidentally use the wrong activity, or even worse, have it use
-        activities that are used by other apps without explicit permission.
+        元素声明了这个activity。Android app有很强的规则性，因此所有的activity必须被声明到manifest文件中，以确保app只会控制在这里声明的activity。你不会希望你的app意外地使用了错误的activity，甚至更糟的情况，使用了被其它app中没有明确许可被使用的activity。
     </p>
     <p>
-        There are several attributes that you can include in this element to define
-        properties for the activity, such as a label or icon, or a theme to style
-        the activity’s UI.
+        有一些你可以在这个元素中包含的attribute，可以用来设置activity的属性，诸如label，icon，或是用来装扮activity UI的主题。
     </p>
     <p>
         <code>
             android:name
         </code>
-        is the only required attribute. It specifies the activity’s class name
-        relative to the app package (hence the period at the beginning).
+        是唯一必须的attribute。它指定了activity相应于app包的类名（因为位于开始的时间段）。
     </p>
     <p>
-        Now build and run the app. When you tap on
+        现在运行app。当你点击
         <em>
             ADD A TASK
         </em>
-        , you’re presented with your newly generated activity!
+        后，就会看到一个新的activity！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn4.png"
@@ -652,83 +645,31 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </a>
     </p>
     <p>
-        Looking good, except for the fact that it’s lacking substance. Now for
-        a quick remedy to that!
+        看起来不错 - 除了缺乏实质的这个事实。现在来进行一个快速的补救吧！
     </p>
     <p>
-        In your newly generated
+        在新生成的
         <em>
             TaskDescriptionActivity
         </em>
-        , paste the following into your class file, overwriting anything else
-        except the class declaration and its brackets.
+        类中，粘贴下列的代码到你的类文件中，覆盖除了类声明和它的括号之外的所有内容。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            companion
-        </span>
-        <span class="hljs-keyword">
-            object
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        EXTRA_TASK_DESCRIPTION =
-        <span class="hljs-string">
-            "task"
-        </span>
-        }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState) setContentView(R.layout.activity_task_description)
-        }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                doneClicked
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+  <span class="hljs-keyword">val</span> EXTRA_TASK_DESCRIPTION = <span class="hljs-string">"task"</span>
+}
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+  <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+  setContentView(R.layout.activity_task_description)
+}
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">doneClicked</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> {
+
+}
+</pre>
     <div class="note">
         <p>
             <em>
@@ -773,261 +714,46 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </em>
         and replace everything with the following:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:app
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res-auto"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/default_padding"
-            </span>
-            <span class="hljs-attr">
-                tools:context
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.android.forgetmenot.TaskDescriptionActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/descriptionLabel"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/default_padding"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/description"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toTopOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                EditText
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/descriptionText"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "100dp"
-            </span>
-            <span class="hljs-attr">
-                android:inputType
-            </span>
-            =
-            <span class="hljs-string">
-                "textMultiLine"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/default_padding"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/descriptionLabel"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                Button
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/doneButton"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:onClick
-            </span>
-            =
-            <span class="hljs-string">
-                "doneClicked"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/default_padding"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/done"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/descriptionText"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>
+  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"@dimen/default_padding"</span>
+  <span class="hljs-attr">tools:context</span>=<span class="hljs-string">"com.raywenderlich.android.forgetmenot.TaskDescriptionActivity"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/descriptionLabel"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"@dimen/default_padding"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/description"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/descriptionText"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"100dp"</span>
+    <span class="hljs-attr">android:inputType</span>=<span class="hljs-string">"textMultiLine"</span>
+    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"@dimen/default_padding"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/descriptionLabel"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/doneButton"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:onClick</span>=<span class="hljs-string">"doneClicked"</span>
+    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"@dimen/default_padding"</span>
+    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/done"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/descriptionText"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span></pre>
     <p>
         Here you change the layout so there is a
         <code>
@@ -1070,20 +796,10 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </em>
         , add these imports, including one for Kotlin Android Extensions:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.Intent
-        <span class="hljs-keyword">
-            import
-        </span>
-        kotlinx.android.synthetic.main.activity_task_description.*
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.app.Activity
+<span class="hljs-keyword">import</span> android.content.Intent
+<span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_task_description.*
+</pre>
     <p>
         Then add the following to
         <code>
@@ -1095,39 +811,22 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </em>
         button is tapped in this activity:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        taskDescription = descriptionText.text.toString()
-        <span class="hljs-keyword">
-            if
-        </span>
-        (!taskDescription.isEmpty()) {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        result = Intent() result.putExtra(EXTRA_TASK_DESCRIPTION, taskDescription)
-        setResult(Activity.RESULT_OK, result) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        setResult(Activity.RESULT_CANCELED) }
-        <span class="hljs-comment">
-            // 4
-        </span>
-        finish()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> taskDescription = descriptionText.text.toString()
+
+<span class="hljs-keyword">if</span> (!taskDescription.isEmpty()) {
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">val</span> result = Intent()
+  result.putExtra(EXTRA_TASK_DESCRIPTION, taskDescription)
+  setResult(Activity.RESULT_OK, result)
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// 3</span>
+  setResult(Activity.RESULT_CANCELED)
+}
+
+<span class="hljs-comment">// 4</span>
+finish()
+</pre>
     <p>
         You can see a few things are happening here:
     </p>
@@ -1197,69 +896,22 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onActivityResult
-            </span>
-            <span class="hljs-params">
-                (requestCode:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , resultCode:
-                <span class="hljs-type">
-                    Int
-                </span>
-                ,
-                <span class="hljs-keyword">
-                    data
-                </span>
-                :
-                <span class="hljs-type">
-                    Intent
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        (requestCode == ADD_TASK_REQUEST) {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        (resultCode == Activity.RESULT_OK) {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        task =
-        <span class="hljs-keyword">
-            data
-        </span>
-        ?.getStringExtra(TaskDescriptionActivity.EXTRA_TASK_DESCRIPTION) task?.let
-        { taskList.add(task)
-        <span class="hljs-comment">
-            // 4
-        </span>
-        adapter.notifyDataSetChanged() } } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onActivityResult</span><span class="hljs-params">(requestCode: <span class="hljs-type">Int</span>, resultCode: <span class="hljs-type">Int</span>, <span class="hljs-keyword">data</span>: <span class="hljs-type">Intent</span>?)</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">if</span> (requestCode == ADD_TASK_REQUEST) {
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">if</span> (resultCode == Activity.RESULT_OK) {
+      <span class="hljs-comment">// 3</span>
+      <span class="hljs-keyword">val</span> task = <span class="hljs-keyword">data</span>?.getStringExtra(TaskDescriptionActivity.EXTRA_TASK_DESCRIPTION)
+      task?.let {
+        taskList.add(task)
+        <span class="hljs-comment">// 4</span>
+        adapter.notifyDataSetChanged()
+      }
+    }
+  }
+}
+</pre>
     <p>
         Let’s take this step-by-step:
     </p>
