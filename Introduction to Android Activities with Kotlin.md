@@ -141,10 +141,7 @@
         。
     </p>
     <p>
-        Handling the various lifecycle stages of your activities is crucial to
-        creating a robust and reliable app. The lifecycle of an activity is best
-        illustrated as a step pyramid of different stages linked by the core callback
-        methods:
+        对于创建一个健壮和可靠的app来讲，处理你activity生命周期的各个阶段是至关重要的。activity的生命周期是activity阶段步骤金字塔的最好阐释，它会被连接到下列的核心回调方法：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/09/activity_lifecycle_pyramid.png"
@@ -156,264 +153,145 @@
         </a>
     </p>
     <p>
-        Following the diagram above, you can picture the lifecycle in action as
-        it courses through your code. Take a closer look at each of the callbacks:
+        跟随上述的图表，你可以实际地设置生命周期，相关的方法会自动在你的代码中调用。仔细来看一下每个回调方法：
     </p>
     <ul>
         <li>
             <em>
                 onCreate()
             </em>
-            : Called by the OS when the activity is first created. This is where you
-            initialize any UI elements or data objects. You also have the
+            ：在activity第一次被创建的时候由操作系统调用。你可以在这里初始化UI元素或数据对象。你还有activity的
             <code>
                 savedInstanceState
             </code>
-            of the activity that contains its previously saved state, and you can
-            use it to recreate that state.
+            ，它包含了之前保存的状态，你可以用它来重新创建状态。
         </li>
         <li>
             <em>
                 onStart()
             </em>
-            : Just before presenting the user with an activity, this method is called.
-            It’s always followed by
+            ：在将activity展示给用户之前会调用该方法，其后常常跟随着
             <code>
                 onResume()
             </code>
-            . In here, you generally should start UI animations, audio based content
-            or anything else that requires the activity’s contents to be on screen.
+            。通常，你在这里启动UI动画，基于音频的内容，或其它需要呈现到屏幕上的activity中的内容。
         </li>
         <li>
             <em>
                 onResume()
             </em>
-            : As an activity enters the foreground, this method is called. Here you
-            have a good place to restart animations, update UI elements, restart camera
-            previews, resume audio/video playback or initialize any components that
-            you release during
+            ：会在进入前台的时候被调用。这里是一个重启动画，更新UI元素，重启镜头预览，继续音频/视频的播放的很好的地方，还可以在这里初始化你在
             <code>
                 onPause()
             </code>
-            .
+            方法中释放的组件。
         </li>
         <li>
             <em>
                 onPause()
             </em>
-            : This method is called before sliding into the background. Here you should
-            stop any visuals or audio associated with the activity such as UI animations,
-            music playback or the camera. This method is followed by
+            ：这个方法会在activity被切到后台之前被调用。你应当在这里停止任何关联到这个activity上视觉的或音频的内容，诸如UI动画，音乐播放或相机镜头。之后如果activity回到前台，就会调用
             <code>
                 onResume()
             </code>
-            if the activity returns to the foreground or by
+            方法；如果activity之后被隐藏，则调用
             <code>
                 onStop()
             </code>
-            if it becomes hidden.
+            方法。
         </li>
         <li>
             <em>
                 onStop()
             </em>
-            : This method is called right after
+            ：这个方法会在
             <code>
                 onPause()
             </code>
-            , when the activity is no longer visible to the user, and it’s a good
-            place to save data that you want to commit to the disk. It’s followed by
-            either
+            之后被调用，这时activity就不会再展示给用户。你可以在这里将数据保存到磁盘上。之后如果activity回到前台，就会调用
             <code>
                 onRestart()
             </code>
-            , if this activity is coming back to the foreground, or
+            方法；如果activity从内存中被释放，则会调用
             <code>
                 onDestroy()
             </code>
-            if it’s being released from memory.
+            方法。
         </li>
         <li>
             <em>
                 onRestart()
             </em>
-            : Called after stopping an activity, but just before starting it again.
-            It’s always followed by
+            ：会在activity被终止后，再次启动之前被调用。其后总是跟随着
             <code>
                 onStart()
             </code>
-            .
+            方法。
         </li>
         <li>
             <em>
                 onDestroy()
             </em>
-            : This is the final callback you’ll receive from the OS before the activity
-            is destroyed. You can trigger an activity’s desctruction by calling
+            ：这是你从操作系统中接收到的最后一个回调方法，它会在activity被销毁前被调用。你可以通过调用activity的
             <code>
                 finish()
             </code>
-            , or it can be triggered by the system when the system needs to recoup
-            memory. If your activity includes any background threads or other long-running
-            resources, destruction could lead to a memory leak if they’re not released,
-            so you need to remember to stop these processes here as well.
+            方法来触发它；或是当系统需要回收内存的时候，也会自动地触发它。如果你的activity中包含任何的后台线程，或其它长期运行的资源没有被释放，这个销毁就会导致内存泄漏，因此你需要牢记在这里停止这些操作。
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You do not call any of the above callback methods directly in your own
-            code (other than superclass invocations) — you only override them as needed
-            in your activity subclasses. They are called by the OS when a user opens,
-            hides or exits the activity.
+            ：你不可以在自己的代码中直接调用上述任一的回调方法（除了父类的调用）- 你只可以在你的activity子类中，按照需要来重载它们。它们是在当用户打开，隐藏或退出这个activity时，由系统调用的。
         </p>
     </div>
     <p>
-        So many methods to remember! In the next section, you’ll see some of these
-        lifecycle methods in action, and then it’ll be a lot easier to remember
-        what everything does.
+        好多的方法需要记！在下一部分，你会看到一些生命周期方法的操作，让你可以更容易地记住它们。
     </p>
     <h2>
-        Configuring an Activity
+        配置一个Activity
     </h2>
     <p>
-        Keeping the activity lifecycle in mind, take a look at an activity in
-        the sample project. Open
+        记住activity的生命周期，让我们来看一下示例项目中的activity。打开
         <em>
             MainActivity.kt
         </em>
-        , and you’ll see that the class with its
+        ，你会看到这个类，和其中的
         <code>
             onCreate()
         </code>
-        override looks like this:
+        方法被重写成了如下的样子：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainActivity
-            </span>
-            :
-            <span class="hljs-type">
-                AppCompatActivity
-            </span>
-        </span>
-        () {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        taskList: MutableList&lt;String&gt; = mutableListOf()
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        adapter
-        <span class="hljs-keyword">
-            by
-        </span>
-        lazy { makeAdapter(taskList) }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState)
-        <span class="hljs-comment">
-            // 3
-        </span>
-        setContentView(R.layout.activity_main)
-        <span class="hljs-comment">
-            // 4
-        </span>
-        taskListView.adapter = adapter
-        <span class="hljs-comment">
-            // 5
-        </span>
-        taskListView.onItemClickListener = AdapterView.OnItemClickListener { parent,
-        view, position, id -&gt; } }
-        <span class="hljs-comment">
-            // 6
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                addTaskClicked
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        { }
-        <span class="hljs-comment">
-            // 7
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                makeAdapter
-            </span>
-            <span class="hljs-params">
-                (list:
-                <span class="hljs-type">
-                    List
-                </span>
-                &lt;
-                <span class="hljs-type">
-                    String
-                </span>
-                &gt;)
-            </span>
-        </span>
-        : ArrayAdapter&lt;String&gt; = ArrayAdapter(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , android.R.layout.simple_list_item_1, list) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>() {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> taskList: MutableList&lt;String&gt; = mutableListOf()
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> adapter <span class="hljs-keyword">by</span> lazy { makeAdapter(taskList) }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+    <span class="hljs-comment">// 3</span>
+    setContentView(R.layout.activity_main)
+
+    <span class="hljs-comment">// 4</span>
+    taskListView.adapter = adapter
+
+    <span class="hljs-comment">// 5</span>
+    taskListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id -&gt; }
+  }
+
+  <span class="hljs-comment">// 6</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">addTaskClicked</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> {
+
+  }
+
+  <span class="hljs-comment">// 7</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">makeAdapter</span><span class="hljs-params">(list: <span class="hljs-type">List</span>&lt;<span class="hljs-type">String</span>&gt;)</span></span>: ArrayAdapter&lt;String&gt; =
+      ArrayAdapter(<span class="hljs-keyword">this</span>, android.R.layout.simple_list_item_1, list)
+}
+</pre>
     <p>
         Here’s a play-by-play of what’s happening above:
     </p>
