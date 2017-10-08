@@ -387,29 +387,17 @@
         开始一个Activity
     </h2>
     <p>
-        In its current state, the app is a fairly useless lump of ones and zeros
-        because you can’t add anything to the to-do list. You have the power to
-        change that, and that’s exactly what you’ll do next.
+        现在，这个app只是一个相当无用的0、1构成的块，因为你还不能添加任何内容到to-do列表中。你有改变这点的能力，这就是你接下来将做的事。
     </p>
     <p>
-        In the
+        在打开的
         <em>
             MainActivity.kt
         </em>
-        file you have open, add a property to the top of the class:
+        文件中，添加以下的property到类的顶部：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        ADD_TASK_REQUEST =
-        <span class="hljs-number">
-            1
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> ADD_TASK_REQUEST = <span class="hljs-number">1</span>
+</pre>
     <p>
         You’ll use this immutable value to reference your request to add new tasks
         later on.
@@ -417,12 +405,8 @@
     <p>
         Then add this import statement at the top of the file:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.Intent
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.content.Intent
+</pre>
     <p>
         And add the following implementation for
         <code>
@@ -430,27 +414,9 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        intent = Intent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , TaskDescriptionActivity::
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            .
-            <span class="hljs-title">
-                java
-            </span>
-            )
-        </span>
-        startActivityForResult(intent, ADD_TASK_REQUEST)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> intent = Intent(<span class="hljs-keyword">this</span>, TaskDescriptionActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+startActivityForResult(intent, ADD_TASK_REQUEST)
+</pre>
     <p>
         When the user taps the “ADD A TASK” button, the Android OS calls
         <code>
@@ -654,29 +620,8 @@
         </em>
         file:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".TaskDescriptionActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                activity
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".TaskDescriptionActivity"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+</pre>
     <p>
         The
         <code>
