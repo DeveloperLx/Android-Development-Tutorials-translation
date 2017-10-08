@@ -673,46 +673,44 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You can quickly fix any missing imports that Android Studio complains
-            about by placing your cursor on the item and pressing Option-Enter.
+            ：你可以快速地修复任何Android Studio所抱怨的缺失的import，只需将光标放置到相应的项目上并按下Option-Enter键。
         </p>
     </div>
     <p>
-        Here, you’ve accomplished the following:
+        这里，你完成了如下的内容：
     </p>
     <ol>
         <li>
-            Used the Kotlin
+            使用了Kotlin的
             <a href="https://kotlinlang.org/docs/reference/object-declarations.html#companion-objects"
             sl-processed="1">
                 companion object
             </a>
-            for the class to define attributes common across the class, similar to
+            来定义跨类之间的通用attribute，类似于Java中的
             <em>
                 static
             </em>
-            members in Java.
+            成员。
         </li>
         <li>
-            Overriden the
+            重写
             <code>
                 onCreate()
             </code>
-            lifecycle method to set the content view for the activity from the layout
-            file.
+            这个生命周期方法来设置activity的content view。
         </li>
         <li>
-            Added an empty click handler that will be used to finish the activity.
+            添加了一个空的点击事件处理方法，用来完成这个activity。
         </li>
     </ol>
     <p>
-        Jump over to your associated layout in
+        切到你相应的布局文件
         <em>
             res/layout/activity_task_description.xml
         </em>
-        and replace everything with the following:
+        ，并将所有的内容替换为如下的代码：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
