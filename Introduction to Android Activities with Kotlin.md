@@ -1183,7 +1183,7 @@ finish()
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> KEY_TASKS_LIST = <span class="hljs-string">"tasks_list"</span>
 </pre>
     <p>
-        And add the following underneath the rest of your activity lifecycle methods.
+        在你activity所有的生命周期方法下面添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.onStop()
@@ -1200,28 +1200,23 @@ finish()
 }
 </pre>
     <p>
-        Here you build a comma separated string with all the task descriptions
-        in your list, and then you save the string to
+        这里用列表中所有任务的描述，构建了一个由逗号分隔的字符串，然后将它保存到了
         <a href="http://developer.android.com/reference/android/content/SharedPreferences.html"
         title="Shared Preferences" target="_blank" sl-processed="1">
             SharedPreferences
         </a>
-        in the
+        中。正如之前所提到的，
         <code>
             onStop()
         </code>
-        callback. As mentioned earlier,
-        <code>
-            onStop()
-        </code>
-        is a good place to save data that you want to persist across app uses.
+        是一个保存数据，以实现app持久化数据功能的好地方。
     </p>
     <p>
-        Next add the following to
+        现在在
         <code>
             onCreate()
         </code>
-        below the existing initialization code:
+        中已存在的初始化代码下面，添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> savedList = getSharedPreferences(PREFS_TASKS, Context.MODE_PRIVATE).getString(KEY_TASKS_LIST, <span class="hljs-literal">null</span>)
 <span class="hljs-keyword">if</span> (savedList != <span class="hljs-literal">null</span>) {
@@ -1230,37 +1225,35 @@ finish()
 }
 </pre>
     <p>
-        Here you read the saved list from the
+        这里从
         <code>
             SharedPreferences
         </code>
-        and initialize
+        中读取到了保存的列表，并将其用逗号拆分，然后初始化
         <code>
             taskList
         </code>
-        by converting the retrieved comma separated string to a typed array.
+        。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You used
+            ：选择使用
             <code>
                 SharedPreferences
             </code>
-            since you were only saving primitive data types. For more complex data
-            you can use a variety of
+            是因为这里只保存了原始的数据类型。对于更复杂的数据，则需要选用Android上的
             <a href="http://developer.android.com/guide/topics/data/data-storage.html"
             sl-processed="1">
-                storage options
+                储存选项
             </a>
-            available on Android.
+            。
         </p>
     </div>
     <p>
-        Now, build and run the app. Add a task, close and reopen the app. Do you
-        see a difference? You are now able to retain tasks in your list!
+        现在，运行app。添加一个任务，关闭并再次打开app。发现不同之处了么？列表现在已经可以保持住任务的存在了！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn2.png"
@@ -1272,17 +1265,17 @@ finish()
         </a>
     </p>
     <h2>
-        Configuration Changes
+        配置的更改
     </h2>
     <p>
-        You need the ability to delete entries from Forget Me Not.
+        我们需要从Forget Me Not删除条目的能力。
     </p>
     <p>
-        Still in
+        还是在
         <em>
             MainActivity.kt
         </em>
-        , at the bottom of the class add:
+        中，类的底部添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">taskSelected</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span> {
   <span class="hljs-comment">// 1</span>
@@ -1305,95 +1298,88 @@ finish()
 }
 </pre>
     <p>
-        In a nutshell, you’re creating and showing an alert dialog when you select
-        a task from the list. Here is the step-by-step explanation:
+        简而言之，当你从列表中选择一个任务时，需要创建并展示一个警告的对话框。以下是一步一步的解释：
     </p>
     <ol>
         <li>
-            You create an
+            创建一个
             <code>
                 AlertDialog.Builder
             </code>
-            which facilitates the creation of an
+            以帮助创建
             <code>
                 AlertDialog
             </code>
-            .
+            。
         </li>
         <li>
-            You set the alert dialog title.
+            设置警告对话框的标题。
         </li>
         <li>
-            You set the alert dialog message to be the description of the selected
-            task. Then you also implement the
+            设置警告对话框中的信息为选中任务的描述。然后实现
             <code>
                 PositiveButton
             </code>
-            to remove the item from the list and refresh it, and the
+            来从列表中移除该项，并进行刷新；以及
             <code>
                 NegativeButton
             </code>
-            to dismiss the dialog.
+            来使对话框直接消失。
         </li>
         <li>
-            You create the alert dialog.
+            创建警告对话框。
         </li>
         <li>
-            You display the alert dialog to the user.
+            展示警告对话框给用户。
         </li>
     </ol>
     <p>
-        Update the
-        <code>
-            OnItemClickListener
-        </code>
-        of the
-        <code>
-            taskListView
-        </code>
-        in
+        在
         <code>
             onCreate()
         </code>
-        :
+        中更新
+        <code>
+            onCreate()
+        </code>
+        的
+        <code>
+            OnItemClickListener
+        </code>
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">taskListView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ -&gt;
   taskSelected(position)
 }
 </pre>
     <p>
-        Your app won’t compile though until you define some strings. It’s good
-        practice to keep text you want in your app separate from the code. The
-        reason is so that you can easily change it, which is especially useful
-        for text that you use in multiple places. It’s also handy for those times
-        you need to translate your app into another language.
+        你的app现在还无法编译通过，因为你缺少定义一些字符串。将需要展示的文案和代码进行分离是一个很好的实践，这样你就可以很方便的来修改它们，并且也可以方便你在多个地方去使用这些文案。在需要将你的app翻译成其它语言的时候也会非常得方便。                                    
     </p>
     <p>
-        To configure the strings, open
+        为了配置这些文案，打开
         <em>
             res/values/strings.xml
         </em>
-        and within the
+        ，并在
         <code>
             resources
         </code>
-        element add:
+        元素中添加：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"alert_title"</span>&gt;</span>Task<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"delete"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cancel"</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 </pre>
     <p>
-        Build and run the app. Tap on one of the tasks. You’ll see an alert dialog
-        with options to
+        运行app，点击一个任务，就会弹出一个警告对话框，带有选项
         <em>
             CANCEL
         </em>
-        or
+        和从你的列表中
         <em>
             DELETE
         </em>
-        the task from the list:
+        任务：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn3.png"
@@ -1405,105 +1391,95 @@ finish()
         </a>
     </p>
     <p>
-        Now try rotating the device. (Make sure you have rotation in the device
-        settings set to auto-rotate.)
+        现在尝试旋转设备。（确保你的设备已设置了auto-rotate的选项。）
     </p>
     <p>
-        As soon as you rotate the device, the alert dialog is dismissed. This
-        makes for an unreliable, undesirable user experience — users don’t like
-        it when things just vanish from their screen without reason.
+        结果你一旋转，警告框就消失了。这会造成非常糟糕的用户体验 - 用户不会喜欢事物毫无理由地从屏幕上消失。
     </p>
     <h3>
-        Handling Configuration Changes
+        处理配置的更改
     </h3>
     <p>
-        Configuration changes, such as rotation, keyboard visibility and so on,
-        cause an activity to shut down and restart. You can find the full list
-        of system events that cause an activity to be recreated
+        配置的更改，诸如旋转，键盘的出现或消失等等，会造成activity的关闭和重启。你可以在
         <a href="http://developer.android.com/guide/topics/manifest/activity-element.html#config"
         title="here" target="_blank" sl-processed="1">
-            here
+            这里
         </a>
-        .
+        找到所有会导致activity被重建的系统事件。
     </p>
     <p>
-        There are a couple of ways you can handle a configuration change.
+        有这么几种方法可以处理配置的更改。
     </p>
     <p>
-        One way is as follows. In
+        一种方法如下。在
         <em>
             AndroidManifest.xml
         </em>
-        , find the start tag:
+        中，找到起始的标签：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
 </pre>
     <p>
-        And change it to:
+        并将其修改为：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span> <span class="hljs-attr">android:configChanges</span>=<span class="hljs-string">"orientation|screenSize"</span>&gt;</span>
 </pre>
     <p>
-        Here, you declare that your
+        这里声明了你的
         <code>
             MainActivity
         </code>
-        will handle any configuration changes that arise from a change in orientation
-        or screen size. This simple line prevents a restart of your activity by
-        the system, and it passes the work to
+        会处理任何因方向或屏幕尺寸变化，而引起的配置的更改。这行简单的代码就避免了由系统造成的你的activity的重启，并将处理的工作丢给了
         <code>
             MainActivity
         </code>
-        .
+        。
     </p>
     <p>
-        You can then handle these configuration changes by implementing
+        你可以通过实现
         <code>
             onConfigurationChanged()
         </code>
-        . In
+        方法来处理配置的更改。在
         <em>
             MainActivity.kt
         </em>
-        , add the following method after
+        中，添加下列的方法到
         <code>
             onStop()
         </code>
-        :
+        之后：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onConfigurationChanged</span><span class="hljs-params">(newConfig: <span class="hljs-type">Configuration</span>?)</span></span> {
   <span class="hljs-keyword">super</span>.onConfigurationChanged(newConfig)
 }
 </pre>
     <p>
-        Here you’re just calling the superclass’s
+        这里你只是调用了父类的
         <code>
             onConfigurationChanged()
         </code>
-        method since you’re not updating or resetting any elements based on screen
-        rotation or size.
+        方法，因为你不需要基于屏幕方向或尺寸的变化，来更新或重置任何元素。
     </p>
     <p>
         <code>
             onConfigurationChanged()
         </code>
-        is passed a
+        会传递一个
         <code>
             Configuration
         </code>
-        object that contains the updated device configuration.
+        对象作为参数，它包含了已更新的设备的配置。
     </p>
     <p>
-        By reading fields in this
+        通过读取
         <code>
             newConfig
         </code>
-        , you can determine the new configuration and make appropriate changes
-        to update the resources used in your interface.
+        参数中的字段，你可以确定新的配置，并作出恰当的修改，来更新你界面中用到的资源。
     </p>
     <p>
-        Now, build and run the app and rotate the device again. This time, the
-        dialog stays in place until you dismiss it.
+        现在，运行app并再次旋转设备。这次警告对话框就保留下了，除非你点击CANCEL按钮让它消失。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn9.png"
