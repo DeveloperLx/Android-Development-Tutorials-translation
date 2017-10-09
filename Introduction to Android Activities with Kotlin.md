@@ -753,23 +753,22 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span></pre>
     <p>
-        Here you change the layout so there is a
+        你在这里修改了布局，用一个
         <code>
             TextView
         </code>
-        prompting for a task description, an
+        来展示任务的描述，一个
         <code>
             EditText
         </code>
-        for the user to input the description, and a Done button to save the new
-        task.
+        来让用户输入描述，一个Done按钮来保存新任务。
     </p>
     <p>
-        Run the app again, tap
+        再次运行app，点击
         <em>
             ADD A TASK
         </em>
-        and your new screen will look a lot more interesting.
+        ，你会在屏幕上看到有趣的事发生。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn5.png"
@@ -781,33 +780,32 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
         </a>
     </p>
     <h2>
-        Stopping an Activity
+        停止Activity
     </h2>
     <p>
-        Just as important as starting an activity with all the right methods is
-        properly stopping it.
+        和使用所有正确的方法启动一个activity同样重要的，是恰当地结束activity。
     </p>
     <p>
-        In
+        在
         <em>
             TaskDescriptionActivity.kt
         </em>
-        , add these imports, including one for Kotlin Android Extensions:
+        中，添加下列的import，其中包含一个Kotlin Android的Extension：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.app.Activity
 <span class="hljs-keyword">import</span> android.content.Intent
 <span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_task_description.*
 </pre>
     <p>
-        Then add the following to
+        添加下列的代码到
         <code>
             doneClicked()
         </code>
-        , which is called when the
+        中，它会在
         <em>
             Done
         </em>
-        button is tapped in this activity:
+        按钮被点击的时候调用：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">val</span> taskDescription = descriptionText.text.toString()
@@ -826,73 +824,69 @@ startActivityForResult(intent, ADD_TASK_REQUEST)
 finish()
 </pre>
     <p>
-        You can see a few things are happening here:
+        上述的代码：
     </p>
     <ol>
         <li>
-            You retrieve the task description from the
+            从
             <code>
                 descriptionText
             </code>
             <code>
                 EditText
             </code>
-            , where Kotlin Android Extensions has again been used to get references
-            to view fields.
+            中获取到任务的描述，Kotlin Android的Extension再次被用来获取对view的域的引用。
         </li>
         <li>
-            You create a result
+            如果在第一步中获取到的任务描述不为空的话，就创建一个result
             <code>
                 Intent
             </code>
-            to pass back to
+            ，来返回给
             <code>
                 MainActivity
             </code>
-            if the task description retrieved in step one is not empty. Then you bundle
-            the task description with the intent and set the activity result to
+            。然后将任务描述绑定到intent上，并将activity的result设置为
             <code>
                 RESULT_OK
             </code>
-            , indicating that the user successfully entered a task.
+            ，表示用户成功地进入到了一个任务中。
         </li>
         <li>
-            If the user has not entered a task description, you set the activity result
-            to
+            如果用户还未输入任务描述，就将activity result设置为
             <code>
                 RESULT_CANCELED
             </code>
-            .
+            。
         </li>
         <li>
-            Here you close the activity.
+            关闭activity.
         </li>
     </ol>
     <p>
-        Once you call
+        在第四步调用
         <code>
             finish()
         </code>
-        in step four, the callback
-        <code>
-            onActivityResult()
-        </code>
-        will be called in
+        之后，
         <code>
             MainActivity
         </code>
-        — in turn, you need to add the task to the to-do list.
-    </p>
+        中的
+        <code>
+            onActivityResult()
+        </code>
+        方法就会被调用 - 你就可以相应地将任务添加到to-do列表中。
     <p>
-        Add the following method to
+        添加下列的方法到
         <em>
             MainActivity.kt
         </em>
-        , right after
+        中，就在
         <code>
             onCreate()
         </code>
-        :
+        方法之后：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onActivityResult</span><span class="hljs-params">(requestCode: <span class="hljs-type">Int</span>, resultCode: <span class="hljs-type">Int</span>, <span class="hljs-keyword">data</span>: <span class="hljs-type">Intent</span>?)</span></span> {
   <span class="hljs-comment">// 1</span>
