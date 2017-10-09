@@ -905,63 +905,60 @@ finish()
 }
 </pre>
     <p>
-        Let’s take this step-by-step:
+        一步一步来看：
     </p>
     <ol>
         <li>
-            You check the
+            检查
             <code>
                 requestCode
             </code>
-            to ensure the activity result is indeed for your add task request you
-            started with
+            以确认activity的结果确实是你在
             <code>
                 TaskDescriptionActivity
             </code>
-            .
+            中添加的任务请求。
         </li>
         <li>
-            You make sure the
+            确保
             <code>
                 resultCode
             </code>
-            is
+            为
             <code>
                 RESULT_OK
             </code>
-            — the standard activity result for a successful operation.
+            - 它是标注activity中成功操作的结果。
         </li>
         <li>
-            Here you extract the task description from the result intent and, after
-            a null check with the
+            从result intent中提取任务的描述，然后使用
             <code>
                 let
             </code>
-            function, add it to your list.
+            方法进行一下null检查，最后添加到你的列表中。
         </li>
         <li>
-            Finally, you call
+            最后，调用adapter的
             <code>
                 notifyDataSetChanged()
             </code>
-            on your list adapter. In turn, it notifies the
+            方法。相应的就会通知
             <code>
                 ListView
             </code>
-            about changes in your data model so it can trigger a refresh of its view.
+            你的数据模型发生了变化，以此来触发它的刷新操作。
         </li>
     </ol>
     <p>
-        Build and run the project to see it in action. After the app starts, tap
+        运行项目来查看一下。在app启动之后，点击
         <em>
             ADD A TASK
         </em>
-        . This will bring up a new screen that lets you enter a task. Now add
-        a description and tap
+        按钮。现在就会弹出一个新的页面来让你输入任务。添加描述并点击
         <em>
             Done
         </em>
-        . The screen will close and the new task will be on your list:
+        键，这个页面就会关闭，并在你的列表中出现一个新的任务：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn12-1.png"
@@ -973,30 +970,17 @@ finish()
         </a>
     </p>
     <h2>
-        Registering Broadcast Receivers
+        注册Broadcast Receiver
     </h2>
     <p>
-        Every to-do list needs to have a good grasp on date and time, so a time
-        display should be the next thing you add to your app. Open
+        每个to-do列表都需要很好地掌握日期和时间，因此接下来要做的事情，就是添加一个时间的展示到你的app上。打开
         <em>
             MainActivity.kt
         </em>
-        and add the following after the existing property declarations at the
-        top:
+        并添加下列的代码，就在顶部已存在的property声明的后面：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        tickReceiver
-        <span class="hljs-keyword">
-            by
-        </span>
-        lazy { makeBroadcastReceiver() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> tickReceiver <span class="hljs-keyword">by</span> lazy { makeBroadcastReceiver() }
+</pre>
     <p>
         Then add a
         <em>
@@ -1008,57 +992,16 @@ finish()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            companion
-        </span>
-        <span class="hljs-keyword">
-            object
-        </span>
-        {
-        <span class="hljs-keyword">
-            private
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        LOG_TAG =
-        <span class="hljs-string">
-            "MainActivityLog"
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getCurrentTimeStamp
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        : String {
-        <span class="hljs-keyword">
-            val
-        </span>
-        simpleDateFormat = SimpleDateFormat(
-        <span class="hljs-string">
-            "yyyy-MM-dd HH:mm"
-        </span>
-        , Locale.US)
-        <span class="hljs-keyword">
-            val
-        </span>
-        now = Date()
-        <span class="hljs-keyword">
-            return
-        </span>
-        simpleDateFormat.format(now) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+  <span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> LOG_TAG = <span class="hljs-string">"MainActivityLog"</span>
+
+  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getCurrentTimeStamp</span><span class="hljs-params">()</span></span>: String {
+    <span class="hljs-keyword">val</span> simpleDateFormat = SimpleDateFormat(<span class="hljs-string">"yyyy-MM-dd HH:mm"</span>, Locale.US)
+    <span class="hljs-keyword">val</span> now = Date()
+    <span class="hljs-keyword">return</span> simpleDateFormat.format(now)
+  }
+}
+</pre>
     <p>
         And initialize the
         <code>
@@ -1070,58 +1013,16 @@ finish()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                makeBroadcastReceiver
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        : BroadcastReceiver {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-keyword">
-            object
-        </span>
-        : BroadcastReceiver() {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onReceive
-            </span>
-            <span class="hljs-params">
-                (context:
-                <span class="hljs-type">
-                    Context
-                </span>
-                , intent:
-                <span class="hljs-type">
-                    Intent
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (intent?.action == Intent.ACTION_TIME_TICK) { dateTimeTextView.text =
-        getCurrentTimeStamp() } } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">makeBroadcastReceiver</span><span class="hljs-params">()</span></span>: BroadcastReceiver {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">object</span> : BroadcastReceiver() {
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onReceive</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>, intent: <span class="hljs-type">Intent</span>?)</span></span> {
+      <span class="hljs-keyword">if</span> (intent?.action == Intent.ACTION_TIME_TICK) {
+        dateTimeTextView.text = getCurrentTimeStamp()
+      }
+    }
+  }
+}
+</pre>
     <p>
         Here, you create a
         <em>
@@ -1162,76 +1063,26 @@ finish()
             onCreate()
         </code>
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onResume
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onResume()
-        <span class="hljs-comment">
-            // 2
-        </span>
-        dateTimeTextView.text = getCurrentTimeStamp()
-        <span class="hljs-comment">
-            // 3
-        </span>
-        registerReceiver(tickReceiver, IntentFilter(Intent.ACTION_TIME_TICK))
-        }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onPause
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onPause()
-        <span class="hljs-comment">
-            // 5
-        </span>
-        <span class="hljs-keyword">
-            try
-        </span>
-        { unregisterReceiver(tickReceiver) }
-        <span class="hljs-keyword">
-            catch
-        </span>
-        (e: IllegalArgumentException) { Log.e(MainActivity.LOG_TAG,
-        <span class="hljs-string">
-            "Time tick Receiver not registered"
-        </span>
-        , e) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">super</span>.onResume()
+  <span class="hljs-comment">// 2</span>
+  dateTimeTextView.text = getCurrentTimeStamp()
+  <span class="hljs-comment">// 3</span>
+  registerReceiver(tickReceiver, IntentFilter(Intent.ACTION_TIME_TICK))
+}
+
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onPause</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// 4</span>
+  <span class="hljs-keyword">super</span>.onPause()
+  <span class="hljs-comment">// 5</span>
+  <span class="hljs-keyword">try</span> {
+    unregisterReceiver(tickReceiver)
+  } <span class="hljs-keyword">catch</span> (e: IllegalArgumentException) {
+    Log.e(MainActivity.LOG_TAG, <span class="hljs-string">"Time tick Receiver not registered"</span>, e)
+  }
+}
+</pre>
     <p>
         Here you do a few things:
     </p>
