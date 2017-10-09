@@ -1139,115 +1139,66 @@ finish()
         持久化状态
     </h2>
     <p>
-        Every to-do list is good at remembering what you need to do, except for
-        your friend Forget Me Not. Unfortunately, the app is quite forgetful at
-        the moment. See it for yourself.
+        每个to-do列表都擅长于记忆你需要去做的事，除了你的朋友Forget Me Not。不幸的是，这个app现在还相当得健忘，不信请看： 
     </p>
     <p>
-        Open the app and follow these steps.
+        打开app并执行下列的步骤。
     </p>
     <ol>
         <li>
-            Tap
+            点击
             <em>
                 ADD A TASK
             </em>
-            .
+            。
         </li>
         <li>
-            Enter “Replace regular with decaf in the breakroom” as the task description
-            and tap
+            输入“Replace regular with decaf in the breakroom”作为任务的描述，并点击
             <em>
                 Done
             </em>
-            . You’ll see your new task in the list.
+            。你就会在列表中看到你的新任务。
         </li>
         <li>
-            Close the app from the recent apps.
+            从最近的app中关闭这个app。
         </li>
         <li>
-            Open the app again.
+            再次打开这个app。
         </li>
     </ol>
     <p>
-        You can see that it forgot about your evil plans.
+        你会看到它已忘记了你的邪恶计划。
     </p>
     <h3>
-        Persisting Data Between Launches
+        在多次启动间持久化数据
     </h3>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        , and add the following properties to the top of the class:
+        ，并在类的顶部添加下列的property：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        PREFS_TASKS =
-        <span class="hljs-string">
-            "prefs_tasks"
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        KEY_TASKS_LIST =
-        <span class="hljs-string">
-            "tasks_list"
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> PREFS_TASKS = <span class="hljs-string">"prefs_tasks"</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> KEY_TASKS_LIST = <span class="hljs-string">"tasks_list"</span>
+</pre>
     <p>
         And add the following underneath the rest of your activity lifecycle methods.
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onStop
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onStop()
-        <span class="hljs-comment">
-            // Save all data which you want to persist.
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        savedList = StringBuilder()
-        <span class="hljs-keyword">
-            for
-        </span>
-        (task
-        <span class="hljs-keyword">
-            in
-        </span>
-        taskList) { savedList.append(task) savedList.append(
-        <span class="hljs-string">
-            ","
-        </span>
-        ) } getSharedPreferences(PREFS_TASKS, Context.MODE_PRIVATE).edit() .putString(KEY_TASKS_LIST,
-        savedList.toString()).apply() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.onStop()
+
+  <span class="hljs-comment">// Save all data which you want to persist.</span>
+  <span class="hljs-keyword">val</span> savedList = StringBuilder()
+  <span class="hljs-keyword">for</span> (task <span class="hljs-keyword">in</span> taskList) {
+    savedList.append(task)
+    savedList.append(<span class="hljs-string">","</span>)
+  }
+
+  getSharedPreferences(PREFS_TASKS, Context.MODE_PRIVATE).edit()
+      .putString(KEY_TASKS_LIST, savedList.toString()).apply()
+}
+</pre>
     <p>
         Here you build a comma separated string with all the task descriptions
         in your list, and then you save the string to
@@ -1272,33 +1223,12 @@ finish()
         </code>
         below the existing initialization code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        savedList = getSharedPreferences(PREFS_TASKS, Context.MODE_PRIVATE).getString(KEY_TASKS_LIST,
-        <span class="hljs-literal">
-            null
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        (savedList !=
-        <span class="hljs-literal">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        items = savedList.split(
-        <span class="hljs-string">
-            ","
-        </span>
-        .toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray() taskList.addAll(items)
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> savedList = getSharedPreferences(PREFS_TASKS, Context.MODE_PRIVATE).getString(KEY_TASKS_LIST, <span class="hljs-literal">null</span>)
+<span class="hljs-keyword">if</span> (savedList != <span class="hljs-literal">null</span>) {
+  <span class="hljs-keyword">val</span> items = savedList.split(<span class="hljs-string">","</span>.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+  taskList.addAll(items)
+}
+</pre>
     <p>
         Here you read the saved list from the
         <code>
@@ -1354,53 +1284,26 @@ finish()
         </em>
         , at the bottom of the class add:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                taskSelected
-            </span>
-            <span class="hljs-params">
-                (position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        AlertDialog.Builder(
-        <span class="hljs-keyword">
-            this
-        </span>
-        )
-        <span class="hljs-comment">
-            // 2
-        </span>
-        .setTitle(R.string.alert_title)
-        <span class="hljs-comment">
-            // 3
-        </span>
-        .setMessage(taskList[position]) .setPositiveButton(R.string.delete, {
-        _, _ -&gt; taskList.removeAt(position) adapter.notifyDataSetChanged() })
-        .setNegativeButton(R.string.cancel, { dialog, _ -&gt; dialog.cancel() })
-        <span class="hljs-comment">
-            // 4
-        </span>
-        .create()
-        <span class="hljs-comment">
-            // 5
-        </span>
-        .show() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">taskSelected</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span> {
+  <span class="hljs-comment">// 1</span>
+  AlertDialog.Builder(<span class="hljs-keyword">this</span>)
+    <span class="hljs-comment">// 2</span>
+    .setTitle(R.string.alert_title)
+    <span class="hljs-comment">// 3</span>
+    .setMessage(taskList[position])
+    .setPositiveButton(R.string.delete, { _, _ -&gt;
+      taskList.removeAt(position)
+      adapter.notifyDataSetChanged()
+    })
+    .setNegativeButton(R.string.cancel, {
+      dialog, _ -&gt; dialog.cancel()
+    })
+    <span class="hljs-comment">// 4</span>
+    .create()
+    <span class="hljs-comment">// 5</span>
+    .show()
+}
+</pre>
     <p>
         In a nutshell, you’re creating and showing an alert dialog when you select
         a task from the list. Here is the step-by-step explanation:
@@ -1454,10 +1357,10 @@ finish()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        taskListView.onItemClickListener = AdapterView.OnItemClickListener { _,
-        _, position, _ -&gt; taskSelected(position) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">taskListView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ -&gt;
+  taskSelected(position)
+}
+</pre>
     <p>
         Your app won’t compile though until you define some strings. It’s good
         practice to keep text you want in your app separate from the code. The
@@ -1476,74 +1379,10 @@ finish()
         </code>
         element add:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "alert_title"
-            </span>
-            &gt;
-        </span>
-        Task
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "delete"
-            </span>
-            &gt;
-        </span>
-        Delete
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "cancel"
-            </span>
-            &gt;
-        </span>
-        Cancel
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"alert_title"</span>&gt;</span>Task<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"delete"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cancel"</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+</pre>
     <p>
         Build and run the app. Tap on one of the tasks. You’ll see an alert dialog
         with options to
@@ -1597,48 +1436,13 @@ finish()
         </em>
         , find the start tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
+</pre>
     <p>
         And change it to:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            <span class="hljs-attr">
-                android:configChanges
-            </span>
-            =
-            <span class="hljs-string">
-                "orientation|screenSize"
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span> <span class="hljs-attr">android:configChanges</span>=<span class="hljs-string">"orientation|screenSize"</span>&gt;</span>
+</pre>
     <p>
         Here, you declare that your
         <code>
@@ -1667,31 +1471,10 @@ finish()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onConfigurationChanged
-            </span>
-            <span class="hljs-params">
-                (newConfig:
-                <span class="hljs-type">
-                    Configuration
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onConfigurationChanged(newConfig) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onConfigurationChanged</span><span class="hljs-params">(newConfig: <span class="hljs-type">Configuration</span>?)</span></span> {
+  <span class="hljs-keyword">super</span>.onConfigurationChanged(newConfig)
+}
+</pre>
     <p>
         Here you’re just calling the superclass’s
         <code>
