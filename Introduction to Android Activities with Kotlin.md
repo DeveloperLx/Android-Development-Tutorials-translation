@@ -982,15 +982,15 @@ finish()
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> tickReceiver <span class="hljs-keyword">by</span> lazy { makeBroadcastReceiver() }
 </pre>
     <p>
-        Then add a
-        <em>
-            companion object
-        </em>
-        near the top of
+        然后在
         <code>
             MainActivity
         </code>
-        :
+        的顶部添加一个
+        <em>
+            companion object
+        </em>
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
   <span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> LOG_TAG = <span class="hljs-string">"MainActivityLog"</span>
@@ -1003,15 +1003,15 @@ finish()
 }
 </pre>
     <p>
-        And initialize the
-        <code>
-            tickReceiver
-        </code>
-        by adding the following to the bottom of
+        添加下列的代码到
         <code>
             MainActivity
         </code>
-        :
+        底部，来初始化
+        <code>
+            MainActivity
+        </code>
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">makeBroadcastReceiver</span><span class="hljs-params">()</span></span>: BroadcastReceiver {
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">object</span> : BroadcastReceiver() {
@@ -1024,44 +1024,39 @@ finish()
 }
 </pre>
     <p>
-        Here, you create a
+        这里创建了一个
         <em>
             BroadcastReceiver
         </em>
-        that sets the date and time on the screen if it receives a time change
-        broadcast from the system. You use
+        ，以从系统接收到时间发生变化broadcast的时候，将日期和时间设置到屏幕上。这里使用的
         <code>
             getCurrentTimeStamp()
         </code>
-        , which is a utility method in your activity, to format the current date
-        and time.
+        是activity中的一个工具方法，用来格式化日期和时间。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you’re not familiar with
+            ：如果你不熟悉
             <code>
                 BroadcastReceivers
             </code>
-            , you should refer to the
+            ，请查阅
             <a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html"
             title="Android Developer documentation" target="_blank" sl-processed="1">
-                Android Developer documentation
+                Android开发者文档
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        Next add the following methods to
-        <code>
-            MainActivity
-        </code>
-        underneath
+        接下来在
         <code>
             onCreate()
         </code>
+        方法的下面添加下列代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span></span> {
   <span class="hljs-comment">// 1</span>
@@ -1084,60 +1079,52 @@ finish()
 }
 </pre>
     <p>
-        Here you do a few things:
+        上述代码：
     </p>
     <ol>
         <li>
-            You call
+            调用父类的
             <code>
                 onResume()
             </code>
-            on the superclass.
+            方法。
         </li>
         <li>
-            You update the date and time
+            用当前的时间戳更新
             <code>
                 TextView
             </code>
-            with the current time stamp, because the broadcast receiver is not currently
-            registered.
+            中的日期和时间，因为broadcast receiver现在还未注册。
         </li>
         <li>
-            You then register the broadcast receiver in
+            然后在
             <code>
                 onResume()
             </code>
-            . This ensures it will receive the broadcasts for
+            中注册broadcast receiver，以接收
             <a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_TIME_TICK"
             title="ACTION_TIME_TICK" target="_blank" sl-processed="1">
                 ACTION_TIME_TICK
             </a>
-            . These are sent every minute after the time changes.
+            的broadcast。这个broadcast每分钟都会发送一次。
         </li>
         <li>
-            In
+            在
             <code>
                 onPause()
             </code>
-            , you first call
+            中首先调用父类的
             <code>
                 onPause()
             </code>
-            on the superclass.
+            方法。
         </li>
         <li>
-            You then unregister the broadcast receiver in
-            <code>
-                onPause()
-            </code>
-            , so the activity no longer receives the time change broadcasts while
-            paused. This cuts down unnecessary system overhead.
+            然后注销broadcast receiver，这样activity就不会在暂停的时候接收到这个broadcast了。这样可以减小系统不必要的开销。
         </li>
     </ol>
     <p>
-        Build and run the app. Now you should now see the current date and time
-        at the top of the screen. Even if you navigate to the add task screen and
-        come back, the time still gets updated.
+        运行app，现在你就可以在屏幕的顶部看到日期和时间了。即使你切到添加任务这页再返回，时间也会继续更新。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/06/fmn1.png"
@@ -1149,7 +1136,7 @@ finish()
         </a>
     </p>
     <h2>
-        Persisting State
+        持久化状态
     </h2>
     <p>
         Every to-do list is good at remembering what you need to do, except for
