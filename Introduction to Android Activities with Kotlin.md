@@ -1491,56 +1491,49 @@ finish()
         </a>
     </p>
     <p>
-        An alternative way to handle configuration changes is to retain a stateful
-        object that’s carried forward to the recreated instance of your activity.
-        You can accomplish this by implementing the
+        另一种方法，则是将状态性的对象保留到重新创建的activity实例上。你可以通过实现
         <code>
             onSaveInstanceState()
         </code>
-        callback.
+        这个回调方法来完成。
     </p>
     <p>
-        When you do this, the system saves your activity’s state in a
+        当配置发生更改时，系统就会将activity的状态保存到
         <code>
             Bundle
         </code>
-        , and you can restore it when you implement the corresponding
+        中，然后你就可以在相应的
         <code>
             onRestoreInstanceState()
         </code>
-        callback. However, the
+        回调方法中来恢复它。然而，
         <code>
             Bundle
         </code>
-        is not designed to hold large data sets such as bitmaps, and it can only
-        store data that is
+        并不适用于持有诸如bitmap这样巨大的数据，它仅仅可以储存
         <a href="http://developer.android.com/reference/java/io/Serializable.html"
         title=" serializable " target="_blank" sl-processed="1">
-            serializable
+            serializable（可序列化）
         </a>
-        .
+        的数据。
     </p>
     <p>
-        The downside of the stateful object solution is that serializing and deserializing
-        the data during a configuration change can come at a high cost. It can
-        consume a lot of memory and slow down the activity restart process.
+        状态性对象这种解决方案，缺点是序列化和反序列化数据的代价非常高。它会消耗大量的内存，并拖慢activity重启的过程。
     </p>
     <p>
-        In such instances, retaining a
+        在这种情况下，实际上使用
         <code>
             Fragment
         </code>
-        is currently the most preferable way to handle a configuration change.
-        You can learn more about fragments and how to use them to retain information
-        when your activity is restarted in our
-        <a href="https://www.raywenderlich.com/149112/android-fragments-tutorial-introduction"
+        才是处理配置变化的最好方式。你可以在我们的
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction.md"
         title="Android Fragments Tutorial" target="_blank" sl-processed="1">
-            Android Fragments Tutorial
+            Android Fragment教程
         </a>
-        .
+        中，activity被重启的时候，了解更多关于fragment及如何使用它来保存信息的相关内容。
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1552,10 +1545,11 @@ finish()
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1563,25 +1557,23 @@ finish()
         </div>
     </div>
     <p>
-        Congratulations! You have just learned the basics of using activities
-        in Android and now have an excellent understanding of the ever-important
-        activity lifecycle.
+        祝贺！你已经了解了在Android中使用activity的基本方法，并很好地理解了重要的生命周期的概念。
     </p>
     <p>
-        You covered quite a few concepts, including:
+        你明白了很多重要的概念，包括：
     </p>
     <ul>
         <li>
-            How to create an activity
+            如何创建activity
         </li>
         <li>
-            How to stop an activity
+            如何停止activity
         </li>
         <li>
-            How to persist data when an activity stops
+            如何当activity停止时持久化数据
         </li>
         <li>
-            How to work around a configuration change
+            如何处理配置的更改
         </li>
     </ul>
     <p>
@@ -1592,16 +1584,16 @@ finish()
         </a>
     </p>
     <p>
-        You can download the completed project
+        你可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/07/ForgetMeNot-final.zip"
         title="here" sl-processed="1">
-            here
+            这里
         </a>
-        . If you’re still hungry for more, check out Google’s
+        下载完整的项目。如果你想了解更多的内容，可以访问Google的
         <a href="http://developer.android.com/reference/android/app/Activity.html#ActivityLifecycle"
         title="documentation" target="_blank" sl-processed="1">
-            documentation
+            官方文档
         </a>
-        .
+        。
     </p>
 </div>
