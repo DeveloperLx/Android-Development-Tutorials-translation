@@ -274,10 +274,8 @@
     <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
     <span class="hljs-comment">// 3</span>
     setContentView(R.layout.activity_main)
-
     <span class="hljs-comment">// 4</span>
     taskListView.adapter = adapter
-
     <span class="hljs-comment">// 5</span>
     taskListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id -&gt; }
   }
