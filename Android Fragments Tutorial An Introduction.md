@@ -87,9 +87,9 @@
                 Android Tutorial for Beginners
             </a>
             和
-            <a href="https://www.raywenderlich.com/116580/introduction-to-android-activities-tutorial"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Introduction%20to%20Android%20Activities%20with%20Kotlin.md"
             target="_blank" title=" Introduction to Activities " sl-processed="1">
-                Introduction to Activities
+                Activity介绍
             </a>
             。本教程还会用到Android的
             <code>
@@ -108,33 +108,33 @@
         </p>
     </div>
     <p>
-        The time has come to release the fragments!
+        接下来就开始学习fragments！
     </p>
     <h2>
-        Getting Started With Android Fragments
+        Android Fragment入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/AllTheRages-Starter-1.zip"
         target="_blank" title="starter project" sl-processed="1">
-            starter project
+            起始项目
         </a>
-        , unzip and start
+        ，解压并启动
         <em>
             Android Studio
         </em>
-        .
+        。
     </p>
     <p>
-        In the
+        在
         <em>
             Welcome to Android Studio
         </em>
-        dialog, select
+        对话框中，选择
         <em>
             Import project (Eclipse ADT, Gradle, etc.)
         </em>
-        .
+        。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_002_android_studio_welcome_screen.png"
         sl-processed="1">
@@ -145,11 +145,11 @@
         </a>
     </p>
     <p>
-        Choose the top-level directory of the starter project, and click
+        选择起始项目的根目录，并点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_003_android_studio_select_project-1.png"
@@ -161,40 +161,36 @@
         </a>
     </p>
     <p>
-        Check out the project, and you’ll find some resource files;
+        查看项目，你会找到一些资源文件：
         <em>
             strings.xml
         </em>
-        ,
+        ，
         <em>
             activity_main.xml
         </em>
-        , and
+        ，
         <em>
             drawable
         </em>
-        and
+        和
         <em>
             layout
         </em>
-        files. There are also some boilerplate layouts for your fragments, non-fragment
-        code that you’ll need and a fragment class that you’ll use later to write
-        your own.
+        。还有一些供你fragment使用的模板布局文件，非fragment的代码，以及一个fragment类。
     </p>
     <p>
-        The
         <code>
             MainActivity
         </code>
-        will host all your wee fragments, and
+        会持有你所有小小的fragment，而
         <code>
             RageComicListFragment
         </code>
-        contains code to display a list of the Rage Comic content so that you
-        can focus on fragments.
+        则包含了用来展示暴走漫画内容列表的代码，这样你就可以将注意力集中到fragment上了。
     </p>
     <p>
-        Build and run the project. You’ll see that it’s pretty quiet in there.
+        运行项目。你会看到其中一无所有。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_004_app_first_build.png"
         sl-processed="1">
@@ -205,7 +201,7 @@
         </a>
     </p>
     <p>
-        You’ll fix that…
+        很快你就会修复...
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_005_app_soon.png"
@@ -217,22 +213,17 @@
         </a>
     </p>
     <h2>
-        Android Fragment Lifecycle
+        Android Fragment的生命周期
     </h2>
     <p>
-        Like an activity, a fragment has a lifecycle with events that occur when
-        the fragment’s status changes. For instance, an event happens when the
-        fragment becomes visible and active. Or when the fragment becomes unused
-        and is removed. Also like an activity, you can add code and behaviors to
-        callbacks for these events.
-    </p>
+        和activity一样，fragment中也有着生命周期的概念，当fragment的状态发生变化的时候，就会触发相应的事件。例如，当fragment变为可见，活跃，无效，或被移除的状态时，一些事件就会发生。你可以在其中添加一些代码和行为来响应这些事件。
     <p>
-        Here’s a fragment lifecycle diagram from the official
+        下面是
         <a href="http://developer.android.com/guide/components/fragments.html#Creating"
         target="_blank" title=" Android Developer documentation " sl-processed="1">
-            Android Developer documentation
+            Android开发者文档
         </a>
-        .
+        中，fragment生命周期的图表。
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d002_fragment_lifecycle.png"
         sl-processed="1">
             <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d002_fragment_lifecycle.png"
@@ -251,21 +242,20 @@
         </a>
     </p>
     <p>
-        The following lifecycle events come into play when you add a fragment:
+        当你添加一个fragment的时候，下列的生命周期事件就会被触发：
     </p>
     <ul>
         <li>
             <code>
                 onAttach
             </code>
-            : when the fragment attaches to its host activity
+            ：当fragment被依附到相应的activity上时被调用
         </li>
         <li>
             <code>
                 onCreate
             </code>
-            : when a new fragment instance initializes, which always happens after
-            it attaches to the host — fragments are a bit like viruses
+            ：当一个新的fragment实例被初始化时调用，通常发生在它被附加到相应activity上后被调用 - fragment有一点像是病毒
         </li>
         <li>
             <code>
@@ -278,26 +268,23 @@
             <code>
                 onActivityCreated
             </code>
-            : when the fragment’s activity has finished its own
+            ：当fragment的activity完成了它的
             <code>
                 onCreate
             </code>
-            event
+            事件之后调用
         </li>
         <li>
             <code>
                 onStart
             </code>
-            : when the fragment is visible; a fragment starts only after its activity
-            starts and often starts immediately after its activity does
+            ：当fragment变为可见状态后调用。fragment只会在它的activity启动之后才会启动，且通常都是activity一启动之后，它就启动
         </li>
         <li>
             <code>
                 onResume
             </code>
-            : when the fragment is visible and interactable; a fragment resumes only
-            after its activity resumes and often resumes immediately after the activity
-            does
+            ：当fragment变为可见且可交互的状态后调用。fragment resume只会在它的activity resume之后，且通常都是activity一resume之后，它就resume
         </li>
     </ul>
     <p>
@@ -2105,9 +2092,4 @@
             and finding a good starting off point to get the architecture ball rolling.
         </li>
     </ul>
-    <p>
-        We hope you enjoyed this introduction to Android fragments tutorial, and
-        if you have any questions or comments, please join the forum discussion
-        below!
-    </p>
 </div>
