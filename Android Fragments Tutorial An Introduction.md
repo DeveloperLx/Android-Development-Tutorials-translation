@@ -687,7 +687,7 @@
         <code>
             RageComicAdapter
         </code>
-        的定义的上方：
+        定义的上方：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(Context context)</span> </span>{
@@ -725,52 +725,52 @@
         <code>
             onAttach()
         </code>
-        contains code that accesses the resources you need via the
+        中，访问了你需要通过
         <code>
             Context
         </code>
-        to which the fragment has attached. Because the code is in
+        来访问的资源。由于代码位于
         <code>
             onAttach()
         </code>
-        , you can rest assured that the fragment has a valid
+        中，你无需判断fragment是否包含一个有效的
         <code>
             Context
         </code>
-        .
+        。
     </p>
     <p>
-        In
+        在
         <code>
             onCreateView()
         </code>
-        , you inflate the view hierarchy of
+        中，你填充了
         <code>
             RageComicListFragment
         </code>
-        , which contains a
+        的view的层级，它包含了一个
         <code>
             RecyclerView
         </code>
-        , and perform some setup.
+        ，并执行了一些设置。
     </p>
     <p>
-        Generally, if you have to poke and prod at a fragment's view,
+        通常，如果你需要在fragment的view上进行一些处理，
         <code>
             onCreateView()
         </code>
-        is a good place to start because you have the view right there.
+        就是一个很好的地方，因为这里已经能确定你的view准备好了。
     </p>
     <p>
-        Next open
+        接下来，打开
         <em>
             MainActivity.java
         </em>
-        and replace
+        并使用下列的代码替换
         <code>
             onCreate()
         </code>
-        with the following:
+        方法：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
@@ -786,22 +786,22 @@ setContentView(R.layout.activity_main);
 }
 </pre>
     <p>
-        Here you get
+        这里你将
         <code>
             RageComicListFragment
         </code>
-        into
+        放置到
         <code>
             MainActivity
         </code>
-        . You ask your new friend,
+        中。你会请求你的新朋友
         <code>
             FragmentManager
         </code>
-        , to add it.
+        来添加它。
     </p>
     <p>
-        Build, run and you'll see a Rage-filled list once the app launches:
+        运行项目，你就会看到暴走漫画的列表：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_013_app_list_build.png"
@@ -955,36 +955,11 @@ setContentView(R.layout.activity_main);
         </em>
         and add the following Java interface at the bottom:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                OnRageComicSelected
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        ; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnRageComicSelected</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
+    String description, String url)</span></span>;
+}
+</pre>
     <p>
         This defines a listener interface for the activity to listen to the fragment.
         The activity will implement this interface, and the fragment will invoke
@@ -1001,12 +976,8 @@ setContentView(R.layout.activity_main);
         </code>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        OnRageComicSelected mListener;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> OnRageComicSelected mListener;
+</pre>
     <p>
         This field is a reference to the fragment's listener, which will be the
         activity.
@@ -1022,31 +993,12 @@ setContentView(R.layout.activity_main);
         </code>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (context
-        <span class="hljs-keyword">
-            instanceof
-        </span>
-        OnRageComicSelected) { mListener = (OnRageComicSelected) context; }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            throw
-        </span>
-        <span class="hljs-keyword">
-            new
-        </span>
-        ClassCastException(context.toString() +
-        <span class="hljs-string">
-            " must implement OnRageComicSelected."
-        </span>
-        ); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">if</span> (context <span class="hljs-keyword">instanceof</span> OnRageComicSelected) {
+  mListener = (OnRageComicSelected) context;
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ClassCastException(context.toString() + <span class="hljs-string">" must implement OnRageComicSelected."</span>);
+}
+</pre>
     <p>
         This initializes the listener reference. You wait until
         <code>
@@ -1090,32 +1042,13 @@ setContentView(R.layout.activity_main);
         </i>
         you need):
     </p>
-    <pre lang="java" class="language-java hljs">
-        viewHolder.itemView.setOnClickListener(
-        <span class="hljs-keyword">
-            new
-        </span>
-        View.OnClickListener() {
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (View v)
-            </span>
-        </span>
-        { mListener.onRageComicSelected(imageResId, name, description, url); }
-        });
-    </pre>
+    <pre lang="java" class="language-java hljs">viewHolder.itemView.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+    mListener.onRageComicSelected(imageResId, name, description, url);
+  }
+});
+</pre>
     <p>
         This adds a
         <code>
@@ -1131,36 +1064,9 @@ setContentView(R.layout.activity_main);
         </em>
         and update the class definition to following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                AppCompatActivity
-            </span>
-            <span class="hljs-keyword">
-                implements
-            </span>
-            <span class="hljs-title">
-                RageComicListFragment
-            </span>
-            .
-            <span class="hljs-title">
-                OnRageComicSelected
-            </span>
-        </span>
-        {
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
+  <span class="hljs-keyword">implements</span> <span class="hljs-title">RageComicListFragment</span>.<span class="hljs-title">OnRageComicSelected</span> </span>{
+</pre>
     <p>
         You will get an error asking you to make
         <code>
@@ -1187,12 +1093,8 @@ setContentView(R.layout.activity_main);
         For now, you'll just show a toast to verify that the code works. Add the
         following import below the existing imports so that you can use toasts:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.Toast;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.widget.Toast;
+</pre>
     <p>
         And then add the following method below
         <code>
@@ -1200,42 +1102,11 @@ setContentView(R.layout.activity_main);
         </code>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        { Toast.makeText(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ,
-        <span class="hljs-string">
-            "Hey, you selected "
-        </span>
-        + name +
-        <span class="hljs-string">
-            "!"
-        </span>
-        , Toast.LENGTH_SHORT).show(); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name, String description, String url)</span> </span>{
+  Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Hey, you selected "</span> + name + <span class="hljs-string">"!"</span>, Toast.LENGTH_SHORT).show();
+}
+</pre>
     <p>
         There you go, the error is gone! Build and run. Once the app launches,
         click one of the Rage Comics. You should see a toast message naming the
@@ -1279,64 +1150,11 @@ setContentView(R.layout.activity_main);
         </em>
         and add the following constants at the top of the class definition:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_IMAGE_RES_ID =
-        <span class="hljs-string">
-            "imageResId"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_NAME =
-        <span class="hljs-string">
-            "name"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_DESCRIPTION =
-        <span class="hljs-string">
-            "description"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_URL =
-        <span class="hljs-string">
-            "url"
-        </span>
-        ;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_IMAGE_RES_ID = <span class="hljs-string">"imageResId"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_NAME = <span class="hljs-string">"name"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_DESCRIPTION = <span class="hljs-string">"description"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_URL = <span class="hljs-string">"url"</span>;
+</pre>
     <p>
         These constants are keys you will use to save and restore the fragment's
         state.
@@ -1348,50 +1166,19 @@ setContentView(R.layout.activity_main);
         </code>
         with the code shown below:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                static
-            </span>
-            RageComicDetailsFragment
-            <span class="hljs-title">
-                newInstance
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        Bundle args =
-        <span class="hljs-keyword">
-            new
-        </span>
-        Bundle(); args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId); args.putString(ARGUMENT_NAME,
-        name); args.putString(ARGUMENT_DESCRIPTION, description); args.putString(ARGUMENT_URL,
-        url);
-        <span class="hljs-keyword">
-            final
-        </span>
-        RageComicDetailsFragment fragment =
-        <span class="hljs-keyword">
-            new
-        </span>
-        RageComicDetailsFragment(); fragment.setArguments(args);
-        <span class="hljs-keyword">
-            return
-        </span>
-        fragment; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> RageComicDetailsFragment <span class="hljs-title">newInstance</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
+  String description, String url)</span> </span>{
+
+  <span class="hljs-keyword">final</span> Bundle args = <span class="hljs-keyword">new</span> Bundle();
+  args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId);
+  args.putString(ARGUMENT_NAME, name);
+  args.putString(ARGUMENT_DESCRIPTION, description);
+  args.putString(ARGUMENT_URL, url);
+  <span class="hljs-keyword">final</span> RageComicDetailsFragment fragment = <span class="hljs-keyword">new</span> RageComicDetailsFragment();
+  fragment.setArguments(args);
+  <span class="hljs-keyword">return</span> fragment;
+}
+</pre>
     <p>
         A fragment can take initialization parameters through its arguments, which
         you access via
@@ -1451,16 +1238,9 @@ setContentView(R.layout.activity_main);
         </em>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.ImageView;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.TextView;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.widget.ImageView;
+<span class="hljs-keyword">import</span> android.widget.TextView;
+</pre>
     <p>
         Now, replace
         <em>
@@ -1468,61 +1248,23 @@ setContentView(R.layout.activity_main);
         </em>
         with the following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Nullable
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        View view = inflater.inflate(R.layout.fragment_rage_comic_details, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        );
-        <span class="hljs-keyword">
-            final
-        </span>
-        ImageView imageView = (ImageView) view.findViewById(R.id.comic_image);
-        <span class="hljs-keyword">
-            final
-        </span>
-        TextView nameTextView = (TextView) view.findViewById(R.id.name);
-        <span class="hljs-keyword">
-            final
-        </span>
-        TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
-        <span class="hljs-keyword">
-            final
-        </span>
-        Bundle args = getArguments(); imageView.setImageResource(args.getInt(ARGUMENT_IMAGE_RES_ID));
-        nameTextView.setText(args.getString(ARGUMENT_NAME));
-        <span class="hljs-keyword">
-            final
-        </span>
-        String text = String.format(getString(R.string.description_format), args.getString
-        (ARGUMENT_DESCRIPTION), args.getString(ARGUMENT_URL)); descriptionTextView.setText(text);
-        <span class="hljs-keyword">
-            return
-        </span>
-        view; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Nullable</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+  <span class="hljs-keyword">final</span> View view = inflater.inflate(R.layout.fragment_rage_comic_details, container, <span class="hljs-keyword">false</span>);
+  <span class="hljs-keyword">final</span> ImageView imageView = (ImageView) view.findViewById(R.id.comic_image);
+  <span class="hljs-keyword">final</span> TextView nameTextView = (TextView) view.findViewById(R.id.name);
+  <span class="hljs-keyword">final</span> TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
+
+  <span class="hljs-keyword">final</span> Bundle args = getArguments();
+  imageView.setImageResource(args.getInt(ARGUMENT_IMAGE_RES_ID));
+  nameTextView.setText(args.getString(ARGUMENT_NAME));
+  <span class="hljs-keyword">final</span> String text = String.format(getString(R.string.description_format), args.getString
+    (ARGUMENT_DESCRIPTION), args.getString(ARGUMENT_URL));
+  descriptionTextView.setText(text);
+  <span class="hljs-keyword">return</span> view;
+}
+</pre>
     <p>
         Since you want to dynamically populate the UI of the
         <code>
@@ -1562,44 +1304,17 @@ setContentView(R.layout.activity_main);
         </code>
         with:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        RageComicDetailsFragment detailsFragment = RageComicDetailsFragment.newInstance(imageResId,
-        name, description, url); getSupportFragmentManager() .beginTransaction()
-        .replace(R.id.root_layout, detailsFragment,
-        <span class="hljs-string">
-            "rageComicDetails"
-        </span>
-        ) .addToBackStack(
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) .commit(); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name, String description, String url)</span> </span>{
+  <span class="hljs-keyword">final</span> RageComicDetailsFragment detailsFragment =
+    RageComicDetailsFragment.newInstance(imageResId, name, description, url);
+  getSupportFragmentManager()
+    .beginTransaction()
+    .replace(R.id.root_layout, detailsFragment, <span class="hljs-string">"rageComicDetails"</span>)
+    .addToBackStack(<span class="hljs-keyword">null</span>)
+    .commit();
+}
+</pre>
     <p>
         The code includes some classes you haven't used previously. So you need
         to fire off a couple of
