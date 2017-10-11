@@ -584,27 +584,26 @@
   <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>/&gt;</span>
 </pre>
     <p>
-        Here you’re placing a
+        这里在activity布局的内部放置了一个
         <code>
             &lt;fragment&gt;
         </code>
-        tag inside of the activity layout and specifying the type of fragment
-        the
+        ，并指定了fragment的类型。
         <code>
             class
         </code>
-        attribute should inflate. The view ID of the
+        这个属性需要完整。
         <code>
             &lt;fragment&gt;
         </code>
-        is required by the
+        的view ID是由
         <code>
             FragmentManager
         </code>
-        .
+        所要求的。
     </p>
     <p>
-        Build and run. You will see the fragment:
+        运行项目，你就可以看到fragment了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_012_app_details_fragment_test.png"
@@ -616,57 +615,54 @@
         </a>
     </p>
     <h3>
-        Adding a Fragment Dynamically
+        动态地添加Fragment
     </h3>
     <p>
-        First, open
+        首先，再次打开
         <em>
             activity_main.xml
         </em>
-        again and remove the
+        并移除你刚放置的
         <code>
             &lt;fragment&gt;
         </code>
-        you just placed. (Yes, I know, you just put it there — sorry.) You’ll
-        replace it with the list of Rage Comics.
+        。（是的，我知道你刚刚把它放到的这里 - 对不起。）你将使用暴走漫画的列表来替换它。
     </p>
     <p>
-        Open
+        打开
         <em>
             RageComicListFragment.java
         </em>
-        , which has all the lovely list code. You can see that the
+        ，它包含了所有可爱的列表代码。你可以看到
         <code>
             RageComicListFragment
         </code>
-        has no explicit constructors and a
+        没有显式的构造器，只有一个
         <code>
             newInstance()
         </code>
-        .
+        。
     </p>
     <p>
-        The list code in
         <code>
             RageComicListFragment
         </code>
-        depends on some resources. You have to ensure that the fragment has a
-        valid reference to a
+        中的列表代码需要依赖于一些资源。你必须确保这个fragment对
         <code>
             Context
         </code>
-        for accessing those resources. That’s where
+        包含有效的引用。这就是
         <code>
             onAttach()
         </code>
-        comes into play.
+        应该发挥作用的地方了。
     </p>
     <p>
-        Open
+        打开
         <em>
             RageComicListFragment.java
         </em>
-        , and add these imports directly below the existing imports:
+        ，并添加下列的import到已有import的下方：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.content.res.Resources;
 <span class="hljs-keyword">import</span> android.content.res.TypedArray;
@@ -676,28 +672,22 @@
 <span class="hljs-keyword">import</span> android.app.Activity;
 </pre>
     <p>
-        The first two imports allow you to access some string resources that you
-        will use as data in the list. The fifth import, the
+        前两个import让你可以访问一些字符串资源，你将会在列表中使用它们。第五个import，
         <code>
             GridLayoutManager
         </code>
-        , helps in positioning items in the Rage Comic list. The other imports
-        are for standard fragment overrides.
+        ，用来在暴走漫画的列表中放置item。其它的import则是标准的fragment覆盖。
     </p>
     <p>
-        Inside of
+        在
         <em>
             RageComicListFragment.java
         </em>
-        , add the following two methods
-        <i>
-            above
-        </i>
-        the definition of the
+        中，添加下列的两个方法，就在
         <code>
             RageComicAdapter
         </code>
-        :
+        的定义的上方：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(Context context)</span> </span>{
