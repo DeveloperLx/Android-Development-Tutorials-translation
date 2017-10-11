@@ -288,56 +288,49 @@
         </li>
     </ul>
     <p>
-        But wait, the fragment isn’t done. These lifecycle events happen when
-        you remove a fragment:
+        但稍等，fragment还未完成。下列的生命周期的事件将在你移除一个fragment的时候发生：
     </p>
     <ul>
         <li>
             <code>
                 onPause
             </code>
-            : when the fragment is no longer interactable; this occurs when either
-            the fragment is about to be removed or replaced or when the fragment’s
-            activity pauses
+            ：当fragment变为不可交互的状态时触发。它仅会在一个fragment将被移除或替代的时候，或其activity被pause的时候发生
         </li>
         <li>
             <code>
                 onStop
             </code>
-            : when the fragment is no longer visible; this occurs either after the
-            fragment is about to be removed or replaced or when the fragment’s activity
-            stops
+            ：当fragment变为不可见的状态时触发。它仅会在一个fragment将被移除或替代的时候，或其activity被停止的时候发生
         </li>
         <li>
             <code>
                 onDestroyView
             </code>
-            : when the view and related resources created in
+            ：当fragment的view和创建在
             <code>
                 onCreateView
             </code>
-            are removed from the activity’s view hierarchy and destroyed
+            中的相关资源从activity的view层级中被移除并销毁的时候触发
         </li>
         <li>
             <code>
                 onDestroy
             </code>
-            : when the fragment does its final clean up
+            ：当fragment执行最后的清理时调用
         </li>
         <li>
             <code>
                 onDetach
             </code>
-            : when the fragment is detached from its activity
+            ：当fragment从所在的activity中移除的时候调用
         </li>
     </ul>
     <p>
-        As you can see, the fragment’s lifecycle is intertwined with the activity’s
-        lifecycle. But it has extra events that are particular to the fragment’s
-        view hierarchy, state and attachment to its activity.
+        正如你所看到的，fragment的生命周期始终伴随着activity的生命周期。但它还有一些相应于view层级，状态，附加/分离于activity的额外的事件。
     </p>
     <h2>
-        The v4 Support Library
+        v4支持库
     </h2>
     <p>
         Fragments were introduced as part of the oft-forgotten, tablet-targeted
