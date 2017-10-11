@@ -433,109 +433,28 @@
         </em>
         , the code looks like what is shown below:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.annotation.Nullable;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.Fragment;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.LayoutInflater;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.View;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.ViewGroup;
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                RageComicDetailsFragment
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                Fragment
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                static
-            </span>
-            RageComicDetailsFragment
-            <span class="hljs-title">
-                newInstance
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-keyword">
-            new
-        </span>
-        RageComicDetailsFragment(); }
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-meta">
-            @Nullable
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        inflater.inflate(R.layout.fragment_rage_comic_details, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        ); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.support.annotation.Nullable;
+<span class="hljs-keyword">import</span> android.support.v4.app.Fragment;
+<span class="hljs-keyword">import</span> android.view.LayoutInflater;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.view.ViewGroup;
+
+<span class="hljs-comment">//1	</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RageComicDetailsFragment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fragment</span> </span>{
+  <span class="hljs-comment">//2	  </span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> RageComicDetailsFragment <span class="hljs-title">newInstance</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RageComicDetailsFragment();
+  }
+
+  <span class="hljs-comment">//3	</span>
+  <span class="hljs-meta">@Nullable</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+    <span class="hljs-keyword">return</span> inflater.inflate(R.layout.fragment_rage_comic_details, container, <span class="hljs-keyword">false</span>);
+  }
+}
+</pre>
     <p>
         This is what this code does:
     </p>
