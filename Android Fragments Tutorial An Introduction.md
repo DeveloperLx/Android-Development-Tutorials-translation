@@ -333,24 +333,20 @@
         v4支持库
     </h2>
     <p>
-        Fragments were introduced as part of the oft-forgotten, tablet-targeted
-        Honeycomb release for creating device-specific layouts for a single app.
+        Fragment是在定位于平板电脑，快要被遗忘的Honeycomb版本时被引入的。它用来为单个app创建特定于设备的布局。
     </p>
     <p>
-        The
         <em>
-            v4 Support Library
+            v4支持库
         </em>
-        provides a fragment implementation for devices running less than Android
-        3.0, specifically under
+        提供了对小于Android 3.0版本的设备的fragment的实现，特别是
         <code>
             android.support.v4.app.Fragment
         </code>
-        package.
+        以下的包。
     </p>
     <p>
-        Even if your app is running 4.0+, you should probably still use support
-        fragments.
+        即使你的app运行与4.0+的版本，你仍然可以使用支持fragment。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_007_support_fragment_why.png"
@@ -362,48 +358,43 @@
         </a>
     </p>
     <p>
-        It’s not just developers that depend on the Support Library. Other libraries
-        also need it, like the
+        因为不仅仅是开发者会依赖支持库，其它的库也需要它，比如
         <em>
             v7 AppCompat Library
         </em>
-        , which holds the
+        ，其中含有
         <code>
             AppCompatActivity
         </code>
-        and other back-porting of API 21 functionality. In fact,
+        以及其它的对于API 21的向后支持的功能。事实上，
         <code>
             AppCompatActivity
         </code>
-        is a subclass of the v4
+        就是v4的
         <code>
             FragmentActivity
         </code>
-        .
+        的子类。
     </p>
     <p>
-        So, if you want to get that sweet functionality on Lollipop and above,
-        you’ll need to take the same road as v4.
+        所有，如果你想获得Lollipop及以上版本酷毙了的功能，你就需要走和v4一样的路子。
     </p>
     <h2>
-        Creating a Fragment
+        创建Fragment
     </h2>
     <p>
-        Eventually, All the Rages will show a list of Rage Comics on launch, and
-        tapping on any of the items will display details about that particular
-        comic. To start, you’ll work backwards and first create the detail page.
+        最终，所有的暴走漫画会在启动的时候被展示位一个列表，点击其中的一项则会这幅漫画相应的详情。首先你将会创建详情页。
     </p>
     <p>
-        Open the starter project in Android Studio and find
-        <em>
-            fragment_rage_comic_details.xml
-        </em>
-        under
+        在Android Studio中打开起始项目，并在
         <em>
             app -&gt; res -&gt; layout
         </em>
-        ; this XML file lays out the comic detail display. It also displays one
-        of the drawable resources and the associated string resources.
+        下找到
+        <em>
+            fragment_rage_comic_details.xml
+        </em>
+        ，这个XML文件就指定了漫画详情展示的布局。它还展示了drawable资源和相关的string资源之一。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_008_fragment_details_layout_preview.png"
@@ -415,23 +406,22 @@
         </a>
     </p>
     <p>
-        Select Android Studio’s
+        选择Android Studio的
         <em>
             Project tab
         </em>
-        and locate the
+        并找到
         <em>
             RageComicDetailsFragment
         </em>
-        file. This class will be responsible for displaying details for a selected
-        comic.
+        文件。这个类用来负责展示被选择漫画的展示详情。
     </p>
     <p>
-        In
+        在
         <em>
             RageComicDetailsFragment.java
         </em>
-        , the code looks like what is shown below:
+        中，会看到类似如下的代码：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.os.Bundle;
 <span class="hljs-keyword">import</span> android.support.annotation.Nullable;
