@@ -122,7 +122,7 @@
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png" alt="Beginning Android development - Add activity" width="650" height="442" class="aligncenter size-large wp-image-161756" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-650x442.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/add-activity-470x320.png 470w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>可以把Activity看作一个你app中展示内容，且用户可以进行交互的窗口。Activity可以占据全部的屏幕，也可以只是一个简单的弹窗窗口。</p>
     <p>
-        这个特定模板的选项范围，从一个基本的Activity开始，也就是是一个带有<em>Action Bar</em>和<em>Floating Button</em>的黑色屏幕，直到一个嵌入了<em>MapView</em>的Activity。 
+        这个特定模板的选项范围，从一个基本的Activity开始，也就是一个带有<em>Action Bar</em>和<em>Floating Button</em>的黑色屏幕，直到一个嵌入了<em>MapView</em>的Activity。 
     </p>
     <p>随着你开发更多的app，你会创建更多的activity，因此必须进行很好的掌握。</p>
     <p>选择<em>Basic Activity</em>并点击<em>Next</em>。</p>
@@ -141,7 +141,7 @@
     <h3>Gradle</h3>
     <p><a href="https://gradle.org/" target="_blank" title="Gradle" sl-processed="1">Gradle</a>是一个很容易使用的build工具，如果你进行更进一步的了解，就会发现它包含很多高级的选项。它会用你的Java代码，XML布局文件和最新的Android build工具构建成app的包文件，也就是被称为<em>APK</em>（Android Package Kit）的文件。</p>
     <p>你可以定制你自己的配置，来让开发和生产版本的表现有所不同。你也可以添加对第三方库的依赖。</p>
-    <p>过了一会，Android Studio会完成构建你的项目。当然，当前的项目完全是空的，但它已经拥有了运行在Andrdoi设备或模拟器上所需的一切条件。</p>
+    <p>过了一会，Android Studio会完成构建你的项目。当然，当前的项目完全是空的，但它已经拥有了运行在Android设备或模拟器上所需的一切条件。</p>
     <p><a href="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen.png" sl-processed="1"><img src="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-650x376.png" alt="android studio screen" width="650" height="376" class="aligncenter size-large wp-image-161820" srcset="https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-650x376.png 650w, https://koenig-media.raywenderlich.com/uploads/2017/05/android-studio-screen-480x277.png 480w" sizes="(max-width: 650px) 100vw, 650px"></a></p>
     <p>简要地查看一下项目的各个部分吧。</p>
     <ul>
@@ -298,6 +298,6 @@
         </div>
     </div>
     <p>你已在这篇教程中学到了很多基础的内容：从下载和安装Android Studio，到创建你的第一个“Hello World!” app，再到将它不熟到一个屋里的设备上！</p>
-    <p>继续阅读本系列的<a href="http://www.raywenderlich.com/120508/beginning-android-development-tutorial-android-studio" sl-processed="1">下一部分</a>，你将从中开启一段Android Studio的旅程。</p>
+    <p>继续阅读本系列的<a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20Two%20Using%20Android%20Studio.md" sl-processed="1">下一部分</a>，你将从中开启一段Android Studio的旅程。</p>
     <p>在此期间，就像其它的语言或框架一样，Android的开发者社区拥有大量优秀的资源和参考文档。记住，任何时候访问Google的<a href="https://events.google.com/io/" target="_blank" title="Google I/O" sl-processed="1">I/O conference</a>，<a href="http://android-developers.blogspot.com/" target="_blank" title="Android Developers blog" sl-processed="1">Android Developers blog</a>或<a href="https://www.youtube.com/user/androiddevelopers" target="_blank" title="Android Developer videos" sl-processed="1">Android Developer videos</a>都不会太晚。</p>
 </div>
