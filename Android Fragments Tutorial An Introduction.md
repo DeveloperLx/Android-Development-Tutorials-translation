@@ -564,57 +564,25 @@
         添加Fragment
     </h2>
     <p>
-        Here’s where you get to add your own shiny new fragment using the simplest
-        approach: adding it to the activity’s XML layout.
+        添加你漂亮的fragment的最简单的办法，就是将它添加到XML的布局文件上。
     </p>
     <p>
-        To do this, open
+        打开
         <em>
             activity_main.xml
         </em>
-        , select the Text tab and add the following inside of the root
+        ，选择Text tab，并添加下列的内容到根
         <em>
             FrameLayout
         </em>
-        :
+        中：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                fragment
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/details_fragment"
-            </span>
-            <span class="hljs-attr">
-                class
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.alltherages.RageComicDetailsFragment"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/details_fragment"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"com.raywenderlich.alltherages.RageComicDetailsFragment"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>/&gt;</span>
+</pre>
     <p>
         Here you’re placing a
         <code>
@@ -700,32 +668,13 @@
         </em>
         , and add these imports directly below the existing imports:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.res.Resources;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.res.TypedArray;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.annotation.Nullable;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.widget.GridLayoutManager;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.content.res.Resources;
+<span class="hljs-keyword">import</span> android.content.res.TypedArray;
+<span class="hljs-keyword">import</span> android.support.annotation.Nullable;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.support.v7.widget.GridLayoutManager;
+<span class="hljs-keyword">import</span> android.app.Activity;
+</pre>
     <p>
         The first two imports allow you to access some string resources that you
         will use as data in the list. The fifth import, the
@@ -750,128 +699,38 @@
         </code>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onAttach
-            </span>
-            <span class="hljs-params">
-                (Context context)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onAttach(context);
-        <span class="hljs-comment">
-            // Get rage face names and descriptions.
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        Resources resources = context.getResources(); mNames = resources.getStringArray(R.array.names);
-        mDescriptions = resources.getStringArray(R.array.descriptions); mUrls =
-        resources.getStringArray(R.array.urls);
-        <span class="hljs-comment">
-            // Get rage face images.
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        TypedArray typedArray = resources.obtainTypedArray(R.array.images);
-        <span class="hljs-keyword">
-            final
-        </span>
-        <span class="hljs-keyword">
-            int
-        </span>
-        imageCount = mNames.length; mImageResIds =
-        <span class="hljs-keyword">
-            new
-        </span>
-        <span class="hljs-keyword">
-            int
-        </span>
-        [imageCount];
-        <span class="hljs-keyword">
-            for
-        </span>
-        (
-        <span class="hljs-keyword">
-            int
-        </span>
-        i =
-        <span class="hljs-number">
-            0
-        </span>
-        ; i &lt; imageCount; i++) { mImageResIds[i] = typedArray.getResourceId(i,
-        <span class="hljs-number">
-            0
-        </span>
-        ); } typedArray.recycle(); }
-        <span class="hljs-meta">
-            @Nullable
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        View view = inflater.inflate(R.layout.fragment_rage_comic_list, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        );
-        <span class="hljs-keyword">
-            final
-        </span>
-        Activity activity = getActivity();
-        <span class="hljs-keyword">
-            final
-        </span>
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(
-        <span class="hljs-keyword">
-            new
-        </span>
-        GridLayoutManager(activity,
-        <span class="hljs-number">
-            2
-        </span>
-        )); recyclerView.setAdapter(
-        <span class="hljs-keyword">
-            new
-        </span>
-        RageComicAdapter(activity));
-        <span class="hljs-keyword">
-            return
-        </span>
-        view; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(Context context)</span> </span>{
+  <span class="hljs-keyword">super</span>.onAttach(context);
+	
+  <span class="hljs-comment">// Get rage face names and descriptions.</span>
+  <span class="hljs-keyword">final</span> Resources resources = context.getResources();
+  mNames = resources.getStringArray(R.array.names);
+  mDescriptions = resources.getStringArray(R.array.descriptions);
+  mUrls = resources.getStringArray(R.array.urls);
+	
+  <span class="hljs-comment">// Get rage face images.</span>
+  <span class="hljs-keyword">final</span> TypedArray typedArray = resources.obtainTypedArray(R.array.images);
+  <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> imageCount = mNames.length;
+  mImageResIds = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[imageCount];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; imageCount; i++) {
+    mImageResIds[i] = typedArray.getResourceId(i, <span class="hljs-number">0</span>);
+  }
+  typedArray.recycle();
+}
+	
+<span class="hljs-meta">@Nullable</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+  <span class="hljs-keyword">final</span> View view = inflater.inflate(R.layout.fragment_rage_comic_list, container, <span class="hljs-keyword">false</span>);
+	
+  <span class="hljs-keyword">final</span> Activity activity = getActivity();
+  <span class="hljs-keyword">final</span> RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+  recyclerView.setLayoutManager(<span class="hljs-keyword">new</span> GridLayoutManager(activity, <span class="hljs-number">2</span>));
+  recyclerView.setAdapter(<span class="hljs-keyword">new</span> RageComicAdapter(activity));
+  <span class="hljs-keyword">return</span> view;
+}
+</pre>
     <p>
         <code>
             onAttach()
@@ -923,43 +782,19 @@
         </code>
         with the following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState); setContentView(R.layout.activity_main);
-        <span class="hljs-keyword">
-            if
-        </span>
-        (savedInstanceState ==
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) { getSupportFragmentManager() .beginTransaction() .add(R.id.root_layout,
-        RageComicListFragment.newInstance(),
-        <span class="hljs-string">
-            "rageComicList"
-        </span>
-        ) .commit(); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+<span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+	
+  <span class="hljs-keyword">if</span> (savedInstanceState == <span class="hljs-keyword">null</span>) {
+    getSupportFragmentManager()
+      .beginTransaction()
+      .add(R.id.root_layout, RageComicListFragment.newInstance(), <span class="hljs-string">"rageComicList"</span>)
+      .commit();
+  }
+}
+</pre>
     <p>
         Here you get
         <code>
