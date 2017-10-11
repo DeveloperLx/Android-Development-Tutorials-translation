@@ -816,91 +816,85 @@ setContentView(R.layout.activity_main);
         <code>
             FragmentManager
         </code>
-        helped achieve this awesomeness through
+        通过
         <code>
             FragmentTransactions
         </code>
-        , which are basically fragment operations such as, add, remove, etc.
+        实现功能，它们是fragment基本的操作，如添加，删除等等。
     </p>
     <p>
-        First you grab the
-        <code>
-            FragmentManager
-        </code>
-        by calling
+        首先通过调用
         <code>
             getSupportFragmentManager()
         </code>
-        , as opposed to
+        来获取
+        <code>
+            FragmentManager
+        </code>
+        ，它和
         <code>
             getFragmentManager
         </code>
-        since you are using support fragments.
+        不同，因为你在使用支持fragments。
     </p>
     <p>
-        Then you ask that
-        <code>
-            FragmentManager
-        </code>
-        to start a new transaction by calling
+        然后通过调用
         <code>
             beginTransaction()
         </code>
-        -- you probably figured that out yourself. Next you specify the add operation
-        that you want by calling
-        <code>
-            add
-        </code>
-        and passing in:
-    </p>
-    <ul>
-        <li>
-            The view ID of a container for the fragment's view hierarchy in the activity's
-            layout. If you sneak a quick peek at
-            <code>
-                activity_main.xml
-            </code>
-            , you'll find
-            <code>
-                @+id/root_layout
-            </code>
-            .
-        </li>
-        <li>
-            The fragment instance to be added.
-        </li>
-        <li>
-            A string that acts as a tag/identifier for the fragment instance. This
-            allows the
-            <code>
-                FragmentManager
-            </code>
-            to later retrieve the fragment for you.
-        </li>
-    </ul>
-    <p>
-        Finally, you ask the
+        来请求
         <code>
             FragmentManager
         </code>
-        to execute the transaction by calling
+        开启一个新的事务 -- 你应该可以自己想通了。然后调用
+        <code>
+            add
+        </code>
+        来指定你想要的添加操作，并传递参数：
+    </p>
+    <ul>
+        <li>
+            用来在activity的布局中，容纳fragment的view层级的container的view ID。如果你偷偷看一眼
+            <code>
+                activity_main.xml
+            </code>
+            ，你就会发现
+            <code>
+                @+id/root_layout
+            </code>
+            。
+        </li>
+        <li>
+            待添加的fragment的实例。
+        </li>
+        <li>
+            一个字符串，用来充当fragment实例的tag/identifier。这样便于
+            <code>
+                FragmentManager
+            </code>
+            在稍后检索fragment。
+        </li>
+    </ul>
+    <p>
+        最后，你通过调用
         <code>
             commit()
         </code>
-        .
+        来请求
+        <code>
+            FragmentManager
+        </code>
+        执行事务。
     </p>
     <p>
-        And with that, the fragment is added!
+        这样，fragment就被添加上了！
     </p>
     <p>
         An
         <code>
             if
         </code>
-        block contains the code that displays the fragment and checks that the
-        activity doesn't have saved state. When an activity is saved, all of its
-        active fragments are also saved. If you don't perform this check, this
-        could happen:
+        语句包含了展示fragment的代码，并判断activity尚无保存的状态。当activity被保存的时候，相应它所有fragment也会被保存。如果你不执行这这检查，就会发生这样的情况：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d003_fragments_too_many.png"
@@ -912,7 +906,7 @@ setContentView(R.layout.activity_main);
         </a>
     </p>
     <p>
-        And you would be like this:
+        你就会：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_014_y_u_no_have.png"
@@ -924,10 +918,10 @@ setContentView(R.layout.activity_main);
         </a>
     </p>
     <p>
-        The lesson: Always keep in mind how the saved state affects your fragments.
+        课程：牢记保存的状态会如何影响你的fragment。
     </p>
     <h2>
-        Communicating with the Activity
+        与Activity进行通信
     </h2>
     <p>
         Even though fragments are attached to an activity, they don't necessarily
