@@ -446,102 +446,94 @@
 }
 </pre>
     <p>
-        This is what this code does:
+        上述的代码：
     </p>
     <ol>
         <li>
-            Declares
+            声明
             <code>
                 RageComicDetailsFragment
             </code>
-            as a subclass of
+            作为
             <code>
                 Fragment
             </code>
-            .
+            的子类。
         </li>
         <li>
-            Provides a method for creating new instances of the fragment, a factory
-            method.
+            提供了一个方法用来创建这个fragment的实例，这是一个工厂方法。
         </li>
         <li>
-            Creates the view hierarchy controlled by the fragment.
+            创建由fragment所控制的view的层级。
         </li>
     </ol>
     <p>
-        Activities use
+        Activity使用
         <code>
             setContentView()
         </code>
-        to specify the XML file that defines their layouts, but fragments create
-        their view hierarchy in
+        来指定它相应的布局文件，而fragment则在
         <code>
             onCreateView()
         </code>
-        . Here you called
+        中创建它们的view层级。这里你调用
         <code>
             LayoutInflater.inflate
         </code>
-        to create the hierarchy of
+        来创建
         <code>
             RageComicDetailsFragment
         </code>
-        .
+        的层级。
     </p>
     <p>
-        The third parameter of
         <code>
             inflate
         </code>
-        specifies whether the inflated fragment should be added to the
+        的第三个参数确定了是否要将其添加到
         <code>
             container
         </code>
-        . The container is the parent view that will hold the fragment’s view
-        hierarchy. You should always set this to
+        上。container就是将持有fragment的view层级的父view。你应当总是将其设置为
         <code>
             false
         </code>
-        : the
+        ：
         <code>
             FragmentManager
         </code>
-        will take care of adding the fragment to the container.
+        将负责将fragment添加到container上。
     </p>
     <p>
-        There’s a new kid in town here:
+        这里有一个新的东东：
         <code>
             FragmentManager
         </code>
-        . Each activity has a
+        。每个activity都会有一个
         <code>
             FragmentManager
         </code>
-        that manages its fragments. It also provides an interface for you to access,
-        add and remove those fragments.
+        来管理它的fragment。它还提供了一个供你访问，添加和移除的界面。
     </p>
     <p>
-        You’ll notice that while
+        你会注意到尽管
         <code>
             RageComicDetailsFragment
         </code>
-        has a factory instance method,
+        有一个工厂的实例方法
         <code>
             newInstance()
         </code>
-        , it does not have any constructors.
+        ，但却没有任何的构造器。
     </p>
     <p>
-        Wait, why do you need a factory method but not a constructor?
+        为何要有一个工厂方法而不是构造器？
     </p>
     <p>
-        First, because you did not define any constructors, the compiler automatically
-        generates an empty, default constructor that takes no arguments. This is
-        all that you should have for a fragment: no other constructors.
+        首先，由于你并没有定义任何的构造器，编译器就会自动生成一个空的，无参的默认构造器。这就是你需要有的构造器了，无需其它。
     </p>
     <p>
-        If you specify a non-empty constructor but not explicitly write an empty
-        constructor, Lint will give you an error:
+        如果你指定了一个非空的构造器，但却未明确地写出一个空的构造器，Lint就会给你指出一个错误：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_010_fragment_details_no_default_constructor_warning.png"
@@ -553,29 +545,23 @@
         </a>
     </p>
     <p>
-        Now it will compile still, but when you run your application, you’ll get
-        an even nastier exception.
+        现在它仍然可以编译，但当你运行app的时候，你会得到一个更严重的异常。
     </p>
     <p>
-        You probably know that Android may destroy and later re-create an activity
-        and all its associated fragments when the app goes into the background.
-        When the activity comes back, its
+        你可能知道，当app进入后台的时候，Android可能会销毁并在之后重建activity及其相关的所有的fragment。当activity回来的时候，它的
         <code>
             FragmentManager
         </code>
-        starts re-creating fragments by using the empty default constructor. If
-        it cannot find one, you get an exception.
+        就会使用默认的空构建器重建fragment。由于无法找到，你就会遇到一个异常。
     </p>
     <p>
-        Because of this, it is best practice to never specify any non-empty constructors,
-        and in fact, the easiest thing to do is to specify none as you just did.
+        因此，最好的实践就是从来都不要指定非空的构造器，实际上，最简单的做法就是你刚刚做的这样。
     </p>
     <p>
-        Wait, what if you need to pass information or data to a Fragment? Hold
-        on tight: you’ll get the answer to that later.
+        稍等，如果你需要将信息或数据传递给Fragment，该怎么做？跟紧了，马上你就会得到答案。
     </p>
     <h2>
-        Adding a Fragment
+        添加Fragment
     </h2>
     <p>
         Here’s where you get to add your own shiny new fragment using the simplest
