@@ -1113,55 +1113,506 @@ setContentView(R.layout.activity_main);
         Fragment参数和事务
     </h2>
     <p>
-        Currently,
+        当前，
         <code>
             RageComicDetailsFragment
         </code>
-        displays a static
+        展示了一个静态的
         <code>
             Drawable
         </code>
-        and set of
+        和
         <code>
             Strings
         </code>
-        , but say you want it to display the user's selection.
+        的集合，但你还想展示用户的选择。
     </p>
-    <p>
-        Open
-        <em>
-            RageComicDetailsFragment.java
-        </em>
-        and add the following constants at the top of the class definition:
-    </p>
-    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_IMAGE_RES_ID = <span class="hljs-string">"imageResId"</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_NAME = <span class="hljs-string">"name"</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_DESCRIPTION = <span class="hljs-string">"description"</span>;
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_URL = <span class="hljs-string">"url"</span>;
+    <p>First, replace the entire view in <code>fragment_rage_comic_details.xml</code> with:</p>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        data
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        variable
+    </span>
+    <span class="hljs-attr">
+        name
+    </span>
+    =
+    <span class="hljs-string">
+        "comic"
+    </span>
+    <span class="hljs-attr">
+        type
+    </span>
+    =
+    <span class="hljs-string">
+        "com.raywenderlich.alltherages.Comic"
+    </span>
+    /&gt;
+</span>
+<span class="hljs-tag">
+    &lt;/
+    <span class="hljs-name">
+        data
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        ScrollView
+    </span>
+    <span class="hljs-attr">
+        xmlns:tools
+    </span>
+    =
+    <span class="hljs-string">
+        "http://schemas.android.com/tools"
+    </span>
+    <span class="hljs-attr">
+        android:layout_width
+    </span>
+    =
+    <span class="hljs-string">
+        "match_parent"
+    </span>
+    <span class="hljs-attr">
+        android:layout_height
+    </span>
+    =
+    <span class="hljs-string">
+        "match_parent"
+    </span>
+    <span class="hljs-attr">
+        android:fillViewport
+    </span>
+    =
+    <span class="hljs-string">
+        "true"
+    </span>
+    <span class="hljs-attr">
+        tools:ignore
+    </span>
+    =
+    <span class="hljs-string">
+        "RtlHardcoded"
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        LinearLayout
+    </span>
+    <span class="hljs-attr">
+        android:layout_width
+    </span>
+    =
+    <span class="hljs-string">
+        "match_parent"
+    </span>
+    <span class="hljs-attr">
+        android:layout_height
+    </span>
+    =
+    <span class="hljs-string">
+        "wrap_content"
+    </span>
+    <span class="hljs-attr">
+        android:gravity
+    </span>
+    =
+    <span class="hljs-string">
+        "center"
+    </span>
+    <span class="hljs-attr">
+        android:orientation
+    </span>
+    =
+    <span class="hljs-string">
+        "vertical"
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        TextView
+    </span>
+    <span class="hljs-attr">
+        android:id
+    </span>
+    =
+    <span class="hljs-string">
+        "@+id/name"
+    </span>
+    <span class="hljs-attr">
+        style
+    </span>
+    =
+    <span class="hljs-string">
+        "@style/TextAppearance.AppCompat.Title"
+    </span>
+    <span class="hljs-attr">
+        android:layout_width
+    </span>
+    =
+    <span class="hljs-string">
+        "wrap_content"
+    </span>
+    <span class="hljs-attr">
+        android:layout_height
+    </span>
+    =
+    <span class="hljs-string">
+        "wrap_content"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginBottom
+    </span>
+    =
+    <span class="hljs-string">
+        "0dp"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginTop
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_name_margin_top"
+    </span>
+    <span class="hljs-attr">
+        android:text
+    </span>
+    =
+    <span class="hljs-string">
+        "@{comic.name}"
+    </span>
+    /&gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        ImageView
+    </span>
+    <span class="hljs-attr">
+        android:id
+    </span>
+    =
+    <span class="hljs-string">
+        "@+id/comic_image"
+    </span>
+    <span class="hljs-attr">
+        android:layout_width
+    </span>
+    =
+    <span class="hljs-string">
+        "wrap_content"
+    </span>
+    <span class="hljs-attr">
+        android:layout_height
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_image_size"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginBottom
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_image_margin_vertical"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginTop
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_image_margin_vertical"
+    </span>
+    <span class="hljs-attr">
+        android:adjustViewBounds
+    </span>
+    =
+    <span class="hljs-string">
+        "true"
+    </span>
+    <span class="hljs-attr">
+        android:contentDescription
+    </span>
+    =
+    <span class="hljs-string">
+        "@null"
+    </span>
+    <span class="hljs-attr">
+        android:scaleType
+    </span>
+    =
+    <span class="hljs-string">
+        "centerCrop"
+    </span>
+    <span class="hljs-attr">
+        imageResource
+    </span>
+    =
+    <span class="hljs-string">
+        "@{comic.imageResId}"
+    </span>
+    /&gt;
+</span>
+<span class="hljs-tag">
+    &lt;
+    <span class="hljs-name">
+        TextView
+    </span>
+    <span class="hljs-attr">
+        android:id
+    </span>
+    =
+    <span class="hljs-string">
+        "@+id/description"
+    </span>
+    <span class="hljs-attr">
+        style
+    </span>
+    =
+    <span class="hljs-string">
+        "@style/TextAppearance.AppCompat.Body1"
+    </span>
+    <span class="hljs-attr">
+        android:layout_width
+    </span>
+    =
+    <span class="hljs-string">
+        "match_parent"
+    </span>
+    <span class="hljs-attr">
+        android:layout_height
+    </span>
+    =
+    <span class="hljs-string">
+        "match_parent"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginBottom
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_description_margin_bottom"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginLeft
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_description_margin_left"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginRight
+    </span>
+    =
+    <span class="hljs-string">
+        "@dimen/rage_comic_description_margin_right"
+    </span>
+    <span class="hljs-attr">
+        android:layout_marginTop
+    </span>
+    =
+    <span class="hljs-string">
+        "0dp"
+    </span>
+    <span class="hljs-attr">
+        android:autoLink
+    </span>
+    =
+    <span class="hljs-string">
+        "web"
+    </span>
+    <span class="hljs-attr">
+        android:text
+    </span>
+    =
+    <span class="hljs-string">
+        "@{comic.text}"
+    </span>
+    /&gt;
+</span>
+<span class="hljs-tag">
+    &lt;/
+    <span class="hljs-name">
+        LinearLayout
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;/
+    <span class="hljs-name">
+        ScrollView
+    </span>
+    &gt;
+</span>
+<span class="hljs-tag">
+    &lt;/
+    <span class="hljs-name">
+        layout
+    </span>
+    &gt;
+</span>
 </pre>
-    <p>
-        These constants are keys you will use to save and restore the fragment's
-        state.
-    </p>
-    <p>
-        Replace
-        <code>
-            newInstance()
-        </code>
-        with the code shown below:
-    </p>
-    <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> RageComicDetailsFragment <span class="hljs-title">newInstance</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
-  String description, String url)</span> </span>{
-
-  <span class="hljs-keyword">final</span> Bundle args = <span class="hljs-keyword">new</span> Bundle();
-  args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId);
-  args.putString(ARGUMENT_NAME, name);
-  args.putString(ARGUMENT_DESCRIPTION, description);
-  args.putString(ARGUMENT_URL, url);
-  <span class="hljs-keyword">final</span> RageComicDetailsFragment fragment = <span class="hljs-keyword">new</span> RageComicDetailsFragment();
-  fragment.setArguments(args);
-  <span class="hljs-keyword">return</span> fragment;
-}
+<p>
+    At the top you’ll see that we’ve added a variable for our
+    <em>
+        Comic
+    </em>
+    . The text for
+    <em>
+        name
+    </em>
+    and
+    <em>
+        description
+    </em>
+    is bound to the variables of the same name in the
+    <em>
+        Comic
+    </em>
+    object.
+</p>
+<h3>
+    Binding Adapters
+</h3>
+<p>
+    On the ImageView for the comic image you’ll notice the following tag:
+</p>
+<pre lang="xml" class="language-xml hljs">
+    imageResource="@{comic.imageResId}"
+</pre>
+<p>
+    This corresponds to a binding adapter that we’ve created in the
+    <code>
+        DataBindingAdapters.kt
+    </code>
+    file.
+</p>
+<pre lang="java" class="language-java hljs">
+    <span class="hljs-keyword">
+        private
+    </span>
+    <span class="hljs-keyword">
+        static
+    </span>
+    <span class="hljs-keyword">
+        final
+    </span>
+    String ARGUMENT_IMAGE_RES_ID =
+    <span class="hljs-string">
+        "imageResId"
+    </span>
+    ;
+    <span class="hljs-keyword">
+        private
+    </span>
+    <span class="hljs-keyword">
+        static
+    </span>
+    <span class="hljs-keyword">
+        final
+    </span>
+    String ARGUMENT_NAME =
+    <span class="hljs-string">
+        "name"
+    </span>
+    ;
+    <span class="hljs-keyword">
+        private
+    </span>
+    <span class="hljs-keyword">
+        static
+    </span>
+    <span class="hljs-keyword">
+        final
+    </span>
+    String ARGUMENT_DESCRIPTION =
+    <span class="hljs-string">
+        "description"
+    </span>
+    ;
+    <span class="hljs-keyword">
+        private
+    </span>
+    <span class="hljs-keyword">
+        static
+    </span>
+    <span class="hljs-keyword">
+        final
+    </span>
+    String ARGUMENT_URL =
+    <span class="hljs-string">
+        "url"
+    </span>
+    ;
+</pre>
+<p>
+    These constants are keys you will use to save and restore the fragment's
+    state.
+</p>
+<p>
+    Replace
+    <code>
+        newInstance()
+    </code>
+    with the code shown below:
+</p>
+<pre lang="java" class="language-java hljs">
+    <span class="hljs-function">
+        <span class="hljs-keyword">
+            public
+        </span>
+        <span class="hljs-keyword">
+            static
+        </span>
+        RageComicDetailsFragment
+        <span class="hljs-title">
+            newInstance
+        </span>
+        <span class="hljs-params">
+            (
+            <span class="hljs-keyword">
+                int
+            </span>
+            imageResId, String name, String description, String url)
+        </span>
+    </span>
+    {
+    <span class="hljs-keyword">
+        final
+    </span>
+    Bundle args =
+    <span class="hljs-keyword">
+        new
+    </span>
+    Bundle(); args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId); args.putString(ARGUMENT_NAME,
+    name); args.putString(ARGUMENT_DESCRIPTION, description); args.putString(ARGUMENT_URL,
+    url);
+    <span class="hljs-keyword">
+        final
+    </span>
+    RageComicDetailsFragment fragment =
+    <span class="hljs-keyword">
+        new
+    </span>
+    RageComicDetailsFragment(); fragment.setArguments(args);
+    <span class="hljs-keyword">
+        return
+    </span>
+    fragment; }
 </pre>
     <p>
         A fragment can take initialization parameters through its arguments, which
