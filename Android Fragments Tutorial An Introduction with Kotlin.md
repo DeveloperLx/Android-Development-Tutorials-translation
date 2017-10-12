@@ -898,37 +898,37 @@
         数据绑定
     </h2>
     <p>
-        While poking around the project you may have noticed a few things:
+        环视项目，你会注意到一些事情：
     </p>
     <ul>
         <li>
-            A file called
+            一个叫做
             <code>
                 DataBindingAdapters
             </code>
-            .
+            的文件。
         </li>
         <li>
-            A reference to
-            <code>
-                dataBinding
-            </code>
-            in the app module
+            在app的模块
             <code>
                 build.gradle
             </code>
-            :
+            中，有一个
+            <code>
+                dataBinding
+            </code>
+            的引用：
             <pre lang="groovy" class="language-groovy">dataBinding {
   enabled = true
 }
 </pre>
         </li>
         <li>
-            A data section in the
+            在
             <code>
                 recycler_item_rage_comic.xml
             </code>
-            layout file.
+            这个布局文件中的一个data的部分。
             <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>
@@ -946,15 +946,15 @@
             <code>
                 Comic
             </code>
-            data class.
+            的数据类。
         </li>
     </ul>
     <p>
-        If you haven’t used
+        如果你没有使用
         <em>
-            data binding
+            数据绑定
         </em>
-        before you may be like…
+        ，可能就会像...
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/android_fragments_003_canine_coding.png"
@@ -966,11 +966,10 @@
         </a>
     </p>
     <p>
-        Let’s take a quick walkthrough.
+        让我们来快速地看一遍。
     </p>
     <p>
-        Normally, if you want to set the value of properties in your layout, you’d
-        use something like the following in your fragments and activities:
+        通常，如果你想要设置在布局文件中的值，你就会在fragment和activity中使用类似如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">programmer.name = <span class="hljs-string">"a purr programmer"</span>
 view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
