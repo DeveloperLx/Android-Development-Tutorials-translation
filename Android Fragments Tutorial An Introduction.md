@@ -333,24 +333,20 @@
         v4支持库
     </h2>
     <p>
-        Fragments were introduced as part of the oft-forgotten, tablet-targeted
-        Honeycomb release for creating device-specific layouts for a single app.
+        Fragment是在定位于平板电脑，快要被遗忘的Honeycomb版本时被引入的。它用来为单个app创建特定于设备的布局。
     </p>
     <p>
-        The
         <em>
-            v4 Support Library
+            v4支持库
         </em>
-        provides a fragment implementation for devices running less than Android
-        3.0, specifically under
+        提供了对小于Android 3.0版本的设备的fragment的实现，特别是
         <code>
             android.support.v4.app.Fragment
         </code>
-        package.
+        以下的包。
     </p>
     <p>
-        Even if your app is running 4.0+, you should probably still use support
-        fragments.
+        即使你的app运行与4.0+的版本，你仍然可以使用支持fragment。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_007_support_fragment_why.png"
@@ -362,48 +358,43 @@
         </a>
     </p>
     <p>
-        It’s not just developers that depend on the Support Library. Other libraries
-        also need it, like the
+        因为不仅仅是开发者会依赖支持库，其它的库也需要它，比如
         <em>
             v7 AppCompat Library
         </em>
-        , which holds the
+        ，其中含有
         <code>
             AppCompatActivity
         </code>
-        and other back-porting of API 21 functionality. In fact,
+        以及其它的对于API 21的向后支持的功能。事实上，
         <code>
             AppCompatActivity
         </code>
-        is a subclass of the v4
+        就是v4的
         <code>
             FragmentActivity
         </code>
-        .
+        的子类。
     </p>
     <p>
-        So, if you want to get that sweet functionality on Lollipop and above,
-        you’ll need to take the same road as v4.
+        所有，如果你想获得Lollipop及以上版本酷毙了的功能，你就需要走和v4一样的路子。
     </p>
     <h2>
-        Creating a Fragment
+        创建Fragment
     </h2>
     <p>
-        Eventually, All the Rages will show a list of Rage Comics on launch, and
-        tapping on any of the items will display details about that particular
-        comic. To start, you’ll work backwards and first create the detail page.
+        最终，所有的暴走漫画会在启动的时候被展示位一个列表，点击其中的一项则会这幅漫画相应的详情。首先你将会创建详情页。
     </p>
     <p>
-        Open the starter project in Android Studio and find
-        <em>
-            fragment_rage_comic_details.xml
-        </em>
-        under
+        在Android Studio中打开起始项目，并在
         <em>
             app -&gt; res -&gt; layout
         </em>
-        ; this XML file lays out the comic detail display. It also displays one
-        of the drawable resources and the associated string resources.
+        下找到
+        <em>
+            fragment_rage_comic_details.xml
+        </em>
+        ，这个XML文件就指定了漫画详情展示的布局。它还展示了drawable资源和相关的string资源之一。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_008_fragment_details_layout_preview.png"
@@ -415,23 +406,22 @@
         </a>
     </p>
     <p>
-        Select Android Studio’s
+        选择Android Studio的
         <em>
             Project tab
         </em>
-        and locate the
+        并找到
         <em>
             RageComicDetailsFragment
         </em>
-        file. This class will be responsible for displaying details for a selected
-        comic.
+        文件。这个类用来负责展示被选择漫画的展示详情。
     </p>
     <p>
-        In
+        在
         <em>
             RageComicDetailsFragment.java
         </em>
-        , the code looks like what is shown below:
+        中，会看到类似如下的代码：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.os.Bundle;
 <span class="hljs-keyword">import</span> android.support.annotation.Nullable;
@@ -456,102 +446,94 @@
 }
 </pre>
     <p>
-        This is what this code does:
+        上述的代码：
     </p>
     <ol>
         <li>
-            Declares
+            声明
             <code>
                 RageComicDetailsFragment
             </code>
-            as a subclass of
+            作为
             <code>
                 Fragment
             </code>
-            .
+            的子类。
         </li>
         <li>
-            Provides a method for creating new instances of the fragment, a factory
-            method.
+            提供了一个方法用来创建这个fragment的实例，这是一个工厂方法。
         </li>
         <li>
-            Creates the view hierarchy controlled by the fragment.
+            创建由fragment所控制的view的层级。
         </li>
     </ol>
     <p>
-        Activities use
+        Activity使用
         <code>
             setContentView()
         </code>
-        to specify the XML file that defines their layouts, but fragments create
-        their view hierarchy in
+        来指定它相应的布局文件，而fragment则在
         <code>
             onCreateView()
         </code>
-        . Here you called
+        中创建它们的view层级。这里你调用
         <code>
             LayoutInflater.inflate
         </code>
-        to create the hierarchy of
+        来创建
         <code>
             RageComicDetailsFragment
         </code>
-        .
+        的层级。
     </p>
     <p>
-        The third parameter of
         <code>
             inflate
         </code>
-        specifies whether the inflated fragment should be added to the
+        的第三个参数确定了是否要将其添加到
         <code>
             container
         </code>
-        . The container is the parent view that will hold the fragment’s view
-        hierarchy. You should always set this to
+        上。container就是将持有fragment的view层级的父view。你应当总是将其设置为
         <code>
             false
         </code>
-        : the
+        ：
         <code>
             FragmentManager
         </code>
-        will take care of adding the fragment to the container.
+        将负责将fragment添加到container上。
     </p>
     <p>
-        There’s a new kid in town here:
+        这里有一个新的东东：
         <code>
             FragmentManager
         </code>
-        . Each activity has a
+        。每个activity都会有一个
         <code>
             FragmentManager
         </code>
-        that manages its fragments. It also provides an interface for you to access,
-        add and remove those fragments.
+        来管理它的fragment。它还提供了一个供你访问，添加和移除的界面。
     </p>
     <p>
-        You’ll notice that while
+        你会注意到尽管
         <code>
             RageComicDetailsFragment
         </code>
-        has a factory instance method,
+        有一个工厂的实例方法
         <code>
             newInstance()
         </code>
-        , it does not have any constructors.
+        ，但却没有任何的构造器。
     </p>
     <p>
-        Wait, why do you need a factory method but not a constructor?
+        为何要有一个工厂方法而不是构造器？
     </p>
     <p>
-        First, because you did not define any constructors, the compiler automatically
-        generates an empty, default constructor that takes no arguments. This is
-        all that you should have for a fragment: no other constructors.
+        首先，由于你并没有定义任何的构造器，编译器就会自动生成一个空的，无参的默认构造器。这就是你需要有的构造器了，无需其它。
     </p>
     <p>
-        If you specify a non-empty constructor but not explicitly write an empty
-        constructor, Lint will give you an error:
+        如果你指定了一个非空的构造器，但却未明确地写出一个空的构造器，Lint就会给你指出一个错误：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_010_fragment_details_no_default_constructor_warning.png"
@@ -563,104 +545,65 @@
         </a>
     </p>
     <p>
-        Now it will compile still, but when you run your application, you’ll get
-        an even nastier exception.
+        现在它仍然可以编译，但当你运行app的时候，你会得到一个更严重的异常。
     </p>
     <p>
-        You probably know that Android may destroy and later re-create an activity
-        and all its associated fragments when the app goes into the background.
-        When the activity comes back, its
+        你可能知道，当app进入后台的时候，Android可能会销毁并在之后重建activity及其相关的所有的fragment。当activity回来的时候，它的
         <code>
             FragmentManager
         </code>
-        starts re-creating fragments by using the empty default constructor. If
-        it cannot find one, you get an exception.
+        就会使用默认的空构建器重建fragment。由于无法找到，你就会遇到一个异常。
     </p>
     <p>
-        Because of this, it is best practice to never specify any non-empty constructors,
-        and in fact, the easiest thing to do is to specify none as you just did.
+        因此，最好的实践就是从来都不要指定非空的构造器，实际上，最简单的做法就是你刚刚做的这样。
     </p>
     <p>
-        Wait, what if you need to pass information or data to a Fragment? Hold
-        on tight: you’ll get the answer to that later.
+        稍等，如果你需要将信息或数据传递给Fragment，该怎么做？跟紧了，马上你就会得到答案。
     </p>
     <h2>
-        Adding a Fragment
+        添加Fragment
     </h2>
     <p>
-        Here’s where you get to add your own shiny new fragment using the simplest
-        approach: adding it to the activity’s XML layout.
+        添加你漂亮的fragment的最简单的办法，就是将它添加到XML的布局文件上。
     </p>
     <p>
-        To do this, open
+        打开
         <em>
             activity_main.xml
         </em>
-        , select the Text tab and add the following inside of the root
+        ，选择Text tab，并添加下列的内容到根
         <em>
             FrameLayout
         </em>
-        :
+        中：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                fragment
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/details_fragment"
-            </span>
-            <span class="hljs-attr">
-                class
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.alltherages.RageComicDetailsFragment"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/details_fragment"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"com.raywenderlich.alltherages.RageComicDetailsFragment"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>/&gt;</span>
+</pre>
     <p>
-        Here you’re placing a
+        这里在activity布局的内部放置了一个
         <code>
             &lt;fragment&gt;
         </code>
-        tag inside of the activity layout and specifying the type of fragment
-        the
+        ，并指定了fragment的类型。
         <code>
             class
         </code>
-        attribute should inflate. The view ID of the
+        这个属性需要完整。
         <code>
             &lt;fragment&gt;
         </code>
-        is required by the
+        的view ID是由
         <code>
             FragmentManager
         </code>
-        .
+        所要求的。
     </p>
     <p>
-        Build and run. You will see the fragment:
+        运行项目，你就可以看到fragment了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_012_app_details_fragment_test.png"
@@ -672,335 +615,193 @@
         </a>
     </p>
     <h3>
-        Adding a Fragment Dynamically
+        动态地添加Fragment
     </h3>
     <p>
-        First, open
+        首先，再次打开
         <em>
             activity_main.xml
         </em>
-        again and remove the
+        并移除你刚放置的
         <code>
             &lt;fragment&gt;
         </code>
-        you just placed. (Yes, I know, you just put it there — sorry.) You’ll
-        replace it with the list of Rage Comics.
+        。（是的，我知道你刚刚把它放到的这里 - 对不起。）你将使用暴走漫画的列表来替换它。
     </p>
     <p>
-        Open
+        打开
         <em>
             RageComicListFragment.java
         </em>
-        , which has all the lovely list code. You can see that the
+        ，它包含了所有可爱的列表代码。你可以看到
         <code>
             RageComicListFragment
         </code>
-        has no explicit constructors and a
+        没有显式的构造器，只有一个
         <code>
             newInstance()
         </code>
-        .
+        。
     </p>
     <p>
-        The list code in
         <code>
             RageComicListFragment
         </code>
-        depends on some resources. You have to ensure that the fragment has a
-        valid reference to a
+        中的列表代码需要依赖于一些资源。你必须确保这个fragment对
         <code>
             Context
         </code>
-        for accessing those resources. That’s where
+        包含有效的引用。这就是
         <code>
             onAttach()
         </code>
-        comes into play.
+        应该发挥作用的地方了。
     </p>
     <p>
-        Open
+        打开
         <em>
             RageComicListFragment.java
         </em>
-        , and add these imports directly below the existing imports:
+        ，并添加下列的import到已有import的下方：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.res.Resources;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.content.res.TypedArray;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.annotation.Nullable;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.widget.GridLayoutManager;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Activity;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.content.res.Resources;
+<span class="hljs-keyword">import</span> android.content.res.TypedArray;
+<span class="hljs-keyword">import</span> android.support.annotation.Nullable;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.support.v7.widget.GridLayoutManager;
+<span class="hljs-keyword">import</span> android.app.Activity;
+</pre>
     <p>
-        The first two imports allow you to access some string resources that you
-        will use as data in the list. The fifth import, the
+        前两个import让你可以访问一些字符串资源，你将会在列表中使用它们。第五个import，
         <code>
             GridLayoutManager
         </code>
-        , helps in positioning items in the Rage Comic list. The other imports
-        are for standard fragment overrides.
+        ，用来在暴走漫画的列表中放置item。其它的import则是标准的fragment覆盖。
     </p>
     <p>
-        Inside of
+        在
         <em>
             RageComicListFragment.java
         </em>
-        , add the following two methods
-        <i>
-            above
-        </i>
-        the definition of the
+        中，添加下列的两个方法，就在
         <code>
             RageComicAdapter
         </code>
-        :
+        定义的上方：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onAttach
-            </span>
-            <span class="hljs-params">
-                (Context context)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onAttach(context);
-        <span class="hljs-comment">
-            // Get rage face names and descriptions.
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        Resources resources = context.getResources(); mNames = resources.getStringArray(R.array.names);
-        mDescriptions = resources.getStringArray(R.array.descriptions); mUrls =
-        resources.getStringArray(R.array.urls);
-        <span class="hljs-comment">
-            // Get rage face images.
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        TypedArray typedArray = resources.obtainTypedArray(R.array.images);
-        <span class="hljs-keyword">
-            final
-        </span>
-        <span class="hljs-keyword">
-            int
-        </span>
-        imageCount = mNames.length; mImageResIds =
-        <span class="hljs-keyword">
-            new
-        </span>
-        <span class="hljs-keyword">
-            int
-        </span>
-        [imageCount];
-        <span class="hljs-keyword">
-            for
-        </span>
-        (
-        <span class="hljs-keyword">
-            int
-        </span>
-        i =
-        <span class="hljs-number">
-            0
-        </span>
-        ; i &lt; imageCount; i++) { mImageResIds[i] = typedArray.getResourceId(i,
-        <span class="hljs-number">
-            0
-        </span>
-        ); } typedArray.recycle(); }
-        <span class="hljs-meta">
-            @Nullable
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        View view = inflater.inflate(R.layout.fragment_rage_comic_list, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        );
-        <span class="hljs-keyword">
-            final
-        </span>
-        Activity activity = getActivity();
-        <span class="hljs-keyword">
-            final
-        </span>
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(
-        <span class="hljs-keyword">
-            new
-        </span>
-        GridLayoutManager(activity,
-        <span class="hljs-number">
-            2
-        </span>
-        )); recyclerView.setAdapter(
-        <span class="hljs-keyword">
-            new
-        </span>
-        RageComicAdapter(activity));
-        <span class="hljs-keyword">
-            return
-        </span>
-        view; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(Context context)</span> </span>{
+  <span class="hljs-keyword">super</span>.onAttach(context);
+	
+  <span class="hljs-comment">// Get rage face names and descriptions.</span>
+  <span class="hljs-keyword">final</span> Resources resources = context.getResources();
+  mNames = resources.getStringArray(R.array.names);
+  mDescriptions = resources.getStringArray(R.array.descriptions);
+  mUrls = resources.getStringArray(R.array.urls);
+	
+  <span class="hljs-comment">// Get rage face images.</span>
+  <span class="hljs-keyword">final</span> TypedArray typedArray = resources.obtainTypedArray(R.array.images);
+  <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> imageCount = mNames.length;
+  mImageResIds = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[imageCount];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; imageCount; i++) {
+    mImageResIds[i] = typedArray.getResourceId(i, <span class="hljs-number">0</span>);
+  }
+  typedArray.recycle();
+}
+	
+<span class="hljs-meta">@Nullable</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+  <span class="hljs-keyword">final</span> View view = inflater.inflate(R.layout.fragment_rage_comic_list, container, <span class="hljs-keyword">false</span>);
+	
+  <span class="hljs-keyword">final</span> Activity activity = getActivity();
+  <span class="hljs-keyword">final</span> RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+  recyclerView.setLayoutManager(<span class="hljs-keyword">new</span> GridLayoutManager(activity, <span class="hljs-number">2</span>));
+  recyclerView.setAdapter(<span class="hljs-keyword">new</span> RageComicAdapter(activity));
+  <span class="hljs-keyword">return</span> view;
+}
+</pre>
     <p>
         <code>
             onAttach()
         </code>
-        contains code that accesses the resources you need via the
+        中，访问了你需要通过
         <code>
             Context
         </code>
-        to which the fragment has attached. Because the code is in
+        来访问的资源。由于代码位于
         <code>
             onAttach()
         </code>
-        , you can rest assured that the fragment has a valid
+        中，你无需判断fragment是否包含一个有效的
         <code>
             Context
         </code>
-        .
+        。
     </p>
     <p>
-        In
+        在
         <code>
             onCreateView()
         </code>
-        , you inflate the view hierarchy of
+        中，你填充了
         <code>
             RageComicListFragment
         </code>
-        , which contains a
+        的view的层级，它包含了一个
         <code>
             RecyclerView
         </code>
-        , and perform some setup.
+        ，并执行了一些设置。
     </p>
     <p>
-        Generally, if you have to poke and prod at a fragment's view,
+        通常，如果你需要在fragment的view上进行一些处理，
         <code>
             onCreateView()
         </code>
-        is a good place to start because you have the view right there.
+        就是一个很好的地方，因为这里已经能确定你的view准备好了。
     </p>
     <p>
-        Next open
+        接下来，打开
         <em>
             MainActivity.java
         </em>
-        and replace
+        并使用下列的代码替换
         <code>
             onCreate()
         </code>
-        with the following:
+        方法：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                protected
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState); setContentView(R.layout.activity_main);
-        <span class="hljs-keyword">
-            if
-        </span>
-        (savedInstanceState ==
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) { getSupportFragmentManager() .beginTransaction() .add(R.id.root_layout,
-        RageComicListFragment.newInstance(),
-        <span class="hljs-string">
-            "rageComicList"
-        </span>
-        ) .commit(); } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+<span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+	
+  <span class="hljs-keyword">if</span> (savedInstanceState == <span class="hljs-keyword">null</span>) {
+    getSupportFragmentManager()
+      .beginTransaction()
+      .add(R.id.root_layout, RageComicListFragment.newInstance(), <span class="hljs-string">"rageComicList"</span>)
+      .commit();
+  }
+}
+</pre>
     <p>
-        Here you get
+        这里你将
         <code>
             RageComicListFragment
         </code>
-        into
+        放置到
         <code>
             MainActivity
         </code>
-        . You ask your new friend,
+        中。你会请求你的新朋友
         <code>
             FragmentManager
         </code>
-        , to add it.
+        来添加它。
     </p>
     <p>
-        Build, run and you'll see a Rage-filled list once the app launches:
+        运行项目，你就会看到暴走漫画的列表：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_013_app_list_build.png"
@@ -1015,91 +816,85 @@
         <code>
             FragmentManager
         </code>
-        helped achieve this awesomeness through
+        通过
         <code>
             FragmentTransactions
         </code>
-        , which are basically fragment operations such as, add, remove, etc.
+        实现功能，它们是fragment基本的操作，如添加，删除等等。
     </p>
     <p>
-        First you grab the
-        <code>
-            FragmentManager
-        </code>
-        by calling
+        首先通过调用
         <code>
             getSupportFragmentManager()
         </code>
-        , as opposed to
+        来获取
+        <code>
+            FragmentManager
+        </code>
+        ，它和
         <code>
             getFragmentManager
         </code>
-        since you are using support fragments.
+        不同，因为你在使用支持fragments。
     </p>
     <p>
-        Then you ask that
-        <code>
-            FragmentManager
-        </code>
-        to start a new transaction by calling
+        然后通过调用
         <code>
             beginTransaction()
         </code>
-        -- you probably figured that out yourself. Next you specify the add operation
-        that you want by calling
-        <code>
-            add
-        </code>
-        and passing in:
-    </p>
-    <ul>
-        <li>
-            The view ID of a container for the fragment's view hierarchy in the activity's
-            layout. If you sneak a quick peek at
-            <code>
-                activity_main.xml
-            </code>
-            , you'll find
-            <code>
-                @+id/root_layout
-            </code>
-            .
-        </li>
-        <li>
-            The fragment instance to be added.
-        </li>
-        <li>
-            A string that acts as a tag/identifier for the fragment instance. This
-            allows the
-            <code>
-                FragmentManager
-            </code>
-            to later retrieve the fragment for you.
-        </li>
-    </ul>
-    <p>
-        Finally, you ask the
+        来请求
         <code>
             FragmentManager
         </code>
-        to execute the transaction by calling
+        开启一个新的事务 -- 你应该可以自己想通了。然后调用
+        <code>
+            add
+        </code>
+        来指定你想要的添加操作，并传递参数：
+    </p>
+    <ul>
+        <li>
+            用来在activity的布局中，容纳fragment的view层级的container的view ID。如果你偷偷看一眼
+            <code>
+                activity_main.xml
+            </code>
+            ，你就会发现
+            <code>
+                @+id/root_layout
+            </code>
+            。
+        </li>
+        <li>
+            待添加的fragment的实例。
+        </li>
+        <li>
+            一个字符串，用来充当fragment实例的tag/identifier。这样便于
+            <code>
+                FragmentManager
+            </code>
+            在稍后检索fragment。
+        </li>
+    </ul>
+    <p>
+        最后，你通过调用
         <code>
             commit()
         </code>
-        .
+        来请求
+        <code>
+            FragmentManager
+        </code>
+        执行事务。
     </p>
     <p>
-        And with that, the fragment is added!
+        这样，fragment就被添加上了！
     </p>
     <p>
         An
         <code>
             if
         </code>
-        block contains the code that displays the fragment and checks that the
-        activity doesn't have saved state. When an activity is saved, all of its
-        active fragments are also saved. If you don't perform this check, this
-        could happen:
+        语句包含了展示fragment的代码，并判断activity尚无保存的状态。当activity被保存的时候，相应它所有fragment也会被保存。如果你不执行这这检查，就会发生这样的情况：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d003_fragments_too_many.png"
@@ -1111,7 +906,7 @@
         </a>
     </p>
     <p>
-        And you would be like this:
+        你就会：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_014_y_u_no_have.png"
@@ -1123,322 +918,184 @@
         </a>
     </p>
     <p>
-        The lesson: Always keep in mind how the saved state affects your fragments.
+        课程：牢记保存的状态会如何影响你的fragment。
     </p>
     <h2>
-        Communicating with the Activity
+        与Activity进行通信
     </h2>
     <p>
-        Even though fragments are attached to an activity, they don't necessarily
-        all talk to one another without some further "encouragement" from you.
+        即使fragment被附加到了一个activity上，如果没有进一步的“鼓励”，它们就不一定要彼此交流。
     </p>
     <p>
-        For All the Rages, you'll need
+        对于所有的暴走漫画，你需要
         <code>
             RageComicListFragment
         </code>
-        to let
+        可以让
         <code>
             MainActivity
         </code>
-        know when the user has made a selection so that
+        知道什么时候用户已作出了选择，这样
         <code>
             RageComicDetailsFragment
         </code>
-        can display the selection.
+        才可以将选择展示出来。
     </p>
     <p>
-        To start, open
+        开始，打开
         <em>
             RageComicListFragment.java
         </em>
-        and add the following Java interface at the bottom:
+        并添加下列的Java interface到文件的底部：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                OnRageComicSelected
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        ; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnRageComicSelected</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
+    String description, String url)</span></span>;
+}
+</pre>
     <p>
-        This defines a listener interface for the activity to listen to the fragment.
-        The activity will implement this interface, and the fragment will invoke
-        the
+        这就为activity定义了一个监听者的interface来监听fragment。activity将实现这个interface，而fragment就会在一项被选中时，调用
         <code>
             onRageComicSelected()
         </code>
-        when an item is selected, passing the selection to the activity.
+        ，将选择传递给activity。
     </p>
     <p>
-        Add this new field below the existing ones in
+        在
         <code>
             RageComicListFragment
         </code>
-        :
+        中，现有的字段下添加一个新的字段：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        OnRageComicSelected mListener;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> OnRageComicSelected mListener;
+</pre>
     <p>
-        This field is a reference to the fragment's listener, which will be the
-        activity.
+        这个字段会引用fragment的监听者，也就是activity。
     </p>
     <p>
-        In
+        在
         <code>
             onAttach()
         </code>
-        , add the following just below
+        方法中，
         <code>
             super.onAttach(context);
         </code>
-        :
+        之下，添加下列代码：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (context
-        <span class="hljs-keyword">
-            instanceof
-        </span>
-        OnRageComicSelected) { mListener = (OnRageComicSelected) context; }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            throw
-        </span>
-        <span class="hljs-keyword">
-            new
-        </span>
-        ClassCastException(context.toString() +
-        <span class="hljs-string">
-            " must implement OnRageComicSelected."
-        </span>
-        ); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">if</span> (context <span class="hljs-keyword">instanceof</span> OnRageComicSelected) {
+  mListener = (OnRageComicSelected) context;
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ClassCastException(context.toString() + <span class="hljs-string">" must implement OnRageComicSelected."</span>);
+}
+</pre>
     <p>
-        This initializes the listener reference. You wait until
+        这里初始化了监听者的引用。在
         <code>
             onAttach()
         </code>
-        to ensure that the fragment actually attached itself. Then you verify
-        that the activity implements the
-        <code>
-            OnRageComicSelected
-        </code>
-        interface via
+        中执行，可以确保fragment确实被附加到了activity上。然后你通过
         <code>
             instanceof
         </code>
-        .
-    </p>
-    <p>
-        If it doesn't, it throws an exception since you can't proceed. If it does,
-        then you set the activity as the
-        <code>
-            listener
-        </code>
-        for
-        <code>
-            RageComicListFragment
-        </code>
-        .
-    </p>
-    <p>
-        In the
-        <code>
-            onBindViewHolder()
-        </code>
-        method, add this code to the bottom -- okay, I fibbed a little; the
-        <code>
-            RageComicAdapter
-        </code>
-        doesn't have
-        <i>
-            everything
-        </i>
-        you need):
-    </p>
-    <pre lang="java" class="language-java hljs">
-        viewHolder.itemView.setOnClickListener(
-        <span class="hljs-keyword">
-            new
-        </span>
-        View.OnClickListener() {
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (View v)
-            </span>
-        </span>
-        { mListener.onRageComicSelected(imageResId, name, description, url); }
-        });
-    </pre>
-    <p>
-        This adds a
-        <code>
-            View.OnClickListener
-        </code>
-        to each Rage Comic so that it invokes the callback on the listener (the
-        activity) to pass along the selection.
-    </p>
-    <p>
-        Open
-        <em>
-            MainActivity.java
-        </em>
-        and update the class definition to following:
-    </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainActivity
-            </span>
-            <span class="hljs-keyword">
-                extends
-            </span>
-            <span class="hljs-title">
-                AppCompatActivity
-            </span>
-            <span class="hljs-keyword">
-                implements
-            </span>
-            <span class="hljs-title">
-                RageComicListFragment
-            </span>
-            .
-            <span class="hljs-title">
-                OnRageComicSelected
-            </span>
-        </span>
-        {
-    </pre>
-    <p>
-        You will get an error asking you to make
-        <code>
-            MainActivity
-        </code>
-        abstract or implement abstract method
-        <code>
-            OnRageComicSelected(int, String, String, String)
-        </code>
-        . Don't fret just yet, you'll resolve it soon.
-    </p>
-    <p>
-        This code specifies that
-        <code>
-            MainActivity
-        </code>
-        is an implementation of the
+        来验证相应的activity实现了
         <code>
             OnRageComicSelected
         </code>
-        interface.
+        interface。
     </p>
     <p>
-        For now, you'll just show a toast to verify that the code works. Add the
-        following import below the existing imports so that you can use toasts:
+        如果判断失败，就抛出一个异常，因为你已无法继续下去了。反之，则将activity设置为
+        <code>
+            RageComicListFragment
+        </code>
+        的
+        <code>
+            listener
+        </code>
+        。
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.Toast;
-    </pre>
     <p>
-        And then add the following method below
+        在
+        <code>
+            onBindViewHolder()
+        </code>
+        方法中，添加下列的代码到它的底部 -- ok，我撒了一点小谎：
+        <code>
+            RageComicAdapter
+        </code>
+        并没有包含你所需的
+        <i>
+            所有内容
+            everything
+        </i>
+        ):
+    </p>
+    <pre lang="java" class="language-java hljs">viewHolder.itemView.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+    mListener.onRageComicSelected(imageResId, name, description, url);
+  }
+});
+</pre>
+    <p>
+        这就添加了一个 This adds a
+        <code>
+            View.OnClickListener
+        </code>
+        到每个暴走漫画上，以便它在listener（activity）上调用回调方法，来传递选择。
+    </p>
+    <p>
+        打开
+        <em>
+            MainActivity.java
+        </em>
+        并将类定义更新为如下的代码：
+    </p>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
+  <span class="hljs-keyword">implements</span> <span class="hljs-title">RageComicListFragment</span>.<span class="hljs-title">OnRageComicSelected</span> </span>{
+</pre>
+    <p>
+        这里会报出一个错误，让你将
+        <code>
+            MainActivity
+        </code>
+        设为abstract的，或实现abstract的方法
+        <code>
+            OnRageComicSelected(int, String, String, String)
+        </code>
+        。不要纠结这里，很快你就会解决它。
+    </p>
+    <p>
+        此代码指定了
+        <code>
+            MainActivity
+        </code>
+        会作为
+        <code>
+            OnRageComicSelected
+        </code>
+        interface的一个实现。
+    </p>
+    <p> 
+        现在，你将展示一个toast来验证代码是否可以正常地工作。添加下列的import到已有的import下面：
+    </p>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.widget.Toast;
+</pre>
+    <p>
+        然后在
         <code>
             onCreate()
         </code>
-        :
+        方法之后，添加下列的方法：
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        { Toast.makeText(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ,
-        <span class="hljs-string">
-            "Hey, you selected "
-        </span>
-        + name +
-        <span class="hljs-string">
-            "!"
-        </span>
-        , Toast.LENGTH_SHORT).show(); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name, String description, String url)</span> </span>{
+  Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Hey, you selected "</span> + name + <span class="hljs-string">"!"</span>, Toast.LENGTH_SHORT).show();
+}
+</pre>
     <p>
-        There you go, the error is gone! Build and run. Once the app launches,
-        click one of the Rage Comics. You should see a toast message naming the
-        clicked item:
+        现在错误就消失了！运行项目，然后点击任一个暴走漫画，你就会看到一个被点击项目的toast消息：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_015_app_selected_item.png"
@@ -1450,11 +1107,10 @@
         </a>
     </p>
     <p>
-        You got the activity and its fragments talking. You're like a master digital
-        diplomat.
+        你已经让activity和它的fragment进行沟通了。你就像是一个数字外交官。
     </p>
     <h2>
-        Fragment Arguments and Transactions
+        Fragment参数和事务
     </h2>
     <p>
         Currently,
@@ -1478,64 +1134,11 @@
         </em>
         and add the following constants at the top of the class definition:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_IMAGE_RES_ID =
-        <span class="hljs-string">
-            "imageResId"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_NAME =
-        <span class="hljs-string">
-            "name"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_DESCRIPTION =
-        <span class="hljs-string">
-            "description"
-        </span>
-        ;
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            static
-        </span>
-        <span class="hljs-keyword">
-            final
-        </span>
-        String ARGUMENT_URL =
-        <span class="hljs-string">
-            "url"
-        </span>
-        ;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_IMAGE_RES_ID = <span class="hljs-string">"imageResId"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_NAME = <span class="hljs-string">"name"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_DESCRIPTION = <span class="hljs-string">"description"</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ARGUMENT_URL = <span class="hljs-string">"url"</span>;
+</pre>
     <p>
         These constants are keys you will use to save and restore the fragment's
         state.
@@ -1547,50 +1150,19 @@
         </code>
         with the code shown below:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                static
-            </span>
-            RageComicDetailsFragment
-            <span class="hljs-title">
-                newInstance
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        Bundle args =
-        <span class="hljs-keyword">
-            new
-        </span>
-        Bundle(); args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId); args.putString(ARGUMENT_NAME,
-        name); args.putString(ARGUMENT_DESCRIPTION, description); args.putString(ARGUMENT_URL,
-        url);
-        <span class="hljs-keyword">
-            final
-        </span>
-        RageComicDetailsFragment fragment =
-        <span class="hljs-keyword">
-            new
-        </span>
-        RageComicDetailsFragment(); fragment.setArguments(args);
-        <span class="hljs-keyword">
-            return
-        </span>
-        fragment; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> RageComicDetailsFragment <span class="hljs-title">newInstance</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
+  String description, String url)</span> </span>{
+
+  <span class="hljs-keyword">final</span> Bundle args = <span class="hljs-keyword">new</span> Bundle();
+  args.putInt(ARGUMENT_IMAGE_RES_ID, imageResId);
+  args.putString(ARGUMENT_NAME, name);
+  args.putString(ARGUMENT_DESCRIPTION, description);
+  args.putString(ARGUMENT_URL, url);
+  <span class="hljs-keyword">final</span> RageComicDetailsFragment fragment = <span class="hljs-keyword">new</span> RageComicDetailsFragment();
+  fragment.setArguments(args);
+  <span class="hljs-keyword">return</span> fragment;
+}
+</pre>
     <p>
         A fragment can take initialization parameters through its arguments, which
         you access via
@@ -1650,16 +1222,9 @@
         </em>
         :
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.ImageView;
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.TextView;
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.widget.ImageView;
+<span class="hljs-keyword">import</span> android.widget.TextView;
+</pre>
     <p>
         Now, replace
         <em>
@@ -1667,61 +1232,23 @@
         </em>
         with the following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Nullable
-        </span>
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            View
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        View view = inflater.inflate(R.layout.fragment_rage_comic_details, container,
-        <span class="hljs-keyword">
-            false
-        </span>
-        );
-        <span class="hljs-keyword">
-            final
-        </span>
-        ImageView imageView = (ImageView) view.findViewById(R.id.comic_image);
-        <span class="hljs-keyword">
-            final
-        </span>
-        TextView nameTextView = (TextView) view.findViewById(R.id.name);
-        <span class="hljs-keyword">
-            final
-        </span>
-        TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
-        <span class="hljs-keyword">
-            final
-        </span>
-        Bundle args = getArguments(); imageView.setImageResource(args.getInt(ARGUMENT_IMAGE_RES_ID));
-        nameTextView.setText(args.getString(ARGUMENT_NAME));
-        <span class="hljs-keyword">
-            final
-        </span>
-        String text = String.format(getString(R.string.description_format), args.getString
-        (ARGUMENT_DESCRIPTION), args.getString(ARGUMENT_URL)); descriptionTextView.setText(text);
-        <span class="hljs-keyword">
-            return
-        </span>
-        view; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Nullable</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>{
+  <span class="hljs-keyword">final</span> View view = inflater.inflate(R.layout.fragment_rage_comic_details, container, <span class="hljs-keyword">false</span>);
+  <span class="hljs-keyword">final</span> ImageView imageView = (ImageView) view.findViewById(R.id.comic_image);
+  <span class="hljs-keyword">final</span> TextView nameTextView = (TextView) view.findViewById(R.id.name);
+  <span class="hljs-keyword">final</span> TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
+
+  <span class="hljs-keyword">final</span> Bundle args = getArguments();
+  imageView.setImageResource(args.getInt(ARGUMENT_IMAGE_RES_ID));
+  nameTextView.setText(args.getString(ARGUMENT_NAME));
+  <span class="hljs-keyword">final</span> String text = String.format(getString(R.string.description_format), args.getString
+    (ARGUMENT_DESCRIPTION), args.getString(ARGUMENT_URL));
+  descriptionTextView.setText(text);
+  <span class="hljs-keyword">return</span> view;
+}
+</pre>
     <p>
         Since you want to dynamically populate the UI of the
         <code>
@@ -1761,44 +1288,17 @@
         </code>
         with:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-keyword">
-                    int
-                </span>
-                imageResId, String name, String description, String url)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            final
-        </span>
-        RageComicDetailsFragment detailsFragment = RageComicDetailsFragment.newInstance(imageResId,
-        name, description, url); getSupportFragmentManager() .beginTransaction()
-        .replace(R.id.root_layout, detailsFragment,
-        <span class="hljs-string">
-            "rageComicDetails"
-        </span>
-        ) .addToBackStack(
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) .commit(); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name, String description, String url)</span> </span>{
+  <span class="hljs-keyword">final</span> RageComicDetailsFragment detailsFragment =
+    RageComicDetailsFragment.newInstance(imageResId, name, description, url);
+  getSupportFragmentManager()
+    .beginTransaction()
+    .replace(R.id.root_layout, detailsFragment, <span class="hljs-string">"rageComicDetails"</span>)
+    .addToBackStack(<span class="hljs-keyword">null</span>)
+    .commit();
+}
+</pre>
     <p>
         The code includes some classes you haven't used previously. So you need
         to fire off a couple of
