@@ -84,9 +84,9 @@
     </p>
     <ul>
         <li>
-            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction.md"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction%20with%20Kotlin.md"
             sl-processed="1">
-                Android Fragment教程：介绍
+                Android Fragment教程：介绍 - Kotlin
             </a>
         </li>
         <li>
