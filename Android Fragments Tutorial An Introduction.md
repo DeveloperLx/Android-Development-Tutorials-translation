@@ -924,30 +924,29 @@ setContentView(R.layout.activity_main);
         与Activity进行通信
     </h2>
     <p>
-        Even though fragments are attached to an activity, they don't necessarily
-        all talk to one another without some further "encouragement" from you.
+        即使fragment被附加到了一个activity上，如果没有进一步的“鼓励”，它们就不一定要彼此交流。
     </p>
     <p>
-        For All the Rages, you'll need
+        对于所有的暴走漫画，你需要
         <code>
             RageComicListFragment
         </code>
-        to let
+        可以让
         <code>
             MainActivity
         </code>
-        know when the user has made a selection so that
+        知道什么时候用户已作出了选择，这样
         <code>
             RageComicDetailsFragment
         </code>
-        can display the selection.
+        才可以将选择展示出来。
     </p>
     <p>
-        To start, open
+        开始，打开
         <em>
             RageComicListFragment.java
         </em>
-        and add the following Java interface at the bottom:
+        并添加下列的Java interface到文件的底部：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnRageComicSelected</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name,
@@ -955,37 +954,34 @@ setContentView(R.layout.activity_main);
 }
 </pre>
     <p>
-        This defines a listener interface for the activity to listen to the fragment.
-        The activity will implement this interface, and the fragment will invoke
-        the
+        这就为activity定义了一个监听者的interface来监听fragment。activity将实现这个interface，而fragment就会在一项被选中时，调用
         <code>
             onRageComicSelected()
         </code>
-        when an item is selected, passing the selection to the activity.
+        ，将选择传递给activity。
     </p>
     <p>
-        Add this new field below the existing ones in
+        在
         <code>
             RageComicListFragment
         </code>
-        :
+        中，现有的字段下添加一个新的字段：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> OnRageComicSelected mListener;
 </pre>
     <p>
-        This field is a reference to the fragment's listener, which will be the
-        activity.
+        这个字段会引用fragment的监听者，也就是activity。
     </p>
     <p>
-        In
+        在
         <code>
             onAttach()
         </code>
-        , add the following just below
+        方法中，
         <code>
             super.onAttach(context);
         </code>
-        :
+        之下，添加下列代码：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">if</span> (context <span class="hljs-keyword">instanceof</span> OnRageComicSelected) {
   mListener = (OnRageComicSelected) context;
@@ -994,47 +990,46 @@ setContentView(R.layout.activity_main);
 }
 </pre>
     <p>
-        This initializes the listener reference. You wait until
+        这里初始化了监听者的引用。在
         <code>
             onAttach()
         </code>
-        to ensure that the fragment actually attached itself. Then you verify
-        that the activity implements the
-        <code>
-            OnRageComicSelected
-        </code>
-        interface via
+        中执行，可以确保fragment确实被附加到了activity上。然后你通过
         <code>
             instanceof
         </code>
-        .
+        来验证相应的activity实现了
+        <code>
+            OnRageComicSelected
+        </code>
+        interface。
     </p>
     <p>
-        If it doesn't, it throws an exception since you can't proceed. If it does,
-        then you set the activity as the
-        <code>
-            listener
-        </code>
-        for
+        如果判断失败，就抛出一个异常，因为你已无法继续下去了。反之，则将activity设置为
         <code>
             RageComicListFragment
         </code>
-        .
+        的
+        <code>
+            listener
+        </code>
+        。
     </p>
     <p>
-        In the
+        在
         <code>
             onBindViewHolder()
         </code>
-        method, add this code to the bottom -- okay, I fibbed a little; the
+        方法中，添加下列的代码到它的底部 -- ok，我撒了一点小谎：
         <code>
             RageComicAdapter
         </code>
-        doesn't have
+        并没有包含你所需的
         <i>
+            所有内容
             everything
         </i>
-        you need):
+        ):
     </p>
     <pre lang="java" class="language-java hljs">viewHolder.itemView.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
   <span class="hljs-meta">@Override</span>
@@ -1044,57 +1039,55 @@ setContentView(R.layout.activity_main);
 });
 </pre>
     <p>
-        This adds a
+        这就添加了一个 This adds a
         <code>
             View.OnClickListener
         </code>
-        to each Rage Comic so that it invokes the callback on the listener (the
-        activity) to pass along the selection.
+        到每个暴走漫画上，以便它在listener（activity）上调用回调方法，来传递选择。
     </p>
     <p>
-        Open
+        打开
         <em>
             MainActivity.java
         </em>
-        and update the class definition to following:
+        并将类定义更新为如下的代码：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
   <span class="hljs-keyword">implements</span> <span class="hljs-title">RageComicListFragment</span>.<span class="hljs-title">OnRageComicSelected</span> </span>{
 </pre>
     <p>
-        You will get an error asking you to make
+        这里会报出一个错误，让你将
         <code>
             MainActivity
         </code>
-        abstract or implement abstract method
+        设为abstract的，或实现abstract的方法
         <code>
             OnRageComicSelected(int, String, String, String)
         </code>
-        . Don't fret just yet, you'll resolve it soon.
+        。不要纠结这里，很快你就会解决它。
     </p>
     <p>
-        This code specifies that
+        此代码指定了
         <code>
             MainActivity
         </code>
-        is an implementation of the
+        会作为
         <code>
             OnRageComicSelected
         </code>
-        interface.
+        interface的一个实现。
     </p>
-    <p>
-        For now, you'll just show a toast to verify that the code works. Add the
-        following import below the existing imports so that you can use toasts:
+    <p> 
+        现在，你将展示一个toast来验证代码是否可以正常地工作。添加下列的import到已有的import下面：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">import</span> android.widget.Toast;
 </pre>
     <p>
-        And then add the following method below
+        然后在
         <code>
             onCreate()
         </code>
-        :
+        方法之后，添加下列的方法：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(<span class="hljs-keyword">int</span> imageResId, String name, String description, String url)</span> </span>{
@@ -1102,9 +1095,7 @@ setContentView(R.layout.activity_main);
 }
 </pre>
     <p>
-        There you go, the error is gone! Build and run. Once the app launches,
-        click one of the Rage Comics. You should see a toast message naming the
-        clicked item:
+        现在错误就消失了！运行项目，然后点击任一个暴走漫画，你就会看到一个被点击项目的toast消息：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_015_app_selected_item.png"
@@ -1116,11 +1107,10 @@ setContentView(R.layout.activity_main);
         </a>
     </p>
     <p>
-        You got the activity and its fragments talking. You're like a master digital
-        diplomat.
+        你已经让activity和它的fragment进行沟通了。你就像是一个数字外交官。
     </p>
     <h2>
-        Fragment Arguments and Transactions
+        Fragment参数和事务
     </h2>
     <p>
         Currently,
