@@ -938,7 +938,6 @@
             <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">variable</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"comic"</span>
       <span class="hljs-attr">type</span>=<span class="hljs-string">"com.raywenderlich.alltherages.Comic"</span> /&gt;</span>
@@ -1354,26 +1353,21 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
         with:
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">variable</span>
             <span class="hljs-attr">name</span>=<span class="hljs-string">"comic"</span>
             <span class="hljs-attr">type</span>=<span class="hljs-string">"com.raywenderlich.alltherages.Comic"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">data</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">ScrollView</span> <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
         <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
         <span class="hljs-attr">android:fillViewport</span>=<span class="hljs-string">"true"</span>
         <span class="hljs-attr">tools:ignore</span>=<span class="hljs-string">"RtlHardcoded"</span>&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
             <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
             <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
             <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
             <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
-
             <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
                 <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/name"</span>
                 <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/TextAppearance.AppCompat.Title"</span>
@@ -1382,7 +1376,6 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
                 <span class="hljs-attr">android:layout_marginBottom</span>=<span class="hljs-string">"0dp"</span>
                 <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"@dimen/rage_comic_name_margin_top"</span>
                 <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@{comic.name}"</span> /&gt;</span>
-
             <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
                 <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/comic_image"</span>
                 <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
@@ -1393,7 +1386,6 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
                 <span class="hljs-attr">android:contentDescription</span>=<span class="hljs-string">"@null"</span>
                 <span class="hljs-attr">android:scaleType</span>=<span class="hljs-string">"centerCrop"</span>
                 <span class="hljs-attr">imageResource</span>=<span class="hljs-string">"@{comic.imageResId}"</span> /&gt;</span>
-
             <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
                 <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/description"</span>
                 <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/TextAppearance.AppCompat.Body1"</span>
@@ -1405,9 +1397,7 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
                 <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"0dp"</span>
                 <span class="hljs-attr">android:autoLink</span>=<span class="hljs-string">"web"</span>
                 <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@{comic.text}"</span> /&gt;</span>
-
         <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
-
     <span class="hljs-tag">&lt;/<span class="hljs-name">ScrollView</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
 </pre>
