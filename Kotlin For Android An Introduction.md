@@ -621,7 +621,7 @@ repositories {
         。
     </p>
     <p>
-        将创建intent的这行代码： Your intent creation line should change from:
+        将创建intent的这行代码：
     </p>
     <pre lang="java" class="language-java hljs">  
 Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, DetailActivity.class);
@@ -697,17 +697,11 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
 
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
     <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
-
     setContentView(R.layout.activity_detail)
-
     actionBar?.setDisplayHomeAsUpEnabled(<span class="hljs-literal">true</span>)
-
     <span class="hljs-keyword">val</span> imageView = findViewById(R.id.img_cover) <span class="hljs-keyword">as</span> ImageView
-
     <span class="hljs-keyword">val</span> coverId = <span class="hljs-keyword">this</span>.intent.extras.getString(<span class="hljs-string">"coverID"</span>)
-
     <span class="hljs-keyword">val</span> len = coverId?.length ?: <span class="hljs-number">0</span>
-
     <span class="hljs-keyword">if</span> (len &gt; <span class="hljs-number">0</span>) {
       mImageURL = IMAGE_URL_BASE + coverId + <span class="hljs-string">"-L.jpg"</span>
       Picasso.with(<span class="hljs-keyword">this</span>).load(mImageURL).placeholder(R.drawable.img_books_loading).into(imageView)
@@ -715,7 +709,6 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
   }
 
   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setShareIntent</span><span class="hljs-params">()</span></span> {
-
     <span class="hljs-keyword">val</span> shareIntent = Intent(Intent.ACTION_SEND)
     shareIntent.type = <span class="hljs-string">"text/plain"</span>
     shareIntent.putExtra(Intent.EXTRA_SUBJECT, <span class="hljs-string">"Book Recommendation!"</span>)
@@ -725,15 +718,10 @@ Intent detailIntent = <span class="hljs-keyword">new</span> Intent(<span class="
   }
 
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateOptionsMenu</span><span class="hljs-params">(menu: <span class="hljs-type">Menu</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
-
     menuInflater.inflate(R.menu.main, menu)
-
     <span class="hljs-keyword">val</span> shareItem = menu.findItem(R.id.menu_item_share)
-
     mShareActionProvider = shareItem!!.actionProvider <span class="hljs-keyword">as</span> ShareActionProvider
-
     setShareIntent()
-
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
   }
 }
