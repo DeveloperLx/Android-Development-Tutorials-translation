@@ -169,48 +169,39 @@
         </a>
     </p>
     <p>
-        If you see a message to update the project’s Gradle plugin since you’re
-        using a later version of Android Studio, then go ahead and choose “Update”.
+        如果看到了一个更新项目Gradle插件的信息，那是因为你使用了更高版本的Android Studio，选择“update”并继续。
     </p>
     <p>
-        Check out the project for the
-        <em>
-            All the Rages
-        </em>
-        app, and you’ll find some resource files;
+        查看项目，你会找到一些资源文件：
         <em>
             strings.xml
         </em>
-        ,
+        ，
         <em>
             activity_main.xml
         </em>
-        , and
+        ，
         <em>
             drawable
         </em>
-        and
+        和
         <em>
             layout
         </em>
-        files. There are also some boilerplate layouts for your fragments, non-fragment
-        code that you’ll need, and a fragment class that you’ll use later to write
-        your own.
+        。还有一些供你fragment使用的模板布局文件，非fragment的代码，以及一个fragment类，你可以在之后进行加工。
     </p>
     <p>
-        The
         <code>
             MainActivity
         </code>
-        will host all of your wee fragments, and
+        会持有你所有小小的fragment，而
         <code>
             RageComicListFragment
         </code>
-        contains code to display a list of the Rage Comic content so that you
-        can focus on fragments.
+        则包含了用来展示暴走漫画内容列表的代码，这样你就可以将注意力集中到fragment本身了。
     </p>
     <p>
-        Build and run the project. You’ll see that it’s pretty quiet in there.
+        运行项目。你会看到其中一无所有。
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_004_app_first_build.png"
         sl-processed="1">
@@ -221,7 +212,7 @@
         </a>
     </p>
     <p>
-        You’ll fix that…
+        很快你就会修复...
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_005_app_soon.png"
@@ -233,22 +224,18 @@
         </a>
     </p>
     <h2>
-        Android Fragment Lifecycle
+        Android Fragment的生命周期
     </h2>
     <p>
-        Like an activity, a fragment has a lifecycle with events that occur when
-        the fragment’s status changes. For instance, an event happens when the
-        fragment becomes visible and active, or when the fragment becomes unused
-        and is removed. Also like an activity, you can add code and behaviors to
-        callbacks for these events.
+        和activity一样，fragment中也有着生命周期的概念，当fragment的状态发生变化的时候，就会触发相应的事件。例如，当fragment变为可见，活跃，无效，或被移除的状态时，一些事件就会发生。你可以在其中添加一些代码和行为来响应这些事件。
     </p>
     <p>
-        Here’s a fragment lifecycle diagram from the official
+        下面是
         <a href="http://developer.android.com/guide/components/fragments.html#Creating"
         target="_blank" title=" Android Developer documentation " sl-processed="1">
-            Android Developer documentation
+            Android开发者文档
         </a>
-        .
+        中，fragment生命周期的图表。
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d002_fragment_lifecycle.png"
         sl-processed="1">
             <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/android_fragments_d002_fragment_lifecycle.png"
@@ -267,106 +254,94 @@
         </a>
     </p>
     <p>
-        The following lifecycle events come into play when you add a fragment:
+        当你添加一个fragment时，就会触发下列的生命周期事件：
     </p>
     <ul>
         <li>
             <code>
                 onAttach
             </code>
-            : When the fragment attaches to its host activity.
+            ：当fragment被依附到相应的activity上时被调用。
         </li>
         <li>
             <code>
                 onCreate
             </code>
-            : When a new fragment instance initializes, which always happens after
-            it attaches to the host — fragments are a bit like viruses.
+            ：当一个新的fragment实例被初始化时调用，通常发生在它被附加到相应activity上后被调用 - fragment有一点像是病毒。
         </li>
         <li>
             <code>
                 onCreateView
             </code>
-            : When a fragment creates its portion of the view hierarchy, which is
-            added to its activity’s view hierarchy.
+            ：当fragment创建了view层级中它自己的部分时，也就是被添加到了activity的view层级的时候被调用。
         </li>
         <li>
             <code>
                 onActivityCreated
             </code>
-            : When the fragment’s activity has finished its own
+            ：当fragment的activity完成了它的
             <code>
                 onCreate
             </code>
-            event.
+            事件之后调用。
         </li>
         <li>
             <code>
                 onStart
             </code>
-            : When the fragment is visible; a fragment starts only after its activity
-            starts and often starts immediately after its activity does.
+            ：当fragment变为可见状态后调用。fragment只会在它的activity启动之后才会启动，且通常都是activity一启动之后，它就启动。
         </li>
         <li>
             <code>
                 onResume
             </code>
-            : When the fragment is visible and interactable; a fragment resumes only
-            after its activity resumes and often resumes immediately after the activity
-            does.
+            ：当fragment变为可见且可交互的状态后调用。fragment resume只会在它的activity resume之后，且通常都是activity一resume之后，它就resume。
         </li>
     </ul>
     <p>
-        But wait, the fragment isn’t done! These lifecycle events happen when
-        you remove a fragment:
+        但稍等，fragment还未完成。下列的生命周期的事件将在你移除一个fragment的时候发生：
     </p>
     <ul>
         <li>
             <code>
                 onPause
             </code>
-            : When the fragment is no longer interactable; this occurs when either
-            the fragment is about to be removed or replaced or when the fragment’s
-            activity pauses.
+            ：当fragment变为不可交互的状态时触发。它仅会在一个fragment将被移除或替代的时候，或其activity被pause的时候发生。
         </li>
         <li>
             <code>
                 onStop
             </code>
-            : When the fragment is no longer visible; this occurs either after the
-            fragment is about to be removed or replaced or when the fragment’s activity
-            stops.
+            ：当fragment变为不可见的状态时触发。它仅会在一个fragment将被移除或替代的时候，或其activity被停止的时候发生。
         </li>
         <li>
             <code>
                 onDestroyView
             </code>
-            : When the view and related resources created in
+            ：当fragment的view和创建在
             <code>
                 onCreateView
             </code>
-            are removed from the activity’s view hierarchy and destroyed.
+            中的相关资源从activity的view层级中被移除并销毁的时候触发。
         </li>
         <li>
             <code>
                 onDestroy
             </code>
-            : When the fragment does its final clean up.
+            ：当fragment执行最后的清理时调用
         </li>
         <li>
             <code>
                 onDetach
             </code>
-            : When the fragment is detached from its activity.
+            ：当fragment从所在的activity中移除的时候调用
         </li>
     </ul>
     <p>
-        As you can see, the fragment’s lifecycle is intertwined with the activity’s
-        lifecycle. But it has extra events that are particular to the fragment’s
-        view hierarchy, state and attachment to its activity.
+        正如你所看到的，fragment的生命周期始终伴随着activity的生命周期。但它还有一些相应于view层级，状态，附加/分离于activity的额外的事件。
     </p>
     <h2>
-        The v4 Support Library
+        v4支持库
     </h2>
     <p>
         In Android, when using fragments, there are two alternative fragment implementations
