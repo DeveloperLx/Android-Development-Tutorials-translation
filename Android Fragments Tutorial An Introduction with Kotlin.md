@@ -924,9 +924,10 @@
                 build.gradle
             </code>
             :
-            <pre lang="groovy" class="language-groovy">
-                dataBinding { enabled = true }
-            </pre>
+            <pre lang="groovy" class="language-groovy">dataBinding {
+  enabled = true
+}
+</pre>
         </li>
         <li>
             A data section in the
@@ -934,65 +935,18 @@
                 recycler_item_rage_comic.xml
             </code>
             layout file.
-            <pre lang="xml" class="language-xml hljs">
-                <span class="hljs-tag">
-                    &lt;
-                    <span class="hljs-name">
-                        layout
-                    </span>
-                    <span class="hljs-attr">
-                        xmlns:android
-                    </span>
-                    =
-                    <span class="hljs-string">
-                        "http://schemas.android.com/apk/res/android"
-                    </span>
-                    &gt;
-                </span>
-                <span class="hljs-tag">
-                    &lt;
-                    <span class="hljs-name">
-                        data
-                    </span>
-                    &gt;
-                </span>
-                <span class="hljs-tag">
-                    &lt;
-                    <span class="hljs-name">
-                        variable
-                    </span>
-                    <span class="hljs-attr">
-                        name
-                    </span>
-                    =
-                    <span class="hljs-string">
-                        "comic"
-                    </span>
-                    <span class="hljs-attr">
-                        type
-                    </span>
-                    =
-                    <span class="hljs-string">
-                        "com.raywenderlich.alltherages.Comic"
-                    </span>
-                    /&gt;
-                </span>
-                <span class="hljs-tag">
-                    &lt;/
-                    <span class="hljs-name">
-                        data
-                    </span>
-                    &gt;
-                </span>
-                ...
-                <span class="hljs-tag">
-                    &lt;/
-                    <span class="hljs-name">
-                        layout
-                    </span>
-                    &gt;
-                </span>
-            </pre>
+            <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">variable</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"comic"</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"com.raywenderlich.alltherages.Comic"</span> /&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">data</span>&gt;</span>
+
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+</pre>
         </li>
         <li>
             A
@@ -1025,13 +979,9 @@
         Normally, if you want to set the value of properties in your layout, you’d
         use something like the following in your fragments and activities:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        programmer.name =
-        <span class="hljs-string">
-            "a purr programmer"
-        </span>
-        view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">programmer.name = <span class="hljs-string">"a purr programmer"</span>
+view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
+</pre>
     <p>
         The problem with that is that if you change the value of
         <code>
@@ -1103,9 +1053,8 @@
         </em>
         variable:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        tools:text="@{comic.name}"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">tools:text="@{comic.name}" 
+</pre>
     <p>
         Now that you have your view set up, you need to access your view and
         <em>
@@ -1135,51 +1084,15 @@
         </code>
         .
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateViewHolder
-            </span>
-            <span class="hljs-params">
-                (viewGroup:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                , viewType:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : ViewHolder {
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        recyclerItemRageComicBinding = RecyclerItemRageComicBinding.inflate(layoutInflater,
-        viewGroup,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        comic = Comic(imageRmesIds[position], names[position], descriptions[position],
-        urls[position]) recyclerItemRageComicBinding.comic = comic
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(viewGroup: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: ViewHolder {
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">val</span> recyclerItemRageComicBinding = RecyclerItemRageComicBinding.inflate(layoutInflater,
+    viewGroup, <span class="hljs-literal">false</span>)
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">val</span> comic = Comic(imageRmesIds[position], names[position], descriptions[position],
+    urls[position])
+  recyclerItemRageComicBinding.comic = comic
+</pre>
     <p>
         You can then inflate the view via the inflater method on the
         <em>
@@ -1249,33 +1162,10 @@
         </em>
         and add the following Kotlin interface at the bottom of the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                OnRageComicSelected
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (comic:
-                <span class="hljs-type">
-                    Comic
-                </span>
-                )
-            </span>
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnRageComicSelected</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(comic: <span class="hljs-type">Comic</span>)</span></span>
+}
+</pre>
     <p>
         This defines a listener interface for the activity to listen to the fragment.
         The activity will implement this interface, and the fragment will invoke
@@ -1292,18 +1182,8 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        listener: OnRageComicSelected
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> listener: OnRageComicSelected
+</pre>
     <p>
         This field is a reference to the fragment’s listener, which will be the
         activity.
@@ -1319,28 +1199,12 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (context
-        <span class="hljs-keyword">
-            is
-        </span>
-        OnRageComicSelected) { listener = context }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            throw
-        </span>
-        ClassCastException(context.toString() +
-        <span class="hljs-string">
-            " must implement OnRageComicSelected."
-        </span>
-        ) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (context <span class="hljs-keyword">is</span> OnRageComicSelected) {
+  listener = context
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">throw</span> ClassCastException(context.toString() + <span class="hljs-string">" must implement OnRageComicSelected."</span>)
+}
+</pre>
     <p>
         This initializes the listener reference. You wait until
         <code>
@@ -1388,10 +1252,8 @@
         </i>
         you need!)
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        viewHolder.itemView.setOnClickListener { listener.onRageComicSelected(comic)
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">viewHolder.itemView.setOnClickListener { listener.onRageComicSelected(comic) }
+</pre>
     <p>
         This adds a
         <code>
@@ -1407,21 +1269,8 @@
         </em>
         and update the class definition to following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainActivity
-            </span>
-            :
-            <span class="hljs-type">
-                AppCompatActivity
-            </span>
-        </span>
-        (), RageComicListFragment.OnRageComicSelected {
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>(), RageComicListFragment.OnRageComicSelected {
+</pre>
     <p>
         You will get an error asking you to make
         <code>
@@ -1448,12 +1297,8 @@
         For now, you’ll just show a toast to verify that the code works. Add the
         following import below the existing imports so that you can use toasts:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.widget.Toast
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.widget.Toast
+</pre>
     <p>
         Then add the following method below
         <code>
@@ -1461,39 +1306,11 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onRageComicSelected
-            </span>
-            <span class="hljs-params">
-                (comic:
-                <span class="hljs-type">
-                    Comic
-                </span>
-                )
-            </span>
-        </span>
-        { Toast.makeText(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ,
-        <span class="hljs-string">
-            "Hey, you selected "
-        </span>
-        + comic.name +
-        <span class="hljs-string">
-            "!"
-        </span>
-        , Toast.LENGTH_SHORT).show() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onRageComicSelected</span><span class="hljs-params">(comic: <span class="hljs-type">Comic</span>)</span></span> {
+  Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">"Hey, you selected "</span> + comic.name + <span class="hljs-string">"!"</span>,
+      Toast.LENGTH_SHORT).show()
+}
+</pre>
     <p>
         The error is gone! Build and run. Once the app launches, click one of
         the Rage Comics. You should see a toast message naming the clicked item:
@@ -1536,358 +1353,64 @@
         </code>
         with:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                layout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                data
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                variable
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "comic"
-            </span>
-            <span class="hljs-attr">
-                type
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.alltherages.Comic"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                data
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ScrollView
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:fillViewport
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                tools:ignore
-            </span>
-            =
-            <span class="hljs-string">
-                "RtlHardcoded"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center"
-            </span>
-            <span class="hljs-attr">
-                android:orientation
-            </span>
-            =
-            <span class="hljs-string">
-                "vertical"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/name"
-            </span>
-            <span class="hljs-attr">
-                style
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/TextAppearance.AppCompat.Title"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginBottom
-            </span>
-            =
-            <span class="hljs-string">
-                "0dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_name_margin_top"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@{comic.name}"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/comic_image"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_image_size"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginBottom
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_image_margin_vertical"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_image_margin_vertical"
-            </span>
-            <span class="hljs-attr">
-                android:adjustViewBounds
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:contentDescription
-            </span>
-            =
-            <span class="hljs-string">
-                "@null"
-            </span>
-            <span class="hljs-attr">
-                android:scaleType
-            </span>
-            =
-            <span class="hljs-string">
-                "centerCrop"
-            </span>
-            <span class="hljs-attr">
-                imageResource
-            </span>
-            =
-            <span class="hljs-string">
-                "@{comic.imageResId}"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/description"
-            </span>
-            <span class="hljs-attr">
-                style
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/TextAppearance.AppCompat.Body1"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginBottom
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_description_margin_bottom"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginLeft
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_description_margin_left"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginRight
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/rage_comic_description_margin_right"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "0dp"
-            </span>
-            <span class="hljs-attr">
-                android:autoLink
-            </span>
-            =
-            <span class="hljs-string">
-                "web"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@{comic.text}"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                ScrollView
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                layout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">variable</span>
+            <span class="hljs-attr">name</span>=<span class="hljs-string">"comic"</span>
+            <span class="hljs-attr">type</span>=<span class="hljs-string">"com.raywenderlich.alltherages.Comic"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">data</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ScrollView</span> <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+        <span class="hljs-attr">android:fillViewport</span>=<span class="hljs-string">"true"</span>
+        <span class="hljs-attr">tools:ignore</span>=<span class="hljs-string">"RtlHardcoded"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
+            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+            <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"center"</span>
+            <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+                <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/name"</span>
+                <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/TextAppearance.AppCompat.Title"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+                <span class="hljs-attr">android:layout_marginBottom</span>=<span class="hljs-string">"0dp"</span>
+                <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"@dimen/rage_comic_name_margin_top"</span>
+                <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@{comic.name}"</span> /&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+                <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/comic_image"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"@dimen/rage_comic_image_size"</span>
+                <span class="hljs-attr">android:layout_marginBottom</span>=<span class="hljs-string">"@dimen/rage_comic_image_margin_vertical"</span>
+                <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"@dimen/rage_comic_image_margin_vertical"</span>
+                <span class="hljs-attr">android:adjustViewBounds</span>=<span class="hljs-string">"true"</span>
+                <span class="hljs-attr">android:contentDescription</span>=<span class="hljs-string">"@null"</span>
+                <span class="hljs-attr">android:scaleType</span>=<span class="hljs-string">"centerCrop"</span>
+                <span class="hljs-attr">imageResource</span>=<span class="hljs-string">"@{comic.imageResId}"</span> /&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+                <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/description"</span>
+                <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/TextAppearance.AppCompat.Body1"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_marginBottom</span>=<span class="hljs-string">"@dimen/rage_comic_description_margin_bottom"</span>
+                <span class="hljs-attr">android:layout_marginLeft</span>=<span class="hljs-string">"@dimen/rage_comic_description_margin_left"</span>
+                <span class="hljs-attr">android:layout_marginRight</span>=<span class="hljs-string">"@dimen/rage_comic_description_margin_right"</span>
+                <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"0dp"</span>
+                <span class="hljs-attr">android:autoLink</span>=<span class="hljs-string">"web"</span>
+                <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@{comic.text}"</span> /&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ScrollView</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+</pre>
     <p>
         At the top you’ll see that we’ve added a variable for our
         <em>
@@ -1913,9 +1436,8 @@
     <p>
         On the ImageView for the comic image you’ll notice the following tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        imageResource="@{comic.imageResId}"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">imageResource="@{comic.imageResId}"
+</pre>
     <p>
         This corresponds to a binding adapter that we’ve created in the
         <code>
@@ -1923,35 +1445,11 @@
         </code>
         file.
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-meta">
-            @BindingAdapter(
-            <span class="hljs-meta-string">
-                "android:src"
-            </span>
-            )
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setImageResoruce
-            </span>
-            <span class="hljs-params">
-                (imageView:
-                <span class="hljs-type">
-                    ImageView
-                </span>
-                , resource:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { imageView.setImageResource(resource) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-meta">@BindingAdapter(<span class="hljs-meta-string">"android:src"</span>)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setImageResoruce</span><span class="hljs-params">(imageView: <span class="hljs-type">ImageView</span>, resource: <span class="hljs-type">Int</span>)</span></span> {
+    imageView.setImageResource(resource)
+  }
+</pre>
     <p>
         A
         <em>
@@ -1986,12 +1484,8 @@
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        java.io.Serializable
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> java.io.Serializable
+</pre>
     <p>
         Replace
         <code>
@@ -1999,51 +1493,16 @@
         </code>
         with the code shown below:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        COMIC =
-        <span class="hljs-string">
-            "comic"
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                newInstance
-            </span>
-            <span class="hljs-params">
-                (comic:
-                <span class="hljs-type">
-                    Comic
-                </span>
-                )
-            </span>
-        </span>
-        : RageComicDetailsFragment {
-        <span class="hljs-keyword">
-            val
-        </span>
-        args = Bundle() args.putSerializable(COMIC, comic
-        <span class="hljs-keyword">
-            as
-        </span>
-        Serializable)
-        <span class="hljs-keyword">
-            val
-        </span>
-        fragment = RageComicDetailsFragment() fragment.arguments = args
-        <span class="hljs-keyword">
-            return
-        </span>
-        fragment }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> COMIC = <span class="hljs-string">"comic"</span>
+
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">newInstance</span><span class="hljs-params">(comic: <span class="hljs-type">Comic</span>)</span></span>: RageComicDetailsFragment {
+  <span class="hljs-keyword">val</span> args = Bundle()
+  args.putSerializable(COMIC, comic <span class="hljs-keyword">as</span> Serializable)
+  <span class="hljs-keyword">val</span> fragment = RageComicDetailsFragment()
+  fragment.arguments = args
+  <span class="hljs-keyword">return</span> fragment
+}
+</pre>
     <p>
         A fragment can take initialization parameters through its arguments, which
         you access via the
@@ -2099,12 +1558,8 @@
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        com.raywenderlich.alltherages.databinding.FragmentRageComicDetailsBinding
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> com.raywenderlich.alltherages.databinding.FragmentRageComicDetailsBinding
+</pre>
     <p>
         Now, replace the contents of
         <em>
@@ -2112,30 +1567,14 @@
         </em>
         with the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        fragmentRageComicDetailsBinding = FragmentRageComicDetailsBinding.inflate(inflater!!,
-        container,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        comic = arguments.getSerializable(COMIC)
-        <span class="hljs-keyword">
-            as
-        </span>
-        Comic fragmentRageComicDetailsBinding.comic = comic comic.text = String.format(getString(R.string.description_format),
-        comic.description, comic.url)
-        <span class="hljs-keyword">
-            return
-        </span>
-        fragmentRageComicDetailsBinding.root
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> fragmentRageComicDetailsBinding = FragmentRageComicDetailsBinding.inflate(inflater!!,
+    container, <span class="hljs-literal">false</span>)
+
+<span class="hljs-keyword">val</span> comic = arguments.getSerializable(COMIC) <span class="hljs-keyword">as</span> Comic
+fragmentRageComicDetailsBinding.comic = comic
+comic.text = String.format(getString(R.string.description_format), comic.description, comic.url)
+<span class="hljs-keyword">return</span> fragmentRageComicDetailsBinding.root
+</pre>
     <p>
         Since you want to dynamically populate the UI of the
         <code>
@@ -2170,21 +1609,13 @@
         </code>
         with:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        detailsFragment = RageComicDetailsFragment.newInstance(comic) supportFragmentManager.beginTransaction()
-        .replace(R.id.root_layout, detailsFragment,
-        <span class="hljs-string">
-            "rageComicDetails"
-        </span>
-        ) .addToBackStack(
-        <span class="hljs-literal">
-            null
-        </span>
-        ) .commit()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> detailsFragment =
+    RageComicDetailsFragment.newInstance(comic)
+supportFragmentManager.beginTransaction()
+    .replace(R.id.root_layout, detailsFragment, <span class="hljs-string">"rageComicDetails"</span>)
+    .addToBackStack(<span class="hljs-literal">null</span>)
+    .commit()
+</pre>
     <p>
         You’ll find that this code is similar to your first transaction which
         added the list to
