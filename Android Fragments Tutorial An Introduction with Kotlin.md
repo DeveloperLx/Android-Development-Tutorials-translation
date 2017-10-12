@@ -27,39 +27,29 @@
         </i>
         | /’frag-mənt/
         <br>
-        an isolated or incomplete part of something
+        孤立的或未完成的部分
     </div>
     <p>
-        A fragment is an Android component that holds part of the behavior and/or
-        UI of an activity. As the name would suggest, fragments are not independent
-        entities, but are tied to a single activity.
+        fragment是一个Android的组件，用来管理activity中的一部分UI。正如它的名字所体现的，fragment并非是一个独立的实体，而是寄存在某个activity下。
     </p>
     <p>
-        In many ways, they have functionality similar to that of activities.
+        在很多方面，fragment都有着类似于activity的特性。
     </p>
     <p>
-        Imagine for a moment that you’re an activity. You have a lot to do, so
-        you might employ a few minions to run around and do your laundry and taxes
-        in exchange for lodging and food. That’s kind of like the relationship
-        between activities and fragments.
+        想象一下，你是一个activity，你有很多事需要做，于是就雇佣了很多迷你的自己来运行，用洗衣和交税来换取住宿和食物。这就很像是activity和fragment之间的关系。
     </p>
     <p>
-        In the same way that you don’t actually need an army of little helpers
-        to do your bidding, you don’t have to use fragments. However, if you do
-        use them and use them well, they can provide:
+        现在，可能就像实践上你并不需要几个听从命令的部下，你也并不一定需要使用fragment。然而，如果你可以很好地使用fragment，它就可以为你提供：
     </p>
     <ul>
         <li>
-            Modularity: Dividing complex activity code across fragments for better
-            organization and maintenance.
+            模块性：将复杂的activity代码拆分为一个个的fragment，以获得更好的组织性和可维护性。
         </li>
         <li>
-            Reusability: Placing behavior or UI parts into fragments that can be shared
-            across multiple activities.
+            可复用性：将行为或UI部分放置到多个fragment中，而fragment可以在多个activity之间进行共享。
         </li>
         <li>
-            Adaptability: Representing sections of a UI as different fragments and
-            utilizing different layouts depending on screen orientation and size.
+            可适应性：将UI的部分表示为不同的fragment，并根据屏幕的方向和尺寸使用不同的布局。
         </li>
     </ul>
     <p>
@@ -72,91 +62,86 @@
         </a>
     </p>
     <p>
-        In this tutorial, you will build a mini-encyclopedia of Rage Comics. The
-        app will display a list of Rage Comics arranged in a grid. When a Rage
-        Comic is selected, information about it will be displayed. In this tutorial
-        you will learn:
+        在本教程中，你将构建一个暴走漫画的迷你百科全书。app将展示一个由暴走漫画构成的格子视图。当选中一副暴走漫画的时候，app就会展示与它相关的信息。你会从中学到：
     </p>
     <ul>
         <li>
-            How to create and add fragments to an activity.
+            如何创建并添加fragment到activity上。
         </li>
         <li>
-            How to let your fragments send information to an activity.
+            如何让fragment发送信息到activity上。
         </li>
         <li>
-            How to add and replace fragments by using transactions.
+            如何使用事务来添加或交换fragment。
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : This tutorial assumes you’re comfortable the basics of Android programming
-            and understand what the activity lifecycle means. A few points to keep
-            in mind:
+            ：本教程假定你已熟悉了Android编程的基础，并理解activity的生命周期的含义。还有几点值得去注意：
         </p>
         <ul>
             <li>
-                If you’re brand new to Android, you should work through both the
+                如果你是一个Android的纯小白，你应当首先参考
                 <a href="http://www.raywenderlich.com/78574/android-tutorial-for-beginners-part-1"
                 target="_blank" title=" Android Tutorial for Beginners " sl-processed="1">
                     Android Tutorial for Beginners
                 </a>
-                and the
+                和
                 <a href="https://www.raywenderlich.com/116580/introduction-to-android-activities-tutorial"
                 target="_blank" title=" Introduction to Activities " sl-processed="1">
-                    Introduction to Activities
+                    Activity介绍
                 </a>
-                first.
+                。
             </li>
             <li>
-                This tutorial utilizes an Android
+                本教程还会用到Android的
                 <code>
                     RecyclerView
                 </code>
-                . If you’ve never used
+                。如果你还从未用过
                 <code>
                     RecyclerView
                 </code>
-                or need a refresher, you should also look at the
+                ，你可以参考
                 <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
                 target="_blank" title="Android RecyclerView Tutorial" sl-processed="1">
                     Android RecyclerView Tutorial
                 </a>
-                .
+                来进行学习。
             </li>
         </ul>
     </div>
     <p>
-        Now, lets dig in!
+        接下来就开始学习fragments！
     </p>
     <h2>
-        Getting Started With Android Fragments
+        Android Fragment入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/AllTheRages-Starter-1.zip"
         sl-processed="1">
-            starter project
+            起始项目
         </a>
-        , unzip and start
+        ，解压并启动
         <em>
             Android Studio 3.0 Beta 2
         </em>
-        or later.
+        或更高的版本。
     </p>
     <p>
-        In the
+        在
         <em>
             Welcome to Android Studio
         </em>
-        dialog, select
+        对话框中，选择
         <em>
             Import project (Eclipse ADT, Gradle, etc.)
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/android_fragments_003_android_studio_welcome_screen.png"
@@ -168,11 +153,11 @@
         </a>
     </p>
     <p>
-        Choose the top-level directory of the starter project, and click
+        选择起始项目的根目录，并点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_003_android_studio_select_project-1.png"
