@@ -975,106 +975,95 @@
 view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 </pre>
     <p>
-        The problem with that is that if you change the value of
-        <code>
-            name
-        </code>
-        for
+        问题是，如果你改变了
         <code>
             programmer
         </code>
-        , you would need to do a subsequent
+        中
+        <code>
+            name
+        </code>
+        的值，你也需要对
         <code>
             setText
         </code>
-        to the
+        做一个相应的
         <code>
-            TextView
+            programmer
         </code>
-        in order to update the item. Imagine having a tool where you could bind
-        a variable from your fragments and activities to your view and allow for
-        changes to the variable to automatically update in the View. That is what
+        来更新此对象。想象一下，如果有一个工具，可以将你一个在fragment和activity中的变量和相应的view绑定起来，只要这个变量一改变，相应的view也就会发生变化。这就是
         <em>
-            data binding
+            数据绑定
         </em>
-        does for you.
+        会为你做的事。
     </p>
     <p>
-        Looking at our
-        <em>
-            All The Rages
-        </em>
-        app, the
-        <code>
-            enabled=true
-        </code>
-        in the
+        而在我们的app的
         <code>
             build.gradle
         </code>
-        enables
+        中，设置的
+        <code>
+            enabled=true
+        </code>
+        就打开了app的
         <em>
-            data binding
+            数据绑定
         </em>
-        in the application. Your data class contains data that we want to use
-        in our fragment and display in our view. The
+        。而数据类就包含了我们想在fragment中使用，并展示到view上的数据。
         <em>
             data
         </em>
-        field contains variables consisting of
+        域中包含了
         <em>
             name
         </em>
-        and
+        和
         <em>
             type
         </em>
-        options that specify the type and name of the variable being bound. This
-        data is used in the view using
+        选项，指定了被绑定变量的类型和名称。这个数据在view中使用了        
         <code>
             {@}
         </code>
-        notation. For example, the following would set a text field to the value
-        held by the
-        <em>
-            name
-        </em>
-        field of the
+        符号。例如，下列的代码就将text域的值绑定到了
         <em>
             comic
         </em>
-        variable:
+        变量的
+        <em>
+            name
+        </em>
+        字段上：
     </p>
     <pre lang="xml" class="language-xml hljs">tools:text="@{comic.name}" 
 </pre>
     <p>
-        Now that you have your view set up, you need to access your view and
+        设置好view之后，你就需要访问你的view，并将变量
         <em>
-            bind
+            绑定到
         </em>
-        the variables to it. This is where the
+        它上面。这就是
         <em>
-            data binding
+            数据绑定
         </em>
-        magic comes in! Whenever a view has a
+        的魔法将要出现的地方了！只要view有一个
         <code>
             data
         </code>
-        field, the framework automatically generates a binding object. The name
-        of the object is derived by converting the snake case name of the view
-        into camel case and adding
+        字段，framework就会自动生成绑定的对象。通过将view的下划线方式的名称转换为驼峰式的名称，来推断对象的名称，并添加
         <em>
-            binding
+            绑定
         </em>
-        to the name. For example, a view called
+        到这个名称上。例如，一个被称作
         <code>
             recycler_item_rage_comic.xml
         </code>
-        would have a corresponding binding called
+        的view就会拥有一个被称作
         <code>
             RecyclerItemRageComicBinding
         </code>
-        .
+        的绑定。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(viewGroup: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: ViewHolder {
   <span class="hljs-comment">//1</span>
@@ -1086,44 +1075,42 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
   recyclerItemRageComicBinding.comic = comic
 </pre>
     <p>
-        You can then inflate the view via the inflater method on the
+        您可以通过在
         <em>
-            binding
+            绑定
         </em>
-        object and set properties via standard property access mechanisms.
+        对象上inflater的方法来填充view，并通过标准property访问机制来设置property。
     </p>
     <p>
-        Data binding follows a Model-View-ViewModel (MVVM) pattern. MVVM consists
-        of three components:
+        数据绑定遵循了Model-View-ViewModel（MVVM）模式。MVVM包含三个组件：
     </p>
     <ul>
         <li>
             <em>
                 A View
             </em>
-            : The layout file.
+            ：布局文件。
         </li>
         <li>
             <em>
                 A Model
             </em>
-            : The data class
+            ：数据类
         </li>
         <li>
             <em>
                 A View Model/Binder
             </em>
-            : The auto-generated binding files.
+            ：自动生成的绑定文件。
         </li>
     </ul>
     <p>
-        For further reading on the MVVM, and other design patterns, refer to the
-        tutorial:
+        关于MVVM及其它的设计模式，请访问教程：
         <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
         target="_blank" title="Common Design Patterns for Android" sl-processed="1">
             Common Design Patterns for Android
         </a>
-        . You’ll see more on data biding later on.
+        。你会看到更多关于数据绑定的内容。
     </p>
     <h2>
         与Activity进行通信
