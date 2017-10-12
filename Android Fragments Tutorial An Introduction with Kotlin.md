@@ -412,108 +412,30 @@
         </em>
         中，会看到类似如下的代码：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.Fragment
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.LayoutInflater
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.View
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.view.ViewGroup
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                RageComicDetailsFragment
-            </span>
-            :
-            <span class="hljs-type">
-                Fragment
-            </span>
-        </span>
-        () {
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            companion
-        </span>
-        <span class="hljs-keyword">
-            object
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                newInstance
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        : RageComicDetailsFragment {
-        <span class="hljs-keyword">
-            return
-        </span>
-        RageComicDetailsFragment() } }
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (inflater:
-                <span class="hljs-type">
-                    LayoutInflater
-                </span>
-                ?, container:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                ?, savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        : View? {
-        <span class="hljs-keyword">
-            return
-        </span>
-        inflater?.inflate(R.layout.fragment_rage_comic_details, container,
-        <span class="hljs-literal">
-            false
-        </span>
-        ) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.os.Bundle
+<span class="hljs-keyword">import</span> android.support.v4.app.Fragment
+<span class="hljs-keyword">import</span> android.view.LayoutInflater
+<span class="hljs-keyword">import</span> android.view.View
+<span class="hljs-keyword">import</span> android.view.ViewGroup
+
+<span class="hljs-comment">//1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RageComicDetailsFragment</span> : <span class="hljs-type">Fragment</span></span>() {
+
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">newInstance</span><span class="hljs-params">()</span></span>: RageComicDetailsFragment {
+      <span class="hljs-keyword">return</span> RageComicDetailsFragment()
+    }
+  }
+
+  <span class="hljs-comment">//3</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateView</span><span class="hljs-params">(inflater: <span class="hljs-type">LayoutInflater</span>?, container: <span class="hljs-type">ViewGroup</span>?,
+                            savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span>: View? {
+    <span class="hljs-keyword">return</span> inflater?.inflate(R.layout.fragment_rage_comic_details, container, <span class="hljs-literal">false</span>)
+  }
+
+}
+</pre>
     <p>
         上述代码：
     </p>
@@ -631,43 +553,12 @@
         </em>
         中：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                fragment
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/details_fragment"
-            </span>
-            <span class="hljs-attr">
-                class
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.alltherages.RageComicDetailsFragment"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">fragment</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/details_fragment"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"com.raywenderlich.alltherages.RageComicDetailsFragment"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>/&gt;</span>
+</pre>
     <p>
         这里在activity布局的内部放置了一个
         <code>
@@ -758,16 +649,9 @@
         </em>
         ，并添加下列的import到已有import的下方：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.os.Bundle
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.widget.GridLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.os.Bundle
+<span class="hljs-keyword">import</span> android.support.v7.widget.GridLayoutManager
+</pre>
     <p>
         <code>
             GridLayoutManager
@@ -785,124 +669,34 @@
         </code>
         定义的上方：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onAttach
-            </span>
-            <span class="hljs-params">
-                (context:
-                <span class="hljs-type">
-                    Context
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onAttach(context)
-        <span class="hljs-comment">
-            // Get rage face names and descriptions.
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        resources = context!!.resources names = resources.getStringArray(R.array.names)
-        descriptions = resources.getStringArray(R.array.descriptions) urls = resources.getStringArray(R.array.urls)
-        <span class="hljs-comment">
-            // Get rage face images.
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        typedArray = resources.obtainTypedArray(R.array.images)
-        <span class="hljs-keyword">
-            val
-        </span>
-        imageCount = names.size imageResIds = IntArray(imageCount)
-        <span class="hljs-keyword">
-            for
-        </span>
-        (i
-        <span class="hljs-keyword">
-            in
-        </span>
-        <span class="hljs-number">
-            0.
-        </span>
-        .imageCount -
-        <span class="hljs-number">
-            1
-        </span>
-        ) { imageResIds[i] = typedArray.getResourceId(i,
-        <span class="hljs-number">
-            0
-        </span>
-        ) } typedArray.recycle() }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateView
-            </span>
-            <span class="hljs-params">
-                (inflater:
-                <span class="hljs-type">
-                    LayoutInflater
-                </span>
-                ?, container:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                ?, savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        : View? {
-        <span class="hljs-keyword">
-            val
-        </span>
-        view: View = inflater!!.inflate(R.layout.fragment_rage_comic_list, container,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        activity = activity
-        <span class="hljs-keyword">
-            val
-        </span>
-        recyclerView = view.findViewById&lt;RecyclerView&gt;(R.id.recycler_view)
-        <span class="hljs-keyword">
-            as
-        </span>
-        RecyclerView recyclerView.layoutManager = GridLayoutManager(activity,
-        <span class="hljs-number">
-            2
-        </span>
-        ) recyclerView.adapter = RageComicAdapter(activity)
-        <span class="hljs-keyword">
-            return
-        </span>
-        view }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAttach</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>?)</span></span> {
+    <span class="hljs-keyword">super</span>.onAttach(context)
+    <span class="hljs-comment">// Get rage face names and descriptions.</span>
+    <span class="hljs-keyword">val</span> resources = context!!.resources
+    names = resources.getStringArray(R.array.names)
+    descriptions = resources.getStringArray(R.array.descriptions)
+    urls = resources.getStringArray(R.array.urls)
+    <span class="hljs-comment">// Get rage face images.</span>
+    <span class="hljs-keyword">val</span> typedArray = resources.obtainTypedArray(R.array.images)
+    <span class="hljs-keyword">val</span> imageCount = names.size
+    imageResIds = IntArray(imageCount)
+    <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span>.imageCount - <span class="hljs-number">1</span>) {
+      imageResIds[i] = typedArray.getResourceId(i, <span class="hljs-number">0</span>)
+    }
+    typedArray.recycle()
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateView</span><span class="hljs-params">(inflater: <span class="hljs-type">LayoutInflater</span>?, container: <span class="hljs-type">ViewGroup</span>?,
+                            savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span>: View? {
+    <span class="hljs-keyword">val</span> view: View = inflater!!.inflate(R.layout.fragment_rage_comic_list, container,
+        <span class="hljs-literal">false</span>)
+    <span class="hljs-keyword">val</span> activity = activity
+    <span class="hljs-keyword">val</span> recyclerView = view.findViewById&lt;RecyclerView&gt;(R.id.recycler_view) <span class="hljs-keyword">as</span> RecyclerView
+    recyclerView.layoutManager = GridLayoutManager(activity, <span class="hljs-number">2</span>)
+    recyclerView.adapter = RageComicAdapter(activity)
+    <span class="hljs-keyword">return</span> view
+  }
+</pre>
     <p>
         <code>
             onAttach()
@@ -954,44 +748,18 @@
         </code>
         方法：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreate
-            </span>
-            <span class="hljs-params">
-                (savedInstanceState:
-                <span class="hljs-type">
-                    Bundle
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onCreate(savedInstanceState) setContentView(R.layout.activity_main)
-        <span class="hljs-keyword">
-            if
-        </span>
-        (savedInstanceState ==
-        <span class="hljs-literal">
-            null
-        </span>
-        ) { supportFragmentManager .beginTransaction() .add(R.id.root_layout,
-        RageComicListFragment.newInstance(),
-        <span class="hljs-string">
-            "rageComicList"
-        </span>
-        ) .commit() } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+    <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    <span class="hljs-keyword">if</span> (savedInstanceState == <span class="hljs-literal">null</span>) {
+      supportFragmentManager
+              .beginTransaction()
+              .add(R.id.root_layout, RageComicListFragment.newInstance(), <span class="hljs-string">"rageComicList"</span>)
+              .commit()
+    }
+  }
+</pre>
     <p>
         这里你将
         <code>
