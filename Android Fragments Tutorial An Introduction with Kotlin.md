@@ -751,7 +751,6 @@
     <pre lang="kotlin" class="language-kotlin hljs"> <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
     <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
     <span class="hljs-keyword">if</span> (savedInstanceState == <span class="hljs-literal">null</span>) {
       supportFragmentManager
               .beginTransaction()
