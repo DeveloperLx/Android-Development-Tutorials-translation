@@ -344,70 +344,46 @@
         v4支持库
     </h2>
     <p>
-        In Android, when using fragments, there are two alternative fragment implementations
-        you can use. One type is the fragment that is provided by the platform
-        version. A platform version corresponds to the version of Android that
-        a user is running. For example, a device running Android 6.0 (SDK Version
-        23) would be running platform version 23 of the library.
+        在Android中，当使用fragment时，你可以使用两种fragment的实现。一种是由平台版本所提供的，也就是用户正在运行的Android的版本所提供。例如，一台运行Android 6.0（SDK版本23）的设备，就会运行库的平台版本23。
     </p>
     <p>
-        The second type is a support library fragment. When you include a support
-        library, it is added to your project in the same manner as any third-party
-        library. This has two benefits when developing applications for multiple
-        versions of Android.
+        第二种是支持库的fragment。导入一个支持库到你的项目中和导入其它的第三方库没有什么差别。它在开发支持多版本Android的app时，有两个好处。
     </p>
     <p>
-        First, it ensures that you have consistency in your code and functionality
-        across different devices and platform versions. This means that bugs, and
-        fixes, will be more consistent across different versions of Android using
-        these libraries.
+        首先，它确保了你的代码在不同设备不同平台版本上的一致性。这就意味着bug的修复会在使用这些库的不同版本的Android上更加得一致。
     </p>
     <p>
-        Second, when new features are added to the latest version of Android,
-        the Android team will often back-port these features via the support library
-        in order for developers to use on older versions of Android.
+        其次，当新的特性被添加到最新版本的Android上时，Android的团队通常就会通过支持库来将其进行向后兼容，以便开发者使用较旧版本的Android。
     </p>
     <h3>
-        Which Library Should Be Used?
+        到底该使用哪个库？
     </h3>
     <p>
-        If you are writing an application that will be targeting multiple versions
-        of Android on multiple devices, you should use support libraries for Fragments.
-        You should also use the support library for any other functionality in
-        your application when available. This is considered a best practice by
-        most senior Android developers and the Core Android team. The only time
-        you might want to use a platform library is if you are, in fact, doing
-        very specialized development for an app that is only targeting one version
-        of Android.
+        如果你要编写支持多个版本Android和多个版本设备的app，你就应当为Fragment采取支持库的方案。你同样需要为其它的功能采用支持库的方案。这是大多数的高级Android开发者和Android核心团队所认为的最佳实践。唯有在你想为非常特定版本的Android做开发的时候，才会采用平台库的方案。
     </p>
     <p>
-        To put it another way: odds are that you will want to use support libraries
-        if and when they are available. With fragments, that means you’ll want
-        to use
+        换句话就是：如果可以的话，就尽量使用支持库的方案。对于fragment，就是使用
         <em>
             the v4 support library
         </em>
-        .
+        了。
     </p>
     <h2>
-        Creating a Fragment
+        创建Fragment
     </h2>
     <p>
-        Eventually, All the Rages will show a list of Rage Comics on launch, and
-        tapping on any of the items will display details about that particular
-        comic. To start, you’ll work backwards and first create the detail page.
+        最终，所有的暴走漫画会在启动的时候被展示位一个列表，点击其中的一项则会这幅漫画相应的详情。首先你将会创建详情页。
     </p>
     <p>
-        Open the starter project in Android Studio and find
-        <em>
-            fragment_rage_comic_details.xml
-        </em>
-        under
+        在Android Studio中打开起始项目，并在
         <em>
             app -&gt; res -&gt; layout
         </em>
-        ; this XML file lays out the comic detail display. It also displays one
-        of the drawable resources and the associated string resources.
+        下找到
+        <em>
+            fragment_rage_comic_details.xml
+        </em>
+        ，这个XML文件就指定了漫画详情展示的布局。它还展示了drawable资源和相关的string资源之一。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_008_fragment_details_layout_preview.png"
@@ -419,23 +395,22 @@
         </a>
     </p>
     <p>
-        Select Android Studio’s
+        选择Android Studio的
         <em>
             Project tab
         </em>
-        and locate the
+        并找到
         <em>
             RageComicDetailsFragment
         </em>
-        file. This class will be responsible for displaying details for a selected
-        comic.
+        文件。这个类用来负责展示被选择漫画的展示详情。
     </p>
     <p>
-        In
+        在
         <em>
             RageComicDetailsFragment.kt
         </em>
-        , the code now looks like what is shown below:
+        中，会看到类似如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -540,134 +515,121 @@
         ) } }
     </pre>
     <p>
-        This is what this code does:
+        上述代码：
     </p>
     <ol>
         <li>
-            Declares
+            声明
             <code>
                 RageComicDetailsFragment
             </code>
-            as a subclass of
+            作为
             <code>
                 Fragment
             </code>
-            .
+            的子类。
         </li>
         <li>
-            Provides a method for creating new instances of the fragment, a factory
-            method.
+            提供了一个方法用来创建这个fragment的实例，这是一个工厂方法。
         </li>
         <li>
-            Creates the view hierarchy controlled by the fragment.
+            创建由fragment所控制的view的层级。
         </li>
     </ol>
     <p>
-        Activities use
+        Activity使用
         <code>
             setContentView()
         </code>
-        to specify the XML file that defines their layouts, but fragments create
-        their view hierarchy in
+        来指定它相应的布局文件，而fragment则在
         <code>
             onCreateView()
         </code>
-        . Here you called
+        中创建它们的view层级。这里你调用
         <code>
             LayoutInflater.inflate
         </code>
-        to create the hierarchy of
+        来创建
         <code>
             RageComicDetailsFragment
         </code>
-        .
+        的层级。
     </p>
     <p>
-        The third parameter of
         <code>
             inflate
         </code>
-        specifies whether the inflated fragment should be added to the
+        的第三个参数确定了是否要将其添加到
         <code>
             container
         </code>
-        . The container is the parent view that will hold the fragment’s view
-        hierarchy. You should always set this to
+        上。container就是将持有fragment的view层级的父view。你应当总是将其设置为
         <code>
             false
         </code>
-        : the
+        ：
         <code>
             FragmentManager
         </code>
-        will take care of adding the fragment to the container.
+        将负责将fragment添加到container上。
     </p>
     <p>
-        There’s a new kid in town here:
+        这里有一个新的东东：
         <code>
             FragmentManager
         </code>
-        . Each activity has a
+        。每个activity都会有一个
         <code>
             FragmentManager
         </code>
-        that manages its fragments. It also provides an interface for you to access,
-        add and remove those fragments.
+        来管理它的fragment。它还提供了一个供你访问，添加和移除的界面。
     </p>
     <p>
-        You’ll notice that while
+        你会注意到尽管
         <code>
             RageComicDetailsFragment
         </code>
-        has a factory instance method,
+        有一个工厂的实例方法
         <code>
             newInstance()
         </code>
-        , it does not have any constructors.
+        ，但却没有任何的构造器。
     </p>
     <p>
-        Wait, why do you need a factory method but not a constructor?
+        为何要有一个工厂方法而不是构造器？
     </p>
     <p>
-        First, because you did not define any constructors, the compiler automatically
-        generates an empty, default constructor that takes no arguments. This is
-        all that you should have for a fragment: no other constructors.
+        首先，由于你并没有定义任何的构造器，编译器就会自动生成一个空的，无参的默认构造器。这就是你需要有的构造器了，无需其它。
     </p>
     <p>
-        Second, you probably know that Android may destroy and later re-create
-        an activity and all its associated fragments when the app goes into the
-        background. When the activity comes back, its
+        第二，你可能知道，当app进入后台的时候，Android会销毁并重新创建Activity及其所属的fragment。当activity再生的时候，它的
         <code>
             FragmentManager
         </code>
-        starts re-creating fragments by using the empty default constructor. If
-        it cannot find one, you get an exception.
+        就会使用默认的空构造器来重建fragment。如果无法找到，就会抛出一个异常。
     </p>
     <p>
-        For this reason, it is best practice to never specify any non-empty constructors,
-        and in fact, the easiest thing to do is to specify none as you just did.
+        因此，最后的实践就是永远都不要指定非空的构造器，实际上，最简单的做法就是你刚刚做的这样，不要指定构造器。
     </p>
     <p>
-        What if you need to pass information or data to a Fragment? Hang on, you’ll
-        get the answer to that later!
+        稍等，如果你需要将信息或数据传递给Fragment，该怎么做？跟上，你马上就将得到答案。
     </p>
     <h2>
-        Adding a Fragment
+        添加Fragment
     </h2>
     <p>
-        Here’s where you get to add a fragment using the simplest approach — adding
-        it to the activity’s XML layout.
+        添加你漂亮的fragment的最简单的办法，就是将它添加到XML的布局文件上。
     </p>
     <p>
-        To do this, open
+        打开
         <em>
             activity_main.xml
         </em>
-        , select the Text tab and add the following inside of the root
+        ，选择Text tab，并添加下列的内容到根
         <em>
             FrameLayout
         </em>
-        :
+        中：
     </p>
     <pre lang="xml" class="language-xml hljs">
         <span class="hljs-tag">
@@ -707,27 +669,26 @@
         </span>
     </pre>
     <p>
-        In this step, you’re placing a
+        这里在activity布局的内部放置了一个
         <code>
             &lt;fragment&gt;
         </code>
-        tag inside of the activity layout and specifying the type of fragment
-        the
+        ，并指定了fragment的类型。
         <code>
             class
         </code>
-        attribute should inflate. The view ID of the
+        这个属性需要完整。
         <code>
             &lt;fragment&gt;
         </code>
-        is required by the
+        的view ID是
         <code>
             FragmentManager
         </code>
-        .
+        所需求的。
     </p>
     <p>
-        Build and run. You will see the fragment:
+        运行项目，你就可以看到fragment了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_012_app_details_fragment_test.png"
@@ -739,19 +700,18 @@
         </a>
     </p>
     <h3>
-        Adding a Fragment Dynamically
+        动态地添加Fragment
     </h3>
     <p>
-        First, open
+        首先，再次打开
         <em>
             activity_main.xml
         </em>
-        again and remove the
+        并移除你刚放置的
         <code>
             &lt;fragment&gt;
         </code>
-        you just inserted. (Embrace the Zen of deleting code!) You’ll replace
-        it with the list of Rage Comics.
+        。（是的，我知道你刚刚把它放到的这里 - 对不起。）你将使用暴走漫画的列表来替换它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/android_fragments_003_purr_programming-1.png"
@@ -763,42 +723,40 @@
         </a>
     </p>
     <p>
-        Open
+        打开
         <em>
-            RageComicListFragment.kt
+            RageComicListFragment.java
         </em>
-        , which has all the list code. You can see that the
+        ，它包含了所有可爱的列表代码。你可以看到
         <code>
             RageComicListFragment
         </code>
-        has no explicit constructors and a
+        没有显式的构造器，只有一个
         <code>
             newInstance()
         </code>
-        .
+        。
     </p>
     <p>
-        The list code in
         <code>
             RageComicListFragment
         </code>
-        depends on some resources. You have to ensure that the fragment has a
-        valid reference to a
+        中的列表代码需要依赖于一些资源。你必须确保这个fragment对
         <code>
             Context
         </code>
-        for accessing those resources. That’s where
+        包含有效的引用。这就是
         <code>
             onAttach()
         </code>
-        comes into play.
+        应该发挥作用的地方了。
     </p>
     <p>
-        Open
+        打开
         <em>
             RageComicListFragment.kt
         </em>
-        , and add these imports directly below the existing imports:
+        ，并添加下列的import到已有import的下方：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -811,27 +769,21 @@
         android.support.v7.widget.GridLayoutManager
     </pre>
     <p>
-        The
         <code>
             GridLayoutManager
         </code>
-        , helps in positioning items in the Rage Comic list. The other import
-        is for standard fragment overrides.
+        ，用来在暴走漫画的列表中放置item。其它的import则是标准的fragment覆盖。
     </p>
     <p>
-        Inside of
+        在
         <em>
             RageComicListFragment.kt
         </em>
-        , add the following two methods
-        <i>
-            above
-        </i>
-        the definition of the
+        中，添加下列的两个方法，就在
         <code>
             RageComicAdapter
         </code>
-        :
+        定义的上方：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -955,52 +907,52 @@
         <code>
             onAttach()
         </code>
-        contains code that accesses the resources you need via the
+        中，访问了你需要通过
         <code>
             Context
         </code>
-        to which the fragment is attached. Because the code is in
+        来访问的资源。由于代码位于
         <code>
             onAttach()
         </code>
-        , you can rest assured that the fragment has a valid
+        中，你无需判断fragment是否包含一个有效的
         <code>
             Context
         </code>
-        .
+        。
     </p>
     <p>
-        In
+        在
         <code>
             onCreateView()
         </code>
-        , you inflate the view hierarchy of
+        中，你填充了
         <code>
             RageComicListFragment
         </code>
-        , which contains a
+        的view的层级，它包含了一个
         <code>
             RecyclerView
         </code>
-        , and perform some setup.
+        ，并执行了一些设置。
     </p>
     <p>
-        If you have to inspect a fragment’s view,
+        通常，如果你需要在fragment的view上进行一些处理，
         <code>
             onCreateView()
         </code>
-        is a good place to start because it is where the view is generated.
+        就是一个很好的地方，因为这里已经能确定你的view准备好了。
     </p>
     <p>
-        Next open
+        接下来，打开
         <em>
             MainActivity.kt
         </em>
-        and replace
+        并使用下列的代码替换
         <code>
             onCreate()
         </code>
-        with the following:
+        方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">
         <span class="hljs-keyword">
@@ -1041,19 +993,19 @@
         ) .commit() } }
     </pre>
     <p>
-        At this point, you get
+        这里你将
         <code>
             RageComicListFragment
         </code>
-        into
+        放置到
         <code>
             MainActivity
         </code>
-        . You ask your new friend,
+        中。你会请求你的新朋友
         <code>
             FragmentManager
         </code>
-        , to add it.
+        来添加它。
     </p>
     <p>
         First, you grab the
