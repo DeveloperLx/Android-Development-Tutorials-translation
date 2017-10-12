@@ -5,10 +5,9 @@
 <div class="content-wrapper">
     <div class="note">
         <em>
-            Update note
+            更新日志
         </em>
-        : This tutorial has been updated to Kotlin and Android Studio 3.0 by Lance
-        Gleason. The original tutorial was written by Huyen Tue Dao.
+        ：本教程已由Lance Gleason更新至支持Kotlin及Android Studio 3.0的版本。原教材是由Huyen Tue Dao编写的。
     </div>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/10/Fragments-feature.png"
@@ -16,10 +15,7 @@
             <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/Fragments-feature.png"
             alt="Fragments-feature" width="250" height="250" class="alignright size-thumbnail wp-image-154115 bordered">
         </a>
-        In modern Android app development, fragments are tools commonly used when
-        composing UI layouts. In this tutorial you will dig into the fundamental
-        concepts of Android Fragments while creating an app that displays the Rage
-        Comics.
+        在现代的Android app开发中，fragment是构成UI布局非常的常用工具。在本教程中你会深入Android Fragment的基础概念，并创建一个app来展示暴走漫画。
     </p>
     <div class="note" style="width:50%">
         <em>
