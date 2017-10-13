@@ -1368,38 +1368,38 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
 </pre>
     <p>
-        At the top you’ll see that we’ve added a variable for our
+        我们在顶端为
         <em>
             Comic
         </em>
-        . The text for
+        添加了一个variable，将
         <em>
             name
         </em>
-        and
+        和
         <em>
             description
         </em>
-        is bound to the variables of the same name in the
+        绑定到了
         <em>
             Comic
         </em>
-        object.
+        对象中同名的变量。
     </p>
     <h3>
-        Binding Adapters
+        绑定Adapter
     </h3>
     <p>
-        On the ImageView for the comic image you’ll notice the following tag:
+        在暴走漫画的ImageView中，你会注意到如下的标签：
     </p>
     <pre lang="xml" class="language-xml hljs">imageResource="@{comic.imageResId}"
 </pre>
     <p>
-        This corresponds to a binding adapter that we’ve created in the
+        这就对应于我们在
         <code>
             DataBindingAdapters.kt
         </code>
-        file.
+        文件中创建的绑定Adapter。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-meta">@BindingAdapter(<span class="hljs-meta-string">"android:src"</span>)</span>
   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setImageResoruce</span><span class="hljs-params">(imageView: <span class="hljs-type">ImageView</span>, resource: <span class="hljs-type">Int</span>)</span></span> {
@@ -1407,47 +1407,43 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
   }
 </pre>
     <p>
-        A
+        我们可以通过
         <em>
             binding adapter
         </em>
-        allows us to perform actions on an element which are not supported by
-        default
+        在不被默认的
         <em>
-            data binding
+            数据绑定
         </em>
-        . In your case you are storing a resource integer for the image to be
-        displayed, but data binding does not provide a default way to display an
-        image from an ID. To fix that, you have a
+        支持的元素上执行动作。这里为展示图片储存了一个resource的整型值，但数据绑定无法提供一个默认的方式来根据一个ID展示图片。要修复这个问题，你需要一个
         <em>
             BindingAdapter
         </em>
-        that takes a reference to the object that it was invoked from, along with
-        a parameter. It uses that to call
-        <code>
-            setImageResource
-        </code>
-        on the
+        ，它引用了一个被调用的对象，及一个参数。用它来调用
         <code>
             imageView
         </code>
-        that displays the image for the comic.
+        上的
+        <code>
+            setImageResource
+        </code>
+        来展示暴走漫画。
     </p>
     <p>
-        Now that your view is set up, add the following import to the top of
+        现在view已经被设置好了，添加下列的import到
         <em>
             RageComicDetailsFragment.kt
         </em>
-        :
+        文件的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> java.io.Serializable
 </pre>
     <p>
-        Replace
+        将
         <code>
             newInstance()
         </code>
-        with the code shown below:
+        替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> COMIC = <span class="hljs-string">"comic"</span>
 
@@ -1460,8 +1456,8 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 }
 </pre>
     <p>
-        A fragment can take initialization parameters through its arguments, which
-        you access via the
+        A fragment can take initialization parameters through its arguments, 
+        which you access via the
         <code>
             arguments
         </code>
