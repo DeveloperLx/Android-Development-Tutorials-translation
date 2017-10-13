@@ -1707,45 +1707,45 @@ supportFragmentManager.beginTransaction()
     </p>
     <ul>
         <li>
-            Using fragments within a
+            在
             <code>
                 ViewPager
             </code>
-            . Many apps, including the Play Store, utilize a swipeable, tabbed content structure via
+            中使用fragment。很多app，包括Play Store，会通过
             <code>
-                ViewPagers
+                ViewPager
             </code>
-            .
+            来使用一个可滑动，分页式的内容结构。
         </li>
         <li>
-            Using a more powerful, advantageous
+            使用更强大的
             <code>
                 DialogFragment
             </code>
-            instead of a plain vanilla dialog or
+            来替换普通的“香草”对话框或
             <code>
                 AlertDialog
             </code>
-            .
+            。
         </li>
         <li>
-            Playing with how fragments interact with other parts of an Activity, like the app bar.
+            演练fragment如何与Activity的其它部分进行交互，例如app的工具栏。
         </li>
         <li>
-            Creating adaptive UIs with fragments. In fact, you should run through
+            用fragment创建适应性的UI。实际上，你应当去运行
             <a href="https://www.raywenderlich.com/114066/adaptive-ui-android-tutorial"
             target="_blank" title="Adaptive UI in Android Tutorial" sl-processed="1">
                 Adaptive UI in Android Tutorial
             </a>
-            .
+            。
         </li>
         <li>
-            Using fragments as part of the implementation of a high-level behavioral architecture. You can take a look at
+            使用fragment作为实现高级行为架构的一部分。你可以参考一下
             <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
             target="_blank" title="Common Design Patterns for Android" sl-processed="1">
                 Common Design Patterns for Android
             </a>
-            as a good starting point to get the architecture ball rolling.
+            来作为一个很好的起点，让架构搭建起来。
         </li>
     </ul>
 </div>
