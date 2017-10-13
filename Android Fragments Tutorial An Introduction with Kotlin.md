@@ -1523,39 +1523,40 @@ fragmentRageComicDetailsBinding.comic = comic
 comic.text = String.format(getString(R.string.description_format), comic.description, comic.url)
 <span class="hljs-keyword">return</span> fragmentRageComicDetailsBinding.root
 </pre>
-    <p>
+    <p> 
+        由于你希望根据选择动态性地填充
         Since you want to dynamically populate the UI of the
         <code>
             RageComicDetailsFragment
         </code>
-        with the selection, you grab the reference to the
-        <code>
-            FragmentRageComicDetailsBinding
-        </code>
-        in the fragment view in
+        的UI，因此首先在fragment的
         <code>
             onCreateView
         </code>
-        . Next, you bind the view comic with the Comic that you’ve passed to
+        中获取
+        <code>
+            FragmentRageComicDetailsBinding
+        </code>
+        的引用。然后，将你传给
         <code>
             RageComicDetailsFragment
         </code>
-        .
+        的暴走漫画和相应的view进行绑定。
     </p>
     <p>
-        Finally, you need to create and display a
+        最后，在用户点击一项的时候，创建并展示一个
         <code>
             RageComicDetailsFragment
         </code>
-        when a user clicks an item, instead of just showing a toast. Open
+        ，替换仅仅展示toast。打开
         <em>
             MainActivity
         </em>
-        and replace the logic inside
+        并将
         <code>
             onRageComicSelected
         </code>
-        with:
+        中的逻辑替换为：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> detailsFragment =
     RageComicDetailsFragment.newInstance(comic)
@@ -1565,48 +1566,45 @@ supportFragmentManager.beginTransaction()
     .commit()
 </pre>
     <p>
-        You’ll find that this code is similar to your first transaction which
-        added the list to
+        你会发现，这里非常类似于之间将列表添加到
         <code>
             MainActivity
         </code>
-        , but there are also some notable differences.
+        的代码，但也有一些值得注意的区别。
     </p>
     <ul>
         <li>
-            You create a fragment instance that included some nifty parameters.
+            创建一个包含一些漂亮参数的fragment的实例。
         </li>
         <li>
-            You call
+            调用
             <code>
                 replace()
             </code>
-            , instead of
+            而不是
             <code>
                 add
             </code>
-            , which removes the fragment currently in the container and then adds
-            the new Fragment.
+            ，来移除当前容器中的fragment，并添加新的Fragment。
         </li>
         <li>
-            You call another new friend: the
-            <code>
-                addToBackStack()
-            </code>
-            of
+            调用了另一个新朋友：
             <code>
                 FragmentTransaction
             </code>
-            . Fragments have a
+            中的
+            <code>
+                addToBackStack()
+            </code>
+            。Fragment拥有
             <em>
-                back stack
+                back栈
             </em>
-            , or history, just like Activities.
+            ，或是历史记录，就像Activity一样。
         </li>
     </ul>
     <p>
-        The fragment back stack is not independent of the activity back stack.
-        Think of it as an extra stack of history on top of that of the host activity.
+        fragment的back栈并不独立于activity的back栈。它是宿主activity历史记录的一部分。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_d004_fragments_backstack-1.png"
@@ -1618,42 +1616,36 @@ supportFragmentManager.beginTransaction()
         </a>
     </p>
     <p>
-        When you navigate between activities, each one gets placed on the activity
-        back stack. Whenever you commit a
+        当你在activity之间进行切换的时候，每个activity都会被放置在back栈上。每当你commit一个
         <code>
             FragmentTransaction
         </code>
-        , you have the option to add that transaction to the back stack.
+        时，你就可以选择将它添加到back栈上。
     </p>
     <p>
-        So, what does
+        那么，
         <code>
             addToBackStack()
         </code>
-        do? It adds the
+        做了什么呢？它添加了
         <code>
             replace()
         </code>
-        to the back stack so that when the user hits the device’s back button
-        it undoes the transaction. In this case, hitting the back button sends
-        the user back to the full list.
+        到back栈上，这样当用户点击返回按钮的时候，就可以进行撤销事务了。在本例中，点击返回按钮，用户就可以回到列表场景中。
     </p>
     <p>
-        The
+        列表的
         <code>
             add()
         </code>
-        transaction for the list omits calling
+        事务则会忽略调用
         <code>
             addToBackStack()
         </code>
-        . This means that the transaction is part of the same history entry as
-        the entire activity. If the user hits the back button from the list, it
-        backs the user out of the app.
+        。这意味着事务是相同历史记录（整个activity）的一部分。如果用户在列表场景中点击返回按钮，就出跳出app。
     </p>
     <p>
-        Now, build and run and you should see details about each Rage when you
-        tap on them:
+        现在，运行项目，当你点击其中一项的时候，你就可以看到该暴走漫画的详情了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_017_app_showing_details.png"
@@ -1665,14 +1657,14 @@ supportFragmentManager.beginTransaction()
         </a>
     </p>
     <p>
-        With that your done! You now have a
+        完工了！现在你就有了一个可以展示暴走漫画详情的
         <em>
             All The Rages
         </em>
-        app that displays details about the comics.
+        app了。
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1684,10 +1676,11 @@ supportFragmentManager.beginTransaction()
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1695,25 +1688,22 @@ supportFragmentManager.beginTransaction()
         </div>
     </div>
     <p>
-        You can download the final project
+        你可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/AllTheRages-Final.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终完成的项目。
     </p>
     <p>
-        There is
+        关于fragment还有
         <i>
-            a lot
+            很多
         </i>
-        more to learn and do with fragments. Like any kind of tool or feature,
-        consider whether fragments fit your app’s needs, and if they do, try to
-        follow best practices and conventions.
+        值得学习的地方。和任何一种工具或特性一样，考虑fragment是否适合你app的需求，如果是的话，尝试遵循最佳的实践和惯例。
     </p>
     <p>
-        To take your skills to the next level, here are some additional things
-        to explore:
+        为了让你的技能提升到一个新的台阶，以下有一些额外的事可以进行探索：
     </p>
     <ul>
         <li>
@@ -1721,8 +1711,7 @@ supportFragmentManager.beginTransaction()
             <code>
                 ViewPager
             </code>
-            . Many apps, including the Play Store, utilize a swipeable, tabbed content
-            structure via
+            . Many apps, including the Play Store, utilize a swipeable, tabbed content structure via
             <code>
                 ViewPagers
             </code>
@@ -1740,8 +1729,7 @@ supportFragmentManager.beginTransaction()
             .
         </li>
         <li>
-            Playing with how fragments interact with other parts of an Activity, like
-            the app bar.
+            Playing with how fragments interact with other parts of an Activity, like the app bar.
         </li>
         <li>
             Creating adaptive UIs with fragments. In fact, you should run through
@@ -1752,8 +1740,7 @@ supportFragmentManager.beginTransaction()
             .
         </li>
         <li>
-            Using fragments as part of the implementation of a high-level behavioral
-            architecture. You can take a look at
+            Using fragments as part of the implementation of a high-level behavioral architecture. You can take a look at
             <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
             target="_blank" title="Common Design Patterns for Android" sl-processed="1">
                 Common Design Patterns for Android
