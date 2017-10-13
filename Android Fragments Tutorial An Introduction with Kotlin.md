@@ -1456,68 +1456,64 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 }
 </pre>
     <p>
-        A fragment can take initialization parameters through its arguments, 
-        which you access via the
+        fragment可以通过
         <code>
             arguments
         </code>
-        property. The arguments are actually a
+        这个fragment来获取初始化的参数。arguments实际上是一个用来储存键值对的
         <code>
             Bundle
         </code>
-        that stores them as key-value pairs, just like the
-        <code>
-            Bundle
-        </code>
-        in
+        ，就像是在
         <code>
             Activity.onSaveInstanceState
         </code>
-        .
-    </p>
-    <p>
-        You create and populate the arguments’
+        中的
         <code>
             Bundle
         </code>
-        , set the
+        。
+    </p>
+    <p>
+        你创建并填充了arguments的
+        <code>
+            Bundle
+        </code>
+        ，并设置给
         <code>
             arguments
         </code>
-        , and when you need the values later, you reference
+        ，当你在后面需要value的时候，你就引用
         <code>
             arguments
         </code>
-        property to retrieve them.
+        property来获取它。
     </p>
     <p>
-        As you learned earlier, when a fragment is re-created, the default empty
-        constructor is used — no parameters for you.
+        就像你在前面学到的，当fragment被重新创建的时候，会使用默认的空构造器 - 无需参数。
     </p>
     <p>
-        Because the fragment can recall initial parameters from its persisted
-        arguments, you can utilize them in the re-creation. The above code also
-        stores information about the selected Rage Comic in the
+        由于fragment可以从它的持久化参数中重新调用初始化参数，你就可以在重新创建的过程中使用它们。上述的代码还储存了在
         <code>
             RageComicDetailsFragment
         </code>
-        arguments.
+        参数中保存的被选中的暴走漫画的信息。
     </p>
     <p>
-        Add the following import to the top of
+        添加下列的import到
         <em>
             RageComicDetailsFragment.kt
         </em>
-        :
+        文件顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> com.raywenderlich.alltherages.databinding.FragmentRageComicDetailsBinding
 </pre>
     <p>
-        Now, replace the contents of
+        将
         <em>
             onCreateView()
         </em>
-        with the following:
+        的内容替换为如下代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> fragmentRageComicDetailsBinding = FragmentRageComicDetailsBinding.inflate(inflater!!,
     container, <span class="hljs-literal">false</span>)
