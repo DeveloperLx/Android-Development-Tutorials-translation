@@ -49,77 +49,69 @@
     </h2>
     <p>
         <i>
-            “Is there anywhere in this project where I’ll have to change the same
-            thing in multiple places?” – Future You
+            “项目中有什么地方，让你为了改变同一的事情，必须要在多个地方来进行么？” – Future You
         </i>
     </p>
     <p>
-        Future You should minimize time spent doing “detective work” looking for
-        intricate project dependencies, so they would prefer a project that’s as
-        reusable, readable, and recognizable as possible. These goals span a single
-        object all the way up to the entire project and lead to patterns that fall
-        into the following categories:
+        Future You应当最小化用于寻找复杂的项目依赖的“侦探工作”的时间，因此我们希望项目应当具有尽可能好的可复用性，可读性和易辨别性。这些目标可以是从单个的一个对象，直到整个项目的贯彻。且可以将这些模式分为下列的种类：
     </p>
     <ul>
         <li>
             <em>
-                Creational patterns:
+                创建型模式：
             </em>
-            how you
+            如何
             <i>
-                create
+                创建
             </i>
-            objects.
+            对象。
         </li>
         <li>
             <em>
-                Structural patterns:
+                结构性的模式：
             </em>
-            how you
+            如何构建
             <i>
                 compose
             </i>
-            objects.
+            对象。
         </li>
         <li>
             <em>
-                Behavioral patterns:
+                行为模式
             </em>
-            how you
+            如何协调
             <i>
                 coordinate
             </i>
-            object interactions.
+            对象之间的交互。
         </li>
     </ul>
     <p>
-        You may already be using one or several of these patterns already without
-        having A Capitalized Fancy Name for it, but Future You will appreciate
-        you not leaving design decisions up to intuition alone.
+        你可能早就使用了一个或几个的模式，只是没有赋予它正式的名称，而Future You就会将它们从你的直觉中独立出来。
     </p>
     <p>
-        In the sections that follow, you’ll cover the following patterns from
-        each category and see how they apply to Android:
+        在以下的部分，你会覆盖下列来自于每个种类的模式，并查看如何将它们应用到Android上：
     </p>
     <p>
         <em>
-            Creational
+            创建性的
         </em>
     </p>
     <ul>
         <li>
-            Builder
+            构建器
         </li>
         <li>
-            Dependency Injection
+            依赖注入
         </li>
         <li>
-            Singleton
+            单例
         </li>
     </ul>
     <p>
         <em>
-            Structural
+            结构性的
         </em>
     </p>
     <ul>
@@ -132,7 +124,7 @@
     </ul>
     <p>
         <em>
-            Behavioral
+            行为性的
         </em>
     </p>
     <ul>
@@ -140,21 +132,21 @@
             Command
         </li>
         <li>
-            Observer
+            观察者
         </li>
         <li>
-            Model View Controller
+            MVC
         </li>
         <li>
-            Model View ViewModel
+            MVVM
         </li>
         <li>
-            Clean Architecture
+            干净的架构
         </li>
     </ul>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
         This article isn’t like a traditional raywenderlich.com tutorial in that
         it doesn’t have an accompanying sample project that you can follow along
