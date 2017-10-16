@@ -172,24 +172,26 @@
         就在街上的那个三明治点，我用了一支小铅笔，从一张纸的清单上，来核对我想在三明治上添加的面包，配料和调味品。虽然清单的标题说是“自助的”三明治，但我其实只需填好这张表并递给服务员就可以了。我并没有实际地制作三明治，只是进行了自定义，以及消费。:]
     </p>
     <p>
-        Similarly, the Builder pattern separates the construction of a complex
-        object (the slicing of bread, the stacking of pickles) from its representation
-        (a yummy sandwich); in this way, the same construction process can create
-        different representations.
+        类似的，Builder模式会将构建一个复杂的对象（面包切片，泡菜堆），与它的表示（美味的三明治）拆分开。这样，就可以用相同的构造过程来创建不同的表示。
     </p>
     <p>
-        In Android, the Builder pattern appears when using objects like
+        在Android中，Builder模式会在当使用类似
         <code>
             AlertDialog.Builder
         </code>
-        :
+        的对象时出现：
     </p>
-    <pre lang="kotlin">
-        AlertDialog.Builder(this) .setTitle("Metaphorical Sandwich Dialog") .setMessage("Metaphorical
-        message to please use the spicy mustard.") .setNegativeButton("No thanks",
-        { dialogInterface, i -&gt; // "No thanks" button was clicked }) .setPositiveButton("OK",
-        { dialogInterface, i -&gt; // "OK" button was clicked }) .show()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">AlertDialog.Builder(<span class="hljs-keyword">this</span>)
+  .setTitle(<span class="hljs-string">"Metaphorical Sandwich Dialog"</span>)
+  .setMessage(<span class="hljs-string">"Metaphorical message to please use the spicy mustard."</span>)
+  .setNegativeButton(<span class="hljs-string">"No thanks"</span>, { dialogInterface, i -&gt;
+    <span class="hljs-comment">// "No thanks" button was clicked</span>
+  })
+  .setPositiveButton(<span class="hljs-string">"OK"</span>, { dialogInterface, i -&gt;
+    <span class="hljs-comment">// "OK" button was clicked</span>
+  })
+  .show()
+</pre>
     <p>
         This builder proceeds step-by-step and lets you specify only the parts
         of your
@@ -262,11 +264,13 @@
         </code>
         methods such as the following:
     </p>
-    <pre lang="kotlin">
-        @Module class AppModule { @Provides fun provideSharedPreferences(app:
-        Application): SharedPreferences { return app.getSharedPreferences("prefs",
-        Context.MODE_PRIVATE) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Module</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> </span>{
+  <span class="hljs-meta">@Provides</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">provideSharedPreferences</span><span class="hljs-params">(app: <span class="hljs-type">Application</span>)</span></span>: SharedPreferences {
+    <span class="hljs-keyword">return</span> app.getSharedPreferences(<span class="hljs-string">"prefs"</span>, Context.MODE_PRIVATE)
+  }
+}
+</pre>
     <p>
         The module above creates and configures all required objects. As an additional
         best-practice in larger apps, you could even create multiple modules separated
@@ -279,10 +283,11 @@
         </em>
         interface to list your modules and the classes you’ll inject:
     </p>
-    <pre lang="kotlin">
-        @Component(modules = arrayOf(AppModule::class)) interface AppComponent
-        { // ... }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Component(modules = arrayOf(AppModule::class)</span>)
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AppComponent</span> </span>{
+  <span class="hljs-comment">// ...</span>
+}
+</pre>
     <p>
         The component ties together where the dependencies are
         <i>
@@ -306,9 +311,8 @@
         to allow a non-nullable property to be initialized after the containing
         object is created:
     </p>
-    <pre lang="kotlin">
-        @Inject lateinit var sharedPreferences: SharedPreferences
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Inject</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> sharedPreferences: SharedPreferences
+</pre>
     <p>
         As an example, you could use this approach in an Activity and then use
         local storage,
@@ -347,16 +351,18 @@
         keyword is used to declare a singleton, without the need to specify a
         static instance as in other languages:
     </p>
-    <pre lang="kotlin">
-        object ExampleSingleton { fun exampleMethod() { // ... } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">object</span> ExampleSingleton {
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">exampleMethod</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// ...</span>
+  }
+}
+</pre>
     <p>
         When you need to access members of the singleton object, you simply make
         a call as follows:
     </p>
-    <pre lang="kotlin">
-        ExampleSingleton.exampleMethod()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">ExampleSingleton.exampleMethod()
+</pre>
     <p>
         Behind the scenes, the Kotlin object is backed by an
         <code>
@@ -365,9 +371,8 @@
         static field, so if you need to use a Kotlin object from Java code, you
         modify the call as follows:
     </p>
-    <pre lang="java">
-        ExampleSingleton.INSTANCE.exampleMethod();
-    </pre>
+    <pre lang="java" class="language-java hljs">ExampleSingleton.INSTANCE.exampleMethod();
+</pre>
     <p>
         By using
         <code>
@@ -435,14 +440,20 @@
         </code>
         and implement the required methods to make everything work:
     </p>
-    <pre lang="kotlin">
-        class TribbleAdapter(private val tribbles: List&lt;Tribble&gt;) : RecyclerView.Adapter&lt;TribbleViewHolder&gt;()
-        { override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): TribbleViewHolder
-        { val inflater = LayoutInflater.from(viewGroup.context) val view = inflater.inflate(R.layout.row_tribble,
-        viewGroup, false) return TribbleViewHolder(view) } override fun onBindViewHolder(viewHolder:
-        TribbleViewHolder, i: Int) { viewHolder.bind(tribbles[i]) } override fun
-        getItemCount() = tribbles.size }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TribbleAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> tribbles: List&lt;Tribble&gt;) : RecyclerView.Adapter&lt;TribbleViewHolder&gt;() {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(viewGroup: <span class="hljs-type">ViewGroup</span>, i: <span class="hljs-type">Int</span>)</span></span>: TribbleViewHolder {
+    <span class="hljs-keyword">val</span> inflater = LayoutInflater.from(viewGroup.context)
+    <span class="hljs-keyword">val</span> view = inflater.inflate(R.layout.row_tribble, viewGroup, <span class="hljs-literal">false</span>)
+    <span class="hljs-keyword">return</span> TribbleViewHolder(view)
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(viewHolder: <span class="hljs-type">TribbleViewHolder</span>, i: <span class="hljs-type">Int</span>)</span></span> {
+    viewHolder.bind(tribbles[i])
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span> = tribbles.size
+}
+</pre>
     <p>
         <code>
             RecyclerView
@@ -493,10 +504,11 @@
         the Facade pattern; you create an interface to provide API data to client
         classes like so:
     </p>
-    <pre lang="kotlin">
-        interface BooksApi { @GET("books") fun listBooks(): Call&lt;List&lt;Book&gt;&gt;
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BooksApi</span> </span>{
+  <span class="hljs-meta">@GET(<span class="hljs-meta-string">"books"</span>)</span>
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">listBooks</span><span class="hljs-params">()</span></span>: Call&lt;List&lt;Book&gt;&gt;
+}
+</pre>
     <p>
         The client simply needs to call
         <code>
@@ -515,11 +527,13 @@
         the client. For example, you can specify a customized JSON deserializer
         about which the Activity has no clue:
     </p>
-    <pre lang="kotlin">
-        val retrofit = Retrofit.Builder() .baseUrl("http://www.myexampleurl.com")
-        .addConverterFactory(GsonConverterFactory.create()) .build() val api =
-        retrofit.create&lt;BooksApi&gt;(BooksApi::class.java)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> retrofit = Retrofit.Builder()
+  .baseUrl(<span class="hljs-string">"http://www.myexampleurl.com"</span>)
+  .addConverterFactory(GsonConverterFactory.create())
+  .build()
+
+<span class="hljs-keyword">val</span> api = retrofit.create&lt;BooksApi&gt;(BooksApi::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+</pre>
     <p>
         Notice the use of
         <code>
@@ -596,9 +610,8 @@
         data, or pretty much anything else in your app. You can create specific
         subclasses which carry data as well:
     </p>
-    <pre lang="kotlin">
-        class MySpecificEvent { /* Additional fields if needed */ }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySpecificEvent</span> </span>{ <span class="hljs-comment">/* Additional fields if needed */</span> }
+</pre>
     <p>
         After defining your event, you obtain an instance of
         <code>
@@ -606,22 +619,21 @@
         </code>
         and register an object as a subscriber:
     </p>
-    <pre lang="kotlin">
-        eventBus.register(this)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">eventBus.register(<span class="hljs-keyword">this</span>)
+</pre>
     <p>
         Now that the object is a subscriber, tell it what type of event to subscribe
         to and what it should do when it receives one:
     </p>
-    <pre lang="kotlin">
-        fun onEvent(event: MySpecificEvent) { /* Do something */ }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onEvent</span><span class="hljs-params">(event: <span class="hljs-type">MySpecificEvent</span>)</span></span> {
+  <span class="hljs-comment">/* Do something */</span>
+}
+</pre>
     <p>
         Finally, create and post one of those events based on your criteria:
     </p>
-    <pre lang="kotlin">
-        eventBus.post(event)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">eventBus.post(event)
+</pre>
     <p>
         Since so much of this pattern works its magic at run-time, Future You
         might have a little trouble tracing this pattern unless you have good test
@@ -648,10 +660,11 @@
         framework (aka Reactive Android) will let you implement this pattern throughout
         your app:
     </p>
-    <pre lang="kotlin">
-        apiService.getData(someData) .subscribeOn(Schedulers.io()) .observeOn(AndroidSchedulers.mainThread())
-        .subscribe (/* an Observer */)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">apiService.getData(someData)
+  .subscribeOn(Schedulers.io())
+  .observeOn(AndroidSchedulers.mainThread())
+  .subscribe (<span class="hljs-comment">/* an Observer */</span>)
+</pre>
     <p>
         In short, you define
         <code>
