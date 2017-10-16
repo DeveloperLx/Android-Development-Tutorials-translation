@@ -193,21 +193,19 @@
   .show()
 </pre>
     <p>
-        This builder proceeds step-by-step and lets you specify only the parts
-        of your
+        这个builder过程一步一步地指定了
         <code>
             AlertDialog
         </code>
-        that matter to you. Take a look at the
+        中的每个部分。参考一下
         <a href="https://developer.android.com/reference/android/app/AlertDialog.Builder.html"
         target="_blank" title="AlertDialog.Builder docs">
-            AlertDialog.Builder documentation
+            AlertDialog.Builder文档
         </a>
-        ; you’ll see there are quite a few commands to choose from when building
-        your alert.
+        ，你可以看到很多构建警告框时可用的选项。
     </p>
     <p>
-        The code block above produces the following alert:
+        上面的代码片段会生成如下的警告框：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screen-Shot-2017-08-07-at-2.03.02-PM.png">
@@ -218,11 +216,10 @@
         </a>
     </p>
     <p>
-        A different set of choices would result in a completely different sandwich
-        – er, alert. :]
+        不同的选项集就会创建出完全不同的三明治 - 嗯，是警告框啦 :]
     </p>
     <h3>
-        Dependency Injection
+        依赖注入
     </h3>
     <p>
         Dependency injection is like moving into a furnished apartment. Everything
