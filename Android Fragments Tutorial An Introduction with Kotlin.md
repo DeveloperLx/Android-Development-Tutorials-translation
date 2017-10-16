@@ -1368,38 +1368,38 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
 </pre>
     <p>
-        At the top you’ll see that we’ve added a variable for our
+        我们在顶端为
         <em>
             Comic
         </em>
-        . The text for
+        添加了一个variable，将
         <em>
             name
         </em>
-        and
+        和
         <em>
             description
         </em>
-        is bound to the variables of the same name in the
+        绑定到了
         <em>
             Comic
         </em>
-        object.
+        对象中同名的变量。
     </p>
     <h3>
-        Binding Adapters
+        绑定Adapter
     </h3>
     <p>
-        On the ImageView for the comic image you’ll notice the following tag:
+        在暴走漫画的ImageView中，你会注意到如下的标签：
     </p>
     <pre lang="xml" class="language-xml hljs">imageResource="@{comic.imageResId}"
 </pre>
     <p>
-        This corresponds to a binding adapter that we’ve created in the
+        这就对应于我们在
         <code>
             DataBindingAdapters.kt
         </code>
-        file.
+        文件中创建的绑定Adapter。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-meta">@BindingAdapter(<span class="hljs-meta-string">"android:src"</span>)</span>
   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setImageResoruce</span><span class="hljs-params">(imageView: <span class="hljs-type">ImageView</span>, resource: <span class="hljs-type">Int</span>)</span></span> {
@@ -1407,47 +1407,43 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
   }
 </pre>
     <p>
-        A
+        我们可以通过
         <em>
             binding adapter
         </em>
-        allows us to perform actions on an element which are not supported by
-        default
+        在不被默认的
         <em>
-            data binding
+            数据绑定
         </em>
-        . In your case you are storing a resource integer for the image to be
-        displayed, but data binding does not provide a default way to display an
-        image from an ID. To fix that, you have a
+        支持的元素上执行动作。这里为展示图片储存了一个resource的整型值，但数据绑定无法提供一个默认的方式来根据一个ID展示图片。要修复这个问题，你需要一个
         <em>
             BindingAdapter
         </em>
-        that takes a reference to the object that it was invoked from, along with
-        a parameter. It uses that to call
-        <code>
-            setImageResource
-        </code>
-        on the
+        ，它引用了一个被调用的对象，及一个参数。用它来调用
         <code>
             imageView
         </code>
-        that displays the image for the comic.
+        上的
+        <code>
+            setImageResource
+        </code>
+        来展示暴走漫画。
     </p>
     <p>
-        Now that your view is set up, add the following import to the top of
+        现在view已经被设置好了，添加下列的import到
         <em>
             RageComicDetailsFragment.kt
         </em>
-        :
+        文件的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> java.io.Serializable
 </pre>
     <p>
-        Replace
+        将
         <code>
             newInstance()
         </code>
-        with the code shown below:
+        替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> COMIC = <span class="hljs-string">"comic"</span>
 
@@ -1460,68 +1456,64 @@ view.findViewById&lt;TextView&gt;(R.id.name).setText(programmer.name)
 }
 </pre>
     <p>
-        A fragment can take initialization parameters through its arguments, which
-        you access via the
+        fragment可以通过
         <code>
             arguments
         </code>
-        property. The arguments are actually a
+        这个fragment来获取初始化的参数。arguments实际上是一个用来储存键值对的
         <code>
             Bundle
         </code>
-        that stores them as key-value pairs, just like the
-        <code>
-            Bundle
-        </code>
-        in
+        ，就像是在
         <code>
             Activity.onSaveInstanceState
         </code>
-        .
-    </p>
-    <p>
-        You create and populate the arguments’
+        中的
         <code>
             Bundle
         </code>
-        , set the
+        。
+    </p>
+    <p>
+        你创建并填充了arguments的
+        <code>
+            Bundle
+        </code>
+        ，并设置给
         <code>
             arguments
         </code>
-        , and when you need the values later, you reference
+        ，当你在后面需要value的时候，你就引用
         <code>
             arguments
         </code>
-        property to retrieve them.
+        property来获取它。
     </p>
     <p>
-        As you learned earlier, when a fragment is re-created, the default empty
-        constructor is used — no parameters for you.
+        就像你在前面学到的，当fragment被重新创建的时候，会使用默认的空构造器 - 无需参数。
     </p>
     <p>
-        Because the fragment can recall initial parameters from its persisted
-        arguments, you can utilize them in the re-creation. The above code also
-        stores information about the selected Rage Comic in the
+        由于fragment可以从它的持久化参数中重新调用初始化参数，你就可以在重新创建的过程中使用它们。上述的代码还储存了在
         <code>
             RageComicDetailsFragment
         </code>
-        arguments.
+        参数中保存的被选中的暴走漫画的信息。
     </p>
     <p>
-        Add the following import to the top of
+        添加下列的import到
         <em>
             RageComicDetailsFragment.kt
         </em>
-        :
+        文件顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> com.raywenderlich.alltherages.databinding.FragmentRageComicDetailsBinding
 </pre>
     <p>
-        Now, replace the contents of
+        将
         <em>
             onCreateView()
         </em>
-        with the following:
+        的内容替换为如下代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> fragmentRageComicDetailsBinding = FragmentRageComicDetailsBinding.inflate(inflater!!,
     container, <span class="hljs-literal">false</span>)
@@ -1531,39 +1523,40 @@ fragmentRageComicDetailsBinding.comic = comic
 comic.text = String.format(getString(R.string.description_format), comic.description, comic.url)
 <span class="hljs-keyword">return</span> fragmentRageComicDetailsBinding.root
 </pre>
-    <p>
+    <p> 
+        由于你希望根据选择动态性地填充
         Since you want to dynamically populate the UI of the
         <code>
             RageComicDetailsFragment
         </code>
-        with the selection, you grab the reference to the
-        <code>
-            FragmentRageComicDetailsBinding
-        </code>
-        in the fragment view in
+        的UI，因此首先在fragment的
         <code>
             onCreateView
         </code>
-        . Next, you bind the view comic with the Comic that you’ve passed to
+        中获取
+        <code>
+            FragmentRageComicDetailsBinding
+        </code>
+        的引用。然后，将你传给
         <code>
             RageComicDetailsFragment
         </code>
-        .
+        的暴走漫画和相应的view进行绑定。
     </p>
     <p>
-        Finally, you need to create and display a
+        最后，在用户点击一项的时候，创建并展示一个
         <code>
             RageComicDetailsFragment
         </code>
-        when a user clicks an item, instead of just showing a toast. Open
+        ，替换仅仅展示toast。打开
         <em>
             MainActivity
         </em>
-        and replace the logic inside
+        并将
         <code>
             onRageComicSelected
         </code>
-        with:
+        中的逻辑替换为：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> detailsFragment =
     RageComicDetailsFragment.newInstance(comic)
@@ -1573,48 +1566,45 @@ supportFragmentManager.beginTransaction()
     .commit()
 </pre>
     <p>
-        You’ll find that this code is similar to your first transaction which
-        added the list to
+        你会发现，这里非常类似于之间将列表添加到
         <code>
             MainActivity
         </code>
-        , but there are also some notable differences.
+        的代码，但也有一些值得注意的区别。
     </p>
     <ul>
         <li>
-            You create a fragment instance that included some nifty parameters.
+            创建一个包含一些漂亮参数的fragment的实例。
         </li>
         <li>
-            You call
+            调用
             <code>
                 replace()
             </code>
-            , instead of
+            而不是
             <code>
                 add
             </code>
-            , which removes the fragment currently in the container and then adds
-            the new Fragment.
+            ，来移除当前容器中的fragment，并添加新的Fragment。
         </li>
         <li>
-            You call another new friend: the
-            <code>
-                addToBackStack()
-            </code>
-            of
+            调用了另一个新朋友：
             <code>
                 FragmentTransaction
             </code>
-            . Fragments have a
+            中的
+            <code>
+                addToBackStack()
+            </code>
+            。Fragment拥有
             <em>
-                back stack
+                back栈
             </em>
-            , or history, just like Activities.
+            ，或是历史记录，就像Activity一样。
         </li>
     </ul>
     <p>
-        The fragment back stack is not independent of the activity back stack.
-        Think of it as an extra stack of history on top of that of the host activity.
+        fragment的back栈并不独立于activity的back栈。它是宿主activity历史记录的一部分。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_d004_fragments_backstack-1.png"
@@ -1626,42 +1616,36 @@ supportFragmentManager.beginTransaction()
         </a>
     </p>
     <p>
-        When you navigate between activities, each one gets placed on the activity
-        back stack. Whenever you commit a
+        当你在activity之间进行切换的时候，每个activity都会被放置在back栈上。每当你commit一个
         <code>
             FragmentTransaction
         </code>
-        , you have the option to add that transaction to the back stack.
+        时，你就可以选择将它添加到back栈上。
     </p>
     <p>
-        So, what does
+        那么，
         <code>
             addToBackStack()
         </code>
-        do? It adds the
+        做了什么呢？它添加了
         <code>
             replace()
         </code>
-        to the back stack so that when the user hits the device’s back button
-        it undoes the transaction. In this case, hitting the back button sends
-        the user back to the full list.
+        到back栈上，这样当用户点击返回按钮的时候，就可以进行撤销事务了。在本例中，点击返回按钮，用户就可以回到列表场景中。
     </p>
     <p>
-        The
+        列表的
         <code>
             add()
         </code>
-        transaction for the list omits calling
+        事务则会忽略调用
         <code>
             addToBackStack()
         </code>
-        . This means that the transaction is part of the same history entry as
-        the entire activity. If the user hits the back button from the list, it
-        backs the user out of the app.
+        。这意味着事务是相同历史记录（整个activity）的一部分。如果用户在列表场景中点击返回按钮，就出跳出app。
     </p>
     <p>
-        Now, build and run and you should see details about each Rage when you
-        tap on them:
+        现在，运行项目，当你点击其中一项的时候，你就可以看到该暴走漫画的详情了：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/12/android_fragments_017_app_showing_details.png"
@@ -1673,14 +1657,14 @@ supportFragmentManager.beginTransaction()
         </a>
     </p>
     <p>
-        With that your done! You now have a
+        完工了！现在你就有了一个可以展示暴走漫画详情的
         <em>
             All The Rages
         </em>
-        app that displays details about the comics.
+        app了。
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1692,10 +1676,11 @@ supportFragmentManager.beginTransaction()
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1703,70 +1688,64 @@ supportFragmentManager.beginTransaction()
         </div>
     </div>
     <p>
-        You can download the final project
+        你可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/AllTheRages-Final.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终完成的项目。
     </p>
     <p>
-        There is
+        关于fragment还有
         <i>
-            a lot
+            很多
         </i>
-        more to learn and do with fragments. Like any kind of tool or feature,
-        consider whether fragments fit your app’s needs, and if they do, try to
-        follow best practices and conventions.
+        值得学习的地方。和任何一种工具或特性一样，考虑fragment是否适合你app的需求，如果是的话，尝试遵循最佳的实践和惯例。
     </p>
     <p>
-        To take your skills to the next level, here are some additional things
-        to explore:
+        为了让你的技能提升到一个新的台阶，以下有一些额外的事可以进行探索：
     </p>
     <ul>
         <li>
-            Using fragments within a
+            在
             <code>
                 ViewPager
             </code>
-            . Many apps, including the Play Store, utilize a swipeable, tabbed content
-            structure via
+            中使用fragment。很多app，包括Play Store，会通过
             <code>
-                ViewPagers
+                ViewPager
             </code>
-            .
+            来使用一个可滑动，分页式的内容结构。
         </li>
         <li>
-            Using a more powerful, advantageous
+            使用更强大的
             <code>
                 DialogFragment
             </code>
-            instead of a plain vanilla dialog or
+            来替换普通的“香草”对话框或
             <code>
                 AlertDialog
             </code>
-            .
+            。
         </li>
         <li>
-            Playing with how fragments interact with other parts of an Activity, like
-            the app bar.
+            演练fragment如何与Activity的其它部分进行交互，例如app的工具栏。
         </li>
         <li>
-            Creating adaptive UIs with fragments. In fact, you should run through
+            用fragment创建适应性的UI。实际上，你应当去运行
             <a href="https://www.raywenderlich.com/114066/adaptive-ui-android-tutorial"
             target="_blank" title="Adaptive UI in Android Tutorial" sl-processed="1">
                 Adaptive UI in Android Tutorial
             </a>
-            .
+            。
         </li>
         <li>
-            Using fragments as part of the implementation of a high-level behavioral
-            architecture. You can take a look at
+            使用fragment作为实现高级行为架构的一部分。你可以参考一下
             <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
             target="_blank" title="Common Design Patterns for Android" sl-processed="1">
                 Common Design Patterns for Android
             </a>
-            as a good starting point to get the architecture ball rolling.
+            来作为一个很好的起点，让架构搭建起来。
         </li>
     </ul>
 </div>
