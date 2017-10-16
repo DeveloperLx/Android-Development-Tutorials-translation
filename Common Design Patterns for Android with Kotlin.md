@@ -6,10 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update Note
+                更新日志
             </em>
-            : This tutorial has been updated to Kotlin by Joe Howard. The original
-            tutorial was written by Matt Luedke.
+            ：本教程已由Joe Howard更新至Kotlin版本。原教程是由Matt Luedke编写。
         </p>
     </div>
     <div id="attachment_119228" style="width: 260px" class="wp-caption alignright">
@@ -20,45 +19,33 @@
         </p>
     </div>
     <p>
-        Beyond satisfying your clients and your employer, there’s one more important
-        individual to keep happy in your career as a developer: Future You! (The
-        artist’s conception of Future You to the right implies no guarantee of
-        such cool shirts for developers in the near future.) :]
+        除了满足你的客户雇主外，还有一个重要的特性可以让你在开发者的职业生涯中保持快乐：Future You! （Future You的概念，就是暗指这么酷的开发者衬衫，保不齐不久的将来就会有）:]
     </p>
     <p>
-        Future You will inherit the code you write at some point down the road,
-        and will likely have a lot of questions about how and why you coded things
-        the way you did. But instead of leaving tons of confusing comments in your
-        code, a much better approach is to adopt common
+        将来的你会继承自己在某个时间的写的代码，并且生出很多关于你当时为何要这样写的问题。而相对于在代码中留出无数困惑的注释，更好的方式是采取常见的
         <em>
-            design patterns
+            设计模式
         </em>
-        .
+        。
     </p>
     <p>
-        This article will introduce a few common design patterns for Android that
-        you can use while developing apps. Design patterns are reusable solutions
-        to common software problems. The design patterns covered here aren’t an
-        exhaustive list, nor an academically-citable paper. Rather, they serve
-        as a workable references and starting points for further investigation.
+        本教程会介绍一些Android常见的设计模式，你可以在开发app的时候用到它们。设计模式是对常见软件问题的可重用的解决方案。这里覆盖的既不是一份详尽的列表，也不是学术上可引用的论文。相反，它只是一个可落实行动的指南和进一步调研的起点。
     </p>
     <p>
-        This article also assumes you’re familiar with the basics of Android development.
-        If you’re completely new to Kotlin, XML or Android Studio, you should take
-        a look at the
-        <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+        本文还假设你熟悉Android开发的基础。如果你是个Kotlin的纯小白，XML或Android Studio，请首先参考
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
         target="_blank" title="Beginning Android Development Series">
-            Beginning Android Development Series
+            开始Android开发系列
         </a>
         and
-        <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
         target="_blank" title="Kotlin For Android: An Introduction">
-            Kotlin For Android: An Introduction
+            Kotlin开发Android：介绍
         </a>
-        before you start.
+        。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         <i>
