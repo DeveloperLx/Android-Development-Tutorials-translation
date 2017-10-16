@@ -100,7 +100,7 @@
     </p>
     <ul>
         <li>
-            构建器
+            Builder
         </li>
         <li>
             依赖注入
@@ -160,23 +160,16 @@
         </i>
     </p>
     <p>
-        Future You hopes the answer is not “copy and paste the same code every
-        time you need an instance of this object.” Instead, creational patterns
-        make object creation simple and easily repeatable.
+        Future You希望这个答案不是“每次需要这个代码的实例时，就拷贝并粘贴相同的代码。”而是通过创建性的模式，使得创建对象简单并易于重复。
     </p>
     <p>
-        Here are several examples:
+        有几个例子：
     </p>
     <h3>
         Builder
     </h3>
     <p>
-        At a sandwich spot down my block, I use a small pencil to check off the
-        bread, ingredients, and condiments I’d like on my sandwich from a checklist
-        on a slip of paper. Even though the checklist’s title instructs me to “build
-        my own” sandwich, I really only fill out the form and hand it over the
-        counter. I’m not actually doing the sandwich-building, just the customizing…and
-        the consuming. :]
+        就在街上的那个三明治点，我用了一支小铅笔，从一张纸的清单上，来核对我想在三明治上添加的面包，配料和调味品。虽然清单的标题说是“自助的”三明治，但我其实只需填好这张表并递给服务员就可以了。我并没有实际地制作三明治，只是进行了自定义，以及消费。:]
     </p>
     <p>
         Similarly, the Builder pattern separates the construction of a complex
