@@ -1,4 +1,4 @@
-# Common Design Patterns for Android with Kotlin
+# Android的常用设计模式 - Kotlin
 ---
 #### [原文地址](https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
