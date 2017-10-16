@@ -58,7 +58,7 @@
     <ul>
         <li>
             <em>
-                创建型模式：
+                创建性模式：
             </em>
             如何
             <i>
@@ -70,9 +70,9 @@
             <em>
                 结构性的模式：
             </em>
-            如何构建
+            如何
             <i>
-                compose
+                构建
             </i>
             对象。
         </li>
@@ -80,9 +80,9 @@
             <em>
                 行为模式
             </em>
-            如何协调
+            如何
             <i>
-                coordinate
+                协调
             </i>
             对象之间的交互。
         </li>
@@ -148,18 +148,14 @@
         <em>
             注意：
         </em>
-        This article isn’t like a traditional raywenderlich.com tutorial in that
-        it doesn’t have an accompanying sample project that you can follow along
-        with. Treat it instead like an article to get you up to speed to the different
-        patterns you’ll see used in our other Android tutorials, and to discover
-        ways to improve your own code.
+        本教程和传统的raywenderlich.com有所不同，它没有一个相应的样本项目供你跟着做。品味它以加深对不同设计模式的理解，来提高你的编写代码的能力。
     </div>
     <h2>
-        Creational Patterns
+        创建性模式
     </h2>
     <p>
         <i>
-            “When I need a particular complex object, how do I get one?” – Future
+            “当我需要一个特别负责的对象的时候，该怎么做？” – Future
             You
         </i>
     </p>
