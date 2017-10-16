@@ -826,10 +826,4 @@
         “ancient”, but documents many useful design patterns that predate Android
         itself !
     </p>
-    <p>
-        I hope this article serves as a starting point for your research into
-        common design patterns for Android! If you have any questions or comments,
-        feel free to join the forum discussion below – Future You would be happy
-        if you did. :]
-    </p>
 </div>
