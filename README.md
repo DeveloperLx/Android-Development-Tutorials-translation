@@ -104,7 +104,7 @@
         <li>
             <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
             sl-processed="1">
-                Common Design Patterns for Android with Kotlin
+                Android的常用设计模式 - Kotlin
             </a>
         </li>
     </ul>
