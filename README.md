@@ -102,7 +102,7 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Common%20Design%20Patterns%20for%20Android%20with%20Kotlin.md"
             sl-processed="1">
                 Android的常用设计模式 - Kotlin
             </a>
