@@ -222,44 +222,35 @@
         依赖注入
     </h3>
     <p>
-        Dependency injection is like moving into a furnished apartment. Everything
-        you need is already there; you don’t have to wait for furniture delivery
-        or follow pages of IKEA instructions to put together a Borgsjö bookshelf.
+        依赖注入就像是你进入到了一个已装备好家具的房间，所需的一切都早已存在，无需再等待投递，或跟随宜家的指南来组装Borgsjö的书架。
     </p>
     <p>
-        In strictly software terms, dependency injection has you provide any objects
-        required when you instantiate a new object; the new object doesn’t need
-        to construct or customize the objects itself.
+        在正规的软件术语中，依赖注入提供了当你初始化一个新对象的时候所需的任何对象；这样新的对象就无需自己来构造或定制对象了。
     </p>
     <p>
-        In Android, you might find you need to access the same complex objects
-        from various points in your app, such as a network client, an image loader,
-        or
+        在Android中，你会发现你需要在app从很多地方访问一些相同但很复杂的对象，例如网络客户端，图片加载器，或是本地保存的
         <code>
             SharedPreferences
         </code>
-        for local storage. You can
+        。你就可以将这些对象
         <em>
-            inject
+            注入
         </em>
-        these objects into your activities and fragments and access them right
-        away.
+        到你的activity或fragment中来直接访问它们。
     </p>
     <p>
         <a href="http://google.github.io/dagger/">
             Dagger 2
         </a>
-        is the most popular open-source dependency injection framework for Android
-        and was developed in collaboration between Google and Square. You simply
-        annotate a class with
+        是Android最流行的开源依赖注入框架，用于支持在Google和Square之间的协同开发。你只需将一个类标记为
         <code>
             @Module
         </code>
-        , and populate it with
+        ，并用
         <code>
             @Provides
         </code>
-        methods such as the following:
+        来标记相应的方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Module</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> </span>{
@@ -269,16 +260,14 @@
 }
 </pre>
     <p>
-        The module above creates and configures all required objects. As an additional
-        best-practice in larger apps, you could even create multiple modules separated
-        by function.
+        上述的模块创建并配置了所有必须的对象。作为一项在大型app中的最佳实践，你甚至可以创建由函数分隔的多个模块。
     </p>
     <p>
-        Then, you make a
+        然后，你就可以创建一个
         <em>
             Component
         </em>
-        interface to list your modules and the classes you’ll inject:
+        interface来列出你的模块，和你将注入的类：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Component(modules = arrayOf(AppModule::class)</span>)
 <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AppComponent</span> </span>{
@@ -286,67 +275,64 @@
 }
 </pre>
     <p>
-        The component ties together where the dependencies are
+        component会将依赖的
         <i>
-            coming from
+            来源
         </i>
-        (the modules), and where they are
+        （模块），及
         <i>
-            going to
+            注入到
         </i>
-        (the injection points).
+        的地方联结起来。
     </p>
     <p>
-        Finally, you use the
+        最后，在你需要的地方使用
         <code>
             @Inject
         </code>
-        annotation to request the dependency wherever you need it, along with
+        annotation来请求依赖，以及
         <code>
             lateinit
         </code>
-        to allow a non-nullable property to be initialized after the containing
-        object is created:
+        包含的对象被创建之后，初始化non-nullable的property：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Inject</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> sharedPreferences: SharedPreferences
 </pre>
     <p>
-        As an example, you could use this approach in an Activity and then use
-        local storage,
+        在这个例子中，你就可以在Activity中使用这个方法，然后再使用本地的储存，
         <i>
-            without
+            无需
         </i>
-        any need for the Activity having to know how the
+        知道
         <code>
             SharedPreferences
         </code>
-        object came to be.
+        对象来源何处。
     </p>
     <p>
-        Admittedly this is a simplified overview, but you can read up on the
+        上面是只一个很简单的概述，你可以在
         <a href="http://google.github.io/dagger/">
             Dagger documentation
         </a>
-        for more detailed implementation details, and also check out
+        中阅读更多实现的细节，还可以参考
         <a href="https://www.raywenderlich.com/146804/dependency-injection-dagger-2"
         target="_blank" title="Dependency Injection in Android with Dagger 2">
             Dependency Injection in Android with Dagger 2
         </a>
-        . This pattern may seem complicated and “magical” at first, but its use
-        can help simplify your activities and fragments.
+        。这个模式开始看起来会有点复杂和魔幻，但却可以用来简化你的activity和fragment。
     </p>
     <h3>
-        Singleton
+        单例
     </h3>
     <p>
-        The Singleton Pattern specifies that only a single instance of a class
-        should exist with a global point of access. This works well when modeling
-        real-world objects only having one instance. The Kotlin
+        The Singleton Pattern specifies that only a single instance of a class should exist with a global point of access. 
+        This works well when modeling real-world objects only having one instance. 
+        The Kotlin
         <code>
             object
         </code>
-        keyword is used to declare a singleton, without the need to specify a
-        static instance as in other languages:
+        keyword is used to declare a singleton,
+        without the need to specify a static instance as in other languages:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">object</span> ExampleSingleton {
   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">exampleMethod</span><span class="hljs-params">()</span></span> {
@@ -355,8 +341,8 @@
 }
 </pre>
     <p>
-        When you need to access members of the singleton object, you simply make
-        a call as follows:
+        When you need to access members of the singleton object, 
+        you simply make a call as follows:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">ExampleSingleton.exampleMethod()
 </pre>
@@ -365,8 +351,9 @@
         <code>
             INSTANCE
         </code>
-        static field, so if you need to use a Kotlin object from Java code, you
-        modify the call as follows:
+        static field, 
+        so if you need to use a Kotlin object from Java code, 
+        you modify the call as follows:
     </p>
     <pre lang="java" class="language-java hljs">ExampleSingleton.INSTANCE.exampleMethod();
 </pre>
@@ -375,16 +362,16 @@
         <code>
             object
         </code>
-        , you’ll know you’re using the same instance of that class throughout
-        your app.
+        , you’ll know you’re using the same instance of that class throughout your app.
     </p>
     <p>
         The Singleton is probably the easiest pattern to initially understand,
-        but can be dangerously easy to overuse – and abuse. Since it’s accessible
-        from multiple objects, the singleton can undergo unexpected side effects
-        that are difficult to track down – exactly what Future You doesn’t want
-        to deal with. It’s important to understand the pattern, but other design
-        patterns may be safer and easier to maintain.
+        but can be dangerously easy to overuse – and abuse. 
+        Since it’s accessible from multiple objects, 
+        the singleton can undergo unexpected side effects that are difficult to track down 
+        – exactly what Future You doesn’t want to deal with. 
+        It’s important to understand the pattern, 
+        but other design patterns may be safer and easier to maintain.
     </p>
     <h2>
         Structural Patterns
