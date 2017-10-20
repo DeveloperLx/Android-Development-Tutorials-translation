@@ -325,14 +325,11 @@
         单例
     </h3>
     <p>
-        The Singleton Pattern specifies that only a single instance of a class should exist with a global point of access. 
-        This works well when modeling real-world objects only having one instance. 
-        The Kotlin
+        单例模式指定了这个类全局都只能有一个实例，无论何时访问都只能访问它。在Kotlin中关键字
         <code>
             object
         </code>
-        keyword is used to declare a singleton,
-        without the need to specify a static instance as in other languages:
+        用来声明一个单例，无需像其它语言中一样去指定一个静态实例：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">object</span> ExampleSingleton {
   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">exampleMethod</span><span class="hljs-params">()</span></span> {
@@ -341,28 +338,25 @@
 }
 </pre>
     <p>
-        When you need to access members of the singleton object, 
-        you simply make a call as follows:
+        当你需要单例对象的成员的时候，只需想下面这样子调用就可以了：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">ExampleSingleton.exampleMethod()
 </pre>
     <p>
-        Behind the scenes, the Kotlin object is backed by an
+        在表象后，Kotlin的对象是由一个
         <code>
             INSTANCE
         </code>
-        static field, 
-        so if you need to use a Kotlin object from Java code, 
-        you modify the call as follows:
+        的静态字段来支持的，因此如果你需要在Java的代码中访问Kotlin的对象，只需将调用修改为下面的样子：
     </p>
     <pre lang="java" class="language-java hljs">ExampleSingleton.INSTANCE.exampleMethod();
 </pre>
     <p>
-        By using
+        在
         <code>
             object
         </code>
-        , you’ll know you’re using the same instance of that class throughout your app.
+        关键字的作用下，你的app就只会访问到这个类的相同的实例。
     </p>
     <p>
         The Singleton is probably the easiest pattern to initially understand,
