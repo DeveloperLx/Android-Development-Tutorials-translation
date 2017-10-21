@@ -359,16 +359,10 @@
         关键字的作用下，你的app就只会访问到这个类的相同的实例。
     </p>
     <p>
-        The Singleton is probably the easiest pattern to initially understand,
-        but can be dangerously easy to overuse – and abuse. 
-        Since it’s accessible from multiple objects, 
-        the singleton can undergo unexpected side effects that are difficult to track down 
-        – exactly what Future You doesn’t want to deal with. 
-        It’s important to understand the pattern, 
-        but other design patterns may be safer and easier to maintain.
+        单例可能是一上来最容易理解的设计模式，但却存在着很容易被滥用的风险。它在很多对象中都可以访问，可能就会遇到意料之外的难以追踪的副作用 - Future You并不想去处理它们。理解这个模式非常重要，但其它的设计模式会更加得安全且易于维护。
     </p>
     <h2>
-        Structural Patterns
+        结构性的模式
     </h2>
     <p>
         <i>
