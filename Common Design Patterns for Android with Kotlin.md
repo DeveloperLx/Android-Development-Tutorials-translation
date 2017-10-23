@@ -513,32 +513,33 @@
     </p>
     <p>
         Behavioral patterns let you assign responsibility for different app functions;
-        Future You can use them to navigate the structure and architecture of the
-        project. These patterns can vary in scope, from the relationship between
-        two objects to the entire architecture of your app. In many cases, the
-        various behaviorial patterns are used together in the same app.
+        Future You can use them to navigate the structure and architecture of the project. 
+        These patterns can vary in scope, 
+        from the relationship between two objects to the entire architecture of your app. 
+        In many cases, 
+        the various behaviorial patterns are used together in the same app.
     </p>
     <h3>
         Command
     </h3>
     <p>
-        When you order some excellent Saag Paneer at an Indian restaurant, you
-        don’t necessarily know which cook will prepare your dish; you only give
-        your order to the waiter, who posts the order in the kitchen for the next
-        available cook.
+        When you order some excellent Saag Paneer at an Indian restaurant, 
+        you don’t necessarily know which cook will prepare your dish; 
+        you only give your order to the waiter, 
+        who posts the order in the kitchen for the next available cook.
     </p>
     <p>
-        Similarly, the Command pattern lets you issue requests without knowing
-        the receiver. You encapsulate a request as an object and send it off; deciding
-        how to complete the request is an entirely separate mechanism.
+        Similarly, 
+        the Command pattern lets you issue requests without knowing the receiver. 
+        You encapsulate a request as an object and send it off; 
+        deciding how to complete the request is an entirely separate mechanism.
     </p>
     <p>
         Greenrobot’s
         <a href="https://github.com/greenrobot/EventBus" target="_blank" title="EventBus">
             EventBus
         </a>
-        is a popular Android framework that supports this pattern in the following
-        manner:
+        is a popular Android framework that supports this pattern in the following manner:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/07/EventBus-Publish-Subscribe.png">
@@ -552,9 +553,9 @@
         <code>
             Event
         </code>
-        is a command-style object that can be triggered by user input, server
-        data, or pretty much anything else in your app. You can create specific
-        subclasses which carry data as well:
+        is a command-style object that can be triggered by user input, 
+        server data, or pretty much anything else in your app. 
+        You can create specific subclasses which carry data as well:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySpecificEvent</span> </span>{ <span class="hljs-comment">/* Additional fields if needed */</span> }
 </pre>
@@ -568,8 +569,8 @@
     <pre lang="kotlin" class="language-kotlin hljs">eventBus.register(<span class="hljs-keyword">this</span>)
 </pre>
     <p>
-        Now that the object is a subscriber, tell it what type of event to subscribe
-        to and what it should do when it receives one:
+        Now that the object is a subscriber, 
+        tell it what type of event to subscribe to and what it should do when it receives one:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onEvent</span><span class="hljs-params">(event: <span class="hljs-type">MySpecificEvent</span>)</span></span> {
   <span class="hljs-comment">/* Do something */</span>
@@ -581,30 +582,31 @@
     <pre lang="kotlin" class="language-kotlin hljs">eventBus.post(event)
 </pre>
     <p>
-        Since so much of this pattern works its magic at run-time, Future You
-        might have a little trouble tracing this pattern unless you have good test
-        coverage. Still, a well-designed flow of commands balances out the readability
-        and should be easy enough to follow at a later date.
+        Since so much of this pattern works its magic at run-time, 
+        Future You might have a little trouble tracing this pattern unless you have good test coverage. 
+        Still, 
+        a well-designed flow of commands balances out the readability and should be easy enough to follow at a later date.
     </p>
     <h3>
         Observer
     </h3>
     <p>
         The Observer pattern defines a one-to-many dependency between objects.
-        When one object changes state, all of its dependents are notified and updated
-        automatically.
+        When one object changes state, 
+        all of its dependents are notified and updated automatically.
     </p>
     <p>
-        This is a versatile pattern; you can use it for operations of indeterminate
-        time, such as API calls. You can also use it to respond to user input.
+        This is a versatile pattern; 
+        you can use it for operations of indeterminate time, 
+        such as API calls. 
+        You can also use it to respond to user input.
     </p>
     <p>
         The
         <a href="https://github.com/ReactiveX/RxAndroid" target="_blank" title="RxAndroid">
             RxAndroid
         </a>
-        framework (aka Reactive Android) will let you implement this pattern throughout
-        your app:
+        framework (aka Reactive Android) will let you implement this pattern throughout your app:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">apiService.getData(someData)
   .subscribeOn(Schedulers.io())
@@ -620,8 +622,10 @@
         <i>
             emit
         </i>
-        values. These values can emit all at once, as a continuous stream, or
-        at any rate and duration.
+        values. 
+        These values can emit all at once, 
+        as a continuous stream, 
+        or at any rate and duration.
     </p>
     <p>
         <code>
@@ -631,9 +635,11 @@
         <i>
             listen
         </i>
-        for these values and react to them as they arrive. For example, you can
-        open a subscription when you make an API call, listen for the response
-        from the server, and react accordingly.
+        for these values and react to them as they arrive. 
+        For example, 
+        you can open a subscription when you make an API call, 
+        listen for the response from the server, 
+        and react accordingly.
     </p>
     <h3>
         Model View Controller
@@ -642,10 +648,10 @@
         <em>
             Model View Controller
         </em>
-        , aka MVC, refers to the current reigning presentation architectural pattern
-        across several platforms; it’s particularly easy to set your project up
-        in this way on Android. It refers to the three divisions of classes used
-        in this pattern:
+        , aka MVC, 
+        refers to the current reigning presentation architectural pattern across several platforms; 
+        it’s particularly easy to set your project up in this way on Android. 
+        It refers to the three divisions of classes used in this pattern:
     </p>
     <ul>
         <li>
@@ -672,13 +678,14 @@
             <em>
                 Controller:
             </em>
-            the glue between the two. It updates the view, takes user input, and makes
-            changes to the model.
+            the glue between the two. 
+            It updates the view, 
+            takes user input, 
+            and makes changes to the model.
         </li>
     </ul>
     <p>
-        Dividing your code between these three categories will go a long way toward
-        making your code decoupled and reusable.
+        Dividing your code between these three categories will go a long way toward making your code decoupled and reusable.
     </p>
     <p>
         Future You will eventually get a request from the client to add a new
