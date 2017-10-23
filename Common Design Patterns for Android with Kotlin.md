@@ -366,51 +366,43 @@
     </h2>
     <p>
         <i>
-            “So when I open up this class, how will I remember what’s it’s doing and
-            how it’s put together?” – Future You
+            "当我打开一个类的时候，如何可以记得它在做什么，已经如何组合到一起的？" – Future You
         </i>
     </p>
     <p>
-        Future You will undoubtedly appreciate the Structural Patterns you used
-        to help organize the guts of your classes and objects into familiar arrangements
-        that perform typical tasks. Two commonly-seen patterns in Android are
+        结构性的模式可以帮助你将类和对象组织成易于熟悉的排列，方便执行典型的任务。在Android中常见的两个模式就是
         <em>
             Adapter
         </em>
-        and
+        和
         <em>
             Facade
         </em>
-        .
+        。
     </p>
     <h3>
         Adapter
     </h3>
     <p>
-        A
+        电影阿波罗13中，有一个
         <a href="https://youtu.be/1cYzkyXp0jg" target="_blank" title="Apollo 13">
-            famous scene
+            著名的场景
         </a>
-        in the movie Apollo 13 features a team of engineers tasked with fitting
-        a square peg into a round hole. This, metaphorically, is the role of an
-        adapter. In software terms, this pattern lets two incompatible classes
-        work together by converting the interface of a class into another interface
-        the client expects.
+        ，工程师的团队负责将一个方钉钉入圆孔。这就是对adapter用途很好的一个比方。在软件学的术语中，该模式可以让两个不兼容的类在一起进行工作，将一个类的接口转换为客户所期望的另一个接口。
     </p>
     <p>
-        Consider the business logic of your app; it might be a Product, or a User,
-        or a Tribble. It’s the square peg. Meanwhile, a
+        考虑你的app业务逻辑，它可能是一个产品，一个用户，或是一个组合物，也就是那个方钉。同样，
         <code>
             RecyclerView
         </code>
-        is the same basic object across all Android apps. It’s the round hole.
+        则是一个所有Android app中都有的基本对象，也就是那个圆洞。
     </p>
     <p>
-        In this situation, you can use a subclass of
+        在该情况下，你就可以用
         <code>
             RecyclerView.Adapter
         </code>
-        and implement the required methods to make everything work:
+        的子类来实现所需的方法，让一切work起来：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TribbleAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> tribbles: List&lt;Tribble&gt;) : RecyclerView.Adapter&lt;TribbleViewHolder&gt;() {
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(viewGroup: <span class="hljs-type">ViewGroup</span>, i: <span class="hljs-type">Int</span>)</span></span>: TribbleViewHolder {
@@ -430,25 +422,21 @@
         <code>
             RecyclerView
         </code>
-        doesn’t know what a Tribble is, as it’s never seen a single episode of
-        Star Trek – not even the new movies. :] Instead, it’s the adapter’s job
-        to handle the data and send the
+        并不知道Tribble是什么，也从未见过星际迷航的单曲的样子 - 甚至连新电影也是。:] 相反，它是adapter所负责的工作，处理数据，并将
         <code>
             bind
         </code>
-        command to the correct
+        命令发送给正确的
         <code>
             ViewHolder
         </code>
-        .
+        。
     </p>
     <h3>
         Facade
     </h3>
     <p>
-        The Facade pattern provides a higher-level interface that makes a set
-        of other interfaces easier to use. The following diagram illustrates this
-        idea in more detail:
+        Facade模式提供了更高层级的接口，让其它的接口更易被使用。下列的图表则展示了更为详尽的细节：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2013/07/facade2.png">
@@ -458,13 +446,13 @@
         </a>
     </p>
     <p>
-        If your Activity needs a list of books, it should be able to ask a single
-        object for that list
+        If your Activity needs a list of books, 
+        it should be able to ask a single object for that list
         <i>
             without
         </i>
-        understanding the inner workings of your local storage, cache, and API
-        client. Beyond keeping your Activities and Fragments code clean and concise,
+        understanding the inner workings of your local storage, cache, and API client. 
+        Beyond keeping your Activities and Fragments code clean and concise,
         this lets Future You make any required changes to the API implementation
         without any impact on the Activity.
     </p>
