@@ -446,23 +446,18 @@
         </a>
     </p>
     <p>
-        If your Activity needs a list of books, 
-        it should be able to ask a single object for that list
+        如果你的Activity需要一个书籍的列表，它应当可以在
         <i>
-            without
+            不
         </i>
-        understanding the inner workings of your local storage, cache, and API client. 
-        Beyond keeping your Activities and Fragments code clean and concise,
-        this lets Future You make any required changes to the API implementation
-        without any impact on the Activity.
+        了解本地存储，缓存，API客户端等内部机制的情况下，能够访问其中的一个对象。除了可以让你的Activity和Fragment保持简明和整洁，还可以让Future You在对API的实现做出任何改变的时候，不至于影响到Activity。
     </p>
     <p>
+        来自Square的
         <a href="http://square.github.io/retrofit/">
             Retrofit
         </a>
-        from Square is an open-source Android library that helps you implement
-        the Facade pattern; you create an interface to provide API data to client
-        classes like so:
+        是一个开源的Android库，可以帮助你实现Facade的设计模式，你会创建一个接口来向客户的类提供api的数据，就像这样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BooksApi</span> </span>{
   <span class="hljs-meta">@GET(<span class="hljs-meta-string">"books"</span>)</span>
@@ -470,22 +465,18 @@
 }
 </pre>
     <p>
-        The client simply needs to call
+        客户只要调用
         <code>
             listBooks()
         </code>
-        to receive a list of
+        ，然后在回调中接收
         <code>
             Book
         </code>
-        objects in the callback. It’s nice and clean; for all it knows, you could
-        have an army of Tribbles assembling the list and sending it back via transporter
-        beam. :]
+        对象的列表即可。多么得整洁，总所周知，你可以有一个Tribble的军队来装配列表，并通过线缆将它发送回去。:]
     </p>
     <p>
-        This lets you make all types of customizations underneath without affecting
-        the client. For example, you can specify a customized JSON deserializer
-        about which the Activity has no clue:
+        这让你可以在不影响到客户端的情况下，进行所有类型的自定义。例如，你可以指定一个定制的JSON解析器，Activity于此并无关系：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> retrofit = Retrofit.Builder()
   .baseUrl(<span class="hljs-string">"http://www.myexampleurl.com"</span>)
@@ -495,34 +486,29 @@
 <span class="hljs-keyword">val</span> api = retrofit.create&lt;BooksApi&gt;(BooksApi::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
 </pre>
     <p>
-        Notice the use of
+        注意
         <code>
             GsonConverterFactory
         </code>
-        , working behind the scenes as a JSON deserializer. With Retrofit, you
-        can further customize operations with
+        的使用，它会作为一个JSON解析器在背后执行工作。通过Retrofit，你可以进一步地定制关于
         <code>
             Interceptor
         </code>
-        and
+        和
         <code>
             OkHttpClient
         </code>
-        to control caching and logging behavior without the client knowing what’s
-        going on.
+        的操作，来控制缓存和日志的行为，且无需客户端了解发了什么。
     </p>
     <p>
-        The less each object knows about what’s going on behind the scenes, the
-        easier it will be for Future You to manage changes in the app. This pattern
-        can be used in a lot of other contexts; Retrofit is only one mechanism
-        among many.
+        每个对象了解场景背后发生的事越少，Future You就越容易管理app的变化。该模式可以被应用在其它很多的context中，Retrofit只是其中的一种机制。
     </p>
     <h2>
-        Behavioral Patterns
+        行为性的模式
     </h2>
     <p>
         <i>
-            “So… how do I tell which class is responsible for what?” – Future You
+            "那么...我怎么知道哪个类负责什么？" – Future You
         </i>
     </p>
     <p>
