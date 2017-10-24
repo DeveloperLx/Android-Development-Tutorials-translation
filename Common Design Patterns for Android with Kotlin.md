@@ -511,35 +511,24 @@
             "那么...我怎么知道哪个类负责什么？" – Future You
         </i>
     </p>
-    <p>
-        Behavioral patterns let you assign responsibility for different app functions;
-        Future You can use them to navigate the structure and architecture of the project. 
-        These patterns can vary in scope, 
-        from the relationship between two objects to the entire architecture of your app. 
-        In many cases, 
-        the various behaviorial patterns are used together in the same app.
+    <p> 
+        行为性的模式可以为app不同的功能分配相应的“负责人”。Future You可以使用他们来查找项目的结构和架构。这些模式可以应用在各种范围之下，从两个对象之间到你整个app的架构。通常，一个app都会包含各种各样的行为模式。
     </p>
     <h3>
         Command
     </h3>
     <p>
-        When you order some excellent Saag Paneer at an Indian restaurant, 
-        you don’t necessarily know which cook will prepare your dish; 
-        you only give your order to the waiter, 
-        who posts the order in the kitchen for the next available cook.
+        在一家印度餐馆中点一些菠菜奶酪，你无需知道将由哪位厨子给你制作的，只需将订单递给服务员，ta就会提交给厨房中下一个有空的厨子来帮你制作。
     </p>
     <p>
-        Similarly, 
-        the Command pattern lets you issue requests without knowing the receiver. 
-        You encapsulate a request as an object and send it off; 
-        deciding how to complete the request is an entirely separate mechanism.
+        类似的，命令模式可以让你在未知接受者的情况下提出请求。你将请求封装成一个对象并发送出来，而如何完成这个请求则是完全分离的机制。
     </p>
     <p>
-        Greenrobot’s
+        Greenrobot的
         <a href="https://github.com/greenrobot/EventBus" target="_blank" title="EventBus">
             EventBus
         </a>
-        is a popular Android framework that supports this pattern in the following manner:
+        是一个流行的Android框架，可以以下列的形式来支持命令模式：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/07/EventBus-Publish-Subscribe.png">
@@ -549,64 +538,51 @@
         </a>
     </p>
     <p>
-        An
         <code>
             Event
         </code>
-        is a command-style object that can be triggered by user input, 
-        server data, or pretty much anything else in your app. 
-        You can create specific subclasses which carry data as well:
+        是一个命令行风格的对象，可以通过app中用户的输入，服务器数据等机制来触发。你还可以创建用来承载数据的子类：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySpecificEvent</span> </span>{ <span class="hljs-comment">/* Additional fields if needed */</span> }
 </pre>
     <p>
-        After defining your event, you obtain an instance of
+        在定义你的event之后，你就获取到一个
         <code>
             EventBus
         </code>
-        and register an object as a subscriber:
+        的实例，并注册一个对象作为subscriber：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">eventBus.register(<span class="hljs-keyword">this</span>)
 </pre>
     <p>
-        Now that the object is a subscriber, 
-        tell it what type of event to subscribe to and what it should do when it receives one:
+        现在这个对象就成为了subscriber，告诉它订阅哪种类型的事件，以及接收到事件后的处理方式：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onEvent</span><span class="hljs-params">(event: <span class="hljs-type">MySpecificEvent</span>)</span></span> {
   <span class="hljs-comment">/* Do something */</span>
 }
 </pre>
     <p>
-        Finally, create and post one of those events based on your criteria:
+        最后，基于你的标准创建并发送事件：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">eventBus.post(event)
 </pre>
     <p>
-        Since so much of this pattern works its magic at run-time, 
-        Future You might have a little trouble tracing this pattern unless you have good test coverage. 
-        Still, 
-        a well-designed flow of commands balances out the readability and should be easy enough to follow at a later date.
+        由于该模式很多都是在运行时进行工作的，Future You追踪这个模式的时候可能会有一点麻烦，除非你进行了很好的测试覆盖。因此，一个经过很好设计的命令模式应当平衡易读性，及易于在将来进行追踪。
     </p>
     <h3>
-        Observer
+        观察者
     </h3>
     <p>
-        The Observer pattern defines a one-to-many dependency between objects.
-        When one object changes state, 
-        all of its dependents are notified and updated automatically.
+        观察者模式定义了对象之间一对多的依赖。当一个对象的状态发生改变的时候，所有与之关联的对象都会被通知到并自动进行更新。
     </p>
     <p>
-        This is a versatile pattern; 
-        you can use it for operations of indeterminate time, 
-        such as API calls. 
-        You can also use it to respond to user input.
+        这是一个全能的模式，你可以通过它来完成不确定时间的操作，如API的调用；还可以用来响应用户的输入。
     </p>
     <p>
-        The
         <a href="https://github.com/ReactiveX/RxAndroid" target="_blank" title="RxAndroid">
             RxAndroid
         </a>
-        framework (aka Reactive Android) will let you implement this pattern throughout your app:
+        框架（也就是Reactive Android）可以帮助你在app中实现这个模式：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">apiService.getData(someData)
   .subscribeOn(Schedulers.io())
@@ -614,102 +590,80 @@
   .subscribe (<span class="hljs-comment">/* an Observer */</span>)
 </pre>
     <p>
-        In short, you define
+        简单地说，就是定义一个用来
+        <i>
+            发送
+        </i>
+        值的
         <code>
             Observable
         </code>
-        objects that will
-        <i>
-            emit
-        </i>
-        values. 
-        These values can emit all at once, 
-        as a continuous stream, 
-        or at any rate and duration.
+        对象。你可以一次发送多个值，或作为持续性的流发送，或以任意的速度和持续时间进行发送。
     </p>
     <p>
         <code>
             Subscriber
         </code>
-        objects will
+        对象则会
         <i>
-            listen
+            监听
         </i>
-        for these values and react to them as they arrive. 
-        For example, 
-        you can open a subscription when you make an API call, 
-        listen for the response from the server, 
-        and react accordingly.
+        这些值，并在接收到这些值的时候进行处理。例如，你可以在调用API请求时打开订阅者，监听从服务器返回的请求，然后做出相应的处理。
     </p>
     <h3>
-        Model View Controller
+        MVC
     </h3>
     <p>
         <em>
-            Model View Controller
+            MVC
         </em>
-        , aka MVC, 
-        refers to the current reigning presentation architectural pattern across several platforms; 
-        it’s particularly easy to set your project up in this way on Android. 
-        It refers to the three divisions of classes used in this pattern:
+        ，也就是Model View Controller，是当前处于统治地位的跨平台结构模式，在Android中非常易于配置你的项目。在这个模式中的类可分为三大类：
     </p>
     <ul>
         <li>
             <em>
-                Model:
+                Model：
             </em>
-            your data classes. If you have
+            是你的数据类。如果你有着
             <code>
                 User
             </code>
-            or
+            或
             <code>
                 Product
             </code>
-            objects, these “model” the real world.
+            对象，它们就会模拟真实世界中的东西。
         </li>
         <li>
             <em>
                 View:
             </em>
-            your visual classes. Everything the user sees falls under this category.
+            是你的可视部分的类。用户能看到的所有内容都处于该分类中。
         </li>
         <li>
             <em>
-                Controller:
+                Controller：
             </em>
-            the glue between the two. 
-            It updates the view, 
-            takes user input, 
-            and makes changes to the model.
+            上述两者之间的粘合剂。它负责更新view，接收用户的输入，并使model做出改变。
         </li>
     </ul>
     <p>
-        Dividing your code between these three categories will go a long way toward making your code decoupled and reusable.
+        将你的代码拆分为以上的三大类，会大大地有助于代码的解耦和复用。
     </p>
     <p>
-        Future You will eventually get a request from the client to add a new
-        screen to the app, but simply using the existing data in the app; following
-        the MVC paradigm means Future You can easily re-use the same models and
-        only change the views. Or perhaps the client will ask Future You to move
-        that fancy widget from the home screen to the detail screen. Separating
-        your view logic makes this an easy task.
+        Future You接收到客户的请求，会诸如在app上添加一个新的页面，但只能使用app中已存在的数据，遵循MVC的范例就意味着Future You可以轻松地重用相同的model，只需对view做出改变即可。或者是客户要求Future You将一个花俏的器件从首页移动到详情页中，MVC就可以让其成为一个易于完成的任务。
     </p>
     <p>
-        Additionally, moving as much layout and resource logic as possible into
-        Android XML keeps your View layer clean and tidy. Nice!
+        此外，尽可能地将布局和资源的逻辑移动到Android的XML文件中，也可以让你的View层保持干净和整洁。多么得赞！
     </p>
     <p>
-        You may have to do some drawing in Kotlin from time to time, in which
-        case it will help to separate&nbsp;the drawing operations from your activity
-        and fragment classes.
+        有时你不得不地在Kotlin中进行一些绘图的操作，通过MVC模式就可以将绘制的操作从activity何fragment中分离出来。
     </p>
     <p>
-        Over time, you’ll find making architectural decisions easier under MVC
-        and Future You can more easily solve issues as they arise.
+        随着时间流逝，MVC的架构可以帮助Future You更加容易地解决出现的问题。
     </p>
     <h3>
-        Model View ViewModel
+        MVVM（Model View ViewModel）
     </h3>
     <p>
         This unfortunately-quite-confusingly-named presentation architectural
