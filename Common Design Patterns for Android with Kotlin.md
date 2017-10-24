@@ -666,73 +666,54 @@
         MVVM（Model View ViewModel）
     </h3>
     <p>
-        This unfortunately-quite-confusingly-named presentation architectural
-        pattern is similar to the MVC pattern; the Model and View components are
-        the same. The ViewModel object is the “glue” between the model and view
-        layers, but operates differently than the Controller component. Instead,
-        it exposes commands for the view and binds the view to the model. When
-        the model updates, the corresponding views update as well via the data
-        binding. Similarly, as the user interacts with the view, the bindings work
-        in the opposite direction to automatically update the model. This reactive
-        pattern removes a lot of glue code.
+        这个名字看起来如此倒霉和难懂的结构模式，非常类似于MVC，其中的Model和View成分都是相同的。ViewModel对象是model和view层之间的粘合剂，但它负责的部分和Controller是并不相同。相反，它公开了view的一些命令，并将其绑定到model上。当model更新的时候，相应的view就会通过数据绑定进行更新。类似的，当用户和view进行交互的时候，binding就会以相反的方向自动更新model。这种反应模式就消除了很多的“胶水代码”。
     </p>
     <p>
-        The MVVM pattern is trending upwards in popularity but is still a fairly
-        recent addition to the pattern library. Google recently introduced this
-        pattern as part of its
+        MVVM模式正在变得越来越流行，但它是最近才添加到模式库中的。Google最近引入了这个模式，作为
         <a href="https://developer.android.com/topic/libraries/architecture/viewmodel.html"
         target="_blank" title="Android Architecture Components">
-            Architecture Components
+            架构组件
         </a>
-        library! Future You would love it if you kept your eye on this one! :]
+        库的一部分！只要持续关注下去，Future You一定就会爱上它！:]
     </p>
     <h3>
-        Clean Architecture
+        清洁的架构
     </h3>
     <p>
         <em>
-            Clean Architecture
+            清洁的架构
         </em>
-        exists at a higher abstraction level than the MVC and MVVM presentation
-        architecture patterns. It describes the overall application architecture:
-        how the various layers of an app (business objects, use cases, presenters,
-        data storage, and UI) communicate with one another. It is similar to the
+        是一个比MVC和MVVM更高的抽象层级。它描述了整体性的app架构：app的各层（业务对象，用例，演示者，数据存储，和UI）之间的通信方式。它非常类似于
         <a href="http://alistair.cockburn.us/Hexagonal+architecture" target="_blank"
         title="Hexagonal architecture">
-            Hexagonal architecture
+            六边形架构
         </a>
-        as well other application architectures. MVC and MVVM exist within Clean
-        Architecture at the outer presentation and UI layers.
+        及其它的app架构。在外部表示和UI层面，MVC和MVVM存在于清洁架构的内部。
     </p>
     <p>
-        The original Clean Architecture definition is
+        原始清洁架构的定义在
         <a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html"
         target="_blank" title="Clean Architecture">
-            here
+            这里
         </a>
-        , and many examples can be found on Clean Architecture for Android, including
+        ，很多的例子都可以在Android的清洁架构中被找到，包括
         <a href="https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/"
         target="_blank" title="Architecting Android">
             Architecting Android…The evolution
         </a>
-        .
+        。
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <p>
-        While it feels great to keep abreast of the latest flashy APIs, keeping
-        your apps updated can quickly lead to redesign-fatigue. Investing in software
-        design patterns early on will improve your return on development time;
-        you’ll start to notice you get more done with less effort.
+        尽管与最新的flashy API并驾齐驱的感觉非常好，但持续地更新app，会很快地导致重新设计疲劳。尽早地投资软件设计模式，就能够在开发时间上获得回报，你就可以用较少的努力来获取更多的工作。
     </p>
     <p>
-        I recommend checking out timeless classics such as
+        推荐阅读类似
         <a href="https://en.wikipedia.org/wiki/Design_Patterns">
             Design Patterns by the “Gang of Four.”
         </a>
-        Compared to Material Design or Android Wear, this book might be considered
-        “ancient”, but documents many useful design patterns that predate Android
-        itself !
+        这样的永恒经典。相比于“材料设计”或“Android Wear”，它可能会显得比较“老”，但记录了很多在Android之前的非常有用的设计模式！
     </p>
 </div>
