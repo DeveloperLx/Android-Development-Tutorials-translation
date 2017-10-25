@@ -6,103 +6,93 @@
     <div class="note">
         <p>
             <em>
-                Update Note
+                更新日志
             </em>
-            : This tutorial has been updated to Kotlin by Joe Howard. The original
-            tutorial was written by Megha Bambra.
+            ：本教程已由Joe Howard更新至Kotlin版本。原教程由Megha Bambra撰写。
         </p>
     </div>
     <div id="attachment_119228" style="width: 260px" class="wp-caption alignright">
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/MaterialDesign-feature-250x250.png"
         alt="Material Design with Kotlin!" width="250" height="250" class="size-full wp-image-119228">
         <p class="wp-caption-text">
-            Material Design with Kotlin!
+            材质设计 - Kotlin！
         </p>
     </div>
     <p>
-        Google’s material design brings with it exciting ways to delight your
-        users with a visually appealing Android app. But wait—what is material
-        design?
+        Google的材质设计可以帮助你带给用户精美的Android app。但稍等-神马是材质设计？
     </p>
     <p>
-        Google has described it as an interface that incorporates “tactile surfaces,
-        bold graphic design and fluid motion to create beautiful, intuitive experiences.”
-        Material design is the “user experience philosophy” for Android apps!
+        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。材质设计是Android app的“用户体验哲学”！
     </p>
     <p>
-        In this tutorial, you’ll integrate material design into an app called
-        Travel Wishlist. Along the way, you’ll learn how to:
+        在本教程中，你会将材质设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
     </p>
     <ul>
         <li>
-            Implement the material theme;
+            实现材质主题；
         </li>
         <li>
-            Build dynamic views using widgets like
+            使用类似
             <code>
                 RecyclerView
             </code>
-            and
+            和
             <code>
                 CardView
             </code>
-            ;
+            的原件构建动态性的视图。
         </li>
         <li>
-            Use the Palette API to generate color schemes that you can use for text
-            or background views;
+            使用Palette API来生成颜色主题，你可以将其用于文本或是背景view之上。
         </li>
         <li>
-            Create delightful interactions using Android animation APIs.
+            使用Android的动画API创建超赞的交互。
         </li>
     </ul>
     <p>
-        This tutorial assumes you have a basic familiarity with Android programming
-        including Kotlin, XML, Android Studio and Gradle. If you’re completely
-        new to Android, you might want to go through our
-        <a title="Android Tutorials" href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+        本教程假定你已熟悉了Android编程的基础，包括Kotlin，XML，Android Studio和Gradle。如果你是一个Android的纯小白，可以首先学习我们的
+        <a title="Android Tutorials" href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
         target="_blank">
             Beginning Android Development
         </a>
-        series and
-        <a title="Kotlin Introduction" href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+        系列和
+        <a title="Kotlin Introduction" href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
         target="_blank">
             Kotlin Introduction
         </a>
-        first.
+        。
         <br>
     </p>
     <p>
-        To follow along with this tutorial, you’ll need to use Android Studio
-        3.0 Beta 2 or later and Kotlin 1.1.4-2 or later.
+        为完成本教程，你需要使用Android Studio 3.0 Beta 2、Kotlin 1.1.4-2或更高的版本。
     </p>
     <p>
-        Let’s get started!
+        让我们开始吧！
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/travelwishlist-starter-1.zip">
-            starter project
+            初始项目
         </a>
-        , then fire up
+        ，并打开
         <em>
             Android Studio
         </em>
-        .
+        。
     </p>
     <p>
-        To import the starter project, first select
-        <em>
-            Open an existing Android Studio project
-        </em>
-        from the
+        要导入初始的项目，首先在
         <em>
             Welcome to Android Studio
         </em>
-        window:
+        窗口中选择
+        <em>
+            Open an existing Android Studio project
+        </em>
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screen-Shot-2017-08-19-at-8.06.02-PM.png">
@@ -113,11 +103,11 @@
         </a>
     </p>
     <p>
-        Then select the downloaded project and click
+        然后选择下载的项目并点击
         <em>
             Open
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screen-Shot-2017-08-19-at-9.05.24-PM.png">
@@ -128,13 +118,10 @@
         </a>
     </p>
     <p>
-        Travel Wishlist will be a very simple app. Users will see a grid of pictures
-        from locations around the world, and be able to tap each picture to add
-        notes about what to do and see.
+        Travel Wishlist是一个非常简单的app。用户可以在上面看到一个来自全世界的图片的网格，并可以点击每个图片来添加相关的笔记。
     </p>
     <p>
-        Build and run the starter project, and you should see a screen with the
-        most basic of interfaces:
+        Build并运行起始项目，你会看到一个带有基本界面的页面：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503191407.png">
@@ -145,28 +132,28 @@
         </a>
     </p>
     <p>
-        Right now, the world is empty! You’re going to add material components
-        to this existing project, including dynamic views, color schemes and animations
-        that will truly complement the beauty of the photos in your dataset.
+        现在一切都是空的！你会添加一些材质的组件到它上面，包括动态的view，颜色方案和动画，来真正地完善这些照片。
     </p>
     <p>
-        Open
+        打开app模块中的
         <em>
             build.gradle
         </em>
-        for the app module and add RecyclerView, CardView, Palette, and Picasso
-        to your dependencies:
+        ，并添加RecyclerView，CardView，Palette，和Picasso到你的依赖中：
     </p>
-    <pre lang="groovy" class="language-groovy">
-        dependencies { implementation fileTree(dir: 'libs', include: ['*.jar'])
-        implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-        implementation 'com.android.support:appcompat-v7:26.0.1' implementation
-        'com.android.support:recyclerview-v7:26.0.1' implementation 'com.android.support:cardview-v7:26.0.1'
-        implementation 'com.android.support:palette-v7:26.0.1' implementation 'com.squareup.picasso:picasso:2.5.2'
-        testImplementation 'junit:junit:4.12' androidTestImplementation 'com.android.support.test:runner:1.0.0'
-        androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
-        }
-    </pre>
+    <pre lang="groovy" class="language-groovy">dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.0.1'
+    implementation 'com.android.support:recyclerview-v7:26.0.1'
+    implementation 'com.android.support:cardview-v7:26.0.1'
+    implementation 'com.android.support:palette-v7:26.0.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+}
+</pre>
     <p>
         Here you’re simply declaring the dependencies that you’ll use throughout
         the rest of the tutorial. The first few of the added dependencies are Google-provided
@@ -203,52 +190,9 @@
         </code>
         . Add the following items inside the theme tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "android:navigationBarColor"
-            </span>
-            &gt;
-        </span>
-        @color/primary_dark
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "android:displayOptions"
-            </span>
-            &gt;
-        </span>
-        disableHome
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:navigationBarColor"</span>&gt;</span>@color/primary_dark<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:displayOptions"</span>&gt;</span>disableHome<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+</pre>
     <p>
         Android automatically applies
         <code>
@@ -326,43 +270,12 @@
         </code>
         tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.RecyclerView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/list"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:background
-            </span>
-            =
-            <span class="hljs-string">
-                "@color/light_gray"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/list"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/light_gray"</span>/&gt;</span>
+</pre>
     <p>
         Here you’re adding a
         <code>
@@ -393,18 +306,8 @@
         </em>
         , add the following to the top of the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        staggeredLayoutManager: StaggeredGridLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> staggeredLayoutManager: StaggeredGridLayoutManager
+</pre>
     <p>
         Here you’re simply declaring a property to hold a reference to the
         <code>
@@ -419,13 +322,9 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        staggeredLayoutManager = StaggeredGridLayoutManager(
-        <span class="hljs-number">
-            1
-        </span>
-        , StaggeredGridLayoutManager.VERTICAL) list.layoutManager = staggeredLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">staggeredLayoutManager = StaggeredGridLayoutManager(<span class="hljs-number">1</span>, StaggeredGridLayoutManager.VERTICAL)
+list.layoutManager = staggeredLayoutManager
+</pre>
     <p>
         In the code above, you set the layout manager of the
         <code>
@@ -468,12 +367,8 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        kotlinx.android.synthetic.main.activity_main.*
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_main.*
+</pre>
     <h3>
         Creating Rows and Cells Using a Card View
     </h3>
@@ -528,278 +423,52 @@
         To create your desired cell layout, replace all the contents of this file
         with the code below:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.CardView
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:card_view
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res-auto"
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/placeCard"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_margin
-            </span>
-            =
-            <span class="hljs-string">
-                "8dp"
-            </span>
-            <span class="hljs-attr">
-                card_view:cardCornerRadius
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/card_corner_radius"
-            </span>
-            <span class="hljs-attr">
-                card_view:cardElevation
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/card_elevation"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/placeImage"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "200dp"
-            </span>
-            <span class="hljs-attr">
-                android:scaleType
-            </span>
-            =
-            <span class="hljs-string">
-                "centerCrop"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-comment">
-            &lt;!-- Used for the ripple effect on touch --&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/placeHolder"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:background
-            </span>
-            =
-            <span class="hljs-string">
-                "?android:selectableItemBackground"
-            </span>
-            <span class="hljs-attr">
-                android:orientation
-            </span>
-            =
-            <span class="hljs-string">
-                "horizontal"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/placeNameHolder"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "45dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "bottom"
-            </span>
-            <span class="hljs-attr">
-                android:orientation
-            </span>
-            =
-            <span class="hljs-string">
-                "horizontal"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/placeName"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center_vertical"
-            </span>
-            <span class="hljs-attr">
-                android:gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "start"
-            </span>
-            <span class="hljs-attr">
-                android:paddingStart
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            <span class="hljs-attr">
-                android:paddingEnd
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            <span class="hljs-attr">
-                android:textAppearance
-            </span>
-            =
-            <span class="hljs-string">
-                "?android:attr/textAppearanceLarge"
-            </span>
-            <span class="hljs-attr">
-                android:textColor
-            </span>
-            =
-            <span class="hljs-string">
-                "@android:color/white"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                android.support.v7.widget.CardView
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.CardView</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:card_view</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeCard"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+  <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"8dp"</span>
+  <span class="hljs-attr">card_view:cardCornerRadius</span>=<span class="hljs-string">"@dimen/card_corner_radius"</span>
+  <span class="hljs-attr">card_view:cardElevation</span>=<span class="hljs-string">"@dimen/card_elevation"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeImage"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"200dp"</span>
+    <span class="hljs-attr">android:scaleType</span>=<span class="hljs-string">"centerCrop"</span> /&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Used for the ripple effect on touch --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeHolder"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:background</span>=<span class="hljs-string">"?android:selectableItemBackground"</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"horizontal"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeNameHolder"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"45dp"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"bottom"</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"horizontal"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeName"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center_vertical"</span>
+      <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"start"</span>
+      <span class="hljs-attr">android:paddingStart</span>=<span class="hljs-string">"10dp"</span>
+      <span class="hljs-attr">android:paddingEnd</span>=<span class="hljs-string">"10dp"</span>
+      <span class="hljs-attr">android:textAppearance</span>=<span class="hljs-string">"?android:attr/textAppearanceLarge"</span>
+      <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@android:color/white"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.v7.widget.CardView</span>&gt;</span>
+</pre>
     <p>
         By adding
         <code>
@@ -862,106 +531,23 @@
         Add the following code to the class, taking care to preserve the package
         statement at the top of the file:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                TravelListAdapter
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        context: Context) : RecyclerView.Adapter&lt;TravelListAdapter.ViewHolder&gt;()
-        {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItemCount
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateViewHolder
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                ?, viewType:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : ViewHolder { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onBindViewHolder
-            </span>
-            <span class="hljs-params">
-                (holder:
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                ?, position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { }
-        <span class="hljs-comment">
-            // 2
-        </span>
-        inner
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                ViewHolder
-            </span>
-        </span>
-        (itemView: View) : RecyclerView.ViewHolder(itemView) { } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TravelListAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> context: Context) : RecyclerView.Adapter&lt;TravelListAdapter.ViewHolder&gt;() {
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> {
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>?, viewType: <span class="hljs-type">Int</span>)</span></span>: ViewHolder {
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">ViewHolder</span>?, position: <span class="hljs-type">Int</span>)</span></span> {
+  }
+
+  <span class="hljs-comment">// 2</span>
+  inner <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewHolder</span></span>(itemView: View) : RecyclerView.ViewHolder(itemView) {    
+  }
+}
+</pre>
     <p>
         A couple of things are happening above:
     </p>
