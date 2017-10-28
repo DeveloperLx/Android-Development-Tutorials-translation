@@ -900,12 +900,10 @@ list.adapter = adapter
     <pre lang="kotlin" class="language-kotlin hljs">staggeredLayoutManager.spanCount = <span class="hljs-number">1</span>
 </pre>
     <p>
-        Here you’re simply switching between single and double span counts, which
-        displays single and double columns respectively.
+        这里仅仅是改变了span的数量，就相应地展示了单列和多列的内容。
     </p>
     <p>
-        Build and run and use the action bar button to toggle between list and
-        grid views.
+        运行项目，并使用动作按钮来在列表和网格形式的视图之间进行切换。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-19-2017-22-46-24-toggle.gif">
@@ -914,26 +912,25 @@ list.adapter = adapter
         </a>
     </p>
     <h2>
-        Using the Palette API in the List
+        使用列表中的Palette API
     </h2>
     <p>
-        Now you can add some interesting Material Design features into the mix,
-        starting with the Palette API. Head back to
+        现在你可以添加一些有趣的材质设计特性到mix中，从Palette的API开始。返回到
         <code>
             TravelListAdapter
         </code>
-        , where you’ll define a background color for
+        ，在这里为
         <code>
             placeNameHolder
         </code>
-        that will be determined dynamically using the colors in the image.
+        定义一个背景颜色，它会基于图片中的颜色进行动态地确定。
     </p>
     <p>
-        Add the following to the bottom of
+        添加下列的代码到
         <code>
             onBindViewHolder(...)
         </code>
-        :
+        底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> photo = BitmapFactory.decodeResource(context.resources, place.getImageResourceId(context))
 Palette.from(photo).generate { palette -&gt;
@@ -942,22 +939,18 @@ Palette.from(photo).generate { palette -&gt;
 }
 </pre>
     <p>
-        The
         <code>
             generate(...)
         </code>
-        method creates a color palette in the background, and is passed a lambda
-        that is called when the palette has been generated. Here you can access
-        the generated color palette and set the background color of
+        方法会在后台创建一个调色板，并传入一个lambda，它会在palette生成的时候被调用。这里你可以访问生成的颜色palette，来设置
         <code>
             holder.itemView.placeNameHolder
         </code>
-        . If the color doesn’t exist, the method will apply a fallback color —
-        in this case,
+        的背景颜色。如果这个颜色不存在，这个方法就会采用一个兜底的颜色 - 本例中为
         <code>
             android.R.color.black
         </code>
-        .
+        。
     </p>
     <p>
         Build and run to see the Palette API in action!
