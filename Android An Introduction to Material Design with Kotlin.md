@@ -233,37 +233,33 @@
         使用RecyclerView和CardView
     </h2>
     <p>
-        To give your users a window into all the cool places they might go,
-        you need a view. You can use
+        为了给你的用户一个窗口，以方便他们到每个想去的地方，你需要一个view。你可以使用
         <code>
             RecyclerView
         </code>
-        as a replacement for
+        来替换
         <code>
             ListView
         </code>
-        , but it’s much more versatile than that. Google describes
+        ，它具有更加通用的特性。Google将
         <code>
             RecyclerView
         </code>
-        as “a flexible view for providing a limited window into a large data set.”
-        In this section, you’re going to demonstrate this by switching the view
-        from a list to a custom grid that uses the same data source which supplies
-        the the users locations.
+        描述为“为大型的数据集提供有限窗口的一个灵活的view”。在本节中，你将会看到，如何通过使用相同的数据源（包含的是用户的位置），将一个列表的view切换为自定义的网格的view。
     </p>
     <h3>
-        Implementing a Recycler View in XML
+        在XML中实现Recycler View
     </h3>
     <p>
-        First, open
+        首先，打开
         <em>
             activity_main.xml
         </em>
-        and add the following inside the
+        并提价下列代码到
         <code>
             LinearLayout
         </code>
-        tag:
+        标签中：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
   <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/list"</span>
@@ -272,15 +268,14 @@
   <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/light_gray"</span>/&gt;</span>
 </pre>
     <p>
-        Here you’re adding a
+        这里就添加了一个
         <code>
             RecyclerView
         </code>
-        to the activity’s layout, and specifying it should match the entire size
-        of the parent view.
+        到activity的布局中，并将它指定为填满整个父view的尺寸。
     </p>
     <h3>
-        Initializing a Recycler View and Applying a Layout Manager
+        初始化Recycler View并提供Layout Manager
     </h3>
     <p>
         Before adding Kotlin code, configure Android Studio so that it automatically
