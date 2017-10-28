@@ -657,21 +657,21 @@ list.layoutManager = staggeredLayoutManager
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> adapter: TravelListAdapter
 </pre>
     <p>
-        And then create an instance of your adapter and pass it to the
-        <code>
-            RecyclerView
-        </code>
-        at the bottom of
+        然后在
         <code>
             onCreate()
         </code>
-        , just after you configure the layout manager:
+        的底部，配置layout manager的后边，创建这个adapter的实例，并将其传递给
+        <code>
+            RecyclerView
+        </code>
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">adapter = TravelListAdapter(<span class="hljs-keyword">this</span>)
 list.adapter = adapter
 </pre>
     <p>
-        Now build and run the app, and you’ll see a populated list of places.
+        现在运行app，你就会看到一个由place填充的列表。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503194733.png">
@@ -682,10 +682,7 @@ list.adapter = adapter
         </a>
     </p>
     <p>
-        Which place is calling your name? I like the look of that turquoise water.
-        But wherever you want to go, you’ll want to cultivate your dream by taking
-        notes about what to do there. First, you need to make the cells respond
-        to a user’s touch.
+        哪个地方正在呼唤你的名字？我喜欢那汪蓝绿色的水。但无论想去哪里，你都可以在这里记录想要做的事以耕耘你的梦想。首先，你需要让这些单元格可以响应用户的点击事件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/05/alltheplaces1.png">
@@ -696,156 +693,148 @@ list.adapter = adapter
         </a>
     </p>
     <h3>
-        Implementing a Click Interface for Each Cell
+        为每个单元格实现点击事件的接口
     </h3>
     <p>
-        Unlike
+        和
         <code>
             ListView
         </code>
-        ,
+        不同，
         <code>
             RecyclerView
         </code>
-        doesn’t come with an
+        并没有提供
         <code>
             onItemClick
         </code>
-        interface, so you have to implement one in the adapter. In
+        的接口，因此你必须在adapter中来实现它。在
         <code>
             TravelListAdapter
         </code>
-        , create a property to hold an instance of
+        中，创建一个property来持有
         <code>
             OnItemClickListener
         </code>
-        . Add the following to the top of
+        的实例。添加下列的代码到
         <code>
             TravelListAdapter
         </code>
-        :
+        的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> itemClickListener: OnItemClickListener
 </pre>
     <p>
-        Now implement
-        <code>
-            View.OnClickListener
-        </code>
-        by adding the interface to the
+        现在，通过添加interface到
         <code>
             ViewHolder
         </code>
-        inner class definition like this:
+        的内部类的声明中，来实现
+        <code>
+            View.OnClickListener
+        </code>
+        ，就像下面这样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">inner <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewHolder</span></span>(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 </pre>
     <p>
-        Then add the following method stub to the inner
+        然后添加下列的方法到
         <code>
             ViewHolder
         </code>
-        class:
+        的内部类中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> {      
 
 }
 </pre>
     <p>
-        Hook the two up by adding the following
+        添加下列的
         <code>
             init
         </code>
-        block to the top of
+        块到
         <code>
             ViewHolder
         </code>
-        :
+        的顶部来设置listener：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">init {
   itemView.placeHolder.setOnClickListener(<span class="hljs-keyword">this</span>)
 }
 </pre>
     <p>
-        Above, you initiate
-        <code>
-            setOnClickListener
-        </code>
-        for
+        这样，你就为
         <code>
             placeHolder
         </code>
-        and implement the
+        初始化了
+        <code>
+            setOnClickListener
+        </code>
+        并实现
         <code>
             onClick
         </code>
-        override method.
+        这个覆盖的方法。
     </p>
     <p>
-        You need to do a few more things to implement the
-        <code>
-            onClick
-        </code>
-        interface for the
+        你还需要做几件事来为
         <code>
             RecyclerView
         </code>
-        . First, after the inner
+        实现
+        <code>
+            onClick
+        </code>
+        接口。在内部类
         <code>
             ViewHolder
         </code>
-        class definition add the following:
+        的声明之后添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnItemClickListener</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span>
 }
 </pre>
     <p>
-        Next, add the setter method of the
+        然后，添加
         <code>
             onClickListener
         </code>
-        to
+        的setter方法到
         <code>
             TravelListAdapter
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setOnItemClickListener</span><span class="hljs-params">(itemClickListener: <span class="hljs-type">OnItemClickListener</span>)</span></span> {
   <span class="hljs-keyword">this</span>.itemClickListener = itemClickListener
 }
 </pre>
     <p>
-        Now implement the logic in the empty
+        现在，在
         <code>
             onClick()
         </code>
-        stub
-        <em>
-            within
-        </em>
-        the inner
-        <code>
-            ViewHolder
-        </code>
-        class:
+        方法中实现逻辑：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> = itemClickListener.onItemClick(itemView, adapterPosition)
 </pre>
     <p>
-        In
+        在
         <code>
             MainActivity
         </code>
-        , create an instance of
-        <code>
-            OnItemClickListener
-        </code>
-        above
+        中，
         <code>
             onCreate()
         </code>
-        :
+        方法上方创建一个
+        <code>
+            OnItemClickListener
+        </code>
+        的实例：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> onItemClickListener = <span class="hljs-keyword">object</span> : TravelListAdapter.OnItemClickListener {
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span> {
@@ -854,19 +843,16 @@ list.adapter = adapter
 }
 </pre>
     <p>
-        Finally, set the listener to the adapter by adding the following code
-        to the bottom of
+        最后，通过添加下列的代码到
         <code>
             onCreate()
         </code>
-        , just after where you set the adapter:
+        的底部，来为adapter设置listener，就在你设置adapter之后的地方：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">adapter.setOnItemClickListener(onItemClickListener)
 </pre>
     <p>
-        Build and run. Now when you tap a cell you’ll see ripple effect every
-        time you touch a row, and a Toast notification displaying the position
-        of the cell in the list.
+        运行项目。现在当你点击每行的时候，就会看到一个ripple的效果，以及一个Toast的通知来展示单元格在列表当中的位置。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-19-2017-22-38-08.gif">
@@ -875,7 +861,7 @@ list.adapter = adapter
         </a>
     </p>
     <h3>
-        From List to Grid and Back
+        从列表到网页，再回头
     </h3>
     <p>
         <code>
