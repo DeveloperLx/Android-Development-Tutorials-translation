@@ -953,7 +953,7 @@ Palette.from(photo).generate { palette -&gt;
         。
     </p>
     <p>
-        Build and run to see the Palette API in action!
+        运行项目来眼见为实地查看Palette API！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503197836.png">
@@ -965,10 +965,10 @@ Palette.from(photo).generate { palette -&gt;
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        The Palette API can extract the following color profiles from an image:
         <p>
+            Palette API可以从图片中抽取下列的颜色配置：
         </p>
         <ul>
             <li>
@@ -993,19 +993,19 @@ Palette.from(photo).generate { palette -&gt;
         <p>
         </p>
         <p>
-            I encourage you to experiment with these. Instead of
+            建议你对它们进行尝试，将
             <code>
                 palette.getMutedColor(...)
             </code>
-            , try
+            替换为
             <code>
                 palette.getVibrantColor(...)
             </code>
-            ,
+            ，
             <code>
                 palette.getDarkVibrantColor(...)
             </code>
-            and so on.
+            等。
         </p>
         <p>
         </p>
