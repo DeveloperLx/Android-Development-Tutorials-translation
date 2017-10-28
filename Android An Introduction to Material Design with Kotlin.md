@@ -278,128 +278,121 @@
         初始化Recycler View并提供Layout Manager
     </h3>
     <p>
-        Before adding Kotlin code, configure Android Studio so that it automatically
-        inserts import statements to save you having to add each one manually.
+        在添加Kotlin代码之前，配置Android Studio，来让它可以自动地插入import语句，来节约你必须每次手动添加所耗费的时间。
     </p>
     <p>
-        Go to
+        打开
         <em>
-            Preferences\Editor\General\Auto Import
+            Preferences/Editor/General/Auto Import
         </em>
-        and select the
+        并选择
         <em>
             Add unambiguous imports on the fly
         </em>
-        checkbox. In
+        勾选框。在
         <em>
             MainActivity.kt
         </em>
-        , add the following to the top of the class:
+        中，添加下列的代码到类的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> staggeredLayoutManager: StaggeredGridLayoutManager
 </pre>
     <p>
-        Here you’re simply declaring a property to hold a reference to the
+        这里你声明了一个property来持有对
         <code>
             LayoutManager
         </code>
-        .
+        的引用。
     </p>
     <p>
-        Next, add the following to the bottom of
+        接下来，添加下列代码到
         <code>
             onCreate()
         </code>
-        :
+        的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">staggeredLayoutManager = StaggeredGridLayoutManager(<span class="hljs-number">1</span>, StaggeredGridLayoutManager.VERTICAL)
 list.layoutManager = staggeredLayoutManager
 </pre>
     <p>
-        In the code above, you set the layout manager of the
+        在上述代码中，你将
         <code>
             RecyclerView
         </code>
-        to a
+        的layout manager设置为
         <code>
             StaggeredGridLayoutManager
         </code>
-        , which you’ll use to create two types of vertically staggered grids.
-        Here you start with the first type, passing
+        ，用来创建两种类型的竖直交错的网格。这里我们从第一种类型开始，传参
         <code>
             1
         </code>
-        for the span count and
+        作为span数，
         <code>
             StaggeredGridLayoutManager.VERTICAL
         </code>
-        for the orientation. A span count of 1 makes this a list rather than a
-        grid, as you’ll soon see. Later, you’ll add a compact grid formation with
-        two columns.
+        作为方向。将span数设置为1，即可将其设定为一个列表而不是网格，你很快就会看到。然后，你还会添加一个带有两列的紧凑型的网格。
     </p>
     <p>
-        Note that you’re using
+        注意你使用了
         <em>
             Kotlin Android Extensions
         </em>
-        to find
+        来查找
         <code>
             list
         </code>
-        , so there is no need for a call to
+        ，因此无需再调用
         <code>
             findViewById()
         </code>
-        . Make sure that the following line is present in your import statements,
-        as it should be automatically added when you type in
+        。确认下面这行代码已添加到了你的import语句中，这样就可以在
         <code>
             list
         </code>
-        :
+        输入的时候自动地添加它了：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_main.*
 </pre>
     <h3>
-        Creating Rows and Cells Using a Card View
+        使用Card View来创建行和单元格
     </h3>
     <p>
         <code>
             CardView
         </code>
-        provides a consistent backdrop for your views, including rounded corners
-        and a drop shadow. You’re going to implement it for the row/cell layout
-        of your
+        为view提供了统一的背景，包括圆角和阴影。你将通过它来实现
         <code>
             RecyclerView
         </code>
-        . By default,
+        的行和单元格。默认情况下，
         <code>
             CardView
         </code>
-        extends
+        继承自
         <code>
             FrameLayout
         </code>
-        and therefore includes the ability to host other child views.
+        ，因此包含了持有其子view的能力。
     </p>
     <p>
-        From the
+        在
         <em>
             res\layout
         </em>
-        directory, create a new
+        目录下，创建一个新的
         <em>
-            Layout resource file
+            Layout resource文件 file
         </em>
-        and call it
+        并将其命名为
         <em>
             row_places.xml
         </em>
-        . Press
+        。按下
         <em>
             OK
         </em>
-        to create it.
+        来完成创建。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screen-Shot-2017-08-19-at-9.38.35-PM.png">
@@ -410,8 +403,7 @@ list.layoutManager = staggeredLayoutManager
         </a>
     </p>
     <p>
-        To create your desired cell layout, replace all the contents of this file
-        with the code below:
+        为创建期望中的布局，将该文件中的所有内容替换为如下代码：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.CardView</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
@@ -443,7 +435,6 @@ list.layoutManager = staggeredLayoutManager
     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"45dp"</span>
     <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"bottom"</span>
     <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"horizontal"</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
       <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/placeName"</span>
       <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
@@ -460,66 +451,63 @@ list.layoutManager = staggeredLayoutManager
 <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.v7.widget.CardView</span>&gt;</span>
 </pre>
     <p>
-        By adding
+        通过添加
         <code>
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
         </code>
-        , you can define attributes like
+        ，你就可以定义类似
         <code>
             card_view:cardCornerRadius
         </code>
-        and
+        的属性，及给材料设计
         <code>
             card_view:cardElevation
         </code>
-        that are responsible for giving Material Design enabled Android apps their
-        signature card-like look.
+        提供Android app中类似签名卡片般的效果。
     </p>
     <p>
-        Notice that for
+        注意
         <code>
             mainHolder
         </code>
-        , you’ve added
+        ，你已添加了
         <code>
             ?android:selectableItemBackground
         </code>
-        as the background. This enables the
+        作为背景。这就打开了用户在点击单元格的时的
         <i>
             ripple
         </i>
-        effect animation when the user touches a cell, as seen in many Android
-        apps now. You’ll get to see it in action soon.
+        动画效果，就像现在很多Android app中看到的一样。你马上就会眼见为实地看到它了。
     </p>
     <h3>
-        Implementing an Adapter for a Recycler View
+        为Recycler View实现一个Adapter
     </h3>
     <p>
-        You’re going to use an adapter for the
+        你将为
         <code>
             RecyclerView
         </code>
-        to bind data to the view. In the
+        通过一个adapter将数据绑定到view上。在
         <em>
             main/java
         </em>
-        folder, right-click on the
+        目录下，右击
         <em>
             package com.raywenderlich.android.travelwishlist
         </em>
-        package and select
+        这个包并选择
         <em>
-            New\Kotline File/Class
+            New/Kotline File/Class
         </em>
-        . Call the class
+        。将类命名为
         <em>
             TravelListAdapter
         </em>
-        .
+        。
     </p>
     <p>
-        Add the following code to the class, taking care to preserve the package
-        statement at the top of the file:
+        添加下列的代码到类中，注意保留文件顶部的package语句：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TravelListAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> context: Context) : RecyclerView.Adapter&lt;TravelListAdapter.ViewHolder&gt;() {
