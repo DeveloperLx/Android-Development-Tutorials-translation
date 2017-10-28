@@ -867,51 +867,38 @@ list.adapter = adapter
         <code>
             StaggeredLayoutManager
         </code>
-        lets you add versatility to your layouts. To change your existing list
-        to a more compact two-column grid, you simply have to change the
-        <code>
-            spanCount
-        </code>
-        of the
+        可以丰富你的布局。要将这个列表修改为更加紧凑的两列网格的形式，只需修改
         <code>
             StaggeredLayoutManager
         </code>
-        in
+        中的
         <code>
-            MainActivity
+            spanCount
         </code>
-        .
+        。
     </p>
     <p>
-        In
+        在
         <code>
             toggle()
         </code>
-        , add the following to the top of the
+        中，添加下列的代码到
         <code>
             showGridView()
         </code>
-        :
+        顶部：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        staggeredLayoutManager.spanCount =
-        <span class="hljs-number">
-            2
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">staggeredLayoutManager.spanCount = <span class="hljs-number">2</span>
+</pre>
     <p>
-        And now add the following to the top of
+        并添加下列的代码到
         <code>
             showListView()
         </code>
-        :
+        的顶部：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        staggeredLayoutManager.spanCount =
-        <span class="hljs-number">
-            1
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">staggeredLayoutManager.spanCount = <span class="hljs-number">1</span>
+</pre>
     <p>
         Here you’re simply switching between single and double span counts, which
         displays single and double columns respectively.
@@ -948,18 +935,12 @@ list.adapter = adapter
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        photo = BitmapFactory.decodeResource(context.resources, place.getImageResourceId(context))
-        Palette.from(photo).generate { palette -&gt;
-        <span class="hljs-keyword">
-            val
-        </span>
-        bgColor = palette.getMutedColor(ContextCompat.getColor(context, android.R.color.black))
-        holder.itemView.placeNameHolder.setBackgroundColor(bgColor) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> photo = BitmapFactory.decodeResource(context.resources, place.getImageResourceId(context))
+Palette.from(photo).generate { palette -&gt;
+  <span class="hljs-keyword">val</span> bgColor = palette.getMutedColor(ContextCompat.getColor(context, android.R.color.black))
+  holder.itemView.placeNameHolder.setBackgroundColor(bgColor)
+}
+</pre>
     <p>
         The
         <code>
@@ -1059,47 +1040,12 @@ list.adapter = adapter
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                newIntent
-            </span>
-            <span class="hljs-params">
-                (context:
-                <span class="hljs-type">
-                    Context
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : Intent {
-        <span class="hljs-keyword">
-            val
-        </span>
-        intent = Intent(context, DetailActivity::
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            .
-            <span class="hljs-title">
-                java
-            </span>
-            )
-        </span>
-        intent.putExtra(EXTRA_PARAM_ID, position)
-        <span class="hljs-keyword">
-            return
-        </span>
-        intent }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">newIntent</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>, position: <span class="hljs-type">Int</span>)</span></span>: Intent {
+  <span class="hljs-keyword">val</span> intent = Intent(context, DetailActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+  intent.putExtra(EXTRA_PARAM_ID, position)
+  <span class="hljs-keyword">return</span> intent
+}
+</pre>
     <p>
         Then, go to
         <code>
@@ -1115,16 +1061,8 @@ list.adapter = adapter
         </code>
         of onItemClickListener with the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        startActivity(DetailActivity.newIntent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @MainActivity
-        </span>
-        , position))
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">startActivity(DetailActivity.newIntent(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, position))
+</pre>
     <p>
         You can pass the position of the place object via the intent so that
         <code>
