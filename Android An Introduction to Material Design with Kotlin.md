@@ -1,4 +1,4 @@
-# Android：材质设计的介绍 - Kotlin
+# Android：材料设计的介绍 - Kotlin
 ---
 #### [原文地址](https://www.raywenderlich.com/168916/android-an-introduction-to-material-design) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -15,21 +15,21 @@
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/MaterialDesign-feature-250x250.png"
         alt="Material Design with Kotlin!" width="250" height="250" class="size-full wp-image-119228">
         <p class="wp-caption-text">
-            材质设计 - Kotlin！
+            材料设计 - Kotlin！
         </p>
     </div>
     <p>
-        Google的材质设计可以帮助你带给用户精美的Android app。但稍等-神马是材质设计？
+        Google的材料设计可以帮助你带给用户精美的Android app。但稍等-神马是材料设计？
     </p>
     <p>
-        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。材质设计是Android app的“用户体验哲学”！
+        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。材料设计是Android app的“用户体验哲学”！
     </p>
     <p>
-        在本教程中，你会将材质设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
+        在本教程中，你会将材料设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
     </p>
     <ul>
         <li>
-            实现材质主题；
+            实现材料主题；
         </li>
         <li>
             使用类似
@@ -132,7 +132,7 @@
         </a>
     </p>
     <p>
-        现在一切都是空的！你会添加一些材质的组件到它上面，包括动态的view，颜色方案和动画，来真正地完善这些照片。
+        现在一切都是空的！你会添加一些材料的组件到它上面，包括动态的view，颜色方案和动画，来真正地完善这些照片。
     </p>
     <p>
         打开app模块中的
@@ -155,72 +155,68 @@
 }
 </pre>
     <p>
-        Here you’re simply declaring the dependencies that you’ll use throughout
-        the rest of the tutorial. The first few of the added dependencies are Google-provided
-        APIs, but the final one,
+        这里声明了你在本教程剩下的部分中需要使用到的依赖。前几个是Google提供的API的依赖，而最后的
         <a href="http://square.github.io/picasso/" target="_blank">
             Picasso
         </a>
-        , is a fantastic image downloading and caching library provided by the
-        good folks at
+        ，则是由
         <a href="https://squareup.com" target="_blank">
             Square
         </a>
-        .
+        提供的一个神奇的图片下载和缓存库。
     </p>
     <p>
-        With the dependencies declared, it’s time to begin incorporating Material
-        Design into your app!
+        依赖声明好之后，就该将材料设计迁移到你的app中了！
     </p>
     <h2>
-        Setting Up the Theme
+        设置主题
     </h2>
     <p>
-        Before doing anything else, you will update the theme. Open
-        <em>
-            style.xml
-        </em>
-        under the
+        在完成其它工作前，你需要更新主题。打开
         <em>
             res/values
         </em>
-        directory. By default, the theme selected is
+        目录下的
+        <em>
+            style.xml
+        </em>
+        。默认情况下选择的主题是
         <code>
             Theme.AppCompat.Light.DarkActionBar
         </code>
-        . Add the following items inside the theme tag:
+        。添加下列的item到主题tag中：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:navigationBarColor"</span>&gt;</span>@color/primary_dark<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:displayOptions"</span>&gt;</span>disableHome<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
 </pre>
     <p>
-        Android automatically applies
+        Android会自动地将
         <code>
             colorPrimary
         </code>
-        to the action bar,
+        应用到action bar上，将
         <code>
             colorPrimaryDark
         </code>
-        to status bar and
+        应用到status bar上，将
         <code>
             colorAccent
         </code>
-        to UI widgets like text fields and checkboxes.
+        应用到诸如文本输入框和勾选框的UI控件上。
     </p>
     <p>
-        In the code above, you also alter the color of the navigation bar. For
+        在上述代码中，你还改变了navigation bar的颜色。对于
         <code>
             android:displayOptions
         </code>
-        , you pass
+        ，则传参
         <code>
             disableHome
         </code>
-        to accommodate the screen layouts in this sample app.
+        以在这个简单的app中适应屏幕的布局。
     </p>
     <p>
-        Build and run, and you’ll see the new color scheme in the app.
+        运行项目，你就会在app中看到新的颜色方案。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503192155.png">
@@ -231,15 +227,14 @@
         </a>
     </p>
     <p>
-        It’s a subtle change, but like every trip on your travel wishlist, upgrading
-        this design begins with a single step!
+        发生了一些微妙的变化，但就像一个你旅行的愿望清单一样，升级设计始于此步！
     </p>
     <h2>
-        Using RecyclerView and CardView
+        使用RecyclerView和CardView
     </h2>
     <p>
-        To give your users a window into all the cool places they might go, you
-        need a view. You can use
+        To give your users a window into all the cool places they might go,
+        you need a view. You can use
         <code>
             RecyclerView
         </code>
