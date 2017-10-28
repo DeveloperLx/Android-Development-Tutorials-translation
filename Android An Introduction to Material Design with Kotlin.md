@@ -527,222 +527,135 @@ list.layoutManager = staggeredLayoutManager
 }
 </pre>
     <p>
-        A couple of things are happening above:
+        上述代码执行了如下的动作：
     </p>
     <ol>
         <li>
-            You make
+            让
             <code>
                 TravelListAdapter
             </code>
-            extend
+            继承自
             <code>
                 Recycler.Adapter
             </code>
-            so that you can implement logic for the override methods you’ll add soon.
-            You also setup the constructor with a
+            ，以便在之后覆盖其方法来实现你自己的逻辑。并将构造器设置为带有一个
             <code>
                 Context
             </code>
-            that will be passed in when you create an instance of
-            <code>
-                TravelListAdapter
-            </code>
-            in
+            参数，你会在
             <code>
                 MainActivity
             </code>
-            , which you’ll do a bit later in the tutorial.
+            中创建
+            <code>
+                TravelListAdapter
+            </code>
+            实例时进行传参，以便在本教程之后的部分执行更多的操作。
         </li>
         <li>
-            You create the
+            创建
             <code>
                 ViewHolder
             </code>
-            class. Whereas the use of the
-            <code>
-                ViewHolder
-            </code>
-            pattern is optional in
+            类。尽管在
             <code>
                 ListView
             </code>
-            ,
+            中，
+            <code>
+                ViewHolder
+            </code>
+            模式是可选的，但在
             <code>
                 RecyclerView
             </code>
-            enforces it. This improves scrolling and performance by avoiding
+            中却必须执行。这样可以通过避免对每一个单元格都调用
             <code>
                 findViewById()
             </code>
-            for each cell.
+            来提升滚动的性能。
         </li>
     </ol>
     <p>
-        Update the
-        <code>
-            RecyclerView.Adapter
-        </code>
-        methods in
+        在
         <code>
             TravelListAdapter
         </code>
-        to the following:
+        中将
+        <code>
+            RecyclerView.Adapter
+        </code>
+        的方法更新为如下的样子：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItemCount
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        = PlaceData.placeList().size
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateViewHolder
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                , viewType:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : ViewHolder {
-        <span class="hljs-keyword">
-            val
-        </span>
-        itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_places,
-        parent,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            return
-        </span>
-        ViewHolder(itemView) }
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onBindViewHolder
-            </span>
-            <span class="hljs-params">
-                (holder:
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        place = PlaceData.placeList()[position] holder.itemView.placeName.text
-        = place.name Picasso.with(context).load(place.getImageResourceId(context)).into(holder.itemView.placeImage)
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span> = PlaceData.placeList().size
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: ViewHolder {
+  <span class="hljs-keyword">val</span> itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_places, parent, <span class="hljs-literal">false</span>)
+  <span class="hljs-keyword">return</span> ViewHolder(itemView)
+}
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">ViewHolder</span>, position: <span class="hljs-type">Int</span>)</span></span> {
+  <span class="hljs-keyword">val</span> place = PlaceData.placeList()[position]
+  holder.itemView.placeName.text = place.name
+  Picasso.with(context).load(place.getImageResourceId(context)).into(holder.itemView.placeImage)
+}
+</pre>
     <p>
-        Here’s what’s happening:
+        上述代码：
     </p>
     <ol>
         <li>
             <code>
                 getItemCount()
             </code>
-            returns the number of items from your data array. In this case, you’re
-            using the size of the
+            会基于你的数据数组返回item的数量。在本例中，你使用的就是
             <code>
                 PlaceData.placeList()
             </code>
-            .
+            的数量。
         </li>
         <li>
             <code>
                 onCreateViewHolder(...)
             </code>
-            returns a new instance of your
-            <code>
-                ViewHolder
-            </code>
-            by passing an inflated view of
+            通过传参一个
             <code>
                 row_places
             </code>
-            .
+            的inflated的view，来返回一个
+            <code>
+                ViewHolder
+            </code>
+            的新的实例。
         </li>
         <li>
             <code>
                 onBindViewHolder(...)
             </code>
-            binds the
-            <code>
-                Place
-            </code>
-            object to the UI elements in
+            在
             <code>
                 ViewHolder
             </code>
-            . You’ll use Picasso to cache the images for the list.
+            中绑定了
+            <code>
+                Place
+            </code>
+            对象到相应的UI元素上。你将使用Picasso来为列表缓存图片。            
         </li>
     </ol>
     <p>
-        Add a field in
+        在
         <code>
             MainActivity
         </code>
-        that will hold a reference to your adapter:
+        中添加一个字段来持有你的adapter的引用：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        adapter: TravelListAdapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> adapter: TravelListAdapter
+</pre>
     <p>
         And then create an instance of your adapter and pass it to the
         <code>
@@ -754,13 +667,9 @@ list.layoutManager = staggeredLayoutManager
         </code>
         , just after you configure the layout manager:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        adapter = TravelListAdapter(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) list.adapter = adapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">adapter = TravelListAdapter(<span class="hljs-keyword">this</span>)
+list.adapter = adapter
+</pre>
     <p>
         Now build and run the app, and you’ll see a populated list of places.
     </p>
@@ -816,15 +725,8 @@ list.layoutManager = staggeredLayoutManager
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        itemClickListener: OnItemClickListener
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> itemClickListener: OnItemClickListener
+</pre>
     <p>
         Now implement
         <code>
@@ -836,19 +738,8 @@ list.layoutManager = staggeredLayoutManager
         </code>
         inner class definition like this:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        inner
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                ViewHolder
-            </span>
-        </span>
-        (itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener
-        {
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">inner <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewHolder</span></span>(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+</pre>
     <p>
         Then add the following method stub to the inner
         <code>
@@ -856,27 +747,10 @@ list.layoutManager = staggeredLayoutManager
         </code>
         class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        { }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> {      
+
+}
+</pre>
     <p>
         Hook the two up by adding the following
         <code>
@@ -888,13 +762,10 @@ list.layoutManager = staggeredLayoutManager
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        init { itemView.placeHolder.setOnClickListener(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">init {
+  itemView.placeHolder.setOnClickListener(<span class="hljs-keyword">this</span>)
+}
+</pre>
     <p>
         Above, you initiate
         <code>
@@ -925,37 +796,10 @@ list.layoutManager = staggeredLayoutManager
         </code>
         class definition add the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                OnItemClickListener
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onItemClick
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnItemClickListener</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span>
+}
+</pre>
     <p>
         Next, add the setter method of the
         <code>
@@ -967,28 +811,10 @@ list.layoutManager = staggeredLayoutManager
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setOnItemClickListener
-            </span>
-            <span class="hljs-params">
-                (itemClickListener:
-                <span class="hljs-type">
-                    OnItemClickListener
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            this
-        </span>
-        .itemClickListener = itemClickListener }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setOnItemClickListener</span><span class="hljs-params">(itemClickListener: <span class="hljs-type">OnItemClickListener</span>)</span></span> {
+  <span class="hljs-keyword">this</span>.itemClickListener = itemClickListener
+}
+</pre>
     <p>
         Now implement the logic in the empty
         <code>
@@ -1004,27 +830,8 @@ list.layoutManager = staggeredLayoutManager
         </code>
         class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        = itemClickListener.onItemClick(itemView, adapterPosition)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>)</span></span> = itemClickListener.onItemClick(itemView, adapterPosition)
+</pre>
     <p>
         In
         <code>
@@ -1040,53 +847,12 @@ list.layoutManager = staggeredLayoutManager
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        onItemClickListener =
-        <span class="hljs-keyword">
-            object
-        </span>
-        : TravelListAdapter.OnItemClickListener {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onItemClick
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { Toast.makeText(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @MainActivity
-        </span>
-        ,
-        <span class="hljs-string">
-            "Clicked "
-        </span>
-        + position, Toast.LENGTH_SHORT).show() } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> onItemClickListener = <span class="hljs-keyword">object</span> : TravelListAdapter.OnItemClickListener {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span> {
+    Toast.makeText(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, <span class="hljs-string">"Clicked "</span> + position, Toast.LENGTH_SHORT).show()
+  }
+}
+</pre>
     <p>
         Finally, set the listener to the adapter by adding the following code
         to the bottom of
@@ -1095,9 +861,8 @@ list.layoutManager = staggeredLayoutManager
         </code>
         , just after where you set the adapter:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        adapter.setOnItemClickListener(onItemClickListener)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">adapter.setOnItemClickListener(onItemClickListener)
+</pre>
     <p>
         Build and run. Now when you tap a cell you’ll see ripple effect every
         time you touch a row, and a Toast notification displaying the position
