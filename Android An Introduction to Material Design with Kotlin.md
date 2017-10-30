@@ -1085,17 +1085,15 @@ Palette.from(photo).generate { palette -&gt;
         添加展现动画
     </h3>
     <p>
-        Now you want to give your users the ability to add notes about what they’d
-        like to do in each of these stunning places. For this,
+        现在我们想让用户可以添加关于他们想在这些美好景点想做的事的笔记。这里
         <em>
             activity_detail.xml
         </em>
-        already has an
+        已有了一个默认隐藏的
         <code>
             edittext
         </code>
-        that is hidden by default. When a user taps the FAB, it reveals itself
-        with a cool animation like below:
+        。当用户点击FAB的时候，它就可以通过下面这样的动画的形式来展现出来：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-19-2017-23-38-19-reveal.gif">
@@ -1104,11 +1102,11 @@ Palette.from(photo).generate { palette -&gt;
         </a>
     </p>
     <p>
-        Open
+        打开
         <code>
             DetailActivity
         </code>
-        . There are two methods you have yet to implement:
+        。你需要在这里实现两个方法：
     </p>
     <ul>
         <li>
@@ -1123,45 +1121,20 @@ Palette.from(photo).generate { palette -&gt;
         </li>
     </ul>
     <p>
-        First, add the following lines inside
+        首先，添加下列的代码到
         <code>
             revealEditText()
         </code>
-        :
+        中：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        cx = view.right -
-        <span class="hljs-number">
-            30
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        cy = view.bottom -
-        <span class="hljs-number">
-            60
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        finalRadius = Math.max(view.width, view.height)
-        <span class="hljs-keyword">
-            val
-        </span>
-        anim = ViewAnimationUtils.createCircularReveal(view, cx, cy,
-        <span class="hljs-number">
-            0
-        </span>
-        f, finalRadius.toFloat()) view.visibility = View.VISIBLE isEditTextVisible
-        =
-        <span class="hljs-literal">
-            true
-        </span>
-        anim.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> cx = view.right - <span class="hljs-number">30</span>
+<span class="hljs-keyword">val</span> cy = view.bottom - <span class="hljs-number">60</span>
+<span class="hljs-keyword">val</span> finalRadius = Math.max(view.width, view.height)
+<span class="hljs-keyword">val</span> anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, <span class="hljs-number">0</span>f, finalRadius.toFloat())
+view.visibility = View.VISIBLE
+isEditTextVisible = <span class="hljs-literal">true</span>
+anim.start()
+</pre>
     <p>
         The two
         <code>
@@ -1217,66 +1190,19 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        cx = view.right -
-        <span class="hljs-number">
-            30
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        cy = view.bottom -
-        <span class="hljs-number">
-            60
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        initialRadius = view.width
-        <span class="hljs-keyword">
-            val
-        </span>
-        anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, initialRadius.toFloat(),
-        <span class="hljs-number">
-            0
-        </span>
-        f) anim.addListener(
-        <span class="hljs-keyword">
-            object
-        </span>
-        : AnimatorListenerAdapter() {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onAnimationEnd
-            </span>
-            <span class="hljs-params">
-                (animation:
-                <span class="hljs-type">
-                    Animator
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onAnimationEnd(animation) view.visibility = View.INVISIBLE } }) isEditTextVisible
-        =
-        <span class="hljs-literal">
-            false
-        </span>
-        anim.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> cx = view.right - <span class="hljs-number">30</span>
+<span class="hljs-keyword">val</span> cy = view.bottom - <span class="hljs-number">60</span>
+<span class="hljs-keyword">val</span> initialRadius = view.width
+<span class="hljs-keyword">val</span> anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, initialRadius.toFloat(), <span class="hljs-number">0</span>f)
+anim.addListener(<span class="hljs-keyword">object</span> : AnimatorListenerAdapter() {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAnimationEnd</span><span class="hljs-params">(animation: <span class="hljs-type">Animator</span>)</span></span> {
+    <span class="hljs-keyword">super</span>.onAnimationEnd(animation)
+    view.visibility = View.INVISIBLE
+  }
+})
+isEditTextVisible = <span class="hljs-literal">false</span>
+anim.start()
+</pre>
     <p>
         Here your goal is to hide the view and show the circular animation in
         the opposite direction. Therefore, you make the initial radius the width
@@ -1352,37 +1278,11 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         as the root element:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                animated-vector
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                android:drawable
-            </span>
-            =
-            <span class="hljs-string">
-                "@drawable/icn_add"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                animated-vector
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">animated-vector</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">android:drawable</span>=<span class="hljs-string">"@drawable/icn_add"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">animated-vector</span>&gt;</span>
+</pre>
     <p>
         <code>
             animated-vector
@@ -1405,71 +1305,16 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/path_morph"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "sm_vertical_line"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/path_morph_lg"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "lg_vertical_line"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/fade_out"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "horizontal_line"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+  <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/path_morph"</span>
+  <span class="hljs-attr">android:name</span>=<span class="hljs-string">"sm_vertical_line"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+  <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/path_morph_lg"</span>
+  <span class="hljs-attr">android:name</span>=<span class="hljs-string">"lg_vertical_line"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+  <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/fade_out"</span>
+  <span class="hljs-attr">android:name</span>=<span class="hljs-string">"horizontal_line"</span> /&gt;</span>
+</pre>
     <p>
         With the code above, you are essentially transforming the vertical line
         of the plus icon into a checkmark while fading out the horizontal line,
@@ -1519,100 +1364,20 @@ Palette.from(photo).generate { palette -&gt;
         </em>
         , and replace it’s contents with the following:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                animated-vector
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                android:drawable
-            </span>
-            =
-            <span class="hljs-string">
-                "@drawable/icn_add"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/path_morph_reverse"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "sm_vertical_line"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/path_morph_lg_reverse"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "lg_vertical_line"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                target
-            </span>
-            <span class="hljs-attr">
-                android:animation
-            </span>
-            =
-            <span class="hljs-string">
-                "@anim/fade_in"
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "horizontal_line"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                animated-vector
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">animated-vector</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">android:drawable</span>=<span class="hljs-string">"@drawable/icn_add"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+    <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/path_morph_reverse"</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"sm_vertical_line"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+    <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/path_morph_lg_reverse"</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"lg_vertical_line"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">target</span>
+    <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/fade_in"</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"horizontal_line"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">animated-vector</span>&gt;</span>
+</pre>
     <p>
         The two lines that make up the final vertical line in the plus icon will
         now morph back into their original states and the horizontal line will
@@ -1633,17 +1398,10 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         branch before the else:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        addButton.setImageResource(R.drawable.icn_morph)
-        <span class="hljs-keyword">
-            val
-        </span>
-        animatable = addButton.drawable
-        <span class="hljs-keyword">
-            as
-        </span>
-        Animatable animatable.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">addButton.setImageResource(R.drawable.icn_morph)
+<span class="hljs-keyword">val</span> animatable = addButton.drawable <span class="hljs-keyword">as</span> Animatable
+animatable.start()
+</pre>
     <p>
         Here you set the image resource of the button to the
         <code>
@@ -1659,17 +1417,10 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         branch:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        addButton.setImageResource(R.drawable.icn_morph_reverse)
-        <span class="hljs-keyword">
-            val
-        </span>
-        animatable = addButton.drawable
-        <span class="hljs-keyword">
-            as
-        </span>
-        Animatable animatable.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">addButton.setImageResource(R.drawable.icn_morph_reverse)
+<span class="hljs-keyword">val</span> animatable = addButton.drawable <span class="hljs-keyword">as</span> Animatable
+animatable.start()
+</pre>
     <p>
         Here you’re doing almost exactly the same as the previous step, except
         you assign
@@ -1719,12 +1470,9 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         by adding the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        palette = Palette.from(photo).generate() applyPalette(palette)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> palette = Palette.from(photo).generate()
+applyPalette(palette)
+</pre>
     <p>
         Just like you did previously, you generate a palette from a photo – although
         this time you do it synchronously – and then pass that palette onto
@@ -1737,30 +1485,12 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         with this code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                applyPalette
-            </span>
-            <span class="hljs-params">
-                (palette:
-                <span class="hljs-type">
-                    Palette
-                </span>
-                )
-            </span>
-        </span>
-        { window.setBackgroundDrawable(ColorDrawable(palette.getDarkMutedColor(defaultColor)))
-        placeNameHolder.setBackgroundColor(palette.getMutedColor(defaultColor))
-        revealView.setBackgroundColor(palette.getLightVibrantColor(defaultColor))
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">applyPalette</span><span class="hljs-params">(palette: <span class="hljs-type">Palette</span>)</span></span> {
+    window.setBackgroundDrawable(ColorDrawable(palette.getDarkMutedColor(defaultColor)))
+    placeNameHolder.setBackgroundColor(palette.getMutedColor(defaultColor))
+    revealView.setBackgroundColor(palette.getLightVibrantColor(defaultColor))
+  }
+</pre>
     <p>
         Here you’re you’re using the dark muted color, the muted color, and the
         light vibrant color as the background colors of the window, title holder,
@@ -1774,9 +1504,8 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        colorize(photo)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">colorize(photo)
+</pre>
     <p>
         It’s that time again… build and run your app! You can see the detail activity
         is now using a color scheme derived from the palette of the associated
@@ -1842,9 +1571,8 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:transitionName="tImage"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:transitionName="tImage"
+</pre>
     <p>
         And then add this to the
         <code>
@@ -1856,9 +1584,8 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:transitionName="tNameHolder"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:transitionName="tNameHolder"
+</pre>
     <p>
         Notice that
         <code>
@@ -1889,9 +1616,8 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:transitionName="tImage"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:transitionName="tImage"
+</pre>
     <p>
         And, in a similar fashion, add a
         <code>
@@ -1907,9 +1633,8 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:transitionName="tNameHolder"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:transitionName="tNameHolder"
+</pre>
     <p>
         Shared elements between activities that you want to transition should
         have the same
@@ -1936,101 +1661,23 @@ Palette.from(photo).generate { palette -&gt;
         </code>
         , update the method to the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onItemClick
-            </span>
-            <span class="hljs-params">
-                (view:
-                <span class="hljs-type">
-                    View
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        intent = DetailActivity.newIntent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @MainActivity
-        </span>
-        , position)
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        placeImage = view.findViewById&lt;ImageView&gt;(R.id.placeImage)
-        <span class="hljs-keyword">
-            val
-        </span>
-        placeNameHolder = view.findViewById&lt;LinearLayout&gt;(R.id.placeNameHolder)
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        imagePair = Pair.create(placeImage
-        <span class="hljs-keyword">
-            as
-        </span>
-        View,
-        <span class="hljs-string">
-            "tImage"
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        holderPair = Pair.create(placeNameHolder
-        <span class="hljs-keyword">
-            as
-        </span>
-        View,
-        <span class="hljs-string">
-            "tNameHolder"
-        </span>
-        )
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @MainActivity
-        </span>
-        , imagePair, holderPair) ActivityCompat.startActivity(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @MainActivity
-        </span>
-        , intent, options.toBundle()) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span> {
+  <span class="hljs-keyword">val</span> intent = DetailActivity.newIntent(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, position)
+
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">val</span> placeImage = view.findViewById&lt;ImageView&gt;(R.id.placeImage)
+  <span class="hljs-keyword">val</span> placeNameHolder = view.findViewById&lt;LinearLayout&gt;(R.id.placeNameHolder)
+
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">val</span> imagePair = Pair.create(placeImage <span class="hljs-keyword">as</span> View, <span class="hljs-string">"tImage"</span>)
+  <span class="hljs-keyword">val</span> holderPair = Pair.create(placeNameHolder <span class="hljs-keyword">as</span> View, <span class="hljs-string">"tNameHolder"</span>)
+
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">val</span> options = ActivityOptionsCompat.makeSceneTransitionAnimation(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>,
+    imagePair, holderPair)
+  ActivityCompat.startActivity(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, intent, options.toBundle())
+}
+</pre>
     <p>
         After adding this code, you will need to
         <em>
@@ -2039,12 +1686,8 @@ Palette.from(photo).generate { palette -&gt;
         the following import statement to the top of the file as Android Studio
         cannot automatically determine that this is the intended package.
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.util.Pair
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.util.Pair
+</pre>
     <p>
         There are a couple of things to highlight here:
     </p>
