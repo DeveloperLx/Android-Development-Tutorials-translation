@@ -1151,11 +1151,11 @@ anim.start()
         的位置，并带有些微的偏移。这个偏移就造就了展现效果是从你FAB按钮处发生的效果。
     </p>
     <p>
-        接下来，radius则给出了展现环形的轮廓，就像你在上面的GIF动画中看到的一样。所有的这些值 - x位置，y位置，半径 - 你都会传入到动画实例中。这个动画使用了
+        接下来，radius则给出了展现圆形的轮廓，就像你在上面的GIF动画中看到的一样。所有的这些值 - x位置，y位置，半径 - 你都会传入到动画实例中。这个动画使用了
         <code>
             ViewAnimationUtils
         </code>
-        ，它可以帮助你来创建环形展现效果的动画。
+        ，它可以帮助你来创建圆形展现效果的动画。
     </p>
     <p>
         由于
@@ -1201,17 +1201,13 @@ isEditTextVisible = <span class="hljs-literal">false</span>
 anim.start()
 </pre>
     <p>
-        Here your goal is to hide the view and show the circular animation in
-        the opposite direction. Therefore, you make the initial radius the width
-        of the view and the ending radius 0, which shrinks the circle.
+        这里你的目标是隐藏view，并以相反的方向来展现圆形动画。因此，你将初始的半径设置为view的宽度，截止的则为0，这样就可以将圆形缩小了。
     </p>
     <p>
-        You want to show the animation first and then hide the view. To do this,
-        you implement an animation listener and hide the view when the animation
-        ends.
+        你想要首先展示动画，然后再将view因此。为了做到这点，需要实现一个动画监听器，在动画结束的时候隐藏view。
     </p>
     <p>
-        Now build and run and see this animation in action!
+        现在运行项目实际地参看动画！
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-19-2017-23-46-35-reveal2.gif">
@@ -1222,19 +1218,17 @@ anim.start()
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If the keyboard presents itself, you’ll need to dismiss it explicitly
-            to see the effect without obstruction. Comment out the call to
-            <code>
-                inputManager.showSoftInput(...)
-            </code>
-            in
+            ：如果键盘自己弹出来了，你需要显式地将它隐藏以便无阻碍地查看效果。注释掉
             <code>
                 DetailActivity
             </code>
-            , but don’t forget to uncomment it. Oh, and don’t worry that your button
-            doesn’t show the plus icon yet, you’ll fix that soon.
+            中的
+            <code>
+                inputManager.showSoftInput(...)
+            </code>
+            ，但不要忘记取消注释。哦，不必担心你的按钮现在还未出现加号，你很快就会修复它。
         </p>
     </div>
     <h3>
