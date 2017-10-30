@@ -1,4 +1,4 @@
-# Android：材料设计的介绍 - Kotlin
+# Android：质感设计的介绍 - Kotlin
 ---
 #### [原文地址](https://www.raywenderlich.com/168916/android-an-introduction-to-material-design) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -15,21 +15,21 @@
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/MaterialDesign-feature-250x250.png"
         alt="Material Design with Kotlin!" width="250" height="250" class="size-full wp-image-119228">
         <p class="wp-caption-text">
-            材料设计 - Kotlin！
+            质感设计 - Kotlin！
         </p>
     </div>
     <p>
-        Google的材料设计可以帮助你带给用户精美的Android app。但稍等-神马是材料设计？
+        Google的质感设计可以帮助你带给用户精美的Android app。但稍等-神马是质感设计？
     </p>
     <p>
-        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。材料设计是Android app的“用户体验哲学”！
+        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。质感设计是Android app的“用户体验哲学”！
     </p>
     <p>
-        在本教程中，你会将材料设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
+        在本教程中，你会将质感设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
     </p>
     <ul>
         <li>
-            实现材料主题；
+            实现质感主题；
         </li>
         <li>
             使用类似
@@ -132,7 +132,7 @@
         </a>
     </p>
     <p>
-        现在一切都是空的！你会添加一些材料的组件到它上面，包括动态的view，颜色方案和动画，来真正地完善这些照片。
+        现在一切都是空的！你会添加一些质感的组件到它上面，包括动态的view，颜色方案和动画，来真正地完善这些照片。
     </p>
     <p>
         打开app模块中的
@@ -166,7 +166,7 @@
         提供的一个神奇的图片下载和缓存库。
     </p>
     <p>
-        依赖声明好之后，就该将材料设计迁移到你的app中了！
+        依赖声明好之后，就该将质感设计迁移到你的app中了！
     </p>
     <h2>
         设置主题
@@ -459,7 +459,7 @@ list.layoutManager = staggeredLayoutManager
         <code>
             card_view:cardCornerRadius
         </code>
-        的属性，及给材料设计
+        的属性，及给质感设计
         <code>
             card_view:cardElevation
         </code>
@@ -1009,7 +1009,7 @@ Palette.from(photo).generate { palette -&gt;
         </p>
     </div>
     <h2>
-        使用新的材料API
+        使用新的质感API
     </h2>
     <p>
         在本节，你会在
@@ -1020,7 +1020,7 @@ Palette.from(photo).generate { palette -&gt;
         <code>
             activity_detail
         </code>
-        布局上，通过使用一些新的材料设计API来让它变得更酷。
+        布局上，通过使用一些新的质感设计API来让它变得更酷。
     </p>
     <p>
         首先，你希望看到在起始项目中的详情视图的样子。添加下列的代码到
@@ -1075,11 +1075,11 @@ Palette.from(photo).generate { palette -&gt;
         <i>
             但是！
         </i>
-        ），你为之后的工作打下了一个很好的基础，方便去添加那些令人期待的材料设计API。你还可以看到一个很酷的
+        ），你为之后的工作打下了一个很好的基础，方便去添加那些令人期待的质感设计API。你还可以看到一个很酷的
         <code>
             FloatingActionButton
         </code>
-        ，它是有材料设计所引入的组件之一。
+        ，它是有质感设计所引入的组件之一。
     </p>
     <h3>
         添加展现动画
@@ -1136,29 +1136,26 @@ isEditTextVisible = <span class="hljs-literal">true</span>
 anim.start()
 </pre>
     <p>
-        The two
+        通过两个
         <code>
             int
         </code>
-        values are getting the
+        的值获取到view的
         <code>
             x
         </code>
-        and
+        和
         <code>
             y
         </code>
-        positions of the view with a slight offset. This offset gives the illusion
-        that the reveal is happening from the direction of your FAB.
+        的位置，并带有些微的偏移。这个偏移就造就了展现效果是从你FAB按钮处发生的效果。
     </p>
     <p>
-        Next, the radius gives the reveal the circular outline that you can see
-        in the GIF above. All of these values — the x-position, y-position and
-        the radius — you pass into the animation instance. This animation is using
+        接下来，radius则给出了展现环形的轮廓，就像你在上面的GIF动画中看到的一样。所有的这些值 - x位置，y位置，半径 - 你都会传入到动画实例中。这个动画使用了
         <code>
             ViewAnimationUtils
         </code>
-        , which gives you the ability to create this circular reveal.
+        ，它可以帮助你来创建环形展现效果的动画。
     </p>
     <p>
         Since the
