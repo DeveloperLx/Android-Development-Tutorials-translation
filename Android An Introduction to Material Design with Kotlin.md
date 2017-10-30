@@ -1232,12 +1232,10 @@ anim.start()
         </p>
     </div>
     <h3>
-        Morphing a Bezier Path for a Floating Action Button
+        为浮动的动作按钮创建变换的贝塞尔路径
     </h3>
     <p>
-        Now that you have your reveal animation hiding and showing the edit text
-        field, you can coordinate the icon on your FAB to look and respond just
-        like the one shown below:
+        现在你已有了展现的动画来隐藏和展示编辑edit text field，你可以协调FAB上的图标，就像下面这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-01-58-26-scuba.gif">
@@ -1246,28 +1244,26 @@ anim.start()
         </a>
     </p>
     <p>
-        The starter project includes the vector paths for the plus and checkmark
-        icons. You’ll learn how to animate – or morph – the paths from the plus
-        to the checkmark, and vice versa.
+        起始的项目已包含了加号和对勾图标的矢量路径。你将学习如何动画 - 变形 - 从加号到对勾，以及相反的方向。
     </p>
     <p>
-        Under the
+        在
         <em>
             res/drawables
         </em>
-        directory, create a new resource file by going to
+        目录下，通过
         <em>
-            New\Drawable resource file
+            New/Drawable resource file
         </em>
-        . Call it
+        创建一个新的资源文件。将它命名为
         <em>
             icn_morph
         </em>
-        and define
+        并声明
         <code>
             animated-vector
         </code>
-        as the root element:
+        作为根元素：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">animated-vector</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
@@ -1779,116 +1775,18 @@ applyPalette(palette)
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        window.enterTransition.addListener(
-        <span class="hljs-keyword">
-            object
-        </span>
-        : Transition.TransitionListener {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTransitionEnd
-            </span>
-            <span class="hljs-params">
-                (transition:
-                <span class="hljs-type">
-                    Transition
-                </span>
-                )
-            </span>
-        </span>
-        { addButton.animate().alpha(
-        <span class="hljs-number">
-            1.0
-        </span>
-        f) window.enterTransition.removeListener(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTransitionResume
-            </span>
-            <span class="hljs-params">
-                (transition:
-                <span class="hljs-type">
-                    Transition
-                </span>
-                )
-            </span>
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTransitionPause
-            </span>
-            <span class="hljs-params">
-                (transition:
-                <span class="hljs-type">
-                    Transition
-                </span>
-                )
-            </span>
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTransitionCancel
-            </span>
-            <span class="hljs-params">
-                (transition:
-                <span class="hljs-type">
-                    Transition
-                </span>
-                )
-            </span>
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTransitionStart
-            </span>
-            <span class="hljs-params">
-                (transition:
-                <span class="hljs-type">
-                    Transition
-                </span>
-                )
-            </span>
-        </span>
-        { } })
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">window.enterTransition.addListener(<span class="hljs-keyword">object</span> : Transition.TransitionListener {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionEnd</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> {
+    addButton.animate().alpha(<span class="hljs-number">1.0</span>f)
+    window.enterTransition.removeListener(<span class="hljs-keyword">this</span>)
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionResume</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> { }
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionPause</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> { }
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionCancel</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> { }
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionStart</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> { }
+})
+</pre>
     <p>
         The listener you add to the enter transition is triggered when the window
         transition ends, which you use to fade in the FAB button. For this to be
@@ -1906,9 +1804,8 @@ applyPalette(palette)
         </em>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:alpha="0.0"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:alpha="0.0"
+</pre>
     <p>
         Build and run! You’ll notice the FAB transition is
         <i>
@@ -1933,31 +1830,8 @@ applyPalette(palette)
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                style
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "AppTheme"
-            </span>
-            <span class="hljs-attr">
-                parent
-            </span>
-            =
-            <span class="hljs-string">
-                "Theme.AppCompat.Light.NoActionBar"
-            </span>
-            &gt;
-        </span>
-        <span class="undefined">
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AppTheme"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="undefined">
+</span></pre>
     <p>
         Since there is no action bar defined in
         <em>
@@ -1980,22 +1854,8 @@ applyPalette(palette)
         </code>
         tag:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                include
-            </span>
-            <span class="hljs-attr">
-                layout
-            </span>
-            =
-            <span class="hljs-string">
-                "@layout/toolbar"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar"</span> /&gt;</span>
+</pre>
     <p>
         This simply includes a toolbar layout that's provided as part of the starter
         project into the current layout. Now you need to make a similar change
@@ -2016,22 +1876,8 @@ applyPalette(palette)
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                include
-            </span>
-            <span class="hljs-attr">
-                layout
-            </span>
-            =
-            <span class="hljs-string">
-                "@layout/toolbar_detail"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar_detail"</span>/&gt;</span>
+</pre>
     <p>
         Next in
         <code>
@@ -2044,9 +1890,8 @@ applyPalette(palette)
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setUpActionBar()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">setUpActionBar()
+</pre>
     <p>
         Here you assign the result of the
         <code>
@@ -2063,21 +1908,11 @@ applyPalette(palette)
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setSupportActionBar(toolbar) supportActionBar?.setDisplayHomeAsUpEnabled(
-        <span class="hljs-literal">
-            false
-        </span>
-        ) supportActionBar?.setDisplayShowTitleEnabled(
-        <span class="hljs-literal">
-            true
-        </span>
-        ) supportActionBar?.elevation =
-        <span class="hljs-number">
-            7.0
-        </span>
-        f
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">    setSupportActionBar(toolbar)
+    supportActionBar?.setDisplayHomeAsUpEnabled(<span class="hljs-literal">false</span>)
+    supportActionBar?.setDisplayShowTitleEnabled(<span class="hljs-literal">true</span>)
+    supportActionBar?.elevation = <span class="hljs-number">7.0</span>f
+</pre>
     <p>
         Here you set the action bar to be an instance of your custom toolbar,
         set the visibility of the title, disable the home button, and add a subtle
@@ -2099,93 +1934,33 @@ applyPalette(palette)
         </code>
         with this one:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        val onItemClickListener = object : TravelListAdapter.OnItemClickListener
-        {
-        <span class="hljs-function">
-            override fun
-            <span class="hljs-title">
-                onItemClick
-            </span>
-            <span class="hljs-params">
-                (view: View, position: Int)
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        val transitionIntent = DetailActivity.newIntent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-meta">
-            @MainActivity
-        </span>
-        , position) val placeImage = view.findViewById&lt;ImageView&gt;(R.id.placeImage)
-        val placeNameHolder = view.findViewById&lt;LinearLayout&gt;(R.id.placeNameHolder)
-        <span class="hljs-comment">
-            // 2
-        </span>
-        val navigationBar = findViewById&lt;View&gt;(android.R.id.navigationBarBackground)
-        val statusBar = findViewById&lt;View&gt;(android.R.id.statusBarBackground)
-        val imagePair = Pair.create(placeImage as View,
-        <span class="hljs-string">
-            "tImage"
-        </span>
-        ) val holderPair = Pair.create(placeNameHolder as View,
-        <span class="hljs-string">
-            "tNameHolder"
-        </span>
-        )
-        <span class="hljs-comment">
-            // 3
-        </span>
-        val navPair = Pair.create(navigationBar, Window.NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME)
-        val statusPair = Pair.create(statusBar, Window.STATUS_BAR_BACKGROUND_TRANSITION_NAME)
-        val toolbarPair = Pair.create(toolbar as View,
-        <span class="hljs-string">
-            "tActionBar"
-        </span>
-        )
-        <span class="hljs-comment">
-            // 4
-        </span>
-        val pairs = mutableListOf(imagePair, holderPair, statusPair, toolbarPair)
-        <span class="hljs-keyword">
-            if
-        </span>
-        (navigationBar !=
-        <span class="hljs-keyword">
-            null
-        </span>
-        &amp;&amp; navPair !=
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) { pairs += navPair }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-meta">
-            @MainActivity
-        </span>
-        , *pairs.toTypedArray()) ActivityCompat.startActivity(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-meta">
-            @MainActivity
-        </span>
-        , transitionIntent, options.toBundle()) } }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> val onItemClickListener = object : TravelListAdapter.OnItemClickListener {
+  <span class="hljs-function">override fun <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: View, position: Int)</span> </span>{
+    <span class="hljs-comment">// 1</span>
+    val transitionIntent = DetailActivity.newIntent(<span class="hljs-keyword">this</span><span class="hljs-meta">@MainActivity</span>, position)
+    val placeImage = view.findViewById&lt;ImageView&gt;(R.id.placeImage)
+    val placeNameHolder = view.findViewById&lt;LinearLayout&gt;(R.id.placeNameHolder)
+    <span class="hljs-comment">// 2</span>
+    val navigationBar = findViewById&lt;View&gt;(android.R.id.navigationBarBackground)
+    val statusBar = findViewById&lt;View&gt;(android.R.id.statusBarBackground)
+    val imagePair = Pair.create(placeImage as View, <span class="hljs-string">"tImage"</span>)
+    val holderPair = Pair.create(placeNameHolder as View, <span class="hljs-string">"tNameHolder"</span>)
+    <span class="hljs-comment">// 3</span>
+    val navPair = Pair.create(navigationBar, Window.NAVIGATION_BAR_BACKGROUND_TRANSITION_NAME)
+    val statusPair = Pair.create(statusBar, Window.STATUS_BAR_BACKGROUND_TRANSITION_NAME)
+    val toolbarPair = Pair.create(toolbar as View, <span class="hljs-string">"tActionBar"</span>)
+    <span class="hljs-comment">// 4</span>
+    val pairs = mutableListOf(imagePair, holderPair, statusPair, toolbarPair)
+    <span class="hljs-keyword">if</span> (navigationBar != <span class="hljs-keyword">null</span> &amp;&amp; navPair != <span class="hljs-keyword">null</span>) {
+      pairs += navPair
+    }
+    <span class="hljs-comment">// 5</span>
+    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(<span class="hljs-keyword">this</span><span class="hljs-meta">@MainActivity</span>,
+      *pairs.toTypedArray())
+    ActivityCompat.startActivity(<span class="hljs-keyword">this</span><span class="hljs-meta">@MainActivity</span>, transitionIntent, options.toBundle())
+  }
+}
+</pre>
     <p>
         The differences between the original implementation and this one are thus:
     </p>
