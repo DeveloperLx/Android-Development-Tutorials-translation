@@ -1007,31 +1007,27 @@ Palette.from(photo).generate { palette -&gt;
             </code>
             等。
         </p>
-        <p>
-        </p>
     </div>
     <h2>
-        Using the New Material APIs
+        使用新的材料API
     </h2>
     <p>
-        In this section, you’ll use
+        在本节，你会在
         <code>
             DetailActivity
         </code>
-        and its corresponding
+        和它相应的
         <code>
             activity_detail
         </code>
-        layout, and make them cooler by infusing some of the new Material Design
-        APIs.
+        布局上，通过使用一些新的材料设计API来让它变得更酷。
     </p>
     <p>
-        First, you’ll want to see how the detail view currently looks in the starter
-        project. To see this, first add the following to the companion object of
+        首先，你希望看到在起始项目中的详情视图的样子。添加下列的代码到
         <code>
             DetailActivity
         </code>
-        :
+        的同伴对象：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">newIntent</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>, position: <span class="hljs-type">Int</span>)</span></span>: Intent {
   <span class="hljs-keyword">val</span> intent = Intent(context, DetailActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
@@ -1040,32 +1036,31 @@ Palette.from(photo).generate { palette -&gt;
 }
 </pre>
     <p>
-        Then, go to
+        然后，切到
         <code>
             MainActivity
         </code>
-        and replace the
-        <code>
-            Toast
-        </code>
-        in
+        ，使用下列的代码替换
         <code>
             onItemClick(...)
         </code>
-        of onItemClickListener with the following:
+        方法中的
+        <code>
+            Toast
+        </code>
+        语句：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">startActivity(DetailActivity.newIntent(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, position))
 </pre>
     <p>
-        You can pass the position of the place object via the intent so that
+        你可以通过intent来传递place对象的位置，这样
         <code>
             DetailActivity
         </code>
-        can retrieve the information and use it to layout the interface. That’s
-        what you’re doing here.
+        就可以检索相应的信息用来布局界面。这就是这里所做的事。
     </p>
     <p>
-        Build and run.
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503199820.png">
@@ -1076,19 +1071,18 @@ Palette.from(photo).generate { palette -&gt;
         </a>
     </p>
     <p>
-        There isn’t anything crazy going on here (
+        现在还没有什么令人激动的（
         <i>
-            yet!
+            但是！
         </i>
-        ), but you’ve got a nice foundation on which to start adding those highly
-        anticipated Material Design APIs. You also see a cool
+        ），你为之后的工作打下了一个很好的基础，方便去添加那些令人期待的材料设计API。你还可以看到一个很酷的
         <code>
             FloatingActionButton
         </code>
-        , one of the widgets introduced by Material Design.
+        ，它是有材料设计所引入的组件之一。
     </p>
     <h3>
-        Adding a Reveal Animation
+        添加展现动画
     </h3>
     <p>
         Now you want to give your users the ability to add notes about what they’d
