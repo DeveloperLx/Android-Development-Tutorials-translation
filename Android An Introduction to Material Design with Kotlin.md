@@ -1158,34 +1158,34 @@ anim.start()
         ，它可以帮助你来创建环形展现效果的动画。
     </p>
     <p>
-        Since the
+        由于
         <code>
             EditText
         </code>
-        view is initially hidden, you set the view’s visibility to
+        view开始时是隐藏的，因此将它的visibility设置为
         <code>
             VISIBLE
         </code>
-        and set your boolean check
+        比将
         <code>
             isEditTextVisible
         </code>
-        to
+        设为
         <code>
             true
         </code>
-        . Finally, you can call
+        。最后，调用animation对象的
         <code>
             start()
         </code>
-        on the animation.
+        方法。
     </p>
     <p>
-        To dismiss the view, add the following to
+        为了隐藏view，添加下列的代码到
         <code>
             hideEditText()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> cx = view.right - <span class="hljs-number">30</span>
 <span class="hljs-keyword">val</span> cy = view.bottom - <span class="hljs-number">60</span>
