@@ -1747,30 +1747,28 @@ applyPalette(palette)
 })
 </pre>
     <p>
-        The listener you add to the enter transition is triggered when the window transition ends, 
-        which you use to fade in the FAB button. 
-        For this to be effective, set the
-        <code>
-            alpha
-        </code>
-        to
-        <code>
-            0
-        </code>
-        for the FAB in
+        添加到过渡效果的监听器中的方法，将会在窗口过渡结束的时候被调用，此处用来给FAB按钮渐入的效果。因此你还需要在
         <em>
             activity_detail.xml
         </em>
-        :
+        中将FAB的
+        <code>
+            alpha
+        </code>
+        值设置为
+        <code>
+            0
+        </code>
+        ：
     </p>
     <pre lang="xml" class="language-xml hljs">android:alpha="0.0"
 </pre>
     <p>
-        Build and run! You’ll notice the FAB transition is
+        运行项目！你会看到现在FAB的过渡效果已
         <i>
-            much
+            更加地
         </i>
-        smoother!:
+        顺滑!:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-00-54-17-transition2.gif">
@@ -1779,46 +1777,45 @@ applyPalette(palette)
         </a>
     </p>
     <p>
-        As for the action bar and navigation bar issues, begin by updating
+        对于动作栏和导航栏的问题，首先更新
         <em>
             styles.xml
         </em>
-        , to set the parent theme to
+        ，首先将父主题设置为
         <code>
             Theme.AppCompat.Light.NoActionBar
         </code>
-        :
+        ：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"AppTheme"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="undefined">
 </span></pre>
     <p>
-        Since there is no action bar defined in
+        由于在
         <em>
             styles.xml
         </em>
-        , you’ll have to add it using individual XML views.
+        中并未定义过动作栏，你不得不适用单独的XML view来添加它。
     </p>
     <p>
-        Open
+        打开
         <em>
             activity_main.xml
         </em>
-        and add the following inside
+        并在
         <code>
             LinearLayout
         </code>
-        , just above the
+        中添加下列的代码，就在
         <code>
             RecyclerView
         </code>
-        tag:
+        这个标签之上：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar"</span> /&gt;</span>
 </pre>
     <p>
-        This simply includes a toolbar layout that's provided as part of the starter
-        project into the current layout. Now you need to make a similar change
-        to the detail activity's layout.
+        This simply includes a toolbar layout that's provided as part of the starter project into the current layout. 
+        Now you need to make a similar change to the detail activity's layout.
     </p>
     <p>
         Open
