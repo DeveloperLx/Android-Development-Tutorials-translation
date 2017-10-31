@@ -1274,23 +1274,22 @@ anim.start()
         <code>
             animated-vector
         </code>
-        requires an existing
+        需要一个已存在的
         <code>
             android:drawable
         </code>
-        . In this case, the animated vector will start with a plus sign and morph
-        into a checkmark, so you’ll set the drawable to
+        。在本例中，动画向量会从一个加号开始，逐渐变形为一个对号，因此你将drawable设置为
         <code>
             icn_add
         </code>
-        .
+        。
     </p>
     <p>
-        Now for the actual morphing, add the following inside the
+        现在为了实际的变形效果，添加下列的内容到
         <code>
             animated-vector
         </code>
-        tag:
+        的tag中：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">target</span>
   <span class="hljs-attr">android:animation</span>=<span class="hljs-string">"@anim/path_morph"</span>
