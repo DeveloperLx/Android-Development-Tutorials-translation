@@ -1640,71 +1640,67 @@ applyPalette(palette)
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.util.Pair
 </pre>
     <p>
-        There are a couple of things to highlight here:
+        这里有一些事值得特别关注：
     </p>
     <ol>
         <li>
-            You get an instance of both
-            <code>
-                placeImage
-            </code>
-            and
-            <code>
-                placeNameHolder
-            </code>
-            for the given position of the
+            对
             <code>
                 RecyclerView
             </code>
-            . You’re not relying on Kotlin Android Extensions here since you need
-            the
+            的给定位置，获取
             <code>
                 placeImage
             </code>
-            and
+            和
             <code>
                 placeNameHolder
             </code>
-            from the specific
+            的实例。不能依赖Kotlin Android Extensions，因为你需要来自特定的
             <code>
                 view
             </code>
-            .
+            的
+            <code>
+                placeImage
+            </code>
+            和
+            <code>
+                placeNameHolder
+            </code>
+            。
         </li>
         <li>
-            You create a
+            创建了一个包含view和
+            <code>
+                transitionName
+            </code>
+            的
             <a href="http://developer.android.com/reference/android/util/Pair.html"
             target="">
                 <code>
                     Pair
                 </code>
             </a>
-            containing the view and the
-            <code>
-                transitionName
-            </code>
-            for both the image and the text holder view. Note that you will once again
-            have to manually add the import statement to the top of the file:
+            ，包含了图片和容纳文本的view。注意你需要再次手动添加下列的import语句到文件顶部：
             <code>
                 android.support.v4.util.Pair
             </code>
-            .
         </li>
         <li>
-            To make the activity scene transition with shared views, you pass in your
+            为了通过共享的view创建activity的场景转换，传入你的
             <code>
                 Pair
             </code>
-            instances and start the activity with your
+            实例，并使用你的
             <code>
                 options
             </code>
-            bundle.
+            bundle来启动activity。
         </li>
     </ol>
     <p>
-        Build and run to see the image transition from the main activity to the
-        detail activity:
+        运行项目，来查看图片从主activity到详情activity的过渡效果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-00-45-50-transition.gif">
@@ -1713,31 +1709,30 @@ applyPalette(palette)
         </a>
     </p>
     <p>
-        However, the animation is a bit jumpy in two areas:
+        然而，这个动画在两个地方都有一点跳跃：
     </p>
     <ul>
         <li>
-            The FAB button suddenly appears in
+            FAB按钮会突然出现在
             <code>
                 DetailActivity
             </code>
-            .
+            中。
         </li>
         <li>
-            If you tap on a row under the action or navigation bar, that row appears
-            to jump a bit before it transitions.
+            如果你点击动作栏或导航栏之下的一行，该行在转换之前就会出现一点跳跃。
         </li>
     </ul>
     <p>
-        You’ll solve the FAB button issue first. Open
+        首先来解决FAB按钮的问题。打开
         <em>
             DetailActivity.kt
         </em>
-        and add the following to
+        并添加下列的代码到
         <code>
             windowTransition()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">window.enterTransition.addListener(<span class="hljs-keyword">object</span> : Transition.TransitionListener {
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTransitionEnd</span><span class="hljs-params">(transition: <span class="hljs-type">Transition</span>)</span></span> {
@@ -1752,9 +1747,9 @@ applyPalette(palette)
 })
 </pre>
     <p>
-        The listener you add to the enter transition is triggered when the window
-        transition ends, which you use to fade in the FAB button. For this to be
-        effective, set the
+        The listener you add to the enter transition is triggered when the window transition ends, 
+        which you use to fade in the FAB button. 
+        For this to be effective, set the
         <code>
             alpha
         </code>
@@ -1847,8 +1842,8 @@ applyPalette(palette)
         <code>
             MainActivity
         </code>
-        , you need to initialize the toolbar. Add the following to the bottom
-        of the
+        , you need to initialize the toolbar. 
+        Add the following to the bottom of the
         <code>
             onCreate()
         </code>
@@ -1865,8 +1860,8 @@ applyPalette(palette)
         <code>
             setUpActionBar()
         </code>
-        . At the moment it's just an empty method stub. Fix that now by adding
-        the following to
+        . At the moment it's just an empty method stub. 
+        Fix that now by adding the following to
         <code>
             setUpActionBar()
         </code>
@@ -1879,13 +1874,14 @@ applyPalette(palette)
 </pre>
     <p>
         Here you set the action bar to be an instance of your custom toolbar,
-        set the visibility of the title, disable the home button, and add a subtle
-        drop shadow by setting the elevation.
+        set the visibility of the title, 
+        disable the home button, 
+        and add a subtle drop shadow by setting the elevation.
     </p>
     <p>
-        Build and run. You'll notice that nothing much has changed, but these
-        changes have laid the foundations of properly being able to transition
-        the toolbar.
+        Build and run. You'll notice that nothing much has changed, 
+        but these changes have laid the foundations of properly 
+        being able to transition the toolbar.
     </p>
     <p>
         Open
@@ -1940,8 +1936,7 @@ applyPalette(palette)
             <code>
                 Pair
             </code>
-            - one for the navigation bar, one for the status bar, and one for the
-            toolbar;
+            - one for the navigation bar, one for the status bar, and one for the toolbar;
         </li>
         <li>
             You've protected against an IllegalArgumentException that occurs on certain
@@ -1952,9 +1947,8 @@ applyPalette(palette)
             is null.
         </li>
         <li>
-            And finally you've updated the options that are passed to the new activity
-            to include the references to the new views. You've used the Kotlin spread
-            operator
+            And finally you've updated the options that are passed to the new activity to include the references to the new views. 
+            You've used the Kotlin spread operator
             <code>
                 *
             </code>
@@ -1975,11 +1969,11 @@ applyPalette(palette)
         </a>
     </p>
     <p>
-        Now if you tap on a row under the action/toolbar or navigation bar, it
-        doesn't jump before the transition; it transitions with the rest of the
-        shared elements, which is much more pleasing to the eye. Switch to the
-        grid view and you'll notice that the transitions work very nicely with
-        that layout as well.
+        Now if you tap on a row under the action/toolbar or navigation bar, 
+        it doesn't jump before the transition; 
+        it transitions with the rest of the shared elements, 
+        which is much more pleasing to the eye. 
+        Switch to the grid view and you'll notice that the transitions work very nicely with that layout as well.
     </p>
     <p>
         Ta-da! Here is a video of the final app in action:
