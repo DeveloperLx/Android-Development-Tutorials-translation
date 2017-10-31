@@ -1302,9 +1302,7 @@ anim.start()
   <span class="hljs-attr">android:name</span>=<span class="hljs-string">"horizontal_line"</span> /&gt;</span>
 </pre>
     <p>
-        With the code above, you are essentially transforming the vertical line
-        of the plus icon into a checkmark while fading out the horizontal line,
-        as the diagram below illustrates:
+        通过以上的代码，你就可以将加号中垂直的线转化成一个对勾，并将水平的线消失掉，就像下面的这张图所表示的一样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/04/Screen-Shot-2015-04-22-at-12.59.57-AM.png">
@@ -1314,8 +1312,7 @@ anim.start()
         </a>
     </p>
     <p>
-        Furthermore, the vertical line is comprised of two paths, a smaller vertical
-        line and a larger one:
+        此外，垂直的这条线包含了两条路径，一条较短，一条较长：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/04/Screen-Shot-2015-04-22-at-1.11.49-AM.png">
@@ -1325,30 +1322,22 @@ anim.start()
         </a>
     </p>
     <p>
-        You can see from the diagram above that you can transform the first two
-        targets,
+        从上面的图表中可以看到，我们可以将前两个target，
         <code>
             sm_vertical_line
         </code>
-        and
+        和
         <code>
             lg_vertical_line
         </code>
-        , into a checkmark by drawing their paths at different angles, which is
-        exactly what you do in the previous code block, along with fading out
-        <code>
-            horizontal_line
-        </code>
-        .
+        ，通过在不同的角度下绘制来转换一个对勾，也就是你在前一个代码块中所做的事。
     </p>
     <p>
-        Next, you need to reverse this animation to transform the checkmark back
-        into a plus sign. Create another drawable resource file, this time calling
-        it
+        接下来，则需要做相反的动作，把对勾转换为一个加号。创建另一个drawable资源文件，名为
         <em>
             icn_morph_reverse
         </em>
-        , and replace it’s contents with the following:
+        ，并将其内容替换为下列的代码：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">animated-vector</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
@@ -1364,73 +1353,66 @@ anim.start()
     <span class="hljs-attr">android:name</span>=<span class="hljs-string">"horizontal_line"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">animated-vector</span>&gt;</span>
 </pre>
-    <p>
-        The two lines that make up the final vertical line in the plus icon will
-        now morph back into their original states and the horizontal line will
-        fade into view, creating a smooth effect.
+    <p> 
+        构成加号竖线的两条线现在将转化回它们原始的状态，水平的线则会逐渐出现在view中，以此来创建一个平滑的效果。
     </p>
     <p>
-        Now, to complete the animation. Open
+        现在，为了完成动画。打开
         <em>
             DetailActivity.kt
         </em>
-        and add the following to
+        并添加下列的代码到
         <code>
             onClick()
         </code>
-        , at the end of the
+        中，就在
         <code>
             if
         </code>
-        branch before the else:
+        分支中，else之前：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">addButton.setImageResource(R.drawable.icn_morph)
 <span class="hljs-keyword">val</span> animatable = addButton.drawable <span class="hljs-keyword">as</span> Animatable
 animatable.start()
 </pre>
     <p>
-        Here you set the image resource of the button to the
+        这里将按钮的图片资源设置为你之前创建的
         <code>
             icn_morph
         </code>
-        drawable you created earlier, extract the animatable from it, and then
-        kick-off the animation.
+        drawable文件，从中来提取并开始动画。
     </p>
     <p>
-        Finally, add the following to the very bottom of the
+        最后，添加下列的代码到
         <code>
             else
         </code>
-        branch:
+        分支的尾部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">addButton.setImageResource(R.drawable.icn_morph_reverse)
 <span class="hljs-keyword">val</span> animatable = addButton.drawable <span class="hljs-keyword">as</span> Animatable
 animatable.start()
 </pre>
     <p>
-        Here you’re doing almost exactly the same as the previous step, except
-        you assign
+        这里基本和之前的一步完全一致，除了将图片资源设置为
         <code>
             icn_morph_reverse
         </code>
-        as the image resource so the animation plays out in the opposite direction.
+        ，这样动画就会以相反的方向来进行播放。
     </p>
     <p>
-        Along with morphing the icon, the user’s click also adds the text from
+        在变化图标的同时，用户的点击还会将
         <code>
             todoText
         </code>
-        to the
+        中的问题添加到
         <code>
             toDoAdapter
         </code>
-        and refreshes the place activity list. This is not yet visible because
-        of the white text, but in the next section, you’ll add vibrant color to
-        your views so that the text stands out.
+        中，并刷新place活动列表。由于文本现在还是白色的，我们无法看到。在下一节中，你会添加生动的颜色到view上，这样文本就会展现出来了。
     </p>
     <p>
-        Build and run, and watch the magic unfold before your eyes! The FAB icon
-        now morphs between a checkmark and a plus sign when it’s tapped.
+        运行项目，欣赏魔法般的展现效果！点击FAB按钮，就会让它在对勾和加号的图标之间进行变换。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-00-04-13-morph.gif">
@@ -1439,7 +1421,7 @@ animatable.start()
         </a>
     </p>
     <h3>
-        Adding Dynamic Colors to Views Using Palette API
+        使用Palette API添加动态的颜色到View上
     </h3>
     <p>
         It’s time to add colors to this view using the Palette API. And not just
