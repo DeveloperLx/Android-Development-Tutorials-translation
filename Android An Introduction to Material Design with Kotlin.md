@@ -1814,32 +1814,27 @@ applyPalette(palette)
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar"</span> /&gt;</span>
 </pre>
     <p>
-        This simply includes a toolbar layout that's provided as part of the starter project into the current layout. 
-        Now you need to make a similar change to the detail activity's layout.
+        这只包含了一个工具栏的布局，作为起始项目的一部分来提供到当前的布局中。现在你需要对详情activity的布局作出类似的更改。
     </p>
     <p>
-        Open
+        打开
         <em>
             activity_detail.xml
         </em>
-        and add the following at the very bottom of the first
+        并添加下列的代码到第一个
         <code>
             FrameLayout
         </code>
-        , just below the closing tag of the inner
-        <code>
-            LinearLayout
-        </code>
-        :
+        标签的尾部：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar_detail"</span>/&gt;</span>
 </pre>
     <p>
-        Next in
+        然后你需要在
         <code>
             MainActivity
         </code>
-        , you need to initialize the toolbar. 
+        中初始化工具栏。
         Add the following to the bottom of the
         <code>
             onCreate()
@@ -1849,20 +1844,19 @@ applyPalette(palette)
     <pre lang="kotlin" class="language-kotlin hljs">setUpActionBar()
 </pre>
     <p>
-        Here you assign the result of the
+        这里你将调用
         <code>
             findViewById
         </code>
-        call to the new field, and then call
+        的结果赋值给了新字段，然后调用
         <code>
             setUpActionBar()
         </code>
-        . At the moment it's just an empty method stub. 
-        Fix that now by adding the following to
+        （现在还只是一个空方法）。添加下列的代码到
         <code>
             setUpActionBar()
         </code>
-        :
+        方法中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">    setSupportActionBar(toolbar)
     supportActionBar?.setDisplayHomeAsUpEnabled(<span class="hljs-literal">false</span>)
@@ -1870,26 +1864,21 @@ applyPalette(palette)
     supportActionBar?.elevation = <span class="hljs-number">7.0</span>f
 </pre>
     <p>
-        Here you set the action bar to be an instance of your custom toolbar,
-        set the visibility of the title, 
-        disable the home button, 
-        and add a subtle drop shadow by setting the elevation.
+        这里设置这个工具栏作为你自定义工具栏的实例，然后设置title的visibility，禁用home按钮，然后通过设置elevation来添加些许的阴影效果。
     </p>
     <p>
-        Build and run. You'll notice that nothing much has changed, 
-        but these changes have laid the foundations of properly 
-        being able to transition the toolbar.
+        运行项目。你发现并没有什么变化，但这些改动已为合理地转换工具栏奠定了基础。
     </p>
     <p>
-        Open
+        打开
         <code>
             MainActivity
         </code>
-        and replace the existing
+        并使用下列的代码替换已存在的
         <code>
             onItemClickListener
         </code>
-        with this one:
+        ：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">private</span> val onItemClickListener = object : TravelListAdapter.OnItemClickListener {
   <span class="hljs-function">override fun <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: View, position: Int)</span> </span>{
