@@ -1922,11 +1922,12 @@ applyPalette(palette)
             <code>
                 Pair
             </code>
-            - one for the navigation bar, one for the status bar, and one for the toolbar;
+            - one for the navigation bar, one for the status bar, 
+            and one for the toolbar;
         </li>
         <li>
-            You've protected against an IllegalArgumentException that occurs on certain
-            devices, such as the Galaxy Tab S2, on which
+            You've protected against an IllegalArgumentException that occurs on certain devices, 
+            such as the Galaxy Tab S2, on which
             <code>
                 navPair
             </code>
@@ -2117,13 +2118,13 @@ applyPalette(palette)
             using different palette options.
         </li>
         <li>
-            Add a button on the place list and transition it to the detail view as
-            a shared element—perhaps a favorite button.
+            Add a button on the place list and transition it to the detail view as a shared element—perhaps a favorite button.
         </li>
         <li>
-            Make those transitioning animations even cooler—check out Android's Newsstand
-            app and see how it transitions from a grid to a detail view with the reveal
-            animation. You have all the code here to replicate that.
+            Make those transitioning animations even cooler—check out 
+            Android's Newsstand app and see how it transitions 
+            from a grid to a detail view with the reveal animation. 
+            You have all the code here to replicate that.
         </li>
         <li>
             Try to create all the morphing animations you did here, but using
@@ -2134,12 +2135,10 @@ applyPalette(palette)
         </li>
     </ul>
     <p>
-        And of course, apply this knowledge to your apps so that they can be as
-        cool as this one. :]
+        And of course, apply this knowledge to your apps so that they can be as cool as this one. :]
     </p>
     <p>
-        To find out more about Material Design then be sure to check out Google's
-        recently redesigned
+        To find out more about Material Design then be sure to check out Google's recently redesigned
         <a href="https://design.google/" target="_blank">
             Google Design
         </a>
