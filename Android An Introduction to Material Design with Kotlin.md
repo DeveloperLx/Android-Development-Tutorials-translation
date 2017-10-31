@@ -1424,34 +1424,32 @@ animatable.start()
         使用Palette API添加动态的颜色到View上
     </h3>
     <p>
-        It’s time to add colors to this view using the Palette API. And not just
-        any colors—as before, they will be dynamic colors!
+        现在该使用Palette API来添加颜色到这个view上了。和之前的颜色不同，这里将会是动态的颜色！
     </p>
     <p>
-        In
+        在
         <code>
             DetailActivity
         </code>
-        , flesh out
+        中，添加下列的代码来充实
         <code>
             colorize()
         </code>
-        by adding the following:
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> palette = Palette.from(photo).generate()
 applyPalette(palette)
 </pre>
     <p>
-        Just like you did previously, you generate a palette from a photo – although
-        this time you do it synchronously – and then pass that palette onto
+        就像你在之前所做的一样，从一张照片中来生成一个palette - 尽管这次你是同步地完成了它 - 然后将这个palette传递给
         <code>
             applyPalette()
         </code>
-        . Replace the existing method stub for
+        。将已存在的方法
         <code>
             applyPalette()
         </code>
-        with this code:
+        替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">applyPalette</span><span class="hljs-params">(palette: <span class="hljs-type">Palette</span>)</span></span> {
     window.setBackgroundDrawable(ColorDrawable(palette.getDarkMutedColor(defaultColor)))
@@ -1460,24 +1458,19 @@ applyPalette(palette)
   }
 </pre>
     <p>
-        Here you’re you’re using the dark muted color, the muted color, and the
-        light vibrant color as the background colors of the window, title holder,
-        and reveal view respectively.
+        这里你使用了暗柔色，柔色及明亮色分别作为了窗口，标题的背景色。
     </p>
     <p>
-        Finally, to kick-off this chain of events add the following line to the
-        bottom of
+        最后，为启动这一连串的事件，添加下列的代码到
         <code>
             getPhoto()
         </code>
-        :
+        底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">colorize(photo)
 </pre>
     <p>
-        It’s that time again… build and run your app! You can see the detail activity
-        is now using a color scheme derived from the palette of the associated
-        image.
+        再次运行app！你可以看到这个详情activity现在已使用了从相关图片的palette导出的颜色方案。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-00-18-55-colorize.gif">
