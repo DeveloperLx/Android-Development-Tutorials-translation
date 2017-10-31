@@ -1592,30 +1592,26 @@ applyPalette(palette)
     <pre lang="xml" class="language-xml hljs">android:transitionName="tNameHolder"
 </pre>
     <p>
-        Shared elements between activities that you want to transition should
-        have the same
+        想要在activity之间共享的添加过渡效果的元素，应当包含有相同的
         <code>
             android:transitionName
         </code>
-        , which is what you’re setting up here. Also, notice that the size of
-        the image, as well as the height of the
+        ，就像你在这里设置的一样。以及，注意图片的尺寸，还有
         <code>
             placeNameHolder
         </code>
-        are much larger in this activity. You’re going to animate all of these
-        layout changes during the activity transition to provide some nice visual
-        continuity.
+        的高度要比在这个activity大得多。我们要在activity过渡时，为所有的布局变化添加动画效果，以此来提供很棒的视觉持续性。
     </p>
     <p>
-        In
-        <code>
-            onItemClickListener()
-        </code>
-        found in
+        在
         <code>
             MainActivity
         </code>
-        , update the method to the following:
+        中的
+        <code>
+            onItemClickListener()
+        </code>
+        ，更新下列的方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>)</span></span> {
   <span class="hljs-keyword">val</span> intent = DetailActivity.newIntent(<span class="hljs-keyword">this</span><span class="hljs-symbol">@MainActivity</span>, position)
@@ -1635,12 +1631,11 @@ applyPalette(palette)
 }
 </pre>
     <p>
-        After adding this code, you will need to
+        添加上述代码之后，你需要
         <em>
-            manually add
+            手动地添加
         </em>
-        the following import statement to the top of the file as Android Studio
-        cannot automatically determine that this is the intended package.
+        下列的import语句到文件顶部，因为Android Studio无法自动判断需要那个package。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.util.Pair
 </pre>
