@@ -1479,120 +1479,115 @@ applyPalette(palette)
         </a>
     </p>
     <h3>
-        Activity Transitions With Shared Elements
+        含有共享元素的Activity切换
     </h3>
     <p>
-        We’ve all seen and wondered about those nice image and text transitions
-        in Google’s app which have been updated to use Material Design. Well, wait
-        no more—you’re about to learn the intricacies of achieving smooth animation.
+        我们都见过，并好奇Google app中那些使用质感设计的超赞的图片和文本过渡效果。好吧，无需再等了 - 你马上就会学到实现这些平滑动画效果的方法。
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : Activity transitions, together with shared elements, allow your app
-        to transition between two activities that share common views. For example,
-        you can transition a thumbnail on a list into a larger image on a detail
-        activity, providing continuity of the content.
+        ：带有共享元素的Activity切换，让你可以在两个共享相同的view的activity之间进行切换。例如，你可以将一个列表中的缩略图过渡到详情activity中的大图，从而带给内容以连续性。
     </div>
     <p>
-        Between the places list view,
+        在place列表view
         <code>
             MainActivity
         </code>
-        , and the places detail view,
+        ，及place详情view
         <code>
             DetailActivity
         </code>
-        , you’re going to transition the following elements:
+        之间，你将会为下列的元素添加过渡效果：
     </p>
     <ul>
         <li>
-            The image of the place;
+            place的图片；
         </li>
         <li>
-            The title of the place;
+            place的标题；
         </li>
         <li>
-            The background area of the title.
+            title的背景；
         </li>
     </ul>
     <p>
-        Open
+        打开
         <em>
             row_places.xml
         </em>
-        and add the following to the declaration of the
-        <code>
-            ImageView
-        </code>
-        tag with an id of
+        并添加下列的代码到带有id为
         <code>
             placeImage
         </code>
-        :
+        的
+        <code>
+            ImageView
+        </code>
+        的标签的声明中：
     </p>
     <pre lang="xml" class="language-xml hljs">android:transitionName="tImage"
 </pre>
     <p>
-        And then add this to the
-        <code>
-            LinearLayout
-        </code>
-        tag with an id of
+        然后添加下列的代码到带有id为
         <code>
             placeNameHolder
         </code>
-        :
+        的
+        <code>
+            LinearLayout
+        </code>
+        标签中：
     </p>
     <pre lang="xml" class="language-xml hljs">android:transitionName="tNameHolder"
 </pre>
     <p>
-        Notice that
+        注意
         <code>
             placeName
         </code>
-        doesn’t have a transition name. This is because it is the child of
+        并不包含过渡的名称。这是因为它是
         <code>
             placeNameHolder
         </code>
-        , which will transition all of its child views.
+        的子代，它会为其所有的子view添加过渡效果。
     </p>
     <p>
-        In
+        在
         <em>
             activity_detail.xml
         </em>
-        , add a
+        中，添加一个
         <code>
             transitionName
         </code>
-        to the
-        <code>
-            ImageView
-        </code>
-        tag with the id
+        到id为
         <code>
             placeImage
         </code>
-        :
+        的
+        <code>
+            ImageView
+        </code>
+        标签下：
     </p>
     <pre lang="xml" class="language-xml hljs">android:transitionName="tImage"
 </pre>
     <p>
-        And, in a similar fashion, add a
+        然后，以类似的方式，添加一个
         <code>
             transitionName
         </code>
-        to the
-        <code>
-            LinearLayout
-        </code>
-        tag that has an id of
+        到id为
         <code>
             placeNameHolder
         </code>
-        :
+        的
+        <code>
+            LinearLayout
+        </code>
+        标签下：
     </p>
     <pre lang="xml" class="language-xml hljs">android:transitionName="tNameHolder"
 </pre>
