@@ -1959,14 +1959,6 @@ applyPalette(palette)
         Ta-da！下面是最终app的视频演示：
     </p>
     <div style="width: 206px;" class="wp-video">
-        <!--[if lt IE 9]>
-            <script>
-                document.createElement('video');
-            </script>
-        <![endif]-->
-        <span class="mejs-offscreen">
-            Video Player
-        </span>
         <div id="mep_0" class="mejs-container svg wp-video-shortcode mejs-video"
         tabindex="0" role="application" aria-label="Video Player" style="width: 206px; height: 367px;">
             <div class="mejs-inner">
@@ -1978,84 +1970,6 @@ applyPalette(palette)
                                 https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-01-46-11-video.mp4
                             </a>
                     </video>
-                </div>
-                <div class="mejs-layers">
-                    <div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 100%;">
-                    </div>
-                    <div class="mejs-overlay mejs-layer" style="display: none; width: 100%; height: 100%;">
-                        <div class="mejs-overlay-loading">
-                            <span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mejs-overlay mejs-layer" style="display: none; width: 100%; height: 100%;">
-                        <div class="mejs-overlay-error">
-                        </div>
-                    </div>
-                    <div class="mejs-overlay mejs-layer mejs-overlay-play" style="width: 100%; height: 100%;">
-                        <div class="mejs-overlay-button">
-                        </div>
-                    </div>
-                </div>
-                <div class="mejs-controls">
-                    <div class="mejs-button mejs-playpause-button mejs-play">
-                        <button type="button" aria-controls="mep_0" title="Play" aria-label="Play">
-                        </button>
-                    </div>
-                    <div class="mejs-time mejs-currenttime-container" role="timer" aria-live="off">
-                        <span class="mejs-currenttime">
-                            00:00
-                        </span>
-                    </div>
-                    <div class="mejs-time-rail" style="width: 55px;">
-                        <span class="mejs-time-total mejs-time-slider" style="width: 45px;" aria-label="Time Slider"
-                        aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00"
-                        role="slider" tabindex="0">
-                            <span class="mejs-time-buffering" style="display: none;">
-                            </span>
-                            <span class="mejs-time-loaded">
-                            </span>
-                            <span class="mejs-time-current">
-                            </span>
-                            <span class="mejs-time-handle">
-                            </span>
-                            <span class="mejs-time-float">
-                                <span class="mejs-time-float-current">
-                                    00:00
-                                </span>
-                                <span class="mejs-time-float-corner">
-                                </span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="mejs-time mejs-duration-container">
-                        <span class="mejs-duration">
-                            00:00
-                        </span>
-                    </div>
-                    <div class="mejs-button mejs-volume-button mejs-mute">
-                        <button type="button" aria-controls="mep_0" title="Mute" aria-label="Mute">
-                        </button>
-                        <a href="javascript:void(0);" class="mejs-volume-slider" style="display: none;"
-                        aria-label="Volume Slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"
-                        aria-valuetext="80%" role="slider" tabindex="0">
-                            <span class="mejs-offscreen">
-                                Use Up/Down Arrow keys to increase or decrease volume.
-                            </span>
-                            <div class="mejs-volume-total">
-                            </div>
-                            <div class="mejs-volume-current" style="height: 80px; top: 28px;">
-                            </div>
-                            <div class="mejs-volume-handle" style="top: 25px;">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mejs-button mejs-fullscreen-button">
-                        <button type="button" aria-controls="mep_0" title="Fullscreen" aria-label="Fullscreen">
-                        </button>
-                    </div>
-                </div>
-                <div class="mejs-clear">
                 </div>
             </div>
         </div>
