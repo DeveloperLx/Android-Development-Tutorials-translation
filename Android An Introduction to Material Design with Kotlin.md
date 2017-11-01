@@ -1953,14 +1953,10 @@ applyPalette(palette)
         </a>
     </p>
     <p>
-        Now if you tap on a row under the action/toolbar or navigation bar, 
-        it doesn't jump before the transition; 
-        it transitions with the rest of the shared elements, 
-        which is much more pleasing to the eye. 
-        Switch to the grid view and you'll notice that the transitions work very nicely with that layout as well.
+        现在如果你点击action/toolbar或navigation bar之下的一行，它就不会在过渡之前出现跳动的效果了；它会与剩余的共享元素一同完成过渡效果，让你感觉到更加的赏心悦目。切换到网格的view，你就会看到在该布局下同样非常棒的过渡效果。
     </p>
     <p>
-        Ta-da! Here is a video of the final app in action:
+        Ta-da！下面是最终app的视频演示：
     </p>
     <div style="width: 206px;" class="wp-video">
         <!--[if lt IE 9]>
@@ -2065,7 +2061,7 @@ applyPalette(palette)
         </div>
     </div>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -2077,10 +2073,11 @@ applyPalette(palette)
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
