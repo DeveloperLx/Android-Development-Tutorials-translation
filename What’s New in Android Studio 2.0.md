@@ -13,18 +13,16 @@
         </a>
     </p>
     <p>
-        In the last quarter of 2015 Google announced a brand new, Android-centric
-        conference called the
+        在2015的上一季度，Google宣布了一个全新的，Android为中心的叫做
         <a href="https://plus.google.com/+AndroidDevelopers/posts/dc8nMz7gpRQ"
         sl-processed="1">
             Android Dev Summit
         </a>
-        . Google kept the conference content secret, promising “deep technical
-        sessions,” but dropped
+        的会议。Google将会议的内容高度保密，并宣称是“深度的技术会议”，但对Android Studio的新特性做出了
         <a href="https://www.youtube.com/watch?v=BKU-wmTAPdc" sl-processed="1">
-            huge hints
+            巨大的暗示
         </a>
-        about something new for Android Studio.
+        。
     </p>
     <p>
         Sure enough, the big superstar of the Android Dev Summit (other than the
@@ -1635,9 +1633,5 @@
             technical docs
         </a>
         on many of the Android Studio features.
-    </p>
-    <p>
-        If you have any questions or comments, feel free to post your comments
-        below or in the forum!
     </p>
 </div>
