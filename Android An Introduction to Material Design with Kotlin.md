@@ -2025,20 +2025,17 @@ applyPalette(palette)
             API。
         </li>
         <li>
-            Add a button on the place list and transition it to the detail view as a shared element—perhaps a favorite button.
+            在place列表中添加一个按钮，并将其作为共享的元素过渡到详情view中 - 也许是一个favorite按钮。
         </li>
         <li>
-            Make those transitioning animations even cooler—check out 
-            Android's Newsstand app and see how it transitions 
-            from a grid to a detail view with the reveal animation. 
-            You have all the code here to replicate that.
+            让这些转场动画更酷 - 参考Android的Newsstand app，查看它如何使用展现的动画，来完成从网格视图到详情视图的过渡效果。通过这里所有的代码，你就可以重现这个效果。
         </li>
         <li>
-            Try to create all the morphing animations you did here, but using
+            使用
             <code>
                 animated-vectors
             </code>
-            .
+            ，去尝试创建你在本文中所见到的变形动画。
         </li>
     </ul>
     <p>
