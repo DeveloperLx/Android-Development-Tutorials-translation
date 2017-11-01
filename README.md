@@ -148,9 +148,9 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/168916/android-an-introduction-to-material-design"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20An%20Introduction%20to%20Material%20Design%20with%20Kotlin.md"
             sl-processed="1">
-                Android: An Introduction to Material Design with Kotlin
+                Android：质感设计的介绍 - Kotlin
             </a>
         </li>
     </ul>
