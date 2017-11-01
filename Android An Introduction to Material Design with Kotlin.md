@@ -2039,20 +2039,20 @@ applyPalette(palette)
         </li>
     </ul>
     <p>
-        And of course, apply this knowledge to your apps so that they can be as cool as this one. :]
+        当然了，可以将这些知识应用到你的app中，让它们想这里所显示的一样酷。:]
     </p>
     <p>
-        To find out more about Material Design then be sure to check out Google's recently redesigned
+        了解更多关于质感设计的内容，请访问Google最近重新设计的
         <a href="https://design.google/" target="_blank">
             Google Design
         </a>
-        website.
+        网站。
     </p>
     <p>
-        You can get the completed project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/travelwishlist-final-2.zip">
-            here
+            这里
         </a>
-        .
+        获取最终的项目。
     </p>
 </div>
