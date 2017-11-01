@@ -25,59 +25,48 @@
         。
     </p>
     <p>
-        Sure enough, the big superstar of the Android Dev Summit (other than the
-        platform and tool engineers) was Android Studio 2.0. The Android team buffed
-        and polished the interface nicely; what’s more, clearly the Android Tools
-        Team felt the need for speed, as they have increased the speed and performance
-        of builds and the Android Emulator, which has also earned a shiny “2.0”
-        badge.
+        毫无疑问，Android Dev Summit中最大的明星就是Android Studio 2.0（而不是平台和工具工程师）。Android的团队精心地打造了它的界面。更重要的是，Android Tools团队显然关注到了速度的需求，他们增强了build及Android模拟器的速度和性能，因此也获得了一个闪亮的“2.0”徽章。
     </p>
     <p>
-        On April 7, Google released Android Studio 2.0 in their “stable” channel,
-        so it’s no longer just a preview, but the new standard for Android development!
-        In this article, you will learn about the improvements Android Studio 2.0
-        has to offer, and will try out a few of them.
+        4月7日，Google在它们的“稳定”频道中发布了Android Studio 2.0，它不在是一个预览版了，而是Android开发的新标准！在本文中，你会了解到Android Studio 2.0中的提示点，并对其进行一些常识。
     </p>
     <p>
-        If you’re brand new to Android Development, you should work through the
-        <a href="http://www.raywenderlich.com/78574/android-tutorial-for-beginners-part-1"
+        如果你是一个Android开发的纯小白，你应当首先学习
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
         sl-processed="1">
-            Android Tutorial for Beginners
+            Android初学者教程
         </a>
-        . In particular, you should be able to set up and run Android Studio and
-        the Android Emulator. If you need some help with that, look at the
+        。尤其是，你应当可以设置并运行Android Studio和Android模拟器。如果你需要帮助，请查看
         <a href="http://www.raywenderlich.com/120177/beginning-android-development-tutorial-installing-android-studio"
         sl-processed="1">
-            Beginning Android Development Tutorial: Installing Android Studio
+            Android开发者教程：安装Android Studio
         </a>
         .
     </p>
     <p>
-        Alright, let’s take Android Studio 2.0 for a test drive!
+        好的，让我们来看一下测试版的Android Studio 2.0吧！
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        First, download the
+        首先，下载本文的
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/04/AS2.zip"
         sl-processed="1">
-            companion project
+            配套项目
         </a>
-        for this article. It’s a complete Android project for you to use on your
-        test drive. There are a few places where you will modify code, but just
-        as part of demoing new Android Studio features.
+        。这是一个完整的Android项目，供你在测试驱动上使用。其中有几处代码你会进行修改，但仅仅作为演示新版Android Studio特性的一部分。
     </p>
     <p>
-        Launch Android Studio, and in the
+        启动Android Studio，在
         <em>
             Welcome to Android Studio
         </em>
-        dialog, select
+        对话框中，选择
         <em>
-            Import project (Eclipse ADT, Gradle, etc.)
+            导入项目（Eclipse ADT, Gradle, etc.）
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/02_android_studio_welcome_screen.png"
@@ -89,11 +78,11 @@
         </a>
     </p>
     <p>
-        Choose the top-level directory of the companion project and click
+        选择配套项目的顶层目录，并点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/03_android_studio_select_project.png"
@@ -105,17 +94,14 @@
         </a>
     </p>
     <p>
-        If you look through the project, you should see two activity classes and
-        two
+        浏览这个项目，你应当看到两个activity和两个
         <code>
             RecyclerView
         </code>
-        view holder classes, along with the accompanying resource and layout files.
-        Don’t worry too much about the details; you won’t be heavily editing these
-        files.
+        的view holder类，以及相应的资源和布局文件。不必担心其中的细节，你不会大量地编辑这些文件。
     </p>
     <p>
-        Build and run. You should see this:
+        运行项目。你会看到如下的界面：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/04_app_first_build.png"
