@@ -113,21 +113,18 @@
         </a>
     </p>
     <p>
-        The top card has a few widgets—you’ll get to play with those later. Below
-        the widgets, you should see helpful links for further reading on some of
-        the material covered in this article.
+        顶部的卡片中有几个小部件 - 你会在之后玩转它们。在widgets的下面，你应当可以看到有用的链接，以便更进一步地阅读本文中涉及到一些材料。
     </p>
     <h2>
-        Improved IDE
+        改进的IDE
     </h2>
     <p>
-        Just because you’re an Android developer who makes fantastic UIs doesn’t
-        mean you don’t crave ways to make even
+        Just because you’re an Android developer who makes fantastic UIs doesn’t mean you don’t crave ways to make even
         <em>
             more
         </em>
-        fantastic UIs. Android Studio 2.0 feeds your craving, including several
-        UI improvements and new tools for you to enjoy.
+        fantastic UIs. Android Studio 2.0 feeds your craving, 
+        including several UI improvements and new tools for you to enjoy.
     </p>
     <h3>
         IntelliJ Features
