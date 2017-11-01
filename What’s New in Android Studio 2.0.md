@@ -119,15 +119,14 @@
         改进的IDE
     </h2>
     <p>
-        Just because you’re an Android developer who makes fantastic UIs doesn’t mean you don’t crave ways to make even
+        虽然你只是一个完成UI的Android开发者，但这并不意味着你不渴望
         <em>
-            more
+            更加
         </em>
-        fantastic UIs. Android Studio 2.0 feeds your craving, 
-        including several UI improvements and new tools for you to enjoy.
+        梦幻的UI。Android Studio 2.0可以满足你的渴望，包括几个UI的提升和新的工具，供你体验。
     </p>
     <h3>
-        IntelliJ Features
+        IntelliJ功能
     </h3>
     <p>
         Google based Android Studio on Jetbrains
