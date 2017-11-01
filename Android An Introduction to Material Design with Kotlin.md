@@ -1999,31 +1999,30 @@ applyPalette(palette)
         </div>
     </div>
     <p>
-        Be proud of yourself: You’ve created a full-blown Android material app!
-        To challenge yourself, try the following:
+        为自己感到自豪吧：你创建了一个成熟的Android质感app！挑战一下自己吧，尝试下列的操作：
     </p>
     <ul>
         <li>
-            Use
+            使用
             <code>
                 StaggeredLayoutManager
             </code>
-            to make a grid with three columns instead of two.
+            来创建一个三列的网格而不是两列。
         </li>
         <li>
-            Experiment with the
-            <code>
-                Palette
-            </code>
-            API in both
+            在
             <code>
                 MainActivity
             </code>
-            and
+            和
             <code>
                 DetailActivity
             </code>
-            using different palette options.
+            中使用不同的palette选项来使用
+            <code>
+                Palette
+            </code>
+            API。
         </li>
         <li>
             Add a button on the place list and transition it to the detail view as a shared element—perhaps a favorite button.
