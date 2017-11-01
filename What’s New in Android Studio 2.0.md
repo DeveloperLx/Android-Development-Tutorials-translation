@@ -129,22 +129,18 @@
         IntelliJ功能
     </h3>
     <p>
-        Google based Android Studio on Jetbrains
+        Google的Android Studio基于Jetbrains的
         <a href="https://www.jetbrains.com/idea/" sl-processed="1">
             IntelliJ IDEA
         </a>
-        . While the two IDEs have different companies and development teams, they
-        do import features from each other, which is great news as IntelliJ is
-        packed with useful tools for code navigation, code inspection, and refactoring.
-        In fact, Android Studio 2.0 already comes with new features from the newest
-        (as of this article’s publication) release of IntelliJ, version 15.
+        。尽管这两个IDE拥有不同的公司和开发团队，但它们相互导入了功能，这是一个好消息，因为IntelliJ中含有用于代码导航、检查和重构的有用工具。事实上，Android Studio 2.0早已包含了来自最新版本（本文发布时）的IntelliJ（15）中的功能。
     </p>
     <p>
-        One new feature is the instant results in the
+        一个功能就是在
         <i>
             Find in Path
         </i>
-        action. Let’s try it out!
+        中的即时结果。让我们试一下吧！
     </p>
     <p>
         In Android Studio, select
