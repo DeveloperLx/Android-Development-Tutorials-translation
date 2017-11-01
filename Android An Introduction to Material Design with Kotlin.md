@@ -1874,7 +1874,7 @@ applyPalette(palette)
         <code>
             MainActivity
         </code>
-        并使用下列的代码替换已存在的
+        并使用下列的代码替换之前的
         <code>
             onItemClickListener
         </code>
@@ -1908,46 +1908,43 @@ applyPalette(palette)
 }
 </pre>
     <p>
-        The differences between the original implementation and this one are thus:
+        原始的实现与现在这个的差别如下：
     </p>
     <ol>
         <li>
-            You've renamed the intent to provide more context;
+            重命名intent以提供更多的context；
         </li>
         <li>
-            You get references to both the navigation bar and status bar;
+            获取对导航栏和状态栏的引用；
         </li>
         <li>
-            You've created three new instances of
+            创建了三个
             <code>
                 Pair
             </code>
-            - one for the navigation bar, one for the status bar, 
-            and one for the toolbar;
+            的实例 - 一个用于navigation bar，一个用于status bar，还有一个用于toolbar；
         </li>
         <li>
-            You've protected against an IllegalArgumentException that occurs on certain devices, 
-            such as the Galaxy Tab S2, on which
+            避免在某些设备上会发生的IllegalArgumentException，诸如Galaxy Tab S2这样的设备，它们的
             <code>
                 navPair
             </code>
-            is null.
+            就为null。
         </li>
         <li>
-            And finally you've updated the options that are passed to the new activity to include the references to the new views. 
-            You've used the Kotlin spread operator
-            <code>
-                *
-            </code>
-            on
+            最后你更新了传递给新activity的options，来包含指向新view的引用。并在改变成typed array的 
             <code>
                 pairs
             </code>
-            , after changing it to a typed array.
+            上，使用Kotlin的spread操作符
+            <code>
+                *
+            </code>
+            。
         </li>
     </ol>
     <p>
-        Great! Build and run, and you’ll see a much smoother animation:
+        太棒了！运行项目，你将可以看到一个更加流畅的动画：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Aug-20-2017-01-37-20-transition3.gif">
