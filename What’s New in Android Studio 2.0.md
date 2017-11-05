@@ -277,15 +277,15 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">manifest</span>&gt;</span>
 </pre>
     <p>
-        Right-click on the
+        右击
         <code>
             activity android:name=".DeepLinkActivity"
         </code>
-        tag, and in the context menu that appears, select
+        标签，在弹出的菜单中，选择
         <em>
             Generate \ URL
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/07_deep_link_add_context_menu.png"
@@ -297,15 +297,15 @@
         </a>
     </p>
     <p>
-        Alternatively, click on the tag and hit
+        或者，点击这个tag并按下
         <em>
             Option+Enter
         </em>
-        ; in the pop-up that appears, select
+        键；在弹出的菜单中，选择
         <em>
             Add URL
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/08_deep_link_add_keyboard_shortcut.png"
@@ -317,12 +317,11 @@
         </a>
     </p>
     <p>
-        Using either method tells Android Studio to generate the necessary intent
-        filter. The
+        通过上述的任一方法来生成必须的intent filter。
         <code>
             activity
         </code>
-        should now look like this:
+        现在看起来应当像是这样：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
     <span class="hljs-attr">android:name</span>=<span class="hljs-string">".DeepLinkActivity"</span>
@@ -331,7 +330,6 @@
 https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.VIEW"</span>/&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.BROWSABLE"</span>/&gt;</span>
     <span class="hljs-comment">&lt;!-- ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
@@ -344,23 +342,20 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
 </pre>
     <p>
-        As you can see, Android Studio did most of the work here in setting up
-        the intent filter so that any URLs that match “http://as20allthethings.raywenderlich.com/deeplink”
-        will be handled by this app.
+        正如你所看到的，Android Studio完成了设置intent filter的大部分工作，这样任何匹配于“http://as20allthethings.raywenderlich.com/deeplink”的URL就可以被这个app处理了。
     </p>
     <p>
-        To see the Android Studio 2.0 static analysis in action, change the
+        为了实际地看到Android Studio 2.0的静态分析，将
         <code>
             data
         </code>
-        tag to look like the following:
+        修改为如下的样子：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">data</span>
     <span class="hljs-attr">android:host</span>=<span class="hljs-string">"as20allthethings.raywenderlich.com"</span>/&gt;</span>
 </pre>
     <p>
-        Now you should see Android Studio 2.0 complaining that you did something
-        a little bad.
+        现在Android Studio 2.0会抱怨你做了一些不好的事情。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/09_deep_link_error_explanation.png"
@@ -372,18 +367,14 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Here, Android Studio specifically warns you that Google search will not
-        play nice with this invalid URL. Undo those changes to make Android Studio
-        and your app happy again.
+        这里，Android Studio会特意提示你，Google搜索无法很好地处理这些无效的URL。撤销这些操作，让Android Studio和你的app愉快地在一起。
     </p>
     <p>
-        You may feel that the improvement is small, but app indexing is a powerful
-        tool, and integrating with Google Search will increase the visibility and
-        utility of your app. For more information on app indexing, check out
+        你可能会觉得这个改进很小，但app索引也是一个强有力的工具，与Google搜索的集成可以提升app的可见性和实用性。有关app索引的更多内容，请访问
         <a href="https://developers.google.com/app-indexing/" sl-processed="1">
             this overview from Google Developers
         </a>
-        .
+        。
     </p>
     <h3>
         Unified Unit Tests and Android Instrumentation Tests
@@ -1075,88 +1066,12 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </em>
         and make the following changes to the colors:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                resources
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                color
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "colorPrimary"
-            </span>
-            &gt;
-        </span>
-        #455A64
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                color
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                color
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "colorPrimaryDark"
-            </span>
-            &gt;
-        </span>
-        #263238
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                color
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                color
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "colorAccent"
-            </span>
-            &gt;
-        </span>
-        #2196F3
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                color
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                resources
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">color</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"colorPrimary"</span>&gt;</span>#455A64<span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">color</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"colorPrimaryDark"</span>&gt;</span>#263238<span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">color</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"colorAccent"</span>&gt;</span>#2196F3<span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
+</pre>
     <p>
         This simply changes the values of
         <code>
@@ -1201,39 +1116,17 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </code>
         method:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                public
-            </span>
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (View v)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (mListener ==
-        <span class="hljs-keyword">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            return
-        </span>
-        ; } Snackbar.make(itemView, R.string.instant_run, Snackbar.LENGTH_SHORT).show();
-        mListener.onToggleLocationUpdates(); }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+  <span class="hljs-keyword">if</span> (mListener == <span class="hljs-keyword">null</span>) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  Snackbar.make(itemView, R.string.instant_run, Snackbar.LENGTH_SHORT).show();
+
+  mListener.onToggleLocationUpdates();
+}
+</pre>
     <p>
         This added code requests that a snackbar be shown whenever someone clicks
         the START/STOP button on the top card of the companion app.
