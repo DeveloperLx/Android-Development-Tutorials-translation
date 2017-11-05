@@ -143,31 +143,31 @@
         中的即时结果。让我们试一下吧！
     </p>
     <p>
-        In Android Studio, select
+        在Android Studio中，选择
         <em>
-            Edit \ Find \ Find in Path
+            Edit / Find / Find in Path
         </em>
-        (or use the keyboard short
+        (或使用键盘快捷键
         <em>
             CMD+Shift+F
         </em>
-        ). In the
+        ）。在弹出的
         <em>
             Find in Path
         </em>
-        window that appears, select the
+        窗口中，选择
         <em>
             Preview
         </em>
-        tab. Enter any search text in the
+        选项卡。在
         <em>
             Text to find
         </em>
-        field. For search results to appear in the Preview tab, make sure the
+        处输入要搜索的文本。为了确保在Preview选项卡中可以看到搜索的结果，请确保Options tab中的
         <em>
             Regular expressions
         </em>
-        checkbox in the Options tab is not checked.
+        未被选中。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/05_intellij_find_in_path_preview.png"
@@ -179,27 +179,25 @@
         </a>
     </p>
     <p>
-        The search results should update in real time as you type. These results
-        also utilize any options you set on the
+        搜索结果会在你输入搜索文本的时候实时地更新。这些结果还会利用你在
         <i>
             Options
         </i>
-        tab, giving full search power to even the most impatient.
+        tab中设置的选项，给急躁的你以全面的搜索能力。
     </p>
     <p>
-        A handy new code inspection tool from IntelliJ 15,
+        IntelliJ 15中还有一个方便的新代码检查工具，
         <i>
             Expression Type
         </i>
-        , helps out when you cannot immediately tell or remember the resulting
-        type of an expression.
+        ，会在你不清楚一个表达式结果的类型时提供帮助。
     </p>
     <p>
-        To see it in action, highlight an expression in your code and hit
+        要实际地看到它，选中你代码中的表达式，并按下
         <em>
             CTRL+Shift+P
         </em>
-        .
+        键。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/06_intellij_expression_type.png"
@@ -211,19 +209,17 @@
         </a>
     </p>
     <p>
-        This determines the type of the expression’s value and displays it in
-        a tooltip. Sweet!
+        这样就可以确定表达式值的类型了，并将其展示到提示框中。Sweet！
     </p>
     <p>
-        You can learn more about the newest IntelliJ 15 features (that you get
-        to use from Android Studio)
+        你可以从
         <a href="https://www.jetbrains.com/idea/whatsnew/" sl-processed="1">
-            from Jetbrains
+            Jetbrains
         </a>
-        .
+        中了解更多关于最新的IntelliJ 15的功能（也可以在Android Studio中使用。
     </p>
     <h3>
-        Deep Links Integration
+        Deep Links整合
     </h3>
     <p>
         In your app, you can enable
