@@ -222,216 +222,60 @@
         Deep Links整合
     </h3>
     <p>
-        In your app, you can enable
+        可以在app中打开
         <em>
             deep links
         </em>
-        that allow your app to appear in relevant Google search results. You create
-        these deep links via
+        ，使你的app出现在相应的Google搜索结果中。你可以通过
         <em>
             intent filters
         </em>
-        for handling certain URLs. If you are not familiar with intent filters,
-        check out our
+        来创建deep links，去处理相应的URLs。如果你尚未熟悉intent filters，可以访问我们的
         <a href="http://www.raywenderlich.com/103044/android-intents-tutorial"
         sl-processed="1">
             Android: Intents Tutorial
         </a>
-        .
+        。
     </p>
     <p>
-        Android Studio 1.5 already povided an easy method to generate these intent
-        filters in your Android Manifest, but Android Studio 2.0 adds static analysis
-        that verifies whether your app is ready for app indexing.
+        Android Studio 1.5早已提供了一个简单的方法来在你的Android Manifest中生成这些intent filters，而在Android Studio 2.0中则添加了静态分析，来验证你的app是否已准备好app索引。
     </p>
     <p>
-        To give it a try, open
+        试验一下吧，在Android Studio中打开
         <em>
             AndroidManifest.xml
         </em>
-        in Android Studio.
+        。
     </p>
     <p>
-        You should see the following:
+        你应当会看到下列的内容：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                manifest
-            </span>
-            <span class="hljs-attr">
-                package
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.as20allthethings"
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                uses-permission
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.permission.ACCESS_FINE_LOCATION"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                application
-            </span>
-            <span class="hljs-attr">
-                android:allowBackup
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:icon
-            </span>
-            =
-            <span class="hljs-string">
-                "@mipmap/ic_launcher"
-            </span>
-            <span class="hljs-attr">
-                android:label
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/app_name"
-            </span>
-            <span class="hljs-attr">
-                android:supportsRtl
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:theme
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/AppTheme"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                action
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.action.MAIN"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                category
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.category.LAUNCHER"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                activity
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".DeepLinkActivity"
-            </span>
-            <span class="hljs-attr">
-                android:theme
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/AppTheme.Green"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                application
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                manifest
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">manifest</span> <span class="hljs-attr">package</span>=<span class="hljs-string">"com.raywenderlich.as20allthethings"</span>
+          <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.ACCESS_FINE_LOCATION"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">application</span>
+      <span class="hljs-attr">android:allowBackup</span>=<span class="hljs-string">"true"</span>
+      <span class="hljs-attr">android:icon</span>=<span class="hljs-string">"@mipmap/ic_launcher"</span>
+      <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/app_name"</span>
+      <span class="hljs-attr">android:supportsRtl</span>=<span class="hljs-string">"true"</span>
+      <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
+        <span class="hljs-attr">android:name</span>=<span class="hljs-string">".DeepLinkActivity"</span>
+        <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme.Green"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">manifest</span>&gt;</span>
+</pre>
     <p>
         Right-click on the
         <code>
@@ -480,132 +324,25 @@
         </code>
         should now look like this:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".DeepLinkActivity"
-            </span>
-            <span class="hljs-attr">
-                android:theme
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/AppTheme.Green"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-comment">
-            &lt;!-- ATTENTION: This intent was auto-generated. Follow instructions
-            at https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                action
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.action.VIEW"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                category
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.category.DEFAULT"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                category
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.category.BROWSABLE"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-comment">
-            &lt;!-- ATTENTION: This data URL was auto-generated. We recommend that
-            you use the HTTP scheme.
-            <span class="hljs-doctag">
-                TODO:
-            </span>
-            Change the host or pathPrefix as necessary. --&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                data
-            </span>
-            <span class="hljs-attr">
-                android:host
-            </span>
-            =
-            <span class="hljs-string">
-                "as20allthethings.raywenderlich.com"
-            </span>
-            <span class="hljs-attr">
-                android:pathPrefix
-            </span>
-            =
-            <span class="hljs-string">
-                "/deeplink"
-            </span>
-            <span class="hljs-attr">
-                android:scheme
-            </span>
-            =
-            <span class="hljs-string">
-                "http"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                activity
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">".DeepLinkActivity"</span>
+    <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/AppTheme.Green"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- ATTENTION: This intent was auto-generated. Follow instructions at
+https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.VIEW"</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.BROWSABLE"</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!-- ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
+      <span class="hljs-doctag">TODO:</span> Change the host or pathPrefix as necessary. --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">data</span>
+        <span class="hljs-attr">android:host</span>=<span class="hljs-string">"as20allthethings.raywenderlich.com"</span>
+        <span class="hljs-attr">android:pathPrefix</span>=<span class="hljs-string">"/deeplink"</span>
+        <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">"http"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+</pre>
     <p>
         As you can see, Android Studio did most of the work here in setting up
         the intent filter so that any URLs that match “http://as20allthethings.raywenderlich.com/deeplink”
@@ -618,22 +355,9 @@
         </code>
         tag to look like the following:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                data
-            </span>
-            <span class="hljs-attr">
-                android:host
-            </span>
-            =
-            <span class="hljs-string">
-                "as20allthethings.raywenderlich.com"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">data</span>
+    <span class="hljs-attr">android:host</span>=<span class="hljs-string">"as20allthethings.raywenderlich.com"</span>/&gt;</span>
+</pre>
     <p>
         Now you should see Android Studio 2.0 complaining that you did something
         a little bad.
