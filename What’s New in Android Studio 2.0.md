@@ -376,40 +376,36 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
         。
     </p>
-    <h3>
-        Unified Unit Tests and Android Instrumentation Tests
+    <h3>    
+        统一的单元测试和Android Instrumentation测试
     </h3>
     <p>
-        If you are familiar with unit testing on Android, you know that there
-        are two types of unit tests in Android Studio:
+        如果熟悉Android中的单元测试，你就会知道在Android Studio中有两种类型的单元测试：
     </p>
     <ul>
         <li>
             <em>
-                Local unit tests
+                本地单元测试
             </em>
-            are unit tests without dependencies on the Android framework; these run
-            on the local machine only.
+            是不依赖Android framework的单元测试，只需运行在本地的机器上。
         </li>
         <li>
             <em>
-                Instrumented unit tests
+                装备化的单元测试
             </em>
-            are unit tests that have Android dependencies and must run on a device
-            or emulator.
+            是必须运行在一个设备或是模拟器上的单元测试。
         </li>
     </ul>
     <p>
-        In previous versions you had to choose one of the two types from the
-        <i>
-            Test Artifacts
-        </i>
-        setting in the
+        在之前的版本中，你必须在
         <i>
             Build Variants
         </i>
-        window. You could only run tests of that type, and would only see tests
-        of that type in the project overview.
+        窗口中的
+        <i>
+            Test Artifacts
+        </i>
+        设置中，选择需要的类型。这样你就只能运行这种类型的测试，且只能在project概览中看到这种类型的测试。
     </p>
     <div id="attachment_124946" style="width: 490px" class="wp-caption aligncenter">
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/10_android_studio_test_artifact_unit.png"
@@ -420,7 +416,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <p class="wp-caption-text">
-            Unit Tests selection, before Android Studio 2.0
+            Android Studio 2.0版本前的单元测试选择
         </p>
     </div>
     <div id="attachment_124947" style="width: 490px" class="wp-caption aligncenter">
@@ -432,12 +428,11 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <p class="wp-caption-text">
-            Android Instrumentation Tests selection, before Android Studio 2.0
+            Android Studio 2.0前的Instrumentation测试选择
         </p>
     </div>
     <p>
-        Android Studio 2.0, however, has a unified testing view. Now you can view
-        and run both kinds of tests, eliminating the need to choose a test artifact.
+        而在Android Studio 2.0中有一个统一的测试视图。现在你可以同时运行两种测试，免除对测试类型的选择。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/13_android_studio_all_test_artifacts.png"
@@ -449,15 +444,15 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        For more information about unit testing in Android, check out
+        有关Android单元测试的更多信息，请访问
         <a href="http://developer.android.com/tools/testing/testing_android.html"
         sl-processed="1">
             developer.android.com
         </a>
-        .
+        。
     </p>
     <h3>
-        GPU Profiler
+        GPU分析器
     </h3>
     <p>
         A huge feature for GL graphics developers is the new GPU profiler. Aiming
