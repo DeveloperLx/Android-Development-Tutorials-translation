@@ -482,23 +482,17 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
     <h2>
         Android模拟器2.0
     </h2>
-    <p>
-        It’s fair to say that not many developers love the Android Emulator, and
-        that many have lamented its super-slow start up and laggy performance.
-        For a long time, the emulator lacked many of the features and UI convenience
-        of third-party emulators.
+    <p> 
+        坦白来说，并没有太多开发者喜欢Android自带的模拟器，很多人都在诟病它超慢的启动速度及糟糕的性能。在一个很长的时期内，Android Studio自带的模拟器都缺乏很多第三方模拟器所带有的功能和UI遍历。
     </p>
     <p>
-        Happily, the Android Emulator 2.0 has completely changed the game, receiving
-        both a much-improved UI as well as a massive speed-up.
+        幸运的是，Android模拟器2.0的出现完全改变了这个局面，大幅地改进了其UI和运行速度。
     </p>
     <h3>
-        New Interface
+        新节目
     </h3>
     <p>
-        The first thing to notice about the Android Emulator 2.0 is that while
-        the screen rendering area might look the same, with a phone frame and gray
-        window border, the emulator has a new toolbar.
+        关于Android模拟器2.0的第一件事，是屏幕的渲染区域看起来和之前是相同的，带有手机的边框及灰色的窗口边框，且模拟器还有一个新的工具栏。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/15_android_emulator_2_0.png"
@@ -510,9 +504,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        The Android team also added a feature that sounds simple but was, as they
-        said, a frequently-wished-for improvement: the ability to resize the emulator
-        by dragging the window (to sometimes ridiculous results).
+        Android团队还添加了一个听起来很简单的功能，就像他们所说的，这是一个经常被希望得到改进的功能：通过拖动窗口来改变模拟器的大小（不过有时会得到可笑的结果）。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/16_android_emulator_resize.png"
@@ -524,8 +516,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Speaking of dragging, you can now transfer files onto the virtual device
-        by dragging-and-dropping.
+        说的拖动，你现在还可以将文件拖到这个模拟器上。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/17_android_apk_drag_and_drop.png"
@@ -538,9 +529,10 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
     </p>
     <p>
         The new emulator toolbar provides easy-access controls for the emulator,
-        such as Volume, Back, Home and Power Off. It also provides a screen rotation
-        button (the old emulator required a keyboard shortcut or an arcane ADB
-        command) and a screenshot button.
+        such as Volume, Back, Home and Power Off. 
+        It also provides a screen rotation button 
+        (the old emulator required a keyboard shortcut or an arcane ADB command) 
+        and a screenshot button.
     </p>
     <p>
         Click the bottom button of the toolbar to see the
