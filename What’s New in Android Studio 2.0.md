@@ -455,19 +455,14 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         GPU分析器
     </h3>
     <p>
-        A huge feature for GL graphics developers is the new GPU profiler. Aiming
-        to save developers huge amounts of time during graphics debugging, the
-        GPU profiler provides the power to closely examine the GPU state. Developers
-        can record and replay a scene frame-by-frame as well as view the sequence
-        of GPU commands that created that state and scene.
+        新的GPU分析器是为GL图形开发者准备的一个超帮的功能。定位于节约图形debug过程中所花费的大量时间，GPU分析器提供了细致检查GPU状态的能力。开发者可以记录并逐帧地重播场景，以及查看创建状态和场景的GPU命令序列。
     </p>
     <p>
-        This article doesn’t look at all the details of the GPU profiler, but
-        you can find out more on the
+        本文并非着眼于GPU分析器的细节，你可以在
         <a href="http://tools.android.com/tech-docs/gpu-profiler" sl-processed="1">
             Android Tools Project Site
         </a>
-        .
+        中查看更多的信息。
     </p>
     <div id="attachment_124950" style="width: 490px" class="wp-caption aligncenter">
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/14_android_studio_gpu_profiler.png"
@@ -478,16 +473,14 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <p class="wp-caption-text">
-            From the Android Dev Summit keynote presentation: https://youtu.be/xdItHEVfQ4U?t=15m57s
+            来自Android Dev Summit的主题演讲：https://youtu.be/xdItHEVfQ4U?t=15m57s
         </p>
     </div>
     <p>
-        Depending on the apps you write, the GPU profiler may not be something
-        you use often, but the next section will look at improvements in something
-        that you probably have used many, many times: the Android Emulator.
+        由于你所写app的不同，GPU分析器可能并非是一个常用的工具。但下一节就会介绍一个你经常使用，且经过了多次改进的工具：Android模拟器。
     </p>
     <h2>
-        Android Emulator 2.0
+        Android模拟器2.0
     </h2>
     <p>
         It’s fair to say that not many developers love the Android Emulator, and
