@@ -528,22 +528,18 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        The new emulator toolbar provides easy-access controls for the emulator,
-        such as Volume, Back, Home and Power Off. 
-        It also provides a screen rotation button 
-        (the old emulator required a keyboard shortcut or an arcane ADB command) 
-        and a screenshot button.
+        新的模拟器工具栏，提供了对模拟器方便的控制途径，如音量，返回键，Home键，电源键等。它还提供了屏幕旋转按钮（旧版模拟器需要通过键盘快捷键或一个难记的ADB命令来旋转屏幕）以及一个截图按钮。
     </p>
     <p>
-        Click the bottom button of the toolbar to see the
+        点击工具栏底部的按钮，你会看到一个
         <em>
             Extended controls
         </em>
-        window appear. Select
+        窗口。选择
         <em>
             Settings
         </em>
-        . From here, you can set the destination folder for screenshots:
+        。你可以在这里设置保存截图的目录。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/18_android_emulator_2_0_extended_controls.png"
@@ -555,14 +551,10 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        The
         <em>
             Extended controls
         </em>
-        window shows more of the awesome features Android Studio 2.0 provides
-        for testing your app. You can emulate device conditions and verify behaviors
-        such as how your app would handle different types of networks and speeds,
-        battery status changes, location updates and more.
+        窗口还展示了Android Studio 2.0中很多方便测试你app的超棒的功能。你可以模拟设备的环境并验证其行为，比如你的app如何处理不同类型的网络，网速，电量状态变化，定位更新等等。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/19_android_emulator_2_0_extended_controls_cellular.png"
@@ -574,7 +566,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        There is even a control for emulating fingerprint sensor input.
+        甚至，还有一个模拟指纹输入的控件。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/20_android_extended_controls_fingerprint.png"
@@ -586,22 +578,21 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Let’s try out a few of these in the companion app.
+        让我们来尝试一下上述工具在配套app中的实践吧。
     </p>
     <h3>
-        Phone Call/SMS
+        电话/短信
     </h3>
     <p>
-        Select
-        <em>
-            Phone
-        </em>
-        in the
+        在
         <em>
             Extended controls
         </em>
-        window. You should see a form that contains input for a phone number and
-        text message:
+        窗口中选择
+        <em>
+            Phone
+        </em>
+        。你应当会看到一个包含手机号码和文本信息输入框的表单：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/21_android_extended_controls_phone_01.png"
@@ -613,11 +604,11 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        In the
+        在
         <em>
             SMS text
         </em>
-        , enter
+        中，输入
         <i>
             Check this out! http://as20allthethings.raywenderlich.com/deeplink
         </i>
@@ -629,11 +620,11 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         sizes="(max-width: 319px) 100vw, 319px">
     </p>
     <p>
-        Click
+        点击
         <em>
             SEND MESSAGE
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/23_android_extended_controls_phone_03.png"
@@ -645,25 +636,21 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Woohoo! You just sent your emulator a text message without breaking a
-        sweat.
+        哈哈！你只是把短信发给了模拟器，不必紧张得冒汗。
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            As you might remember from the discussion about deep links integration,
-            the companion now has an intent filter that handles the URL in the text
-            message.
+            正如在deep link整合中所讨论的，这个app现在就有了一个intent过滤器来处理文本信息中的URL。
         </p>
         <p>
-            If you want to see the deep linking in action, open the SMS in the emulator
-            and click the link.
+            想要实际查看deep link，只需在模拟器中打开短信app，并点击链接即可。
         </p>
     </div>
     <h3>
-        Battery and Charging States
+        电池和充电状态
     </h3>
     <p>
         Another device state you can directly set and manipulate in version 2.0
