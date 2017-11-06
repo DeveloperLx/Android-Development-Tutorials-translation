@@ -653,14 +653,10 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         电池和充电状态
     </h3>
     <p>
-        Another device state you can directly set and manipulate in version 2.0
-        is the battery status and charging state.
+        在2.0版本中，你可以直接操作的另一个设备状态，就是电池和充电状态了。
     </p>
     <p>
-        Launch the companion app. Part of the logic in the top card displays the
-        current battery status of the device, and if you look at the battery status
-        of the emulator and the battery status message in the top card, you will
-        see that they match.
+        运行这个app。顶部卡片中的一部分区域，就展示了该设备当前的电池状态。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/24_android_extended_controls_battery_01.png"
@@ -672,15 +668,15 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        To make changes, open the
+        要进行更改，打开
         <em>
             Extended controls
         </em>
-        window and select
+        窗口并选择
         <em>
             Battery
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/25_android_extended_controls_battery_02.png"
@@ -692,21 +688,19 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        There are several controls for manipulating the battery status. Use the
+        这里有几个可以用来操作电池状态的控件。使用
         <em>
-            Charge level slider
+            Charge level滑动条
         </em>
-        to change the battery level, and watch it instantly update in the status
-        bar of the emulator. To explicitly set the battery status, select
-        <em>
-            Full
-        </em>
-        from the
+        来改变电量，并观察模拟器中状态栏上即时的更新。选择
         <em>
             Battery status
         </em>
-        dropdown. The top card detects the change and displays the new status
-        immediately.
+        下拉菜单中的
+        <em>
+            Full
+        </em>
+        以明确电池的状态。顶部的卡片就会检测到变化的发生，并即刻将新的状态展示出来。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/battery-status-dropdown.png"
@@ -718,14 +712,13 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <h3>
-        Location Updates
+        位置更新
     </h3>
     <p>
-        For your last stop on the extended controls portion of the tour, you will
-        practice pushing location updates to the emulator.
+        在extended control的最后一步，我们将会实践推送位置更新到模拟器上。
     </p>
     <p>
-        If you look at the top card, you will see the text “No location yet”.
+        现在查看顶部的卡片，你会看到文本“No location yet”。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/27_android_extended_controls_location_01.png"
@@ -737,20 +730,18 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        The top card listens for location updates and displays the received location
-        coordinates. Right now it is just waiting for you to give it some!
+        顶部的卡片会监听位置的更新，并将收到的位置展示出来。现在就等着你来推送了！
     </p>
     <p>
-        In the companion app, click the
+        在这个app中，点击
         <em>
             Start
         </em>
-        button. You’ll be prompted to give the app access to the device’s location.
-        Click
+        按钮。你会被请求允许app访问设备的位置。点击
         <em>
             ALLOW
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/28_android_extended_controls_location_02.png"
@@ -762,42 +753,42 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        At this point, the companion app waits for location updates.
+        现在，这个app就会开始等待位置的更新了。
     </p>
     <p>
-        To pass it an update, open the
+        要传递一个更新，再次打开
         <em>
             Extended controls
         </em>
-        window again and select
+        窗口，并选择
         <em>
             Location
         </em>
-        . With
+        。选中
         <em>
             Decimal
         </em>
-        selected, enter
+        ，输入
         <i>
             37.4226
         </i>
-        into
+        到
         <em>
             Latitude
         </em>
-        and
+        及
         <i>
             -122.084
         </i>
-        into
+        到
         <em>
             Longitude
         </em>
-        . Click
+        中。点击
         <em>
             SEND
         </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/29_android_extended_controls_location_03.png"
@@ -809,7 +800,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        The top card should immediately update to reflect the new location.
+        顶部的卡片现在就会立刻更新，以展示新的位置。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/30_android_extended_controls_location_04.png"
@@ -821,8 +812,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        If you don’t want to enter in location updates one by one, you can even
-        load a set of coordinates into the window and “play” that list.
+        如果不想一个一个地输入位置的更新，你甚至可以将一系列的坐标加载到窗口中，并“播放”这个列表。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/31_android_extended_controls_location_05.png"
@@ -834,16 +824,15 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        With all these tools and more, Android Emulator 2.0 has been packed with
-        exciting new utility and a streamlined interface. It is definitely worth
-        the ride.
+        因为这些工具，Android模拟器2.0中已充满了令人兴奋的功能和超赞的界面，绝对值得去进行尝试。
     </p>
     <h2>
-        Better Builds
+        更好的构建
     </h2>
     <p>
-        You might say to yourself, “Okay, a fast emulator is great, but I’m still
-        spending too much time actually building my app. What do I do about that?”
+        You might say to yourself, “Okay, a fast emulator is great, 
+        but I’m still spending too much time actually building my app. 
+        What do I do about that?”
     </p>
     <p>
         Well, you could train your dog to code. If nothing else, that could get
