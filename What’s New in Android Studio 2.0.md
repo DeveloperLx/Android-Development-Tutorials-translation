@@ -830,29 +830,25 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         更好的构建
     </h2>
     <p>
-        You might say to yourself, “Okay, a fast emulator is great, 
-        but I’m still spending too much time actually building my app. 
-        What do I do about that?”
+        你可能会和自己说，“Okey，一个快速的模拟器非常得棒，但我仍然会花费大量的时间在构建app上。我该怎么办？”
     </p>
     <p>
-        Well, you could train your dog to code. If nothing else, that could get
-        you some YouTube fame :]
+        好的，你可以考虑优化代码。如果没有别的，这会带给你一些YouTube的声誉 :]
     </p>
     <p>
-        The better solution is—as you might have guessed—Android Studio 2.0!
+        但更好的解决方案 - 你可能已经猜到了 - 就是Android Studio 2.0！
     </p>
     <p>
-        The Android Tools Team has attempted to rev up build and deployment speeds.
-        They have also added a new feature: Instant Run. You’ll explore these improvements
-        in the next section.
+        Android的工具团队已尝试了提高构建和部署的速度。他们还添加了一项新的功能：Instant Run。你将会在下一节探索这些改进。
     </p>
     <h3>
-        Faster Build Speeds
+        更快的构建速度
     </h3>
     <p>
-        Reporting speed-ups of 2-2.5x for full build times, the Tools Team has
-        made improvements in several areas of the build system. To fully discuss
-        them would be a pretty deep dive, but generally speaking they include:
+        Reporting speed-ups of 2-2.5x for full build times, 
+        the Tools Team has made improvements in several areas of the build system. 
+        To fully discuss them would be a pretty deep dive, 
+        but generally speaking they include:
     </p>
     <ul>
         <li>
