@@ -845,56 +845,51 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         更快的构建速度
     </h3>
     <p>
-        Reporting speed-ups of 2-2.5x for full build times, 
-        the Tools Team has made improvements in several areas of the build system. 
-        To fully discuss them would be a pretty deep dive, 
-        but generally speaking they include:
+        Android开发工具团队在若干构建系统上进行了巨大的改进，并称将整个构建时间提升了2~2.5倍。要对其进行充分的讨论需要一个相当深入的过程，但通常来说包括以下几点：
     </p>
     <ul>
         <li>
-            Improvements to the
+            改进
             <code>
                 dx
             </code>
-            merger.
+            合并。
             <code>
                 dx
             </code>
-            is the build tool that converts Java classes to Dalvik executable format
-            (.dex) files.
+            是可以将Java类转换为Dalvik可执行格式（.dex）文件的构建工具。
         </li>
         <li>
-            A shrinker for debug mode.
+            调试模式的“收缩机”。
         </li>
         <li>
-            Builds that specifically target connected devices.
+            针对连接到的特定的设备的构建。
         </li>
     </ul>
     <p>
-        For information on builds and the build system in general, check out the
-        <a href="http://developer.android.com/tools/help/index.html" sl-processed="1">
-            docs
-        </a>
-        on
+        有关一般构建和构建系统的信息，请访问
         <a href="http://developer.android.com/sdk/installing/studio-build.html"
         sl-processed="1">
             android.developer.com.
         </a>
+        上的
+        <a href="http://developer.android.com/tools/help/index.html" sl-processed="1">
+            文档
+        </a>
+        。
     </p>
     <p>
-        For more on these build system improvements in particular, check out
+        有关这些构建系统改进的更多信息，请参阅Android Dev Summit上的
         <a href="https://www.youtube.com/watch?v=fs0eira2pRY" sl-processed="1">
-            this session
+            这个会议
         </a>
-        presented at the Android Dev Summit.
+        。
     </p>
     <h3>
-        Faster ADB
+        更快的ADB
     </h3>
     <p>
-        The Android Debug Bridge (ADB) on the emulator has received a push/pull
-        protocol update. When deploying APKs to the new emulator, you will see
-        up to a 5x speed increase.
+        模拟器上的Android Debug桥接器（ADB）已收到了push/pull协议的更新。在将APK部署到新的模拟器上的时候，你会发现速度提升了5倍。
     </p>
     <div id="attachment_124977" style="width: 490px" class="wp-caption aligncenter">
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/32_adb_push_speeds.png"
@@ -905,73 +900,66 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
             sizes="(max-width: 480px) 100vw, 480px">
         </a>
         <p class="wp-caption-text">
-            From the Android Dev Summit keynote presentation: https://youtu.be/xdItHEVfQ4U?t=13m17s
+            来自Android Dev Summit的主题演讲：https://youtu.be/xdItHEVfQ4U?t=13m17s
         </p>
     </div>
     <h3>
         Instant Run
     </h3>
     <p>
-        Wonderfully, Android Studio 2.0 is all about the need for speed. While
-        the Android Tools Team has sped up builds and deployments, they have also
-        tried to reduce the number of times you have to deploy.
+        神奇的是，Android Studio 2.0全部是有关速度的需要。Android工具团队不仅提升了构建和部署的速度，他们还尝试了减少了部署的次数。
     </p>
     <p>
-        To this end, they have introduced
+        为此，他们推出了
         <em>
             Instant Run
         </em>
-        , which provides pushing of updates—code and resources—to a running instance
-        of your app on a device or emulator
+        ，它可以将代码和资源推送到你正在运行的app上，
         <i>
-            without
+            无需
         </i>
-        requiring a full reinstall. Obviously, this is a huge time-saver.
+        重新进行安装。显然，这将节省大量的时间。
     </p>
     <p>
-        Instant Run works differently for different kinds of changes. Currently,
-        there are three ways Instant Run implements updates:
+        对于不同类型的更改，Instant Run会有不同的处理方式。目前，Instant Run有三种方式来实现更新：
     </p>
     <ol>
         <li>
             <em>
-                A hot swap
+                热交换
             </em>
-            : your app continues to run and uses the changes next time the relevant
-            method is called. This applies to method changes.
+            ：你的app会继续运行，并在下次执行相关方法的时候使用这些改变。该方式适用于方法的更改。
         </li>
         <li>
             <em>
-                A warm swap
+                温交换
             </em>
-            : your app continutes to run but restarts the current activity. This applies
-            to resource changes.
+            ：你的app会继续运行，但会重启当前的activity。这适用于资源的改变。
         </li>
         <li>
             <em>
-                A cold swap
+                冷交换
             </em>
-            : your app restarts but does not reinstall. This applies to structural
-            code changes.
+            ：你的app会进行重启，但不会重新安装。这适用于代码结构的改变。
         </li>
     </ol>
     <p>
-        You can try out Instant Run right now in the companion app.
+        你可以在配套app上试用Instant Run。
     </p>
     <p>
-        To enable Instant Run, select
+        要启用Instant Run，请选择
         <em>
-            Preferences \ Build, Execution, Deployment \ Instant Run
+            Preferences / Build, Execution, Deployment / Instant Run
         </em>
-        . Ensure that
+        。确认勾选
         <em>
             Enable Instant Run to hot swap code/resource changes on deploy
         </em>
-        is checked and that
+        且取消勾选
         <em>
             Restart activity on code changes
         </em>
-        is unchecked.
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/instant-run.png"
@@ -983,11 +971,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        If the companion app is not yet running, launch it by clicking the
-        <em>
-            Run
-        </em>
-        button, and wait for it to launch.
+        如果配套app尚未运行，现在运行它。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/33_instant_run_01.png"
@@ -999,8 +983,7 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        When the app is running, you should see a lightning bolt next to the Run
-        button. The lightning bolt indicates that Instant Run is available.
+        当app正在运行时，你会看到运行按钮旁边的闪电标记。该标记即表示Instant Run当前是可用的。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/34_instant_run_02.png"
@@ -1012,11 +995,11 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        To test it out, open
+        为进行测试，打开
         <em>
             colors.xml
         </em>
-        and make the following changes to the colors:
+        并对颜色进行如下的更改：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">color</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"colorPrimary"</span>&gt;</span>#455A64<span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span>
@@ -1025,24 +1008,22 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
 </pre>
     <p>
-        This simply changes the values of
+        这里只是改变了
         <code>
             colorPrimary
         </code>
-        and
+        和
         <code>
             colorPrimaryDark
         </code>
-        , which determine the colors of the status bar and action bar.
+        的值，它们确定了状态栏和操作栏的颜色。
     </p>
     <p>
-        Hit the
+        点击
         <em>
             Run
         </em>
-        button. The screen will flicker, and you’ll see a toast notifying you
-        that the activity restarted. You will also see that the app already shows
-        the colors changes without a full build and install.
+        按钮。屏幕会发生闪烁，并会出现一个toast通知你activity重启了。你会看到app在没有进行全构建和安装的情况下，就使颜色发生了变化。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/35_instant_run_03.png"
@@ -1054,19 +1035,18 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Because of the activity restart, you can probably guess that this was
-        a warm swap.
+        由于activity发生了重启，你可能会猜到这是一个温交换。
     </p>
     <p>
-        Now open
+        现在打开
         <em>
             CardViewHolder.java
         </em>
-        and make the following changes to the
+        并对
         <code>
             onClick
         </code>
-        method:
+        方法做出如下的修改：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
@@ -1080,16 +1060,14 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
 }
 </pre>
     <p>
-        This added code requests that a snackbar be shown whenever someone clicks
-        the START/STOP button on the top card of the companion app.
+        上面添加代码，会在用户点击顶部卡片上的START/STOP按钮时，展示一个snackbar。
     </p>
     <p>
-        Hit the
+        点击
         <em>
             Run
         </em>
-        button. A toast will appear to notify you that Instant Run “Applied code
-        changes without activity restart.”
+        按钮。这时会弹出一个toast，通知你“应用代码发生变化，无需重新启动。”
         <br>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/36_instant_run_04.png"
         rel="attachment wp-att-124990" sl-processed="1">
@@ -1100,13 +1078,10 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Can you guess what kind of swap that was?
+        能猜到这是哪种交换么？
     </p>
     <p>
-        If you guessed hot swap, give yourself a cookie! :] Instant Run was able
-        to push the changes without even restarting the activity. And if you click
-        the START/STOP button, you can verify that the changes were successfully
-        pushed:
+        如果猜的是热插拔，奖励自己一块饼干吧！:] Instant Run可以在不重启activity的情况下就将这个改变推送给app。点击START/STOP按钮来验证一下吧：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/01/37_instant_run_05.png"
@@ -1118,14 +1093,10 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </a>
     </p>
     <p>
-        Instant Run can dramatically increase productivity, and dramatically decrease
-        the time you spend browsing the Internet as you wait for your builds to
-        finish and deploy (you’ll have to catch up on funny dog pics later). Beyond
-        that, Instant Run will make your layout and styling more efficient, since
-        you can immediately and directly see how code changes result in UI changes.
+        Instant Run可以显著地提升生产效率，并大大地减少你为等待构建和部署去上网的时间。除此之外，Instant Run可以使你完成布局和样式更加得高效，因为你可以即使地看到UI变化的效果。
     </p>
     <h2>
-        Where to Go From Here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1137,10 +1108,11 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
