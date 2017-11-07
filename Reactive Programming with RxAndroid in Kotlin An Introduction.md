@@ -83,73 +83,68 @@
         入门
     </h2>
     <p>
-        Download
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/cheesefinder-starter.zip"
         sl-processed="1">
-            the starter project for this tutorial
+            本教程的起始项目
         </a>
-        and open it in Android Studio 3.0 Beta 5 or above.
+        并在Android Studio 3.0 Beta 5或以上的版本中打开它。
     </p>
     <p>
-        You’ll be working exclusively in
+        我们将会编写的所有代码都会在
         <em>
             CheeseActivity.kt
         </em>
-        . The
+        中。
         <code>
             CheeseActivity
         </code>
-        class extends
+        类继承自
         <code>
             BaseSearchActivity
         </code>
-        ; take some time to explore
+        ，花一点时间来看下
         <code>
             BaseSearchActivity
         </code>
-        and check out the following features ready for your use:
+        ，它已经为你准备好了下列的功能：
     </p>
     <ul>
         <li>
             <code>
                 showProgress()
             </code>
-            : A function to show a progress bar…
+            ：一个方法，用来展示进度条...
         </li>
         <li>
             <code>
                 hideProgress()
             </code>
-            : … and a function to hide it.
+            ：...用来隐藏进度条的方法。
         </li>
         <li>
             <code>
-                showResult(result: List
-                <string>
-                    )
-                </string>
+                showResult(result: List)
             </code>
-            : A function to display a list of cheeses.
+            ：用来展示奶酪列表的方法。
         </li>
         <li>
             <code>
                 cheeseSearchEngine
             </code>
-            : A field which is an instance of
+            ：一个字段，它是
             <code>
                 CheeseSearchEngine
             </code>
-            . It has a
+            的实例。它有一个
             <code>
                 search
             </code>
-            function which you call when you want to search for cheeses. It accepts
-            a text search query and returns a list of matching cheeses.
+            方法供你在想要搜索奶酪的时候使用。
         </li>
     </ul>
     <p>
-        Build and run the project on your Android device or emulator. You should
-        see a gloriously empty search screen:
+        在Android设备或模拟器上运行项目。你会看到一个空空如也的搜索页面：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/starter-300x500.png"
@@ -158,102 +153,72 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <h2>
-        What is Reactive Programming?
+        神马是响应式编程？
     </h2>
     <p>
-        Before creating your first observable, indulge yourself with a bit of
-        a theory first. :]
+        在创建你的第一个observable前，首先来学习一些理论知识吧。:]
     </p>
     <p>
-        In
+        在
         <em>
-            imperative
+            命令式
         </em>
-        programming, an expression is evaluated once and a value is assigned to
-        a variable:
+        编程中，一个表达式只会被执行一次，且一个值会分配给一个变量：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            var
-        </span>
-        x =
-        <span class="hljs-number">
-            2
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        y =
-        <span class="hljs-number">
-            3
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        z = x * y
-        <span class="hljs-comment">
-            // z is 6
-        </span>
-        x =
-        <span class="hljs-number">
-            10
-        </span>
-        <span class="hljs-comment">
-            // z is still 6
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>
+<span class="hljs-keyword">var</span> y = <span class="hljs-number">3</span>
+<span class="hljs-keyword">var</span> z = x * y <span class="hljs-comment">// z is 6</span>
+
+x = <span class="hljs-number">10</span>
+<span class="hljs-comment">// z is still 6</span>
+</pre>
     <p>
-        On the other hand,
+        而在
         <em>
+        响应式
             reactive
         </em>
-        programming is all about
+        编程中，则会
         <i>
-            responding to value changes
+            响应值的变化
         </i>
-        .
+        。
     </p>
     <p>
-        You have probably done some reactive programming — even if you didn’t
-        realize it at the time.
+        虽然你还未意识到 - 但你其实早已进行过一些响应式编程。
     </p>
     <ul>
         <li>
-            Defining cell
+            在电子表格中定义单元格的
             <em>
-                values
+                值
             </em>
-            in spreadsheets is similar to defining variables in imperative programming.
+            ，就类似于在命令式编程中定义变量。
         </li>
         <li>
-            Defining cell
+            而在电子表格中定义单元格的
             <em>
-                expressions
+                表达式
             </em>
-            in spreadsheets is similar to defining and operating on observables in
-            reactive programming.
+            就类似于在响应式编程中定义并操作observable。
         </li>
     </ul>
     <p>
-        Take the following spreadsheet that implements the example from above:
+        用下面的电子表格来实现上述的例子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/reactive-spreadsheet-1-480x218.png"
         alt="" width="249" height="88" class="alignnone size-medium wp-image-171516">
     </p>
     <p>
-        The spreadsheet assigns cell B1 with a value of 2, cell B2 with a value
-        of 3 and a third cell, B3, with an expression that multiplies the value
-        of B1 by the value of B2. When the value of either of the the components
-        referenced in the expression changes, the change is observed and the expression
-        is re-evaluated automagically in B3:
+        这个电子表格将B1的值定义为2，B2的值定义为3，B3则定义成一个表示式，让它的值为B1、B2中值的乘积。当表达式引用到的任一成分的值发生变化的时候，这个变化就会被表达式观察到，B3中的值就会重新计算并展示出来：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/reactive-spreadsheet-2.png"
         alt="" width="249" height="8" class="alignnone size-full wp-image-171515">
     </p>
     <h2>
-        Difference between RxJava and RxKotlin
+        RxJava和RxKotlin的差别
     </h2>
     <p>
         As you probably know, it’s possible to use Java libraries in Kotlin projects
