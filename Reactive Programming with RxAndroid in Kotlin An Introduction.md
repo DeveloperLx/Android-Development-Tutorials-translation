@@ -408,55 +408,49 @@ x = <span class="hljs-number">10</span>
         如何创建一个Observable
     </h2>
     <p>
-        There are many libraries to help you create observables from almost any
-        type of event. However, sometimes you just need to roll your own. Besides,
-        it’s a great way to learn!
+        这里有很多的库，可以帮你创建几乎任何类型事件的observable。然而，有时你只是想封装自己的事件。此外，这还是一个非常棒的学习路径！
     </p>
     <p>
-        You’ll create an Observable using
+        你将使用
         <code>
             Observable.create()
         </code>
-        . Here is its signature:
+        方法来创建Observable。以下是它的签名：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-function">Observable&lt;T&gt; <span class="hljs-title">create</span><span class="hljs-params">(ObservableOnSubscribe&lt;T&gt; source)</span>
 </span></pre>
     <p>
-        That’s nice and concise, but what does it mean? What is the “source?”
-        To understand that signature, you need to know what an
+        非常得简明，但含义是什么呢？什么是“Source？” 要理解这个签名，你需要知道
         <code>
             ObservableOnSubscribe
         </code>
-        is. It’s an interface, with this contract:
+        是什么。它是一个interface，其合约是：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ObservableOnSubscribe</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">subscribe</span><span class="hljs-params">(ObservableEmitter&lt;T&gt; e)</span> <span class="hljs-keyword">throws</span> Exception</span>;
 }
 </pre>
     <p>
-        Like an episode of a J.J. Abrams show like “Lost” or “Westworld,” that
-        answers some questions while inevitably asking more. So the “source” you
-        need to create your
+        就像J.J. Abrams中的一集“Lost”或“Westworld”一样，回答了一些问题，却无可避免地提出了更多的问题。因此“source”就是你所需创建的
         <code>
             Observable
         </code>
-        will need to expose
+        ，需要暴露出一个
         <code>
             subscribe()
         </code>
-        , which in turn requires whatever’s calling it to provide an “emitter”
-        as a parameter. What, then, is an emitter?
+        方法，反过来在调用它的时候，就需要提供一个“emitter”作为参数。那么，emitter又是什么呢？
     </p>
     <p>
-        RxJava’s
+        RxJava的
         <code>
             Emitter
         </code>
-        interface is similar to the
+        interface非常类似于
         <code>
             Observer
         </code>
-        one:
+        ：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Emitter</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(T value)</span></span>;
@@ -465,42 +459,39 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        An
+        特别地，
         <code>
             ObservableEmitter
         </code>
-        , specifically, also provides a means to cancel the subscription.
+        还提供了取消订阅的方法。
     </p>
     <p>
-        To visualize this whole situation, think of a water faucet regulating
-        the flow of water. The water pipes are like an
+        为了让整个的情形更加形象化，想像一个水龙头调节水流的情形。这个水龙头就像是一个
         <code>
             Observable
         </code>
-        , willing to deliver a flow of water if you have a means of tapping into
-        it. You construct a faucet that can turn on and off, which is like an
+        ，如果你有接收的方法，它就会把水留给你。你构建了一个可以打开和关闭的手龙头，它就像是
         <code>
             ObservableEmitter
         </code>
-        , and connect it to the water pipes in
+        ，通过
         <code>
             Observable.create()
         </code>
-        . The outcome is a nice fancy faucet. :]
+        中的水管来将其连接起来，构成了一个很棒的装置。:]
     </p>
     <p>
-        An example will make the situation less abstract and more clear. It’s
-        time to create your first observable! :]
+        这个例子可以减少情形的抽象性，使其变得更清楚。是时候来创建你的第一个observable了！:]
     </p>
     <h2>
-        Observe Button Clicks
+        观察按钮点击事件
     </h2>
     <p>
-        Add the following code inside the
+        在
         <code>
             CheeseActivity
         </code>
-        class:
+        类中添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createButtonClickObservable</span><span class="hljs-params">()</span></span>: Observable&lt;String&gt; {
@@ -520,7 +511,7 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Your imports should look as follows after entering the above code:
+        输入上述的代码后，你的import语句应当看起来像下面这样子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> io.reactivex.Observable
 <span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_cheeses.*
