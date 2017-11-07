@@ -6,11 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update note:
+                更新日志：
             </em>
-            This tutorial has been updated to Kotlin, Android 26 (Oreo), and Android
-            Studio 3.0 Beta 5 by Irina Galata. The original tutorial was written by
-            Artem Kholodnyi.
+            本教程已由Irina Galata更新至Kotlin，Android 26 （Oreo），及Android Studio 3.0 Beta 5版本。原教程由Artem Kholodnyi编写。
         </p>
     </div>
     <p>
@@ -21,76 +19,68 @@
             srcset="https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/11/AndroidReactive-feature-128x128.png 128w"
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
-        They say you should develop a proactive mindset in life, not a reactive
-        one. That does not apply to Android programming, however! :]
+        他们说，在人生中，你应当怀抱着一个主动的心态。然而，这点并不适用于Android的编程！:]
     </p>
     <p>
-        Reactive programming is not just another API. It’s a whole new paradigm
-        and a very useful one.
+        响应式编程和其它的API不同。它是一个非常有用且全新的范式。
         <em>
             RxJava
         </em>
-        is a reactive implementation used on Android. Android is a perfect place
-        to start your exploration of the reactive world. It’s made even easier
-        with
+        是Android上响应式编程的实现。Android是开启你响应式世界的一个完美起点。甚至，使用
         <em>
             RxAndroid
         </em>
-        , a library that wraps asynchronous UI events to be more RxJava like.
+        还可以让其变得更容易，这是一个封装了异步UI事件，让它变得更像RxJava的库。
     </p>
     <p>
-        Don’t be scared — I’ll bet the basic concept of reactive programming is
-        known to you even if you are not aware of it yet. :]
+        不要害怕 - 我敢打赌，即使你还没有意识到，响应式编程的基本概念你也早已有所了解。:]
     </p>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This tutorial requires good knowledge of Android and Kotlin. To get up
-            to speed, check out our
+            本教程要求你对Android和Kotlin的知识有一定的了解。为了加快这个过程，请首先访问我们的
             <a href="https://www.raywenderlich.com/category/android" sl-processed="1">
-                Android Development Tutorials
+                Android开发教程
             </a>
-            first and return to this tutorial when you’re ready.
+            ，待准备好之后再回到本教程。
         </p>
     </div>
     <p>
-        In this RxAndroid tutorial you will learn how to do the following:
+        在本教程中，你会了解到下列的知识：
     </p>
     <ul>
         <li>
-            understand what Reactive Programming is
+            理解什么是响应式编程
         </li>
         <li>
-            define an
+            定义一个
             <em>
                 observable
             </em>
         </li>
         <li>
-            turn asynchronous events like button clicks and text field context changes
-            into observables
+            将类似按钮点击，文本框内容发生变化等异步事件转化为observable
         </li>
         <li>
-            transform observable items
+            转化observable项目
         </li>
         <li>
-            filter observable items
+            过滤observable项目
         </li>
         <li>
-            specify the thread on which code should be executed
+            指定执行代码所应在的线程
         </li>
         <li>
-            combine several observables into one
+            将几个observable合并为一个
         </li>
     </ul>
     <p>
-        I hope you like cheese — because you’re going to build a cheese-finding
-        app as you learn the concepts above! :]
+        希望你是一个喜欢奶酪的人 - 因为你将构建一个发现奶酪的应用，借此学习上述的概念！:]
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         Download
