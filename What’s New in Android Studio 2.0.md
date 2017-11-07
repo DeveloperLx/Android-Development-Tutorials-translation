@@ -1120,33 +1120,29 @@ https://g.co/AppIndexing/AndroidStudio to publish your URLs. --&gt;</span>
         </div>
     </div>
     <p>
-        There certainly is a lot to learn and try out in Android Studio 2.0 and
-        Android Emulator 2.0! Much of the information about the two comes from
-        the Android Dev Summit presentations, so check out those and other great
-        sessions via the
+        在Android Studio 2.0和Android Emulator 2.0中值得学习和尝试的确很多！有关这两者的大部分信息都来自于Android Dev Summit演示文档，请访问
         <a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc_Tt7q77qwyKRgytF1RzRx8"
         sl-processed="1">
-            recordings posted on YouTube.
+            recordings posted on YouTube
         </a>
+        来查看更多相关的信息。
     </p>
     <p>
-        Many of the cool new things in Android Studio 2.0 are works in progress.
-        A great way to keep up with updates, bug fixes and new features is to regularly
-        check the
-        <a href="http://tools.android.com/recent" sl-processed="1">
-            Recent Changes
-        </a>
-        page over at the
+        Android Studio 2.0中很多很酷的东西都在进行中。跟上更新，bug修复，新功能的一个很棒的方式，就是定期访问
         <a href="http://tools.android.com/" sl-processed="1">
             Android Tools Project Site
         </a>
-        .
+        中的
+        <a href="http://tools.android.com/recent" sl-processed="1">
+            Recent Changes
+        </a>
+        页。
     </p>
     <p>
-        The Android Tools Project Site also contains
+        这个Android工具项目网站还包含了很多Android Studio功能的
         <a href="http://tools.android.com/tech-docs" sl-processed="1">
-            technical docs
+            技术文档
         </a>
-        on many of the Android Studio features.
+        。
     </p>
 </div>
