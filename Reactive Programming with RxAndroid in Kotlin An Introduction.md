@@ -274,104 +274,101 @@ x = <span class="hljs-number">10</span>
         。
     </div>
     <p>
-        In the Observer pattern, you have objects that implement two key RxJava
-        interfaces:
+        在观察者模式中，你会有实现了两个关键的RxJava interface：
         <code>
             Observable
         </code>
-        and
+        和
         <code>
             Observer
         </code>
-        . When an
+        的对象。当
         <code>
             Observable
         </code>
-        changes state, all
+        的状态发生变化的时候，所有的
         <code>
             Observer
         </code>
-        objects subscribed to it are notified.
+        对象就会收到相应的通知。
     </p>
     <p>
-        Among the methods in the
+        而在
         <code>
             Observable
         </code>
-        interface is
+        interface中的这个方法就是
         <code>
             subscribe()
         </code>
-        , which an
+        了，一个
         <code>
             Observer
         </code>
-        will call to begin the subscription.
+        调用这个方法就可以订阅这个消息。
     </p>
     <p>
-        From that point, the
+        从这点上看，
         <code>
             Observer
         </code>
-        interface has three methods which the
+        interface有三个方法可以在
         <code>
             Observable
         </code>
-        calls as needed:
+        需要时被调用：
     </p>
     <ul>
         <li>
             <code>
                 onNext(T value)
             </code>
-            provides a new item of type T to the
+            为
             <code>
                 Observer
             </code>
+            提供了一个类型为T的新的item
         </li>
         <li>
             <code>
                 onComplete()
             </code>
-            notifies the
+            会通知
             <code>
                 Observer
             </code>
-            that the
             <code>
                 Observable
             </code>
-            has finished sending items
+            已完成了发送item
         </li>
         <li>
             <code>
                 onError(Throwable e)
             </code>
-            notifies the
+            通知
             <code>
                 Observer
             </code>
-            that the
             <code>
                 Observable
             </code>
-            has experienced an error
+            遇到了一个错误
         </li>
     </ul>
     <p>
-        As a rule, a well-behaved
+        一般来说，一个行为良好的
         <code>
             Observable
         </code>
-        emits zero or more items that could be followed by either completion or
-        error.
+        可以发出0个或多个item，然后接着发出completion或是error。
     </p>
     <p>
-        That sounds complicated, but some
+        听起来有点复杂，但一些
         <em>
             marble diagrams
         </em>
-        may clear things up.
+        可以对其进行清理。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/network-request-650x186.png"
@@ -380,14 +377,10 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        The circle represents an item that has been emitted from the observable
-        and the black block represents a completion or error. Take, for example,
-        a network request observable. The request usually emits a single item (response)
-        and immediately completes.
+        圆圈代表了从observable发射一个item，而黑色的截止线则代表completion或error。拿一个例子来说，网络请求observable。这个请求通常会发送一个item（response）并立即再发送completes。
     </p>
     <p>
-        A mouse movement observable would emit mouse coordinates but will never
-        complete:
+        一个鼠标移动的observable会不断地发送鼠标的坐标，但永远都不会发送complete：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/mouse-coords-650x186.png"
@@ -396,16 +389,11 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Here you can see multiple items that have been emitted but no block showing
-        the mouse has completed or raised an error.
-    </p>
-    <p>
-        No more items can be emitted after an observable has completed. Here’s
-        an example of a misbehaving observable that violates the
+        observable发送completed之后就不能再发送任何item了。下面是一个违反了
         <i>
             Observable contract
         </i>
-        :
+        的行为异常的observable的例子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/misbehaving-stream-650x186.png"
@@ -414,11 +402,10 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        That’s a bad, bad observable because it violates the Observable contract
-        by emitting an item after it signaled completion.
+        这是一个非常糟糕的observable，因为它违反了Observable的合约：它在发送completion后还发送了一个item。
     </p>
     <h2>
-        How to Create an Observable
+        如何创建一个Observable
     </h2>
     <p>
         There are many libraries to help you create observables from almost any
@@ -432,17 +419,8 @@ x = <span class="hljs-number">10</span>
         </code>
         . Here is its signature:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-function">
-            Observable&lt;T&gt;
-            <span class="hljs-title">
-                create
-            </span>
-            <span class="hljs-params">
-                (ObservableOnSubscribe&lt;T&gt; source)
-            </span>
-        </span>
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-function">Observable&lt;T&gt; <span class="hljs-title">create</span><span class="hljs-params">(ObservableOnSubscribe&lt;T&gt; source)</span>
+</span></pre>
     <p>
         That’s nice and concise, but what does it mean? What is the “source?”
         To understand that signature, you need to know what an
@@ -451,41 +429,10 @@ x = <span class="hljs-number">10</span>
         </code>
         is. It’s an interface, with this contract:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                ObservableOnSubscribe
-            </span>
-            &lt;
-            <span class="hljs-title">
-                T
-            </span>
-            &gt;
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                subscribe
-            </span>
-            <span class="hljs-params">
-                (ObservableEmitter&lt;T&gt; e)
-            </span>
-            <span class="hljs-keyword">
-                throws
-            </span>
-            Exception
-        </span>
-        ; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ObservableOnSubscribe</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">subscribe</span><span class="hljs-params">(ObservableEmitter&lt;T&gt; e)</span> <span class="hljs-keyword">throws</span> Exception</span>;
+}
+</pre>
     <p>
         Like an episode of a J.J. Abrams show like “Lost” or “Westworld,” that
         answers some questions while inevitably asking more. So the “source” you
@@ -511,61 +458,12 @@ x = <span class="hljs-number">10</span>
         </code>
         one:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                Emitter
-            </span>
-            &lt;
-            <span class="hljs-title">
-                T
-            </span>
-            &gt;
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onNext
-            </span>
-            <span class="hljs-params">
-                (T value)
-            </span>
-        </span>
-        ;
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onError
-            </span>
-            <span class="hljs-params">
-                (Throwable error)
-            </span>
-        </span>
-        ;
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                onComplete
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        ; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Emitter</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(T value)</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Throwable error)</span></span>;
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onComplete</span><span class="hljs-params">()</span></span>;
+}
+</pre>
     <p>
         An
         <code>
@@ -604,66 +502,29 @@ x = <span class="hljs-number">10</span>
         </code>
         class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                createButtonClickObservable
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        : Observable&lt;String&gt; {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        Observable.create { emitter -&gt;
-        <span class="hljs-comment">
-            // 3
-        </span>
-        searchButton.setOnClickListener {
-        <span class="hljs-comment">
-            // 4
-        </span>
-        emitter.onNext(queryEditText.text.toString()) }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        emitter.setCancellable {
-        <span class="hljs-comment">
-            // 6
-        </span>
-        searchButton.setOnClickListener(
-        <span class="hljs-literal">
-            null
-        </span>
-        ) } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createButtonClickObservable</span><span class="hljs-params">()</span></span>: Observable&lt;String&gt; {
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">return</span> Observable.create { emitter -&gt;
+    <span class="hljs-comment">// 3</span>
+    searchButton.setOnClickListener {
+      <span class="hljs-comment">// 4</span>
+      emitter.onNext(queryEditText.text.toString())
+    }
+    <span class="hljs-comment">// 5</span>
+    emitter.setCancellable {
+      <span class="hljs-comment">// 6</span>
+      searchButton.setOnClickListener(<span class="hljs-literal">null</span>)
+    }
+  }
+}
+</pre>
     <p>
         Your imports should look as follows after entering the above code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        io.reactivex.Observable
-        <span class="hljs-keyword">
-            import
-        </span>
-        kotlinx.android.synthetic.main.activity_cheeses.*
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> io.reactivex.Observable
+<span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_cheeses.*
+</pre>
     <p>
         You’ve imported the correct
         <code>
@@ -758,41 +619,10 @@ x = <span class="hljs-number">10</span>
         </code>
         . It’s a simple way to accept values coming in from an emitter.
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                Consumer
-            </span>
-            &lt;
-            <span class="hljs-title">
-                T
-            </span>
-            &gt;
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                accept
-            </span>
-            <span class="hljs-params">
-                (T t)
-            </span>
-            <span class="hljs-keyword">
-                throws
-            </span>
-            Exception
-        </span>
-        ; }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Consumer</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(T t)</span> <span class="hljs-keyword">throws</span> Exception</span>;
+}
+</pre>
     <p>
         This interface is handy when you want to set up a simple subscription
         to an Observable.
@@ -843,42 +673,19 @@ x = <span class="hljs-number">10</span>
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onStart
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onStart()
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        searchTextObservable = createButtonClickObservable() searchTextObservable
-        <span class="hljs-comment">
-            // 2
-        </span>
-        .subscribe { query -&gt;
-        <span class="hljs-comment">
-            // 3
-        </span>
-        showResult(cheeseSearchEngine.search(query)) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.onStart()
+  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">val</span> searchTextObservable = createButtonClickObservable()
+
+  searchTextObservable
+      <span class="hljs-comment">// 2</span>
+      .subscribe { query -&gt;
+        <span class="hljs-comment">// 3</span>
+        showResult(cheeseSearchEngine.search(query))
+      }
+}
+</pre>
     <p>
         Here’s an explanation of each step:
     </p>
