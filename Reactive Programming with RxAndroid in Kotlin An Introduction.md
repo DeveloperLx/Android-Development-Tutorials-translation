@@ -220,65 +220,58 @@ x = <span class="hljs-number">10</span>
     <h2>
         RxJava和RxKotlin的差别
     </h2>
-    <p>
-        As you probably know, it’s possible to use Java libraries in Kotlin projects
-        thanks to Kotlin’s language compatibility with Java. If that’s the case,
-        then why was RxKotlin created in the first place? RxKotlin is a Kotlin
-        wrapper around RxJava, which also provides plenty of quite useful extension
-        functions. Effectively, RxKotlin makes working with RxJava more Kotlin-y.
+    <p> 
+        正如你所知的，由于Kotlin语言和Java是兼容的，在Kotlin的项目中使用Java的库是OK的。那这样的话，为何还要创建RxKotlin这个库？RxKotlin是RxJava的Kotlin封装，同时还提供了大量有用的扩展功能。实际上，RxKotlin可以使RxJava的用法更加Kotlin化。
     </p>
     <p>
-        In this article, we’ll focus on using RxJava, since it’s critical to understand
-        the core concepts of this approach, however everything you will learn applies
-        to RxKotlin as well.
+        在本文中，我们会着重于RxJava，因为它是理解响应式编程的关键，当然，你学到的一切同样可以应用到RxKotlin上。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        Take a look at the
+        要特别地关注
         <code>
             build.gradle
         </code>
-        file and the project dependencies especially. Except for the UI libraries,
-        it contains
+        文件和项目的依赖关系。除了UI库之外，它还包含了
         <code>
             RxKotlin
         </code>
-        and
+        和
         <code>
             RxAndroid
         </code>
-        packages. We don’t need to specify
+        的包。我们无需在这里明确地指定
         <code>
             RxJava
         </code>
-        here explicitly since
+        ，因为
         <code>
             RxKotlin
         </code>
-        already contains it.
+        早已包含了它。
     </div>
     <h2>
-        RxJava Observable Contract
+        RxJava Observable合约
     </h2>
     <p>
-        RxJava make use of the
+        RxJava使用了
         <em>
-            Observer pattern
+            观察者模式
         </em>
-        .
+        。
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : To refresh your memory about the Observer pattern you can visit
-        <a href="https://www.raywenderlich.com/168038/common-design-patterns-android-kotlin"
+        ：要复习有关观察者模式的相关内容，请访问我们的
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Common%20Design%20Patterns%20for%20Android%20with%20Kotlin.md"
         target="_blank" sl-processed="1">
-            Common Design Patterns for Android with Kotlin
+            Android的常用设计模式 - Kotlin
         </a>
-        .
+        。
     </div>
     <p>
         In the Observer pattern, you have objects that implement two key RxJava
