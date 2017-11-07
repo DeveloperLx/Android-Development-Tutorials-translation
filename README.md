@@ -182,9 +182,9 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/124936/whats-new-android-studio-2-0"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/What%E2%80%99s%20New%20in%20Android%20Studio%202.0.md"
             sl-processed="1">
-                What’s New in Android Studio 2.0
+                Android Studio 2.0的新特性
             </a>
         </li>
         <li>
