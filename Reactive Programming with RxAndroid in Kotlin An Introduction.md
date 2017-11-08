@@ -954,34 +954,33 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        一个一个地看每个序号的评论：
+        一条一条来看：
     </p>
     <ol>
         <li>
-            Ensure that the next operator in chain will be run on the main thread.
+            让调用链中的下一个操作符在主线程上执行。
         </li>
         <li>
-            Add the
+            添加
             <code>
                 doOnNext
             </code>
-            operator so that
+            操作符，这样
             <code>
                 showProgress()
             </code>
-            will be called every time a new item is emitted.
+            就会在每次发送新item时被调用。
         </li>
         <li>
-            Don’t forget to call
+            展示结果时，不要忘记调用
             <code>
                 hideProgress()
             </code>
-            when you are just about to display a result.
+            。
         </li>
     </ol>
     <p>
-        Build and run your project. You should see the progress bar appearing
-        when you initiate the search:
+        运行项目。开始搜索时，就会出现进度条：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/progressbar-300x500.png"
@@ -990,7 +989,7 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <h2>
-        Observe Text Changes
+        观察文本的变化
     </h2>
     <p>
         What if you want to perform search automatically when the user types some
