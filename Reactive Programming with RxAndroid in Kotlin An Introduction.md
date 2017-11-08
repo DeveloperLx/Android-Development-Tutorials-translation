@@ -1289,23 +1289,20 @@ x = <span class="hljs-number">10</span>
         合并操作符
     </h2>
     <p>
-        You started by creating an observable that reacted to button clicks and
-        then implemented an observable that reacts to text field changes. 
-        But how do you react to both?
+        你首先创建了一个用来响应按钮点击事件的observable，然后又实现了一个observable来响应文本字段的变化。但你如何一起响应它们呢？
     </p>
     <p>
-        There are a lot of operators to combine observables. 
-        The most simple and useful one is
+        有很多操作符可以将这些observable合并到一起。其中最简单且最有用的一个就是
         <code>
             merge
         </code>
-        .
+        了。
     </p>
     <p>
         <code>
             merge
         </code>
-        takes items from two or more observables and puts them into a single observable:
+        可以将来自两个或多个observable中的item合并成一个observable：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/ae08759b_1472502259-650x296.png"
@@ -1314,11 +1311,11 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Change the beginning of
+        将
         <code>
             onStart()
         </code>
-        to the following:
+        的开头修改为如下的样子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> buttonClickStream = createButtonClickObservable()
 <span class="hljs-keyword">val</span> textChangeStream = createTextChangeObservable()
@@ -1326,34 +1323,32 @@ x = <span class="hljs-number">10</span>
 <span class="hljs-keyword">val</span> searchTextObservable = Observable.merge&lt;String&gt;(buttonClickStream, textChangeStream)
 </pre>
     <p>
-        Run your app. Play with the text field and the search button; the search
-        will kick off either when you finish typing two or more symbols or when
-        you simply press the Search button.
+        运行app。测试一下文本框和搜索按钮，当输入两个及以上的字符，或按下搜索按钮的时候，就会开始进行搜索了。
     </p>
     <h2>
-        RxJava and Activity/Fragment lifecycle
+        RxJava和Activity/Fragment的声明周期
     </h2>
     <p>
-        Remember those
+        还记得那些你设置的
         <code>
             setCancellable
         </code>
-        methods you set up? They won’t fire until the observable is unsubscribed.
+        方法么？它们直到observable被取消订阅的时候才会被调用。
     </p>
     <p>
-        The
+        调用
         <code>
             Observable.subscribe()
         </code>
-        call returns a
+        会返回一个
         <code>
             Disposable
         </code>
-        .
+        。
         <code>
             Disposable
         </code>
-        is an interface that has two methods:
+        是一个interface，其中含有两个方法：
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Disposable</span> </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dispose</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// ends a subscription</span>
@@ -1361,28 +1356,28 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Add the following property to
+        添加下列的property到
         <code>
             CheeseActivity
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> disposable: Disposable
 </pre>
     <p>
-        In
+        在
         <code>
             onStart()
         </code>
-        , set the returned value of
+        中，使用下列的代码将
         <code>
             subscribe()
         </code>
-        to
+        的返回值设置为
         <code>
             disposable
         </code>
-        with the following code (only the first line changes):
+        （只有第一行的代码发生过变化）：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">disposable = searchTextObservable <span class="hljs-comment">// change this line</span>
       .observeOn(AndroidSchedulers.mainThread())
@@ -1396,22 +1391,22 @@ x = <span class="hljs-number">10</span>
       }
 </pre>
     <p>
-        Since you subscribed to the observable in
+        由于你是在
         <code>
             onStart()
         </code>
-        ,
+        中订阅的observable，因此
         <code>
             onStop()
         </code>
-        would be a perfect place to unsubscribe.
+        就是一个取消订阅的很好地方。
     </p>
     <p>
-        Add the following code to
+        添加下列的代码到
         <em>
             CheeseActivity.kt
         </em>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Override</span>
 <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span></span> {
@@ -1422,12 +1417,10 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        And that’s it! Build and run the app. You won’t “observe” any changes
-        yourself, but now the app is successfully avoiding RxJava memory leaks.
-        :]
+        全部都完工了！运行app。你无法自己”观察到“任何的变化，但现在app已经成功地避免了由RxJava所造成的内存泄漏。:]
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1439,10 +1432,11 @@ x = <span class="hljs-number">10</span>
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1450,20 +1444,22 @@ x = <span class="hljs-number">10</span>
         </div>
     </div>
     <p>
-        You can download the final project from this tutorial
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/cheesefinder-final.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
-        You’ve learned a lot in this tutorial. But that’s only a glimpse of the
-        RxJava world. For example, there is
+        You’ve learned a lot in this tutorial. 
+        But that’s only a glimpse of the RxJava world. 
+        For example, there is
         <a href="https://github.com/JakeWharton/RxBinding" sl-processed="1">
             RxBinding
         </a>
-        , a library that includes most of the Android View APIs. Using this library,
+        , a library that includes most of the Android View APIs. 
+        Using this library,
         you can create a click observable by just calling
         <code>
             RxView.clicks(viewVariable)
@@ -1481,9 +1477,9 @@ x = <span class="hljs-number">10</span>
         What’s new in RxJava 2
     </h3>
     <p>
-        The second version of RxJava is quite different from the first one, since
-        RxJava 2 was completely rewritten. You should get acquainted with some
-        entirely new classes like
+        The second version of RxJava is quite different from the first one, 
+        since RxJava 2 was completely rewritten. 
+        You should get acquainted with some entirely new classes like
         <code>
             Flowable
         </code>
