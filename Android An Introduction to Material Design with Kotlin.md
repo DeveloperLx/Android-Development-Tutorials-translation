@@ -1027,7 +1027,7 @@ Palette.from(photo).generate { palette -&gt;
         <code>
             DetailActivity
         </code>
-        的同伴对象：
+        的companion object中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">newIntent</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>, position: <span class="hljs-type">Int</span>)</span></span>: Intent {
   <span class="hljs-keyword">val</span> intent = Intent(context, DetailActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
@@ -1834,12 +1834,11 @@ applyPalette(palette)
         <code>
             MainActivity
         </code>
-        中初始化工具栏。
-        Add the following to the bottom of the
+        中初始化工具栏。并在
         <code>
             onCreate()
         </code>
-        method:
+        方法的底部添加如下代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">setUpActionBar()
 </pre>
