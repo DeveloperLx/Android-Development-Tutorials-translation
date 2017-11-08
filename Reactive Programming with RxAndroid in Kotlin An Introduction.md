@@ -1452,29 +1452,25 @@ x = <span class="hljs-number">10</span>
         下载最终的项目。
     </p>
     <p>
-        You’ve learned a lot in this tutorial. 
-        But that’s only a glimpse of the RxJava world. 
-        For example, there is
+        你已在本教程中学到了很多的内容。但这只是RxJava世界的冰山一角。例如，
         <a href="https://github.com/JakeWharton/RxBinding" sl-processed="1">
             RxBinding
         </a>
-        , a library that includes most of the Android View APIs. 
-        Using this library,
-        you can create a click observable by just calling
+        是一个包含了大部分Android View API的库。使用这个库，只需调用
         <code>
             RxView.clicks(viewVariable)
         </code>
-        .
+        你就可以创建一个点击事件的observable。
     </p>
     <p>
-        To learn more about RxJava refer to the
+        想了解更多关于RxJava的内容，请参考
         <a href="http://reactivex.io/" target="_blank" sl-processed="1">
             ReactiveX documentation
         </a>
-        .
+        。
     </p>
     <h3>
-        What’s new in RxJava 2
+        RxJava 2的新特性
     </h3>
     <p>
         The second version of RxJava is quite different from the first one, 
