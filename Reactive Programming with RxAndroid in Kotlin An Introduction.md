@@ -882,33 +882,30 @@ x = <span class="hljs-number">10</span>
     </p>
     <ol>
         <li>
-            First, specify that code down the chain should start on the main thread
-            instead of on the I/O thread. In Android, all code that works with
+            首先，指定的代码应当在主线程而非I/O线程上启动。在Android中，所有关于
             <code>
                 View
             </code>
-            s should execute on the main thread.
+            的代码都应当在主线程上被执行。
         </li>
         <li>
-            Specify that the next operator should be called on the I/O thread.
+            指定应当在I/O线程上调用下一个操作符。
         </li>
         <li>
-            For each search query, you return a list of results.
+            对于每次的搜索，都会返回一个结果的列表。
         </li>
         <li>
-            Finally, make sure that the results are passed to the list on the main
-            thread
+            最后，确保将结果传递到主线程的列表上
         </li>
     </ol>
     <p>
-        Build and run your project. Now the UI should be responsive even when
-        a search is in progress.
+        运行项目。现在，即使正在进行搜索，UI也会保持可响应的状态。
     </p>
     <h2>
-        Show Progress Bar with doOnNext
+        用doOnNext来展示进度条
     </h2>
     <p>
-        It’s time to display the progress bar!
+        是时候该展示进度条了！
     </p>
     <p>
         For that you’ll need a
