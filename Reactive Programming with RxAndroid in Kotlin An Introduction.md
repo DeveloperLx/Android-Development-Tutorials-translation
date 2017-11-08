@@ -808,20 +808,17 @@ x = <span class="hljs-number">10</span>
         Map操作符
     </h2>
     <p>
-        The
         <code>
             map
         </code>
-        operator applies a function to each item emitted by an observable and
-        returns another observable that emits results of those function calls.
-        You’ll need this to fix the threading issue as well.
+        操作符会作用于由observable发出的每个item，并返回另一个发送处理item后结果的observable。你还需要这个来修复线程问题。
     </p>
     <p>
-        If you have an observable called
+        如果你有一个可以发送
         <code>
             numbers
         </code>
-        that emits the following:
+        的observable，它发送了如下的内容：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/map-0-1.png"
@@ -830,16 +827,16 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 500px) 100vw, 500px">
     </p>
     <p>
-        And if you apply
+        如果你将
         <code>
             map
         </code>
-        as follows:
+        实现如下：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">numbers.map { number -&gt; number * number }
 </pre>
     <p>
-        The result would be the following:
+        结果就像下面这个样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/map-1-1.png"
@@ -848,19 +845,18 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 500px) 100vw, 500px">
     </p>
     <p>
-        That’s a handy way to iterate over multiple items with little code. Let’s
-        put it to use!
+        这是一个用少量的代码就可以迭代多个item的方便的方法。让我们来使用一下吧！
     </p>
     <p>
-        Modify
-        <code>
-            onStart()
-        </code>
-        in
+        在
         <code>
             CheeseActivity
         </code>
-        class to look like the following:
+        类中将
+        <code>
+            onStart()
+        </code>
+        方法修改为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.onStart()
@@ -882,7 +878,7 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Going over the code above:
+        上述代码：
     </p>
     <ol>
         <li>
