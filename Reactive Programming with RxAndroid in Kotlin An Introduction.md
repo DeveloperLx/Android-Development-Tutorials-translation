@@ -716,77 +716,62 @@ x = <span class="hljs-number">10</span>
         RxJava线程模型
     </h2>
     <p>
-        You’ve had your first taste of reactive programming. 
-        There is one problem though: 
-        the UI freezes up for a few seconds when the search button is pressed.
+        你已经完成了响应式编程的第一次尝试。但还留下了一个问题：当搜索按钮被按下的时候，UI会被卡住几秒。
     </p>
     <p>
-        You might also notice the following line in Android Monitor:
+        你可能还发现了Android监视器中的以下代码：
     </p>
-    <pre lang="text" class="language-text">
-        &gt; 08-24 14:36:34.554 3500-3500/com.raywenderlich.cheesefinder I/Choreographer:
-        Skipped 119 frames! The application may be doing too much work on its main
-        thread.
-    </pre>
+    <pre lang="text" class="language-text">&gt; 08-24 14:36:34.554 3500-3500/com.raywenderlich.cheesefinder I/Choreographer: Skipped 119 frames!  The application may be doing too much work on its main thread.
+</pre>
     <p>
-        This happens because
+        这是因为搜索的操作
         <code>
-            search
+            搜索
         </code>
-        is executed on the main thread. If
-        <code>
-            search
-        </code>
-        were to perform a network request, Android will crash the app with a
+        的操作是在主线程上被执行的。如果这个搜索是一个真的网络请求，这个app就会崩溃，并抛出一个
         <code>
             NetworkOnMainThreadException
         </code>
-        exception. It’s time to fix that.
+        的异常。现在是时候去修复它了。
     </p>
     <p>
-        One popular myth about RxJava is that it is multi-threaded by default,
-        similar to
+        类似于
         <code>
             AsyncTask
         </code>
-        . However, if not otherwise specified, RxJava does all the work in the
-        same thread it was called from.
+        ，关于RxJava一个流行的传说，就是默认情况下它是多线程的。然而，如果没有特别的说明，RxJava的所有逻辑都是在同一线程中进行调用的。
     </p>
     <p>
-        You can change this behavior with the
+        你可以使用
         <code>
             subscribeOn
         </code>
-        and
+        和
         <code>
             observeOn
         </code>
-        operators.
+        运算符来改变这个行为。
     </p>
     <p>
         <code>
             subscribeOn
         </code>
-        is supposed to be called only once in the chain of operators. If it’s
-        not, the first call wins.
+        应当只可以在操作符链中被调用一次。如果不是的话，就只有第一次调用会成功。
         <code>
             subscribeOn
         </code>
-        specifies the thread on which the observable will be subscribed (i.e.
-        created). If you use observables that emit events from an Android View,
-        you need to make sure subscription is done on the Android UI thread.
+        指定了observable可以在哪个线程被订阅（也就是创建）。如果要使用一个从Android View发送事件的observable，你需要确保在Android的UI线程上进行调用。
     </p>
     <p>
-        On the other hand, it’s okay to call
+        另一方面，在调用链中多次地对
         <code>
             observeOn
         </code>
-        as many times as you want in the chain.
+        进行调用也是可以的。
         <code>
             observeOn
         </code>
-        specifies the thread on which the next operators in the chain will be
-        executed. For example:
+        可以指定调用链中下一个操作对象将被执行在的线程。例如：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">myObservable <span class="hljs-comment">// observable will be subscribed on i/o thread</span>
       .subscribeOn(Schedulers.io())
@@ -797,31 +782,30 @@ x = <span class="hljs-number">10</span>
       .subscribe { <span class="hljs-comment">/* this will be called on i/o thread */</span> }
 </pre>
     <p>
-        The most useful schedulers are:
+        最有用的调度者是：
     </p>
     <ul>
         <li>
             <code>
                 Schedulers.io()
             </code>
-            : Suitable for I/O-bound work such as network requests or disk operations.
+            ：适用于I/O相关的工作，诸如网络请求或磁盘操作等。
         </li>
         <li>
             <code>
                 Schedulers.computation()
             </code>
-            : Works best with computational tasks like event-loops and processing
-            callbacks.
+            ：适用于计算型的任务，如事件循环和回调处理等。
         </li>
         <li>
             <code>
                 AndroidSchedulers.mainThread()
             </code>
-            executes the next operators on the UI thread.
+            可以在UI线程上执行下一个操作符。
         </li>
     </ul>
     <h2>
-        The Map Operator
+        Map操作符
     </h2>
     <p>
         The
@@ -1036,21 +1020,15 @@ x = <span class="hljs-number">10</span>
   <span class="hljs-keyword">val</span> textChangeObservable = Observable.create&lt;String&gt; { emitter -&gt;
     <span class="hljs-comment">// 3</span>
     <span class="hljs-keyword">val</span> textWatcher = <span class="hljs-keyword">object</span> : TextWatcher {
-
       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">afterTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">Editable</span>?)</span></span> = <span class="hljs-built_in">Unit</span>
-
       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">beforeTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">CharSequence</span>?, start: <span class="hljs-type">Int</span>, count: <span class="hljs-type">Int</span>, after: <span class="hljs-type">Int</span>)</span></span> = <span class="hljs-built_in">Unit</span>
-
       <span class="hljs-comment">// 4</span>
       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">CharSequence</span>?, start: <span class="hljs-type">Int</span>, count: <span class="hljs-type">Int</span>, after: <span class="hljs-type">Int</span>)</span></span> {
         s?.toString()?.let { emitter.onNext(it) }
       }
-
     }
-
     <span class="hljs-comment">// 5</span>
     queryEditText.addTextChangedListener(textWatcher)
-
     <span class="hljs-comment">// 6</span>
     emitter.setCancellable {
       queryEditText.removeTextChangedListener(textWatcher)
