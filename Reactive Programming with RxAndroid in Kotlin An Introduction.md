@@ -788,26 +788,14 @@ x = <span class="hljs-number">10</span>
         specifies the thread on which the next operators in the chain will be
         executed. For example:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        myObservable
-        <span class="hljs-comment">
-            // observable will be subscribed on i/o thread
-        </span>
-        .subscribeOn(Schedulers.io()) .observeOn(AndroidSchedulers.mainThread())
-        .map {
-        <span class="hljs-comment">
-            /* this will be called on main thread... */
-        </span>
-        } .doOnNext{
-        <span class="hljs-comment">
-            /* ...and everything below until next observeOn */
-        </span>
-        } .observeOn(Schedulers.io()) .subscribe {
-        <span class="hljs-comment">
-            /* this will be called on i/o thread */
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">myObservable <span class="hljs-comment">// observable will be subscribed on i/o thread</span>
+      .subscribeOn(Schedulers.io())
+      .observeOn(AndroidSchedulers.mainThread())
+      .map { <span class="hljs-comment">/* this will be called on main thread... */</span> }
+      .doOnNext{ <span class="hljs-comment">/* ...and everything below until next observeOn */</span> }
+      .observeOn(Schedulers.io())
+      .subscribe { <span class="hljs-comment">/* this will be called on i/o thread */</span> }
+</pre>
     <p>
         The most useful schedulers are:
     </p>
@@ -864,9 +852,8 @@ x = <span class="hljs-number">10</span>
         </code>
         as follows:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        numbers.map { number -&gt; number * number }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">numbers.map { number -&gt; number * number }
+</pre>
     <p>
         The result would be the following:
     </p>
@@ -891,48 +878,25 @@ x = <span class="hljs-number">10</span>
         </code>
         class to look like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onStart
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onStart()
-        <span class="hljs-keyword">
-            val
-        </span>
-        searchTextObservable = createButtonClickObservable() searchTextObservable
-        <span class="hljs-comment">
-            // 1
-        </span>
-        .subscribeOn(AndroidSchedulers.mainThread())
-        <span class="hljs-comment">
-            // 2
-        </span>
-        .observeOn(Schedulers.io())
-        <span class="hljs-comment">
-            // 3
-        </span>
-        .map { cheeseSearchEngine.search(it) }
-        <span class="hljs-comment">
-            // 4
-        </span>
-        .observeOn(AndroidSchedulers.mainThread()) .subscribe { showResult(it)
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.onStart()
+
+  <span class="hljs-keyword">val</span> searchTextObservable = createButtonClickObservable()
+
+  searchTextObservable
+      <span class="hljs-comment">// 1</span>
+      .subscribeOn(AndroidSchedulers.mainThread())
+      <span class="hljs-comment">// 2</span>
+      .observeOn(Schedulers.io())
+      <span class="hljs-comment">// 3</span>
+      .map { cheeseSearchEngine.search(it) }
+      <span class="hljs-comment">// 4</span>
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe {
+        showResult(it)
+      }
+}
+</pre>
     <p>
         Going over the code above:
     </p>
@@ -992,44 +956,26 @@ x = <span class="hljs-number">10</span>
         </code>
         to the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onStart
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onStart()
-        <span class="hljs-keyword">
-            val
-        </span>
-        searchTextObservable = createButtonClickObservable() searchTextObservable
-        <span class="hljs-comment">
-            // 1
-        </span>
-        .observeOn(AndroidSchedulers.mainThread())
-        <span class="hljs-comment">
-            // 2
-        </span>
-        .doOnNext { showProgress() } .observeOn(Schedulers.io()) .map { cheeseSearchEngine.search(it)
-        } .observeOn(AndroidSchedulers.mainThread()) .subscribe {
-        <span class="hljs-comment">
-            // 3
-        </span>
-        hideProgress() showResult(it) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.onStart()
+
+  <span class="hljs-keyword">val</span> searchTextObservable = createButtonClickObservable()
+
+  searchTextObservable
+      <span class="hljs-comment">// 1</span>
+      .observeOn(AndroidSchedulers.mainThread())
+      <span class="hljs-comment">// 2</span>
+      .doOnNext { showProgress() }
+      .observeOn(Schedulers.io())
+      .map { cheeseSearchEngine.search(it) }
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe {
+        <span class="hljs-comment">// 3</span>
+        hideProgress()
+        showResult(it)
+      }
+}
+</pre>
     <p>
         Taking each numbered comment in turn:
     </p>
@@ -1084,150 +1030,37 @@ x = <span class="hljs-number">10</span>
         </code>
         class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                createTextChangeObservable
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        : Observable&lt;String&gt; {
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        textChangeObservable = Observable.create&lt;String&gt; { emitter -&gt;
-        <span class="hljs-comment">
-            // 3
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        textWatcher =
-        <span class="hljs-keyword">
-            object
-        </span>
-        : TextWatcher {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                afterTextChanged
-            </span>
-            <span class="hljs-params">
-                (s:
-                <span class="hljs-type">
-                    Editable
-                </span>
-                ?)
-            </span>
-        </span>
-        =
-        <span class="hljs-built_in">
-            Unit
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                beforeTextChanged
-            </span>
-            <span class="hljs-params">
-                (s:
-                <span class="hljs-type">
-                    CharSequence
-                </span>
-                ?, start:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , count:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , after:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        =
-        <span class="hljs-built_in">
-            Unit
-        </span>
-        <span class="hljs-comment">
-            // 4
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onTextChanged
-            </span>
-            <span class="hljs-params">
-                (s:
-                <span class="hljs-type">
-                    CharSequence
-                </span>
-                ?, start:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , count:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , after:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { s?.toString()?.let { emitter.onNext(it) } } }
-        <span class="hljs-comment">
-            // 5
-        </span>
-        queryEditText.addTextChangedListener(textWatcher)
-        <span class="hljs-comment">
-            // 6
-        </span>
-        emitter.setCancellable { queryEditText.removeTextChangedListener(textWatcher)
-        } }
-        <span class="hljs-comment">
-            // 7
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        textChangeObservable }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createTextChangeObservable</span><span class="hljs-params">()</span></span>: Observable&lt;String&gt; {
+  <span class="hljs-comment">// 2</span>
+  <span class="hljs-keyword">val</span> textChangeObservable = Observable.create&lt;String&gt; { emitter -&gt;
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">val</span> textWatcher = <span class="hljs-keyword">object</span> : TextWatcher {
+
+      <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">afterTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">Editable</span>?)</span></span> = <span class="hljs-built_in">Unit</span>
+
+      <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">beforeTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">CharSequence</span>?, start: <span class="hljs-type">Int</span>, count: <span class="hljs-type">Int</span>, after: <span class="hljs-type">Int</span>)</span></span> = <span class="hljs-built_in">Unit</span>
+
+      <span class="hljs-comment">// 4</span>
+      <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onTextChanged</span><span class="hljs-params">(s: <span class="hljs-type">CharSequence</span>?, start: <span class="hljs-type">Int</span>, count: <span class="hljs-type">Int</span>, after: <span class="hljs-type">Int</span>)</span></span> {
+        s?.toString()?.let { emitter.onNext(it) }
+      }
+
+    }
+
+    <span class="hljs-comment">// 5</span>
+    queryEditText.addTextChangedListener(textWatcher)
+
+    <span class="hljs-comment">// 6</span>
+    emitter.setCancellable {
+      queryEditText.removeTextChangedListener(textWatcher)
+    }
+  }
+
+  <span class="hljs-comment">// 7</span>
+  <span class="hljs-keyword">return</span> textChangeObservable
+}
+</pre>
     <p>
         Here’s the play-by-play of each step above:
     </p>
@@ -1317,12 +1150,8 @@ x = <span class="hljs-number">10</span>
         </code>
         as follows:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        searchTextObservable = createTextChangeObservable()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> searchTextObservable = createTextChangeObservable()
+</pre>
     <p>
         Build and run your app. You should see the search kick off when you start
         typing text in the
@@ -1386,16 +1215,8 @@ x = <span class="hljs-number">10</span>
         </code>
         with the following code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            return
-        </span>
-        textChangeObservable.filter { it.length &gt;=
-        <span class="hljs-number">
-            2
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> textChangeObservable.filter { it.length &gt;= <span class="hljs-number">2</span> }
+</pre>
     <p>
         Everything will work exactly the same, except that text queries with
         <code>
@@ -1487,23 +1308,10 @@ x = <span class="hljs-number">10</span>
         </code>
         statement will look like the following code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            return
-        </span>
-        textChangeObservable .filter { it.length &gt;=
-        <span class="hljs-number">
-            2
-        </span>
-        } .debounce(
-        <span class="hljs-number">
-            1000
-        </span>
-        , TimeUnit.MILLISECONDS)
-        <span class="hljs-comment">
-            // add this line
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> textChangeObservable
+      .filter { it.length &gt;= <span class="hljs-number">2</span> }
+      .debounce(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">// add this line</span>
+</pre>
     <p>
         Run the app. You’ll notice that the search begins only when you stop making
         quick changes:
@@ -1553,21 +1361,11 @@ x = <span class="hljs-number">10</span>
         </code>
         to the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        buttonClickStream = createButtonClickObservable()
-        <span class="hljs-keyword">
-            val
-        </span>
-        textChangeStream = createTextChangeObservable()
-        <span class="hljs-keyword">
-            val
-        </span>
-        searchTextObservable = Observable.merge&lt;String&gt;(buttonClickStream,
-        textChangeStream)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> buttonClickStream = createButtonClickObservable()
+<span class="hljs-keyword">val</span> textChangeStream = createTextChangeObservable()
+
+<span class="hljs-keyword">val</span> searchTextObservable = Observable.merge&lt;String&gt;(buttonClickStream, textChangeStream)
+</pre>
     <p>
         Run your app. Play with the text field and the search button; the search
         will kick off either when you finish typing two or more symbols or when
@@ -1598,51 +1396,11 @@ x = <span class="hljs-number">10</span>
         </code>
         is an interface that has two methods:
     </p>
-    <pre lang="java" class="language-java hljs">
-        <span class="hljs-keyword">
-            public
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                Disposable
-            </span>
-        </span>
-        {
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                void
-            </span>
-            <span class="hljs-title">
-                dispose
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        ;
-        <span class="hljs-comment">
-            // ends a subscription
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                boolean
-            </span>
-            <span class="hljs-title">
-                isDisposed
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        ;
-        <span class="hljs-comment">
-            // returns true if resource is disposed (unsubscribed)
-        </span>
-        }
-    </pre>
+    <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Disposable</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dispose</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">// ends a subscription</span>
+  <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isDisposed</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// returns true if resource is disposed (unsubscribed)</span>
+}
+</pre>
     <p>
         Add the following property to
         <code>
@@ -1650,18 +1408,8 @@ x = <span class="hljs-number">10</span>
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        disposable: Disposable
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> disposable: Disposable
+</pre>
     <p>
         In
         <code>
@@ -1677,15 +1425,17 @@ x = <span class="hljs-number">10</span>
         </code>
         with the following code (only the first line changes):
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        disposable = searchTextObservable
-        <span class="hljs-comment">
-            // change this line
-        </span>
-        .observeOn(AndroidSchedulers.mainThread()) .doOnNext { showProgress()
-        } .observeOn(Schedulers.io()) .map { cheeseSearchEngine.search(it) } .observeOn(AndroidSchedulers.mainThread())
-        .subscribe { hideProgress() showResult(it) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">disposable = searchTextObservable <span class="hljs-comment">// change this line</span>
+      .observeOn(AndroidSchedulers.mainThread())
+      .doOnNext { showProgress() }
+      .observeOn(Schedulers.io())
+      .map { cheeseSearchEngine.search(it) }
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe {
+        hideProgress()
+        showResult(it)
+      }
+</pre>
     <p>
         Since you subscribed to the observable in
         <code>
@@ -1704,34 +1454,14 @@ x = <span class="hljs-number">10</span>
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-meta">
-            @Override
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onStop
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onStop()
-        <span class="hljs-keyword">
-            if
-        </span>
-        (!disposable.isDisposed) { disposable.dispose() } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-meta">@Override</span>
+<span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">super</span>.onStop()
+  <span class="hljs-keyword">if</span> (!disposable.isDisposed) {
+    disposable.dispose()
+  }
+}
+</pre>
     <p>
         And that’s it! Build and run the app. You won’t “observe” any changes
         yourself, but now the app is successfully avoiding RxJava memory leaks.
