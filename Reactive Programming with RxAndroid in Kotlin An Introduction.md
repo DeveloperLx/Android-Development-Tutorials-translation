@@ -628,35 +628,34 @@ x = <span class="hljs-number">10</span>
         ，但接下来你就需要实现所有必须的方法。
     </p>
     <p>
-        If all you need out of your subscription is for the observer to respond
-        to values sent to
+        如果你的观察者订阅信号的所有需求，只是响应发送到
         <code>
             onNext()
         </code>
-        , you can use the version of
+        的值，你就可以使用
         <code>
             subscribe()
         </code>
-        that takes in a single
+        这个版本，它接收了一个单独的
         <code>
             Consumer
         </code>
-        (the parameter is even named
+        （这个参数甚至被命名为
         <code>
             onNext
         </code>
-        , to make the connection clear).
+        ，让连接变得更加清楚）。
     </p>
     <p>
-        You’ll do exactly that when you subscribe in your activity’s
+        你会在activity的
         <code>
             onStart()
         </code>
-        . Add the following code to
+        方法中订阅时完成它。添加下列的代码到
         <em>
             CheeseActivity.kt
         </em>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.onStart()
@@ -672,37 +671,37 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Here’s an explanation of each step:
+        下面是一步步的解释：
     </p>
     <ol>
         <li>
-            First, create an observable by calling the method you just wrote.
+            首先，调用你刚写的方法来创建一个observable。
         </li>
         <li>
-            Subscribe to the observable with
+            用
             <code>
                 subscribe()
             </code>
-            , and supply a simple
+            方法对observable发起订阅，并提供一个简单的
             <code>
                 Consumer
             </code>
-            .
+            。
         </li>
         <li>
-            Finally, perform the search and show the results.
+            最后，执行搜索并将结果展示出来。
         </li>
     </ol>
     <p>
-        Build and run the app. Enter some letters and press the
+        运行app。输入要搜索的文本并按下
         <em>
             Search
         </em>
-        button. After a simulated delay (see
+        按钮。在一个模拟的延迟之后（查看
         <em>
             CheeseSearchEngine
         </em>
-        ), you should see a list of cheeses that match your request:
+        ），你就可以看到一个对应于你请求的奶酪的列表：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/enter-and-press-300x500.png"
@@ -711,14 +710,15 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        Sounds yummy! :]
+        怎么样，还不错吧！:]
     </p>
     <h2>
-        RxJava Threading Model
+        RxJava线程模型
     </h2>
     <p>
-        You’ve had your first taste of reactive programming. There is one problem
-        though: the UI freezes up for a few seconds when the search button is pressed.
+        You’ve had your first taste of reactive programming. 
+        There is one problem though: 
+        the UI freezes up for a few seconds when the search button is pressed.
     </p>
     <p>
         You might also notice the following line in Android Monitor:
