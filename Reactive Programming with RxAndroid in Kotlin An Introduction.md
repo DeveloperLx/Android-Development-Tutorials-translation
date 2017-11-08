@@ -992,19 +992,18 @@ x = <span class="hljs-number">10</span>
         观察文本的变化
     </h2>
     <p>
-        What if you want to perform search automatically when the user types some
-        text, just like Google?
+        如果你希望在用户输入文本时，就自动执行搜索，就像Google那样，该怎么做呢？
     </p>
     <p>
-        First, you need to subscribe to
+        首先，你需要订阅
         <code>
             TextView
         </code>
-        text changes. Add the following function to the
+        文本的变化。添加下列的方法到
         <code>
             CheeseActivity
         </code>
-        class:
+        类中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">createTextChangeObservable</span><span class="hljs-params">()</span></span>: Observable&lt;String&gt; {
@@ -1032,7 +1031,7 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Here’s the play-by-play of each step above:
+        一步一步来看上述的代码：
     </p>
     <ol>
         <li>
