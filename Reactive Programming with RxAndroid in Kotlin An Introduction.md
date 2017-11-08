@@ -517,121 +517,115 @@ x = <span class="hljs-number">10</span>
 <span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_cheeses.*
 </pre>
     <p>
-        You’ve imported the correct
+        这样你就导入了正确的
         <code>
             Observable
         </code>
-        class and you’re using the
+        类，并通过
         <em>
             Kotlin Android Extensions
         </em>
-        to get references to view objects.
+        获取了对view对象的使用。
     </p>
     <p>
-        Here’s what’s going on in the code above:
+        上述的代码：
     </p>
     <ol>
         <li>
-            You declare a function that returns an observable that will emit strings.
+            声明了一个方法，返回一个可以发送字符串的observable。
         </li>
         <li>
-            You create an observable with
+            用
             <code>
                 Observable.create()
             </code>
-            , and supply it with a new
+            创建了一个observable，并为它提供一个新的
             <code>
                 ObservableOnSubscribe
             </code>
-            .
+            。
         </li>
         <li>
-            Set up an
-            <code>
-                OnClickListener
-            </code>
-            on
+            在
             <code>
                 searchButton
             </code>
-            .
-        </li>
-        <li>
-            When the click event happens, call
-            <code>
-                onNext
-            </code>
-            on the emitter and pass it the current text value of
-            <code>
-                queryEditText
-            </code>
-            .
-        </li>
-        <li>
-            Keeping references can cause memory leaks in Java or Kotlin. It’s a useful
-            habit to remove listeners as soon as they are no longer needed. But what
-            do you call when you are creating your own
-            <code>
-                Observable
-            </code>
-            ? For that very reason,
-            <code>
-                ObservableEmitter
-            </code>
-            has
-            <code>
-                setCancellable()
-            </code>
-            . Override
-            <code>
-                cancel()
-            </code>
-            , and your implementation will be called when the Observable is disposed,
-            such as when the Observable is completed or all Observers have unsubscribed
-            from it.
-        </li>
-        <li>
-            For
+            上设置一个
             <code>
                 OnClickListener
             </code>
-            , the code that removes the listener is
+            。
+        </li>
+        <li>
+            当点击事件发生的时候，就会调用emitter的
+            <code>
+                onNext
+            </code>
+            方法，并将当前
+            <code>
+                queryEditText
+            </code>
+            的值传给它。
+        </li>
+        <li>
+            在Java或Kotlin中持有引用可能会造成内存泄漏。在listener不在被需要的时候，及时将其移除是一个非常棒的习惯。但在创建自己的
+            <code>
+                Observable
+            </code>
+            时，该调用什么呢？未解决这个问题，
+            <code>
+                ObservableEmitter
+            </code>
+            中含有
+            <code>
+                setCancellable()
+            </code>
+            。重写
+            <code>
+                cancel()
+            </code>
+            ，他会在Observable被disposed后调用，例如在Observable被completed，或观察者取消对其调用时调用。
+        </li>
+        <li>
+            对于
+            <code>
+                OnClickListener
+            </code>
+            ，代码会在
             <code>
                 setOnClickListener(null)
             </code>
-            .
+            中移除listener。
         </li>
     </ol>
     <p>
-        Now that you’ve defined your Observable, you need to set up the subscription
-        to it. Before you do, you need to learn about one more interface,
+        现在你已声明了Observable，接下来就应该设置对其的订阅了。在此之前，你需要学习另一个interface，
         <code>
             Consumer
         </code>
-        . It’s a simple way to accept values coming in from an emitter.
+        。它提供了一个简单的方式，来接受来自emitter的值。
     </p>
     <pre lang="java" class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Consumer</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
   <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">accept</span><span class="hljs-params">(T t)</span> <span class="hljs-keyword">throws</span> Exception</span>;
 }
 </pre>
     <p>
-        This interface is handy when you want to set up a simple subscription
-        to an Observable.
+        当你想设置订阅Observable的时候，这个interface是非常得方便的。
     </p>
     <p>
-        The
+        这个
         <code>
             Observable
         </code>
-        interface requires several versions of
+        interface需要几个版本的
         <code>
             subscribe()
         </code>
-        , all with different parameters. For example, you could pass a full
+        ，它们都有着不同的参数。例如，如果你喜欢的话，可以传递一个完整的
         <code>
             Observer
         </code>
-        if you like, but then you’d need to implement all the necessary methods.
+        ，但接下来你就需要实现所有必须的方法。
     </p>
     <p>
         If all you need out of your subscription is for the observer to respond
