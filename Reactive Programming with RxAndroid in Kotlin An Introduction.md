@@ -1473,61 +1473,59 @@ x = <span class="hljs-number">10</span>
         RxJava 2的新特性
     </h3>
     <p>
-        The second version of RxJava is quite different from the first one, 
-        since RxJava 2 was completely rewritten. 
-        You should get acquainted with some entirely new classes like
+        RxJava的第二个版本和第一个相当得不同，它是完全地被重写过的。你需要熟悉一些类似
         <code>
             Flowable
         </code>
-        and
+        和
         <code>
             Maybe
         </code>
-        .
+        这样全新的类。
     </p>
     <p>
-        With
+        通过
         <code>
             Flowable
         </code>
-        , you can now avoid getting such well-known problems as
+        ，你可以避免一些像
         <code>
             MissingBackpressureException
         </code>
-        or
+        或
         <code>
             OutOfMemoryError
         </code>
-        . You can use it to handle a flow of 10k+ elements.
+        这样著名的问题。你可以用它来处理超过10k+的元素流。
     </p>
     <p>
         <code>
             Maybe
         </code>
-        is a combination of
+        则是
         <code>
             Single
         </code>
-        and
+        和
         <code>
             Completable
         </code>
-        . Like
+        的结合体。
         <code>
             Single
         </code>
-        , it can receive at most one item or fail, and like
+        最多只能接受一个item，否则便会失败；而
         <code>
             Completable
         </code>
-        it can finish successfully without any received items or fail.
+        ，则可以在没有接收到任何item，或是失败的情况下直接完成。
     </p>
     <p>
-        Find some time to skim all the
+        找点时间去浏览一下RxJava2的
         <a href="https://github.com/ReactiveX/RxJava/wiki/What%27s-different-in-2.0"
         target="_blank" sl-processed="1">
-            changelog
+            更新日志
         </a>
-        of RxJava2 :]
+        吧 :]
     </p>
 </div>
