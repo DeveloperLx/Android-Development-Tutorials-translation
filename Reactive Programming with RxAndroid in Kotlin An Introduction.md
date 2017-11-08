@@ -1035,99 +1035,98 @@ x = <span class="hljs-number">10</span>
     </p>
     <ol>
         <li>
-            Declare a function that will return an observable for text changes.
+            声明一个返回用来观察文本变化的observable的方法。
         </li>
         <li>
-            Create
-            <code>
-                textChangeObservable
-            </code>
-            with
+            用
             <code>
                 create()
             </code>
-            , which takes an
+            创建一个
+            <code>
+                textChangeObservable
+            </code>
+            ，并传递
             <code>
                 ObservableOnSubscribe
             </code>
-            .
+            。
         </li>
         <li>
-            When an observer makes a subscription, the first thing to do is to create
-            a
+            当观察者进行订阅时，第一件事就是创建
             <code>
                 TextWatcher
             </code>
-            .
+            。
         </li>
         <li>
-            You aren’t interested in
+            你不需要关心
             <code>
                 beforeTextChanged()
             </code>
-            and
+            和
             <code>
                 afterTextChanged()
             </code>
-            . When the user types and
+            。当用户进行输入的时候，就会触发
             <code>
                 onTextChanged()
             </code>
-            triggers, you pass the new text value to an observer.
+            ，并传递新的文本值给观察者。
         </li>
         <li>
-            Add the watcher to your
-            <code>
-                TextView
-            </code>
-            by calling
+            通过调用
             <code>
                 addTextChangedListener()
             </code>
-            .
+            来添加观察者到
+            <code>
+                TextView
+            </code>
+            上。
         </li>
         <li>
-            Don’t forget to remove your watcher. To do this, call
+            不要忘记移除你的观察者。因此，调用
             <code>
                 emitter.setCancellable()
             </code>
-            and overwrite
+            并重写
             <code>
                 cancel()
             </code>
-            to call
+            来调用
             <code>
                 removeTextChangedListener()
             </code>
+            。
         </li>
         <li>
-            Finally, return the created observable.
+            最后，返回创建好的observable。
         </li>
     </ol>
     <p>
-        To see this observable in action, replace the declaration of
-        <code>
-            searchTextObservable
-        </code>
-        in
-        <code>
-            onStart()
-        </code>
-        of
+        实际地来看一下这个observable吧，将
         <code>
             CheeseActivity
         </code>
-        as follows:
+        类的
+        <code>
+            onStart()
+        </code>
+        方法中，
+        <code>
+            searchTextObservable
+        </code>
+        的声明替换为下列代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> searchTextObservable = createTextChangeObservable()
 </pre>
     <p>
-        Build and run your app. You should see the search kick off when you start
-        typing text in the
+        运行app。你就会看到在
         <code>
             TextView
         </code>
-        :
+        输入文本时，搜索就开始执行了：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/text-view-changes-simple-300x500.png"
@@ -1136,70 +1135,67 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <h2>
-        Filter Queries by Length
+        基于长度过滤查询
     </h2>
     <p>
-        It doesn’t make sense to search for queries as short as a single letter.
-        To fix this, let’s introduce the powerful
+        在搜索文本只有一个字母时就进行搜索是没有意义的。要修复这点，我们将引入强有力的
         <code>
             filter
         </code>
-        operator.
+        操作符。
     </p>
     <p>
         <code>
             filter
         </code>
-        passes only those items which satisfy a particular condition.
+        只会传递那些满足特定条件的item。
         <code>
             filter
         </code>
-        takes in a
+        会接受一个
         <code>
             Predicate
         </code>
-        , which is an interface that defines the test that input of a given type
-        needs to pass, with a
+        ，它是一个interface，声明了判断输入的内容是否可被传递的方法，并带有一个
         <code>
             boolean
         </code>
-        result. In this case, the Predicate takes a
+        类型的返回值。在本例中，这个Predicate就会接收一个
         <code>
             String
         </code>
-        and returns
+        类型的值，如果字符串的长度大于等于2的话，就返回
         <code>
             true
         </code>
-        if the string’s length is two or more characters.
+        。
     </p>
     <p>
-        Replace
-        <code>
-            return textChangeObservable
-        </code>
-        in
+        在
         <code>
             createTextChangeObservable()
         </code>
-        with the following code:
+        中将
+        <code>
+            return textChangeObservable
+        </code>
+        替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> textChangeObservable.filter { it.length &gt;= <span class="hljs-number">2</span> }
 </pre>
     <p>
-        Everything will work exactly the same, except that text queries with
+        一切都和之前的行为完全一致，除了
         <code>
             length
         </code>
-        less than
+        少于
         <code>
             2
         </code>
-        won’t get sent down the chain.
+        时不会被发送到调用链上。
     </p>
     <p>
-        Run the app; you should see the search kick off only when you type the
-        second character:
+        运行app，你会发现只有输入到第二个字符时，才看得到搜索的结果：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/filter-0-300x500.png"
@@ -1214,7 +1210,7 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <h2>
-        Debounce operator
+        防抖动操作符
     </h2>
     <p>
         You don’t want to send a new request to the server every time the query
