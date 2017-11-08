@@ -1213,40 +1213,35 @@ x = <span class="hljs-number">10</span>
         防抖动操作符
     </h2>
     <p>
-        You don’t want to send a new request to the server every time the query
-        is changed by one symbol.
+        你并不希望在每次改变一个字符时，都向服务器发送新的请求。
     </p>
     <p>
         <code>
             debounce
         </code>
-        is one of those operators that shows the real power of reactive paradigm.
-        Much like the
+        是显示响应式范式真正能量的操作符之一。就像
         <code>
             filter
         </code>
-        operator,
+        这个操作符一样，
         <code>
             debounce
         </code>
-        , filters items emitted by the observable. But the decision on whether
-        the item should be filtered out is made not based on
+        会过滤由observable所发送的item。但这个item是否被过滤掉，并非基于这个item是
         <i>
-            what
+            什么
         </i>
-        the item is, but based on
+        ，而是它在
         <i>
-            when
+            什么时候
         </i>
-        the item was emitted.
+        被发送。
     </p>
     <p>
         <code>
             debounce
         </code>
-        waits for a specified amount of time after each item emission for another
-        item. If no item happens to be emitted during this wait, the last item
-        is finally emitted:
+        会在每个item发送后等待一定的时间，看是否有下一个item被发送。如果没有的话，才会最终发送这个item：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/08/719f0e58_1472502674-650x219.png"
@@ -1255,31 +1250,30 @@ x = <span class="hljs-number">10</span>
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        In
+        在
         <code>
             createTextChangeObservable()
         </code>
-        , add the
+        中，添加
         <code>
             debounce
         </code>
-        operator just below the
+        操作符，就在
         <code>
             filter
         </code>
-        so that the
+        的下面。现在
         <code>
             return
         </code>
-        statement will look like the following code:
+        语句看起来就像下面这个样子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> textChangeObservable
       .filter { it.length &gt;= <span class="hljs-number">2</span> }
       .debounce(<span class="hljs-number">1000</span>, TimeUnit.MILLISECONDS) <span class="hljs-comment">// add this line</span>
 </pre>
     <p>
-        Run the app. You’ll notice that the search begins only when you stop making
-        quick changes:
+        运行程序。你会看到，只有停止快速改变文本时，才会真正地开始搜索：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/debounce-500px-1.gif"
@@ -1289,19 +1283,19 @@ x = <span class="hljs-number">10</span>
         <code>
             debounce
         </code>
-        waits for 1000 milliseconds before emitting the latest query text.
+        会在发送最新的查询文本前，等待1000毫秒。
     </p>
     <h2>
-        Merge Operator
+        合并操作符
     </h2>
     <p>
         You started by creating an observable that reacted to button clicks and
-        then implemented an observable that reacts to text field changes. But how
-        do you react to both?
+        then implemented an observable that reacts to text field changes. 
+        But how do you react to both?
     </p>
     <p>
-        There are a lot of operators to combine observables. The most simple and
-        useful one is
+        There are a lot of operators to combine observables. 
+        The most simple and useful one is
         <code>
             merge
         </code>
