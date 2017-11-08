@@ -908,30 +908,30 @@ x = <span class="hljs-number">10</span>
         是时候该展示进度条了！
     </p>
     <p>
-        For that you’ll need a
+        因此你需要一个
         <code>
             doOnNext
         </code>
-        operator.
+        操作符。
         <code>
             doOnNext
         </code>
-        takes a
+        需要一个
         <code>
             Consumer
         </code>
-        and allows you do something each time an item is emitted by observable.
+        以便在每次收到observable发送的消息时进行处理。
     </p>
     <p>
-        In the same
+        还是在
         <code>
             CheeseActivity
         </code>
-        class modify
+        类中，将
         <code>
             onStart()
         </code>
-        to the following:
+        方法修改为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">super</span>.onStart()
@@ -954,7 +954,7 @@ x = <span class="hljs-number">10</span>
 }
 </pre>
     <p>
-        Taking each numbered comment in turn:
+        一个一个地看每个序号的评论：
     </p>
     <ol>
         <li>
