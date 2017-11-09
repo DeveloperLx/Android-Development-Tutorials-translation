@@ -14,84 +14,72 @@
         alt="Android sdk versions" width="250" height="250" class="alignright size-thumbnail wp-image-124606">
     </p>
     <p>
-        Ever since the first release of Android, the range of supported devices
-        has grown to represent a wide array of phones, smart watches and more.
-        Everything necessary to start developing Android
-        <br>
-        applications for those devices falls under one specification called the
+        从Android的首次发布开始，它支持的设备已涵盖了各种各样的手机，智能手表等等。为这些设备开发Android app，最后实际都是归结到一个
         <em>
             Android SDK
         </em>
-        (software development kit). New SDK versions are released with each new
-        version of Android, and that is our focus for this tutorial.
+        （软件开发装备）上。新的SDK版本会跟随每个新版本的Android一起发布，这是我们这篇教程的重点。
     </p>
     <p>
-        These new sdk versions take advantage of the increased processing power
-        available on the latest devices to provide great new features. Awesome,
-        right? The flip side, of course, is that Android developers face the challenge
-        of making sure an application will work on a range of devices running different
-        versions of the Android SDK.
+        新的SDK版本会利用最新的设备上增强的处理能力，已提供非常棒的功能。很酷不是么？当然，另一方面Android开发者将会面对的挑战，就是确保app在运行不同版本Android SDK的设备上都能够正常地运行。
     </p>
     <p>
-        Luckily, there are some best practice guidelines and tools to help get
-        the work done without compromising on UX or deadlines.
+        幸运的是，有一些最佳实践的指南和工具可以帮助你去完成工作，而不必影响到用户体验和deadlines。
     </p>
     <p>
-        In this Android SDK Versions tutorial you’ll learn about:
+        在本教程中，你会学到：
     </p>
     <ul>
         <li>
-            Android SDK versions and API Levels
+            Android SDK版本和API级别
         </li>
         <li>
-            Android Support Libraries and their importance
+            Android的支持库及其重要性
         </li>
         <li>
-            How to use the Android Support Library to make an app backward-compatible
+            如何使用Android支持库来创建一个向后兼容的app
         </li>
         <li>
-            How to use the CardView Support Library
+            如何使用CardView支持库
         </li>
     </ul>
     <p>
-        To put theory into practice, you’ll play with a simple application called
+        为了将理论付诸实践，你将会玩转一个名为
         <em>
             Continents
         </em>
-        . Continents gives short descriptions of the continents in the world.
+        的简单app。它给出了世界上各大洲的简介。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        This Android SDK Versions tutorial assumes you are already familiar with
-        the basics of Android development and Kotlin. If you are completely new
-        to Android development, read
+        本教程假定你已熟悉了Android开发和Kotlin的基础。如果你是一个Android开发的纯小白，请访问
         <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
         target="_blank">
-            Beginning Android Development
+            开始Android开发
         </a>
-        and our
+        和我们的
         <a href="https://www.raywenderlich.com/category/android" target="_blank">
-            other
+            其它Android和Kotlin教程
         </a>
-        Android and Kotlin tutorials to familiarize yourself with the basics.
+        学习相关的基础。
     </div>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        This tutorial requires Android Studio 3.0 Beta 4 or later.
+        本教程需要Android Studio 3.0 Beta 4及以上的版本。
     </div>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Download the
+        下载本教程的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/continents-starter.zip">
-            starter project
+            起始项目
         </a>
-        for this tutorial and extract the downloaded zip file to get the project.
+        ，并解压zip文件获取项目。
     </p>
     <p>
         Select
