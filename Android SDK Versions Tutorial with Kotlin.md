@@ -353,31 +353,27 @@
             <em>
                 minSdkVersion
             </em>
-            is the minimum API Level with which the app is compatible. 
-            The Android system will prevent a user from installing the application if the system’s API Level is lower than the value specified in this attribute. 
-            Android requires the minSdkVersion attribute to always be set.
+            是app可以兼容最低的API级别。如果系统API的级别低于此属性中指定的值，Android就会阻止用户安装这个app。在Android中必须得设置这个属性。
         </li>
         <li>
             <em>
                 targetSdkVersion
             </em>
-            is the API Level that the application targets. 
-            This attribute informs the system that you have tested against the target version. 
-            The targetSdkVersion defaults to the minSdkVersion if not specified.
+            是app针对的API级别。这个属性会通知系统，你已针对目标版本进行了测试。如果未指定targetSdkVersion，它的值就默认等于minSdkVersion。
         </li>
         <li>
             <em>
                 compileSdkVersion
             </em>
-            specifies the API Level to compile the application against.
+            指定了编译app的API级别。
         </li>
     </ul>
     <p>
-        These attributes can be adjusted in the app modules
+        这些属性都可以在app模块的
         <em>
             build.gradle
         </em>
-        file.
+        文件中进行调整。
     </p>
     <div class="note">
         <em>
