@@ -413,11 +413,12 @@
         向后的兼容性
     </h3>
     <p>
-        The Android SDK&nbsp;is by default forward compatible but not backward
-        compatible — this means that an application that is built with and supports
-        a minimum SDK&nbsp;version of 3.0 can be installed on any device running
-        Android versions 3.0 and upwards. But not on devices running Android versions
-        below 3.0.
+        The Android SDK is by default forward compatible but not backward
+        compatible — 
+        this means that an application that is built with and supports
+        a minimum SDK version of 3.0 can be installed on any device running
+        Android versions 3.0 and upwards. 
+        But not on devices running Android versions below 3.0.
     </p>
     <p>
         Since the Android SDK is not backward compatible, you should choose the&nbsp;minimum
@@ -571,9 +572,11 @@
         </em>
         file, if it’s not already there:
     </p>
-    <pre lang="groovy" class="language-groovy">
-        repositories { jcenter() google() }
-    </pre>
+    <pre lang="groovy" class="language-groovy">repositories {
+    jcenter()
+    google()
+}
+</pre>
     <p>
         Now, open
         <em>
@@ -581,9 +584,7 @@
         </em>
         for the app module and add the following to the dependencies section:
     </p>
-    <pre lang="groovy" class="language-groovy">
-        implementation "com.android.support:appcompat-v7:26.0.1"
-    </pre>
+    <pre lang="groovy" class="language-groovy">implementation "com.android.support:appcompat-v7:26.0.1"</pre>
     <p>
         By adding this, you’re declaring the appcompat-v7 support library as a
         dependency for your application. You can ignore the warning to use a newer
@@ -593,9 +594,7 @@
     <p>
         Next, change the minSdkVersion attribute to 15.
     </p>
-    <pre lang="groovy" class="language-groovy">
-        minSdkVersion 15
-    </pre>
+    <pre lang="groovy" class="language-groovy">minSdkVersion 15</pre>
     <p>
         Here you’re declaring that the app should be able to run on devices with
         Android SDK version 4.0.4. Now try running your application on an emulator
@@ -613,9 +612,7 @@
     <p>
         The important line to look for is:
     </p>
-    <pre lang="java" class="language-java hljs">
-        Caused by: java.lang.ClassNotFoundException: android.widget.Toolbar
-    </pre>
+    <pre lang="java" class="language-java hljs">Caused by: java.lang.ClassNotFoundException: android.widget.Toolbar</pre>
     <p>
         The
         <code>
@@ -640,12 +637,7 @@
         </code>
         import statement to match the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.widget.Toolbar
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.widget.Toolbar</pre>
     <p>
         This replaces the SDK import with one from the AppCompat library.
     </p>
@@ -656,12 +648,7 @@
         </em>
         from the AppCompat library:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.app.AppCompatActivity
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.app.AppCompatActivity</pre>
     <p>
         Next update the&nbsp;
         <em>
@@ -673,28 +660,12 @@
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MainActivity
-            </span>
-            :
-            <span class="hljs-type">
-                AppCompatActivity
-            </span>
-        </span>
-        (), ContinentSelectedListener
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>(), ContinentSelectedListener</pre>
     <p>
-        Once again, you’re replacing a class from the latest SDKs with one that
-        exists in the support library.
+        Once again, you’re replacing a class from the latest SDKs with one that exists in the support library.
     </p>
     <p>
-        You now need to work through the class and replace some method calls with
-        their support library equivalents:
+        You now need to work through the class and replace some method calls with their support library equivalents:
     </p>
     <ul>
         <li>
@@ -769,21 +740,11 @@
         </em>
         , find the following line:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.app.Fragment
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.app.Fragment</pre>
     <p>
         and update to match the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.Fragment
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.app.Fragment</pre>
     <p>
         Here you’re using the support version of the
         <code>
@@ -848,24 +809,17 @@
         Now that all of the compile-time errors have been checked and fixed, try
         to run the app again. You will now get the following run-time error:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        java.lang.RuntimeException: Unable to start activity ComponentInfo{com.raywenderlich.continents/com.raywenderlich.continents.MainActivity}:
-        java.lang.IllegalStateException: You need to use a Theme.AppCompat theme
-        (or descendant) with
-        <span class="hljs-keyword">
-            this
-        </span>
-        activity.
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">java.lang.RuntimeException: Unable to start activity ComponentInfo{com.raywenderlich.continents/com.raywenderlich.continents.MainActivity}: java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with <span class="hljs-keyword">this</span> activity.
+</pre>
     <h3>
         Update Styles
     </h3>
     <p>
-        The error message is pretty self-explanatory, but why do you need to use
-        the AppCompat theme? A feature from the Lollipop release of AppCompat is
-        the different approach to theming. One of the interesting things about
-        this is the capability to get an L-friendly version of your app on prior
-        versions. If an app uses the framework version of everything (
+        The error message is pretty self-explanatory, 
+        but why do you need to use the AppCompat theme? 
+        A feature from the Lollipop release of AppCompat is the different approach to theming. 
+        One of the interesting things about this is the capability to get an L-friendly version of your app on prior versions. 
+        If an app uses the framework version of everything (
         <em>
             Activity
         </em>
@@ -873,10 +827,9 @@
         <em>
             AppCompatActivity
         </em>
-        for example), it would only get the material theme on phones with the
-        L release. Devices with prior releases would get the default theme for
-        those releases. The goal of the AppCompat theming feature is to have a
-        consistent experience across all devices.
+        for example), it would only get the material theme on phones with the L release. 
+        Devices with prior releases would get the default theme for those releases. 
+        The goal of the AppCompat theming feature is to have a consistent experience across all devices.
     </p>
     <p>
         In the
@@ -898,8 +851,7 @@
         .
     </p>
     <p>
-        Now build and run. You can test the app on an API 15 device or emulator
-        as well.
+        Now build and run. You can test the app on an API 15 device or emulator as well.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/61-e1444816686495.png">
@@ -935,12 +887,9 @@
         </em>
         for the app module and add the following to the dependencies section:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        implementation "com.android.support:cardview-v7:26.0.1"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">implementation "com.android.support:cardview-v7:26.0.1"</pre>
     <p>
-        Adding this declares the v7-cardview support library as a dependency for
-        the application.
+        Adding this declares the v7-cardview support library as a dependency for the application.
     </p>
     <p>
         Open the
@@ -949,120 +898,23 @@
         </em>
         file and place the ImageView in a CardView:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.CardView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/card_view"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "0dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center"
-            </span>
-            <span class="hljs-attr">
-                android:layout_weight
-            </span>
-            =
-            <span class="hljs-string">
-                "1"
-            </span>
-            <span class="hljs-attr">
-                card_view:cardBackgroundColor
-            </span>
-            =
-            <span class="hljs-string">
-                "#316130"
-            </span>
-            <span class="hljs-attr">
-                card_view:cardElevation
-            </span>
-            =
-            <span class="hljs-string">
-                "20dp"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/continentImage"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:contentDescription
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/continent_image_description"
-            </span>
-            <span class="hljs-attr">
-                android:paddingBottom
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/activity_vertical_margin"
-            </span>
-            <span class="hljs-attr">
-                android:src
-            </span>
-            =
-            <span class="hljs-string">
-                "@drawable/africa"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                android.support.v7.widget.CardView
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.CardView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/card_view"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0dp"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">card_view:cardBackgroundColor</span>=<span class="hljs-string">"#316130"</span>
+    <span class="hljs-attr">card_view:cardElevation</span>=<span class="hljs-string">"20dp"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/continentImage"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+      <span class="hljs-attr">android:contentDescription</span>=<span class="hljs-string">"@string/continent_image_description"</span>
+      <span class="hljs-attr">android:paddingBottom</span>=<span class="hljs-string">"@dimen/activity_vertical_margin"</span>
+      <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@drawable/africa"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.v7.widget.CardView</span>&gt;</span>
+</pre>
     <p>
         Notice that when using widgets from the Support Library, some XML attributes
         (
@@ -1101,25 +953,23 @@
         </a>
     </p>
     <p>
-        Cool, you’ve added this new-style cardview to your app and using the compatibility
-        library it works from modern versions of Android, right back to ancient
-        API-level 15.
+        Cool, you’ve added this new-style cardview to your app and using the compatibility library it works from modern versions of Android, 
+        right back to ancient API-level 15.
     </p>
     <h2>
         Did You Say Material Design?
     </h2>
     <p>
-        You’ve successfully used the AppCompat theming to give the app the Android
-        Lollipop look and feel across a wide range of SDK versions. In addition
-        to these elements, the
+        You’ve successfully used the AppCompat theming to give the app the Android Lollipop look and feel across a wide range of SDK versions. In addition to these elements, the
         <a href="https://www.google.com/design/spec/material-design/introduction.html"
         target="_blank">
             Material Design specification
         </a>
-        includes many more patterns and widgets not contained in AppCompat. This
-        is where the Design Library comes into play. It provides widgets such as
-        navigation drawers, floating action buttons, snackbars and tabs. Let’s
-        include it in the project and add a floating action button.
+        includes many more patterns and widgets not contained in AppCompat. 
+        This is where the Design Library comes into play. 
+        It provides widgets such as navigation drawers, 
+        floating action buttons, snackbars and tabs. 
+        Let’s include it in the project and add a floating action button.
     </p>
     <p>
         In
@@ -1132,68 +982,21 @@
         </code>
         section:
     </p>
-    <pre lang="groovy" class="language-groovy">
-        implementation "com.android.support:design:26.0.1"
-    </pre>
+    <pre lang="groovy" class="language-groovy">implementation "com.android.support:design:26.0.1"</pre>
     <p>
-        Next add the following XML element above the closing tag for FrameLayout
-        in
+        Next add the following XML element above the closing tag for FrameLayout in
         <em>
             fragment_description.xml
         </em>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.design.widget.FloatingActionButton
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/search_button"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "bottom|end"
-            </span>
-            <span class="hljs-attr">
-                android:layout_margin
-            </span>
-            =
-            <span class="hljs-string">
-                "16dp"
-            </span>
-            <span class="hljs-attr">
-                android:src
-            </span>
-            =
-            <span class="hljs-string">
-                "@drawable/ic_search_white_18dp"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.FloatingActionButton</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/search_button"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"bottom|end"</span>
+    <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"16dp"</span>
+    <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@drawable/ic_search_white_18dp"</span> /&gt;</span></pre>
     <p>
         Build and run. You will see the floating button as expected.
     </p>
@@ -1209,41 +1012,35 @@
         Backport All the Things?
     </h2>
     <p>
-        Some features in the latest releases of the SDK are just too complex to
-        backport. Ultimately, it’s your call to strike the right balance between
-        performance and usability. If you find yourself wanting to use an unavailable
-        framework API, you can check for the API Level at run-time.
+        Some features in the latest releases of the SDK are just too complex to backport. 
+        Ultimately, it’s your call to strike the right balance between performance and usability. 
+        If you find yourself wanting to use an unavailable framework API, 
+        you can check for the API Level at run-time.
     </p>
     <p>
         For the following snippet from
         <code>
             MainActivity
         </code>
-        , import the classes from the base package instead of the Support Library
-        package. Then in the
+        , import the classes from the base package instead of the Support Library package. Then in the
         <code>
             onContinentSelected
         </code>
         , add the following after the description fragment is instantiated but
         before the fragment transaction:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) { descriptionFragment.enterTransition
-        = Fade() mainFragment?.exitTransition = Fade() descriptionFragment.exitTransition
-        = Slide(Gravity.BOTTOM) mainFragment?.reenterTransition = Fade() descriptionFragment.allowReturnTransitionOverlap
-        =
-        <span class="hljs-literal">
-            true
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {
+  descriptionFragment.enterTransition = Fade()
+  mainFragment?.exitTransition = Fade()
+  descriptionFragment.exitTransition = Slide(Gravity.BOTTOM)
+  mainFragment?.reenterTransition = Fade()
+  descriptionFragment.allowReturnTransitionOverlap = <span class="hljs-literal">true</span>
+}
+</pre>
     <p>
-        Build and run on both emulators. You should see no animations on the emulator
-        running API Level 15, but notice the fade in and slide out on the emulators
-        running API Level 25 and above:
+        Build and run on both emulators. 
+        You should see no animations on the emulator running API Level 15, 
+        but notice the fade in and slide out on the emulators running API Level 25 and above:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/side-by-side.gif">
@@ -1275,10 +1072,11 @@
         </div>
     </div>
     <p>
-        Congratulations! Finally you’ve learned about Android SDK versions and
-        their sweet code names. You made an API Level 26 application backward-compatible
-        to API Level 15, and used the cardview and design library to add additional
-        components. You might also have a sugar craving :]
+        Congratulations! 
+        Finally you’ve learned about Android SDK versions and their sweet code names. 
+        You made an API Level 26 application backward-compatible to API Level 15, 
+        and used the cardview and design library to add additional components. 
+        You might also have a sugar craving :]
     </p>
     <div id="attachment_123193" style="width: 371px" class="wp-caption aligncenter">
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280.jpg">
@@ -1309,8 +1107,7 @@
         <a href="http://developer.android.com/about/versions" target="_blank">
             versions
         </a>
-        page on the Android developer site. You can also read further about the
-        minSdkVersion and targetSdkVersion attributes from the
+        page on the Android developer site. You can also read further about the minSdkVersion and targetSdkVersion attributes from the
         <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html"
         target="_blank">
             manifest
