@@ -421,23 +421,24 @@
         But not on devices running Android versions below 3.0.
     </p>
     <p>
-        Since the Android SDK is not backward compatible, you should choose the&nbsp;minimum
-        SDK carefully. This means striking a balance between supporting a wide
-        range of devices and designing an app that implements&nbsp;useful features
-        in later SDK versions.
+        Since the Android SDK is not backward compatible, 
+        you should choose the&nbsp;minimum SDK carefully. 
+        This means striking a balance between supporting a wide
+        range of devices and designing an app that implements&nbsp;useful features in later SDK versions.
     </p>
     <p>
-        For example, when Android 3.0 was released in 2011,&nbsp;the Action Bar
-        was unleashed on the Android Community. Since the Action Bar was only supported
-        in Android 3.0 and later, using it in an app meant choosing either a cool
-        user interface or supporting devices that ran older versions of the SDK.
+        For example, when Android 3.0 was released in 2011,
+        the Action Bar was unleashed on the Android Community. 
+        Since the Action Bar was only supported in Android 3.0 and later, 
+        using it in an app meant choosing either a cool user interface or supporting devices that ran older versions of the SDK.
         Sometimes you can’t have your&nbsp;honeycomb&nbsp;and eat it too :[
     </p>
     <p>
-        Or can you? To help with the Action Bar issue, the Android Support Library
-        introduced a backward-compatible version in the v7-appcompat support library.
-        So it would allow developers to support older versions of the SDK and still
-        use the latest Action Bar APIs in their apps. Sweet! Honeycomb for everyone!
+        Or can you? To help with the Action Bar issue, 
+        the Android Support Library introduced a backward
+        - compatible version in the v7-appcompat support library.
+        So it would allow developers to support older versions of the SDK and still use the latest Action Bar APIs in their apps. 
+        Sweet! Honeycomb for everyone!
     </p>
     <p>
         Let’s take a deeper look at what the Support Library does and how it works.
@@ -452,8 +453,8 @@
         </a>
         that breaks down the user
         <br>
-        distribution percentage per api level. You can use this to help target
-        a good percentage of users.
+        distribution percentage per api level. 
+        You can use this to help target a good percentage of users.
     </div>
     <h2>
         Android Support Libraries
@@ -468,41 +469,37 @@
             <em>
                 AppCompat
             </em>
-            library: The intention here is to make sure all (or most) of the framework
-            APIs for the latest API Level have been backported to earlier versions
-            and can be found in this single library. The first version of AppCompat
-            was released at Google I/O 2013.
+            library: The intention here is to make sure all (or most) of the framework APIs for the latest API Level have been backported to earlier versions and can be found in this single library. 
+            The first version of AppCompat was released at Google I/O 2013.
             <p>
-                The goal of this first release was to allow developers to backport the
-                ActionBar to devices running IceScreamSandwich level. This gave API parity
-                to the framework across as many API Levels as possible. Since then, the
-                AppCompat library has continued to evolve. And with Android L the support
-                library is now at the point where the API is equivalent to the framework
-                itself — the first time that has ever happened :]
+                The goal of this first release was to allow developers to backport the ActionBar to devices running IceScreamSandwich level. 
+                This gave API parity to the framework across as many API Levels as possible. 
+                Since then, the AppCompat library has continued to evolve. 
+                And with Android L the support library is now at the point where the API is equivalent to the framework itself 
+                — the first time that has ever happened :]
             </p>
         </li>
         <li>
             <em>
                 Others
             </em>
-            : The rest of the libraries that make up the Support Library essentially
-            provide new functionality with the same consideration for backward compatibility
+            : The rest of the libraries that make up the Support Library essentially provide new functionality with the same consideration for backward compatibility 
             (palette, gridview, gridlayout, recycler view, material design widgets).
         </li>
     </ul>
     <p>
-        When you break these up into independent libraries, you can pick and choose
-        the ones you need in your project. It’s important to note that each support
-        library is backward-compatible to a specific API Level. And they are usually
-        named based on which API Level they are backward-compatible to. For example,
+        When you break these up into independent libraries, 
+        you can pick and choose the ones you need in your project. 
+        It’s important to note that each support library is backward-compatible to a specific API Level. 
+        And they are usually named based on which API Level they are backward-compatible to. 
+        For example,
         <em>
             v7-appcompat
         </em>
         provides backward compatibility to API Level 7.
     </p>
     <p>
-        You can find the full list of components that fall under the Support Library
-        in the
+        You can find the full list of components that fall under the Support Library in the
         <a href="http://developer.android.com/tools/support-library/features.html"
         target="_blank">
             Android documentation
@@ -518,8 +515,7 @@
         target="_blank">
             Google has changed the minimum supported level to Api 14
         </a>
-        . This means that your minimum sdk version cannot be set below Api level
-        14 when using version 26.0.0+ of the Support Library.
+        . This means that your minimum sdk version cannot be set below Api level 14 when using version 26.0.0+ of the Support Library.
     </div>
     <h2>
         How to Use an Android Support Library
@@ -544,19 +540,20 @@
         .
     </p>
     <p>
-        The&nbsp;
+        The
         <em>
             Toolbar
         </em>
-        &nbsp;was added in API 21 (Android Lollipop) as a flexible widget that
-        can be used anywhere in layouts, be animated and change in size, unlike
-        the&nbsp;Action Bar.
+        was added in API 21 (Android Lollipop) as a flexible widget that
+        can be used anywhere in layouts, 
+        be animated and change in size, 
+        unlike the Action Bar.
     </p>
     <p>
-        Thanks to AppCompat, that feature has been back-ported all the way to
-        API 14, which is code-named Ice Cream Sandwich (are you hungry yet?). You’re
-        going to use the v7-appcompat support library to extend your app’s compatibility
-        to a minSdkVersion of 15.
+        Thanks to AppCompat, 
+        that feature has been back-ported all the way to API 14, 
+        which is code-named Ice Cream Sandwich (are you hungry yet?). 
+        You’re going to use the v7-appcompat support library to extend your app’s compatibility to a minSdkVersion of 15.
     </p>
     <h3>
         Update Build File
@@ -587,18 +584,19 @@
     <pre lang="groovy" class="language-groovy">implementation "com.android.support:appcompat-v7:26.0.1"</pre>
     <p>
         By adding this, you’re declaring the appcompat-v7 support library as a
-        dependency for your application. You can ignore the warning to use a newer
-        version of the Support library. Though you may update, it’s recommended
-        you stick to the one in this tutorial.
+        dependency for your application. 
+        You can ignore the warning to use a newer version of the Support library. 
+        Though you may update, 
+        it’s recommended you stick to the one in this tutorial.
     </p>
     <p>
         Next, change the minSdkVersion attribute to 15.
     </p>
     <pre lang="groovy" class="language-groovy">minSdkVersion 15</pre>
     <p>
-        Here you’re declaring that the app should be able to run on devices with
-        Android SDK version 4.0.4. Now try running your application on an emulator
-        running API Level 15. You should see the following exceptions in the logcat:
+        Here you’re declaring that the app should be able to run on devices with Android SDK version 4.0.4. 
+        Now try running your application on an emulator running API Level 15.
+        You should see the following exceptions in the logcat:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError.jpeg"
@@ -618,16 +616,17 @@
         <code>
             ClassNotFoundException
         </code>
-        error indicates that there is no such class in the SDK version you’re
-        running the app against. Indeed, it’s only available in API Level 21, while
-        you’re currently running API Level 15.
+        error indicates that there is no such class in the SDK version you’re running the app against. 
+        Indeed, it’s only available in API Level 21, 
+        while you’re currently running API Level 15.
     </p>
     <h3>
         Update For Backward Compatibility
     </h3>
     <p>
-        You’re going to update the code to use the backward-compatible version
-        of Toolbar. In
+        You’re going to update the code to use the backward
+        - compatible version of Toolbar. 
+        In
         <em>
             MainActivity.kt
         </em>
@@ -750,24 +749,23 @@
         <code>
             Fragment
         </code>
-        class instead of the one in the main SDK. The latter can only be used
-        in apps with a minSdkVersion of 14 and above.
+        class instead of the one in the main SDK. 
+        The latter can only be used in apps with a minSdkVersion of 14 and above.
     </p>
     <div class="note">
         <em>
             Note:
         </em>
-        AppCompat v7 depends on the v4 Support Library. That’s why you can also
-        use all the APIs in the
+        AppCompat v7 depends on the v4 Support Library. 
+        That’s why you can also use all the APIs in the
         <code>
             android.support.v4.app
         </code>
         package.
     </div>
     <p>
-        So far you’ve replaced all the main API calls with corresponding methods
-        from the support library. Next you will need to update your layout files
-        to use the Support Library.
+        So far you’ve replaced all the main API calls with corresponding methods from the support library. 
+        Next you will need to update your layout files to use the Support Library.
     </p>
     <p>
         In the
@@ -806,8 +804,8 @@
         Again, all this does is change the package name from android to v7-appcompat.
     </p>
     <p>
-        Now that all of the compile-time errors have been checked and fixed, try
-        to run the app again. You will now get the following run-time error:
+        Now that all of the compile-time errors have been checked and fixed, try to run the app again. 
+        You will now get the following run-time error:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">java.lang.RuntimeException: Unable to start activity ComponentInfo{com.raywenderlich.continents/com.raywenderlich.continents.MainActivity}: java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with <span class="hljs-keyword">this</span> activity.
 </pre>
@@ -851,7 +849,8 @@
         .
     </p>
     <p>
-        Now build and run. You can test the app on an API 15 device or emulator as well.
+        Now build and run. 
+        You can test the app on an API 15 device or emulator as well.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/61-e1444816686495.png">
@@ -925,8 +924,8 @@
         <code>
             cardElevation
         </code>
-        for the CardView) are not prefixed with “android.” That’s because they
-        come from the Support Library API as opposed to the Android framework.
+        for the CardView) are not prefixed with “android.” 
+        That’s because they come from the Support Library API as opposed to the Android framework.
         Hit
         <em>
             option+return
@@ -1107,12 +1106,14 @@
         <a href="http://developer.android.com/about/versions" target="_blank">
             versions
         </a>
-        page on the Android developer site. You can also read further about the minSdkVersion and targetSdkVersion attributes from the
+        page on the Android developer site. 
+        You can also read further about the minSdkVersion and targetSdkVersion attributes from the
         <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html"
         target="_blank">
             manifest
         </a>
-        page on the developer site. Finally, check out the developer pages on
+        page on the developer site. 
+        Finally, check out the developer pages on
         <a href="https://developer.android.com/tools/support-library/index.html"
         target="_blank">
             Support libraries
