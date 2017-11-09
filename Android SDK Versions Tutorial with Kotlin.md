@@ -1,0 +1,1374 @@
+# Android SDK版本教程 - Kotlin
+---
+#### [原文地址](https://www.raywenderlich.com/171148/android-sdk-versions-tutorial-2) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
+<div class="content-wrapper">
+    <div class="note">
+        <em>
+            更新日志
+        </em>
+        ：本教程已由Eric Crawford更新至Kotlin版本。原教程是由Eunice Obugyei编写的。
+    </div>
+    <p>
+        <img src="https://koenig-media.raywenderlich.com/uploads/2017/11/AndroidSDKVersions-feature.png"
+        alt="Android sdk versions" width="250" height="250" class="alignright size-thumbnail wp-image-124606">
+    </p>
+    <p>
+        Ever since the first release of Android, the range of supported devices
+        has grown to represent a wide array of phones, smart watches and more.
+        Everything necessary to start developing Android
+        <br>
+        applications for those devices falls under one specification called the
+        <em>
+            Android SDK
+        </em>
+        (software development kit). New SDK versions are released with each new
+        version of Android, and that is our focus for this tutorial.
+    </p>
+    <p>
+        These new sdk versions take advantage of the increased processing power
+        available on the latest devices to provide great new features. Awesome,
+        right? The flip side, of course, is that Android developers face the challenge
+        of making sure an application will work on a range of devices running different
+        versions of the Android SDK.
+    </p>
+    <p>
+        Luckily, there are some best practice guidelines and tools to help get
+        the work done without compromising on UX or deadlines.
+    </p>
+    <p>
+        In this Android SDK Versions tutorial you’ll learn about:
+    </p>
+    <ul>
+        <li>
+            Android SDK versions and API Levels
+        </li>
+        <li>
+            Android Support Libraries and their importance
+        </li>
+        <li>
+            How to use the Android Support Library to make an app backward-compatible
+        </li>
+        <li>
+            How to use the CardView Support Library
+        </li>
+    </ul>
+    <p>
+        To put theory into practice, you’ll play with a simple application called
+        <em>
+            Continents
+        </em>
+        . Continents gives short descriptions of the continents in the world.
+    </p>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        This Android SDK Versions tutorial assumes you are already familiar with
+        the basics of Android development and Kotlin. If you are completely new
+        to Android development, read
+        <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
+        target="_blank">
+            Beginning Android Development
+        </a>
+        and our
+        <a href="https://www.raywenderlich.com/category/android" target="_blank">
+            other
+        </a>
+        Android and Kotlin tutorials to familiarize yourself with the basics.
+    </div>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        This tutorial requires Android Studio 3.0 Beta 4 or later.
+    </div>
+    <h2>
+        Getting Started
+    </h2>
+    <p>
+        Download the
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/continents-starter.zip">
+            starter project
+        </a>
+        for this tutorial and extract the downloaded zip file to get the project.
+    </p>
+    <p>
+        Select
+        <em>
+            Open an existing Android Studio project
+        </em>
+        from the
+        <em>
+            Quick Start
+        </em>
+        menu to open the starter project:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen-650x468.jpeg"
+            alt="" width="650" height="468" class="aligncenter size-large wp-image-171193"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen-650x468.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen-444x320.jpeg 444w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen.jpeg 662w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        If you are on a windows machine you can also select&nbsp;
+        <em>
+            File \ Open
+        </em>
+        . Navigate to and select the starter project folder.
+    </p>
+    <p>
+        If you are prompted to install (or update to) a new version of the Android
+        build tools, or are prompted to update your Gradle plugin version, please
+        do so.
+    </p>
+    <p>
+        Build and run the project on the emulator or device to make sure it compiles
+        and runs correctly.
+    </p>
+    <h2>
+        Emulating Different SDK Versions
+    </h2>
+    <p>
+        We want to try running the sample app on different&nbsp;Android versions.
+        But it’s unlikely anyone has an Android device for every single API Level
+        of the SDK. So first, let’s learn how to set up emulators with different
+        SDK versions.
+    </p>
+    <p>
+        To set up an emulator, locate the
+        <em>
+            AVD (Android Virtual Device) Manager
+        </em>
+        on the
+        <em>
+            Android Studio Toolbar
+        </em>
+        .
+    </p>
+    <h3>
+        Creating A Virtual Device
+    </h3>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVD.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVD.jpeg"
+            alt="" width="436" height="80" class="aligncenter size-full wp-image-171199">
+        </a>
+    </p>
+    <p>
+        If the Toolbar is not showing, select
+        <em>
+            View \ Toolbar
+        </em>
+        to show it. You can also select select
+        <em>
+            Tools \ Android \ AVD Manager
+        </em>
+        to open the AVD Manager.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD-650x345.jpeg"
+            alt="" width="650" height="345" class="aligncenter size-large wp-image-171202"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD-650x345.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD-480x255.jpeg 480w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD.jpeg 1080w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        Click the
+        <em>
+            Create a virtual device
+        </em>
+        button. That will open the
+        <em>
+            Select Hardware
+        </em>
+        section of the
+        <em>
+            Virtual Device Configuration
+        </em>
+        window.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice-650x437.jpeg"
+            alt="" width="650" height="437" class="aligncenter size-large wp-image-171206"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice-650x437.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice-476x320.jpeg 476w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice.jpeg 1000w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        Select a device of your choice and click
+        <em>
+            Next
+        </em>
+        . That opens the
+        <em>
+            System Image
+        </em>
+        section, which currently shows recommended system images.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-650x437.jpeg"
+            alt="" width="650" height="437" class="aligncenter size-large wp-image-171207"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-650x437.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-476x320.jpeg 476w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg 1000w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        The
+        <em>
+            x86 Images
+        </em>
+        &nbsp;tab will list all the x86 emulator images. The
+        <em>
+            Other Images
+        </em>
+        tab will show both ARM and x86 emulator images.
+    </p>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        It is recommended to always use x86 images. These will run the fastest
+        on most pc and mac computers
+    </div>
+    <h3>
+        Downloading A System Image
+    </h3>
+    <p>
+        To download a system image that you do not already have installed, click
+        the&nbsp;
+        <em>
+            Download
+        </em>
+        &nbsp;link by the release name.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload-650x437.jpeg"
+            alt="" width="650" height="437" class="aligncenter size-large wp-image-171208"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload-650x437.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload-476x320.jpeg 476w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload.jpeg 1000w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        Notice that the Android platform currently has
+        <a href="https://source.android.com/source/build-numbers.html">
+            fifteen major versions of the SDK
+        </a>
+        &nbsp;.&nbsp;Starting with Android 1.5, major versions of the SDK have
+        been developed under a confectionery-themed code name. Google has managed
+        to choose these code names in an alphabetical order. They haven’t run out
+        of names of sweets yet :]
+    </p>
+    <p>
+        Each version (minor or major) of the Android SDK has an integer value
+        that uniquely identifies it. This unique identifier is referred to as the
+        API Level. The higher the API Level, the later the version. For developers,
+        API Level is important because it is what determines the range of devices
+        an app can run on.
+    </p>
+    <p>
+        Let’s look at an example, the Android 8.0 release. We can see that:
+    </p>
+    <ul>
+        <li>
+            It is the most recent version of the Android SDK
+        </li>
+        <li>
+            Its version number is 8.0
+        </li>
+        <li>
+            Its code name is Oreo
+        </li>
+        <li>
+            It has an API Level of 26
+        </li>
+    </ul>
+    <p>
+        For this tutorial, we will need at least two emulators, one with API Level
+        15 and another one with API Level 26.
+    </p>
+    <p>
+        Going back to the System Image screen in Android Studio, click the&nbsp;
+        <em>
+            Download
+        </em>
+        &nbsp;button for each of the SDK versions you will need for this tutorial
+        that you have not already downloaded
+        <em>
+            (Level 15&nbsp;and&nbsp;Level 26)
+        </em>
+        . Then select the system image for Level 26 and click&nbsp;
+        <em>
+            Next
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-650x437.jpeg"
+            alt="" width="650" height="437" class="aligncenter size-large wp-image-171207"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-650x437.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage-476x320.jpeg 476w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg 1000w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        On the next screen, click&nbsp;
+        <em>
+            Finish
+        </em>
+        .
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify-650x437.jpeg"
+            alt="" width="650" height="437" class="aligncenter size-large wp-image-171215"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify-650x437.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify-476x320.jpeg 476w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify.jpeg 1000w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        Repeat the same steps to setup an emulator with API level 15. You may
+        choose one with API level 16 instead if you are unable to download one
+        with API level 15.
+    </p>
+    <h3>
+        First Run
+    </h3>
+    <p>
+        Try running the sample app on the emulator running API Level 26:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618.png">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618-281x500.png"
+            alt="First Run" width="281" height="500" class="aligncenter size-large wp-image-175532"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618.png 1080w"
+            sizes="(max-width: 281px) 100vw, 281px">
+        </a>
+    </p>
+    <p>
+        It all looks great, right? But if you were to try and run the app on a
+        device with API Level lower than 26 it wouldn’t run. This is because the
+        app only runs on devices that run Android API Level 26 and upwards, which
+        isn’t great for older devices. Later, you’ll learn how to extend the app’s
+        support from Android API Level 26 to as low as Android&nbsp;API Level 14.
+    </p>
+    <h2>
+        SDK Versions and API Levels
+    </h2>
+    <p>
+        As mentioned earlier, the API Level is a unique integer that identifies
+        a specific version of the Android SDK. Let’s look at how to specify API
+        Levels in Android Studio to compile and release an application.
+    </p>
+    <p>
+        Open&nbsp;
+        <em>
+            build.gradle
+        </em>
+        &nbsp;for the app&nbsp;module:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASgradleInitial.jpeg"
+        target="_blank">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASgradleInitial-650x350.jpeg"
+            alt="build.gradle" width="650" height="350" class="aligncenter size-large wp-image-171217"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASgradleInitial-650x350.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASgradleInitial-480x258.jpeg 480w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        Here we can see three important attributes:
+    </p>
+    <ul>
+        <li>
+            <em>
+                minSdkVersion
+            </em>
+            is the minimum API Level with which the app is compatible. The Android
+            system will prevent a user from installing the application if the system’s
+            API Level is lower than the value specified in this attribute. Android
+            requires the minSdkVersion attribute to always be set.
+        </li>
+        <li>
+            <em>
+                targetSdkVersion
+            </em>
+            is the API Level that the application targets. This attribute informs
+            the system that you have tested against the target version. The targetSdkVersion
+            defaults to the minSdkVersion if not specified.
+        </li>
+        <li>
+            <em>
+                compileSdkVersion
+            </em>
+            specifies the API Level to compile the application against.
+        </li>
+    </ul>
+    <p>
+        These attributes can be adjusted in the app modules
+        <em>
+            build.gradle
+        </em>
+        file.
+    </p>
+    <div class="note">
+        <em>
+            Note on SDK previews:
+        </em>
+        It’s important to know that when you set the
+        <em>
+            compileSdkVersion
+        </em>
+        to a
+        <em>
+            preview release
+        </em>
+        of the Android framework, Android Studio will force the
+        <em>
+            minSdkVersion
+        </em>
+        and
+        <em>
+            targetSdkVersion
+        </em>
+        to equal the exact same string as
+        <em>
+            compileSdkVersion
+        </em>
+        . This policy is necessary to prevent situations where you might upload
+        your app to the Google Play Store. As a result, you can only run applications
+        where
+        <em>
+            compileSdkVersion
+        </em>
+        is set to a preview release on emulators with that
+        <em>
+            exact same preview
+        </em>
+        and you won’t be able to run it on older devices.
+    </div>
+    <h3>
+        Backward Compatibility
+    </h3>
+    <p>
+        The Android SDK&nbsp;is by default forward compatible but not backward
+        compatible — this means that an application that is built with and supports
+        a minimum SDK&nbsp;version of 3.0 can be installed on any device running
+        Android versions 3.0 and upwards. But not on devices running Android versions
+        below 3.0.
+    </p>
+    <p>
+        Since the Android SDK is not backward compatible, you should choose the&nbsp;minimum
+        SDK carefully. This means striking a balance between supporting a wide
+        range of devices and designing an app that implements&nbsp;useful features
+        in later SDK versions.
+    </p>
+    <p>
+        For example, when Android 3.0 was released in 2011,&nbsp;the Action Bar
+        was unleashed on the Android Community. Since the Action Bar was only supported
+        in Android 3.0 and later, using it in an app meant choosing either a cool
+        user interface or supporting devices that ran older versions of the SDK.
+        Sometimes you can’t have your&nbsp;honeycomb&nbsp;and eat it too :[
+    </p>
+    <p>
+        Or can you? To help with the Action Bar issue, the Android Support Library
+        introduced a backward-compatible version in the v7-appcompat support library.
+        So it would allow developers to support older versions of the SDK and still
+        use the latest Action Bar APIs in their apps. Sweet! Honeycomb for everyone!
+    </p>
+    <p>
+        Let’s take a deeper look at what the Support Library does and how it works.
+    </p>
+    <div class="note">
+        <em>
+            Note on picking minimum sdk version:
+        </em>
+        Google provides a
+        <a href="https://developer.android.com/about/dashboards/index.html" target="_blank">
+            Dashboard
+        </a>
+        that breaks down the user
+        <br>
+        distribution percentage per api level. You can use this to help target
+        a good percentage of users.
+    </div>
+    <h2>
+        Android Support Libraries
+    </h2>
+    <p>
+        A wide range of components make up what is referred to as the “Support
+        Library” or “Support Libraries,” and they can be categorized in two groups:
+    </p>
+    <ul>
+        <li>
+            The
+            <em>
+                AppCompat
+            </em>
+            library: The intention here is to make sure all (or most) of the framework
+            APIs for the latest API Level have been backported to earlier versions
+            and can be found in this single library. The first version of AppCompat
+            was released at Google I/O 2013.
+            <p>
+                The goal of this first release was to allow developers to backport the
+                ActionBar to devices running IceScreamSandwich level. This gave API parity
+                to the framework across as many API Levels as possible. Since then, the
+                AppCompat library has continued to evolve. And with Android L the support
+                library is now at the point where the API is equivalent to the framework
+                itself — the first time that has ever happened :]
+            </p>
+        </li>
+        <li>
+            <em>
+                Others
+            </em>
+            : The rest of the libraries that make up the Support Library essentially
+            provide new functionality with the same consideration for backward compatibility
+            (palette, gridview, gridlayout, recycler view, material design widgets).
+        </li>
+    </ul>
+    <p>
+        When you break these up into independent libraries, you can pick and choose
+        the ones you need in your project. It’s important to note that each support
+        library is backward-compatible to a specific API Level. And they are usually
+        named based on which API Level they are backward-compatible to. For example,
+        <em>
+            v7-appcompat
+        </em>
+        provides backward compatibility to API Level 7.
+    </p>
+    <p>
+        You can find the full list of components that fall under the Support Library
+        in the
+        <a href="http://developer.android.com/tools/support-library/features.html"
+        target="_blank">
+            Android documentation
+        </a>
+        .
+    </p>
+    <div class="note">
+        <em>
+            Note: Support Library minimum sdk change:
+        </em>
+        Beginning with Support Library release 26.0.0,
+        <a href="https://developer.android.com/topic/libraries/support-library/index.html#api-versions"
+        target="_blank">
+            Google has changed the minimum supported level to Api 14
+        </a>
+        . This means that your minimum sdk version cannot be set below Api level
+        14 when using version 26.0.0+ of the Support Library.
+    </div>
+    <h2>
+        How to Use an Android Support Library
+    </h2>
+    <p>
+        Time to see an Android support library in action! Open
+        <em>
+            MainActivity.kt
+        </em>
+        . As you may have noticed in the
+        <em>
+            onCreate()
+        </em>
+        method, the app uses a
+        <em>
+            Toolbar
+        </em>
+        (which is part of the material design patterns) instead of an
+        <em>
+            Action Bar
+        </em>
+        .
+    </p>
+    <p>
+        The&nbsp;
+        <em>
+            Toolbar
+        </em>
+        &nbsp;was added in API 21 (Android Lollipop) as a flexible widget that
+        can be used anywhere in layouts, be animated and change in size, unlike
+        the&nbsp;Action Bar.
+    </p>
+    <p>
+        Thanks to AppCompat, that feature has been back-ported all the way to
+        API 14, which is code-named Ice Cream Sandwich (are you hungry yet?). You’re
+        going to use the v7-appcompat support library to extend your app’s compatibility
+        to a minSdkVersion of 15.
+    </p>
+    <h3>
+        Update Build File
+    </h3>
+    <p>
+        First add
+        <em>
+            google()
+        </em>
+        to the Maven repositories in your project-level
+        <em>
+            build.gradle
+        </em>
+        file, if it’s not already there:
+    </p>
+    <pre lang="groovy" class="language-groovy">
+        repositories { jcenter() google() }
+    </pre>
+    <p>
+        Now, open
+        <em>
+            build.gradle
+        </em>
+        for the app module and add the following to the dependencies section:
+    </p>
+    <pre lang="groovy" class="language-groovy">
+        implementation "com.android.support:appcompat-v7:26.0.1"
+    </pre>
+    <p>
+        By adding this, you’re declaring the appcompat-v7 support library as a
+        dependency for your application. You can ignore the warning to use a newer
+        version of the Support library. Though you may update, it’s recommended
+        you stick to the one in this tutorial.
+    </p>
+    <p>
+        Next, change the minSdkVersion attribute to 15.
+    </p>
+    <pre lang="groovy" class="language-groovy">
+        minSdkVersion 15
+    </pre>
+    <p>
+        Here you’re declaring that the app should be able to run on devices with
+        Android SDK version 4.0.4. Now try running your application on an emulator
+        running API Level 15. You should see the following exceptions in the logcat:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError.jpeg"
+        target="_blank">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError-650x352.jpeg"
+            alt="" width="650" height="352" class="aligncenter size-large wp-image-171357"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError-650x352.jpeg 650w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError-480x260.jpeg 480w, https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError.jpeg 1317w"
+            sizes="(max-width: 650px) 100vw, 650px">
+        </a>
+    </p>
+    <p>
+        The important line to look for is:
+    </p>
+    <pre lang="java" class="language-java hljs">
+        Caused by: java.lang.ClassNotFoundException: android.widget.Toolbar
+    </pre>
+    <p>
+        The
+        <code>
+            ClassNotFoundException
+        </code>
+        error indicates that there is no such class in the SDK version you’re
+        running the app against. Indeed, it’s only available in API Level 21, while
+        you’re currently running API Level 15.
+    </p>
+    <h3>
+        Update For Backward Compatibility
+    </h3>
+    <p>
+        You’re going to update the code to use the backward-compatible version
+        of Toolbar. In
+        <em>
+            MainActivity.kt
+        </em>
+        , and update the
+        <code>
+            android.widget.Toolbar
+        </code>
+        import statement to match the following:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.support.v7.widget.Toolbar
+    </pre>
+    <p>
+        This replaces the SDK import with one from the AppCompat library.
+    </p>
+    <p>
+        Next import the
+        <em>
+            AppCompatActivity
+        </em>
+        from the AppCompat library:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.support.v7.app.AppCompatActivity
+    </pre>
+    <p>
+        Next update the&nbsp;
+        <em>
+            MainActivity
+        </em>
+        &nbsp;class definition line so that it inherits from
+        <em>
+            AppCompatActivity
+        </em>
+        :
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-class">
+            <span class="hljs-keyword">
+                class
+            </span>
+            <span class="hljs-title">
+                MainActivity
+            </span>
+            :
+            <span class="hljs-type">
+                AppCompatActivity
+            </span>
+        </span>
+        (), ContinentSelectedListener
+    </pre>
+    <p>
+        Once again, you’re replacing a class from the latest SDKs with one that
+        exists in the support library.
+    </p>
+    <p>
+        You now need to work through the class and replace some method calls with
+        their support library equivalents:
+    </p>
+    <ul>
+        <li>
+            Find the call to
+            <code>
+                setActionBar(toolbar)
+            </code>
+            at the end of the
+            <code>
+                onCreate()
+            </code>
+            method body and update it to
+            <code>
+                setSupportActionBar(toolbar)
+            </code>
+            .
+        </li>
+        <li>
+            Find the calls to
+            <code>
+                actionBar?
+            </code>
+            in
+            <code>
+                onContinentSelected()
+            </code>
+            ,
+            <code>
+                goToContinentList()
+            </code>
+            , and
+            <code>
+                onBackPressed()
+            </code>
+            and replace both of them with
+            <code>
+                supportActionBar?
+            </code>
+            .
+        </li>
+        <li>
+            Replace the calls to
+            <code>
+                fragmentManager()
+            </code>
+            in
+            <code>
+                onContinentSelected()
+            </code>
+            and
+            <code>
+                goToContinentList()
+            </code>
+            with
+            <code>
+                supportFragmentManager()
+            </code>
+            .
+        </li>
+    </ul>
+    <h3>
+        Update Fragment Classes
+    </h3>
+    <p>
+        Open
+        <em>
+            DescriptionFragment.kt
+        </em>
+        and
+        <em>
+            MainFragment.kt
+        </em>
+        , find the following line:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.app.Fragment
+    </pre>
+    <p>
+        and update to match the following:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            import
+        </span>
+        android.support.v4.app.Fragment
+    </pre>
+    <p>
+        Here you’re using the support version of the
+        <code>
+            Fragment
+        </code>
+        class instead of the one in the main SDK. The latter can only be used
+        in apps with a minSdkVersion of 14 and above.
+    </p>
+    <div class="note">
+        <em>
+            Note:
+        </em>
+        AppCompat v7 depends on the v4 Support Library. That’s why you can also
+        use all the APIs in the
+        <code>
+            android.support.v4.app
+        </code>
+        package.
+    </div>
+    <p>
+        So far you’ve replaced all the main API calls with corresponding methods
+        from the support library. Next you will need to update your layout files
+        to use the Support Library.
+    </p>
+    <p>
+        In the
+        <em>
+            res / layout
+        </em>
+        folder, open
+        <em>
+            toolbar_custom.xml
+        </em>
+        and do the following:
+    </p>
+    <ul>
+        <li>
+            Change
+            <code>
+                android.widget.Toolbar
+            </code>
+            to
+            <code>
+                android.support.v7.widget.Toolbar
+            </code>
+        </li>
+        <li>
+            Change
+            <code>
+                ?android:attr/actionBarSize
+            </code>
+            to
+            <code>
+                ?attr/actionBarSize
+            </code>
+        </li>
+    </ul>
+    <p>
+        Again, all this does is change the package name from android to v7-appcompat.
+    </p>
+    <p>
+        Now that all of the compile-time errors have been checked and fixed, try
+        to run the app again. You will now get the following run-time error:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        java.lang.RuntimeException: Unable to start activity ComponentInfo{com.raywenderlich.continents/com.raywenderlich.continents.MainActivity}:
+        java.lang.IllegalStateException: You need to use a Theme.AppCompat theme
+        (or descendant) with
+        <span class="hljs-keyword">
+            this
+        </span>
+        activity.
+    </pre>
+    <h3>
+        Update Styles
+    </h3>
+    <p>
+        The error message is pretty self-explanatory, but why do you need to use
+        the AppCompat theme? A feature from the Lollipop release of AppCompat is
+        the different approach to theming. One of the interesting things about
+        this is the capability to get an L-friendly version of your app on prior
+        versions. If an app uses the framework version of everything (
+        <em>
+            Activity
+        </em>
+        instead of
+        <em>
+            AppCompatActivity
+        </em>
+        for example), it would only get the material theme on phones with the
+        L release. Devices with prior releases would get the default theme for
+        those releases. The goal of the AppCompat theming feature is to have a
+        consistent experience across all devices.
+    </p>
+    <p>
+        In the
+        <em>
+            res\values
+        </em>
+        folder, open
+        <em>
+            styles.xml
+        </em>
+        , and change
+        <code>
+            android:Theme.Black.NoTitleBar
+        </code>
+        to
+        <code>
+            Theme.AppCompat.NoActionBar
+        </code>
+        .
+    </p>
+    <p>
+        Now build and run. You can test the app on an API 15 device or emulator
+        as well.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/61-e1444816686495.png">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/61-284x500.png"
+            alt="" width="284" height="500" class="aligncenter size-large wp-image-118425">
+        </a>
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/continent_view_2.png">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2015/10/continent_view_2-283x500.png"
+            alt="" width="283" height="500" class="aligncenter size-large wp-image-119880"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2015/10/continent_view_2-283x500.png 283w, https://koenig-media.raywenderlich.com/uploads/2015/10/continent_view_2-181x320.png 181w, https://koenig-media.raywenderlich.com/uploads/2015/10/continent_view_2.png 774w"
+            sizes="(max-width: 283px) 100vw, 283px">
+        </a>
+    </p>
+    <p>
+        Well done! The sample app is now backward compatible.
+        <a href="https://source.android.com/source/build-numbers.html">
+            Ice cream sandwich and lollipops and jelly beans
+        </a>
+        for everyone!
+    </p>
+    <p>
+        Let’s throw in some cards to make the detail screen look nicer.
+    </p>
+    <h2>
+        How to Use the Card View Support Library
+    </h2>
+    <p>
+        Open
+        <em>
+            build.gradle
+        </em>
+        for the app module and add the following to the dependencies section:
+    </p>
+    <pre lang="xml" class="language-xml hljs">
+        implementation "com.android.support:cardview-v7:26.0.1"
+    </pre>
+    <p>
+        Adding this declares the v7-cardview support library as a dependency for
+        the application.
+    </p>
+    <p>
+        Open the
+        <em>
+            fragment_description.xml
+        </em>
+        file and place the ImageView in a CardView:
+    </p>
+    <pre lang="xml" class="language-xml hljs">
+        <span class="hljs-tag">
+            &lt;
+            <span class="hljs-name">
+                android.support.v7.widget.CardView
+            </span>
+            <span class="hljs-attr">
+                android:id
+            </span>
+            =
+            <span class="hljs-string">
+                "@+id/card_view"
+            </span>
+            <span class="hljs-attr">
+                android:layout_width
+            </span>
+            =
+            <span class="hljs-string">
+                "match_parent"
+            </span>
+            <span class="hljs-attr">
+                android:layout_height
+            </span>
+            =
+            <span class="hljs-string">
+                "0dp"
+            </span>
+            <span class="hljs-attr">
+                android:layout_gravity
+            </span>
+            =
+            <span class="hljs-string">
+                "center"
+            </span>
+            <span class="hljs-attr">
+                android:layout_weight
+            </span>
+            =
+            <span class="hljs-string">
+                "1"
+            </span>
+            <span class="hljs-attr">
+                card_view:cardBackgroundColor
+            </span>
+            =
+            <span class="hljs-string">
+                "#316130"
+            </span>
+            <span class="hljs-attr">
+                card_view:cardElevation
+            </span>
+            =
+            <span class="hljs-string">
+                "20dp"
+            </span>
+            &gt;
+        </span>
+        <span class="hljs-tag">
+            &lt;
+            <span class="hljs-name">
+                ImageView
+            </span>
+            <span class="hljs-attr">
+                android:id
+            </span>
+            =
+            <span class="hljs-string">
+                "@+id/continentImage"
+            </span>
+            <span class="hljs-attr">
+                android:layout_width
+            </span>
+            =
+            <span class="hljs-string">
+                "match_parent"
+            </span>
+            <span class="hljs-attr">
+                android:layout_height
+            </span>
+            =
+            <span class="hljs-string">
+                "match_parent"
+            </span>
+            <span class="hljs-attr">
+                android:contentDescription
+            </span>
+            =
+            <span class="hljs-string">
+                "@string/continent_image_description"
+            </span>
+            <span class="hljs-attr">
+                android:paddingBottom
+            </span>
+            =
+            <span class="hljs-string">
+                "@dimen/activity_vertical_margin"
+            </span>
+            <span class="hljs-attr">
+                android:src
+            </span>
+            =
+            <span class="hljs-string">
+                "@drawable/africa"
+            </span>
+            /&gt;
+        </span>
+        <span class="hljs-tag">
+            &lt;/
+            <span class="hljs-name">
+                android.support.v7.widget.CardView
+            </span>
+            &gt;
+        </span>
+    </pre>
+    <p>
+        Notice that when using widgets from the Support Library, some XML attributes
+        (
+        <code>
+            cardBackgroundColor
+        </code>
+        and
+        <code>
+            cardElevation
+        </code>
+        for the CardView) are not prefixed with “android.” That’s because they
+        come from the Support Library API as opposed to the Android framework.
+        Hit
+        <em>
+            option+return
+        </em>
+        (or
+        <em>
+            Alt+Enter
+        </em>
+        on PC) if you need to setup the
+        <code>
+            card_view
+        </code>
+        namespace in the xml file.
+    </p>
+    <p>
+        Now, build and run the project:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/card_view.jpeg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/card_view-281x500.jpeg"
+            alt="" width="281" height="500" class="aligncenter size-large wp-image-171399"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/card_view-281x500.jpeg 281w, https://koenig-media.raywenderlich.com/uploads/2017/09/card_view-180x320.jpeg 180w, https://koenig-media.raywenderlich.com/uploads/2017/09/card_view.jpeg 322w"
+            sizes="(max-width: 281px) 100vw, 281px">
+        </a>
+    </p>
+    <p>
+        Cool, you’ve added this new-style cardview to your app and using the compatibility
+        library it works from modern versions of Android, right back to ancient
+        API-level 15.
+    </p>
+    <h2>
+        Did You Say Material Design?
+    </h2>
+    <p>
+        You’ve successfully used the AppCompat theming to give the app the Android
+        Lollipop look and feel across a wide range of SDK versions. In addition
+        to these elements, the
+        <a href="https://www.google.com/design/spec/material-design/introduction.html"
+        target="_blank">
+            Material Design specification
+        </a>
+        includes many more patterns and widgets not contained in AppCompat. This
+        is where the Design Library comes into play. It provides widgets such as
+        navigation drawers, floating action buttons, snackbars and tabs. Let’s
+        include it in the project and add a floating action button.
+    </p>
+    <p>
+        In
+        <em>
+            build.gradle
+        </em>
+        add the following in the
+        <code>
+            dependencies
+        </code>
+        section:
+    </p>
+    <pre lang="groovy" class="language-groovy">
+        implementation "com.android.support:design:26.0.1"
+    </pre>
+    <p>
+        Next add the following XML element above the closing tag for FrameLayout
+        in
+        <em>
+            fragment_description.xml
+        </em>
+        :
+    </p>
+    <pre lang="xml" class="language-xml hljs">
+        <span class="hljs-tag">
+            &lt;
+            <span class="hljs-name">
+                android.support.design.widget.FloatingActionButton
+            </span>
+            <span class="hljs-attr">
+                android:id
+            </span>
+            =
+            <span class="hljs-string">
+                "@+id/search_button"
+            </span>
+            <span class="hljs-attr">
+                android:layout_width
+            </span>
+            =
+            <span class="hljs-string">
+                "wrap_content"
+            </span>
+            <span class="hljs-attr">
+                android:layout_height
+            </span>
+            =
+            <span class="hljs-string">
+                "wrap_content"
+            </span>
+            <span class="hljs-attr">
+                android:layout_gravity
+            </span>
+            =
+            <span class="hljs-string">
+                "bottom|end"
+            </span>
+            <span class="hljs-attr">
+                android:layout_margin
+            </span>
+            =
+            <span class="hljs-string">
+                "16dp"
+            </span>
+            <span class="hljs-attr">
+                android:src
+            </span>
+            =
+            <span class="hljs-string">
+                "@drawable/ic_search_white_18dp"
+            </span>
+            /&gt;
+        </span>
+    </pre>
+    <p>
+        Build and run. You will see the floating button as expected.
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button.png">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button-281x500.png"
+            alt="fab-button" width="281" height="500" class="aligncenter size-large wp-image-121869"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button-281x500.png 281w, https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button-180x320.png 180w, https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button.png 1440w"
+            sizes="(max-width: 281px) 100vw, 281px">
+        </a>
+    </p>
+    <h2>
+        Backport All the Things?
+    </h2>
+    <p>
+        Some features in the latest releases of the SDK are just too complex to
+        backport. Ultimately, it’s your call to strike the right balance between
+        performance and usability. If you find yourself wanting to use an unavailable
+        framework API, you can check for the API Level at run-time.
+    </p>
+    <p>
+        For the following snippet from
+        <code>
+            MainActivity
+        </code>
+        , import the classes from the base package instead of the Support Library
+        package. Then in the
+        <code>
+            onContinentSelected
+        </code>
+        , add the following after the description fragment is instantiated but
+        before the fragment transaction:
+    </p>
+    <pre lang="kotlin" class="language-kotlin hljs">
+        <span class="hljs-keyword">
+            if
+        </span>
+        (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) { descriptionFragment.enterTransition
+        = Fade() mainFragment?.exitTransition = Fade() descriptionFragment.exitTransition
+        = Slide(Gravity.BOTTOM) mainFragment?.reenterTransition = Fade() descriptionFragment.allowReturnTransitionOverlap
+        =
+        <span class="hljs-literal">
+            true
+        </span>
+        }
+    </pre>
+    <p>
+        Build and run on both emulators. You should see no animations on the emulator
+        running API Level 15, but notice the fade in and slide out on the emulators
+        running API Level 25 and above:
+    </p>
+    <p>
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/side-by-side.gif">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2015/11/side-by-side.gif"
+            alt="side-by-side" width="600" height="338" class="aligncenter size-full wp-image-121856">
+        </a>
+    </p>
+    <h2>
+        Where To Go From Here?
+    </h2>
+    <div class="inline-video-ad" id="sub-banner-inline">
+        <div class="inline-video-ad-wrapper">
+            <a href="https://videos.raywenderlich.com/courses">
+                <div class="col-wrapper">
+                    <div class="col">
+                        <img src="https://koenig-assets.raywenderlich.com/wp-content/themes/raywenderlich/images/global/video-yeti@2x.png"
+                        alt="yeti holding videos">
+                    </div>
+                    <div class="col large-col">
+                        <span>
+                            Want to learn even faster? Save time with our
+                            <span>
+                                video courses
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <p>
+        Congratulations! Finally you’ve learned about Android SDK versions and
+        their sweet code names. You made an API Level 26 application backward-compatible
+        to API Level 15, and used the cardview and design library to add additional
+        components. You might also have a sugar craving :]
+    </p>
+    <div id="attachment_123193" style="width: 371px" class="wp-caption aligncenter">
+        <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280.jpg">
+            <img src="https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280-361x320.jpg"
+            alt="Blame Android." width="361" height="320" class="size-medium wp-image-123193"
+            srcset="https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280-361x320.jpg 361w, https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280-564x500.jpg 564w, https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280.jpg 1280w"
+            sizes="(max-width: 361px) 100vw, 361px">
+        </a>
+        <p>
+        </p>
+        <p class="wp-caption-text">
+            Blame Android.
+        </p>
+    </div>
+    <p>
+        The final project for this Android SDK Versions tutorial can be downloaded
+        <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/continents-final.zip">
+            here
+        </a>
+        .
+    </p>
+    <p>
+        If you are interested in Android SDK version history, check out
+        <a href="https://en.wikipedia.org/wiki/Android_version_history" target="_blank">
+            this wikipedia page
+        </a>
+        or the
+        <a href="http://developer.android.com/about/versions" target="_blank">
+            versions
+        </a>
+        page on the Android developer site. You can also read further about the
+        minSdkVersion and targetSdkVersion attributes from the
+        <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html"
+        target="_blank">
+            manifest
+        </a>
+        page on the developer site. Finally, check out the developer pages on
+        <a href="https://developer.android.com/tools/support-library/index.html"
+        target="_blank">
+            Support libraries
+        </a>
+        and its
+        <a href="https://developer.android.com/tools/support-library/features.html"
+        target="_blank">
+            feature list
+        </a>
+        .
+    </p>
+</div>
