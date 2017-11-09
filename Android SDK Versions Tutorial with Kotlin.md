@@ -236,58 +236,49 @@
         </a>
     </p>
     <p>
-        Notice that the Android platform currently has
+        注意Android平台现在有
         <a href="https://source.android.com/source/build-numbers.html">
-            fifteen major versions of the SDK
+            15个主要的SDK版本
         </a>
-        &nbsp;.&nbsp;Starting with Android 1.5, major versions of the SDK have
-        been developed under a confectionery-themed code name. Google has managed
-        to choose these code names in an alphabetical order. They haven’t run out
-        of names of sweets yet :]
+        。从Android 1.5开始，SDK的主要版本都是以一个糖果作为主题进行开发的。Google已设法按照字母的顺序去选择这些代号的名称。他们到现在还未用完糖果的名称 :]
     </p>
     <p>
-        Each version (minor or major) of the Android SDK has an integer value
-        that uniquely identifies it. This unique identifier is referred to as the
-        API Level. The higher the API Level, the later the version. For developers,
-        API Level is important because it is what determines the range of devices
-        an app can run on.
+        Android SDK的每个版本（主版本或是小版本）都有一个整数值来唯一地标识它。这个唯一的标识符被称为API级别。API级别越高，版本就越新。对于开发者来说，API级别是非常重要的，因为它决定了app可以运行在哪些设备上。
     </p>
     <p>
-        Let’s look at an example, the Android 8.0 release. We can see that:
+        一起来看一个Android 8.0的例子。我们知道：
     </p>
     <ul>
         <li>
-            It is the most recent version of the Android SDK
+            它是Android SDK的最新版本
         </li>
         <li>
-            Its version number is 8.0
+            它的版本号是8.0
         </li>
         <li>
-            Its code name is Oreo
+            代号是Oreo
         </li>
         <li>
-            It has an API Level of 26
+            API级别是26
         </li>
     </ul>
     <p>
-        For this tutorial, we will need at least two emulators, one with API Level
-        15 and another one with API Level 26.
+        在本教程中，我们至少需要两个模拟器，一个的API级别为15，另一个的API级别为26。
     </p>
     <p>
-        Going back to the System Image screen in Android Studio, click the&nbsp;
+        回到Android Studio中的"System Image"界面，为每个本教程中你需要用到
+        <em>
+            （级别15和级别26）
+        </em>
+        ，但尚未下载的SDK版本上，点击
         <em>
             Download
         </em>
-        &nbsp;button for each of the SDK versions you will need for this tutorial
-        that you have not already downloaded
+        按钮。然后选择级别为26的系统镜像，并点击
         <em>
-            (Level 15&nbsp;and&nbsp;Level 26)
+            下一步
         </em>
-        . Then select the system image for Level 26 and click&nbsp;
-        <em>
-            Next
-        </em>
-        .
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg">
@@ -298,11 +289,11 @@
         </a>
     </p>
     <p>
-        On the next screen, click&nbsp;
+        在下一页点击
         <em>
             Finish
         </em>
-        .
+        按钮。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDVerify.jpeg">
@@ -313,15 +304,13 @@
         </a>
     </p>
     <p>
-        Repeat the same steps to setup an emulator with API level 15. You may
-        choose one with API level 16 instead if you are unable to download one
-        with API level 15.
+        重复相同的步骤来设置API级别为15的模拟器。如果你无法下载API级别15，也可以选择API级别16来代替。
     </p>
     <h3>
-        First Run
+        首次运行
     </h3>
     <p>
-        Try running the sample app on the emulator running API Level 26:
+        尝试在API级别为26的模拟器上运行实例app：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509473618.png">
@@ -332,11 +321,11 @@
         </a>
     </p>
     <p>
-        It all looks great, right? But if you were to try and run the app on a
-        device with API Level lower than 26 it wouldn’t run. This is because the
-        app only runs on devices that run Android API Level 26 and upwards, which
-        isn’t great for older devices. Later, you’ll learn how to extend the app’s
-        support from Android API Level 26 to as low as Android&nbsp;API Level 14.
+        It all looks great, right? 
+        But if you were to try and run the app on a device with API Level lower than 26 it wouldn’t run. 
+        This is because the app only runs on devices that run Android API Level 26 and upwards, 
+        which isn’t great for older devices. 
+        Later, you’ll learn how to extend the app’s support from Android API Level 26 to as low as Android&nbsp;API Level 14.
     </p>
     <h2>
         SDK Versions and API Levels
