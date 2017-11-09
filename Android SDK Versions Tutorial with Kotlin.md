@@ -82,15 +82,15 @@
         ，并解压zip文件获取项目。
     </p>
     <p>
-        Select
-        <em>
-            Open an existing Android Studio project
-        </em>
-        from the
+        从
         <em>
             Quick Start
         </em>
-        menu to open the starter project:
+        菜单中选择
+        <em>
+            Open an existing Android Studio project
+        </em>
+        ，并打开起始项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen.jpeg">
@@ -101,43 +101,37 @@
         </a>
     </p>
     <p>
-        If you are on a windows machine you can also select&nbsp;
+        如果你用的是windows系统，请选择
         <em>
-            File \ Open
+            File / Open
         </em>
-        . Navigate to and select the starter project folder.
+        以找到起始项目的目录。
     </p>
     <p>
-        If you are prompted to install (or update to) a new version of the Android
-        build tools, or are prompted to update your Gradle plugin version, please
-        do so.
+        如果系统提示你安装（或更新到）新版本的Android构建工具，或提示更新Gradle插件的版本，请按照它的要求进行操作。
     </p>
     <p>
-        Build and run the project on the emulator or device to make sure it compiles
-        and runs correctly.
+        在模拟器或真机上运行项目，确保它可以被正确地编译及运行。
     </p>
     <h2>
-        Emulating Different SDK Versions
+        模拟不同的SDK版本
     </h2>
     <p>
-        We want to try running the sample app on different&nbsp;Android versions.
-        But it’s unlikely anyone has an Android device for every single API Level
-        of the SDK. So first, let’s learn how to set up emulators with different
-        SDK versions.
+        我们想尝试在不同Android的版本上运行样本app，但基本上不可能有支持各个API级别SDK的Android设备。因此，首先我们需要学习如何设置不同SDK版本的模拟器。
     </p>
     <p>
-        To set up an emulator, locate the
+        为设置模拟器，在
+        <em>
+            Android Studio的工具栏
+        </em>
+        上，找到
         <em>
             AVD (Android Virtual Device) Manager
         </em>
-        on the
-        <em>
-            Android Studio Toolbar
-        </em>
-        .
+        。
     </p>
     <h3>
-        Creating A Virtual Device
+        创建一个虚拟设备
     </h3>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVD.jpeg">
@@ -146,15 +140,15 @@
         </a>
     </p>
     <p>
-        If the Toolbar is not showing, select
+        如果看不到工具栏，请选择
         <em>
-            View \ Toolbar
+            View / Toolbar
         </em>
-        to show it. You can also select select
+        来打开它。你还可以通过
         <em>
-            Tools \ Android \ AVD Manager
+            Tools / Android / AVD Manager
         </em>
-        to open the AVD Manager.
+        来打开AVD管理器。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASCreateAVD.jpeg">
@@ -165,19 +159,19 @@
         </a>
     </p>
     <p>
-        Click the
+        点击
         <em>
             Create a virtual device
         </em>
-        button. That will open the
-        <em>
-            Select Hardware
-        </em>
-        section of the
+        按钮，就可以打开
         <em>
             Virtual Device Configuration
         </em>
-        window.
+        窗口中的
+        <em>
+            Select Hardware
+        </em>
+        。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASPickDevice.jpeg">
@@ -188,15 +182,15 @@
         </a>
     </p>
     <p>
-        Select a device of your choice and click
+        选择你需要的设备，并点击
         <em>
             Next
         </em>
-        . That opens the
+        。就会打开
         <em>
             System Image
         </em>
-        section, which currently shows recommended system images.
+        ，展示出当前推荐的系统镜像。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDSystemImage.jpeg">
@@ -207,33 +201,31 @@
         </a>
     </p>
     <p>
-        The
+        在
         <em>
             x86 Images
         </em>
-        &nbsp;tab will list all the x86 emulator images. The
+        选项卡中会展示出所有x86模拟器的镜像。而在
         <em>
             Other Images
         </em>
-        tab will show both ARM and x86 emulator images.
+        选项卡中，则会展示出ARM和x86的模拟器镜像。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        It is recommended to always use x86 images. These will run the fastest
-        on most pc and mac computers
+        建议你始终都使用x86的镜像。这在大多数的PC和Mac的电脑上运行速度都是最快的
     </div>
     <h3>
-        Downloading A System Image
+        下载一个系统镜像
     </h3>
     <p>
-        To download a system image that you do not already have installed, click
-        the&nbsp;
+        要下载尚未安装的系统镜像，请点击发版名称上的
         <em>
             Download
         </em>
-        &nbsp;link by the release name.
+        链接。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASAVDImageDownload.jpeg">
