@@ -377,42 +377,40 @@
     </p>
     <div class="note">
         <em>
-            Note on SDK previews:
+            注意SDK的预览版：
         </em>
-        It’s important to know that when you set the
+        当你将
         <em>
             compileSdkVersion
         </em>
-        to a
+        设置为Android framework的
         <em>
-            preview release
+            预览版本
         </em>
-        of the Android framework, Android Studio will force the
+        时，清楚Android Studio将强使
         <em>
             minSdkVersion
         </em>
-        and
+        和
         <em>
             targetSdkVersion
         </em>
-        to equal the exact same string as
+        成为与
         <em>
             compileSdkVersion
         </em>
-        . This policy is necessary to prevent situations where you might upload
-        your app to the Google Play Store. As a result, you can only run applications
-        where
+        相同的字符串是非常重要的。这是非常必要的，可以避免你把app上传到Google Play商店中。因此，如果
         <em>
             compileSdkVersion
         </em>
-        is set to a preview release on emulators with that
+        被设置成预览版，你就只能在运行该
         <em>
-            exact same preview
+            预览版
         </em>
-        and you won’t be able to run it on older devices.
+        的模拟器上运行这个app，不可在较旧的设备上运行。
     </div>
     <h3>
-        Backward Compatibility
+        向后的兼容性
     </h3>
     <p>
         The Android SDK&nbsp;is by default forward compatible but not backward
