@@ -321,26 +321,20 @@
         </a>
     </p>
     <p>
-        It all looks great, right? 
-        But if you were to try and run the app on a device with API Level lower than 26 it wouldn’t run. 
-        This is because the app only runs on devices that run Android API Level 26 and upwards, 
-        which isn’t great for older devices. 
-        Later, you’ll learn how to extend the app’s support from Android API Level 26 to as low as Android&nbsp;API Level 14.
+        看起来不错？但如果你尝试在API级别低于26的设备上运行，是无法成功的。这是因为这个app只能运行在API级别大于等于26的设备上，这对较旧的设备来说就是一个糟糕的消息了。下面，我们就会学习如何将这个app向下支持到API级别为14的设备。
     </p>
     <h2>
-        SDK Versions and API Levels
+        SDK版本和API的级别
     </h2>
     <p>
-        As mentioned earlier, the API Level is a unique integer that identifies
-        a specific version of the Android SDK. Let’s look at how to specify API
-        Levels in Android Studio to compile and release an application.
+        就像前面所提到的，API级别是用于标识Android SDK特定版本的一个唯一的整数。我们来看一下如何在Android Studio中指定API的级别，以编译和发布一个app。
     </p>
     <p>
-        Open&nbsp;
+        打开app模块中的
         <em>
             build.gradle
         </em>
-        &nbsp;for the app&nbsp;module:
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASgradleInitial.jpeg"
@@ -352,25 +346,24 @@
         </a>
     </p>
     <p>
-        Here we can see three important attributes:
+        我们可以在这里看到三个重要的属性：
     </p>
     <ul>
         <li>
             <em>
                 minSdkVersion
             </em>
-            is the minimum API Level with which the app is compatible. The Android
-            system will prevent a user from installing the application if the system’s
-            API Level is lower than the value specified in this attribute. Android
-            requires the minSdkVersion attribute to always be set.
+            is the minimum API Level with which the app is compatible. 
+            The Android system will prevent a user from installing the application if the system’s API Level is lower than the value specified in this attribute. 
+            Android requires the minSdkVersion attribute to always be set.
         </li>
         <li>
             <em>
                 targetSdkVersion
             </em>
-            is the API Level that the application targets. This attribute informs
-            the system that you have tested against the target version. The targetSdkVersion
-            defaults to the minSdkVersion if not specified.
+            is the API Level that the application targets. 
+            This attribute informs the system that you have tested against the target version. 
+            The targetSdkVersion defaults to the minSdkVersion if not specified.
         </li>
         <li>
             <em>
