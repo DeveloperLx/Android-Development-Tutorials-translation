@@ -572,7 +572,7 @@ x = <span class="hljs-number">10</span>
             <code>
                 Observable
             </code>
-            时，该调用什么呢？未解决这个问题，
+            时，该调用什么呢？为解决这个问题，
             <code>
                 ObservableEmitter
             </code>
