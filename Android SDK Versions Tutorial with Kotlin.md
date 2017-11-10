@@ -413,51 +413,32 @@
         向后的兼容性
     </h3>
     <p>
-        The Android SDK is by default forward compatible but not backward
-        compatible — 
-        this means that an application that is built with and supports
-        a minimum SDK version of 3.0 can be installed on any device running
-        Android versions 3.0 and upwards. 
-        But not on devices running Android versions below 3.0.
+        Android的SDK默认是向前支持的，但并不向后支持 - 这意味着一个构建于且支持最低SDK版本为3.0的app，同样可以安装并运行在高于3.0版本的设备上，但不能运行在低于3.0版本的设备上。
     </p>
     <p>
-        Since the Android SDK is not backward compatible, 
-        you should choose the&nbsp;minimum SDK carefully. 
-        This means striking a balance between supporting a wide
-        range of devices and designing an app that implements&nbsp;useful features in later SDK versions.
+        因此，你应当慎重地选择最低的SDK版本。这意味这要在支持尽可能多的设备，与利用新版SDK功能之间进行利弊的权衡。
     </p>
     <p>
-        For example, when Android 3.0 was released in 2011,
-        the Action Bar was unleashed on the Android Community. 
-        Since the Action Bar was only supported in Android 3.0 and later, 
-        using it in an app meant choosing either a cool user interface or supporting devices that ran older versions of the SDK.
-        Sometimes you can’t have your&nbsp;honeycomb&nbsp;and eat it too :[
+        例如，Android 3.0是在2011年发布的，同时在Android社区中则发布了Action Bar。由于Action Bar只支持Android 3.0及以上的版本，在app中使用它，就意味着要在较酷的用户界面，与支持SDK版本较老的设备之间进行选择。鱼和熊掌不可兼得 :[
     </p>
     <p>
-        Or can you? To help with the Action Bar issue, 
-        the Android Support Library introduced a backward
-        - compatible version in the v7-appcompat support library.
-        So it would allow developers to support older versions of the SDK and still use the latest Action Bar APIs in their apps. 
-        Sweet! Honeycomb for everyone!
+        那该怎么办？为了解决这个问题，Android的v7-appcompat支持库中引入了一个向后兼容的版本。它能够让开发者即支持较老版本的SDK，又可以在app中使用最新的Action Bar API。是不是很棒！
     </p>
     <p>
-        Let’s take a deeper look at what the Support Library does and how it works.
+        让我们来深入理解一下支持库的工作原理吧、
     </p>
     <div class="note">
         <em>
-            Note on picking minimum sdk version:
+            注意如何挑选最低sdk版本：
         </em>
-        Google provides a
+        Google提供了一个
         <a href="https://developer.android.com/about/dashboards/index.html" target="_blank">
             Dashboard
         </a>
-        that breaks down the user
-        <br>
-        distribution percentage per api level. 
-        You can use this to help target a good percentage of users.
+        ，用来展示每个api级别用户所占的百分比。你可以参考它来确定最低sdk的版本。
     </div>
     <h2>
-        Android Support Libraries
+        Android支持库
     </h2>
     <p>
         A wide range of components make up what is referred to as the “Support
