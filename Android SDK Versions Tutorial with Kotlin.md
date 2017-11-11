@@ -545,20 +545,14 @@
     </p>
     <pre lang="groovy" class="language-groovy">implementation "com.android.support:appcompat-v7:26.0.1"</pre>
     <p>
-        By adding this, you’re declaring the appcompat-v7 support library as a
-        dependency for your application. 
-        You can ignore the warning to use a newer version of the Support library. 
-        Though you may update, 
-        it’s recommended you stick to the one in this tutorial.
+        这样你就为此app声明了对appcompat-v7支持库的依赖。你可以忽略这里出现的警告。尽管可以进行更新，建议你在本教程中还是使用这个。
     </p>
     <p>
-        Next, change the minSdkVersion attribute to 15.
+        接下来，将minSdkVersion修改为15。
     </p>
     <pre lang="groovy" class="language-groovy">minSdkVersion 15</pre>
     <p>
-        Here you’re declaring that the app should be able to run on devices with Android SDK version 4.0.4. 
-        Now try running your application on an emulator running API Level 15.
-        You should see the following exceptions in the logcat:
+        这样你就声明了这个app可以运行在Android SDK为4.0.4版本的设备上。现在，尝试在API级别为15的模拟器上运行这个app。你会看到在logcat中，出现了下列的异常：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASToolbarError.jpeg"
@@ -570,7 +564,7 @@
         </a>
     </p>
     <p>
-        The important line to look for is:
+        关键的一行在这里：
     </p>
     <pre lang="java" class="language-java hljs">Caused by: java.lang.ClassNotFoundException: android.widget.Toolbar</pre>
     <p>
