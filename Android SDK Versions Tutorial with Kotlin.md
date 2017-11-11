@@ -893,11 +893,10 @@
         </a>
     </p>
     <p>
-        Cool, you’ve added this new-style cardview to your app and using the compatibility library it works from modern versions of Android, 
-        right back to ancient API-level 15.
+        酷，你现在已使用兼容库添加了新风格的cardview到你的app上，使它能够兼容古老的API级别15。
     </p>
     <h2>
-        Did You Say Material Design?
+        你说过质感设计么？
     </h2>
     <p>
         You’ve successfully used the AppCompat theming to give the app the Android Lollipop look and feel across a wide range of SDK versions. In addition to these elements, the
