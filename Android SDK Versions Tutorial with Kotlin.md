@@ -568,205 +568,196 @@
     </p>
     <pre lang="java" class="language-java hljs">Caused by: java.lang.ClassNotFoundException: android.widget.Toolbar</pre>
     <p>
-        The
         <code>
             ClassNotFoundException
         </code>
-        error indicates that there is no such class in the SDK version you’re running the app against. 
-        Indeed, it’s only available in API Level 21, 
-        while you’re currently running API Level 15.
+        错误表示你运行app的SDK版本中没有这样的类。事实上，它只能在API级别21及以上的版本中运行，而你当前运行的API基本是15。
     </p>
     <h3>
-        Update For Backward Compatibility
+        添加向后兼容
     </h3>
     <p>
-        You’re going to update the code to use the backward
-        - compatible version of Toolbar. 
-        In
+        现在让我们来使用向后兼容版本的Toolbar。在
         <em>
             MainActivity.kt
         </em>
-        , and update the
+        中，将
         <code>
             android.widget.Toolbar
         </code>
-        import statement to match the following:
+        的import语句更新为下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.widget.Toolbar</pre>
     <p>
-        This replaces the SDK import with one from the AppCompat library.
+        这样就将SDK的import替换成了AppCompat的版本。
     </p>
     <p>
-        Next import the
+        接下来从AppCompat库中import
         <em>
             AppCompatActivity
         </em>
-        from the AppCompat library:
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.app.AppCompatActivity</pre>
     <p>
-        Next update the&nbsp;
+        然后修改代码，使
         <em>
             MainActivity
         </em>
-        &nbsp;class definition line so that it inherits from
+        类继承自
         <em>
             AppCompatActivity
         </em>
-        :
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>(), ContinentSelectedListener</pre>
     <p>
-        Once again, you’re replacing a class from the latest SDKs with one that exists in the support library.
+        这样，你就将一个来自最新版本SDK中的类，替换成了在支持库中的类。
     </p>
     <p>
-        You now need to work through the class and replace some method calls with their support library equivalents:
+        现在你需要对这个类进行排查，将其中一些方法的调用，替换成支持库中的相应的版本：
     </p>
     <ul>
         <li>
-            Find the call to
-            <code>
-                setActionBar(toolbar)
-            </code>
-            at the end of the
+            在
             <code>
                 onCreate()
             </code>
-            method body and update it to
+            方法的底部，将
+            <code>
+                setActionBar(toolbar)
+            </code>
+            更新为
             <code>
                 setSupportActionBar(toolbar)
             </code>
-            .
+            。
         </li>
         <li>
-            Find the calls to
-            <code>
-                actionBar?
-            </code>
-            in
+            在
             <code>
                 onContinentSelected()
             </code>
-            ,
+            ，
             <code>
                 goToContinentList()
             </code>
-            , and
+            ，和
             <code>
                 onBackPressed()
             </code>
-            and replace both of them with
+            中，将
+            <code>
+                actionBar?
+            </code>
+            替换为
             <code>
                 supportActionBar?
             </code>
-            .
+            。
         </li>
         <li>
-            Replace the calls to
-            <code>
-                fragmentManager()
-            </code>
-            in
+            在
             <code>
                 onContinentSelected()
             </code>
-            and
+            和
             <code>
                 goToContinentList()
             </code>
-            with
+            中，将
+            <code>
+                fragmentManager()
+            </code>
+            替换为
             <code>
                 supportFragmentManager()
             </code>
-            .
+            。
         </li>
     </ul>
     <h3>
-        Update Fragment Classes
+        更新Fragment类
     </h3>
     <p>
-        Open
+        打开
         <em>
             DescriptionFragment.kt
         </em>
-        and
+        和
         <em>
             MainFragment.kt
         </em>
-        , find the following line:
+        ，找到下面的这行代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.app.Fragment</pre>
     <p>
-        and update to match the following:
+        将其更新为：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.app.Fragment</pre>
     <p>
-        Here you’re using the support version of the
+        这样你就使用了支持版本的
         <code>
             Fragment
         </code>
-        class instead of the one in the main SDK. 
-        The latter can only be used in apps with a minSdkVersion of 14 and above.
+        替换了在主SDK中的。后者只可以在minSdkVersion为14及以上版本的app中进行使用。
     </p>
     <div class="note">
         <em>
-            Note:
+            注意：
         </em>
-        AppCompat v7 depends on the v4 Support Library. 
-        That’s why you can also use all the APIs in the
+        AppCompat v7依赖于v4的支持库。这就是你也能够使用所有
         <code>
             android.support.v4.app
         </code>
-        package.
+        包中的API的原因。
     </div>
     <p>
-        So far you’ve replaced all the main API calls with corresponding methods from the support library. 
-        Next you will need to update your layout files to use the Support Library.
+        你已将所有主API中的代码，替换成了在支持库中的版本。下面你需要用支持库去更新布局文件。
     </p>
     <p>
-        In the
+        在
         <em>
             res / layout
         </em>
-        folder, open
+        目录下，打开
         <em>
             toolbar_custom.xml
         </em>
-        and do the following:
+        并添加下列的代码：
     </p>
     <ul>
         <li>
-            Change
+            将
             <code>
                 android.widget.Toolbar
             </code>
-            to
+            修改为
             <code>
                 android.support.v7.widget.Toolbar
             </code>
         </li>
         <li>
-            Change
+            将
             <code>
                 ?android:attr/actionBarSize
             </code>
-            to
+            修改为
             <code>
                 ?attr/actionBarSize
             </code>
         </li>
     </ul>
     <p>
-        Again, all this does is change the package name from android to v7-appcompat.
+        这样，就将所有的包名替换成了v7-appcompat的版本。
     </p>
     <p>
-        Now that all of the compile-time errors have been checked and fixed, try to run the app again. 
-        You will now get the following run-time error:
+        现在，所有的编译时错误都被修复了，尝试再次运行app。你会发现下列的运行时错误：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">java.lang.RuntimeException: Unable to start activity ComponentInfo{com.raywenderlich.continents/com.raywenderlich.continents.MainActivity}: java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with <span class="hljs-keyword">this</span> activity.
 </pre>
     <h3>
-        Update Styles
+        更新风格
     </h3>
     <p>
         The error message is pretty self-explanatory, 
