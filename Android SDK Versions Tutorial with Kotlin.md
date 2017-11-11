@@ -440,115 +440,96 @@
     <h2>
         Android支持库
     </h2>
-    <p>
-        A wide range of components make up what is referred to as the “Support
-        Library” or “Support Libraries,” and they can be categorized in two groups:
+    <p> 
+        各种各样的组件构成了“支持库”，它们可以被分为两组：
     </p>
     <ul>
         <li>
-            The
             <em>
                 AppCompat
             </em>
-            library: The intention here is to make sure all (or most) of the framework APIs for the latest API Level have been backported to earlier versions and can be found in this single library. 
-            The first version of AppCompat was released at Google I/O 2013.
+            库：用来确保所有的（或大多数的）最新的API级别，可以向后支持到早期的版本，并且可以在这个库中被找到。AppCompat的第一个版本是在Google I/O 2013时发布的。
             <p>
-                The goal of this first release was to allow developers to backport the ActionBar to devices running IceScreamSandwich level. 
-                This gave API parity to the framework across as many API Levels as possible. 
-                Since then, the AppCompat library has continued to evolve. 
-                And with Android L the support library is now at the point where the API is equivalent to the framework itself 
-                — the first time that has ever happened :]
+                这个版本的目标，是让开发者能够将ActionBar移植到运行IceScreamSandwich级别SDK的设备上，让其相关的API可以跨越尽可能多的API级别。从此之后，AppCompat持续地进行改进。现在Android L的相应支持库的API，已可以等价于这个框架的本身的 - 这是有史以来的第一次 :]
             </p>
         </li>
         <li>
             <em>
                 Others
             </em>
-            : The rest of the libraries that make up the Support Library essentially provide new functionality with the same consideration for backward compatibility 
-            (palette, gridview, gridlayout, recycler view, material design widgets).
+            ：构成支持库的剩余部分，在考虑了向后兼容的情形下，提供了新的功能（palette，gridview，gridlayout，recycler view，material design widgets）。
         </li>
     </ul>
     <p>
-        When you break these up into independent libraries, 
-        you can pick and choose the ones you need in your project. 
-        It’s important to note that each support library is backward-compatible to a specific API Level. 
-        And they are usually named based on which API Level they are backward-compatible to. 
-        For example,
+        你可以将它们拆分成若干独立的库，而在项目中用到时选择相应的即可。注意，每个支持库只能向后兼容到一个特定的API级别。它们通常都以可以向后兼容到的API级别来进行命名。例如，
         <em>
             v7-appcompat
         </em>
-        provides backward compatibility to API Level 7.
+        就提供了直到API级别为7的向后兼容。
     </p>
     <p>
-        You can find the full list of components that fall under the Support Library in the
+        你可以在
         <a href="http://developer.android.com/tools/support-library/features.html"
         target="_blank">
-            Android documentation
+            Android文档
         </a>
-        .
+        中，找到各个组件对应的支持库的列表。
     </p>
     <div class="note">
         <em>
-            Note: Support Library minimum sdk change:
+            注意：支持库最低sdk的变化：
         </em>
-        Beginning with Support Library release 26.0.0,
+        从支持库的26.0.0版本开始，
         <a href="https://developer.android.com/topic/libraries/support-library/index.html#api-versions"
         target="_blank">
-            Google has changed the minimum supported level to Api 14
+            Google已将最低的支持级别修改为Api 14
         </a>
-        . This means that your minimum sdk version cannot be set below Api level 14 when using version 26.0.0+ of the Support Library.
+        。这意味着你在使用了26.0.0+的支持库时，就不可以将最低sdk版本设置得低于Api级别14了。
     </div>
     <h2>
-        How to Use an Android Support Library
+        如何使用Android支持库
     </h2>
     <p>
-        Time to see an Android support library in action! Open
+        该行动起来去添加Android支持库了！打开
         <em>
             MainActivity.kt
         </em>
-        . As you may have noticed in the
+        。就像你在
         <em>
             onCreate()
         </em>
-        method, the app uses a
+        方法中所看到的，它使用一个
         <em>
             Toolbar
         </em>
-        (which is part of the material design patterns) instead of an
+        （它是质感设计的一部分）来替代
         <em>
             Action Bar
         </em>
-        .
+        。
     </p>
     <p>
-        The
         <em>
             Toolbar
         </em>
-        was added in API 21 (Android Lollipop) as a flexible widget that
-        can be used anywhere in layouts, 
-        be animated and change in size, 
-        unlike the Action Bar.
+        是在API 21(Android Lollipop)时被引入的，作为一个能够在布局中任意位置被使用的灵活的组件，可以对它的大小添加动画效果，这点于Action Bar是不同的。
     </p>
     <p>
-        Thanks to AppCompat, 
-        that feature has been back-ported all the way to API 14, 
-        which is code-named Ice Cream Sandwich (are you hungry yet?). 
-        You’re going to use the v7-appcompat support library to extend your app’s compatibility to a minSdkVersion of 15.
+        感谢AppCompat，它让这个功能向后支持到了API 14的版本（Ice Cream Sandwich）。因此你就可以使用v7的appcompat支持库，来将你的app兼容性扩展到minSdkVersion为15。
     </p>
     <h3>
-        Update Build File
+        更新Build文件
     </h3>
     <p>
-        First add
-        <em>
-            google()
-        </em>
-        to the Maven repositories in your project-level
+        首先，在你的项目级别
         <em>
             build.gradle
         </em>
-        file, if it’s not already there:
+        文件中添加
+        <em>
+            google()
+        </em>
+        （如果它还尚不存在）：
     </p>
     <pre lang="groovy" class="language-groovy">repositories {
     jcenter()
@@ -556,11 +537,11 @@
 }
 </pre>
     <p>
-        Now, open
+        现在，打开app模块的
         <em>
             build.gradle
         </em>
-        for the app module and add the following to the dependencies section:
+        ，并在dependencies中添加下列的代码：
     </p>
     <pre lang="groovy" class="language-groovy">implementation "com.android.support:appcompat-v7:26.0.1"</pre>
     <p>
