@@ -760,9 +760,7 @@
         更新风格
     </h3>
     <p>
-        The error message is pretty self-explanatory, 
-        but why do you need to use the AppCompat theme? 
-        A feature from the Lollipop release of AppCompat is the different approach to theming. 
+        错误的信息相当明了，但是，为何你需要使用AppCompat的主题？AppCompat的Lollipop版本中，有一个功能是有所不同的。
         One of the interesting things about this is the capability to get an L-friendly version of your app on prior versions. 
         If an app uses the framework version of everything (
         <em>
@@ -777,27 +775,26 @@
         The goal of the AppCompat theming feature is to have a consistent experience across all devices.
     </p>
     <p>
-        In the
+        在
         <em>
-            res\values
+            res/values
         </em>
-        folder, open
+        目录下，打开
         <em>
             styles.xml
         </em>
-        , and change
+        ，并将
         <code>
             android:Theme.Black.NoTitleBar
         </code>
-        to
+        修改为
         <code>
             Theme.AppCompat.NoActionBar
         </code>
-        .
+        。
     </p>
     <p>
-        Now build and run. 
-        You can test the app on an API 15 device or emulator as well.
+        运行项目，现在它就可以运行在API级别为15的设备或模拟器上了。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/10/61-e1444816686495.png">
@@ -814,35 +811,35 @@
         </a>
     </p>
     <p>
-        Well done! The sample app is now backward compatible.
+        真棒！这个app现在已经可以向后兼容到
         <a href="https://source.android.com/source/build-numbers.html">
-            Ice cream sandwich and lollipops and jelly beans
+            Ice cream sandwich，lollipops和jelly beans
         </a>
-        for everyone!
+        的版本了！
     </p>
     <p>
-        Let’s throw in some cards to make the detail screen look nicer.
+        我们来添加一些卡片，让这个详情页看起来更棒。
     </p>
     <h2>
-        How to Use the Card View Support Library
+        如何使用Card View支持库
     </h2>
     <p>
-        Open
+        打开app模块的
         <em>
             build.gradle
         </em>
-        for the app module and add the following to the dependencies section:
+        ，并添加下列的代码到dependencies中：
     </p>
     <pre lang="xml" class="language-xml hljs">implementation "com.android.support:cardview-v7:26.0.1"</pre>
     <p>
-        Adding this declares the v7-cardview support library as a dependency for the application.
+        这样就添加了v7-cardview支持库到app的依赖中。
     </p>
     <p>
-        Open the
+        打开
         <em>
             fragment_description.xml
         </em>
-        file and place the ImageView in a CardView:
+        文件，并将ImageView放置到一个CardView中：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.CardView</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/card_view"</span>
@@ -862,33 +859,30 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.v7.widget.CardView</span>&gt;</span>
 </pre>
     <p>
-        Notice that when using widgets from the Support Library, some XML attributes
-        (
+        注意，当使用支持库中的控件时，一些XML属性（CardView的
         <code>
             cardBackgroundColor
         </code>
-        and
+        和
         <code>
             cardElevation
         </code>
-        for the CardView) are not prefixed with “android.” 
-        That’s because they come from the Support Library API as opposed to the Android framework.
-        Hit
-        <em>
-            option+return
-        </em>
-        (or
-        <em>
-            Alt+Enter
-        </em>
-        on PC) if you need to setup the
+        ）就不再以“android”为前缀了。这是因为他们是来自于支持库中的API，并非来自于Android的框架。如果你需要在xml文件中设置
         <code>
             card_view
         </code>
-        namespace in the xml file.
+        这个命名空间，可以按下
+        <em>
+            option+return
+        </em>
+        （在PC中是
+        <em>
+            Alt+Enter
+        </em>
+        ）键。
     </p>
     <p>
-        Now, build and run the project:
+        现在，运行项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/card_view.jpeg">
