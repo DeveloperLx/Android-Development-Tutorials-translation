@@ -1986,7 +1986,7 @@ applyPalette(palette)
                     </div>
                     <div class="col large-col">
                         <span>
-                            想要学习得更快？通过我们的
+                            想要学得更快？通过我们的
                             <span>
                                 视频课程
                             </span>

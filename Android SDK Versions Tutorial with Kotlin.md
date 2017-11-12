@@ -947,22 +947,18 @@
         向后兼容所有的内容？
     </h2>
     <p>
-        Some features in the latest releases of the SDK are just too complex to backport. 
-        Ultimately, it’s your call to strike the right balance between performance and usability. 
-        If you find yourself wanting to use an unavailable framework API, 
-        you can check for the API Level at run-time.
+        一些最新版本SDK中的功能由于太过复杂，难以做到向后兼容。最终，你不得不对性能和可用性进行平衡。如果你想要在代码中使用不可用框架的API，就需要在运行时检查API级别。
     </p>
     <p>
-        For the following snippet from
+        在
         <code>
             MainActivity
         </code>
-        , import the classes from the base package instead of the Support Library package. Then in the
+        中，下列的代码片段，使用了基础的包，而非支持库的包来import类。然后在
         <code>
             onContinentSelected
         </code>
-        , add the following after the description fragment is instantiated but
-        before the fragment transaction:
+        中，description fragment被初始化之后，但开始它的事务之前，添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {
   descriptionFragment.enterTransition = Fade()
@@ -973,9 +969,7 @@
 }
 </pre>
     <p>
-        Build and run on both emulators. 
-        You should see no animations on the emulator running API Level 15, 
-        but notice the fade in and slide out on the emulators running API Level 25 and above:
+        分别在两个模拟器上运行项目。你会发现在API级别为15的模拟器上无动画，但在API级别为25及以上的模拟器中会有淡入和滑出的动画效果：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/side-by-side.gif">
@@ -984,7 +978,7 @@
         </a>
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -996,10 +990,11 @@
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1007,11 +1002,7 @@
         </div>
     </div>
     <p>
-        Congratulations! 
-        Finally you’ve learned about Android SDK versions and their sweet code names. 
-        You made an API Level 26 application backward-compatible to API Level 15, 
-        and used the cardview and design library to add additional components. 
-        You might also have a sugar craving :]
+        祝贺！你已了解了Android SDK的版本及其相应的代号。你使一个API级别为26的app向后兼容到了API级别15，并使用cardview和设计库来添加额外的组件。你可能还想了解更多 :]
     </p>
     <div id="attachment_123193" style="width: 371px" class="wp-caption aligncenter">
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/12/jelly-beans-939754_1280.jpg">
@@ -1023,42 +1014,40 @@
         <p>
         </p>
         <p class="wp-caption-text">
-            Blame Android.
+            都是因为Android。
         </p>
     </div>
     <p>
-        The final project for this Android SDK Versions tutorial can be downloaded
+        在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/continents-final.zip">
-            here
+            这里
         </a>
-        .
+        可以下载到本教程的最终项目。
     </p>
     <p>
-        If you are interested in Android SDK version history, check out
+        如果你对Android SDK的版本感兴趣，可以参考
         <a href="https://en.wikipedia.org/wiki/Android_version_history" target="_blank">
             this wikipedia page
         </a>
-        or the
+        或在Android开发者网站中的
         <a href="http://developer.android.com/about/versions" target="_blank">
             versions
         </a>
-        page on the Android developer site. 
-        You can also read further about the minSdkVersion and targetSdkVersion attributes from the
+        页。你还可以在
         <a href="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html"
         target="_blank">
-            manifest
+            开发者网站
         </a>
-        page on the developer site. 
-        Finally, check out the developer pages on
+        中阅读更多关于minSdkVersion和targetSdkVersion属性相关的内容。最后，你还可以访问
         <a href="https://developer.android.com/tools/support-library/index.html"
         target="_blank">
             Support libraries
         </a>
-        and its
+        和它的
         <a href="https://developer.android.com/tools/support-library/features.html"
         target="_blank">
             feature list
         </a>
-        .
+        。
     </p>
 </div>
