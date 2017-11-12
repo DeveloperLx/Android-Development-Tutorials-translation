@@ -760,19 +760,15 @@
         更新风格
     </h3>
     <p>
-        错误的信息相当明了，但是，为何你需要使用AppCompat的主题？AppCompat的Lollipop版本中，有一个功能是有所不同的。
-        One of the interesting things about this is the capability to get an L-friendly version of your app on prior versions. 
-        If an app uses the framework version of everything (
+        错误的信息相当明了，但是，为何你需要使用AppCompat的主题？AppCompat的Lollipop版本中，有一个功能是有所不同的。关于这点的一个有趣的事情，就是在之前的版本中，可以获得一个你app的友好L版本。如果一个app的所有地方使用的都是这个框架的版本（例如用
         <em>
             Activity
         </em>
-        instead of
+        而非
         <em>
             AppCompatActivity
         </em>
-        for example), it would only get the material theme on phones with the L release. 
-        Devices with prior releases would get the default theme for those releases. 
-        The goal of the AppCompat theming feature is to have a consistent experience across all devices.
+        ），它就只能在L版本的手机上获得质感的主题。运行之前版本的设备，将获取到这些版本的默认主题。而AppCompat主题功能的目标是在所有的设备上获得一致的体验。
     </p>
     <p>
         在
