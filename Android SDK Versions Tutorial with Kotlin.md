@@ -896,38 +896,34 @@
         酷，你现在已使用兼容库添加了新风格的cardview到你的app上，使它能够兼容古老的API级别15。
     </p>
     <h2>
-        你说过质感设计么？
+        关于质感设计
     </h2>
     <p>
-        You’ve successfully used the AppCompat theming to give the app the Android Lollipop look and feel across a wide range of SDK versions. In addition to these elements, the
+        你已成功地使用AppCompat的主题，带给了app像Android Lollipop一样的外表和体验，并且能够运行在很多的SDK版本之上。除了这些元素外，
         <a href="https://www.google.com/design/spec/material-design/introduction.html"
         target="_blank">
             Material Design specification
         </a>
-        includes many more patterns and widgets not contained in AppCompat. 
-        This is where the Design Library comes into play. 
-        It provides widgets such as navigation drawers, 
-        floating action buttons, snackbars and tabs. 
-        Let’s include it in the project and add a floating action button.
+        还包含了很多AppCompat未包含的模式和组件。现在就是设计库该登场的时候了。它提供了很多的小控件，诸如navigation drawer，floating action button，snackbar和tab等等。让我们把它引入到工程中，并添加一个floating action button。
     </p>
     <p>
-        In
+        在
         <em>
             build.gradle
         </em>
-        add the following in the
+        中，添加下列的代码到
         <code>
             dependencies
         </code>
-        section:
+        中：
     </p>
     <pre lang="groovy" class="language-groovy">implementation "com.android.support:design:26.0.1"</pre>
     <p>
-        Next add the following XML element above the closing tag for FrameLayout in
+        然后在
         <em>
             fragment_description.xml
         </em>
-        :
+        中，添加下列的XML元素到FrameLayout的关闭标签前：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.FloatingActionButton</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/search_button"</span>
@@ -937,7 +933,7 @@
     <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"16dp"</span>
     <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@drawable/ic_search_white_18dp"</span> /&gt;</span></pre>
     <p>
-        Build and run. You will see the floating button as expected.
+        运行项目。你就能看到期望中的floating button了。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/11/fab-button.png">
@@ -948,7 +944,7 @@
         </a>
     </p>
     <h2>
-        Backport All the Things?
+        向后兼容所有的内容？
     </h2>
     <p>
         Some features in the latest releases of the SDK are just too complex to backport. 
