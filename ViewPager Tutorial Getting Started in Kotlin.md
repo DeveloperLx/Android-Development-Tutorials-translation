@@ -65,19 +65,19 @@
         入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/FavoriteMovies-starter.zip">
             starter project
         </a>
-        and open it by starting
+        ，并使用
         <em>
             Android Studio
         </em>
-        and selecting
+        的
         <em>
             Open an existing Android Studio project
         </em>
-        :
+        打开它：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/Screen-Shot-2017-10-30-at-1.54.21-PM.png">
@@ -88,11 +88,11 @@
         </a>
     </p>
     <p>
-        Navigate to the sample project directory and click
+        找到项目目录，并点击
         <em>
             Open
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/select-project.png"
@@ -101,36 +101,33 @@
         sizes="(max-width: 547px) 100vw, 547px">
     </p>
     <p>
-        Take a look at the existing code before going on with the tutorial. Inside
-        the
+        在开始教程前，首先浏览一下已有的代码。在
         <em>
             assets
         </em>
-        directory, there is a JSON file containing some information about the
-        top 5 most popular Android related movies ever made. :]
+        目录中，有一个JSON文件，包含了最受欢迎的5部Android相关的电影。:]
     </p>
     <p>
-        You can find the helper methods used to read the JSON data inside
+        你可以在
         <em>
             MovieHelper.kt
         </em>
-        .
+        中找到用来读取JSON数据的助手方法。
         <a href="http://square.github.io/picasso/" target="_blank">
             The Picasso library
         </a>
-        helps to easily download and display the images on the screen.
+        可以用来方便地下载图片，并将其展示到屏幕上。
     </p>
     <p>
-        This tutorial uses fragments. If you are not familiar with fragments have
-        a look at
-        <a href="https://www.raywenderlich.com/149112/android-fragments-tutorial-introduction"
+        本教程会用到fragment。如果你还尚不熟悉它，可以参考
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction%20with%20Kotlin.md"
         target="_blank">
-            this tutorial
+            这篇教程
         </a>
-        .&nbsp;
+        。
     </p>
     <p>
-        Build and Run the project.
+        运行项目。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/favoritemovies-starter.gif">
@@ -139,92 +136,86 @@
         </a>
     </p>
     <p>
-        The app consists of a few pages, each displaying some information about
-        a movie. I bet the first thing you tried to do was swipe left to check
-        out next movie! Or was it just me? For now, you can not-so-gracefully navigate
-        between pages using the Previous and Next buttons at the bottom of the
-        screen.
+        这个app中包含了几个页面，每个页面都展示了关于一部电影的相关信息。我赌你想尝试的第一件事，就是向左swipe来查看下一部电影（好吧也许只有我是这样的）！可现在，你只能不怎么优雅地用屏幕底部的Previous和Next按钮来切换页面了。
     </p>
     <h2>
-        Introducing the ViewPager
+        介绍ViewPager
     </h2>
     <p>
-        Adding a
+        在UI上添加
         <code>
             ViewPager
         </code>
-        to the UI will allow the users to move forward or backward through the
-        movies by swiping across the screen. You don’t have to deal with the slide
-        animation and the swipe gesture detection, so the implementation is easier
-        than you might think.
+        ，就可以让用户通过左右swipe以在页面间进行切换。你无需特地去处理过渡的动画和检测swipe的手势，因为ViewPager的实现比你想象中的更加容易。
     </p>
     <p>
-        You’ll divide the
+        我们把
         <code>
             ViewPager
         </code>
-        implementation into three parts:
+        的实现分为三个部分：
     </p>
     <ul>
         <li>
-            Adding the
+            添加
             <code>
                 ViewPager
             </code>
         </li>
         <li>
-            Creating an
-            <code>
-                Adapter
-            </code>
-            for the
+            为
             <code>
                 ViewPager
+            </code>
+            创建
+            <code>
+                Adapter
             </code>
         </li>
         <li>
-            Wiring up the
+            将
             <code>
                 ViewPager
             </code>
-            and the
+            和
             <code>
                 Adapter
             </code>
+            连接到一起
         </li>
     </ul>
     <h3>
-        Preparing the ViewPager
+        准备ViewPager
     </h3>
     <p>
-        For step one, open
+        第一步，打开
         <em>
             MainActivity.kt
         </em>
-        and remove everything inside
+        ，删除
         <code>
             onCreate()
         </code>
-        , below this line:
+        方法中，位于这行代码之后的所有代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> movies = MovieHelper.getMoviesFromJson(<span class="hljs-string">"movies.json"</span>, <span class="hljs-keyword">this</span>)</pre>
     <p>
-        Remove the
+        然后删除这个类尾部的
         <code>
             replaceFragment()
         </code>
-        method from the bottom of the class as well.
+        方法。
     </p>
     <p>
-        Now open
+        现在，打开
         <em>
             activity_main.xml
         </em>
-        and replace everything inside the
+        并使用下列的代码替换
         <code>
             RelativeLayout
         </code>
-        with the following:
+        中所有的内容：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewPager"</span>
@@ -232,15 +223,15 @@
     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span>
 </pre>
     <p>
-        Here you created the
+        这样你就创建了一个
         <code>
             ViewPager
         </code>
-        view, which is now the only child of the
+        view，它是
         <code>
             RelativeLayout
         </code>
-        . Here’s how the xml file should look:
+        的唯一子元素。这个xml文件现在应当是这个样子：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
                 <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
@@ -258,95 +249,89 @@
         <code>
             ViewPager
         </code>
-        is only available through the Android Support Library. The
+        只可以通过Android的支持库来使用。
         <i>
-            Android Support Library
+            Android的支持库
         </i>
-        is actually a set of libraries that provide backward compatible implementations
-        of widgets and other standard Android functionality. These libraries provide
-        a common API that often allow the use of newer Android SDK features on
-        devices that only support lower API levels. You should familiarize yourself
-        with the
+        是一系列小库的集合，它提供了一些控件的向后兼容能力和其它标准的Android功能。这些库提供了通用的API，使得在只能支持较低API级别的设备上，也可以使用新版本Android SDK中的功能。你可以通过访问
         <a href="https://developer.android.com/topic/libraries/support-library/index.html"
         target="_blank">
             Support Library
         </a>
-        and
+        和
         <a href="https://developer.android.com/topic/libraries/support-library/packages.html"
         target="_blank">
             Support Library Packages
         </a>
-        .
+        来熟悉它。
     </p>
     <p>
-        Go back to
+        回到
         <em>
             MainActivity.kt
         </em>
-        and first import the
+        ，并添加下列的代码来import
         <code>
             ViewPager
         </code>
-        to be able to use it with this line:
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.view.ViewPager</pre>
     <p>
-        Now you can add the following line at the top of the class to declare
-        the
+        现在，添加下列的代码到类的顶部，来声明
         <code>
             ViewPager
         </code>
-        :
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> viewPager: ViewPager</pre>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
+            使用关键字
             Use the keyword
             <code>
                 lateinit
             </code>
-            to avoid making the view nullable if you want to initialize it later.
-            Read more about
+            可以使viewPager惰性初始化，同时避免它会为空。你可以在
+            <a href="https://kotlinlang.org/docs/reference/properties.html#late-initialized-properties"
+            target="_blank">
+                这里
+            </a>
+            阅读更多关于
             <code>
                 lateinit
             </code>
-            and other Kotlin modifiers
-            <a href="https://kotlinlang.org/docs/reference/properties.html#late-initialized-properties"
-            target="_blank">
-                here
-            </a>
-            .
+            和其它Kotlin修饰符的相关知识。
         </p>
     </div>
     <p>
-        Add this line at the bottom of the
+        添加下列的代码到
         <code>
             onCreate()
         </code>
-        method to link your
+        方法的底部，来连接你的
         <code>
             ViewPager
         </code>
-        reference to the xml view you created previously:
+        引用到你之前创建的xml视图上：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">viewPager = findViewById(R.id.viewPager)</pre>
     <h3>
-        Implementing the PagerAdapter
+        实现PagerAdapter
     </h3>
     <p>
-        Step one completed! You now have a
+        第一步完成了！你现在已有了一个
         <code>
             ViewPager
         </code>
-        that doesn’t do anything particularly interesting without an
+        ，但必须借由
         <em>
             Adapter
         </em>
-        that tells it what to display. If you run the app now you won’t be able
-        to see any movies:
+        来告诉它该展示什么，它才能做一些有趣的事情。如果现在运行app，你不会看到任何的movie：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/Screenshot_1509386896.png">
@@ -361,13 +346,14 @@
         <code>
             ViewPager
         </code>
-        usually displays the “pages” using fragment instances, but it can also
-        work with simple views such as
+        usually displays the “pages” using fragment instances, 
+        but it can also work with simple views such as
         <code>
             ImageView
         </code>
-        if you want to display static content. In this project, you will display
-        multiple things on each page.
+        if you want to display static content. 
+        In this project, 
+        you will display multiple things on each page.
         <code>
             Fragments
         </code>
@@ -452,13 +438,13 @@
             <em>
                 FragmentPagerAdapter
             </em>
-            stores the fragments in memory as long as the user can navigate between
-            them. When a fragment is not visible, the
+            stores the fragments in memory as long as the user can navigate between them. 
+            When a fragment is not visible, the
             <code>
                 PagerAdapter
             </code>
-            will detach it, but not destroy it, so the fragment instance remains alive
-            in the
+            will detach it, but not destroy it, 
+            so the fragment instance remains alive in the
             <code>
                 FragmentManager
             </code>
@@ -474,18 +460,17 @@
             <em>
                 FragmentStatePagerAdapter
             </em>
-            makes sure to destroy all the fragments the user does not see and only
-            keep their saved states in the
+            makes sure to destroy all the fragments the user does not see and only keep their saved states in the
             <code>
                 FragmentManager
             </code>
-            , hence the name. When the user navigates back to a fragment, it will
-            restore it using the saved state. This
+            , hence the name. When the user navigates back to a fragment, 
+            it will restore it using the saved state. This
             <code>
                 PagerAdapter
             </code>
-            requires much less memory, but the process of switching between pages
-            can be slower.
+            requires much less memory, 
+            but the process of switching between pages can be slower.
         </li>
     </ul>
     <p>
