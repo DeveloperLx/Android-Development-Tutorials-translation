@@ -213,20 +213,7 @@
         </code>
         , below this line:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        movies = MovieHelper.getMoviesFromJson(
-        <span class="hljs-string">
-            "movies.json"
-        </span>
-        ,
-        <span class="hljs-keyword">
-            this
-        </span>
-        )
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> movies = MovieHelper.getMoviesFromJson(<span class="hljs-string">"movies.json"</span>, <span class="hljs-keyword">this</span>)</pre>
     <p>
         Remove the
         <code>
@@ -245,36 +232,11 @@
         </code>
         with the following:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v4.view.ViewPager
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/viewPager"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewPager"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span>
+</pre>
     <p>
         Here you created the
         <code>
@@ -286,85 +248,18 @@
         </code>
         . Here’s how the xml file should look:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                tools:context
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.favoritemovies.MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v4.view.ViewPager
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/viewPager"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+                <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">tools:context</span>=<span class="hljs-string">"com.raywenderlich.favoritemovies.MainActivity"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewPager"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span></pre>
     <p>
         <code>
             ViewPager
@@ -400,12 +295,7 @@
         </code>
         to be able to use it with this line:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.view.ViewPager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v4.view.ViewPager</pre>
     <p>
         Now you can add the following line at the top of the class to declare
         the
@@ -414,18 +304,7 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        viewPager: ViewPager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> viewPager: ViewPager</pre>
     <div class="note">
         <p>
             <em>
@@ -459,9 +338,7 @@
         </code>
         reference to the xml view you created previously:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        viewPager = findViewById(R.id.viewPager)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">viewPager = findViewById(R.id.viewPager)</pre>
     <h3>
         Implementing the PagerAdapter
     </h3>
@@ -668,96 +545,26 @@
     <p>
         Replace the contents of this file with the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            package
-        </span>
-        com.raywenderlich.favoritemovies
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.Fragment
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.FragmentManager
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v4.app.FragmentStatePagerAdapter
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                MoviesPagerAdapter
-            </span>
-        </span>
-        (fragmentManager: FragmentManager,
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        movies: ArrayList&lt;Movie&gt;) : FragmentStatePagerAdapter(fragmentManager)
-        {
-        <span class="hljs-comment">
-            // 2 &nbsp;
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItem
-            </span>
-            <span class="hljs-params">
-                (position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : Fragment {
-        <span class="hljs-keyword">
-            return
-        </span>
-        MovieFragment.newInstance(movies[position]) }
-        <span class="hljs-comment">
-            // 3 &nbsp;
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getCount
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        movies.size } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">package</span> com.raywenderlich.favoritemovies
+
+<span class="hljs-keyword">import</span> android.support.v4.app.Fragment
+<span class="hljs-keyword">import</span> android.support.v4.app.FragmentManager
+<span class="hljs-keyword">import</span> android.support.v4.app.FragmentStatePagerAdapter
+
+<span class="hljs-comment">// 1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MoviesPagerAdapter</span></span>(fragmentManager: FragmentManager, <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> movies: ArrayList&lt;Movie&gt;) : 
+    FragmentStatePagerAdapter(fragmentManager) {
+
+  <span class="hljs-comment">// 2 &nbsp; </span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItem</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span>: Fragment {
+    <span class="hljs-keyword">return</span> MovieFragment.newInstance(movies[position])
+  }
+
+  <span class="hljs-comment">// 3 &nbsp;</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> {
+    <span class="hljs-keyword">return</span> movies.size
+  }
+}</pre>
     <p>
         Let’s go over this step-by-step.
     </p>
@@ -831,18 +638,7 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        pagerAdapter: MoviesPagerAdapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> pagerAdapter: MoviesPagerAdapter</pre>
     <p>
         Next add the following inside
         <code>
@@ -850,10 +646,8 @@
         </code>
         , beneath the existing code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        pagerAdapter = MoviesPagerAdapter(supportFragmentManager, movies) viewPager.adapter
-        = pagerAdapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">pagerAdapter = MoviesPagerAdapter(supportFragmentManager, movies)
+viewPager.adapter = pagerAdapter</pre>
     <p>
         This initializes your
         <code>
@@ -996,19 +790,7 @@
         and create a new constant representing the large number by adding this
         line at the top of the file above the class definition:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        MAX_VALUE =
-        <span class="hljs-number">
-            200
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> MAX_VALUE = <span class="hljs-number">200</span></pre>
     <p>
         Now replace the
         <code>
@@ -1020,12 +802,7 @@
         </code>
         with this:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            return
-        </span>
-        movies.size * MAX_VALUE
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> movies.size * MAX_VALUE</pre>
     <p>
         By multiplying the length of the array with
         <code>
@@ -1062,12 +839,7 @@
         </code>
         with this line:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            return
-        </span>
-        MovieFragment.newInstance(movies[position % movies.size])
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> MovieFragment.newInstance(movies[position % movies.size])</pre>
     <p>
         This will ensure that the
         <code>
@@ -1112,12 +884,7 @@
         </code>
         :&nbsp;
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        viewPager.currentItem = pagerAdapter.count /
-        <span class="hljs-number">
-            2
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">viewPager.currentItem = pagerAdapter.count / <span class="hljs-number">2</span></pre>
     <p>
         This tells the
         <code>
@@ -1227,17 +994,15 @@
         </code>
         :
     </p>
-    <pre lang="groovy" class="language-groovy">
-        implementation 'com.nshmura:recyclertablayout:1.5.0'
-    </pre>
+    <pre lang="groovy" class="language-groovy">implementation 'com.nshmura:recyclertablayout:1.5.0'
+</pre>
     <p>
         The recyclertablayout library uses an old version of the Android Support
         Libraries, so you’ll need to add the following to make the Gradle sync
         happy:
     </p>
-    <pre lang="groovy" class="language-groovy">
-        implementation 'com.android.support:recyclerview-v7:26.1.0'
-    </pre>
+    <pre lang="groovy" class="language-groovy">implementation 'com.android.support:recyclerview-v7:26.1.0'
+</pre>
     <p>
         Tap
         <em>
@@ -1256,36 +1021,10 @@
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                com.nshmura.recyclertablayout.RecyclerTabLayout
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/recyclerTabLayout"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/tabs_height"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">com.nshmura.recyclertablayout.RecyclerTabLayout</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recyclerTabLayout"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"@dimen/tabs_height"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span></pre>
     <p>
         Now add the following property to your
         <code>
@@ -1297,126 +1036,28 @@
         </code>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        android:layout_below="@id/recyclerTabLayout"
-    </pre>
+    <pre lang="xml" class="language-xml hljs">android:layout_below="@id/recyclerTabLayout"</pre>
     <p>
         Your whole layout file should now look like this:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                tools:context
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.favoritemovies.MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                com.nshmura.recyclertablayout.RecyclerTabLayout
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/recyclerTabLayout"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "@dimen/tabs_height"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v4.view.ViewPager
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/viewPager"
-            </span>
-            <span class="hljs-attr">
-                android:layout_below
-            </span>
-            =
-            <span class="hljs-string">
-                "@id/recyclerTabLayout"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                RelativeLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+                <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+                <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+                <span class="hljs-attr">tools:context</span>=<span class="hljs-string">"com.raywenderlich.favoritemovies.MainActivity"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">com.nshmura.recyclertablayout.RecyclerTabLayout</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recyclerTabLayout"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"@dimen/tabs_height"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewPager"</span>
+      <span class="hljs-attr">android:layout_below</span>=<span class="hljs-string">"@id/recyclerTabLayout"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span></pre>
     <p>
         Open
         <em>
@@ -1428,12 +1069,7 @@
         </code>
         at the top of the file, like this:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        com.nshmura.recyclertablayout.RecyclerTabLayout
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> com.nshmura.recyclertablayout.RecyclerTabLayout</pre>
     <p>
         Now add the following at the top of the class to declare a
         <code>
@@ -1441,18 +1077,7 @@
         </code>
         instance:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        recyclerTabLayout: RecyclerTabLayout
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> recyclerTabLayout: RecyclerTabLayout</pre>
     <p>
         Add this block of code inside
         <code>
@@ -1464,9 +1089,8 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        recyclerTabLayout = findViewById(R.id.recyclerTabLayout) recyclerTabLayout.setUpWithViewPager(viewPager)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">recyclerTabLayout = findViewById(R.id.recyclerTabLayout)
+recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
     <p>
         The first line connects your
         <code>
@@ -1493,31 +1117,9 @@
         </em>
         and add the following method inside the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getPageTitle
-            </span>
-            <span class="hljs-params">
-                (position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : CharSequence {
-        <span class="hljs-keyword">
-            return
-        </span>
-        movies[position % movies.size].title }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPageTitle</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span>: CharSequence {
+  <span class="hljs-keyword">return</span> movies[position % movies.size].title
+}</pre>
     <p>
         This method tells the
         <code>
