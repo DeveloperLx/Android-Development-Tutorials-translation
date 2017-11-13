@@ -10,65 +10,59 @@
             srcset="https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2017/11/Viewpager-feature-128x128.png 128w"
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
-        The
         <code>
             ViewPager
         </code>
-        is a useful layout manager that helps you integrate horizontal swipe navigation
-        in your app. It is a common way of creating slideshows, onboarding screens
-        or tab views. Making use of the swipe gesture to navigate between ViewPager
-        pages allows you to save screen space and create more minimal interfaces.
+        是一个非常有用的布局管理器，可以帮你的app集成水平swipe的导航方式。它一种创建幻灯片，流程页和tab视图的常用方法。利用swipe手势在ViewPager的不同页面之间进行切换，可以让你节约屏幕的空间，以创建最紧凑的界面。
     </p>
     <p>
-        In this tutorial, you’ll become familiar with the
+        在本教程中，你会将通过将一个已有的app优化成更棒的样子，来熟悉
         <code>
             ViewPager
         </code>
-        by modifying an existing app to make the UI more enjoyable. Along the
-        way, you’ll also learn:
+        。你将通过这个过程学到：
     </p>
     <ul>
         <li>
-            How the
             <code>
                 ViewPager
             </code>
-            works
+            如何工作
         </li>
         <li>
-            How to keep it memory-efficient
+            如何使它的内存使用更具效率
         </li>
         <li>
-            How to add some nice features to your
+            如何向你的
             <code>
                 ViewPager
             </code>
+            添加一些超棒的功能
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            This tutorial assumes you have previous experience with developing for
-            Android in
+            本教程假定你之前已有了一定使用
             <em>
                 Kotlin
             </em>
-            . If you are unfamiliar with the language have a look at
-            <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+            开发Android的经验。如果你还不熟悉这门语言，可以参考
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
             target="_blank">
-                this tutorial
+                这篇教程
             </a>
-            . If you’re beginning with Android, check out some of our
+            。如果你是一个Android的新手，请访问
             <a href="https://www.raywenderlich.com/category/android" target="_blank">
-                Getting Started
+                入门
             </a>
-            and other Android tutorials.
+            和其它的Android教程。
         </p>
     </div>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
         Download the
