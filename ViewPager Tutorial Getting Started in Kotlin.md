@@ -453,58 +453,52 @@
         </li>
     </ul>
     <p>
-        It’s time to decide. 
-        Your list of movies has only five items, so the
+        该做决定了。你的电影列表中只有5个项目，因此对于
         <code>
             FragmentPagerAdapter
         </code>
-        might work after all. 
-        But what if you get bored after this tutorial and watch all Harry Potter movies? 
-        You’ll have to add 8 more items to the JSON file. 
-        What if you then decide to add your favorite TV series as well? 
-        That array can become pretty large. 
-        In this case, the
+        来说一定是OK的。但如果在完成本教程后你感到无聊，想把所有哈利波特的电影都添加进来呢？你不得不再添加8个item到项目的JSON文件中。如果你又想把最喜爱的电视剧添加进来呢？这个数据就会变得相当得大。在本例中，使用
         <code>
             FragmentStatePagerAdapter
         </code>
-        works better.
+        就会更棒一些。
     </p>
     <h3>
-        Creating a Custom FragmentStatePagerAdapter
+        创建一个自定义的FragmentStatePagerAdapter
     </h3>
     <p>
-        In the project navigator pane, right-click on
+        在项目导航面板中，右击
         <em>
             com.raywenderlich.favoritemovies
         </em>
-        and select
+        并选择
         <em>
             New
         </em>
-        -&gt;
+        - 
         <em>
             Kotlin File/Class
         </em>
-        . Name it
+        。将其命名为
         <em>
             MoviesPagerAdapter
         </em>
-        and select
+        ，并选择Kind为
         <em>
             Class
         </em>
-        for Kind. Hit
+        。点击
         <em>
             OK
         </em>
-        .
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/new-kotlin-file.png"
         alt="new Kotlin file" width="349" height="130" class="aligncenter size-full wp-image-169794">
     </p>
     <p>
-        Replace the contents of this file with the following:
+        将文件的内容替换为下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">package</span> com.raywenderlich.favoritemovies
 
@@ -527,66 +521,68 @@
   }
 }</pre>
     <p>
-        Let’s go over this step-by-step.
+        一步一步地看：
     </p>
     <ol>
         <li>
-            Your new class extends
+            这个类继承自
             <code>
                 FragmentStatePagerAdapter
             </code>
-            . The constructor of the superclass requires a
+            。父类的构造器需要一个
             <code>
                 FragmentManager
             </code>
-            , thus your custom
+            的参数，因此你自定义的
             <code>
                 PagerAdapter
             </code>
-            needs it as well. You also need to provide the list of movies as a parameter.
+            也继承了这点。你还需要提供一个电影的列表作为参数。
         </li>
         <li>
-            Return the fragment associated with the object located at the specified
-            position.
+            返回关联到指定序号电影的fragment。
         </li>
         <li>
-            Return the number of objects in the array.
+            返回数组中对象的数量。
         </li>
     </ol>
     <p>
-        When the
+        当
         <code>
             ViewPager
         </code>
-        needs to display a fragment, it initiates a chat with the
+        需要展示fragment的时候，它就会开启一个和
         <code>
             PagerAdapter
         </code>
-        . First, the
+        的对话。首先，
         <code>
             ViewPager
         </code>
-        asks the
-        <code>
-            PagerAdapter
-        </code>
-        how many movies are in the array by calling
+        会通过调用
         <code>
             getCount()
         </code>
-        . Then it will call
-        <code>
-            getItem(int position)
-        </code>
-        whenever a new page is about to be visible. Within this method, the
+        来询问
         <code>
             PagerAdapter
         </code>
-        creates a new fragment that displays the information about the movie at
-        the correct position in the array.&nbsp;
+        数组中有多少部电影
+        <code>
+            getCount()
+        </code>
+        。然后当将要展示一个页的时候，就会调用它的
+        <code>
+            getItem(int position)
+        </code>
+        方法。在该方法中，
+        <code>
+            PagerAdapter
+        </code>
+        创建了一个新的fragment，用来展示数组中相应电影的信息。
     </p>
     <h3>
-        Connecting the PagerAdapter and the ViewPager
+        连接PagerAdapter和ViewPager
     </h3>
     <p>
         Open
@@ -618,7 +614,7 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             ViewPager
         </code>
-        .&nbsp;
+        .
     </p>
     <div class="note">
         <p>
