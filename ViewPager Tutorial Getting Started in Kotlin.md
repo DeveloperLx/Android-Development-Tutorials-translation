@@ -785,78 +785,49 @@ viewPager.adapter = pagerAdapter</pre>
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> MovieFragment.newInstance(movies[position % movies.size])</pre>
     <p>
-        This will ensure that the
+        这样就确保了
         <code>
             ViewPager
         </code>
-        doesn’t request the element at an index larger than
-        <code>
-            movies.size
-        </code>
-        because the remainder after you divide the position by
-        <code>
-            movies.size
-        </code>
-        will always be greater than or equal to 0 and less than
-        <code>
-            movies.size
-        </code>
-        .
+        对数组的访问一定不会越界。
     </p>
     <p>
-        Right now the infinite scrolling works only when the user navigates forward through the array (swipes left). 
-        That is because, when your app starts,
-        the
+        现在只有当用户向前浏览数组（也就是向左swipe）的时候，无穷的滚动才能发挥作用。这是因为，当你启动app的时候，
         <code>
             ViewPager
         </code>
-        displays the movie at index 0. To fix this issue, open
+        只会展示索引为0的电影。为了修复这个问题，打开
         <em>
             MainActivity.kt
         </em>
-        and add the following line inside
+        并添加下列的代码到
         <code>
             onCreate()
         </code>
-        below the line where you connect the
+        中，就在你连接
         <code>
             PageAdapter
         </code>
-        to the
+        到
         <code>
             ViewPager
         </code>
-        :
+        的那行代码之下：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">viewPager.currentItem = pagerAdapter.count / <span class="hljs-number">2</span></pre>
     <p>
-        This tells the
+        这样就会让
         <code>
             ViewPager
         </code>
-        to display the movie found in the middle of the array. The user has now plenty of swiping to do in either direction before they reach an end. 
-        To ensure that the movie displayed at the beginning will still be the first one in your list, 
-        set
+        展示数组中间的那部电影。现在用户就可以在两个方向上都有大量的swipe操作了，直到结束之前。为了确保在开始时展示的电影仍然是你列表中的第一项，必须将
         <code>
             MAX_VALUE
         </code>
-        to be an even number (in this case 200 works fine). 
-        This way, after you divide
-        <code>
-            pagerAdapter.count
-        </code>
-        by 2,
-        <code>
-            pagerAdapter.count % movies.size = 0
-        </code>
-        (which is the first index that the
-        <code>
-            ViewPager
-        </code>
-        asks for when the app starts).
+        设置为一个偶数（例如本例中的200就可以）。
     </p>
     <p>
-        Build and run. You should now be able to swipe left and right a decent amount of times and the movies will start again from the beginning after you reach the last one and from the end when you reach the first one.
+        运行项目，你现在就可以向左或向右swipe相当多的次数了，电影到达最后一部后，就会再从第一部开始，反之亦反。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/endless.gif">
@@ -865,7 +836,7 @@ viewPager.adapter = pagerAdapter</pre>
         </a>
     </p>
     <h3>
-        Adding Tabs
+        添加Tab
     </h3>
     <p>
         A
@@ -878,7 +849,8 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             TabLayout
         </code>
-        contains a tab for each page, which usually displays the page title. 
+        contains a tab for each page, 
+        which usually displays the page title. 
         The user can tap on a tab to navigate directly to the desired page or can use a swipe gesture over the
         <code>
             TabLayout
@@ -910,11 +882,13 @@ viewPager.adapter = pagerAdapter</pre>
         <a href="https://github.com/nshmura/RecyclerTabLayout" target="_blank">
             RecyclerTabLayout
         </a>
-        that solves this problem. The library uses the
+        that solves this problem. 
+        The library uses the
         <code>
             RecyclerView
         </code>
-        in its implementation. You can learn more about the mysterious
+        in its implementation. 
+        You can learn more about the mysterious
         <code>
             RecyclerView
         </code>
