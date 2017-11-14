@@ -751,16 +751,15 @@ viewPager.adapter = pagerAdapter</pre>
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> movies.size * MAX_VALUE</pre>
     <p>
-        By multiplying the length of the array with
+        通过和
         <code>
             MAX_VALUE
         </code>
-        , the swipe limit will grow proportionally to the number of movies in your list. 
-        This way you don’t have to worry about
+        相乘，swipe的限制就可以正比例于电影的数量进行增长了。这样你就无需担心
         <code>
             getCount()
         </code>
-        returning a number that is less than the number of movies as your movie list grows.
+        会返回一个比你电影的数量还小的值了。
     </p>
     <p>
         The only problem you now have is inside the Adapter’s
@@ -857,9 +856,7 @@ viewPager.adapter = pagerAdapter</pre>
         asks for when the app starts).
     </p>
     <p>
-        Build and run. You should now be able to swipe left and right a decent
-        amount of times and the movies will start again from the beginning after
-        you reach the last one and from the end when you reach the first one.
+        Build and run. You should now be able to swipe left and right a decent amount of times and the movies will start again from the beginning after you reach the last one and from the end when you reach the first one.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/endless.gif">
@@ -881,9 +878,8 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             TabLayout
         </code>
-        contains a tab for each page, which usually displays the page title. The
-        user can tap on a tab to navigate directly to the desired page or can use
-        a swipe gesture over the
+        contains a tab for each page, which usually displays the page title. 
+        The user can tap on a tab to navigate directly to the desired page or can use a swipe gesture over the
         <code>
             TabLayout
         </code>
@@ -898,8 +894,7 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             ViewPager
         </code>
-        you won’t be able to see any tabs because the layout will be automatically
-        populated with as many tabs as the
+        you won’t be able to see any tabs because the layout will be automatically populated with as many tabs as the
         <code>
             FragmentStatePagerAdapter
         </code>
@@ -907,8 +902,8 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             getCount()
         </code>
-        method, which now returns a pretty large number. Trying to fit that many
-        tabs on your screen will make them really narrow.
+        method, which now returns a pretty large number. 
+        Trying to fit that many tabs on your screen will make them really narrow.
     </p>
     <p>
         Luckily, there is a third party library called
@@ -941,9 +936,8 @@ viewPager.adapter = pagerAdapter</pre>
     <pre lang="groovy" class="language-groovy">implementation 'com.nshmura:recyclertablayout:1.5.0'
 </pre>
     <p>
-        The recyclertablayout library uses an old version of the Android Support
-        Libraries, so you’ll need to add the following to make the Gradle sync
-        happy:
+        The recyclertablayout library uses an old version of the Android Support Libraries, 
+        so you’ll need to add the following to make the Gradle sync happy:
     </p>
     <pre lang="groovy" class="language-groovy">implementation 'com.android.support:recyclerview-v7:26.1.0'
 </pre>
@@ -1069,16 +1063,17 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         <code>
             TabLayout
         </code>
-        what to write on the tab placed at a particular position. It returns the
-        title of the movie that corresponds with the fragment created inside
+        what to write on the tab placed at a particular position. 
+        It returns the title of the movie that corresponds with the fragment created inside
         <code>
             getItem(position: Int)
         </code>
         .
     </p>
     <p>
-        Run the app. You should be able to see the tabs changing as you swipe
-        through the pages. Try tapping on a tab and see how the
+        Run the app. 
+        You should be able to see the tabs changing as you swipe through the pages. 
+        Try tapping on a tab and see how the
         <code>
             ViewPager
         </code>
@@ -1130,7 +1125,8 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         <code>
             TabLayout
         </code>
-        and implemented the endless scroll. In addition, you learned about the
+        and implemented the endless scroll. 
+        In addition, you learned about the
         <code>
             PagerAdapter
         </code>
@@ -1142,7 +1138,7 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         <code>
             FragmentStatePagerAdapter
         </code>
-        is best for you application.&nbsp;
+        is best for you application.
     </p>
     <p>
         If you want to read more about the
@@ -1169,14 +1165,13 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         <em>
             Bonus challenge:
         </em>
-        You can implement dot indicators for your pages as seen in many onboarding
-        flows.
+        You can implement dot indicators for your pages as seen in many onboarding flows.
         <a href="https://stackoverflow.com/questions/38459309/how-do-you-create-an-android-view-pager-with-a-dots-indicator"
         target="_blank">
             Here
         </a>
-        you can find a nice way of creating dot indicators. Note that this solution
-        won’t work with your final
+        you can find a nice way of creating dot indicators. 
+        Note that this solution won’t work with your final
         <code>
             ViewPager
         </code>
@@ -1188,13 +1183,15 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         <code>
             getCount()
         </code>
-        method to return the exact number of pages. You can try implementing the
-        indicators instead of the endless scroll. This time try using the default
+        method to return the exact number of pages. 
+        You can try implementing the indicators instead of the endless scroll. 
+        This time try using the default
         <a href="https://developer.android.com/reference/android/support/design/widget/TabLayout.html"
         target="_blank">
             TabLayout
         </a>
-        instead of the third party library. You can download the solution
+        instead of the third party library. 
+        You can download the solution
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/FavoriteMovies-challenge.zip">
             here
         </a>
