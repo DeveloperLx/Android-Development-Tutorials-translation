@@ -762,26 +762,26 @@ viewPager.adapter = pagerAdapter</pre>
         会返回一个比你电影的数量还小的值了。
     </p>
     <p>
-        The only problem you now have is inside the Adapter’s
+        剩下的问题就在
         <code>
             getItem(position: Int)
         </code>
-        method. Since
+        方法中了。因为
         <code>
             getCount()
         </code>
-        now returns a number larger than the size of the list, the
+        会返回一个比电影的数量还大的值，
         <code>
             ViewPager
         </code>
-        will try to access the movie at an index greater than the array size when the user swipes past the last movie.
+        在访问电影的时候就出出现数组越界的问题。
     </p>
     <p>
-        Replace the code inside
+        将
         <code>
             getItem(position: Int)
         </code>
-        with this line:
+        的内容替换为下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> MovieFragment.newInstance(movies[position % movies.size])</pre>
     <p>
