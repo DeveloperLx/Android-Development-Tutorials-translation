@@ -342,79 +342,66 @@
         </a>
     </p>
     <p>
-        The
         <code>
             ViewPager
         </code>
-        usually displays the “pages” using fragment instances, 
-        but it can also work with simple views such as
+        通常会使用fragment来展示它的“页”，但如果你想展示静态内容的话，它也可以使用类似
         <code>
             ImageView
         </code>
-        if you want to display static content. 
-        In this project, 
-        you will display multiple things on each page.
+        这样简单的view来代表页。在本项目中，每页都会展示多项的内容。因此选用
         <code>
             Fragments
         </code>
-        are here to help you.
+        。
     </p>
     <p>
-        You will connect your
-        <code>
-            Fragment
-        </code>
-        instances with the
-        <code>
-            ViewPager
-        </code>
-        using a
+        你将使用一个
         <em>
             PagerAdapter
         </em>
-        , which is an object that sits between the
-        <code>
-            ViewPager
-        </code>
-        and the data set containing the information you want the
-        <code>
-            ViewPager
-        </code>
-        to display (in this case the movies array). The
-        <code>
-            PagerAdapter
-        </code>
-        will create each
+        来将
         <code>
             Fragment
         </code>
-        , add the corresponding movie data to it and return it to the
+        实例和
         <code>
             ViewPager
         </code>
-        .
+        连接起来。PagerAdapter是一个可以将
+        <code>
+            ViewPager
+        </code>
+        和你想让它去展示的数据集（本例中就是电影的数组了）连接起来的对象。
+        <code>
+            PagerAdapter
+        </code>
+        会创建每个
+        <code>
+            Fragment
+        </code>
+        ，并为它添加相应的电影数据，并返回给
+        <code>
+            ViewPager
+        </code>
+        。
     </p>
     <p>
         <code>
             PagerAdapter
         </code>
-        is an abstract class, so you will have an instance of one of its subclasses
-        (
+        是一个抽象类，因此你只能实例化它的子类（
         <code>
             FragmentPagerAdapter
         </code>
-        and
+        和
         <code>
             FragmentStatePagerAdapter
         </code>
-        ) rather than an instance of the
-        <code>
-            PagerAdapter
-        </code>
-        itself.
+        ）。
     </p>
     <h3>
-        FragmentPagerAdapter or FragmentStatePagerAdapter?
+        FragmentPagerAdapter或FragmentStatePagerAdapter？
     </h3>
     <p>
         There are two types of standard
@@ -429,8 +416,7 @@
         <em>
             FragmentStatePagerAdapter
         </em>
-        . Both of them work well with fragments, but they are better suited for
-        different scenarios:
+        . Both of them work well with fragments, but they are better suited for different scenarios:
     </p>
     <ul>
         <li>
@@ -452,7 +438,8 @@
             <code>
                 Activity
             </code>
-            shuts down. This can make the transition between pages fast and smooth,
+            shuts down. 
+            This can make the transition between pages fast and smooth,
             but it could cause memory issues in your app if you need many fragments.
         </li>
         <li>
