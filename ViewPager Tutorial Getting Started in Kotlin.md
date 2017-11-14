@@ -540,7 +540,7 @@
             也继承了这点。你还需要提供一个电影的列表作为参数。
         </li>
         <li>
-            返回关联到指定序号电影的fragment。
+            返回关联到指定索引电影的fragment。
         </li>
         <li>
             返回数组中对象的数量。
@@ -619,39 +619,38 @@ viewPager.adapter = pagerAdapter</pre>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
+            这里的
             <code>
                 supportFragmentManager
             </code>
-            is equivalent to the
+            就等价于你在Java中使用的
             <code>
                 getSupportFragmentManager()
             </code>
-            method you would use in Java and
+            方法，而
             <code>
                 viewPager.adapter = pagerAdapter
             </code>
-            is the same as
+            则相对于
             <code>
                 viewPager.setAdapter(pagerAdapter)
             </code>
-            . Read more about
-            <i>
-                getters and setters
-            </i>
-            in Kotlin
+            。你可以在
             <a href="https://kotlinlang.org/docs/reference/properties.html#getters-and-setters"
             target="_blank">
-                here
+                这里
             </a>
-            .
+            阅读更多关于Kotlin中
+            <i>
+                getters和setters
+            </i>
+            相关的内容。
         </p>
     </div>
     <p>
-        Build and run. 
-        The app should behave like the original version, 
-        but you can now navigate between movies by swiping rather than pressing buttons :].
+        运行项目。看起来和原始的版本一样，但是现在，你就可以通过swipe而不是按下按钮来切换电影了。:]
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/swipe.gif">
@@ -662,53 +661,49 @@ viewPager.adapter = pagerAdapter</pre>
     <div class="note">
         <p>
             <em>
-                Note:
+                注意：
             </em>
-            Using the
+            使用
             <code>
                 FragmentStatePagerAdapter
             </code>
-            saves you from having to deal with saving the current page across a runtime
-            configuration change, like rotating the device. The state of the
+            ，可以使你避免处理因运行时configuration发生变化，不得不保存当前页面的问题。比如旋转设备。
             <code>
                 Activity
             </code>
-            is usually lost in those situations and you would have to save it in the
-            <code>
-                Bundle
-            </code>
-            object passed as a parameter in
+            的state在这些情形下通常会丢失，因而你不得不将它保存到
             <code>
                 onCreate(savedInstanceState: Bundle?)
             </code>
-            . Luckily, the
+            的
+            <code>
+                Bundle
+            </code>
+            对象中。幸运的是，
             <code>
                 PagerAdapter
             </code>
-            you used does all the work for you. You can read more about the
+            为你做好了所有的工作。你可以在
+            <a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html"
+            target="_blank">
+                这里
+            </a>
+            阅读更多关于
             <code>
                 savedInstanceState
             </code>
-            object and the
+            对象和
             <code>
                 Activity
             </code>
-            lifecycle
-            <a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html"
-            target="_blank">
-                here
-            </a>
-            .
+            生命周期的相关内容。
         </p>
     </div>
     <h3>
-        Endless Scrolling
+        无穷的滚动
     </h3>
     <p>
-        A nice feature you often see is being able to swipe continuously between
-        pages in a circular manner. That is going to the last page when swiping
-        right on the first one and going to the first one when swiping left on
-        the last. For example, swiping between 3 pages would look like this:&nbsp;
+        你经常会看到的一个很棒的功能，就是在页面之间可以持续地循环进行swipe。你在第一页上向右swipe，就可以切到最后一页上。反之亦反。例如，在三个页面上进行swipe将会看到如下的内容：
     </p>
     <p>
         Page1 -&gt; Page2 -&gt; Page3 -&gt; Page1 -&gt; Page2
@@ -717,47 +712,42 @@ viewPager.adapter = pagerAdapter</pre>
         Page2 &lt;- Page1 &lt;- Page3 &lt;- Page2 &lt;- Page1
     </p>
     <p>
-        The
+        当当前的索引增长到等于由
+        <code>
+            getCount()
+        </code>
+        返回的对象的数量时，
         <code>
             FragmentStatePagerAdapter
         </code>
-        will stop creating new fragments when the current index reaches the number
-        of objects returned by
-        <code>
-            getCount()
-        </code>
-        , so you need to change the method to return a fairly large number that
-        the users are not very likely to reach by continuously swiping in the same
-        direction. That way the
+        就会停止创建新的fragment。因此，你要让这个方法返回一个相当大的数，使得用户即使以相同方向持续swipe，也难以到头。这样，
         <code>
             PagerAdapter
         </code>
-        will keep creating pages until the page index reaches the value returned
-        by
+        就会持续地创建页，直到页面的索引到达
         <code>
             getCount()
         </code>
-        .
+        返回的值。
     </p>
     <p>
-        Open
+        打开
         <em>
             MoviesPagerAdapter.kt
         </em>
-        and create a new constant representing the large number by adding this
-        line at the top of the file above the class definition:
+        并通过添加下列的代码，创建一个常量来代表这个大数：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> MAX_VALUE = <span class="hljs-number">200</span></pre>
     <p>
-        Now replace the
-        <code>
-            return movies.size
-        </code>
-        line inside
+        现在，将
         <code>
             getCount()
         </code>
-        with this:
+        方法中的
+        <code>
+            return movies.size
+        </code>
+        这行替换为下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">return</span> movies.size * MAX_VALUE</pre>
     <p>
@@ -765,13 +755,12 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             MAX_VALUE
         </code>
-        , the swipe limit will grow proportionally to the number of movies in
-        your list. This way you don’t have to worry about
+        , the swipe limit will grow proportionally to the number of movies in your list. 
+        This way you don’t have to worry about
         <code>
             getCount()
         </code>
-        returning a number that is less than the number of movies as your movie
-        list grows.
+        returning a number that is less than the number of movies as your movie list grows.
     </p>
     <p>
         The only problem you now have is inside the Adapter’s
@@ -786,8 +775,7 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             ViewPager
         </code>
-        will try to access the movie at an index greater than the array size when
-        the user swipes past the last movie.
+        will try to access the movie at an index greater than the array size when the user swipes past the last movie.
     </p>
     <p>
         Replace the code inside
@@ -817,8 +805,8 @@ viewPager.adapter = pagerAdapter</pre>
         .
     </p>
     <p>
-        Right now the infinite scrolling works only when the user navigates forward
-        through the array (swipes left). That is because, when your app starts,
+        Right now the infinite scrolling works only when the user navigates forward through the array (swipes left). 
+        That is because, when your app starts,
         the
         <code>
             ViewPager
@@ -839,7 +827,7 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             ViewPager
         </code>
-        :&nbsp;
+        :
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">viewPager.currentItem = pagerAdapter.count / <span class="hljs-number">2</span></pre>
     <p>
@@ -847,15 +835,14 @@ viewPager.adapter = pagerAdapter</pre>
         <code>
             ViewPager
         </code>
-        to display the movie found in the middle of the array. The user has now
-        plenty of swiping to do in either direction before they reach an end. To
-        ensure that the movie displayed at the beginning will still be the first
-        one in your list, set
+        to display the movie found in the middle of the array. The user has now plenty of swiping to do in either direction before they reach an end. 
+        To ensure that the movie displayed at the beginning will still be the first one in your list, 
+        set
         <code>
             MAX_VALUE
         </code>
-        to be an even number (in this case 200 works fine). This way, after you
-        divide
+        to be an even number (in this case 200 works fine). 
+        This way, after you divide
         <code>
             pagerAdapter.count
         </code>
