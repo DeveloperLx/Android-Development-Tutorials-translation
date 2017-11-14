@@ -404,19 +404,19 @@
         FragmentPagerAdapter或FragmentStatePagerAdapter？
     </h3>
     <p>
-        There are two types of standard
+        这里有两个类型的标准
         <code>
             PagerAdapters
         </code>
-        that manage the lifecycle of each fragment:
+        来管理每个fragment的生命周期：
         <em>
             FragmentPagerAdapter
         </em>
-        and
+        和
         <em>
             FragmentStatePagerAdapter
         </em>
-        . Both of them work well with fragments, but they are better suited for different scenarios:
+        。他们每个都可以很好地处理fragment，但适宜的场景却有所不同：
     </p>
     <ul>
         <li>
