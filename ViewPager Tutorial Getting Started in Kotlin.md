@@ -839,23 +839,19 @@ viewPager.adapter = pagerAdapter</pre>
         添加Tab
     </h3>
     <p>
-        A
         <a href="https://developer.android.com/reference/android/support/design/widget/TabLayout.html"
         target="_blank">
             TabLayout
         </a>
-        is a nice feature that makes it easy to explore and switch between pages.
-        The
+        是一个非常棒的功能，可以让页面之间的切换变得非常容易。
         <code>
             TabLayout
         </code>
-        contains a tab for each page, 
-        which usually displays the page title. 
-        The user can tap on a tab to navigate directly to the desired page or can use a swipe gesture over the
+        对于每一页都会有一个tab，通常用来展示对应页的标题。用户既可以直接点击一个tab导航到期望的页，也可以swipe
         <code>
             TabLayout
         </code>
-        to switch between pages.
+        来切换到那个页。
     </p>
     <p>
         If you try to add a
