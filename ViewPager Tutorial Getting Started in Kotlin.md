@@ -585,36 +585,36 @@
         连接PagerAdapter和ViewPager
     </h3>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        and add the following line at the top to declare your
+        ，并添加下列的代码到文件的顶部来声明你的
         <code>
             MoviesPagerAdapter
         </code>
-        :
+        ：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> pagerAdapter: MoviesPagerAdapter</pre>
     <p>
-        Next add the following inside
+        接下来添加下列的代码到
         <code>
             onCreate()
         </code>
-        , beneath the existing code:
+        方法中，已存在代码的后面：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">pagerAdapter = MoviesPagerAdapter(supportFragmentManager, movies)
 viewPager.adapter = pagerAdapter</pre>
     <p>
-        This initializes your
+        这样就初始化了
         <code>
             MoviesPagerAdapter
         </code>
-        and connects it to the
+        ，并连接到
         <code>
             ViewPager
         </code>
-        .
+        上。
     </p>
     <div class="note">
         <p>
@@ -649,9 +649,9 @@ viewPager.adapter = pagerAdapter</pre>
         </p>
     </div>
     <p>
-        Build and run. The app should behave like the original version, but you
-        can now navigate between movies by swiping rather than pressing buttons
-        :].
+        Build and run. 
+        The app should behave like the original version, 
+        but you can now navigate between movies by swiping rather than pressing buttons :].
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/swipe.gif">
