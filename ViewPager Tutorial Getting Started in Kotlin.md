@@ -854,99 +854,95 @@ viewPager.adapter = pagerAdapter</pre>
         来切换到那个页。
     </p>
     <p>
-        If you try to add a
+        如果你尝试添加
         <code>
             TabLayout
         </code>
-        to your
+        到
         <code>
             ViewPager
         </code>
-        you won’t be able to see any tabs because the layout will be automatically populated with as many tabs as the
+        上，不会看到任何的tab。因为TabLayout会自动被大量的tab填充（tab的数量是由
         <code>
             FragmentStatePagerAdapter
         </code>
-        tells it by calling the
+        的
         <code>
             getCount()
         </code>
-        method, which now returns a pretty large number. 
-        Trying to fit that many tabs on your screen will make them really narrow.
+        方法得到的，它给出了一个相当大的数字）。试图在屏幕上同时显示如此多的tab 会让它们变得相当狭小。
     </p>
     <p>
-        Luckily, there is a third party library called
+        幸运的是，有一个叫
         <a href="https://github.com/nshmura/RecyclerTabLayout" target="_blank">
             RecyclerTabLayout
         </a>
-        that solves this problem. 
-        The library uses the
+        的第三方库可以解决这个问题。它使用
         <code>
             RecyclerView
         </code>
-        in its implementation. 
-        You can learn more about the mysterious
-        <code>
-            RecyclerView
-        </code>
-        from
+        来进行实现。你可以在
         <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
         target="_blank">
-            this tutorial
+            这篇教程
         </a>
-        . To install the library, open up
+        中学习更多相关
+        <code>
+            RecyclerView
+        </code>
+        的知识。要安装这个库，打开
         <code>
             build.grade (Module: app)
         </code>
-        and add the following line inside
+        并添加下列的代码到
         <code>
             dependencies
         </code>
-        :
+        中：
     </p>
     <pre lang="groovy" class="language-groovy">implementation 'com.nshmura:recyclertablayout:1.5.0'
 </pre>
     <p>
-        The recyclertablayout library uses an old version of the Android Support Libraries, 
-        so you’ll need to add the following to make the Gradle sync happy:
+        RecyclerTabLayout使用了老版本的Android支持库，因此你需要添加以下的内容使Gradle的同步更加顺畅：
     </p>
     <pre lang="groovy" class="language-groovy">implementation 'com.android.support:recyclerview-v7:26.1.0'
 </pre>
     <p>
-        Tap
+        点击弹出的黄色窗口中的
         <em>
             Sync Now
         </em>
-        on the yellow pop-up and wait until Android Studio installs the library.
+        ，并等待Android Studio进行安装。
     </p>
     <p>
-        Open
+        打开
         <em>
             activity_main.xml
         </em>
-        and paste the following snippet above the
+        ，并添加下列的代码片段到
         <code>
             ViewPager
         </code>
-        :
+        上方：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">com.nshmura.recyclertablayout.RecyclerTabLayout</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recyclerTabLayout"</span>
     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"@dimen/tabs_height"</span>
     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span> /&gt;</span></pre>
     <p>
-        Now add the following property to your
+        现在，添加下列的property到你的
         <code>
             ViewPager
         </code>
-        to align it below the
+        上，让它对齐
         <code>
             RecyclerTabLayout
         </code>
-        :
+        的底部：
     </p>
     <pre lang="xml" class="language-xml hljs">android:layout_below="@id/recyclerTabLayout"</pre>
     <p>
-        Your whole layout file should now look like this:
+        现在你整个的布局文件看起来应当是这样：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">RelativeLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
                 <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
@@ -967,87 +963,80 @@ viewPager.adapter = pagerAdapter</pre>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">RelativeLayout</span>&gt;</span></pre>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        and import
+        并import
         <code>
             RecyclerTabLayout
         </code>
-        at the top of the file, like this:
+        到文件的顶部，就像这样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> com.nshmura.recyclertablayout.RecyclerTabLayout</pre>
     <p>
-        Now add the following at the top of the class to declare a
+        现在添加下列的代码到类的顶部，来声明一个
         <code>
             RecyclerTabLayout
         </code>
-        instance:
+        的实例：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> recyclerTabLayout: RecyclerTabLayout</pre>
     <p>
-        Add this block of code inside
+        添加下列的代码到
         <code>
             onCreate()
         </code>
-        , above the line where you set
+        中，就在你设置
         <code>
             viewPager.currentItem
         </code>
-        :
+        的上方：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">recyclerTabLayout = findViewById(R.id.recyclerTabLayout)
 recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
     <p>
-        The first line connects your
+        第一行代码将你的
         <code>
             RecyclerTabLayout
         </code>
-        instance to the xml view and the second one links the
+        实例连接到xml view上，第二行代码则将
         <code>
             RecyclerTabLayout
         </code>
-        to your
+        连接到你的
         <code>
             ViewPager
         </code>
-        .
+        上。
     </p>
     <p>
-        The last thing you have to do is let the
+        你必须做的最后一件事，就是让
         <code>
             RecyclerTabLayout
         </code>
-        know what titles to display on the Tabs. Open
+        知道每个tab上该展示什么标题。打开
         <em>
             MoviesPagerAdapter.kt
         </em>
-        and add the following method inside the class:
+        ，并添加下列的方法到这个类中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPageTitle</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span>: CharSequence {
   <span class="hljs-keyword">return</span> movies[position % movies.size].title
 }</pre>
     <p>
-        This method tells the
+        这个方法就告知了
         <code>
             TabLayout
         </code>
-        what to write on the tab placed at a particular position. 
-        It returns the title of the movie that corresponds with the fragment created inside
-        <code>
-            getItem(position: Int)
-        </code>
-        .
+        上的每个tab该展示什么样的内容。也就是对应那部电影的标题。
     </p>
     <p>
-        Run the app. 
-        You should be able to see the tabs changing as you swipe through the pages. 
-        Try tapping on a tab and see how the
+        运行app。你会看到当你改变当前页面的时候，tab也会发生相应的变化。尝试点击一个tab，
         <code>
             ViewPager
         </code>
-        will scroll automatically to the corresponding movie :].
+        就会自动滚动到相应的电影上。:]
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/tabs.gif">
@@ -1056,7 +1045,7 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         </a>
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1068,10 +1057,11 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1079,11 +1069,11 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         </div>
     </div>
     <p>
-        You can download the final project for this tutorial
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/FavoriteMovies-final.zip">
-            here
+            这里
         </a>
-        .
+        下载本教程的最终项目。
     </p>
     <p>
         Nice job! You’ve modified an app and gave it a nicer UI with the help
