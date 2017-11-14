@@ -420,55 +420,50 @@
     </p>
     <ul>
         <li>
-            The
             <em>
                 FragmentPagerAdapter
             </em>
-            stores the fragments in memory as long as the user can navigate between them. 
-            When a fragment is not visible, the
+            会把需要进行切换的fragment储存到内存中。当fragment不在可见的时候，
             <code>
                 PagerAdapter
             </code>
-            will detach it, but not destroy it, 
-            so the fragment instance remains alive in the
+            会将其分离，而不是摧毁它，因此fragment仍然存活在
             <code>
                 FragmentManager
             </code>
-            . It will release it from memory only when the
+            中。fragment会在它所在的
             <code>
                 Activity
             </code>
-            shuts down. 
-            This can make the transition between pages fast and smooth,
-            but it could cause memory issues in your app if you need many fragments.
+            被关闭的时候，才会关闭。这样可以使得页面之间的切换快速而平滑，且在fragment较多时不引起内存的问题。
         </li>
         <li>
-            The
             <em>
                 FragmentStatePagerAdapter
             </em>
-            makes sure to destroy all the fragments the user does not see and only keep their saved states in the
+            会将所有用户无法看到的fragment进行销毁，只把它们的states保存到
             <code>
                 FragmentManager
             </code>
-            , hence the name. When the user navigates back to a fragment, 
-            it will restore it using the saved state. This
+            中，因此得到了这个名字。当用户再返回到这个fragment的时候，就会使用之前保存的state来恢复它。这个
             <code>
                 PagerAdapter
             </code>
-            requires much less memory, 
-            but the process of switching between pages can be slower.
+            所需的内存较少，但处理页面之间的切换过程也较慢。
         </li>
     </ul>
     <p>
-        It’s time to decide. Your list of movies has only five items, so the
+        It’s time to decide. 
+        Your list of movies has only five items, so the
         <code>
             FragmentPagerAdapter
         </code>
-        might work after all. But what if you get bored after this tutorial and
-        watch all Harry Potter movies? You’ll have to add 8 more items to the JSON
-        file. What if you then decide to add your favorite TV series as well? That
-        array can become pretty large. In this case, the
+        might work after all. 
+        But what if you get bored after this tutorial and watch all Harry Potter movies? 
+        You’ll have to add 8 more items to the JSON file. 
+        What if you then decide to add your favorite TV series as well? 
+        That array can become pretty large. 
+        In this case, the
         <code>
             FragmentStatePagerAdapter
         </code>
