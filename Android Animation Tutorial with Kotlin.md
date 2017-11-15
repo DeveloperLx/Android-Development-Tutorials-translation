@@ -7,8 +7,8 @@
         <em>
             Update note
         </em>
-        : This tutorial has been updated to Kotlin and Android Studio 3.0 by Lisa
-        Luo. The original tutorial was written by Artem Kholodnyi.
+        : This tutorial has been updated to Kotlin and Android Studio 3.0 by Lisa Luo. 
+        The original tutorial was written by Artem Kholodnyi.
     </div>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/IntroToAnimation-feature-250x250.png"
@@ -17,75 +17,66 @@
         sizes="(max-width: 250px) 100vw, 250px">
     </p>
     <p>
-        It’s hard to imagine the mobile experience without animated elements–they’re
-        fun, beautiful and hold the power of not only guiding users gracefully
-        through an app, but also bringing screens to life.
+        很难想象没有动画元素的移动体验 - 它们漂亮，有趣，不仅可以引导用户优雅地使用app，还可以让屏幕变得生动起来。
     </p>
     <p>
-        Building animations that make on-screen objects seem alive may look like
-        aerospace engineering at first, but fear not! Android has quite a few tools
-        to help you create animations with relative ease.
+        构建动画使屏幕生动起来，开始听着像是一个航天工程，但是不要害怕！Android中有很多工具可以帮助你相对容易地创建动画。
     </p>
     <p>
-        You’ll learn to get comfortable with some essential animation tools in
-        this tutorial as you work through launching Doge on a rocket into space
-        (maybe even to the moon) and hopefully get it back safely on the ground
-        :]
+        你将在本教程中学习如何使用一些基本的动画工具，来将一个火箭中的Doge发射到太空中（甚至是月球上），然后安全返回到地面上:]
     </p>
     <p>
-        By creating these Doge animations, you’ll learn how to:
+        通过创建这些Doge的动画，你会学到如何：
     </p>
     <ul>
         <li>
-            Create
+            创建
             <em>
                 property animations
             </em>
-            — the most useful and simple Android animations
+            — 它是最常用最简单的Android动画
         </li>
         <li>
-            Move and fade Android Views
+            移动和隐藏Android的View
         </li>
         <li>
-            Combine animations in a sequence or start them simultaneously
+            把动画连接成一个序列，或同时启动它们
         </li>
         <li>
-            Repeat and reverse animations
+            重复和倒转动画
         </li>
         <li>
-            Adjust the animations’ timing
+            调整动画的时间效果
         </li>
         <li>
-            Become a bit of a rocket scientist. :]
+            变成一个火箭科学家。:]
         </li>
     </ul>
     <div class="note">
         <p>
             <em>
-                Prerequisites
+                预备知识：
             </em>
-            : This Android tutorial is all about animation, so you need basic knowledge
-            of Android programming and familiarity with Kotlin, Android Studio and
-            XML layouts.
+            ：本教程是完全关于动画的，因此你需要Android编程的基本知识，并且熟悉Kotlin，Android Studio和XML layouts。
         </p>
         <p>
-            If you’re completely new to Android, you might want to first check out
+            如果你是一个Android的纯小白，请首先阅读
             <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
             target="_blank" title="Android Tutorial for Beginners: Part 1">
-                Beginning Android Development Part One
+                开始Android开发 第一部分
             </a>
             .
         </p>
     </div>
     <p>
-        Many animation. Such code. Fast rocket.
+        很多的动画。这样的代码。快速的火箭。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Animations are such a fun topic to explore! The best way to master building
-        animations is by getting your hands dirty in code. :]
+        Animations are such a fun topic to explore! 
+        The best way to master building animations is by getting your hands dirty in code. :]
     </p>
     <p>
         First, download the
