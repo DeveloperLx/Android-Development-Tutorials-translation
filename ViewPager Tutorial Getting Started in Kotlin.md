@@ -1076,85 +1076,79 @@ recyclerTabLayout.setUpWithViewPager(viewPager)</pre>
         下载本教程的最终项目。
     </p>
     <p>
-        Nice job! You’ve modified an app and gave it a nicer UI with the help
-        of
+        Nice job！你已在
         <code>
             ViewPager
         </code>
-        . You’ve also added a pretty cool
+        的帮助下为这个app增加了更棒的UI。你还添加了超酷的
         <code>
             TabLayout
         </code>
-        and implemented the endless scroll. 
-        In addition, you learned about the
+        ，并实现了无穷的滚动。除此之外，你还学习了
         <code>
             PagerAdapter
         </code>
-        and had to choose which of the
+        及如何为你的app在
         <code>
             FragmentPagerAdapter
         </code>
-        and
+        和
         <code>
             FragmentStatePagerAdapter
         </code>
-        is best for you application.
+        直接进行选择。
     </p>
     <p>
-        If you want to read more about the
+        如果你想了解更多关于
         <code>
             ViewPager
         </code>
-        have a look at the
+        的内容，请访问
         <a href="https://developer.android.com/reference/android/support/v4/view/ViewPager.html"
         target="_blank">
             documentation
         </a>
-        . You can try and customize the transition animation with the help of
+        。你可以在
         <code>
             PageTransformer
         </code>
-        . Check out
+        的帮助下自定义过渡的动画。访问
         <a href="https://developer.android.com/training/animation/screen-slide.html#pagetransformer"
         target="_blank">
-            this tutorial
+            这篇教程
         </a>
-        for that.
+        以了解更多的内容。
     </p>
     <p>
         <em>
-            Bonus challenge:
+            额外的挑战：
         </em>
-        You can implement dot indicators for your pages as seen in many onboarding flows.
+        你可以在很多流程指导页中看到点指示符。你可以在
         <a href="https://stackoverflow.com/questions/38459309/how-do-you-create-an-android-view-pager-with-a-dots-indicator"
         target="_blank">
-            Here
+            这里
         </a>
-        you can find a nice way of creating dot indicators. 
-        Note that this solution won’t work with your final
+        找到一个创建点指示符的很好办法。注意这个解决方案并不适用于本教程中完成的
         <code>
             ViewPager
         </code>
-        from this tutorial as it needs
+        ，因为它需要
         <code>
             PagerAdapter
         </code>
-        ‘s
+        的
         <code>
             getCount()
         </code>
-        method to return the exact number of pages. 
-        You can try implementing the indicators instead of the endless scroll. 
-        This time try using the default
+        方法来返回页面的确切个数。你可以尝试实现指示符以替代无穷滚动的效果。这次可以尝试使用默认的
         <a href="https://developer.android.com/reference/android/support/design/widget/TabLayout.html"
         target="_blank">
             TabLayout
         </a>
-        instead of the third party library. 
-        You can download the solution
+        来替代第三方库。你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/FavoriteMovies-challenge.zip">
-            here
+            这里
         </a>
-        .
+        下载解决方案。
     </p>
 </div>
