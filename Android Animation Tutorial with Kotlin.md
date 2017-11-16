@@ -102,16 +102,14 @@
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        You should see two static images: Doge and the rocket, and Doge is ready
-        to take a ride. For now, all the screens are the same and none are yet
-        animated.
+        你会看到两张静态的图片：Doge和火箭，Doge已准备好搭乘。当期所有的页面都是相同的，没有任何动画。
     </p>
     <h2>
-        How do Property Animations Work?
+        如何让属性动画work起来？
     </h2>
     <p>
-        Before you work with the first animation, let’s take a walk down theory
-        road so that you’re clear on the logic behind the magic. :]
+        Before you work with the first animation, 
+        let’s take a walk down theory road so that you’re clear on the logic behind the magic. :]
     </p>
     <p>
         Imagine that you need to animate a rocket launch from the bottom edge
