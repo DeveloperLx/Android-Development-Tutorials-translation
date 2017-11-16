@@ -124,7 +124,7 @@
         下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/AllTheRages-Starter-1.zip"
         sl-processed="1">
-            起始项目
+            初始项目
         </a>
         ，解压并启动
         <em>
@@ -153,7 +153,7 @@
         </a>
     </p>
     <p>
-        选择起始项目的根目录，并点击
+        选择初始项目的根目录，并点击
         <em>
             OK
         </em>
@@ -375,7 +375,7 @@
         最终，所有的暴走漫画会在启动的时候被展示位一个列表，点击其中的一项则会这幅漫画相应的详情。首先你将会创建详情页。
     </p>
     <p>
-        在Android Studio中打开起始项目，并在
+        在Android Studio中打开初始项目，并在
         <em>
             app -&gt; res -&gt; layout
         </em>

@@ -57,7 +57,7 @@
         <em>
             注意：
         </em>
-        本教程假定你有Java语言下Android开发相关的经验。如果你完全是新手，对起始项目有很大的疑问，或是不熟悉Android Studio，请访问我们的
+        本教程假定你有Java语言下Android开发相关的经验。如果你完全是新手，对初始项目有很大的疑问，或是不熟悉Android Studio，请访问我们的
         <a href="https://www.raywenderlich.com/android-tutorials" target="_blank"
         title="Android tutorials" sl-processed="1">
             Android教程
@@ -108,7 +108,7 @@
         下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/09/omg-android-starter-1.zip"
         sl-processed="1">
-            起始项目
+            初始项目
         </a>
         ，提取并在Android Studio中打开它。
     </p>

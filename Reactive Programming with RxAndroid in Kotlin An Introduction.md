@@ -86,7 +86,7 @@
         下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/cheesefinder-starter.zip"
         sl-processed="1">
-            本教程的起始项目
+            本教程的初始项目
         </a>
         并在Android Studio 3.0 Beta 5或以上的版本中打开它。
     </p>

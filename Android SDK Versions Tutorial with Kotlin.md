@@ -77,7 +77,7 @@
     <p>
         下载本教程的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/continents-starter.zip">
-            起始项目
+            初始项目
         </a>
         ，并解压zip文件获取项目。
     </p>
@@ -90,7 +90,7 @@
         <em>
             Open an existing Android Studio project
         </em>
-        ，并打开起始项目：
+        ，并打开初始项目：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/ASOpen.jpeg">
@@ -105,7 +105,7 @@
         <em>
             File / Open
         </em>
-        以找到起始项目的目录。
+        以找到初始项目的目录。
     </p>
     <p>
         如果系统提示你安装（或更新到）新版本的Android构建工具，或提示更新Gradle插件的版本，请按照它的要求进行操作。

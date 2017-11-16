@@ -121,7 +121,7 @@
         Travel Wishlist是一个非常简单的app。用户可以在上面看到一个来自全世界的图片的网格，并可以点击每个图片来添加相关的笔记。
     </p>
     <p>
-        Build并运行起始项目，你会看到一个带有基本界面的页面：
+        Build并运行初始项目，你会看到一个带有基本界面的页面：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/08/Screenshot_1503191407.png">
@@ -1023,7 +1023,7 @@ Palette.from(photo).generate { palette -&gt;
         布局上，通过使用一些新的质感设计API来让它变得更酷。
     </p>
     <p>
-        首先，你希望看到在起始项目中的详情视图的样子。添加下列的代码到
+        首先，你希望看到在初始项目中的详情视图的样子。添加下列的代码到
         <code>
             DetailActivity
         </code>
@@ -1814,7 +1814,7 @@ applyPalette(palette)
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">layout</span>=<span class="hljs-string">"@layout/toolbar"</span> /&gt;</span>
 </pre>
     <p>
-        这只包含了一个工具栏的布局，作为起始项目的一部分来提供到当前的布局中。现在你需要对详情activity的布局作出类似的更改。
+        这只包含了一个工具栏的布局，作为初始项目的一部分来提供到当前的布局中。现在你需要对详情activity的布局作出类似的更改。
     </p>
     <p>
         打开
