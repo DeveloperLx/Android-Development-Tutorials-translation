@@ -625,65 +625,64 @@ valueAnimator.start()
     </p>
     <ol>
         <li>
-            Changing the
+            将
             <code>
                 valueAnimator
             </code>
-            values to go from
+            的值修改为从
             <code>
                 0f
             </code>
-            to
+            到
             <code>
                 360f
             </code>
-            causes the rocket to make a full turn. Note that you could create a U-turn
-            effect with
+            ，使火箭旋转一周。注意你还可以将值改为从
             <code>
                 0f
             </code>
-            to
+            到
             <code>
                 180f
             </code>
-            .
+            来创建一个U型旋转的效果。
         </li>
         <li>
-            Instead of setting
+            将设置
             <code>
                 translationY
             </code>
-            , you set the rocket’s
+            修改为设置
             <code>
                 rotation
             </code>
-            because that’s what needs to change.
+            ，它是需要进行改变的属性。
         </li>
     </ol>
     <p>
-        Build, run and select
+        运行项目，选择
         <em>
             Spin a rocket
         </em>
-        . Tap on the new screen:
+        。点击新出现的页面：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/spin.gif"
         alt="" width="283" height="500" class="aligncenter size-large wp-image-173336">
     </p>
     <h3>
-        Accelerate the Launch
+        加速启动
     </h3>
     <p>
-        Open
+        打开
         <em>
             AccelerateRocketAnimationActivity.kt
         </em>
-        and add the following code to your old friend
+        ，并添加下列的代码到你的老朋友
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
@@ -700,227 +699,221 @@ valueAnimator.duration = BaseAnimationActivity.DEFAULT_ANIMATION_DURATION
 valueAnimator.start()
 </pre>
     <p>
-        The above code is identical to
-        <code>
-            onStartAnimation()
-        </code>
-        in
+        上述代码和
         <em>
             LaunchRocketValueAnimationActivity.kt
         </em>
-        except for one line: the interpolator used to set
+        中的
         <code>
-            valueAnimator.interpolator
+            onStartAnimation()
         </code>
-        .
+        只有一行不同：插值器发生了变化。
     </p>
     <p>
-        Build, run and select
+        运行项目，选择列表中的
         <em>
             Accelerate a rocket
         </em>
-        in the list. Tap on the new screen to see how your rocket behaves.
+        。点击出现的页面，观察火箭的变化。
     </p>
     <p>
-        Again, we see that poor Doge doesn’t catch the rocket to the moon…poor
-        fella. Hang in there, buddy!
+        同样，可怜的Doge还是没有赶上火箭...可怜的家伙。先搁置一下吧！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/accelerate.gif"
         alt="accelerate" width="272" height="484" class="aligncenter size-full wp-image-134549">
     </p>
     <p>
-        Since you used
+        由于使用了
         <code>
             AccelerateInterpolator
         </code>
-        , you should see your rocket accelerating after liftoff. Feel free to
-        play around with interpolators if you’d like. I’ll sit here and wait. I
-        promise :]
+        ，你可以看到火箭在发射后进行了加速。你可以自己先把玩一下插值器，我承诺会停下来等你 :]
     </p>
     <h2>
-        Which Properties Can You Animate?
+        哪些属性可以添加动画？
     </h2>
     <p>
-        Until now, you’ve only animated position and rotation for
+        到目前为止，你只为
         <code>
             View
         </code>
-        , but
+        的位置和旋转添加过动画，但
         <code>
             ValueAnimator
         </code>
-        doesn’t care what you do with the value that it supplies.
+        并不关心你对提供的值所进行的操作。
     </p>
     <p>
-        You can tell
+        你可以为
         <code>
             ValueAnimator
         </code>
-        to animate the value using any of the following types:
+        传递下列类型的值来构建动画：
     </p>
     <ul>
         <li>
             <code>
                 float
             </code>
-            if you create
-            <code>
-                ValueAnimator
-            </code>
-            instance with
+            使用
             <code>
                 ofFloat
             </code>
+            来创建
+            <code>
+                ValueAnimator
+            </code>
+            的实例
         </li>
         <li>
             <code>
                 int
             </code>
-            if you do it with
+            使用
             <code>
                 ofInt
             </code>
+            来创建
+            <code>
+                ValueAnimator
+            </code>
+            的实例
         </li>
         <li>
             <code>
                 ofObject
             </code>
-            is for the cases when
+            在
             <code>
                 float
             </code>
-            or
+            和
             <code>
                 int
             </code>
-            is not enough — it’s often used to animate colors
+            还不够的情况下使用 - 通常用来给颜色添加动画
         </li>
     </ul>
     <p>
-        You can also animate any property of
+        你可以为
         <code>
             View
         </code>
-        . Some examples are:
+        的任何属性添加动画。例如：
     </p>
     <ul>
         <li>
             <code>
                 scaleX
             </code>
-            and
+            和
             <code>
                 scaleY
             </code>
-            – these allow you to scale the view by x-axis or y-axis independently,
-            or you can call both with the same value to animate the view’s size.
+            - 分别在x轴和y轴上对view进行缩放，或同时对两者进行缩放。
         </li>
         <li>
             <code>
                 translationX
             </code>
-            and
+            和
             <code>
                 translationY
             </code>
-            – these allow you to change the view’s on-screen position.
+            - 改变view在屏幕上的位置。
         </li>
         <li>
             <code>
                 alpha
             </code>
-            – animate view’s transparency;
+            - 对view的透明度添加动画；
             <code>
                 0
             </code>
-            stands for completely transparent and
+            代表完全透明，
             <code>
                 1
             </code>
-            for completely opaque.
+            代表完全不透明。
         </li>
         <li>
             <code>
                 rotation
             </code>
-            – rotates the view on screen; the argument is in degrees, so
+            - 使view在屏幕上进行旋转；参数使用角度来表示，因此
             <code>
                 360
             </code>
-            means a full clockwise turn. You may specify negative values as well,
-            for instance,
+            就代表一个完整的顺时针方向旋转。你还可以指定负数的值，例如，
             <code>
                 -90
             </code>
-            means a counterclockwise quarter-turn.
+            代表了一个反方向直角角度的旋转。
         </li>
         <li>
             <code>
                 rotationX
             </code>
-            and
+            和
             <code>
                 rotationY
             </code>
-            – the same as
+            - 类似于
             <code>
                 rotation
             </code>
-            but along the x-axis and y-axis. These properties allow you to rotate
-            in 3D.
+            ，但却是基于x轴和y轴进行旋转的。这样就实现了3D的旋转。
         </li>
         <li>
             <code>
                 backgroundColor
             </code>
-            – lets you set a color. The integer argument must specify a color as Android
-            constants
+            - 让你可以设置颜色。如果是整型的参数，必须设置为
             <code>
                 Color.YELLOW
             </code>
-            ,
+            ，
             <code>
                 Color.BLUE
             </code>
-            do.
+            这样的Android常量。
         </li>
     </ul>
     <h3>
         ObjectAnimator
     </h3>
     <p>
-        Meet
         <code>
             ObjectAnimator
         </code>
-        , a subclass of
+        是
         <code>
             ValueAnimator
         </code>
-        . If you only need to animate a single property of a single object,
+        的子类。如果你只想对单个对象的单个属性添加动画，
         <code>
             ObjectAnimator
         </code>
-        may just be your new best friend.
+        就是你最棒的新朋友。
     </p>
     <p>
-        Unlike
+        在
         <code>
             ValueAnimator
         </code>
-        , where you must set a listener and do something with a value,
+        中，你必须设置listener，并对动画的值做出处理。而
         <code>
             ObjectAnimator
         </code>
-        can handle those bits for you almost automagically. :]
+        则可以为你自动进行这些处理。:]
     </p>
     <p>
-        Go to
+        打开
         <em>
             LaunchRocketObjectAnimatorAnimationActivity.kt
         </em>
-        class and enter the following code:
+        类，并输入下列代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">val</span> objectAnimator = ObjectAnimator.ofFloat(rocket, <span class="hljs-string">"translationY"</span>, <span class="hljs-number">0</span>f, -screenHeight)
@@ -930,7 +923,7 @@ objectAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURA
 objectAnimator.start()
 </pre>
     <p>
-        Here’s what you’re doing:
+        上述代码：
     </p>
     <ol>
         <li>
