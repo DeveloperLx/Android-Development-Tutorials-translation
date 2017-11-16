@@ -1628,46 +1628,41 @@ animator.start()
         Animation选项
     </h2>
     <p>
-        Animations are not one-trick ponies that simply stop and go. 
-        They can loop, reverse, run for a specific duration, etc.
+        动画不只有开始和停止这么简单的两招。还可以进行循环，反转，以指定的持续时间来运行，等等。
     </p>
     <p>
-        In Android, you can use the following methods to adjust an animation:
+        在Android中，你可以使用下列的方法来调整动画：
     </p>
     <ul>
         <li>
             <code>
                 repeatCount
             </code>
-            — specifies the number of times the animation should repeat
-            <i>
-                after
-            </i>
-            the initial run.
+            - 指定动画重复的次数。
         </li>
         <li>
             <code>
                 repeatMode
             </code>
-            — defines what this animation should do when it reaches the end
+            - 定义动画结束时要做的事
         </li>
         <li>
             <code>
                 duration
             </code>
-            — specifies the animation’s total duration
+            - 指定动画总的持续时间
         </li>
     </ul>
     <p>
-        Open up
+        打开
         <em>
             FlyThereAndBackAnimationActivity.kt
         </em>
-        , and add the following to
+        ，添加下列代码到
         <code>
             onStartAnimation()
         </code>
-        .
+        中。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">val</span> animator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
@@ -1688,102 +1683,91 @@ animator.duration = <span class="hljs-number">500</span>L
 animator.start()
 </pre>
     <p>
-        In here, you:
+        这里：
     </p>
     <ol>
         <li>
-            Create an animator, as usual
+            和往常一样，创建一个animator
         </li>
         <li>
-            You can set the
+            你可以将
             <code>
                 repeatMode
             </code>
-            to either of the following:
+            设置为以下的一项：
             <ul>
                 <li>
                     <code>
                         RESTART
                     </code>
-                    — restarts the animation from the beginning.
+                    - 从开头重新开始动画。
                 </li>
                 <li>
                     <code>
                         REVERSE
                     </code>
-                    — reverses the animation’s direction with every iteration.
+                    - 每次迭代的时候反转动画的方向。
                 </li>
             </ul>
             <p>
-                In this case, you set it to
+                在本例中，你将它设置为
                 <code>
                     REVERSE
                 </code>
-                because you want the rocket to take off and then go back to the same position where it started.
-                Just like SpaceX! :]
+                ，因为你希望火箭发射后可以返回到它开始时的位置。就像SpaceX一样！:]
             </p>
         </li>
         <li>
-            …Except you’ll do it twice.
+            你还想再执行三次。
         </li>
         <li>
-            Set a duration and start the animation, as usual.
+            像往常一样，设置持续的时间并启动动画。
         </li>
     </ol>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : So why does the third section specify the repeat count at three? 
-            Each up-and-down motion consumes two repetitions, 
-            so you need three to bring Doge back to earth twice: 
-            one to land the first time,
-            and two to launch and land again. 
-            How many times would you like to see Doge bounce? 
-            Play around with it!
+            ：为何将重复的次数设置为3？因为一次的上来下去将消耗两次的重复次数，因此你将这里设置成3，才能将Doge带回地球两次：一次让它返回地面，两次让它再让它重复执行。
         </p>
     </div>
     <p>
-        Run the app. Select
+        运行app。选择列表中的
         <em>
             Fly there and back (Animation options)
         </em>
-        in the list. A new screen is opened. Tap on the screen.
+        。会打开一个新的新的页面。点击它。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/there-and-back.gif"
         alt="there-and-back" width="272" height="484" class="aligncenter size-full wp-image-134385">
     </p>
     <p>
-        You should see your rocket jumping like a grasshopper! Take that, Elon Musk. :]
+        你会看到火箭就像是一个跳动的蚂蚱！
     </p>
     <h2>
-        Declaring Animations in XML
+        在XML中声明动画
     </h2>
     <p>
-        You’ve made it to the best part of this tutorial. 
-        In this final section,
-        you’ll learn how to declare once and use everywhere — yes, that’s right,
-        you’ll be able to reuse your animations with impunity.
+        你已完成了本教程中最棒的一部分。在最后一节，你将学习如何让动画一次声明，处处使用 - 是的，你将可以不受限制的重复使用一个动画。
     </p>
     <p>
-        By defining animations in XML, 
-        you allow reuse of animations throughout your code base.
+        通过在XML中定义动画，你就可以在整个代码库中对它进行重用了。
     </p>
     <p>
-        Defining animations in XML bears some resemblance to composing view layouts.
+        在XML中定义动画，与编写view的布局有一些近似之处。
     </p>
     <p>
-        The starter project has an animation XML in
+        初始的项目在
         <em>
             res/animator
         </em>
-        named
+        目录下有一个名为
         <em>
             jump_and_blink.xml
         </em>
-        . Open the file in the editor, you should see this:
+        的动画xml文件。打开它，你会看到如下的内容：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
@@ -1791,14 +1775,14 @@ animator.start()
 <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>
 </pre>
     <p>
-        The following XML tags are available to you:
+        以下的XML可供使用：
     </p>
     <ul>
         <li>
             <code>
                 set
             </code>
-            — the same as
+            - 等同于
             <code>
                 AnimatorSet
             </code>
@@ -1807,7 +1791,7 @@ animator.start()
             <code>
                 animator
             </code>
-            — the same as
+            - 等同于
             <code>
                 ValueAnimator
             </code>
@@ -1816,49 +1800,49 @@ animator.start()
             <code>
                 objectAnimator
             </code>
-            — you guessed correctly; it stands for
+            - 猜对了；它相当于
             <code>
                 ObjectAnimator
             </code>
         </li>
     </ul>
     <p>
-        When using an
+        当在XML中使用
         <code>
             AnimatorSet
         </code>
-        in XML, you nest the
+        时，你可以把
         <code>
             ValueAnimator
         </code>
-        and
+        和
         <code>
             ObjectAnimator
         </code>
-        objects inside it, similar to how you nest
+        对象嵌入到它的内部。就类似于你在XML文件中，将
         <code>
             View
         </code>
-        objects inside
+        嵌入到
         <code>
             ViewGroup
         </code>
-        objects (
+        （诸如
         <code>
             RelativeLayout
         </code>
-        ,
+        ，
         <code>
             LinearLayout
         </code>
-        , etc.) in layout XML files.
+        等）中。
     </p>
     <p>
-        Replace the contents of
+        使用下列的代码替换
         <em>
             jump_and_blink.xml
         </em>
-        with the following code:
+        的内容：
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
