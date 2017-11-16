@@ -1365,7 +1365,7 @@ animatorSet.start()
         <code>
             ViewPropertyAnimator
         </code>
-        在多个动画同步进行的时候，可以提供更好的性能。它将无效的调用进行优化，对于添加到多个属性上的动画，就只会发生一次调用来进行调整。
+        在多个动画同步进行的时候，可以提供更好的性能。它将无效的调用进行优化，对于添加到多个属性上的动画，只会占用一次调用来进行调整。
     </p>
     <h3>
         为两个对象的同一属性添加动画
@@ -1416,96 +1416,94 @@ animatorSet.start()
             <code>
                 positionAnimator
             </code>
-            — for changing positions of both
+            - 用来改变
             <code>
                 rocket
             </code>
-            and
+            和
             <code>
                 doge
             </code>
+            的位置
         </li>
         <li>
             <code>
                 rotationAnimator
             </code>
-            — for rotating Doge
+            - 用来旋转Doge
         </li>
         <li>
             <code>
                 animatorSet
             </code>
-            — to combine the first two animators
+            - 把前面的两个animator连接起来
         </li>
     </ol>
     <p>
-        Notice that you set translation for
+        注意，你在第一个animator中，一次设置了
         <i>
-            two
+            两个
         </i>
-        objects at once in the first animator.
+        对象的translation。
     </p>
     <p>
-        Run the app and select
+        运行app并选择
         <em>
             Don’t leave Doge behind (Animating two objects)
         </em>
-        . You know what to do now. To the moon!
+        。你知道现在该做什么。去往月球！
     </p>
     <h2>
-        Animation Listeners
+        动画Listeners
     </h2>
     <p>
-        Animation typically implies that a certain action has occurred or will take place. 
-        Typically, whatever happens usually comes at the end of your fancy animation.
+        动画通常意味着一个动作已经发生或即将发生。
     </p>
     <p>
-        You don’t get to observe it, but know that the rocket stops and stays off screen when the animation ends. 
-        If you don’t plan to land it or finish the activity, 
-        you could remove this particular view to conserve resources.
+        你没有观察火箭，但知道当动画结束的时候，它会停下来并停留在屏幕上。如果你不打算把它留在这里或完成activity，就可以将其移除以节省资源。
     </p>
     <p>
         <code>
             AnimatorListener
         </code>
-        — receives a notification from the animator when the following events occur:
+        - 会在发生下列时间时，都到来自animator的通知：
     </p>
     <ul>
         <li>
             <code>
                 onAnimationStart()
             </code>
-            — called when the animation starts
+            — 在动画开始时调用
         </li>
         <li>
             <code>
                 onAnimationEnd()
             </code>
-            — called when the animation ends
+            - 当动画结束时调用
         </li>
         <li>
             <code>
                 onAnimationRepeat()
             </code>
-            — called if the animation repeats
+            - 当动画重复播放时进行调用
         </li>
         <li>
             <code>
                 onAnimationCancel()
             </code>
-            — called if the animation is canceled
+            - 当动画被取消时调用
         </li>
     </ul>
     <p>
-        Open
+        打开
         <em>
             WithListenerAnimationActivity.kt
         </em>
-        and add the following code to
+        并添加下列的代码到
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-keyword">val</span> animator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
@@ -1541,46 +1539,43 @@ animator.duration = <span class="hljs-number">5000</span>L
 animator.start()
 </pre>
     <p>
-        The structure of the code above, 
-        with the exception of the listener part,
-        should look the same as the previous section. 
-        Here’s what you’re doing in there:
+        上述代码的结构，应该看起来和上一节中一样，除了listener这一部分。这里所完成的事有：
     </p>
     <ol>
         <li>
-            Create and set up an animator. You use
+            创建并设置一个animator。你使用了
             <code>
                 ValueAnimator
             </code>
-            to change the position of two objects simultaneously — you can’t do the same thing with a single
+            来同时改变两个对象的位置 - 
             <code>
                 ObjectAnimator
             </code>
-            .
+            无法做到这点。
         </li>
         <li>
-            Add the
+            添加
             <code>
                 AnimatorListener
             </code>
-            .
+            。
         </li>
         <li>
-            Show a toast message when the animation starts
+            当动画开始时展示一条toast消息
         </li>
         <li>
-            And another toast when it ends
+            当动画结束时展示另一条toast消息
         </li>
         <li>
-            Start the animation as usual
+            像往常一样开始动画
         </li>
     </ol>
     <p>
-        Run the app. Select
+        运行app。选择
         <em>
             Animation events
         </em>
-        . Tap on the screen. Look at the messages!
+        。点击屏幕。查看相关的信息！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/events.gif"
@@ -1588,21 +1583,21 @@ animator.start()
     </p>
     <div class="note">
         <em>
-            Note
+            注意
         </em>
-        : You also can add a listener to
-        <code>
-            ViewPropertyAnimator
-        </code>
-        by adding a
-        <code>
-            setListener
-        </code>
-        to a call chain before calling
+        ：你还可以在
         <code>
             start()
         </code>
-        :
+        前将一个
+        <code>
+            setListener
+        </code>
+        添加到调用链中，为
+        <code>
+            ViewPropertyAnimator
+        </code>
+        添加一个listener：
         <p>
         </p>
         <pre lang="kotlin" class="language-kotlin hljs">rocket.animate().setListener(<span class="hljs-keyword">object</span> : Animator.AnimatorListener {
@@ -1610,27 +1605,27 @@ animator.start()
 })
 </pre>
         <p>
-            Alternatively, you can set start and end actions on your View by calling
-            <code>
-                withStartAction(Runnable)
-            </code>
-            and
-            <code>
-                withEndAction(Runnable)
-            </code>
-            after
+            另一种办法，你可以通过在
             <code>
                 animate()
             </code>
-            . It’s the equivalent to an
+            后调用
+            <code>
+                withStartAction(Runnable)
+            </code>
+            和
+            <code>
+                withEndAction(Runnable)
+            </code>
+            来设置开始及结束时要执行的动作。这和使用
             <code>
                 AnimatorListener
             </code>
-            with these actions.
+            是完全等效的。
         </p>
     </div>
     <h2>
-        Animation Options
+        Animation选项
     </h2>
     <p>
         Animations are not one-trick ponies that simply stop and go. 
