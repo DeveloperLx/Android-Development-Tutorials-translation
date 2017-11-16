@@ -435,82 +435,77 @@ frameLayout = findViewById(R.id.container)
 frameLayout.setOnClickListener { onStartAnimation() }
 </pre>
     <p>
-        Here is what you’ve got going on with this code:
+        上述代码：
     </p>
     <ol>
         <li>
-            Call
+            调用父类的
             <code>
                 onCreate()
             </code>
-            on the superclass and then
+            ，然后用布局文件调用
             <code>
                 setContentView(...)
             </code>
-            with the layout file.
+            进行绘制。
         </li>
         <li>
-            Apply XML layout and bind
+            请求XML布局并绑定
             <code>
                 FrameLayout
             </code>
-            ,
+            ，
             <code>
                 rocket
             </code>
-            and
+            和
             <code>
                 doge
             </code>
-            to their corresponding views
+            到它们相应的view上
         </li>
         <li>
-            Set
-            <code>
-                onClickListener
-            </code>
-            on
+            为
             <code>
                 FrameLayout
             </code>
-            .
+            设置
+            <code>
+                onClickListener
+            </code>
+            。
         </li>
         <li>
-            Call
+            每次点击屏幕的时候，就调用
             <code>
                 onStartAnimation()
             </code>
-            whenever the user taps the screen. This is an abstract method defined
-            by each of the activities that extend
+            。它是一个抽象方法，需要在每个继承自
             <code>
                 BaseAnimationActivity
             </code>
-            .
+            的activity中实现。
         </li>
     </ol>
     <p>
-        This basic code is shared by all of the Activities you will be editing
-        in this tutorial. Now that you’re familiar with it, it’s time to start
-        customizing!
+        这些代码将被本教程中所有你需要编辑的Activity共享。熟悉之后，就开始进行定制吧！
     </p>
     <h3>
-        Launch the Rocket
+        发射火箭
     </h3>
     <p>
-        Doge isn’t going anywhere unless you initiate the rocket launch, and it’s
-        the best animation to start with because it’s pretty easy. Who’d have thought
-        that rocket science is so simple?
+        不发射火箭，Doge哪里都去不了。这是一个入门最好的动画，因为它相当得容易。谁能想到火箭科学如此得简单？
     </p>
     <p>
-        Open
+        打开
         <em>
             LaunchRocketValueAnimatorAnimationActivity.kt
         </em>
-        , and add the following code to the body of
+        ，并添加下列的代码到
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
@@ -530,98 +525,87 @@ valueAnimator.start()
 </pre>
     <ol>
         <li>
-            Create an instance of
-            <code>
-                ValueAnimator
-            </code>
-            by calling the static method
+            通过调用静态方法
             <code>
                 ofFloat
             </code>
-            . It accepts the floating point numbers that’ll apply to the specified
-            property of the animated object over time. In this case, the values start
-            at
+            ，来创建一个
+            <code>
+                ValueAnimator
+            </code>
+            的实例，需要被添加动画属性的起始值作为它的参数。在本例中，分别为
             <code>
                 0f
             </code>
-            and end with
+            和
             <code>
                 -screenHeight
             </code>
-            . Android starts screen coordinates at the top-left corner, so the rocket’s
-            Y translation changes from 0 to the negative of the screen height — it
-            moves bottom to top.
+            。Android屏幕坐标系的原点位于屏幕的左上角，因此火箭的Y坐标是从0变化到负的屏幕的高度 - 这样她就会从底部移动到顶部。
         </li>
         <li>
-            Call
+            调用
             <code>
                 addUpdateListener()
             </code>
-            and pass in a listener.
+            方法，并传递一个listener。
             <code>
                 ValueAnimator
             </code>
-            calls this listener with every update to the animated value — remember
-            the default delay of 10 ms.
+            在更新动画值时，都会调用这个listener - 记住默认的延迟为10毫秒。
         </li>
         <li>
-            Get the current value from the animator and cast it to float; current
-            value type is
-            <code>
-                float
-            </code>
-            because you created the
-            <code>
-                ValueAnimator
-            </code>
-            with
+            获取当前的动画值，并将其转化为float类型的值 - 因为你是用
             <code>
                 ofFloat
             </code>
-            .
+            方法创建的
+            <code>
+                ValueAnimator
+            </code>
+            。
         </li>
         <li>
-            Change the rocket’s position by setting its
+            通过设置
             <code>
                 translationY
             </code>
-            value
+            值来改变火箭的位置
         </li>
         <li>
-            Set up the animator’s duration and interpolator.
+            设置动画的持续时间和插值器。
         </li>
         <li>
-            Start the animation.
+            开始动画。
         </li>
     </ol>
     <p>
-        Build and run. Select
+        运行项目。选择列表中的
         <em>
             Launch a Rocket
         </em>
-        in the list. You’ll get a new screen. Tap it!
+        。你会进入一个新的页面。点击它！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/linear-launch.gif"
         alt="linear-launch" width="272" height="484" class="aligncenter size-full wp-image-134552">
     </p>
     <p>
-        That was fun, right? :] Don’t worry about Doge getting left behind — he’ll
-        catch his rocketship to the moon a bit later.
+        是不是很有趣？:] 不要担心Doge被丢在了后面 - 稍候它就会赶上飞船。
     </p>
     <h3>
-        Put a Spin on It
+        旋转
     </h3>
     <p>
-        How about giving the rocket a little spin action? Open
+        如何为火箭添加一个旋转的动作？打开
         <em>
             RotateRocketAnimationActivity.kt
         </em>
-        and add the following to
+        并添加下列的代码到
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
 <span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, <span class="hljs-number">360</span>f)
@@ -637,7 +621,7 @@ valueAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURAT
 valueAnimator.start()
 </pre>
     <p>
-        Can you spot the difference?
+        发现区别了么？
     </p>
     <ol>
         <li>
