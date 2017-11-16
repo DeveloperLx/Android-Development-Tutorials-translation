@@ -251,183 +251,189 @@
         你的第一个动画
     </h2>
     <p>
-        Take some time to familiarize yourself with the project before you move on. The package
+        在继续下一步之前，花一些时间来熟悉项目。
         <code>
             com.raywenderlich.rocketlauncher.animationactivities
         </code>
-        contains
+        这个包包含了
         <em>
             BaseAnimationActivity
         </em>
-        and all other activities that extend this class.
+        和其它继承自这个类的activity。
     </p>
     <p>
-        Open
-        <em>
-            activity_base_animation.xml
-        </em>
-        file in the
+        在
         <em>
             res/layout
         </em>
-        folder.
+        目录中打开
+        <em>
+            activity_base_animation.xml
+        </em>
+        这个文件。
     </p>
     <p>
-        In the root, you’ll find a
+        在根元素中，你会发现一个
         <code>
             FrameLayout
         </code>
-        that contains two instances of
+        ，带有两个含有图片的
         <code>
             ImageView
         </code>
-        with images: one has
+        的实例：一个图片为
         <em>
             rocket.png
         </em>
-        and the other has
+        ，另一个则为
         <em>
             doge.png
         </em>
-        . Both have
+        。两个ImageView的
         <code>
             android:layout_gravity
         </code>
-        set to
+        的值均被设置为
         <code>
             bottom|center_horizontal
         </code>
-        to render the images at the bottom-center of the screen.
+        ，以便将图片绘制在屏幕底部的中央。
     </p>
     <div class="note">
         <p>
             <em>
+                注意
                 Note
             </em>
-            : You’ll do a lot of file navigation in this tutorial. Use these handy
-            shortcuts in Android Studio to move between things easily:
+            ：在本教程中，你会经常进行文件之间的切换。在Android Studio中使用下列的快捷键可以让这项工作变得更轻松：
         </p>
         <ul>
             <li>
                 <p>
-                    Navigate to any file with
+                    在Mac上使用
                     <em>
                         command + shift + O
                     </em>
-                    on Mac /
+                    ，或在Linux和Windows上使用
                     <em>
                         Ctrl + Shift + N
                     </em>
-                    on Linux and Windows
+                    快捷键可以切换到任一文件中
                 </p>
             </li>
             <li>
                 <p>
-                    Navigate to a Kotlin class with
+                    在Mac上使用
                     <em>
                         command + O
                     </em>
-                    on Mac /
+                    ，或在Linux和Windows上使用
                     <em>
                         Ctrl + N
                     </em>
-                    on Linux and Windows
+                    快捷键可以切换Kotlin的类中
                 </p>
             </li>
         </ul>
     </div>
     <p>
+        在本app中，
         <code>
             BaseAnimationActivity
         </code>
-        is a super class of all other animation activities in this app.
+        是其它所有动画activity的超类。
     </p>
     <p>
-        Open
+        打开
         <em>
             BaseAnimationActivity.kt
         </em>
-        and have a look inside. At the top are
+        并查看其中的代码。顶部是
         <code>
             View
         </code>
-        member variables that are accessible from all animation activities:
+        成员变量，可以被所有的动画activity访问：
     </p>
     <ul>
         <li>
             <code>
                 rocket
             </code>
-            is the view with the image of the rocket
+            是带有火箭的图片的view
         </li>
         <li>
             <code>
                 doge
             </code>
-            is the view that contains the Doge image
+            是带有Doge的图片的view
         </li>
         <li>
             <code>
                 frameLayout
             </code>
-            is the FrameLayout that contains both
+            是包含
             <code>
                 rocket
             </code>
-            and
+            和
             <code>
                 doge
             </code>
+            的FrameLayout
         </li>
         <li>
             <code>
                 screenHeight
             </code>
-            will equal the screen height for the sake of convenience
+            等于屏幕的高度，为方便使用而设立
         </li>
     </ul>
     <p>
-        Note that
+        注意
         <code>
             rocket
         </code>
-        and
+        和
         <code>
             doge
         </code>
-        are both a type of
+        都是同一类型的
         <code>
             ImageView
         </code>
-        , but you declare each as a
+        ，但将它们都声明为
         <code>
             View
         </code>
-        since property animations work with all Android Views. Views are also
-        declared as
+        是因为属性动画可以用在所有的Android View上。这些view还被声明成了
         <code>
             lateinit
         </code>
-        values since they are null until the layout is inflated and bound in the
-        appropriate lifecycle event, e.g.
+        的值，因为它们开始都是空的，直到在合适的生命周期方法（如Activity的
         <code>
             onCreate()
         </code>
-        in an Activity.
+        中）被添加和绑定后，才会得到值。
     </p>
     <p>
-        Take a look at
+        观察
         <code>
             onCreate()
         </code>
-        to observe the code:
+        的代码：
     </p>
-    <pre lang="kotlin">
-        // 1 super.onCreate(savedInstanceState) setContentView(R.layout.activity_base_animation)
-        // 2 rocket = findViewById(R.id.rocket) doge = findViewById(R.id.doge)
-        frameLayout = findViewById(R.id.container) // 3 frameLayout.setOnClickListener
-        { onStartAnimation() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+setContentView(R.layout.activity_base_animation)
+
+<span class="hljs-comment">// 2</span>
+rocket = findViewById(R.id.rocket)
+doge = findViewById(R.id.doge)
+frameLayout = findViewById(R.id.container)
+
+<span class="hljs-comment">// 3</span>
+frameLayout.setOnClickListener { onStartAnimation() }
+</pre>
     <p>
         Here is what you’ve got going on with this code:
     </p>
@@ -506,12 +512,22 @@
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        //1 val valueAnimator = ValueAnimator.ofFloat(0f, -screenHeight) //2 valueAnimator.addUpdateListener
-        { val value = it.animatedValue as Float rocket.translationY = value } //5
-        valueAnimator.interpolator = LinearInterpolator() valueAnimator.duration
-        = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION //6 valueAnimator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+
+<span class="hljs-comment">//2</span>
+valueAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+}
+
+<span class="hljs-comment">//5</span>
+valueAnimator.interpolator = LinearInterpolator()
+valueAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+
+<span class="hljs-comment">//6</span>
+valueAnimator.start()
+</pre>
     <ol>
         <li>
             Create an instance of
@@ -607,12 +623,19 @@
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        // 1 val valueAnimator = ValueAnimator.ofFloat(0f, 360f) valueAnimator.addUpdateListener
-        { val value = it.animatedValue as Float // 2 rocket.rotation = value }
-        valueAnimator.interpolator = LinearInterpolator() valueAnimator.duration
-        = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION valueAnimator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, <span class="hljs-number">360</span>f)
+
+valueAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  <span class="hljs-comment">// 2</span>
+  rocket.rotation = value
+}
+
+valueAnimator.interpolator = LinearInterpolator()
+valueAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+valueAnimator.start()
+</pre>
     <p>
         Can you spot the difference?
     </p>
@@ -678,13 +701,20 @@
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        // 1 val valueAnimator = ValueAnimator.ofFloat(0f, -screenHeight) valueAnimator.addUpdateListener
-        { val value = it.animatedValue as Float rocket.translationY = value } //
-        2 - Here set your favorite interpolator valueAnimator.interpolator = AccelerateInterpolator(1.5f)
-        valueAnimator.duration = BaseAnimationActivity.DEFAULT_ANIMATION_DURATION
-        // 3 valueAnimator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> valueAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+valueAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+}
+
+<span class="hljs-comment">// 2 - Here set your favorite interpolator</span>
+valueAnimator.interpolator = AccelerateInterpolator(<span class="hljs-number">1.5</span>f)
+valueAnimator.duration = BaseAnimationActivity.DEFAULT_ANIMATION_DURATION
+
+<span class="hljs-comment">// 3</span>
+valueAnimator.start()
+</pre>
     <p>
         The above code is identical to
         <code>
@@ -908,11 +938,13 @@
         </em>
         class and enter the following code:
     </p>
-    <pre lang="kotlin">
-        // 1 val objectAnimator = ObjectAnimator.ofFloat(rocket, "translationY",
-        0f, -screenHeight) // 2 objectAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
-        objectAnimator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> objectAnimator = ObjectAnimator.ofFloat(rocket, <span class="hljs-string">"translationY"</span>, <span class="hljs-number">0</span>f, -screenHeight)
+
+<span class="hljs-comment">// 2</span>
+objectAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+objectAnimator.start()
+</pre>
     <p>
         Here’s what you’re doing:
     </p>
@@ -1040,13 +1072,23 @@
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        //1 val objectAnimator = ObjectAnimator.ofObject( frameLayout, "backgroundColor",
-        ArgbEvaluator(), ContextCompat.getColor(this, R.color.background_from),
-        ContextCompat.getColor(this, R.color.background_to) ) // 2 objectAnimator.repeatCount
-        = 1 objectAnimator.repeatMode = ValueAnimator.REVERSE // 3 objectAnimator.duration
-        = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION objectAnimator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">val</span> objectAnimator = ObjectAnimator.ofObject(
+  frameLayout,
+  <span class="hljs-string">"backgroundColor"</span>,
+  ArgbEvaluator(),
+  ContextCompat.getColor(<span class="hljs-keyword">this</span>, R.color.background_from),
+  ContextCompat.getColor(<span class="hljs-keyword">this</span>, R.color.background_to)
+)
+
+<span class="hljs-comment">// 2</span>
+objectAnimator.repeatCount = <span class="hljs-number">1</span>
+objectAnimator.repeatMode = ValueAnimator.REVERSE
+
+<span class="hljs-comment">// 3</span>
+objectAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+objectAnimator.start()
+</pre>
     <p>
         In the code above, you:
     </p>
