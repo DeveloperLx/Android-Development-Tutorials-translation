@@ -1222,94 +1222,93 @@ animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATIO
 animatorSet.start()
 </pre>
     <p>
-        Here’s what you’re doing in this block:
+        上述的代码：
     </p>
     <ol>
         <li>
-            Create a new
+            创建了一个新的
             <code>
                 ValueAnimator
             </code>
-            .
+            。
         </li>
         <li>
-            Attach an
+            为ValueAnimator添加一个
             <code>
                 AnimatorUpdateListener
             </code>
-            to the ValueAnimator that updates the rocket’s position.
+            来更新火箭的位置。
         </li>
         <li>
-            Create an
+            创建一个
             <code>
                 ObjectAnimator
             </code>
-            , a second animator that updates the rocket’s rotation.
+            ，用来处理火箭的旋转。
         </li>
         <li>
-            Create a new instance of
+            创建一个
             <code>
                 AnimatorSet
             </code>
-            .
+            的实例。
         </li>
         <li>
-            Specify that you’d like to execute
+            指定同时执行
             <code>
                 positionAnimator
             </code>
-            together with
+            和
             <code>
                 rotationAnimator
             </code>
-            .
+            。
         </li>
         <li>
-            Just as with a typical animator, you set a duration and call
+            就像一般的动画一样，设置它的持续时间，并调用
             <code>
                 start()
             </code>
-            .
+            。
         </li>
     </ol>
     <p>
-        Build and run again. Select the
+        再次运行项目。选择
         <em>
             Launch and spin (AnimatorSet)
         </em>
-        . Tap the screen.
+        。点击屏幕。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/launch-n-spin.gif"
         alt="launch-n-spin" width="272" height="484" class="aligncenter size-full wp-image-134377">
     </p>
     <p>
-        Doge defies the laws of physics with this one.
+        Doge违背了物理学定理。
     </p>
     <p>
-        There’s a nifty tool to simplify animating several properties of the same
-        object. The tool is called…
+        有一个很棒的工具，可以简化给一个对象上多个属性添加动画的过程。它被称作...
     </p>
     <h3>
         ViewPropertyAnimator
     </h3>
     <p>
-        One of the greatest things about animation code that uses
+        使用
         <code>
             ViewPropertyAnimator
         </code>
-        is that it’s easy to write and read — you’ll see.
+        来编写动画相关代码的最重要的一件事，就是它易于去读写 - 你很快就会懂得。
     </p>
     <p>
-        Open
+        打开
         <em>
             LaunchAndSpinViewPropertyAnimatorAnimationActivity.kt
         </em>
-        and add the following call to
+        并添加下列的代码到
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">rocket.animate()
     .translationY(-screenHeight)
@@ -1318,29 +1317,29 @@ animatorSet.start()
     .start()
 </pre>
     <p>
-        In here,
+        这里，
         <code>
             animate()
         </code>
-        returns an instance of
+        方法会返回一个
         <code>
             ViewPropertyAnimator
         </code>
-        so you can chain the calls.
+        的实例，这样你就可以将方法的调用连接起来。
     </p>
     <p>
-        Build and run, select
+        运行项目，选择
         <em>
             Launch and spin (ViewPropertyAnimator)
         </em>
-        , and you’ll see the same animation as in the previous section.
+        ，你就会看到和上一节中相同的代码。
     </p>
     <p>
-        Compare your code for this section to the
+        将本节的代码和上一节中
         <code>
             AnimatorSet
         </code>
-        code snippet that you implemented in the previous section:
+        相关的代码进行比较：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> positionAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
 
@@ -1366,8 +1365,9 @@ animatorSet.start()
         <code>
             ViewPropertyAnimator
         </code>
-        may provide better performance for multiple simultaneous animations. It
-        optimizes invalidated calls, so they only take place once for several properties
+        may provide better performance for multiple simultaneous animations. 
+        It optimizes invalidated calls, 
+        so they only take place once for several properties
         — in contrast to each animated property causing its own invalidation independently.
     </p>
     <h3>
@@ -1378,8 +1378,7 @@ animatorSet.start()
         <code>
             ValueAnimator
         </code>
-        is that you can reuse its animated value and apply it to as many objects
-        as you like.
+        is that you can reuse its animated value and apply it to as many objects as you like.
     </p>
     <p>
         Test it out by opening
@@ -1731,8 +1730,8 @@ animator.start()
                 <code>
                     REVERSE
                 </code>
-                because you want the rocket to take off and then go back to the same position
-                where it started. Just like SpaceX! :]
+                because you want the rocket to take off and then go back to the same position where it started.
+                Just like SpaceX! :]
             </p>
         </li>
         <li>
@@ -1747,11 +1746,12 @@ animator.start()
             <em>
                 Note
             </em>
-            : So why does the third section specify the repeat count at three? Each
-            up-and-down motion consumes two repetitions, so you need three to bring
-            Doge back to earth twice: one to land the first time, and two to launch
-            and land again. How many times would you like to see Doge bounce? Play
-            around with it!
+            : So why does the third section specify the repeat count at three? 
+            Each up-and-down motion consumes two repetitions, 
+            so you need three to bring
+            Doge back to earth twice: one to land the first time,and two to launch and land again. 
+            How many times would you like to see Doge bounce? 
+            Play around with it!
         </p>
     </div>
     <p>
@@ -1942,8 +1942,7 @@ animator.start()
             <code>
                 android:valueTo
             </code>
-            — specify start and end values like you did when you created an instance
-            of
+            — specify start and end values like you did when you created an instance of
             <code>
                 ObjectAnimator
             </code>
