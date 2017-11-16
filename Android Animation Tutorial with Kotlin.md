@@ -108,17 +108,13 @@
         如何让属性动画work起来？
     </h2>
     <p>
-        Before you work with the first animation, 
-        let’s take a walk down theory road so that you’re clear on the logic behind the magic. :]
+        在开始处理第一个动画之前，让我们先走一轮理论，了解一下动画魔法背后的逻辑。:]
     </p>
     <p>
-        Imagine that you need to animate a rocket launch from the bottom edge
-        to the top edge of the screen and that the rocket should make it exactly
-        in 50 ms.
+        想象一下，把一个火箭从屏幕的底部发射到顶部，在50毫秒的时间内完成这个过程。
     </p>
     <p>
-        Here’s a plotted graph that shows how the rocket’s position changes over
-        time:
+        Here’s a plotted graph that shows how the rocket’s position changes over time:
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/linear-interpolator.gif"
