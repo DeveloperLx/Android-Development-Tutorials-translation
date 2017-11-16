@@ -8,8 +8,7 @@
             <em>
                 更新日志
             </em>
-            ：本教程已由Rod Biresch更新至Kotlin，Android 26 (Oreo)及Android Studio 3.0的版本。原教材由Darryl
-            Bayliss编写。
+            ：本教程已由Rod Biresch更新至Kotlin，Android 26 (Oreo)及Android Studio 3.0的版本。原教材由Darryl Bayliss编写。
         </p>
     </div>
     <p>

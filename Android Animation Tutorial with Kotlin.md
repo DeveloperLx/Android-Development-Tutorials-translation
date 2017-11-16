@@ -5,10 +5,9 @@
 <div class="content-wrapper">
     <div class="note">
         <em>
-            Update note
+            更新日志
         </em>
-        : This tutorial has been updated to Kotlin and Android Studio 3.0 by Lisa Luo. 
-        The original tutorial was written by Artem Kholodnyi.
+        ：本教程已由Rod Biresch更新至Kotlin及Android Studio 3.0的版本。原教材由Artem Kholodnyi编写。
     </div>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/09/IntroToAnimation-feature-250x250.png"
@@ -75,8 +74,7 @@
         入门
     </h2>
     <p>
-        Animations are such a fun topic to explore! 
-        The best way to master building animations is by getting your hands dirty in code. :]
+        动画是非常有趣的话题！掌握构建动画的最佳方式就是在实践中进行探索。:]
     </p>
     <p>
         First, download the
