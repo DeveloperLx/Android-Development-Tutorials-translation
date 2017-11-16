@@ -1017,34 +1017,30 @@ objectAnimator.start()
         颜色动画
     </h3>
     <p>
-        Speaking of use cases, there’s animating colors to consider. Neither
+        谈到具体的case，还有颜色动画需要去考虑。通过
         <code>
             ofFloat()
         </code>
-        nor
+        和
         <code>
             ofInt()
         </code>
-        can construct your animator
-        <i>
-            and
-        </i>
-        get good results with colors. You’re better off using
+        都无法构建颜色动画的效果。你最好还要使用
         <code>
             ArgbEvaluator
         </code>
-        .
+        。
     </p>
     <p>
-        Open
+        打开
         <em>
             ColorAnimationActivity.kt
         </em>
-        and put this code into
+        并在
         <code>
             onStartAnimation()
         </code>
-        :
+        中添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-keyword">val</span> objectAnimator = ObjectAnimator.ofObject(
@@ -1064,166 +1060,167 @@ objectAnimator.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURA
 objectAnimator.start()
 </pre>
     <p>
-        In the code above, you:
+        上述的代码：
     </p>
     <ol>
         <li>
-            Call
+            调用
             <code>
                 ObjectAnimator.ofObject()
             </code>
-            and give it the following arguments:
+            并传递下列的参数：
             <ul>
                 <li>
                     <code>
                         frameLayout
                     </code>
-                    — the object with the property to be animated
+                    - 含有待添加动画的属性的对象
                 </li>
                 <li>
                     <code>
                         "backgroundColor"
                     </code>
-                    — the property you want to animate
+                    - 待添加动画的属性
                 </li>
                 <li>
                     <code>
                         ArgbEvaluator()
                     </code>
-                    — an additional argument that specifies how to interpolate between two
-                    different
+                    - 一个额外的参数，指定如何在两个不同的
                     <em>
                         ARGB
                     </em>
-                    (alpha, red, green, blue) color values
+                    （alpha，red，green，blue）颜色值之间进行插值
                 </li>
                 <li>
-                    Start and end color values — here you make use of
+                    开始时和结束时的颜色值 - 这里你使用了
                     <code>
                         ComtextCompat.getColor()
                     </code>
-                    to get the color resource id of a custom color specified in your
+                    ，根据在
                     <code>
                         colors.xml
                     </code>
-                    .
+                    中获取的资源id，来生成相应的颜色值
                 </li>
             </ul>
         </li>
         <li>
-            Set the number of times the animation will repeat by setting the object’s
+            通过设置objectAnimator
             <code>
                 repeatCount
             </code>
-            value. Then you set its
+            的值指定动画重复的次数，然后设置
             <code>
                 repeatMode
             </code>
-            to define what the animation does when it reaches the end. More on this
-            soon!
+            来指定动画结束时的行为。后续会有更多关于这方面的内容！
         </li>
         <li>
-            Set duration and start the animation.
+            设置持续的时间，并启动动画。
         </li>
     </ol>
     <p>
-        Build and run. Pick the
+        运行项目。选择
         <em>
             Background color
         </em>
-        item and tap on the screen.
+        这个item，并点击屏幕。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/bg-color.gif"
         alt="bg-color" width="272" height="484" class="aligncenter size-full wp-image-134368">
     </p>
     <p>
-        That’s amazing! Hey, you’re getting the hang of this pretty quickly. That’s
-        a buttery-smooth background color change :]
+        太赞了！你已逐渐熟悉了其中的套路。这是一个平滑的背景颜色变化动画 :]
     </p>
     <h2>
-        Combining Animations
+        连接动画
     </h2>
     <p>
-        Animating a view is pretty awesome, but so far you’ve changed only one
-        property and one object at a time. Animations need not be so restrictive.
+        为一个view添加动画非常得棒，但到目前为止，你每次只能在一个对象的一个属性上添加动画。动画不应该受到这样的限制。
     </p>
     <p>
-        It’s time to send Doge to the moon! :]
+        现在是时候把Doge发送到月球上了！:]
     </p>
     <p>
         <code>
             AnimatorSet
         </code>
-        allows you to play several animations together or in sequence. You pass
-        your first animator to
+        让你可以同时或按顺序地播放多个动画。把第一个动画animator传递给
         <code>
             play()
         </code>
-        , which accepts an
-        <code>
-            Animator
-        </code>
-        object as an argument and returns a builder.
+        ，它就会返回一个builder。
     </p>
     <p>
-        Then you can call the following methods on that builder, all of which
-        accept
+        接下来你就可以让这个builder调用下列的方法，它们都是以
         <code>
             Animator
         </code>
-        as an argument:
+        作为参数：
     </p>
     <ul>
         <li>
             <code>
                 with()
             </code>
-            — to play the
+            - 会将传递给它的
             <code>
                 Animator
             </code>
-            passed as the argument simultaneously with the first one you specified
-            in
+            与你在
             <code>
                 play()
             </code>
+            中指定的动画同时进行播放
         </li>
         <li>
             <code>
                 before()
             </code>
-            — to play it before
+            - 在上一动画之前播放
         </li>
         <li>
             <code>
                 after()
             </code>
-            — to play it after
+            - 在上一动画之后播放
         </li>
     </ul>
     <p>
         You can create chains of calls such as these.
     </p>
     <p>
-        Open
+        在编辑器中打开
         <em>
             LaunchAndSpinAnimatorSetAnimatorActivity.kt
         </em>
-        in your editor, and put the following code into
+        ，并在
         <code>
             onStartAnimation()
         </code>
-        :
+        中添加下列的代码：
     </p>
-    <pre lang="kotlin">
-        // 1 val positionAnimator = ValueAnimator.ofFloat(0f, -screenHeight) //
-        2 positionAnimator.addUpdateListener { val value = it.animatedValue as
-        Float rocket.translationY = value } // 3 val rotationAnimator = ObjectAnimator.ofFloat(rocket,
-        "rotation", 0f, 180f) // 4 val animatorSet = AnimatorSet() // 5 animatorSet.play(positionAnimator).with(rotationAnimator)
-        // 6 animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
-        animatorSet.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> positionAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+
+<span class="hljs-comment">// 2</span>
+positionAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+}
+
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">val</span> rotationAnimator = ObjectAnimator.ofFloat(rocket, <span class="hljs-string">"rotation"</span>, <span class="hljs-number">0</span>f, <span class="hljs-number">180</span>f)
+<span class="hljs-comment">// 4</span>
+<span class="hljs-keyword">val</span> animatorSet = AnimatorSet()
+<span class="hljs-comment">// 5</span>
+animatorSet.play(positionAnimator).with(rotationAnimator)
+<span class="hljs-comment">// 6</span>
+animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+animatorSet.start()
+</pre>
     <p>
         Here’s what you’re doing in this block:
     </p>
@@ -1314,10 +1311,12 @@ objectAnimator.start()
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        rocket.animate() .translationY(-screenHeight) .rotationBy(360f) .setDuration(BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION)
-        .start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">rocket.animate()
+    .translationY(-screenHeight)
+    .rotationBy(<span class="hljs-number">360</span>f)
+    .setDuration(BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION)
+    .start()
+</pre>
     <p>
         In here,
         <code>
@@ -1343,14 +1342,20 @@ objectAnimator.start()
         </code>
         code snippet that you implemented in the previous section:
     </p>
-    <pre lang="kotlin">
-        val positionAnimator = ValueAnimator.ofFloat(0f, -screenHeight) positionAnimator.addUpdateListener
-        { val value = it.animatedValue as Float rocket?.translationY = value }
-        val rotationAnimator = ObjectAnimator.ofFloat(rocket, "rotation", 0f, 180f)
-        val animatorSet = AnimatorSet() animatorSet.play(positionAnimator).with(rotationAnimator)
-        animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
-        animatorSet.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> positionAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+
+positionAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket?.translationY = value
+}
+
+<span class="hljs-keyword">val</span> rotationAnimator = ObjectAnimator.ofFloat(rocket, <span class="hljs-string">"rotation"</span>, <span class="hljs-number">0</span>f, <span class="hljs-number">180</span>f)
+
+<span class="hljs-keyword">val</span> animatorSet = AnimatorSet()
+animatorSet.play(positionAnimator).with(rotationAnimator)
+animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+animatorSet.start()
+</pre>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/viewanimate.png"
         alt="" width="320" height="320" class="aligncenter size-medium wp-image-173339"
@@ -1387,15 +1392,27 @@ objectAnimator.start()
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        //1 val positionAnimator = ValueAnimator.ofFloat(0f, -screenHeight) positionAnimator.addUpdateListener
-        { val value = it.animatedValue as Float rocket.translationY = value doge.translationY
-        = value } //2 val rotationAnimator = ValueAnimator.ofFloat(0f, 360f) rotationAnimator.addUpdateListener
-        { val value = it.animatedValue as Float doge.rotation = value } //3 val
-        animatorSet = AnimatorSet() animatorSet.play(positionAnimator).with(rotationAnimator)
-        animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
-        animatorSet.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">val</span> positionAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+positionAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+  doge.translationY = value
+}
+
+<span class="hljs-comment">//2</span>
+<span class="hljs-keyword">val</span> rotationAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, <span class="hljs-number">360</span>f)
+rotationAnimator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  doge.rotation = value
+}
+
+<span class="hljs-comment">//3</span>
+<span class="hljs-keyword">val</span> animatorSet = AnimatorSet()
+animatorSet.play(positionAnimator).with(rotationAnimator)
+animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+animatorSet.start()
+</pre>
     <p>
         In the above code you just created three animators:
     </p>
@@ -1497,17 +1514,39 @@ objectAnimator.start()
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        //1 val animator = ValueAnimator.ofFloat(0f, -screenHeight) animator.addUpdateListener
-        { val value = it.animatedValue as Float rocket.translationY = value doge.translationY
-        = value } // 2 animator.addListener(object : Animator.AnimatorListener
-        { override fun onAnimationStart(animation: Animator) { // 3 Toast.makeText(applicationContext,
-        "Doge took off", Toast.LENGTH_SHORT) .show() } override fun onAnimationEnd(animation:
-        Animator) { // 4 Toast.makeText(applicationContext, "Doge is on the moon",
-        Toast.LENGTH_SHORT) .show() finish() } override fun onAnimationCancel(animation:
-        Animator) {} override fun onAnimationRepeat(animation: Animator) {} })
-        // 5 animator.duration = 5000L animator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-keyword">val</span> animator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+
+animator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+  doge.translationY = value
+}
+
+<span class="hljs-comment">// 2</span>
+animator.addListener(<span class="hljs-keyword">object</span> : Animator.AnimatorListener {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAnimationStart</span><span class="hljs-params">(animation: <span class="hljs-type">Animator</span>)</span></span> {
+    <span class="hljs-comment">// 3</span>
+    Toast.makeText(applicationContext, <span class="hljs-string">"Doge took off"</span>, Toast.LENGTH_SHORT)
+        .show()
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAnimationEnd</span><span class="hljs-params">(animation: <span class="hljs-type">Animator</span>)</span></span> {
+    <span class="hljs-comment">// 4</span>
+    Toast.makeText(applicationContext, <span class="hljs-string">"Doge is on the moon"</span>, Toast.LENGTH_SHORT)
+        .show()
+    finish()
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAnimationCancel</span><span class="hljs-params">(animation: <span class="hljs-type">Animator</span>)</span></span> {}
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onAnimationRepeat</span><span class="hljs-params">(animation: <span class="hljs-type">Animator</span>)</span></span> {}
+})
+
+<span class="hljs-comment">// 5</span>
+animator.duration = <span class="hljs-number">5000</span>L
+animator.start()
+</pre>
     <p>
         The structure of the code above, with the exception of the listener part,
         should look the same as the previous section. Here’s what you’re doing
@@ -1573,10 +1612,10 @@ objectAnimator.start()
         :
         <p>
         </p>
-        <pre lang="kotlin">
-            rocket.animate().setListener(object : Animator.AnimatorListener { // Your
-            action })
-        </pre>
+        <pre lang="kotlin" class="language-kotlin hljs">rocket.animate().setListener(<span class="hljs-keyword">object</span> : Animator.AnimatorListener {
+  <span class="hljs-comment">// Your action</span>
+})
+</pre>
         <p>
             Alternatively, you can set start and end actions on your View by calling
             <code>
@@ -1642,12 +1681,24 @@ objectAnimator.start()
         </code>
         .
     </p>
-    <pre lang="kotlin">
-        // 1 val animator = ValueAnimator.ofFloat(0f, -screenHeight) animator.addUpdateListener
-        { val value = it.animatedValue as Float rocket.translationY = value doge.translationY
-        = value } // 2 animator.repeatMode = ValueAnimator.REVERSE // 3 animator.repeatCount
-        = 3 // 4 animator.duration = 500L animator.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">val</span> animator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
+
+animator.addUpdateListener {
+  <span class="hljs-keyword">val</span> value = it.animatedValue <span class="hljs-keyword">as</span> <span class="hljs-built_in">Float</span>
+  rocket.translationY = value
+  doge.translationY = value
+}
+
+<span class="hljs-comment">// 2</span>
+animator.repeatMode = ValueAnimator.REVERSE
+<span class="hljs-comment">// 3</span>
+animator.repeatCount = <span class="hljs-number">3</span>
+
+<span class="hljs-comment">// 4</span>
+animator.duration = <span class="hljs-number">500</span>L
+animator.start()
+</pre>
     <p>
         In here, you:
     </p>
@@ -1744,10 +1795,11 @@ objectAnimator.start()
         </em>
         . Open the file in the editor, you should see this:
     </p>
-    <pre lang="xml">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;set xmlns:android="http://schemas.android.com/apk/res/android"
-        android:ordering="together"&gt; &lt;/set&gt;
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+     <span class="hljs-attr">android:ordering</span>=<span class="hljs-string">"together"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>
+</pre>
     <p>
         The following XML tags are available to you:
     </p>
@@ -1818,17 +1870,31 @@ objectAnimator.start()
         </em>
         with the following code:
     </p>
-    <pre lang="xml">
-        &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;set xmlns:android="http://schemas.android.com/apk/res/android"
-        android:ordering="together"&gt; &lt;objectAnimator android:propertyName="alpha"
-        android:duration="1000" android:repeatCount="1" android:repeatMode="reverse"
-        android:interpolator="@android:interpolator/linear" android:valueFrom="1.0"
-        android:valueTo="0.0" android:valueType="floatType"/&gt; &lt;objectAnimator
-        android:propertyName="translationY" android:duration="1000" android:repeatCount="1"
-        android:repeatMode="reverse" android:interpolator="@android:interpolator/bounce"
-        android:valueFrom="0" android:valueTo="-500" android:valueType="floatType"/&gt;
-        &lt;/set&gt;
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">android:ordering</span>=<span class="hljs-string">"together"</span>&gt;</span>
+    
+  <span class="hljs-tag">&lt;<span class="hljs-name">objectAnimator</span>
+    <span class="hljs-attr">android:propertyName</span>=<span class="hljs-string">"alpha"</span>
+    <span class="hljs-attr">android:duration</span>=<span class="hljs-string">"1000"</span>
+    <span class="hljs-attr">android:repeatCount</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">android:repeatMode</span>=<span class="hljs-string">"reverse"</span>
+    <span class="hljs-attr">android:interpolator</span>=<span class="hljs-string">"@android:interpolator/linear"</span>
+    <span class="hljs-attr">android:valueFrom</span>=<span class="hljs-string">"1.0"</span>
+    <span class="hljs-attr">android:valueTo</span>=<span class="hljs-string">"0.0"</span>
+    <span class="hljs-attr">android:valueType</span>=<span class="hljs-string">"floatType"</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">objectAnimator</span>
+    <span class="hljs-attr">android:propertyName</span>=<span class="hljs-string">"translationY"</span>
+    <span class="hljs-attr">android:duration</span>=<span class="hljs-string">"1000"</span>
+    <span class="hljs-attr">android:repeatCount</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">android:repeatMode</span>=<span class="hljs-string">"reverse"</span>
+    <span class="hljs-attr">android:interpolator</span>=<span class="hljs-string">"@android:interpolator/bounce"</span>
+    <span class="hljs-attr">android:valueFrom</span>=<span class="hljs-string">"0"</span>
+    <span class="hljs-attr">android:valueTo</span>=<span class="hljs-string">"-500"</span>
+    <span class="hljs-attr">android:valueType</span>=<span class="hljs-string">"floatType"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>
+</pre>
     <p>
         Here you declare a root element,
         <code>
@@ -1967,14 +2033,23 @@ objectAnimator.start()
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        // 1 val rocketAnimatorSet = AnimatorInflater.loadAnimator(this, R.animator.jump_and_blink)
-        as AnimatorSet // 2 rocketAnimatorSet.setTarget(rocket) // 3 val dogeAnimatorSet
-        = AnimatorInflater.loadAnimator(this, R.animator.jump_and_blink) as AnimatorSet
-        // 4 dogeAnimatorSet.setTarget(doge) // 5 val bothAnimatorSet = AnimatorSet()
-        bothAnimatorSet.playTogether(rocketAnimatorSet, dogeAnimatorSet) // 6 bothAnimatorSet.duration
-        = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION bothAnimatorSet.start()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-comment">// 1</span>
+  <span class="hljs-keyword">val</span> rocketAnimatorSet = AnimatorInflater.loadAnimator(<span class="hljs-keyword">this</span>, R.animator.jump_and_blink) <span class="hljs-keyword">as</span> AnimatorSet
+  <span class="hljs-comment">// 2</span>
+  rocketAnimatorSet.setTarget(rocket)
+  
+  <span class="hljs-comment">// 3</span>
+  <span class="hljs-keyword">val</span> dogeAnimatorSet = AnimatorInflater.loadAnimator(<span class="hljs-keyword">this</span>, R.animator.jump_and_blink) <span class="hljs-keyword">as</span> AnimatorSet
+  <span class="hljs-comment">// 4</span>
+  dogeAnimatorSet.setTarget(doge)
+
+  <span class="hljs-comment">// 5</span>
+  <span class="hljs-keyword">val</span> bothAnimatorSet = AnimatorSet()
+  bothAnimatorSet.playTogether(rocketAnimatorSet, dogeAnimatorSet)
+  <span class="hljs-comment">// 6</span>
+  bothAnimatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATION
+  bothAnimatorSet.start()
+</pre>
     <p>
         In the above code, you’re doing a few things:
     </p>
