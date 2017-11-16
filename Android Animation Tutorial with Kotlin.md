@@ -927,97 +927,94 @@ objectAnimator.start()
     </p>
     <ol>
         <li>
-            Creating an instance of
+            创建一个
             <code>
                 ObjectAnimator
             </code>
-            (like you did with
+            的实例（就像你在
             <code>
                 ValueAnimator
             </code>
-            ) except that the former takes two more parameters:
+            中做的一样，除了新增的两个参数）：
             <ul>
                 <li>
                     <code>
                         rocket
                     </code>
-                    is the object to animate
+                    是要进行动画的对象
                 </li>
                 <li>
-                    The object must have a property corresponding to the name of the property
-                    you wish to change, which in this example is
+                    这个对象必须包含你希望添加动画的属性，也就是这里的
                     <code>
                         “translationY”
                     </code>
-                    . You’re able to do this because
+                    了。你能够这么做的原因，是
                     <code>
                         rocket
                     </code>
-                    is an object of class
+                    是一个
                     <code>
                         View
                     </code>
-                    , which, in its base Java class, has an accessible setter with
+                    类的实例，它基于Java的类，并带有一个
                     <code>
                         setTranslationY()
                     </code>
-                    .
+                    的setter方法。
                 </li>
             </ul>
         </li>
         <li>
-            You set the duration for the animation and start it.
+            设置动画的持续时间，并开始动画。
         </li>
     </ol>
     <p>
-        Run your project. Select
+        运行项目。选择列表中的
         <em>
             Launch a rocket (ObjectAnimator)
         </em>
-        in the list. Tap on the screen.
+        。点击屏幕。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/linear-launch.gif"
         alt="linear-launch" width="272" height="484" class="aligncenter size-full wp-image-134552">
     </p>
     <p>
-        The rocket behaves the same as it did with
+        这里火箭的行为和使用
         <code>
             ValueAnimator
         </code>
-        , but with less code. :]
+        的完全一致的，但使用了更少的代码。:]
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : There’s a limitation to
+            ：
             <code>
                 ObjectAnimator
             </code>
-            — it can’t animate two objects simultaneously. To work around it, you
-            create two instances of
+            是带有一定限制的 - 它不可以同时对两个对象添加动画。要实现的话，你必须添加两个
             <code>
                 ObjectAnimator
             </code>
-            .
+            的实例。
         </p>
         <p>
-            Consider your use cases and the amount of coding required when you decide
-            to use
+            考虑你的实际需求和代码量，来确定使用
             <code>
                 ObjectAnimator
             </code>
-            or
+            还是
             <code>
                 ValueAnimator
             </code>
-            .
+            。
         </p>
     </div>
     <h3>
-        Animating Color
+        颜色动画
     </h3>
     <p>
         Speaking of use cases, there’s animating colors to consider. Neither
