@@ -1365,31 +1365,27 @@ animatorSet.start()
         <code>
             ViewPropertyAnimator
         </code>
-        may provide better performance for multiple simultaneous animations. 
-        It optimizes invalidated calls, 
-        so they only take place once for several properties
-        — in contrast to each animated property causing its own invalidation independently.
+        在多个动画同步进行的时候，可以提供更好的性能。它将无效的调用进行优化，对于添加到多个属性上的动画，就只会发生一次调用来进行调整。
     </p>
     <h3>
-        Animating the Same Property of Two Objects
+        为两个对象的同一属性添加动画
     </h3>
     <p>
-        A nice feature of
         <code>
             ValueAnimator
         </code>
-        is that you can reuse its animated value and apply it to as many objects as you like.
+        的一个很棒的功能，就是你可以将动画值应用到多个对象上。
     </p>
     <p>
-        Test it out by opening
+        打开
         <em>
             FlyWithDogeAnimationActivity.kt
         </em>
-        and putting the following code in
+        并在
         <code>
             onStartAnimation()
         </code>
-        :
+        中添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-keyword">val</span> positionAnimator = ValueAnimator.ofFloat(<span class="hljs-number">0</span>f, -screenHeight)
@@ -1413,7 +1409,7 @@ animatorSet.duration = BaseAnimationActivity.Companion.DEFAULT_ANIMATION_DURATIO
 animatorSet.start()
 </pre>
     <p>
-        In the above code you just created three animators:
+        在上述的代码中，你创建了三个animator：
     </p>
     <ol>
         <li>
@@ -1460,21 +1456,19 @@ animatorSet.start()
         Animation Listeners
     </h2>
     <p>
-        Animation typically implies that a certain action has occurred or will
-        take place. Typically, whatever happens usually comes at the end of your
-        fancy animation.
+        Animation typically implies that a certain action has occurred or will take place. 
+        Typically, whatever happens usually comes at the end of your fancy animation.
     </p>
     <p>
-        You don’t get to observe it, but know that the rocket stops and stays
-        off screen when the animation ends. If you don’t plan to land it or finish
-        the activity, you could remove this particular view to conserve resources.
+        You don’t get to observe it, but know that the rocket stops and stays off screen when the animation ends. 
+        If you don’t plan to land it or finish the activity, 
+        you could remove this particular view to conserve resources.
     </p>
     <p>
         <code>
             AnimatorListener
         </code>
-        — receives a notification from the animator when the following events
-        occur:
+        — receives a notification from the animator when the following events occur:
     </p>
     <ul>
         <li>
@@ -1547,9 +1541,10 @@ animator.duration = <span class="hljs-number">5000</span>L
 animator.start()
 </pre>
     <p>
-        The structure of the code above, with the exception of the listener part,
-        should look the same as the previous section. Here’s what you’re doing
-        in there:
+        The structure of the code above, 
+        with the exception of the listener part,
+        should look the same as the previous section. 
+        Here’s what you’re doing in there:
     </p>
     <ol>
         <li>
@@ -1557,8 +1552,7 @@ animator.start()
             <code>
                 ValueAnimator
             </code>
-            to change the position of two objects simultaneously — you can’t do the
-            same thing with a single
+            to change the position of two objects simultaneously — you can’t do the same thing with a single
             <code>
                 ObjectAnimator
             </code>
@@ -1639,8 +1633,8 @@ animator.start()
         Animation Options
     </h2>
     <p>
-        Animations are not one-trick ponies that simply stop and go. They can
-        loop, reverse, run for a specific duration, etc.
+        Animations are not one-trick ponies that simply stop and go. 
+        They can loop, reverse, run for a specific duration, etc.
     </p>
     <p>
         In Android, you can use the following methods to adjust an animation:
@@ -1748,8 +1742,9 @@ animator.start()
             </em>
             : So why does the third section specify the repeat count at three? 
             Each up-and-down motion consumes two repetitions, 
-            so you need three to bring
-            Doge back to earth twice: one to land the first time,and two to launch and land again. 
+            so you need three to bring Doge back to earth twice: 
+            one to land the first time,
+            and two to launch and land again. 
             How many times would you like to see Doge bounce? 
             Play around with it!
         </p>
@@ -1766,8 +1761,7 @@ animator.start()
         alt="there-and-back" width="272" height="484" class="aligncenter size-full wp-image-134385">
     </p>
     <p>
-        You should see your rocket jumping like a grasshopper! Take that, Elon
-        Musk. :]
+        You should see your rocket jumping like a grasshopper! Take that, Elon Musk. :]
     </p>
     <h2>
         Declaring Animations in XML
