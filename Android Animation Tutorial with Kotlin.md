@@ -77,15 +77,14 @@
         动画是非常有趣的话题！掌握构建动画的最佳方式就是在实践中进行探索。:]
     </p>
     <p>
-        First, download the
+        首先，下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/10/rocket_launcher-starter-1.zip">
-            Rocket Launcher Starter
+            初始项目
         </a>
-        . Import it into Android Studio 3.0 Beta 7 or later, then run it on your
-        device. You’ll find everything you need to get going quickly.
+        。将它导入到Android Studio 3.0 Beta 7或更高的版本上，然后在你的设备上运行。它已经为你的开发准备好了必要的资源。
     </p>
     <p>
-        Your device will display a list of all the animations you’ll implement.
+        你的设备上会展示出一个你将要实现的动画的列表。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/list.png"
@@ -94,7 +93,7 @@
         sizes="(max-width: 300px) 100vw, 300px">
     </p>
     <p>
-        Click any item on the list.
+        点击列表中的任意一项。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/doge_rocket-281x500.png"
