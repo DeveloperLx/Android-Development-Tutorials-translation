@@ -6,11 +6,10 @@
     <div class="note">
         <p>
             <em>
-                Update note
+                更新日志
             </em>
-            : This tutorial has been updated to Kotlin, Android 26 (Oreo) and Android
-            Studio 3.0 by Rod Biresch. The original tutorial was written by Darryl
-            Bayliss.
+            ：本教程已由Rod Biresch更新至Kotlin，Android 26 (Oreo)及Android Studio 3.0的版本。原教材由Darryl
+            Bayliss编写。
         </p>
     </div>
     <p>
@@ -19,8 +18,8 @@
         srcset="https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
         <br>
-        Recycling is one of those things that is good for the planet, and it’s
-        a common sense way to make sure we don’t find ourselves buried in our own
+        Recycling is one of those things that is good for the planet, 
+        and it’s a common sense way to make sure we don’t find ourselves buried in our own
         rubbish or without sufficient resources in the future.
     </p>
     <p>
