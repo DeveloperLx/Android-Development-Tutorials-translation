@@ -1767,13 +1767,14 @@ animator.start()
         Declaring Animations in XML
     </h2>
     <p>
-        You’ve made it to the best part of this tutorial. In this final section,
+        You’ve made it to the best part of this tutorial. 
+        In this final section,
         you’ll learn how to declare once and use everywhere — yes, that’s right,
         you’ll be able to reuse your animations with impunity.
     </p>
     <p>
-        By defining animations in XML, you allow reuse of animations throughout
-        your code base.
+        By defining animations in XML, 
+        you allow reuse of animations throughout your code base.
     </p>
     <p>
         Defining animations in XML bears some resemblance to composing view layouts.
@@ -1996,12 +1997,10 @@ animator.start()
             <code>
                 @android:interpolator/
             </code>
-            . Start typing this and Android Studio will show all available interpolators
-            under autocomplete options
+            . Start typing this and Android Studio will show all available interpolators under autocomplete options
         </li>
         <li>
-            You can’t specify your target object here, but you can do it later in
-            Kotlin
+            You can’t specify your target object here, but you can do it later in Kotlin
         </li>
     </ul>
     <p>
@@ -2056,7 +2055,8 @@ animator.start()
             <code>
                 R.animator.jump_and_blink
             </code>
-            file, just like you normally would to inflate a view layout
+            file, 
+            just like you normally would to inflate a view layout
         </li>
         <li>
             Then you set
@@ -2101,8 +2101,8 @@ animator.start()
         alt="jump-n-blink" width="272" height="484" class="aligncenter size-full wp-image-134382">
     </p>
     <p>
-        You should see Doge jumping, disappearing and then returning back to the
-        ground safely :]
+        You should see Doge jumping, 
+        disappearing and then returning back to the ground safely :]
     </p>
     <h2>
         Where To Go From Here
@@ -2165,14 +2165,16 @@ animator.start()
         Basically, you just gained Android animation super-powers.
     </p>
     <p>
-        If you’re hungry for more, check out the available time interpolators
-        in
+        If you’re hungry for more, 
+        check out the available time interpolators in
         <a href="https://developer.android.com/reference/android/animation/TimeInterpolator.html"
         target="_blank">
             Android’s documentation
         </a>
-        (see Known Indirect Subclasses). If you’re not happy with either of them,
-        you can create your own. You can also set
+        (see Known Indirect Subclasses). 
+        If you’re not happy with either of them,
+        you can create your own. 
+        You can also set
         <code>
             Keyframe
         </code>
