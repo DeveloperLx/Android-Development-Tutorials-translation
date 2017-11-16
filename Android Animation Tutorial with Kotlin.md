@@ -1870,66 +1870,67 @@ animator.start()
 <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span>
 </pre>
     <p>
-        Here you declare a root element,
+        这里你将根元素声明为
         <code>
             set
         </code>
-        tag. Its
+        。它的
         <code>
             ordering
         </code>
-        attribute can be either
+        属性可以是
         <code>
             together
         </code>
-        or
+        或
         <code>
             sequential
         </code>
-        . It’s
+        的一种。默认的即为
         <code>
             together
         </code>
-        by default, but you may prefer to specify it for clarity. The
+        ，但你也可以显式地指定它。
         <code>
             set
         </code>
-        tag has two child XML tags, each of which is an
+        有两个子标签，且都是
         <code>
             objectAnimator
         </code>
-        .
+        。
     </p>
     <p>
-        Take a look at the following attributes of
+        看一下
         <code>
             objectAnimator
         </code>
-        :
+        中的属性：
     </p>
     <ul>
         <li>
             <code>
                 android:valueFrom
             </code>
-            and
+            和
             <code>
                 android:valueTo
             </code>
-            — specify start and end values like you did when you created an instance of
+            - 指定开始和结束时动画的值，就像你在创建
             <code>
                 ObjectAnimator
             </code>
+            时所做的一样
         </li>
         <li>
             <code>
                 android:valueType
             </code>
-            — value type; either
+            - 值类型；可以选择
             <code>
                 floatType
             </code>
-            or
+            或
             <code>
                 intType
             </code>
@@ -1938,23 +1939,19 @@ animator.start()
             <code>
                 android:propertyName
             </code>
-            — the property you want to animate without the
-            <code>
-                set
-            </code>
-            part
+            - 你想要添加动画的属性
         </li>
         <li>
             <code>
                 android:duration
             </code>
-            — duration of the animation
+            - 动画的持续时间
         </li>
         <li>
             <code>
                 android:repeatCount
             </code>
-            — the same as with
+            - 等同于
             <code>
                 setRepeatCount
             </code>
@@ -1963,7 +1960,7 @@ animator.start()
             <code>
                 android:repeatMode
             </code>
-            — the same as with
+            - 等同于
             <code>
                 setRepeatMode
             </code>
@@ -1972,37 +1969,37 @@ animator.start()
             <code>
                 android:interpolator
             </code>
-            — specify interpolator; it usually starts with
+            - 指定插值器。它通常以
             <code>
                 @android:interpolator/
             </code>
-            . Start typing this and Android Studio will show all available interpolators under autocomplete options
+            开头，输入它，Android Studio就会自动把可用的插值器提示给你
         </li>
         <li>
-            You can’t specify your target object here, but you can do it later in Kotlin
+            你无法在这里指定目标的对象，需要在后面的Kotlin代码中来完成
         </li>
     </ul>
     <p>
-        In the last block, you added two instances of
+        你添加了两个
         <code>
             objectAnimator
         </code>
-        to the
+        的实例到
         <code>
             AnimatorSet
         </code>
-        , and they will play together. Now, it’s time to use them.
+        中，它们将同时被播放。现在，是时候来进行使用了。
     </p>
     <p>
-        Go to
+        打开
         <em>
             XmlAnimationActivity.kt
         </em>
-        and add the following code to
+        并添加下列的代码到
         <code>
             onStartAnimation()
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-comment">// 1</span>
   <span class="hljs-keyword">val</span> rocketAnimatorSet = AnimatorInflater.loadAnimator(<span class="hljs-keyword">this</span>, R.animator.jump_and_blink) <span class="hljs-keyword">as</span> AnimatorSet
@@ -2022,160 +2019,155 @@ animator.start()
   bothAnimatorSet.start()
 </pre>
     <p>
-        In the above code, you’re doing a few things:
+        上述的代码中：
     </p>
     <ol>
         <li>
-            First, you load
+            首先，从
+            <code>
+                R.animator.jump\_and\_blink
+            </code>
+            文件中加载
             <code>
                 AnimatorSet
             </code>
-            from
-            <code>
-                R.animator.jump_and_blink
-            </code>
-            file, 
-            just like you normally would to inflate a view layout
+            ，就像你在inflate一个view layout时所作的一样
         </li>
         <li>
-            Then you set
+            然后设置
             <code>
                 rocket
             </code>
-            as the target for just-loaded animator
+            作为刚加载的animator的目标
         </li>
         <li>
-            Load the animator from the same file once again
+            再次从相同的文件中加载一个animator
         </li>
         <li>
-            Rinse and repeat for
+            设置它的目标为
             <code>
                 doge
             </code>
-            object
+            对象
         </li>
         <li>
-            Now you create a third
+            又创建了一个
             <code>
                 AnimatorSet
             </code>
-            and set it up to play the first two simultaneously
+            ，并让它同时播放上面的两个动画
         </li>
         <li>
-            Set the duration for the root animator and start
+            设置根animator的持续时间并开始
         </li>
         <li>
             Whew! Rest just a little bit :]
         </li>
     </ol>
     <p>
-        Build and run. Select
+        运行项目。选择列表中的
         <em>
             Jump and blink (Animations in XML)
         </em>
-        in the list. Tap to see your handiwork.
+        。点击查看你的作品。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/jump-n-blink.gif"
         alt="jump-n-blink" width="272" height="484" class="aligncenter size-full wp-image-134382">
     </p>
     <p>
-        You should see Doge jumping, 
-        disappearing and then returning back to the ground safely :]
+        你会看到Doge在跳动，消失，然后安全地返回到了地面 :]
     </p>
     <h2>
-        Where To Go From Here
+        从这儿去向哪里
     </h2>
     <p>
-        You can grab the final project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/10/rocket_launcher-final.zip">
-            here
+            这里
         </a>
-        .
+        获取最终的项目。
     </p>
     <p>
-        During this tutorial you:
+        在本教程中，你：
     </p>
     <ul>
         <li>
-            Created and used property animations with
+            用
             <code>
                 ValueAnimator
             </code>
-            and
+            和
             <code>
                 ObjectAnimator
             </code>
+            创建并使用属性动画
         </li>
         <li>
-            Set up
+            为你的动画设置你选择的
             <em>
-                time interpolator
+                时间插值器
             </em>
-            of your choice for your animation
         </li>
         <li>
-            Animated position, rotation and color for
+            给
             <code>
                 View
             </code>
+            的位置，选择和颜色属性添加动画
         </li>
         <li>
-            Combined animations together
+            把若干动画结合到一起
         </li>
         <li>
-            Used the spectacular
-            <code>
-                ViewPropertyAnimator
-            </code>
-            with the help of
+            在
             <code>
                 animate()
             </code>
+            的帮助下，使用超赞的
+            <code>
+                ViewPropertyAnimator
+            </code>
         </li>
         <li>
-            Repeated your animation
+            重复动画
         </li>
         <li>
-            Defined the animation in XML for reuse across the project
+            在XML中定义动画，并在项目中进行复用
         </li>
     </ul>
     <p>
-        Basically, you just gained Android animation super-powers.
+        你已基本获得了Android动画的超能力。
     </p>
     <p>
-        If you’re hungry for more, 
-        check out the available time interpolators in
+        如果你还期望学到更多的内容，可以在
         <a href="https://developer.android.com/reference/android/animation/TimeInterpolator.html"
         target="_blank">
             Android’s documentation
         </a>
-        (see Known Indirect Subclasses). 
-        If you’re not happy with either of them,
-        you can create your own. 
-        You can also set
+        中查看时间插值器。如果你对其中任何的一种都不满意，甚至还可以进行自定义。你还可以为动画设置
         <code>
             Keyframe
         </code>
-        s for your animation to make them very sophisticated.
+        来使其变得非常复杂。
     </p>
     <p>
-        Android has other animations systems like
+        Android中还有其它的动画系统，类型
         <em>
             View animations
         </em>
-        and
+        和
         <em>
             Drawable Animations
         </em>
-        . You can also make use of
+        。你还可以使用
         <em>
             Canvas
         </em>
-        and
+        和
         <em>
             OpenGL ES
         </em>
-        APIs to create animations. Stay tuned :]
+        的API来创建动画。保持关注 :]
     </p>
 </div>
