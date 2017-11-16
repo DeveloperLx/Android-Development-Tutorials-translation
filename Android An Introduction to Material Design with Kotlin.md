@@ -1,4 +1,4 @@
-# Android：质感设计的介绍 - Kotlin
+# Android：Material Design的介绍 - Kotlin
 ---
 #### [原文地址](https://www.raywenderlich.com/168916/android-an-introduction-to-material-design) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -15,17 +15,17 @@
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/08/MaterialDesign-feature-250x250.png"
         alt="Material Design with Kotlin!" width="250" height="250" class="size-full wp-image-119228">
         <p class="wp-caption-text">
-            质感设计 - Kotlin！
+            Material Design - Kotlin！
         </p>
     </div>
     <p>
-        Google的质感设计可以帮助你带给用户精美的Android app。但稍等-神马是质感设计？
+        Google的Material Design可以帮助你带给用户精美的Android app。但稍等-神马是Material Design？
     </p>
     <p>
-        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。质感设计是Android app的“用户体验哲学”！
+        Google将其描述为一个界面，结合 触觉的表面，粗体的图形设计和流畅的动作，创造出美丽，直观的体验。Material Design是Android app的“用户体验哲学”！
     </p>
     <p>
-        在本教程中，你会将质感设计植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
+        在本教程中，你会将Material Design植入到一个叫做Travel Wishlist的app中。通过这个过程你会学习到：
     </p>
     <ul>
         <li>
@@ -166,7 +166,7 @@
         提供的一个神奇的图片下载和缓存库。
     </p>
     <p>
-        依赖声明好之后，就该将质感设计迁移到你的app中了！
+        依赖声明好之后，就该将Material Design迁移到你的app中了！
     </p>
     <h2>
         设置主题
@@ -459,7 +459,7 @@ list.layoutManager = staggeredLayoutManager
         <code>
             card_view:cardCornerRadius
         </code>
-        的属性，及给质感设计
+        的属性，及给Material Design
         <code>
             card_view:cardElevation
         </code>
@@ -1020,7 +1020,7 @@ Palette.from(photo).generate { palette -&gt;
         <code>
             activity_detail
         </code>
-        布局上，通过使用一些新的质感设计API来让它变得更酷。
+        布局上，通过使用一些新的Material DesignAPI来让它变得更酷。
     </p>
     <p>
         首先，你希望看到在初始项目中的详情视图的样子。添加下列的代码到
@@ -1075,11 +1075,11 @@ Palette.from(photo).generate { palette -&gt;
         <i>
             但是！
         </i>
-        ），你为之后的工作打下了一个很好的基础，方便去添加那些令人期待的质感设计API。你还可以看到一个很酷的
+        ），你为之后的工作打下了一个很好的基础，方便去添加那些令人期待的Material DesignAPI。你还可以看到一个很酷的
         <code>
             FloatingActionButton
         </code>
-        ，它是有质感设计所引入的组件之一。
+        ，它是有Material Design所引入的组件之一。
     </p>
     <h3>
         添加展现动画
@@ -1482,7 +1482,7 @@ applyPalette(palette)
         含有共享元素的Activity切换
     </h3>
     <p>
-        我们都见过，并好奇Google app中那些使用质感设计的超赞的图片和文本过渡效果。好吧，无需再等了 - 你马上就会学到实现这些平滑动画效果的方法。
+        我们都见过，并好奇Google app中那些使用Material Design的超赞的图片和文本过渡效果。好吧，无需再等了 - 你马上就会学到实现这些平滑动画效果的方法。
     </p>
     <div class="note">
         <em>
@@ -2041,7 +2041,7 @@ applyPalette(palette)
         当然了，可以将这些知识应用到你的app中，让它们想这里所显示的一样酷。:]
     </p>
     <p>
-        了解更多关于质感设计的内容，请访问Google最近重新设计的
+        了解更多关于Material Design的内容，请访问Google最近重新设计的
         <a href="https://design.google/" target="_blank">
             Google Design
         </a>

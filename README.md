@@ -150,7 +150,7 @@
         <li>
             <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20An%20Introduction%20to%20Material%20Design%20with%20Kotlin.md"
             sl-processed="1">
-                Android：质感设计的介绍 - Kotlin
+                Android：Material Design的介绍 - Kotlin
             </a>
         </li>
     </ul>

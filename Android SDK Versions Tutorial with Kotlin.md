@@ -502,7 +502,7 @@
         <em>
             Toolbar
         </em>
-        （它是质感设计的一部分）来替代
+        （它是Material Design的一部分）来替代
         <em>
             Action Bar
         </em>
@@ -892,7 +892,7 @@
         酷，你现在已使用兼容库添加了新风格的cardview到你的app上，使它能够兼容古老的API级别15。
     </p>
     <h2>
-        关于质感设计
+        关于Material Design
     </h2>
     <p>
         你已成功地使用AppCompat的主题，带给了app像Android Lollipop一样的外表和体验，并且能够运行在很多的SDK版本之上。除了这些元素外，
