@@ -231,30 +231,27 @@
         alt="AccelerateInterpolator" width="273" height="400" class="aligncenter size-full wp-image-128128">
     </p>
     <p>
-        Animations can also have non-linear interpolators. One such example is the
+        Android同样拥有非线性的插值器。
         <code>
             AccelerateInterpolator
         </code>
-        , which looks much more interesting:
+        就是一个例子，它看起来更加得有趣：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/table_acc.png"
         alt="table_acc" width="175" height="316" class="aligncenter size-full wp-image-134327">
     </p>
     <p>
-        It squares the input value, making the rocket start slowly and accelerate
-        quickly — just like a real rocket does!
+        它将输入的值进行平方，使火箭缓慢地开始并逐渐加速 - 就像真正的火箭一样！
     </p>
     <p>
-        That’s pretty much all the theory you need to know to get started, so
-        now it’s time for…
+        这基本就是你入门所需要知道的全部理论了，现在是时候开始实践操作了...
     </p>
     <h2>
-        Your First Animation
+        你的第一个动画
     </h2>
     <p>
-        Take some time to familiarize yourself with the project before you move
-        on. The package
+        Take some time to familiarize yourself with the project before you move on. The package
         <code>
             com.raywenderlich.rocketlauncher.animationactivities
         </code>
