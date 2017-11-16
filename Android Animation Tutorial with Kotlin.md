@@ -114,52 +114,44 @@
         想象一下，把一个火箭从屏幕的底部发射到顶部，在50毫秒的时间内完成这个过程。
     </p>
     <p>
-        Here’s a plotted graph that shows how the rocket’s position changes over time:
+        下面的图展示了火箭的位置如何跟随时间进行变化：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/linear-interpolator.gif"
         alt="linear-interpolator" width="272" height="400" class="aligncenter size-full wp-image-128117">
     </p>
     <p>
-        The animation above appears to be smooth and continuous. However, smartphones
-        are digital and work with discrete values. Time does not flow continuously
-        for them; it advances by tiny steps.
+        上面的动画是平滑且连续的，然而，智能手机是数字的，只能处理离散的值，时间对它来说并不是连续地变化，而是分散成了微小的步。
     </p>
     <p>
-        Animation consists of many still images, also known as
+        动画是由很多静止的图片构成的，它们被称作
         <em>
-            frames
+            帧
         </em>
-        , that are displayed one by one over a specified time period. The concept
-        today is the same as it was for the first cartoons, but the rendering is
-        a little different.
+        ，在指定的时间段内逐一进行展示，就构成了动画。这个概念和最原始的动漫是一致的，但是渲染有一定的不同。
     </p>
     <p>
-        Elapsed time between frames is named
+        帧之间经过的时间被称作
         <em>
-            frame refresh delay
+            帧刷新延迟
         </em>
-        — it’s 10 ms by default for property animations.
+        - 对于属性动画，它的默认值就是10毫秒。
     </p>
     <p>
-        Here’s where animation is different than it was in the early days of film:
-        when you know the rocket moves at a constant speed, you can calculate the
-        position of the rocket at any given time.
+        这里的动画和早先电影的不同之处在于：当你知道火箭在以一个固定的速度移动时，你可以在任何时刻计算火箭的位置。
     </p>
     <p>
-        You see six animation frames shown below. Notice that:
+        你可以在下面看到6个动画的帧。注意：
     </p>
     <ul>
         <li>
-            In the beginning of the animation, the rocket is at the bottom edge of
-            the screen.
+            在动画开始时，火箭位于屏幕的底部。
         </li>
         <li>
-            The rocket’s position moves upward by the same fraction of its path with
-            every frame.
+            之间的每一帧火箭都向上移动了相同的距离。
         </li>
         <li>
-            By the end of the animation, the rocket is at the top edge of the screen.
+            在动画结束时，火箭位于屏幕的顶部。
         </li>
     </ul>
     <p>
@@ -169,88 +161,77 @@
         sizes="(max-width: 405px) 100vw, 405px">
     </p>
     <p>
-        TL/DR: When drawing a given frame, you calculate the rocket’s position
-        based on the duration and frame refresh rate.
+        TL/DR：当需要绘制一个帧的时候，会基于相应的时间和帧刷新率来计算火箭的位置。
     </p>
     <p>
-        Fortunately, you don’t have to do all the calculations manually because
+        幸运的是，你无需手动进行所有的计算，因为
         <code>
             ValueAnimator
         </code>
-        is happy to do it for you. :]
+        将乐于为你完成所有的工作。:]
     </p>
     <p>
-        To set up an animation, you simply specify the start and end values of
-        the property being animated, as well as the duration. You’ll also need
-        to add a listener to call, which will set a new position for your rocket
-        for each frame.
+        要设置一个动画，你只需指定需添加动画的属性的起始值和结束值。你还可以添加一个listener来进行监听，它可以在每一帧为你的火箭设置一个新的位置。
     </p>
     <h3>
-        Time Interpolators
+        时间插值器
     </h3>
     <p>
-        You probably noticed that your rocket moves with constant speed during
-        the entire animation — not terribly realistic.
+        你可能已注意到了，火箭在整个的动画过程中，都是以一个固定的速度进行移动的 - 这是非常不现实的。
         <a href="https://material.io/">
             Material Design
         </a>
-        encourages you to create vivid animations that catch the user’s attention
-        while behaving in a more natural way.
+        鼓励你创建生动的动画，以更自然的方式来吸引用户的注意力。
     </p>
     <p>
-        Android’s animation framework makes use of
+        Android的动画框架充分地利用了
         <em>
-            time interpolators
+            时间插值器
         </em>
-        .
+        。
         <code>
             ValueAnimator
         </code>
-        incorporates a time interpolator – it has an object that implements
+        合并了一个时间插值器 - 它是一个实现了
         <code>
             TimeInterpolator
         </code>
-        interface. Time interpolators determine how the animated value changes
-        over time.
+        interface的对象。时间插值器确定了动画的值如何跟随时间进行变化。
     </p>
     <p>
-        Have a look again at the graph of position changes over time in the simplest
-        case — a
+        再看一下这个最简单的情形，图形的位置跟随时间发生变化 - 这是一个
         <em>
-            Linear Interpolator
+            线性插值器
         </em>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/linear-interpolator.gif"
         alt="linear-interpolator" width="272" height="400" class="aligncenter size-full wp-image-128117">
     </p>
     <p>
-        Here is how this
         <code>
             LinearInterpolator
         </code>
-        responds to time change:
+        会这样地相应时间的变化：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/table_linear.png"
         alt="table_linear" width="175" height="250" class="aligncenter size-full wp-image-134326">
     </p>
     <p>
-        Depending on the time, the rocket position changes at a constant speed,
-        or
+        基于时间，火箭的位置会以固定的速度或
         <i>
-            linearly
+            线性地
         </i>
-        .
+        发生变化。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/03/accelerate-interpolator.gif"
         alt="AccelerateInterpolator" width="273" height="400" class="aligncenter size-full wp-image-128128">
     </p>
     <p>
-        Animations can also have non-linear interpolators. One such example is
-        the
+        Animations can also have non-linear interpolators. One such example is the
         <code>
             AccelerateInterpolator
         </code>
