@@ -27,26 +27,23 @@
         组件 - 或是类似的东西。:]
     </p>
     <p>
-        There was even more celebration when Google announced a support library
-        to make this clean, green, recycling machine backwards compatible all the
-        way to Android Eclair (2.2), which was released back in 2010!
+        还有一件更值得庆祝的事，Google还发布了一个支持库，使这个干净，绿色，可循环利用的机制向后兼容到了Android Eclair（2.2）版本。这个版本早在2010年就已发布！
     </p>
     <p>
-        In this tutorial, you’re going to experience the power of RecyclerView
-        in action and learn:
+        在本教程中，你会在实践中体验RecyclerView的强大，并学习：
     </p>
     <ul>
         <li>
-            The purpose of a RecyclerView
+            RecyclerView的目的
         </li>
         <li>
-            The components that make up a RecyclerView
+            构成RecyclerView的成分
         </li>
         <li>
-            How to change the layout of a RecyclerView
+            如何修改RecyclerView的布局
         </li>
         <li>
-            How to add some nice animations to your RecyclerView
+            如何为RecyclerView添加超赞的动画
         </li>
     </ul>
     <p>
