@@ -47,46 +47,42 @@
         </li>
     </ul>
     <p>
-        You’re also going to blast off into outer space with the sample app
+        你还会构建一个示例app
         <em>
             Galacticon
         </em>
-        . You’ll use it to build out a feed of daily astronomy photos from a public
-        NASA API.
+        来“冲向外太空”。你会使用RecyclerView，基于NASA的公开API，来构建一个日常天文学照片的信息流照片。
     </p>
     <div class="note">
         <p>
             <em>
-                Prerequisites
+                预备知识
             </em>
-            : You should have a working knowledge of developing for Android with Kotlin
-            before working through this tutorial. If you need a refresher, take a look
-            at some of our
+            ：在开始本教程之前，你应当对使用Kotlin开发Android有一定的基本了解。如果你需要温习一下，可以访问我们的
             <a title="Android Tutorials" href="http://www.raywenderlich.com/category/android"
             target="_blank">
-                introductory tutorials
+                介绍性教程
             </a>
-            ! Also, you will need Android Studio 3.0 or greater.
+            ！同时，你需要Android Studio 3.0或更高版本的eta。
         </p>
     </div>
     <h2>
-        Heading to Cape Canaveral: Getting Started
+        前往Cape Canaveral：入门
     </h2>
     <p>
         Download the
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/galacticon-starter-5.zip">
             starter project
         </a>
-        and open it up in Android Studio. There isn’t much to it yet, nor is the
-        almighty RecyclerView anywhere to be seen.
+        and open it up in Android Studio. 
+        There isn’t much to it yet, nor is the almighty RecyclerView anywhere to be seen.
     </p>
     <p>
         Click the
         <em>
             Run app
         </em>
-        button at the top and you’ll see something that resembles outer space
-        in all the wrong ways:
+        button at the top and you’ll see something that resembles outer space in all the wrong ways:
         <br>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/1-empty-app-1-281x500.png"
         alt="" width="281" height="500" class="aligncenter size-large wp-image-170498"
