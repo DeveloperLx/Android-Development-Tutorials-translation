@@ -2061,7 +2061,7 @@ animator.start()
             设置根animator的持续时间并开始
         </li>
         <li>
-            Whew! Rest just a little bit :]
+            Whew! 稍微休息一下 :]
         </li>
     </ol>
     <p>
