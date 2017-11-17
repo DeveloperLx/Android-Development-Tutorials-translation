@@ -17,20 +17,14 @@
         srcset="https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/06/RecyclerView-feature-128x128.png 128w"
         sizes="(max-width: 250px) 100vw, 250px">
         <br>
-        Recycling is one of those things that is good for the planet, 
-        and it’s a common sense way to make sure we don’t find ourselves buried in our own
-        rubbish or without sufficient resources in the future.
+        循环利用是对地球最有益的事之一，这是确保我们不会被自己的垃圾埋埋没且将来不再有足够的资源的共识方法。
     </p>
     <p>
-        A few Android engineers thought about the benefits of recycling and realized
-        that an OS can also run more efficiently if it recycles. The result of
-        this inspiration was millions of eco-Warriors and recycling enthusiasts
-        rejoicing when the
+        一些Android工程师明白循环利用的益处，并想把它利用到我们的app上。这个灵感的最终结果，就是数百万的生态战士和循环利用狂热者高兴地发现，Android Lollipop引入了
         <code>
             RecyclerView
         </code>
-        widget was introduced into Android Lollipop — or something like that.
-        :]
+        组件 - 或是类似的东西。:]
     </p>
     <p>
         There was even more celebration when Google announced a support library
