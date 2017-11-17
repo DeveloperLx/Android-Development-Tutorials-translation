@@ -70,19 +70,18 @@
         前往Cape Canaveral：入门
     </h2>
     <p>
-        Download the
+        下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/galacticon-starter-5.zip">
-            starter project
+            初始项目
         </a>
-        and open it up in Android Studio. 
-        There isn’t much to it yet, nor is the almighty RecyclerView anywhere to be seen.
+        并在Android Studio中打开。没有太多的东西，包括RecyclerView也找不到。
     </p>
     <p>
-        Click the
+        点击顶部的
         <em>
             Run app
         </em>
-        button at the top and you’ll see something that resembles outer space in all the wrong ways:
+        按钮，你会看到一些类似所有错误方式外部空间似的东西：
         <br>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/1-empty-app-1-281x500.png"
         alt="" width="281" height="500" class="aligncenter size-large wp-image-170498"
@@ -90,31 +89,25 @@
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        It’s empty, but that’s ok. You wouldn’t learn much if all the work was
-        done for you! Before you can add that amazing astrophotography from NASA,
-        you’ll need to do some set up work.
+        它是空的，但没有关系。如果所有的动作都完成了，你学不到什么东西！在添加漂亮的NASA太空图片之前，你需要做一些设置工作。
     </p>
     <h2>
-        Obtaining The (API) Keys to the Shuttle
+        获取访问Shuttle的（API）Key
     </h2>
     <p>
-        You’ll use the
+        你将会使用
         <a href="http://apod.nasa.gov" target="_blank" title="Astronomy Picture of the Day API">
             Astronomy Picture of the Day API
         </a>
-        , one of the most popular web services provided by NASA. To ensure it
-        doesn’t fall victim to unsolicited traffic, the service requires you to
-        have an API key to use it in an application.
+        ，它是由NASA提供的最流行的网络服务之一。为确保不会成为未经授权的流量的牺牲者，该服务要求你的app有一个API的key。
     </p>
     <p>
-        Fortunately, getting a key is as simple as putting your name and email
-        address into
+        Fortunately, getting a key is as simple as putting your name and email address into
         <a href="https://api.nasa.gov/index.html#apply-for-an-api-key" target="_blank"
         title="webpage">
             api.nasa.gov
         </a>
-        and copying the API key that appears on the screen or the email sent to
-        you.
+        and copying the API key that appears on the screen or the email sent to you.
     </p>
     <p>
         Once you’ve acquired your API key, copy it and open the
