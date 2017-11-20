@@ -131,56 +131,47 @@
         sizes="(max-width: 700px) 100vw, 700px">
     </p>
     <h2>
-        Space Oddity: Learning About RecyclerView
+        Space Oddity：学习RecyclerView
     </h2>
     <p>
-        You’re about to blast off into outer space to explore the vastness of
-        RecyclerViews, but no competent commander heads into the unknown without
-        preparation. You have questions, and you need answers before you go any
-        further. Consider this section as your mission brief.
+        你将很快进入到外部空间来探索广袤的RecyclerView，但没有一个能干的司令官，会在没有准备之前就进入未知的领域。在出发之前，你有一些问题。本部分将作为你的一个任务摘要。
     </p>
     <p>
-        A RecyclerView can be thought of as a combination of a
+        RecyclerView可以被当做是一个
         <em>
             ListView
         </em>
-        and a
+        和
         <em>
             GridView
         </em>
-        . However, there are extra features that separate your code into maintainable
-        components even as they enforce memory-efficient design patterns.
+        的结合体。并且，除了高效的内存模式之外，还具有额外的特性，可以将代码分离成易于维护的组件。
     </p>
     <p>
-        But how could it be better than the tried and tested ListView and GridView
-        you’re used to? Could it be some kind of alien technology? The answers,
-        as always, are in the details.
+        但为何它会比你习惯使用的ListView和GridView更好呢？难道采用了某种来自外星的技术？一如既往，答案都在细节当中。
     </p>
     <h3>
-        Why You Need RecyclerView
+        为何需要RecyclerView
     </h3>
     <p>
-        Imagine you’re creating a ListView where the custom items you want to
-        show are quite complicated. You take time to lovingly create a row layout
-        for these items, and then use that layout inside your adapter.
+        想象一下，你在创建一个ListView，但它的item相当得复杂。你需要花时间来为这些item创建行布局，然后在adapter中进行使用。
     </p>
     <p>
+        在
         Inside your
         <code>
             getView()
         </code>
-        method, you inflate your new item layout. You then reference every view
-        within by using the unique ids you provided in your XML to customize and
-        add some view logic. Once finished, you pass that view to the ListView,
-        ready to be drawn on the screen. All is well…or is it?
+        方法中，你inflate了item的布局。然后，通过你在XML文件中提供的唯一id去引用每一个view，来添加一些view的逻辑。然后，再把这个view传递给ListView，这时就可以绘制到屏幕上了。一切看起来都不错...那么？
     </p>
     <p>
-        The truth is that ListViews and GridViews only do half the job of achieving
-        true memory efficiency. They recycle the item
+        The truth is that ListViews and GridViews only do half the job of achieving true memory efficiency. 
+        They recycle the item
         <em>
             layout
         </em>
-        , but don’t keep references to the layout children, forcing you to call
+        , but don’t keep references to the layout children, 
+        forcing you to call
         <code>
             findViewById()
         </code>
@@ -195,7 +186,8 @@
         <i>
             very
         </i>
-        processor-intensive, especially for complicated layouts. Furthermore,
+        processor-intensive, especially for complicated layouts. 
+        Furthermore,
         the situation can cause your ListView scrolling to become jerky or non-responsive
         as it frantically tries to grab references to the views you need.
     </p>
