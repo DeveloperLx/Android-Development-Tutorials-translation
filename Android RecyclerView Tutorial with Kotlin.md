@@ -407,21 +407,18 @@ recyclerView.layoutManager = linearLayoutManager
         点火的第二阶段：布置RecyclerView的Item
     </h2>
     <p>
-        Phase two of ignition involves creating a custom layout for the item you
-        want your RecyclerView to use. It works exactly the same as it does when
-        you create a custom layout for a ListView or Gridview.
+        点火的第二阶段，是为RecyclerView所使用的item创建自定义的布局。这个过程和你为ListView和Gridview创建自定义的布局是完全一致的。
     </p>
     <p>
-        Head over to your layout folder and create a new layout with the name
+        找到layout目录，并创建一个新的名为
         <code>
             recyclerview_item_row
         </code>
-        and set the root element as a
+        的布局文件，并将根元素设置为
         <code>
             LinearLayout
         </code>
-        . In your new layout, add the following XML elements as children of your
-        LinearLayout:
+        ，然后添加下列的子元素到它的内部：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
     <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/itemImage"</span>
@@ -451,11 +448,10 @@ recyclerView.layoutManager = linearLayoutManager
     <span class="hljs-attr">android:maxLines</span>=<span class="hljs-string">"5"</span> /&gt;</span>
 </pre>
     <p>
-        No rocket science here: You declared a few views as children of your layout,
-        and can now use them in your adapter.
+        这里没有火箭科学，只是在布局中声明了一系列的元素，以便在adapter中进行使用。
     </p>
     <h2>
-        Adapters: Rocket Fuel for Your RecyclerView
+        Adapter：你的RecyclerView的火箭燃料
     </h2>
     <p>
         Right-click on the
@@ -566,25 +562,8 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         to hold your photos in the primary constructor:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                RecyclerAdapter
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        photos: ArrayList&lt;Photo&gt;) RecyclerView.Adapter&lt;RecyclerAdapter.PhotoHolder&gt;()
-        {
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecyclerAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> photos: ArrayList&lt;Photo&gt;) RecyclerView.Adapter&lt;RecyclerAdapter.PhotoHolder&gt;() {
+</pre>
     <p>
         Nice job, Commander! Your adapter now knows where to look for data. Soon
         you’ll have an ArrayList of photos filled with the finest astrophotography!
@@ -609,23 +588,8 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         to the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItemCount
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        = photos.size
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span> = photos.size
+</pre>
     <p>
         Next, you’re going to exploit the
         <code>
@@ -646,108 +610,33 @@ recyclerView.layoutManager = linearLayoutManager
         is tightly coupled with the adapter. First, import synthetic properties
         for the recycler view item so you can reference the view properties:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        kotlinx.android.synthetic.main.recyclerview_item_row.view.*
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.recyclerview_item_row.view.*
+</pre>
     <p>
         Add the following code at the bottom of the RecyclerAdapter class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                PhotoHolder
-            </span>
-        </span>
-        (v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        view: View = v
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        photo: Photo? =
-        <span class="hljs-literal">
-            null
-        </span>
-        <span class="hljs-comment">
-            //3
-        </span>
-        init { v.setOnClickListener(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) }
-        <span class="hljs-comment">
-            //4
-        </span>
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onClick
-            </span>
-            <span class="hljs-params">
-                (v:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        { Log.d(
-        <span class="hljs-string">
-            "RecyclerView"
-        </span>
-        ,
-        <span class="hljs-string">
-            "CLICK!"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            companion
-        </span>
-        <span class="hljs-keyword">
-            object
-        </span>
-        {
-        <span class="hljs-comment">
-            //5
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        PHOTO_KEY =
-        <span class="hljs-string">
-            "PHOTO"
-        </span>
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoHolder</span></span>(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+  <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> view: View = v
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> photo: Photo? = <span class="hljs-literal">null</span>
+
+  <span class="hljs-comment">//3</span>
+  init {
+    v.setOnClickListener(<span class="hljs-keyword">this</span>)
+  }
+
+  <span class="hljs-comment">//4</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onClick</span><span class="hljs-params">(v: <span class="hljs-type">View</span>)</span></span> {
+    Log.d(<span class="hljs-string">"RecyclerView"</span>, <span class="hljs-string">"CLICK!"</span>)
+  }
+
+  <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+    <span class="hljs-comment">//5</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> PHOTO_KEY = <span class="hljs-string">"PHOTO"</span>
+  }
+}
+</pre>
     <p>
         So what did you do here?
     </p>
@@ -804,43 +693,10 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         .
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onBindViewHolder
-            </span>
-            <span class="hljs-params">
-                (holder:
-                <span class="hljs-type">
-                    RecyclerAdapter
-                </span>
-                .
-                <span class="hljs-type">
-                    PhotoHolder
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { TODO(
-        <span class="hljs-string">
-            "not implemented"
-        </span>
-        )
-        <span class="hljs-comment">
-            //To change body of created functions use File | Settings | File Templates.
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">RecyclerAdapter</span>.<span class="hljs-type">PhotoHolder</span>, position: <span class="hljs-type">Int</span>)</span></span> {
+    TODO(<span class="hljs-string">"not implemented"</span>) <span class="hljs-comment">//To change body of created functions use File | Settings | File Templates.</span>
+}
+</pre>
     <p>
         Then add a
         <code>
@@ -860,39 +716,10 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         argument type.
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateViewHolder
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type">
-                    ViewGroup
-                </span>
-                , viewType:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : RecyclerAdapter.PhotoHolder { TODO(
-        <span class="hljs-string">
-            "not implemented"
-        </span>
-        )
-        <span class="hljs-comment">
-            //To change body of created functions use File | Settings | File Templates.
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: RecyclerAdapter.PhotoHolder {
+    TODO(<span class="hljs-string">"not implemented"</span>) <span class="hljs-comment">//To change body of created functions use File | Settings | File Templates.</span>
+ }
+</pre>
     <p>
         You should now be able to build and run the app again, but it’ll look
         about the same because you haven’t told the RecyclerView how to associate
