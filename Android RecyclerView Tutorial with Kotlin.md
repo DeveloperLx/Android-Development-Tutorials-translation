@@ -223,80 +223,70 @@
         第一次接触：RecyclerView和布局
     </h2>
     <p>
-        The arrival of the RecyclerView changed everything. It still uses an
+        RecyclerView的到来改变了一切。它仍然使用
         <em>
             Adapter
         </em>
-        to act as a data source; however, you have to create
+        来充当数据源，但你必须创建
         <em>
             ViewHolders
         </em>
-        to keep references in memory.
+        来在内存中进行持有。
     </p>
     <p>
-        When you need a new view, it either creates a new ViewHolder object to
-        inflate the layout and hold those references, or it recycles one from the
-        existing stack.
+        当你需要一个新的view时，它会在创建一个新的ViewHolder对象来持有引入并inflate布局，与在已存在对象的栈中复用之间进行选择。
     </p>
     <p>
-        Now you know why it’s called a RecyclerView!
+        现在你就知道它为何被叫做RecyclerView了！
     </p>
     <p>
-        Another perk of using RecyclerViews is that they come with default animations
-        that you don’t have to create or add yourself — they just work.
+        使用RecyclerView的另一个好处，是它带有默认的动画，无需你自己去添加。
     </p>
     <p>
-        Thanks to the requirement for a ViewHolder, the RecyclerView knows exactly
-        which animation to apply to which item. Best of all, it just does it as
-        required. You can even create your own animations and apply them as needed.
+        由于对ViewHolder的使用，RecyclerView清楚地知道哪个动画应用于哪个item。最重要的是，它只会按照需求的来做。你甚至可以创建自己的动画，并根据需要来使用它们。
     </p>
     <p>
-        The last and most interesting component of a RecyclerView is its
+        RecyclerView的最后一个，也是最重要的一个组件，就是
         <em>
             LayoutManager
         </em>
-        . This object positions the RecyclerView’s items and tells it when to
-        recycle items that have transitioned off-screen.
+        了。这个对象被用来确定RecyclerView item的位置，并告诉RecyclerView什么时候来回收移出屏幕外的item。
     </p>
     <p>
-        Layout Managers come in three default flavors:
+        LayoutManager有三种默认的口味：
     </p>
     <ul>
         <li>
             <em>
                 LinearLayoutManager
             </em>
-            positions your items to look like a standard ListView
+            像标准的ListView一样地布局你的item
         </li>
         <li>
             <em>
                 GridLayoutManager
             </em>
-            positions your items in a grid format similar to a GridView
+            类似于GridView一样地布局你的item
         </li>
         <li>
             <em>
                 StaggeredGridLayoutManager
             </em>
-            positions your items in a staggered grid format.
+            会以交错的网格格式来布局你的item。
         </li>
     </ul>
     <p>
-        You can also create your own
+        如果想要创建自己的布局，你还可以创建自定义的
         <code>
             LayoutManagers
         </code>
-        to use with a
-        <code>
-            RecyclerView
-        </code>
-        if you want an extra bit of customization.
+        。
     </p>
     <p>
-        Hopefully that answers all your questions, commander. Now, onto the mission!
+        希望能够回答你所有的问题，司令官。现在，执行任务！
     </p>
     <h2>
-        Preparing for Launch: Creating the RecyclerView
+        准备发射：创建RecyclerView
     </h2>
     <p>
         To create the RecyclerView, you’ll break the work into four parts:
