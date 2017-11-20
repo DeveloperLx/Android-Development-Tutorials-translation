@@ -99,30 +99,30 @@
         <a href="http://apod.nasa.gov" target="_blank" title="Astronomy Picture of the Day API">
             Astronomy Picture of the Day API
         </a>
-        ，它是由NASA提供的最流行的网络服务之一。为确保不会成为未经授权的流量的牺牲者，该服务要求你的app有一个API的key。
+        ，它是由NASA提供的最流行的网络服务之一。为确保不被当成未经授权的流量，该服务要求你的app有一个API的key。
     </p>
     <p>
-        Fortunately, getting a key is as simple as putting your name and email address into
+        幸运的是，要获取这个key非常容易，只需将你的名字和邮箱地址填到
         <a href="https://api.nasa.gov/index.html#apply-for-an-api-key" target="_blank"
         title="webpage">
             api.nasa.gov
         </a>
-        and copying the API key that appears on the screen or the email sent to you.
+        上，然后把弹出的页面或邮箱地址中的API key粘贴过来即可。
     </p>
     <p>
-        Once you’ve acquired your API key, copy it and open the
+        获取API key之后，复制它，并在你的项目中打开
         <em>
             strings.xml
         </em>
-        file in your project. Paste your API key into the
+        文件。将该API key粘贴到
         <code>
             api_key
         </code>
-        string resource, replacing
+        中，替换掉
         <code>
             INSERT API KEY HERE
         </code>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/4.-API_KEY-paste-700x296.png"
