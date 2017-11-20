@@ -194,27 +194,23 @@
         sizes="(max-width: 600px) 100vw, 600px">
     </p>
     <p>
-        Android engineers initially provided a solution to this problem on the
-        Android Developers site with
-        <a href="http://developer.android.com/training/improving-layouts/smooth-scrolling.html#ViewHolder"
-        title="smooth scrolling" target="_blank">
-            smooth scrolling
-        </a>
-        , via the power of the
+        Android的工程师最初通过
         <code>
             View Holder
         </code>
-        pattern.
+        模式，提供了一个解决该问题的方法（参见Android开发者网站的
+        <a href="http://developer.android.com/training/improving-layouts/smooth-scrolling.html#ViewHolder"
+        title="smooth scrolling" target="_blank">
+            平滑滚动
+        </a>
+        ）。
     </p>
     <p>
-        When you use this pattern, you create a class that becomes an in-memory
-        reference to all the views needed to fill your layout. The benefit is you
-        set the references once and reuse them, effectively working around the
-        performance hit that comes with repeatedly calling
+        当使用这个模式时，你会通过在内存上创建一个对所有所需view的引用来，对布局进行填充。这么做的益处就是只需设置一次引用，然后再复用它即可，有效地解决了因重复地调用
         <code>
             findViewById()
         </code>
-        .
+        产生的性能问题。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/05/viewholder_new_larger.png"
@@ -223,12 +219,10 @@
         sizes="(max-width: 594px) 100vw, 594px">
     </p>
     <p>
-        The problem is that it’s an optional pattern for a ListView or GridView.
-        If you’re unaware of this detail, then you may wonder why your precious
-        ListViews and GridViews are so slow.
+        问题是这只是ListView或GridView的一个可选的模式，如果不了解细节，你可能就会非常奇怪为何ListViews和GridViews如此得慢。
     </p>
     <h2>
-        First Contact: RecyclerView and Layouts
+        第一次接触：RecyclerView和布局
     </h2>
     <p>
         The arrival of the RecyclerView changed everything. It still uses an
