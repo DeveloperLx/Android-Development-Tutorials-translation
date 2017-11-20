@@ -699,81 +699,40 @@ recyclerView.layoutManager = linearLayoutManager
  }
 </pre>
     <p>
-        You should now be able to build and run the app again, 
-        but it’ll look about the same 
-        because you haven’t told the RecyclerView how to associate the PhotoHolder with a view.
+        现在就可以运行app了，但看起来并没有发生过什么变化，因为你还未告诉RecyclerView如何把PhotoHolder和一个view关联起来。
     </p>
     <h2>
-        Assembling The Pieces
+        组装碎片
     </h2>
     <p>
-        Sometimes there are no ViewHolders available. In this scenario, RecylerView
-        will ask
+        当没有可用的ViewHolder时，RecylerView就会调用RecyclerAdapter的
         <code>
             onCreateViewHolder()
         </code>
-        from RecyclerAdapter to make a new one. You’ll use the item layout — PhotoHolder
-        — to create a view for the ViewHolder.
+        方法来创建一个新的ViewHolder。你将使用item的布局 - PhotoHolder - 来创建一个相应于ViewHolder的view。
     </p>
     <p>
-        The inflate code could simply be added to
+        inflate的代码可以直接被添加到
         <code>
             onCreateViewHolder()
         </code>
-        . However, this is a nice opportunity to show a really cool Kotlin feature
-        called
+        中。但实际上，这是一个很好的机会去展示一个叫做
         <a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank">
             Extensions
         </a>
-        .
+        的很酷的Kotlin特性。
     </p>
     <p>
-        First, add a new Kotlin file named
+        首先，在项目中添加一个名为
         <em>
             Extensions.kt
         </em>
-        to the project and then add the following new extension function to the
-        new file:
+        的Kotlin文件，然后添加下列的代码到其中：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            ViewGroup.
-            <span class="hljs-title">
-                inflate
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-meta">
-                    @LayoutRes
-                </span>
-                layoutRes:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , attachToRoot:
-                <span class="hljs-type">
-                    Boolean
-                </span>
-                =
-                <span class="hljs-literal">
-                    false
-                </span>
-                )
-            </span>
-        </span>
-        : View {
-        <span class="hljs-keyword">
-            return
-        </span>
-        LayoutInflater.from(context).inflate(layoutRes,
-        <span class="hljs-keyword">
-            this
-        </span>
-        , attachToRoot) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> ViewGroup.<span class="hljs-title">inflate</span><span class="hljs-params">(<span class="hljs-meta">@LayoutRes</span> layoutRes: <span class="hljs-type">Int</span>, attachToRoot: <span class="hljs-type">Boolean</span> = <span class="hljs-literal">false</span>)</span></span>: View {
+    <span class="hljs-keyword">return</span> LayoutInflater.from(context).inflate(layoutRes, <span class="hljs-keyword">this</span>, attachToRoot)
+}
+</pre>
     <p>
         Replace the
         <code>
@@ -785,20 +744,9 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         with the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        inflatedView = parent.inflate(R.layout.recyclerview_item_row,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            return
-        </span>
-        PhotoHolder(inflatedView)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> inflatedView = parent.inflate(R.layout.recyclerview_item_row, <span class="hljs-literal">false</span>)
+<span class="hljs-keyword">return</span> PhotoHolder(inflatedView)
+</pre>
     <p>
         Here you inflate the view from its layout and pass it in to a PhotoHolder.
         The
@@ -823,27 +771,11 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         with this code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        context = itemView.context
-        <span class="hljs-keyword">
-            val
-        </span>
-        showPhotoIntent = Intent(context, PhotoActivity::
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            .
-            <span class="hljs-title">
-                java
-            </span>
-            )
-        </span>
-        showPhotoIntent.putExtra(PHOTO_KEY, photo) context.startActivity(showPhotoIntent)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> context = itemView.context
+<span class="hljs-keyword">val</span> showPhotoIntent = Intent(context, PhotoActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+showPhotoIntent.putExtra(PHOTO_KEY, photo)
+context.startActivity(showPhotoIntent)
+</pre>
     <p>
         This grabs the current context of your item view and creates an intent
         to show a new activity on the screen, passing the photo object you want
@@ -857,30 +789,13 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                bindPhoto
-            </span>
-            <span class="hljs-params">
-                (photo:
-                <span class="hljs-type">
-                    Photo
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            this
-        </span>
-        .photo = photo Picasso.with(view.context).load(photo.url).into(view.itemImage)
-        view.itemDate.text = photo.humanDate view.itemDescription.text = photo.explanation
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">bindPhoto</span><span class="hljs-params">(photo: <span class="hljs-type">Photo</span>)</span></span> {
+  <span class="hljs-keyword">this</span>.photo = photo
+  Picasso.with(view.context).load(photo.url).into(view.itemImage)
+  view.itemDate.text = photo.humanDate
+  view.itemDescription.text = photo.explanation
+}
+</pre>
     <p>
         This binds the photo to the PhotoHolder, giving your item the data it
         needs to work out what it should show.
@@ -909,12 +824,9 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        itemPhoto = photos[position] holder.bindPhoto(itemPhoto)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> itemPhoto = photos[position]
+holder.bindPhoto(itemPhoto)
+</pre>
     <p>
         Here you’re passing in a copy of your ViewHolder and the position where
         the item will show in your RecyclerView, and calling
@@ -947,18 +859,8 @@ recyclerView.layoutManager = linearLayoutManager
         </em>
         , and add this property at the top:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        adapter: RecyclerAdapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> adapter: RecyclerAdapter
+</pre>
     <p>
         Next, underneath the assignment of
         <code>
@@ -966,9 +868,9 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         , add the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        adapter = RecyclerAdapter(photosList) recyclerView.adapter = adapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">adapter = RecyclerAdapter(photosList)
+recyclerView.adapter = adapter
+</pre>
     <p>
         Here you’re creating the adapter, passing in the constructors it needs
         and setting it as the adapter for your RecyclerView.
@@ -988,16 +890,10 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         , add this code:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (photosList.size ==
-        <span class="hljs-number">
-            0
-        </span>
-        ) { requestPhoto() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (photosList.size == <span class="hljs-number">0</span>) {
+  requestPhoto()
+}
+</pre>
     <p>
         This adds a check to see if your list is empty, and if yes, it requests
         a photo.
@@ -1009,28 +905,13 @@ recyclerView.layoutManager = linearLayoutManager
         </code>
         , update the method so it looks like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                receivedNewPhoto
-            </span>
-            <span class="hljs-params">
-                (newPhoto:
-                <span class="hljs-type">
-                    Photo
-                </span>
-                )
-            </span>
-        </span>
-        { runOnUiThread { photosList.add(newPhoto) adapter.notifyItemInserted(photosList.size)
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">receivedNewPhoto</span><span class="hljs-params">(newPhoto: <span class="hljs-type">Photo</span>)</span></span> {
+  runOnUiThread {
+    photosList.add(newPhoto)
+    adapter.notifyItemInserted(photosList.size)
+  }
+}
+</pre>
     <p>
         Here you are informing the recycler adapter that an item was added after
         the list of photos was updated.
