@@ -625,87 +625,83 @@ recyclerView.layoutManager = linearLayoutManager
     </p>
     <ol>
         <li>
-            Made the class extend RecyclerView.ViewHolder, 
-            allowing it to be used as a ViewHolder for the adapter.
+            让这个类继承自RecyclerView.ViewHolder，使它可以作为adapter的ViewHolder。
         </li>
         <li>
-            Added a reference to the lifecycle of the object to allow the ViewHolder to hang on to your View, 
-            so it can access the ImageView and TextView as an extension property. 
-            Kotlin Android Extensions plugin adds in hidden caching functions 
-            and fields so that views are not constantly queried.
+            为对象的声明周期添加一个引用，使ViewHolder持有你的View，这样它就可以通过扩展的property来访问ImageView和TextView了。Kotlin的Android扩展插件增加了隐藏的缓存功能和字段，以避免频繁地对view进行查询。
         </li>
         <li>
-            Initialized the
+            初始化
             <code>
                 View.OnClickListener
             </code>
-            .
+            。
         </li>
         <li>
-            Implemented the required method for
+            实现
             <code>
                 View.OnClickListener
             </code>
-            since ViewHolders are responsible for their own event handling.
+            中必须的方法，让ViewHolder负责它自己的时间处理。
         </li>
         <li>
-            Added a key for easier reference to the particular item being used to launch your RecyclerView.
+            添加了一个key，便于引用用于启动你的RecyclerView的特定item。
         </li>
     </ol>
     <p>
-        You should still have a compiler errors with
+        在
         <code>
             onBindViewHolder
         </code>
-        and
+        和
         <code>
             onCreateViewHolder
         </code>
-        methods. Change the
-        <code>
-            holder: ?
-        </code>
-        argument on
+        方法中仍然存在着编译错误。将
         <code>
             onBindViewHolder
         </code>
-        to have a type
+        中的参数
+        <code>
+            holder: ?
+        </code>
+        修改为
         <code>
             RecyclerAdapter.PhotoHolder
         </code>
-        .
+        。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">RecyclerAdapter</span>.<span class="hljs-type">PhotoHolder</span>, position: <span class="hljs-type">Int</span>)</span></span> {
     TODO(<span class="hljs-string">"not implemented"</span>) <span class="hljs-comment">//To change body of created functions use File | Settings | File Templates.</span>
 }
 </pre>
     <p>
-        Then add a
-        <code>
-            RecyclerAdapter.PhotoHolder
-        </code>
-        return type to the
+        然后将
         <code>
             onCreateViewHolder
         </code>
-        method and remove the safe call operator (i.e.
+        方法的返回类型修改为
         <code>
-            ?
+            RecyclerAdapter.PhotoHolder
         </code>
-        ) of the
+        ，并移除参数
         <code>
             parent
         </code>
-        argument type.
+        的安全调用操作符（也就是
+        <code>
+            ?
+        </code>
+        ）。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: RecyclerAdapter.PhotoHolder {
     TODO(<span class="hljs-string">"not implemented"</span>) <span class="hljs-comment">//To change body of created functions use File | Settings | File Templates.</span>
  }
 </pre>
     <p>
-        You should now be able to build and run the app again, but it’ll look
-        about the same because you haven’t told the RecyclerView how to associate
-        the PhotoHolder with a view.
+        You should now be able to build and run the app again, 
+        but it’ll look about the same 
+        because you haven’t told the RecyclerView how to associate the PhotoHolder with a view.
     </p>
     <h2>
         Assembling The Pieces
