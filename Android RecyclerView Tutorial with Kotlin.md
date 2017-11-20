@@ -165,31 +165,27 @@
         方法中，你inflate了item的布局。然后，通过你在XML文件中提供的唯一id去引用每一个view，来添加一些view的逻辑。然后，再把这个view传递给ListView，这时就可以绘制到屏幕上了。一切看起来都不错...那么？
     </p>
     <p>
-        The truth is that ListViews and GridViews only do half the job of achieving true memory efficiency. 
-        They recycle the item
+        事实是ListView和GridView只完成了正确使用内存的一半的工作。它们循环利用了item的
         <em>
             layout
         </em>
-        , but don’t keep references to the layout children, 
-        forcing you to call
-        <code>
-            findViewById()
-        </code>
-        for every child of your item layout every time you call
+        ，但却并不保留对layout子控件的引用，而是在每次调用
         <code>
             getView()
         </code>
-        .
+        时，都得为每个子控件重新调用
+        <code>
+            findViewById()
+        </code> 
+        。
     </p>
     <p>
-        All this calling around can become
+        所有的这些调用都
         <i>
+            大幅地
             very
         </i>
-        processor-intensive, especially for complicated layouts. 
-        Furthermore,
-        the situation can cause your ListView scrolling to become jerky or non-responsive
-        as it frantically tries to grab references to the views you need.
+        增加了处理器的计算量，尤其当item的布局比较复杂的时候。此外，这个情形还会造成ListView的卡顿甚至失去响应，因为它会疯狂地抓取你所需的view的引用。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2016/02/ListView--700x491.png"
