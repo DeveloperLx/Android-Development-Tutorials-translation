@@ -319,101 +319,92 @@
   <span class="hljs-attr">android:scrollbars</span>=<span class="hljs-string">"vertical"</span>/&gt;</span>
 </pre>
     <p>
-        Here you’re setting up the layout and telling the RecyclerView to match
-        its parent.
+        这样就设置了RecyclerView的布局，并告知RecyclerView填满它的父布局。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You’re using the v7 support library for backwards compatibility with
-            older devices. The starter project already adds the RecyclerView Support
-            Library as a dependency in your app’s
+            ：你使用了v7支持库来向后兼容旧版的设备。初始项目已在app的
             <em>
                 build.gradle
             </em>
-            file. If you want more information on how to do it yourself, check out
-            the
+            文件中添加了对RecyclerView支持库的依赖。如果你想了解更多关于它本身的内容，可以访问
             <a href="http://developer.android.com/tools/support-library/setup.html"
             target="_blank">
-                Android developer website
+                Android开发者网站
             </a>
-            .
+            。
         </p>
     </div>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        and declare the following property at the top of the class:
+        ，并在类的顶部声明下列的property：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> linearLayoutManager: LinearLayoutManager
 </pre>
     <p>
-        In
+        在
         <code>
             onCreate()
         </code>
-        , add the following lines after
+        中，
         <code>
             setContentView
         </code>
-        :
+        之后添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">linearLayoutManager = LinearLayoutManager(<span class="hljs-keyword">this</span>)
 recyclerView.layoutManager = linearLayoutManager
 </pre>
     <p>
-        Android Studio should prompt you to import
+        Android Studio会提示你为
+        <code>
+            recyclerView
+        </code>
+        导入
         <code>
             kotlinx.android.synthetic.main.activity_main.*
         </code>
-        for
-        <code>
-            recyclerView
-        </code>
-        . You may wonder how do we have a reference to
-        <code>
-            recyclerView
-        </code>
-        without first finding the view, i.e.
+        。你也许会好奇，为何未首先使用
         <code>
             findViewById()
         </code>
-        ? The project has been configured to use
+        来获取对
+        <code>
+            recyclerView
+        </code>
+        的引用？因为该项目已被配置使用了
         <a href="https://kotlinlang.org/docs/tutorials/android-plugin.html" target="_blank">
             Kotlin Android Extensions
         </a>
-        plugin. This plugin enables the ability to import views in a layout as
-        “synthetic” properties.
+        插件，它可以将布局文件中的view自动合成为property。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_main.*
 </pre>
     <p>
-        The
         <code>
             recyclerView
         </code>
-        is now an extension property for
+        现在就是
         <code>
             Activity
         </code>
-        , and it has the same type as declared in
+        的一个扩展property了，拥有和在
         <code>
             activity_main.xml
         </code>
-        . The plugin removes a lot of boilerplate code and reduces the risk of
-        potential bugs.
+        声明的相同的类型。这个插件使得我们略去了很多样板式的代码，并减小了潜在bug的风险。
     </p>
     <p>
-        Phase one of ignition is complete! You’ve declared and allocated memory
-        for two parts of the puzzle that RecyclerViews need to work: The RecyclerView
-        and its Layout Manager.
+        点火的第一阶段已完成了！你已为RecyclerView正常工作所需的两个部分声明并分配了内存：RecyclerView和它的Layout Manager。
     </p>
     <h2>
-        Ignition Phase 2: Laying out the RecyclerView Items
+        点火的第二阶段：布置RecyclerView的Item
     </h2>
     <p>
         Phase two of ignition involves creating a custom layout for the item you
