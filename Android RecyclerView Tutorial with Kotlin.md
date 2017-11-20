@@ -289,68 +289,35 @@
         准备发射：创建RecyclerView
     </h2>
     <p>
-        To create the RecyclerView, you’ll break the work into four parts:
+        要创建RecyclerView，你有四个部分的工作需要完成：
     </p>
     <ol>
         <li>
-            Declare the RecyclerView in an activity layout and reference it in your
-            activity Kotlin file.
+            在activity的布局文件中声明RecyclerView，并在相应activity的Kotlin文件中引用它。
         </li>
         <li>
-            Create a custom item XML layout for your RecyclerView to use for its items.
+            为你的RecyclerView创建自定义的item XML布局文件。
         </li>
         <li>
-            Create the view holder for your view items, hook up the data source of
-            the RecyclerView and handle the view logic by creating a RecyclerView Adapter.
+            为这个item创建view holder，并连接到RecyclerView的数据源上，然后创建RecyclerView的Adapter来处理view的逻辑。
         </li>
         <li>
-            Attach the adapter to the RecyclerView.
+            将adapter到RecyclerView上。
         </li>
     </ol>
     <p>
-        Step one should be familiar. Open up the
+        第一步应当是非常熟悉的。打开
         <em>
             activity_main.xml
         </em>
-        layout file, and add the following as a child of the LinearLayout:
+        布局文件，添加下列的代码作为LinearLayout的子元素：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.RecyclerView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/recyclerView"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:scrollbars
-            </span>
-            =
-            <span class="hljs-string">
-                "vertical"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
+  <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recyclerView"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:scrollbars</span>=<span class="hljs-string">"vertical"</span>/&gt;</span>
+</pre>
     <p>
         Here you’re setting up the layout and telling the RecyclerView to match
         its parent.
@@ -382,18 +349,8 @@
         </em>
         and declare the following property at the top of the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        linearLayoutManager: LinearLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> linearLayoutManager: LinearLayoutManager
+</pre>
     <p>
         In
         <code>
@@ -405,13 +362,9 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        linearLayoutManager = LinearLayoutManager(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) recyclerView.layoutManager = linearLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">linearLayoutManager = LinearLayoutManager(<span class="hljs-keyword">this</span>)
+recyclerView.layoutManager = linearLayoutManager
+</pre>
     <p>
         Android Studio should prompt you to import
         <code>
@@ -436,12 +389,8 @@
         plugin. This plugin enables the ability to import views in a layout as
         “synthetic” properties.
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        kotlinx.android.synthetic.main.activity_main.*
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.activity_main.*
+</pre>
     <p>
         The
         <code>
@@ -483,176 +432,33 @@
         . In your new layout, add the following XML elements as children of your
         LinearLayout:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/itemImage"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "8dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_weight
-            </span>
-            =
-            <span class="hljs-string">
-                "3"
-            </span>
-            <span class="hljs-attr">
-                android:adjustViewBounds
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/itemDate"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "top|start"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "8dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_weight
-            </span>
-            =
-            <span class="hljs-string">
-                "1"
-            </span>
-            <span class="hljs-attr">
-                tools:text
-            </span>
-            =
-            <span class="hljs-string">
-                "Some date"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/itemDescription"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_gravity
-            </span>
-            =
-            <span class="hljs-string">
-                "center|start"
-            </span>
-            <span class="hljs-attr">
-                android:layout_weight
-            </span>
-            =
-            <span class="hljs-string">
-                "1"
-            </span>
-            <span class="hljs-attr">
-                android:ellipsize
-            </span>
-            =
-            <span class="hljs-string">
-                "end"
-            </span>
-            <span class="hljs-attr">
-                android:maxLines
-            </span>
-            =
-            <span class="hljs-string">
-                "5"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/itemImage"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center"</span>
+    <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"8dp"</span>
+    <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"3"</span>
+    <span class="hljs-attr">android:adjustViewBounds</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/itemDate"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"top|start"</span>
+    <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"8dp"</span>
+    <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">tools:text</span>=<span class="hljs-string">"Some date"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/itemDescription"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"center|start"</span>
+    <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>
+    <span class="hljs-attr">android:ellipsize</span>=<span class="hljs-string">"end"</span>
+    <span class="hljs-attr">android:maxLines</span>=<span class="hljs-string">"5"</span> /&gt;</span>
+</pre>
     <p>
         No rocket science here: You declared a few views as children of your layout,
         and can now use them in your adapter.
@@ -683,12 +489,8 @@
         </code>
         declaration, import the support library’s version of RecyclerView:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            import
-        </span>
-        android.support.v7.widget.RecyclerView
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.widget.RecyclerView
+</pre>
     <p>
         Make the class extend
         <em>
@@ -696,26 +498,9 @@
         </em>
         so it looks like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                RecyclerAdapter
-            </span>
-            :
-            <span class="hljs-type">
-                RecyclerView.Adapter
-            </span>
-            &lt;
-            <span class="hljs-type">
-                RecyclerAdapter.PhotoHolder
-            </span>
-            &gt;
-        </span>
-        () { }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecyclerAdapter</span> : <span class="hljs-type">RecyclerView.Adapter</span>&lt;<span class="hljs-type">RecyclerAdapter.PhotoHolder</span>&gt;</span>()  {
+}
+</pre>
     <p>
         Android Studio will detect that you’re extending a class that has required
         methods and will underline your class declaration with a red squiggle.
