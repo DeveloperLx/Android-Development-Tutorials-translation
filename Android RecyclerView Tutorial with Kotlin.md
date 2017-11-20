@@ -454,59 +454,57 @@ recyclerView.layoutManager = linearLayoutManager
         Adapter：你的RecyclerView的火箭燃料
     </h2>
     <p>
-        Right-click on the
+        右击
         <em>
             com.raywenderlich.galacticon
         </em>
-        folder, select
+        目录，选择
         <em>
-            New \ Kotlin File/Class
+            New / Kotlin File/Class
         </em>
-        , and name it
+        ，将其命名为
         <em>
             RecyclerAdapter
         </em>
-        and select
+        并选择
         <em>
             Class
         </em>
-        for Kind. At the top of the file below the
+        作为类型。在文件的顶部，
         <code>
             package
         </code>
-        declaration, import the support library’s version of RecyclerView:
+        声明的下面，导入支持库版本的RecyclerView：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> android.support.v7.widget.RecyclerView
 </pre>
     <p>
-        Make the class extend
+        让这个类继承自
         <em>
             RecyclerView.Adapter
         </em>
-        so it looks like the following:
+        ，就像下面这样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecyclerAdapter</span> : <span class="hljs-type">RecyclerView.Adapter</span>&lt;<span class="hljs-type">RecyclerAdapter.PhotoHolder</span>&gt;</span>()  {
 }
 </pre>
     <p>
-        Android Studio will detect that you’re extending a class that has required
-        methods and will underline your class declaration with a red squiggle.
+        Android Studio会检测到你继承了一个含义必需方法的类，然后在你类声明的下方画出一条波浪线。
     </p>
     <p>
-        To resolve this, click on the line of code to insert your cursor, then
-        press
+        点击波浪线上的代码，然后按
         <em>
             Option + Return
         </em>
-        (or
+        键（在PC上是
         <em>
             Alt + Enter
         </em>
-        on a PC) to bring up a context menu. Select
+        键）弹出一个上下文的菜单。选择
         <em>
             Implement Methods
         </em>
-        :
+        ：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/5-Implements-RecyclerView-Adapter-Methods-650x382.png"
@@ -515,11 +513,11 @@ recyclerView.layoutManager = linearLayoutManager
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Confirm you want to implement the suggested methods by clicking
+        点击
         <em>
             OK
         </em>
-        :
+        ，以确认你想要实现的方法：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/6-Confirm-RecyclerView-Implemention-Methods-650x381.png"
@@ -529,14 +527,15 @@ recyclerView.layoutManager = linearLayoutManager
     </p>
     <p>
         These methods are the driving force behind your RecyclerView adapter.
-        Note how there is still a compiler error for the moment– this is because
-        your adapter and the required methods are actually defined using your ViewHolder
-        class,
+        Note how there is still a compiler error for the moment
+        – this is because your adapter and the required methods are actually defined using your ViewHolder class,
         <code>
             PhotoHolder
         </code>
-        , which doesn’t exist just yet. You’ll get to define your ViewHolder and
-        see what each required method does shortly, so just hang tight, Commander!
+        , which doesn’t exist just yet. 
+        You’ll get to define your ViewHolder and
+        see what each required method does shortly, 
+        so just hang tight, Commander!
     </p>
     <p>
         As with every adapter, you need to provide the corresponding view a means
@@ -547,12 +546,12 @@ recyclerView.layoutManager = linearLayoutManager
         <code>
             onItemClickListener
         </code>
-        . A RecyclerView doesn’t provide methods like this because it has one
-        focus: ensuring the items inside are positioned properly and managed efficiently.
+        . A RecyclerView doesn’t provide methods like this because it has one focus: 
+        ensuring the items inside are positioned properly and managed efficiently.
     </p>
     <p>
-        The job of listening for actions is now the responsibility of the RecyclerView
-        item and its children. This may seem like more overhead, but in return,
+        The job of listening for actions is now the responsibility of the RecyclerView item and its children. 
+        This may seem like more overhead, but in return,
         you get fine-grained control over how your item’s children can act.
     </p>
     <p>
