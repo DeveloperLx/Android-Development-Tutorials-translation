@@ -526,93 +526,77 @@ recyclerView.layoutManager = linearLayoutManager
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        These methods are the driving force behind your RecyclerView adapter.
-        Note how there is still a compiler error for the moment
-        – this is because your adapter and the required methods are actually defined using your ViewHolder class,
+        这些方法是RecyclerView adapter背后的驱动力。注意，这里此刻仍然有一个编译错误 - 这是因为adapter和要求的方法实际使用的是你定义的ViewHolder类
         <code>
             PhotoHolder
         </code>
-        , which doesn’t exist just yet. 
-        You’ll get to define your ViewHolder and
-        see what each required method does shortly, 
-        so just hang tight, Commander!
+        ，但它现在还并不存在。赶快定义你的ViewHolder，查看每个必须的方法所负责的部分吧，司令！
     </p>
     <p>
-        As with every adapter, you need to provide the corresponding view a means
-        of populating items and deciding how many items there should be.
+        和每个adapter一样，你需要为相应的view提供填充item的方法，并确定item的个数。
     </p>
     <p>
-        Item clicks were previously managed by a ListView’s or GridView’s
+        Item的点击事件之前是由ListView或GridView的
         <code>
             onItemClickListener
         </code>
-        . A RecyclerView doesn’t provide methods like this because it has one focus: 
-        ensuring the items inside are positioned properly and managed efficiently.
+        所管理的。但RecyclerView自己并未提供这样的方法，因为它把自身聚焦于正确地确定位置，及进行有效的管理。
     </p>
     <p>
-        The job of listening for actions is now the responsibility of the RecyclerView item and its children. 
-        This may seem like more overhead, but in return,
-        you get fine-grained control over how your item’s children can act.
+        监听行为现在成了RecyclerView item及它的子元素的工作。这看起来似乎需要更多的精力，但作为回馈，你获得了对item子元素更好的控制。
     </p>
     <p>
-        At the top of your RecyclerAdapter class, add a variable
+        在RecyclerAdapter类的顶部，添加一个变量
         <code>
             photos
         </code>
-        to hold your photos in the primary constructor:
+        ，以在主构造器中持有你的照片：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecyclerAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> photos: ArrayList&lt;Photo&gt;) RecyclerView.Adapter&lt;RecyclerAdapter.PhotoHolder&gt;() {
 </pre>
     <p>
-        Nice job, Commander! Your adapter now knows where to look for data. Soon
-        you’ll have an ArrayList of photos filled with the finest astrophotography!
+        Nice job, 司令！你的adapter现在就知道去什么地方查找数据了。很快你就会有一个照片的ArrayList来填充超赞的天文摄影展！
     </p>
     <p>
-        Next, you’ll populate the stubbed methods that were added by Android Studio.
+        下面就来填充那些Android Studio自动生成的方法吧。
     </p>
     <p>
-        The first method,
+        第一个方法
         <code>
             getItemCount()
         </code>
-        , is pretty simple and should be familiar from your work with ListViews
-        or GridViews.
+        ，非常简单。你应当熟悉在ListView和GridView中的做法。
     </p>
     <p>
-        The adapter will work out how many items to display. In this case, you
-        want the adapter to show every photo you’ve downloaded from NASA’s API.
-        To do that, add update
+        adapter会计算出要展示多少个item。在本例中，你希望adapter展示出你从NASA的API中下载的每张照片。将
         <code>
             getItemCount()
         </code>
-        to the following:
+        方法更新为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span> = photos.size
 </pre>
     <p>
-        Next, you’re going to exploit the
+        接下来，你会利用
         <code>
             ViewHolder
         </code>
-        pattern to make an object that holds all your view references.
+        模式来创建一个对象，以持有item中所有view的引用。
     </p>
     <h2>
-        Velcro For All: Keeping Hold Of Your Views
+        万能魔术贴：持有你的View
     </h2>
     <p>
-        To create a
+        你将在adapter中创建一个内部类
         <strong>
             PhotoHolder
         </strong>
-        for your view references, you’ll create a nested class in your adapter.
-        You’ll add it here rather than in a separate class because its behavior
-        is tightly coupled with the adapter. First, import synthetic properties
-        for the recycler view item so you can reference the view properties:
+        来持有view的引用。把它创建到这里，而不是另外的单独的类，是因为它的行为是与adapter紧密集合的。首先，为RecyclerView的item导入synthetic器，这样就可以引用view的属性了：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">import</span> kotlinx.android.synthetic.main.recyclerview_item_row.view.*
 </pre>
     <p>
-        Add the following code at the bottom of the RecyclerAdapter class:
+        添加下列的代码到RecyclerAdapter类的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">//1</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoHolder</span></span>(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
@@ -637,18 +621,18 @@ recyclerView.layoutManager = linearLayoutManager
 }
 </pre>
     <p>
-        So what did you do here?
+        这里都做了什么？
     </p>
     <ol>
         <li>
-            Made the class extend RecyclerView.ViewHolder, allowing it to be used
-            as a ViewHolder for the adapter.
+            Made the class extend RecyclerView.ViewHolder, 
+            allowing it to be used as a ViewHolder for the adapter.
         </li>
         <li>
-            Added a reference to the lifecycle of the object to allow the ViewHolder
-            to hang on to your View, so it can access the ImageView and TextView as
-            an extension property. Kotlin Android Extensions plugin adds in hidden
-            caching functions and fields so that views are not constantly queried.
+            Added a reference to the lifecycle of the object to allow the ViewHolder to hang on to your View, 
+            so it can access the ImageView and TextView as an extension property. 
+            Kotlin Android Extensions plugin adds in hidden caching functions 
+            and fields so that views are not constantly queried.
         </li>
         <li>
             Initialized the
@@ -665,8 +649,7 @@ recyclerView.layoutManager = linearLayoutManager
             since ViewHolders are responsible for their own event handling.
         </li>
         <li>
-            Added a key for easier reference to the particular item being used to
-            launch your RecyclerView.
+            Added a key for easier reference to the particular item being used to launch your RecyclerView.
         </li>
     </ol>
     <p>
