@@ -734,42 +734,39 @@ recyclerView.layoutManager = linearLayoutManager
 }
 </pre>
     <p>
-        Replace the
-        <code>
-            TODO("not implemented")
-        </code>
-        line between the curly braces in
+        在
         <code>
             onCreateViewHolder()
         </code>
-        with the following:
+        中，将花括号中的
+        <code>
+            TODO("not implemented")
+        </code>
+        替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> inflatedView = parent.inflate(R.layout.recyclerview_item_row, <span class="hljs-literal">false</span>)
 <span class="hljs-keyword">return</span> PhotoHolder(inflatedView)
 </pre>
     <p>
-        Here you inflate the view from its layout and pass it in to a PhotoHolder.
-        The
+        这里你从item的布局中inflate了一个view，并把它传递给PhotoHolder。
         <code>
             parent.inflate(R.layout.recyclerview_item_row, false)
         </code>
-        method will execute the new
+        方法将会执行新的
         <code>
             ViewGroup.inflate(...)
         </code>
-        extension function to inflate the layout.
+        扩展方法来inflate布局。
     </p>
     <p>
-        And with that, you’ve made it so the object holds onto those references
-        while it’s recycled, but there are still more pieces to put together before
-        you can launch your rocketship.
+        这样你就办到了在回收的时候持有这些元素的引用，但在发射火箭飞船之前，还有一些碎片需要被拼凑起来。
     </p>
     <p>
-        Start a new activity by replacing the log in ViewHolder’s
+        通过将ViewHolder
         <code>
             onClick
         </code>
-        with this code:
+        方法中的log语句替换为如下代码，启动一个新的activity：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> context = itemView.context
 <span class="hljs-keyword">val</span> showPhotoIntent = Intent(context, PhotoActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
@@ -777,17 +774,14 @@ showPhotoIntent.putExtra(PHOTO_KEY, photo)
 context.startActivity(showPhotoIntent)
 </pre>
     <p>
-        This grabs the current context of your item view and creates an intent
-        to show a new activity on the screen, passing the photo object you want
-        to show. Passing the context object into the intent allows the app to know
-        what activity it is leaving.
+        上述代码，首先会获取到item view的context，然后创建用于在屏幕上展示新activity的intent，并传递你想要展示的照片对象。传递context对象给intent，能够让app知道是从哪个activity离开的。
     </p>
     <p>
-        Next thing to do is to add this method inside
+        下一件事，是把这个方法添加到
         <code>
             PhotoHolder
         </code>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">bindPhoto</span><span class="hljs-params">(photo: <span class="hljs-type">Photo</span>)</span></span> {
   <span class="hljs-keyword">this</span>.photo = photo
@@ -797,48 +791,45 @@ context.startActivity(showPhotoIntent)
 }
 </pre>
     <p>
-        This binds the photo to the PhotoHolder, giving your item the data it
-        needs to work out what it should show.
+        这样就将photo绑定到了PhotoHolder上，提供给你item所需的数据，以便展示出来。
     </p>
     <p>
-        It also adds the suggested
+        它还会导入
         <a href="http://square.github.io/picasso/" target="_blank" title="Picasso">
             Picasso
         </a>
-        import, which is a library that makes it significantly simpler to get
-        images from a given URL.
+        ，这是一个用来大幅简化从URL中获取图片过程的库。
     </p>
     <p>
-        The last piece of the PhotoHolder assembly will tell it how to show the
-        right photo at the right moment. It’s the RecyclerAdapter’s
+        PhotoHolder装配的最后一块拼图，将用来告知RecyclerView如何在正确的时间展示正确的照片，也就是RecyclerAdapter的
         <code>
             onBindViewHolder
         </code>
-        , and it lets you know a new item will be available on screen and the
-        holder needs some data.
+        方法。它会告知你，一个新的item将展示在屏幕上，相应的holder需要一些数据。
     </p>
     <p>
-        Add the following code inside the
+        在
         <code>
             onBindViewHolder()
         </code>
-        method:
+        方法中添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> itemPhoto = photos[position]
 holder.bindPhoto(itemPhoto)
 </pre>
     <p>
         Here you’re passing in a copy of your ViewHolder and the position where
-        the item will show in your RecyclerView, and calling
+        the item will show in your RecyclerView, 
+        and calling
         <code>
             bindPhoto(...)
         </code>
         .
     </p>
     <p>
-        And that’s all you needed to do here on the assembly — just use the position
-        where your ViewHolder will appear to grab the photo out of your list, and
-        then pass it to your ViewHolder.
+        And that’s all you needed to do here on the assembly — 
+        just use the position where your ViewHolder will appear to grab the photo out of your list, 
+        and then pass it to your ViewHolder.
     </p>
     <p>
         Step three of your ignition check protocol is complete!
@@ -847,9 +838,11 @@ holder.bindPhoto(itemPhoto)
         Countdown And Liftoff: Hooking up the Adapter And RecyclerView
     </h2>
     <p>
-        This is the moment you’ve been waiting for, the final stage before blast
-        off! All you need to do is hook your adapter up to your RecyclerView and
-        make sure it retrieves photos when it’s created so you can explore space
+        This is the moment you’ve been waiting for, 
+        the final stage before blast off! 
+        All you need to do is hook your adapter up to your RecyclerView and
+        make sure it retrieves photos 
+        when it’s created so you can explore space
         — in pictures.
     </p>
     <p>
@@ -1014,22 +1007,9 @@ recyclerView.adapter = adapter
         </em>
         , add this property with custom accessor below to MainActivity:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        lastVisibleItemPosition:
-        <span class="hljs-built_in">
-            Int
-        </span>
-        <span class="hljs-keyword">
-            get
-        </span>
-        () = linearLayoutManager.findLastVisibleItemPosition()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> lastVisibleItemPosition: <span class="hljs-built_in">Int</span>
+  <span class="hljs-keyword">get</span>() = linearLayoutManager.findLastVisibleItemPosition()
+</pre>
     <p>
         This uses your RecyclerView’s LinearLayoutManager to get the index of
         the last visible item on the screen.
@@ -1041,67 +1021,18 @@ recyclerView.adapter = adapter
         </code>
         to your RecyclerView, so it can get a callback when the user scrolls:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setRecyclerViewScrollListener
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { recyclerView.addOnScrollListener(
-        <span class="hljs-keyword">
-            object
-        </span>
-        : RecyclerView.OnScrollListener() {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onScrollStateChanged
-            </span>
-            <span class="hljs-params">
-                (recyclerView:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                ?, newState:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onScrollStateChanged(recyclerView, newState)
-        <span class="hljs-keyword">
-            val
-        </span>
-        totalItemCount = recyclerView!!.layoutManager.itemCount
-        <span class="hljs-keyword">
-            if
-        </span>
-        (!imageRequester.isLoadingData &amp;&amp; totalItemCount == lastVisibleItemPosition
-        +
-        <span class="hljs-number">
-            1
-        </span>
-        ) { requestPhoto() } } }) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setRecyclerViewScrollListener</span><span class="hljs-params">()</span></span> {
+  recyclerView.addOnScrollListener(<span class="hljs-keyword">object</span> : RecyclerView.OnScrollListener() {
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(recyclerView: <span class="hljs-type">RecyclerView</span>?, newState: <span class="hljs-type">Int</span>)</span></span> {
+      <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState)
+      <span class="hljs-keyword">val</span> totalItemCount = recyclerView!!.layoutManager.itemCount
+      <span class="hljs-keyword">if</span> (!imageRequester.isLoadingData &amp;&amp; totalItemCount == lastVisibleItemPosition + <span class="hljs-number">1</span>) {
+        requestPhoto()
+      }
+    }
+  })
+}
+</pre>
     <p>
         This function gives the RecyclerView a scroll listener that is triggered
         by scrolling. During scrolling, the listener retrieves the count of the
@@ -1117,9 +1048,8 @@ recyclerView.adapter = adapter
         </code>
         , just beneath where you set your RecyclerView Adapter:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setRecyclerViewScrollListener()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">setRecyclerViewScrollListener()
+</pre>
     <p>
         Hop back in the ship (build and run the app again). Scroll down and you
         should see quite an improvement!
@@ -1164,18 +1094,8 @@ recyclerView.adapter = adapter
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            lateinit
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        gridLayoutManager: GridLayoutManager
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> gridLayoutManager: GridLayoutManager
+</pre>
     <p>
         Note that GridLayoutManager is a built-in layout manager, but it could
         just as easily be custom.
@@ -1187,17 +1107,8 @@ recyclerView.adapter = adapter
         </code>
         , initialize the LayoutManager below the existing Linear Layout Manager:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        gridLayoutManager = GridLayoutManager(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ,
-        <span class="hljs-number">
-            2
-        </span>
-        )
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">gridLayoutManager = GridLayoutManager(<span class="hljs-keyword">this</span>, <span class="hljs-number">2</span>)
+</pre>
     <p>
         Just like you did with the previous LayoutManager, you pass in the context
         the manager will appear in, but unlike the former, it takes an integer
@@ -1207,50 +1118,20 @@ recyclerView.adapter = adapter
     <p>
         Add this method to MainActivity:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                changeLayoutManager
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (recyclerView.layoutManager == linearLayoutManager) {
-        <span class="hljs-comment">
-            //1
-        </span>
-        recyclerView.layoutManager = gridLayoutManager
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            if
-        </span>
-        (photosList.size ==
-        <span class="hljs-number">
-            1
-        </span>
-        ) { requestPhoto() } }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-comment">
-            //3
-        </span>
-        recyclerView.layoutManager = linearLayoutManager } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">changeLayoutManager</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-keyword">if</span> (recyclerView.layoutManager == linearLayoutManager) {
+    <span class="hljs-comment">//1</span>
+    recyclerView.layoutManager = gridLayoutManager
+    <span class="hljs-comment">//2</span>
+    <span class="hljs-keyword">if</span> (photosList.size == <span class="hljs-number">1</span>) {
+      requestPhoto()
+    }
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">//3</span>
+    recyclerView.layoutManager = linearLayoutManager
+  }
+}
+</pre>
     <p>
         This code checks to see what LayoutManager your RecyclerView is using,
         and then:
@@ -1273,31 +1154,13 @@ recyclerView.adapter = adapter
         </code>
         to help it handle the new LayoutManager. Make it look like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        lastVisibleItemPosition:
-        <span class="hljs-built_in">
-            Int
-        </span>
-        <span class="hljs-keyword">
-            get
-        </span>
-        () =
-        <span class="hljs-keyword">
-            if
-        </span>
-        (recyclerView.layoutManager == linearLayoutManager) { linearLayoutManager.findLastVisibleItemPosition()
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { gridLayoutManager.findLastVisibleItemPosition() }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> lastVisibleItemPosition: <span class="hljs-built_in">Int</span>
+  <span class="hljs-keyword">get</span>() = <span class="hljs-keyword">if</span> (recyclerView.layoutManager == linearLayoutManager) {
+      linearLayoutManager.findLastVisibleItemPosition()
+    } <span class="hljs-keyword">else</span> {
+      gridLayoutManager.findLastVisibleItemPosition()
+    }
+</pre>
     <p>
         Here you ask the RecyclerView to tell you what its LayoutManager is, then
         you ask that LayoutManager to tell you the position of the last visible
@@ -1311,49 +1174,14 @@ recyclerView.adapter = adapter
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onOptionsItemSelected
-            </span>
-            <span class="hljs-params">
-                (item:
-                <span class="hljs-type">
-                    MenuItem
-                </span>
-                )
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (item.itemId == R.id.action_change_recycler_manager) { changeLayoutManager()
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            true
-        </span>
-        }
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onOptionsItemSelected(item) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onOptionsItemSelected</span><span class="hljs-params">(item: <span class="hljs-type">MenuItem</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
+  <span class="hljs-keyword">if</span> (item.itemId == R.id.action_change_recycler_manager) {
+    changeLayoutManager()
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onOptionsItemSelected(item)
+}
+</pre>
     <p>
         This checks the ID of the item tapped in the menu, then works out what
         to do about it. In this case, there should only be one ID that will match
@@ -1397,130 +1225,28 @@ recyclerView.adapter = adapter
         </code>
         add the following method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setRecyclerViewItemTouchListener
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            //1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        itemTouchCallback =
-        <span class="hljs-keyword">
-            object
-        </span>
-        : ItemTouchHelper.SimpleCallback(
-        <span class="hljs-number">
-            0
-        </span>
-        , ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onMove
-            </span>
-            <span class="hljs-params">
-                (recyclerView:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                , viewHolder:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                , viewHolder1:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                )
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        {
-        <span class="hljs-comment">
-            //2
-        </span>
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            false
-        </span>
-        }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onSwiped
-            </span>
-            <span class="hljs-params">
-                (viewHolder:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                , swipeDir:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            //3
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        position = viewHolder.adapterPosition photosList.removeAt(position) recyclerView.adapter.notifyItemRemoved(position)
-        } }
-        <span class="hljs-comment">
-            //4
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        itemTouchHelper = ItemTouchHelper(itemTouchCallback) itemTouchHelper.attachToRecyclerView(recyclerView)
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setRecyclerViewItemTouchListener</span><span class="hljs-params">()</span></span> {
+
+  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">val</span> itemTouchCallback = <span class="hljs-keyword">object</span> : ItemTouchHelper.SimpleCallback(<span class="hljs-number">0</span>, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onMove</span><span class="hljs-params">(recyclerView: <span class="hljs-type">RecyclerView</span>, viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>, viewHolder1: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
+      <span class="hljs-comment">//2</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onSwiped</span><span class="hljs-params">(viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>, swipeDir: <span class="hljs-type">Int</span>)</span></span> {
+      <span class="hljs-comment">//3</span>
+      <span class="hljs-keyword">val</span> position = viewHolder.adapterPosition
+      photosList.removeAt(position)
+      recyclerView.adapter.notifyItemRemoved(position)
+    }
+  }
+
+  <span class="hljs-comment">//4</span>
+  <span class="hljs-keyword">val</span> itemTouchHelper = ItemTouchHelper(itemTouchCallback)
+  itemTouchHelper.attachToRecyclerView(recyclerView)
+}
+</pre>
     <p>
         Let’s go through this step by step:
     </p>
@@ -1573,9 +1299,8 @@ recyclerView.adapter = adapter
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setRecyclerViewItemTouchListener()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">setRecyclerViewItemTouchListener()
+</pre>
     <p>
         This will attach the
         <code>
