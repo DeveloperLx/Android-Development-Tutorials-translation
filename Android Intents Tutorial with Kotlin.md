@@ -18,102 +18,82 @@
         </a>
     </p>
     <p>
-        People don’t wander around the world aimlessly; most of everything they
-        do – from watching TV, to shopping, to coding the next killer app – has
-        some sort of purpose, or
+        人们并不是漫无目的地游览世界，他们所做的大部分工作 - 从看电视，到购物，到编写下一个杀手级的app之后 - 都带有着某些目的，或是
         <i>
-            intent
+            意图
         </i>
-        , behind it.
+        。
     </p>
     <p>
-        Android works in much the same way. Before an app can perform an
+        Android的工作方式也大致如此。在app可以执行一个
         <em>
+            动作
             action
         </em>
-        , it needs to know what that actions purpose, or
+        之前，它需要知道该动作的目的，或是
         <em>
             intent
         </em>
-        , is in-order to carry out that action properly.
+        ，以正确地执行这个动作。
     </p>
     <p>
-        It turns out humans and Android aren’t so different after all. :]
+        事实证明Android和人类并没有太多的不同。:]
     </p>
     <p>
-        In this intents tutorial, you are going to harness the power of
+        在本教程中，你将利用
         <a href="http://developer.android.com/guide/components/intents-filters.html">
-            Intents
+            Intent
         </a>
-        to create your very own meme generator. Along the way, you’ll learn the
-        following:
+        的力量来创建自己的meme生成器。通过这个过程你会学到：
     </p>
     <ul>
         <li>
-            What an
+            什么是
             <code>
                 Intent
             </code>
-            is and what its wider role is within Android.
+            ，以及它在Android中的广泛用途。
         </li>
         <li>
-            How you can use an
+            如何使用
             <code>
                 Intent
             </code>
-            to create and retrieve content from other apps for use in your own.
+            来创建并从其它app中检索内容供自己使用。
         </li>
         <li>
-            How to receive or respond to an
+            如何接收或响应从其它app中发送来的
             <code>
                 Intent
             </code>
-            sent by another app.
+            。
         </li>
     </ul>
     <p>
-        If you’re new to Android Development, it’s highly recommended that you
-        work through
+        如果你是一个Android开发的新手，强烈推荐你通过
         <a href="https://www.raywenderlich.com/161318/beginning-android-development-part-one-installing-android-studio"
         target="_blank">
             Beginning Android Development
         </a>
-        and
+        和
         <a href="https://www.raywenderlich.com/174395/kotlin-for-android-an-introduction-2"
         target="_blank">
             Kotlin for Android
         </a>
-        to get a grip on the basic tools and concepts. You’ll also need Android
-        Studio 3.0 or later.
+        来掌握基本的工具和概念。你需要使用Android Studio 3.0或更高的版本。
     </p>
     <p>
-        Get your best meme face ready. This tutorial is about to increase your
-        <em>
-            A
-        </em>
-        ndroid
-        <em>
-            D
-        </em>
-        eveloper
-        <em>
-            L
-        </em>
-        evel to
-        <i>
-            over 9000
-        </i>
-        !!! :]
+        准备你最好的meme脸。本教程会增强你的Android开发水平超过9000点！！！ :]
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Begin by downloading the
+        下载本教程的
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/memeify-starter.zip">
-            starter project
+            初始项目
         </a>
-        for this tutorial.
+        。
     </p>
     <p>
         Inside, you will find the XML Layouts and associated Activities containing
