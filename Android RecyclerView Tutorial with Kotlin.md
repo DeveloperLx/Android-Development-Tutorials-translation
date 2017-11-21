@@ -1150,31 +1150,28 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <h2>
-        Star Killer
+        星星杀手
     </h2>
     <p>
-        Sometimes you’ll see things you just don’t like the look of, perhaps a
-        galaxy far, far away that has fallen to the dark side or a planet that
-        is prime for destruction. How could you go about killing it with a swipe?
+        有时你会看到一些你不喜欢的东西，或是一个遥远的星系，它已掉落到了黑暗的边缘，或是一个已毁灭的星球。如何使用一个swipe的手势来将它杀死？
     </p>
     <p>
-        Luckily, Android engineers have provided a useful class named
+        幸运的是，Android的工程师提供了一个有用的名叫
         <code>
             ItemTouchHelper
         </code>
-        that gives you easy swipe behavior. Creating and attaching this to a RecyclerView
-        requires just a few lines of code.
+        的类，它可以帮你添加swipe的特性。创建它，并将它附加到RecyclerView上需要若干行的代码。
     </p>
     <p>
-        In
+        在
         <em>
             MainActivity.kt
         </em>
-        , underneath
+        中，
         <code>
             setRecyclerViewScrollListener()
         </code>
-        add the following method:
+        的下面添加下列的方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setRecyclerViewItemTouchListener</span><span class="hljs-params">()</span></span> {
 
@@ -1184,7 +1181,6 @@ recyclerView.adapter = adapter
       <span class="hljs-comment">//2</span>
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
     }
-
     <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onSwiped</span><span class="hljs-params">(viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>, swipeDir: <span class="hljs-type">Int</span>)</span></span> {
       <span class="hljs-comment">//3</span>
       <span class="hljs-keyword">val</span> position = viewHolder.adapterPosition
@@ -1199,23 +1195,18 @@ recyclerView.adapter = adapter
 }
 </pre>
     <p>
-        Let’s go through this step by step:
+        一步一步来看上述的代码：
     </p>
     <ol>
         <li>
-            You create the callback and tell it what events to listen for. 
-            It takes two parameters, 
-            one for drag directions and one for swipe directions, 
-            but you’re only interested in swipe, 
-            so you pass 0 to inform the callback not
-            to respond to drag events.
+            你创建了一个回调，并告诉它监听什么样的时间。它需要两个参数，一个是拖拽的方向，另一个则是swipe的方向。但你感兴趣的只有swipe，因此传递0来告知回调不要响应拖拽的事件。
         </li>
         <li>
-            You return false in
+            让
             <code>
                 onMove
             </code>
-            because you don’t want to perform any special behavior here.
+            方法返回false，因为你不想在这里执行任何特殊的行为。
         </li>
         <li>
             <code>
@@ -1229,8 +1220,9 @@ recyclerView.adapter = adapter
             <code>
                 viewHolder
             </code>
-            parameter passed for the position of the item view, then you remove that
-            item from your list of photos. Finally, you inform the RecyclerView adapter
+            parameter passed for the position of the item view, 
+            then you remove that item from your list of photos. 
+            Finally, you inform the RecyclerView adapter
             that an item has been removed at a specific position.
         </li>
         <li>
@@ -1238,7 +1230,8 @@ recyclerView.adapter = adapter
             <code>
                 ItemTouchHelper
             </code>
-            with the callback behavior you defined, and then attach it to the RecyclerView.
+            with the callback behavior you defined, 
+            and then attach it to the RecyclerView.
         </li>
     </ol>
     <p>
@@ -1269,9 +1262,13 @@ recyclerView.adapter = adapter
         <em>
             swipe across
         </em>
-        one of your items, you should see it begin to move. If you swipe the item
-        far enough, you should see it animate and vanish. If other items are visible,
-        then they will reorganize themselves to cover the hole. How cool is that?
+        one of your items,
+        you should see it begin to move. 
+        If you swipe the item far enough, 
+        you should see it animate and vanish. 
+        If other items are visible,
+        then they will reorganize themselves to cover the hole. 
+        How cool is that?
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/13-Swipe-Away-Item-281x500.png"
@@ -1303,27 +1300,31 @@ recyclerView.adapter = adapter
         </div>
     </div>
     <p>
-        Nice job! You’ve been on quite an adventure, but now it’s time to head
-        back to Earth and think about what you’ve learned.
+        Nice job! You’ve been on quite an adventure, 
+        but now it’s time to head back to Earth 
+        and think about what you’ve learned.
     </p>
     <ul>
         <li>
-            You’ve created a RecyclerView and all the components it needs, such as
-            a LayoutManager, an Adapter and a ViewHolder.
+            You’ve created a RecyclerView and all the components it needs, 
+            such as a LayoutManager, 
+            an Adapter and a ViewHolder.
         </li>
         <li>
             You’ve updated and removed items from an Adapter.
         </li>
         <li>
-            You’ve added some cool features like changing layouts and adding swipe
-            functionality.
+            You’ve added some cool features like changing layouts and adding swipe functionality.
         </li>
     </ul>
     <p>
-        Above all, you’ve experienced how separation of components — a key attribute
-        of RecyclerViews — provides so much functionality with such ease. If you
-        want your collections to be flexible and provide some excitement, then
-        look no further than the all-powerful RecyclerView.
+        Above all, you’ve experienced how separation of components
+         — a key attribute of RecyclerViews
+         — provides so much functionality with such ease. 
+         If you
+        want your collections to be flexible and provide some excitement, 
+        then look no further than the all
+        -powerful RecyclerView.
     </p>
     <p>
         The final project for this tutorial is available
@@ -1343,8 +1344,8 @@ recyclerView.adapter = adapter
         target="_blank" title="support library">
             support library
         </a>
-        for RecyclerViews to learn how to use it on older devices. If you want
-        to make them fit with the material design spec then check out the
+        for RecyclerViews to learn how to use it on older devices. 
+        If you want to make them fit with the material design spec then check out the
         <a href="https://www.google.com/design/spec/components/lists.html" target="_blank"
         title="list component">
             list component
