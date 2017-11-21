@@ -818,85 +818,73 @@ context.startActivity(showPhotoIntent)
 holder.bindPhoto(itemPhoto)
 </pre>
     <p>
-        Here you’re passing in a copy of your ViewHolder and the position where
-        the item will show in your RecyclerView, 
-        and calling
+        这里你传递了ViewHolder的副本和item将展示到的位置，并调用
         <code>
             bindPhoto(...)
         </code>
-        .
+        。
     </p>
     <p>
-        And that’s all you needed to do here on the assembly — 
-        just use the position where your ViewHolder will appear to grab the photo out of your list, 
-        and then pass it to your ViewHolder.
+        以上就是所有你需要为装配完成的事 - 只需使用你的ViewHolder将出现的位置，将照片从列表中取出，然后再传递给ViewHolder。
     </p>
     <p>
-        Step three of your ignition check protocol is complete!
+        点火检查协议的第三个步骤完成了！
     </p>
     <h2>
-        Countdown And Liftoff: Hooking up the Adapter And RecyclerView
+        倒计时和起飞：连接Adapter和RecyclerView
     </h2>
     <p>
-        This is the moment you’ve been waiting for, 
-        the final stage before blast off! 
-        All you need to do is hook your adapter up to your RecyclerView and
-        make sure it retrieves photos 
-        when it’s created so you can explore space
-        — in pictures.
+        这是你一直在等待的一刻，发射前的最后一个阶段！你需要做的所有事，就是将你的adapter连接到RecyclerView上，并确保它在创建的时候就检索图片，这样你就可以在图片中探索太空了。
     </p>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        , and add this property at the top:
+        ，并在文件的顶部添加下列的property：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> adapter: RecyclerAdapter
 </pre>
     <p>
-        Next, underneath the assignment of
+        然后，在
         <code>
             recyclerView.layoutManager
         </code>
-        , add the following:
+        之下，添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">adapter = RecyclerAdapter(photosList)
 recyclerView.adapter = adapter
 </pre>
     <p>
-        Here you’re creating the adapter, passing in the constructors it needs
-        and setting it as the adapter for your RecyclerView.
+        这就创建了adapter，并传递给构造器它所需的参数，然后将它设置为RecyclerView的adapter。
     </p>
     <p>
-        Although the adapter is connected, there’s one more thing to do to make
-        sure you don’t have an empty screen.
+        尽管adapter已连接，还有一件事需要做，以确保不会出现空白的屏幕。
     </p>
     <p>
-        In
+        在
         <code>
             onStart()
         </code>
-        , underneath the call to
+        中，
         <code>
             super
         </code>
-        , add this code:
+        的调用之下，添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (photosList.size == <span class="hljs-number">0</span>) {
   requestPhoto()
 }
 </pre>
     <p>
-        This adds a check to see if your list is empty, and if yes, it requests
-        a photo.
+        这就添加了一个检查，在你的列表为空的情况下，就请求一张照片。
     </p>
     <p>
-        Next, in
+        接下来，在
         <code>
             receivedNewPhoto()
         </code>
-        , update the method so it looks like the following:
+        中，将该方法更新为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">receivedNewPhoto</span><span class="hljs-params">(newPhoto: <span class="hljs-type">Photo</span>)</span></span> {
   runOnUiThread {
@@ -906,19 +894,16 @@ recyclerView.adapter = adapter
 }
 </pre>
     <p>
-        Here you are informing the recycler adapter that an item was added after
-        the list of photos was updated.
+        这样，在照片的列表被更新后，就会通知recycler的adapter添加了一个item。
     </p>
     <p>
-        Now you’re ready to commence the ignition sequence, er…I mean run the
-        app.
+        现在就已经准备好点火了，呃...我的意思就是运行这个app。
     </p>
     <p>
         <em>
-            Run the app
+            运行app
         </em>
-        , load up the emulator and before long, Galacticon should look something
-        like this:
+        ，加载模拟器，稍后，Galacticon看起来应答像是这样：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/7-RecyclerView-Working-281x500.png"
@@ -927,8 +912,7 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        That’s not all. Tap on the photo, and you should be greeted with a new
-        activity that brings that item into focus:
+        这还不是全部。点击一张照片，就会弹出一个新的activity，把这个item变为关注的重点：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/8-Focus-Activity-281x500.png"
@@ -937,12 +921,11 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        But that’s still not all! Try
+        但这仍然不是全部！尝试
         <em>
-            rotating your device or emulator
+            旋转你的设备或模拟器
         </em>
-        (function + control + F11/F12) and you’ll see the image in full screen
-        glory!
+        （function + control + F11/F12）你就会看到全屏图像的壮观景象！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/9-Landscape-Focus-650x366.png"
@@ -951,8 +934,7 @@ recyclerView.adapter = adapter
         sizes="(max-width: 650px) 100vw, 650px">
     </p>
     <p>
-        Depending on the size of the image and your device screen it may look
-        a little distorted, but don’t worry about that.
+        因为图片的大小和屏幕的尺寸，它看起来可能会有一点失真，但不必担心。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/stars_so_beautiful-320x320.png"
@@ -961,11 +943,10 @@ recyclerView.adapter = adapter
         sizes="(max-width: 320px) 100vw, 320px">
     </p>
     <p>
-        Congratulations! You have a working RecyclerView and can take your journey
-        amongst the stars.
+        恭喜！你已经有了一个可用的RecyclerView，可以把你的旅程延展的星空中。
     </p>
     <h2>
-        Taking A Spacewalk: Adding Scrolling support
+        来一次太空漫步吧：添加滚动支持
     </h2>
     <p>
         If you head back to
