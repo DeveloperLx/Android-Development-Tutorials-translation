@@ -6,11 +6,9 @@
     <div class="note">
         <p>
             <em>
-                Update note:
+                更新日志：
             </em>
-            This tutorial has been updated to Kotlin, Android 26 (Oreo), and Android
-            Studio 3.0 by Steven Smith. The original tutorial was written by Darryl
-            Bayliss. Previous update by Artem Kholodnyi.
+            本教程已由Steven Smith更新至Kotlin，Android 26 (Oreo)，及Android Studio 3.0的版本。原教程是由Darryl Bayliss撰写的。之前已由Artem Kholodnyi进行过更新。
         </p>
     </div>
     <p>
