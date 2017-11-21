@@ -1209,66 +1209,59 @@ recyclerView.adapter = adapter
             方法返回false，因为你不想在这里执行任何特殊的行为。
         </li>
         <li>
-            <code>
-                onSwiped
-            </code>
-            is called when you swipe an item in the direction specified in the
+            当你以在
             <code>
                 ItemTouchHelper
             </code>
+            指定的方向swipe一个item的时候，就会调用
+            <code>
+                onSwiped
+            </code>
+            方法。这里，你从
             . Here, you request the
             <code>
                 viewHolder
             </code>
-            parameter passed for the position of the item view, 
-            then you remove that item from your list of photos. 
-            Finally, you inform the RecyclerView adapter
-            that an item has been removed at a specific position.
+            参数中获取到item view相应的位置，然后从照片列表中将这个item移除。最后，通知RecyclerView的adapter，一个item从指定的位置上被移除了。
         </li>
         <li>
-            You initialize the
+            用刚刚定义的回调初始化了一个
             <code>
                 ItemTouchHelper
             </code>
-            with the callback behavior you defined, 
-            and then attach it to the RecyclerView.
+            ，然后将它附加到RecyclerView上。
         </li>
     </ol>
     <p>
-        Add the method to the activity’s
+        在activity的
         <code>
             onCreate()
         </code>
-        , underneath
+        方法中，添加对它的调用，就在
         <code>
             setRecyclerViewScrollListener()
         </code>
-        :
+        之下：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">setRecyclerViewItemTouchListener()
 </pre>
     <p>
-        This will attach the
+        这样就把
         <code>
             ItemTouchListener
         </code>
-        to the RecyclerView using the code you just wrote.
+        附加到你的RecyclerView上了。
     </p>
     <p>
+        再次
         <em>
-            Run the app
+            运行app
         </em>
-        once more and
+        ，并
         <em>
-            swipe across
+            swipe
         </em>
-        one of your items,
-        you should see it begin to move. 
-        If you swipe the item far enough, 
-        you should see it animate and vanish. 
-        If other items are visible,
-        then they will reorganize themselves to cover the hole. 
-        How cool is that?
+        一个item，你就会看到它开始移动了。如果将它swipe得足够远，你就会看到它在完成一个动画之后，消失掉了。如果其它的item是可见的，它们就会重新排列以弥补刚刚产生的缺口。是不是很酷？
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/13-Swipe-Away-Item-281x500.png"
@@ -1277,7 +1270,7 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <h2>
-        Where To Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1289,10 +1282,11 @@ recyclerView.adapter = adapter
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学习得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
