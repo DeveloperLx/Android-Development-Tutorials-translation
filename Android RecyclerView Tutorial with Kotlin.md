@@ -949,12 +949,11 @@ recyclerView.adapter = adapter
         来一次太空漫步吧：添加滚动支持
     </h2>
     <p>
-        If you head back to
+        如果回到
         <em>
             MainActivity
         </em>
-        on your device and try to scroll down, you’ll notice something is amiss
-        — your RecyclerView isn’t retrieving any new photos.
+        并尝试向下滚动，你会发现出了一个问题 - RecyclerView并不会检索任何新的照片。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/10-Scrolling-Not-Working-281x500.png"
@@ -963,44 +962,37 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        Your RecyclerView is doing exactly as it’s told by showing the contents
-        of
+        这个RecyclerView是完全按照
         <code>
             photosList
         </code>
-        . The problem is that the app will only retrieve one photo when you load
-        the app. It has no idea when or how to grab more photos.
+        的内容来进行检索和展示的。问题是，当你加载app的时候，它只会检索一张照片。它并不知道何时及如何获取更多的照片。
     </p>
     <p>
-        So next, you’ll retrieve the number of the photos and the last visible
-        photo index while scrolling. Then you’ll check to see if the last photo
-        is visible and if there are no photos already on request. If these are
-        both true, then your app goes and downloads more pretty photos!
+        因此，下面，你将检索照片的数量，以及在滚动时最后一张可见照片的索引。然后，检查最后一张照片是否可见，且如果没有照片的话，是否已发送了请求。如果是的话，就让app去下载更漂亮的照片！
     </p>
     <p>
-        This patch will require a spacewalk, so break out your spacesuit and get
-        ready for a zero gravity experience.
+        这个补丁需要进行太空漫步，因此打破你的太空服，准备一个零重力的实验。
     </p>
     <p>
-        In
+        在
         <em>
             MainActivity.kt
         </em>
-        , add this property with custom accessor below to MainActivity:
+        中，添加下列的property及自定义的访问器：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> lastVisibleItemPosition: <span class="hljs-built_in">Int</span>
   <span class="hljs-keyword">get</span>() = linearLayoutManager.findLastVisibleItemPosition()
 </pre>
     <p>
-        This uses your RecyclerView’s LinearLayoutManager to get the index of
-        the last visible item on the screen.
+        这就通过RecyclerView的LinearLayoutManager获取了屏幕上最后一个可见item的索引。
     </p>
     <p>
-        Next, you add a method that inserts an
+        然后，添加一个用来插入
         <code>
             onScrollListener
         </code>
-        to your RecyclerView, so it can get a callback when the user scrolls:
+        到RecyclerView上的方法，以获取用户滚动时的回调：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setRecyclerViewScrollListener</span><span class="hljs-params">()</span></span> {
   recyclerView.addOnScrollListener(<span class="hljs-keyword">object</span> : RecyclerView.OnScrollListener() {
