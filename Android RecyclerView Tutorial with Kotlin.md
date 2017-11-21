@@ -1041,47 +1041,41 @@ recyclerView.adapter = adapter
         布局变化
     </h2>
     <p>
-        Now that your RecyclerView is up and running, 
-        it’s time to trick out your spaceship.
+        既然RecyclerView已经可以运行起来了，现在是时候来装饰一下你的太空飞船了。
     </p>
     <p>
-        Wouldn’t it be cool if your RecyclerView could change its layout? Good
-        news: RecyclerView’s item positioning is separated into a layout manager.
+        如果RecyclerView可以改变它的布局，是不是会很酷？好消息是，RecyclerView item的定位工作已被分离到layoutManager中。
     </p>
     <p>
-        Add a property for a
+        添加一个
         <em>
             GridLayoutManager
         </em>
-        to the top of
+        的property到
         <em>
             MainActivity.kt
         </em>
-        :
+        的顶部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">lateinit</span> <span class="hljs-keyword">var</span> gridLayoutManager: GridLayoutManager
 </pre>
     <p>
-        Note that GridLayoutManager is a built-in layout manager, but it could
-        just as easily be custom.
+        注意GridLayoutManager是一个內建的layoutManager，但它很容易被定制。
     </p>
     <p>
-        In
+        在
         <code>
             onCreate()
         </code>
-        , initialize the LayoutManager below the existing Linear Layout Manager:
+        中，已存在的Linear Layout Manager下初始化LayoutManager：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">gridLayoutManager = GridLayoutManager(<span class="hljs-keyword">this</span>, <span class="hljs-number">2</span>)
 </pre>
     <p>
-        Just like you did with the previous LayoutManager, you pass in the context
-        the manager will appear in, but unlike the former, it takes an integer
-        parameter. In this case, you’re setting the number of columns the grid
-        will have.
+        就像在之前的LayoutManager中所做的一样，你需要传递这个manager将出现在的上下文，但有所不同的是，它需要一个整型的参数。在本例中，它会指定网格所需的列数。
     </p>
     <p>
-        Add this method to MainActivity:
+        添加下列的方法到MainActivity中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">changeLayoutManager</span><span class="hljs-params">()</span></span> {
   <span class="hljs-keyword">if</span> (recyclerView.layoutManager == linearLayoutManager) {
@@ -1098,26 +1092,25 @@ recyclerView.adapter = adapter
 }
 </pre>
     <p>
-        This code checks to see what LayoutManager your RecyclerView is using,
-        and then:
+        上述代码会判断RecyclerView当前使用的是什么LayoutManager，然后：
     </p>
     <ol>
         <li>
-            If it’s using the LinearLayoutManager, it swaps in the GridLayoutManager
+            如果使用的是LinearLayoutManager，就更换为GridLayoutManager
         </li>
         <li>
-            It requests a new photo if your grid layout only has one photo to show
+            如果只有一张照片能展示，就再请求一张新的照片
         </li>
         <li>
-            If it’s using the GridLayoutManager, it swaps in the LinearLayoutManager
+            如果使用的是GridLayoutManager，就更换为LinearLayoutManager
         </li>
     </ol>
     <p>
-        Next, you need to make some changes to
+        然后需要对
         <code>
             lastVisibleItemPosition
         </code>
-        to help it handle the new LayoutManager. Make it look like the following:
+        做出一些修改，以便处理新的LayoutManager。将其修改为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> lastVisibleItemPosition: <span class="hljs-built_in">Int</span>
   <span class="hljs-keyword">get</span>() = <span class="hljs-keyword">if</span> (recyclerView.layoutManager == linearLayoutManager) {
@@ -1127,17 +1120,14 @@ recyclerView.adapter = adapter
     }
 </pre>
     <p>
-        Here you ask the RecyclerView to tell you what its LayoutManager is, then
-        you ask that LayoutManager to tell you the position of the last visible
-        item.
+        首先询问RecyclerView当前的LayoutManager是什么，然后再询问这个LayoutManager，最后一个可见item的位置。
     </p>
     <p>
-        To use the grid layout, make use of the Options menu button that is already
-        available in the app. Add the following code underneath
+        我们将使用这个app中已存在的选项菜单按钮以切换网格布局。在
         <code>
             onStart()
         </code>
-        :
+        下添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onOptionsItemSelected</span><span class="hljs-params">(item: <span class="hljs-type">MenuItem</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
   <span class="hljs-keyword">if</span> (item.itemId == R.id.action_change_recycler_manager) {
@@ -1148,14 +1138,10 @@ recyclerView.adapter = adapter
 }
 </pre>
     <p>
-        This checks the ID of the item tapped in the menu, then works out what
-        to do about it. In this case, there should only be one ID that will match
-        up, effectively telling the app to go away and rearrange the RecyclerView’s
-        LayoutManager.
+        首先会检查在菜单中被点击的item的ID，然后再执行相应的动作。在本例中，就会告诉app重新安排RecyclerView的LayoutManager。
     </p>
     <p>
-        And just like that, you’re ready to go! Load up the app and tap the button
-        at the top right of the screen, and you’ll begin to see the stars shift:
+        这样就全都准备好了！加载app，并点击屏幕右上角的按钮，你就会看到星星的转移：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/12-Grid-Layout-281x500.png"
@@ -1217,9 +1203,11 @@ recyclerView.adapter = adapter
     </p>
     <ol>
         <li>
-            You create the callback and tell it what events to listen for. It takes
-            two parameters, one for drag directions and one for swipe directions, but
-            you’re only interested in swipe, so you pass 0 to inform the callback not
+            You create the callback and tell it what events to listen for. 
+            It takes two parameters, 
+            one for drag directions and one for swipe directions, 
+            but you’re only interested in swipe, 
+            so you pass 0 to inform the callback not
             to respond to drag events.
         </li>
         <li>
