@@ -1007,25 +1007,19 @@ recyclerView.adapter = adapter
 }
 </pre>
     <p>
-        This function gives the RecyclerView a scroll listener that is triggered
-        by scrolling. During scrolling, the listener retrieves the count of the
-        items in its LayoutManager and calculates the last visible photo index.
-        Once done, it compares these numbers (incrementing the index by 1 because
-        the index begins at 0 while the count begins at 1). If they match and there
-        are no photos already on request, then you request a new photo.
+        这个方法给RecyclerView添加了一个滚动的listener，它会在RecyclerView被滚动时被触发。在滚动时，listener会在LayoutManager上检索item的数量，并计算最后一张可见照片的索引。然后，比较得到的两个数字（为索引加1是因为索引是从0开始计数，而数量是从1开始）。如果匹配的话，且没有照片正在请求，就请求一张新的照片。
     </p>
     <p>
-        Finally, hook everything to the RecyclerView by calling this method from
+        最后，通过在 
         <code>
             onCreate
         </code>
-        , just beneath where you set your RecyclerView Adapter:
+        中调用这个方法，把它附加到RecyclerView上。就在设置RecyclerView的Adapter那行代码之下：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">setRecyclerViewScrollListener()
 </pre>
     <p>
-        Hop back in the ship (build and run the app again). Scroll down and you
-        should see quite an improvement!
+        回到飞船上（再次构建并运行app）。向下滚动，你会看到改进后的效果！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/11-Scrolling-Update-281x500.png"
@@ -1034,23 +1028,21 @@ recyclerView.adapter = adapter
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        Excellent work, your RecyclerView now updates to show the latest photo
-        requested by your app. The great thing is that
+        出色的工作，RecyclerView现已更新，以展示app请求到的最新照片。最棒的是，
         <code>
             receivedNewPhoto()
         </code>
-        handles most of the work because you told it to notify your adapter about
-        new items.
+        处理了大部分的工作，因为你让它通知adapter关于新item的事情。
     </p>
     <p>
-        That earns an intergalactic thumbs up for upcycling code!
+        这个升级的代码，赢得了星际级大拇指的赞！
     </p>
     <h2>
-        Layout Changes
+        布局变化
     </h2>
     <p>
-        Now that your RecyclerView is up and running, it’s time to trick out your
-        spaceship.
+        Now that your RecyclerView is up and running, 
+        it’s time to trick out your spaceship.
     </p>
     <p>
         Wouldn’t it be cool if your RecyclerView could change its layout? Good
