@@ -1294,56 +1294,45 @@ recyclerView.adapter = adapter
         </div>
     </div>
     <p>
-        Nice job! You’ve been on quite an adventure, 
-        but now it’s time to head back to Earth 
-        and think about what you’ve learned.
+        Nice job! 你一直在冒险，但现在是时候回到地球，思考一下你学到了什么。
     </p>
     <ul>
         <li>
-            You’ve created a RecyclerView and all the components it needs, 
-            such as a LayoutManager, 
-            an Adapter and a ViewHolder.
+            创建了一个RecyclerView，还有它所需的所有组件，如LayoutManager，Adapter和ViewHolder。
         </li>
         <li>
-            You’ve updated and removed items from an Adapter.
+            更新和从Adapter中移除item。
         </li>
         <li>
-            You’ve added some cool features like changing layouts and adding swipe functionality.
+            添加了一些很酷的功能，如改变布局，swipe手势进行移除。
         </li>
     </ul>
     <p>
-        Above all, you’ve experienced how separation of components
-         — a key attribute of RecyclerViews
-         — provides so much functionality with such ease. 
-         If you
-        want your collections to be flexible and provide some excitement, 
-        then look no further than the all
-        -powerful RecyclerView.
+        最重要的是，你体验了如何分离组件 - RecyclerView的一个关键属性 - 如此轻松地就提供了这么多的功能。如果你想让它变得更加灵活，并提供一些激动人心的特性，可以再看看全能的RecyclerView。
     </p>
     <p>
-        The final project for this tutorial is available
+        本教程最终的项目可以从
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/galacticon-final.zip">
-            here
+            这里
         </a>
-        .
+        下载。
     </p>
     <p>
-        If you want to learn more about RecyclerViews then check out the
+        如果你想要学习更多关于RecyclerView的内容，可以访问
         <a href="http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html"
         target="_blank" title="Android documentation">
-            Android documentation
+            Android的文档
         </a>
-        to see what it can do. Take a look at the
+        。可以查看RecyclerViews的
         <a href="http://developer.android.com/tools/support-library/features.html#v7-recyclerview"
         target="_blank" title="support library">
-            support library
+            支持库
         </a>
-        for RecyclerViews to learn how to use it on older devices. 
-        If you want to make them fit with the material design spec then check out the
+        ，来学习如何在较旧的设备上来使用它。如果希望让它符合material design，可以查看
         <a href="https://www.google.com/design/spec/components/lists.html" target="_blank"
         title="list component">
-            list component
+            列表组件
         </a>
-        design specification.
+        的设计规范。
     </p>
 </div>
