@@ -181,25 +181,23 @@
             <em>
                 注意
             </em>
-            : This tutorial assumes you are familiar with handling import warnings,
-            and won’t explicitly state the imports to add. As a quick refresher, if
-            you don’t have on-the-fly imports set up, you can import by pressing
+            ：本教程假定你已熟悉了处理import警告的方法，因此不再明确地说明需要import某个包。如果想进行一下快速复习，当你看到import警告时，可以在Mac上按下
             <em>
                 option + return
             </em>
-            on a Mac or
+            键或在PC上按
             <em>
                 Alt + Enter
             </em>
-            on a PC while your cursor is over a class with an import warning.
+            键来自动导入所需的包。
         </p>
     </div>
     <p>
-        Add the following just below
+        在
         <code>
             onClick()
         </code>
-        , along with any necessary imports:
+        方法下添加下列的代码，以及进行必要的import：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">takePictureWithCamera</span><span class="hljs-params">()</span></span> {
     <span class="hljs-comment">// 1</span>
