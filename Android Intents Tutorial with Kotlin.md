@@ -272,53 +272,47 @@
         style="margin-bottom:0">
     </p>
     <p>
-        Head back to
+        回到
         <code>
             takePictureWithCamera()
         </code>
-        and you’ll see the intent you created uses the
+        ，你会看到你刚创建的intent使用了
         <code>
             ACTION_IMAGE_CAPTURE
         </code>
-        action. You’ve probably already guessed this intent will take a photo
-        for you, which is just the thing a meme generator needs!
+        action。可能你早已猜到了它为为你拍拍一张照片，这这正是meme生成器所需要的！
     </p>
     <p>
-        The second block of code focuses on getting a temporary
+        第二部分的代码，则为图片生成了一个临时的
         <code>
-            File
+            文件
         </code>
-        to store the image in. The starter project handles this for you, but take
-        a look at the code in the activity if you want to see how this works.
+        。初始项目中已为你做好了必要的处理，但如果想明白它是如何工作的话，可以查看一下activity中的代码。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : You may notice the selectedPhotoPath variable being appended with a
-            .fileprovider string. File Providers are a special way of providing files
-            to your App and ensure it is done in a safe and secure way. If you check
-            the Android Manifest you can see Memeify makes use of one. You can read
-            more about them
+            ：你可能注意到了，变量selectedPhotoPath被添加了一个.fileprovider的后缀。File Provider是一个为你的app提供文件的特别的方式，并确保这个过程以安全的方式完成。你可以查看Android的Manifest文件，你会发现Memeify就使用了它。你可以在
             <a href="https://developer.android.com/reference/android/support/v4/content/FileProvider.html">
-                here
+                这里
             </a>
-            .
+            阅读更多关于它的内容。
         </p>
     </div>
     <h3>
-        Exploring the Extras
+        探索额外的内容
     </h3>
     <p>
-        The third block of code in your method adds an
+        代码的第三部分，则为新创建的intent添加了一个
         <em>
             Extra
         </em>
-        to your newly created intent.
+        。
     </p>
     <p>
-        What’s an extra, you say?
+        什么是extra？？
     </p>
     <p>
         Extras are a form of key-value pairs that give your intent additional
