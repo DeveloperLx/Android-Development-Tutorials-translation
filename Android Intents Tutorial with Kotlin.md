@@ -318,45 +318,39 @@
         Extra是一个key-value对的表单，用来给你的intent额外的信息以完成它的action。就像人类一样，如果做一件事之前把该准备的都准备好了，就容易把事情做好。Android中的intent也是这样，一个很好的intent应该把它所需的extra也同时准备好！
     </p>
     <p>
-        The types of extras an intent can acknowledge and use change depending
-        on the action; this is similar to the type of data you provide to the action.
+        一个intent能够接受的extra的类型，可以根据action的不同而不同。这非常类似于你提供给action的数据的类型。
     </p>
     <p>
-        A good example is creating an intent with an action of
+        一个很好的例子，就是创建一个action为
         <code>
             ACTION_WEB_SEARCH
         </code>
-        . This action accepts an extra key-value called
+        的intent。这个action可以接受一个叫做
         <code>
             QUERY
         </code>
-        , which is the query string you wish to search for. The key for an extra
-        is usually a string constant because its name shouldn’t change. Starting
-        an intent with the above action and associated extra will show the Google
-        Search page with the results for your query.
+        的extra，它就是你想要搜索的查询字符串。一个extra的key通常都是一个字符串的常量，因为他的名字不应该被改变。启动这个intent，就会展示Google的搜索页面和相应查询到的结果。
     </p>
     <p>
-        Look back at the
+        再来看一下
         <code>
             captureIntent.putExtra()
         </code>
-        line;
+        这行，
         <code>
             EXTRA_OUTPUT
         </code>
-        specifies where you should save the photo from the camera — in this case,
-        the
+        指定了用相机拍到的照片应当保存到的位置 - 在本例中，就是你之前创建的空文件的
         <code>
             Uri
         </code>
-        location of the empty file you created earlier.
+        位置。
     </p>
     <h3>
-        Putting Your Intent in Motion
+        将你的Intent付诸行动
     </h3>
     <p>
-        You now have a working intent ready to go, along with a full mental model
-        of what a typical intent looks like:
+        现在你已经准备好了intent，以及一个典型intent的完整的心理模型，它看起来应该像是这样：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/04/Contents-of-a-Intent.png">
@@ -367,66 +361,63 @@
         </a>
     </p>
     <p>
-        There’s not much left to do here except let the intent fulfill what it
-        was destined to do with the final line of
+        这里没有剩余太多的事要做，除了添加最后一行代码
         <code>
             takePictureWithCamera()
         </code>
-        . Add the following to the bottom of the method:
+        来让intent付诸实现。添加下列的内容到该方法的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">startActivityForResult(captureIntent, TAKE_PHOTO_REQUEST_CODE)
 </pre>
     <p>
-        This line asks Android to start an activity that can perform the action
+        这行代码请求Android启动了一个由action指定
         <code>
             captureIntent
         </code>
-        specifies: to capture an image to a file. Once the activity has fulfilled
-        the intent’s action, you also want to retrieve the resulting image.
+        指定的activity：以捕捉照片并保存到文件中。当activity实现了intent的动作之后，你还想检索得到的图片。你之前指定的常量
         <code>
             TAKE_PHOTO_REQUEST_CODE
         </code>
-        , the constant you specified earlier, will be used to identify the intent
-        when it returns.
+        ，将用来识别它返回的intent。
     </p>
     <p>
-        Next, in the
+        接下来，在
         <code>
             onClick()
         </code>
-        function, replace the empty closure in the
-        <code>
-            when
-        </code>
-        statement for the
+        方法中，将
         <code>
             R.id.picture_imageview
         </code>
-        branch condition with a call to the
+        分支中，
+        <code>
+            when
+        </code>
+        语句中的空闭包替换为调用
         <code>
             takePictureWithCamera()
         </code>
-        function. The resulting line of code should look like the following:
+        方法。最终的代码看起来应当是下面这个样子：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">R.id.pictureImageview -&gt; takePictureWithCamera()
 </pre>
     <p>
-        This calls
+        当你点击
+        <code>
+            ImageView
+        </code>
+        时，就会调用
         <code>
             takePictureWithCamera()
         </code>
-        when you tap the
-        <code>
-            ImageView
-        </code>
-        .
+        方法。
     </p>
     <p>
-        Time to check the fruits of your labor! Build and run. Tap the
+        是时候来检验你的劳动果实了！运行项目。点击
         <code>
             ImageView
         </code>
-        to invoke the camera:
+        来调用相机：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/trampoline-camera-snap.png">
@@ -437,44 +428,42 @@
         </a>
     </p>
     <p>
-        You can take pictures at this point; you just can’t do anything with them!
-        You’ll handle this in the next section.
+        现在可以来拍一张照片，但拍完后并没有做任何的事情！你将在下一节对它进行处理。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
-            : If you are running the app in the Emulator you may need to edit the
-            camera settings on your AVD. To do this, click
+            ：如果你是在模拟器中运行的app，你可能需要在AVD上对相机进行设置。点击
             <em>
-                Tools\Android\AVD Manager
+                Tools/Android/AVD Manager
             </em>
-            , and then click the
+            ，接着点击你想要使用的虚拟设备右侧的
             <em>
-                green pencil
+                绿色铅笔
             </em>
-            to the right of the virtual device you want to use. Then click
+            。然后点击窗口底部左侧的
             <em>
                 Show Advanced Settings
             </em>
-            in the bottom left of the window. In the
+            。在
             <em>
                 Camera
             </em>
-            section, ensure all enabled camera dropdowns are set to
+            中，确保所有可用相机的下拉列表都被设置为
             <em>
                 Emulated
             </em>
-            or
+            或
             <em>
                 Webcam0
             </em>
-            .
+            。
         </p>
     </div>
     <h2>
-        Implicit Intents
+        隐式意图
     </h2>
     <p>
         If you’re running the app on a physical device with a number of camera-centric
