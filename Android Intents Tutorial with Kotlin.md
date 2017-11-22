@@ -315,11 +315,7 @@
         什么是extra？？
     </p>
     <p>
-        Extras are a form of key-value pairs that give your intent additional
-        information to complete its action. Just like humans are more likely to
-        perform better at an activity if they are prepared for it, the same can
-        be said for intents in Android. A good intent is always prepared with the
-        extras it needs!
+        Extra是一个key-value对的表单，用来给你的intent额外的信息以完成它的action。就像人类一样，如果做一件事之前把该准备的都准备好了，就容易把事情做好。Android中的intent也是这样，一个很好的intent应该把它所需的extra也同时准备好！
     </p>
     <p>
         The types of extras an intent can acknowledge and use change depending
