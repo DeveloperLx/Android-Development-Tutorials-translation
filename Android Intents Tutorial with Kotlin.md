@@ -96,67 +96,59 @@
         。
     </p>
     <p>
-        Inside, you will find the XML Layouts and associated Activities containing
-        some boilerplate code for the app, along with a helper class to resize
+        你会在初始项目中找到一些XML的布局文件，以及相应的包含了一些模板代码的Activity，还有一些助手类，用来改变
         <code>
             Bitmap
         </code>
-        s, and some resources such as
+        的大小，一些资源诸如
         <code>
             Drawable
         </code>
-        s and
+        和
         <code>
             String
         </code>
-        s that you’ll use later on in this tutorial.
+        。你会在本教程中用到它们。
     </p>
     <p>
-        If you already have Android Studio open, click
+        如果你已打开了Android Studio，请点击
         <em>
-            File\Import Project
+            File/Import Project
         </em>
-        and select the top-level project folder you just downloaded. If not, start
-        up Android Studio and select
+        并选择你刚下载后解压的初始项目的目录。如果尚未打开Android Studio，请打开它并在欢迎页上选择
         <em>
             Open an existing Android Studio project
         </em>
-        from the welcome screen, again choosing the top-level project folder for
-        the starter project you just downloaded. Be sure to accept any prompts
-        to update to the latest Gradle plugin or to download the correct build
-        tools.
+        ，然后同样地选择你刚下载后解压的初始项目的目录。如果弹出提示需要更新到最新的Gradle插件，请接收以进行更新。
     </p>
     <p>
-        Take some time to familiarize yourself with the project before you carry
-        on.
+        在继续后面的工作之前，花一些时间来熟悉项目吧。
         <code>
             TakePictureActivity
         </code>
-        contains an
+        中包含一个
         <code>
             ImageView
         </code>
-        which you can tap to take a picture using your device’s camera. When you
-        tap
+        ，你可以点击它来使用设备的相机拍一张照片。当点击
         <em>
             LETS MEMEIFY!
         </em>
-        , you’ll pass the file path of the bitmap in the
+        按钮后，你就会将
         <code>
             ImageView
         </code>
-        to
+        中位图的文件路径传递给
         <code>
             EnterTextActivity
         </code>
-        , which is where the real fun begins, as you can enter your meme text
-        to turn your photo into the next viral meme!
+        。这里是真正有趣的地方，你可以输入meme的文本，来把照片转入到下一个病毒式的meme！
     </p>
     <h2>
-        Creating Your First Intent
+        创建你的第一个Intent
     </h2>
     <p>
-        Build and run. You should see the following:
+        运行项目。你会看到如下的内容：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/memify-stage1.png">
@@ -167,38 +159,20 @@
         </a>
     </p>
     <p>
-        It’s a bit sparse at the moment; if you follow the
-        <codetextview< code="">
-            instructions and tap the
-            <code>
-                ImageView
-            </code>
-            , nothing happens!
-        </codetextview<>
+        目前还显得比较空，如果你遵循说明去点击ImageView，什么都不会发生。
     </p>
     <p>
-        You’ll make it more interesting by adding some code.
+        添加一些代码来让它变得更有趣一些。
     </p>
     <p>
-        Open
+        打开
         <code>
             TakePictureActivity.kt
         </code>
-        and add the following to the companion object at the bottom of the Class:
+        ，并添加下列的代码到类底部的companion object中：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        const
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        TAKE_PHOTO_REQUEST_CODE =
-        <span class="hljs-number">
-            1
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">const <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> TAKE_PHOTO_REQUEST_CODE = <span class="hljs-number">1</span>
+</pre>
     <p>
         This will identify your intent when it returns — you’ll learn a bit more
         about this later in the tutorial.
@@ -228,87 +202,30 @@
         </code>
         , along with any necessary imports:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                takePictureWithCamera
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // 1
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        captureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        <span class="hljs-comment">
-            // 2
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        imagePath = File(filesDir,
-        <span class="hljs-string">
-            "images"
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        newFile = File(imagePath,
-        <span class="hljs-string">
-            "default_image.jpg"
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        (newFile.exists()) { newFile.delete() }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { newFile.parentFile.mkdirs() } selectedPhotoPath = getUriForFile(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , BuildConfig.APPLICATION_ID +
-        <span class="hljs-string">
-            ".fileprovider"
-        </span>
-        , newFile)
-        <span class="hljs-comment">
-            // 3
-        </span>
-        captureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, selectedPhotoPath)
-        <span class="hljs-keyword">
-            if
-        </span>
-        (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) { captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        clip = ClipData.newUri(contentResolver,
-        <span class="hljs-string">
-            "A photo"
-        </span>
-        , selectedPhotoPath) captureIntent.clipData = clip captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">takePictureWithCamera</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">val</span> captureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">val</span> imagePath = File(filesDir, <span class="hljs-string">"images"</span>)
+    <span class="hljs-keyword">val</span> newFile = File(imagePath, <span class="hljs-string">"default_image.jpg"</span>)
+    <span class="hljs-keyword">if</span> (newFile.exists()) {
+      newFile.delete()
+    } <span class="hljs-keyword">else</span> {
+      newFile.parentFile.mkdirs()
+    }
+    selectedPhotoPath = getUriForFile(<span class="hljs-keyword">this</span>, BuildConfig.APPLICATION_ID + <span class="hljs-string">".fileprovider"</span>, newFile)
+    <span class="hljs-comment">// 3</span>
+    captureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, selectedPhotoPath)
+    <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) {
+      captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">val</span> clip = ClipData.newUri(contentResolver, <span class="hljs-string">"A photo"</span>, selectedPhotoPath)
+      captureIntent.clipData = clip
+      captureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+    }
+
+  }
+</pre>
     <p>
         There’s quite a bit going on in this method, so look at it step-by-step.
     </p>
@@ -487,9 +404,8 @@
         </code>
         . Add the following to the bottom of the method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        startActivityForResult(captureIntent, TAKE_PHOTO_REQUEST_CODE)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">startActivityForResult(captureIntent, TAKE_PHOTO_REQUEST_CODE)
+</pre>
     <p>
         This line asks Android to start an activity that can perform the action
         <code>
@@ -522,9 +438,8 @@
         </code>
         function. The resulting line of code should look like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        R.id.pictureImageview -&gt; takePictureWithCamera()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">R.id.pictureImageview -&gt; takePictureWithCamera()
+</pre>
     <p>
         This calls
         <code>
@@ -655,22 +570,7 @@
         </em>
         :
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                uses-feature
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.hardware.camera"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">uses-feature</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.hardware.camera"</span> /&gt;</span></pre>
     <p>
         The starter project opts for the device restriction method.
     </p>
@@ -690,56 +590,13 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onActivityResult
-            </span>
-            <span class="hljs-params">
-                (requestCode:
-                <span class="hljs-type">
-                    Int
-                </span>
-                , resultCode:
-                <span class="hljs-type">
-                    Int
-                </span>
-                ,
-                <span class="hljs-keyword">
-                    data
-                </span>
-                :
-                <span class="hljs-type">
-                    Intent
-                </span>
-                ?)
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            super
-        </span>
-        .onActivityResult(requestCode, resultCode,
-        <span class="hljs-keyword">
-            data
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        (requestCode == TAKE_PHOTO_REQUEST_CODE &amp;&amp; resultCode == Activity.RESULT_OK)
-        {
-        <span class="hljs-comment">
-            //setImageViewWithImage()
-        </span>
-        } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onActivityResult</span><span class="hljs-params">(requestCode: <span class="hljs-type">Int</span>, resultCode: <span class="hljs-type">Int</span>, <span class="hljs-keyword">data</span>: <span class="hljs-type">Intent</span>?)</span></span> {
+    <span class="hljs-keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="hljs-keyword">data</span>)
+    <span class="hljs-keyword">if</span> (requestCode == TAKE_PHOTO_REQUEST_CODE &amp;&amp; resultCode == Activity.RESULT_OK) {
+      <span class="hljs-comment">//setImageViewWithImage()</span>
+    }
+  }
+</pre>
     <p>
         The above method only executes when an activity started by
         <code>
@@ -796,22 +653,8 @@
         </code>
         variable:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        pictureTaken:
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        =
-        <span class="hljs-literal">
-            false
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> pictureTaken: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span>
+</pre>
     <p>
         This tracks whether you have taken a photo, which is useful in the event
         you take more than one photo. You’ll use this variable shortly.
@@ -823,47 +666,21 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setImageViewWithImage
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        photoPath: Uri = selectedPhotoPath ?:
-        <span class="hljs-keyword">
-            return
-        </span>
-        pictureImageview.post {
-        <span class="hljs-keyword">
-            val
-        </span>
-        pictureBitmap = BitmapResizer.shrinkBitmap(
-        <span class="hljs-keyword">
-            this
-        </span>
-        <span class="hljs-symbol">
-            @TakePictureActivity
-        </span>
-        , photoPath, pictureImageview.width, pictureImageview.height ) pictureImageview.setImageBitmap(pictureBitmap)
-        } lookingGoodTextView.visibility = View.VISIBLE pictureTaken =
-        <span class="hljs-literal">
-            true
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setImageViewWithImage</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">val</span> photoPath: Uri = selectedPhotoPath ?: <span class="hljs-keyword">return</span>
+    pictureImageview.post {
+      <span class="hljs-keyword">val</span> pictureBitmap = BitmapResizer.shrinkBitmap(
+          <span class="hljs-keyword">this</span><span class="hljs-symbol">@TakePictureActivity</span>,
+          photoPath,
+          pictureImageview.width,
+          pictureImageview.height
+      )
+      pictureImageview.setImageBitmap(pictureBitmap)
+    }
+    lookingGoodTextView.visibility = View.VISIBLE
+    pictureTaken = <span class="hljs-literal">true</span>
+  }
+</pre>
     <p>
         <code>
             BitmapResizer
@@ -887,11 +704,7 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-comment">
-            // setImageViewWithImage()
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// setImageViewWithImage()</span></pre>
     <p>
         Build and run. Select your favorite camera app – if prompted – and take
         another photo.
@@ -935,32 +748,10 @@
         </em>
         , add the following constants just below the comment line:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        IMAGE_URI_KEY =
-        <span class="hljs-string">
-            "IMAGE_URI"
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        BITMAP_WIDTH =
-        <span class="hljs-string">
-            "BITMAP_WIDTH"
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        BITMAP_HEIGHT =
-        <span class="hljs-string">
-            "BITMAP_HEIGHT"
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">const <span class="hljs-keyword">val</span> IMAGE_URI_KEY = <span class="hljs-string">"IMAGE_URI"</span>
+const <span class="hljs-keyword">val</span> BITMAP_WIDTH = <span class="hljs-string">"BITMAP_WIDTH"</span>
+const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-string">"BITMAP_HEIGHT"</span>
+</pre>
     <p>
         These will be used as keys for the extras you’ll pass to an intent on
         the next screen.
@@ -972,59 +763,20 @@
         </code>
         , adding any imports as necessary:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                moveToNextScreen
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (pictureTaken) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        nextScreenIntent = Intent(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , EnterTextActivity::
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            .
-            <span class="hljs-title">
-                java
-            </span>
-            ).
-            <span class="hljs-title">
-                apply
-            </span>
-        </span>
-        { putExtra(IMAGE_URI_KEY, selectedPhotoPath) putExtra(BITMAP_WIDTH, pictureImageview.width)
-        putExtra(BITMAP_HEIGHT, pictureImageview.height) } startActivity(nextScreenIntent)
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { Toaster.show(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , R.string.select_a_picture) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">moveToNextScreen</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">if</span> (pictureTaken) {
+      <span class="hljs-keyword">val</span> nextScreenIntent = Intent(<span class="hljs-keyword">this</span>, EnterTextActivity::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>).<span class="hljs-title">apply</span> </span>{
+        putExtra(IMAGE_URI_KEY, selectedPhotoPath)
+        putExtra(BITMAP_WIDTH, pictureImageview.width)
+        putExtra(BITMAP_HEIGHT, pictureImageview.height)
+      }
+
+      startActivity(nextScreenIntent)
+    } <span class="hljs-keyword">else</span> {
+      Toaster.show(<span class="hljs-keyword">this</span>, R.string.select_a_picture)
+    }
+  }
+</pre>
     <p>
         Here you check
         <code>
@@ -1088,9 +840,8 @@
         </code>
         function. The resulting line of code should look like the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        R.id.enterTextButton -&gt; moveToNextScreen()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">R.id.enterTextButton -&gt; moveToNextScreen()
+</pre>
     <p>
         Build and run. Tap
         <em>
@@ -1217,34 +968,15 @@
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        pictureUri = intent.getParcelableExtra&lt;Uri&gt;(IMAGE_URI_KEY)
-        <span class="hljs-keyword">
-            val
-        </span>
-        bitmapWidth = intent.getIntExtra(BITMAP_WIDTH,
-        <span class="hljs-number">
-            100
-        </span>
-        )
-        <span class="hljs-keyword">
-            val
-        </span>
-        bitmapHeight = intent.getIntExtra(BITMAP_HEIGHT,
-        <span class="hljs-number">
-            100
-        </span>
-        ) pictureUri?.let {
-        <span class="hljs-keyword">
-            val
-        </span>
-        selectedImageBitmap = BitmapResizer.shrinkBitmap(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , it, bitmapWidth, bitmapHeight) selectedPictureImageview.setImageBitmap(selectedImageBitmap)
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">pictureUri = intent.getParcelableExtra&lt;Uri&gt;(IMAGE_URI_KEY)
+<span class="hljs-keyword">val</span> bitmapWidth = intent.getIntExtra(BITMAP_WIDTH, <span class="hljs-number">100</span>)
+<span class="hljs-keyword">val</span> bitmapHeight = intent.getIntExtra(BITMAP_HEIGHT, <span class="hljs-number">100</span>)
+
+pictureUri?.let {
+  <span class="hljs-keyword">val</span> selectedImageBitmap = BitmapResizer.shrinkBitmap(<span class="hljs-keyword">this</span>, it, bitmapWidth, bitmapHeight)
+  selectedPictureImageview.setImageBitmap(selectedImageBitmap)
+}
+</pre>
     <p>
         When you create the activity, you assign the
         <code>
@@ -1350,9 +1082,8 @@
         </code>
         branch condition:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        R.id.writeTextToImageButton -&gt; createMeme()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">R.id.writeTextToImageButton -&gt; createMeme()
+</pre>
     <p>
         Drumroll please. Build and Run. Repeat the usual steps to take a photo,
         and then enter your incredibly witty meme text on the second screen and
@@ -1400,16 +1131,10 @@
         </code>
         call:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE) mediaScanIntent.
-        <span class="hljs-keyword">
-            data
-        </span>
-        = Uri.fromFile(imageFile) sendBroadcast(mediaScanIntent)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+mediaScanIntent.<span class="hljs-keyword">data</span> = Uri.fromFile(imageFile)
+sendBroadcast(mediaScanIntent)
+</pre>
     <p>
         This intent uses the
         <code>
@@ -1459,9 +1184,8 @@
         </code>
         function to the following:
     </p>
-    <pre lang="java" class="language-java hljs">
-        R.id.saveImageButton -&gt; askForPermissions()
-    </pre>
+    <pre lang="java" class="language-java hljs">R.id.saveImageButton -&gt; askForPermissions()
+</pre>
     <p>
         When the user hits
         <em>
@@ -1547,85 +1271,17 @@
         </code>
         element you should see the following:
     </p>
-    <pre code="xml" class="hljs xml">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                activity
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                ".TakePictureActivity"
-            </span>
-            <span class="hljs-attr">
-                android:label
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/app_name"
-            </span>
-            <span class="hljs-attr">
-                android:screenOrientation
-            </span>
-            =
-            <span class="hljs-string">
-                "portrait"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                action
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.action.MAIN"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                category
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.category.LAUNCHER"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                activity
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre code="xml" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
+    <span class="hljs-attr">android:name</span>=<span class="hljs-string">".TakePictureActivity"</span>
+    <span class="hljs-attr">android:label</span>=<span class="hljs-string">"@string/app_name"</span>
+    <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"portrait"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span> /&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+</pre>
     <p>
         The key here is the
         <code>
@@ -1699,64 +1355,12 @@
         </em>
         file:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                action
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.action.SEND"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                category
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.intent.category.DEFAULT"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                data
-            </span>
-            <span class="hljs-attr">
-                android:mimeType
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/image_mime_type"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                intent-filter
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.SEND"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">data</span> <span class="hljs-attr">android:mimeType</span>=<span class="hljs-string">"@string/image_mime_type"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+</pre>
     <p>
         Your new intent filter specifies that your app will look for
         <code>
@@ -1773,48 +1377,19 @@
         </em>
         and add the following to the end of the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                checkReceivedIntent
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        imageReceivedIntent = intent
-        <span class="hljs-keyword">
-            val
-        </span>
-        intentAction = imageReceivedIntent.action
-        <span class="hljs-keyword">
-            val
-        </span>
-        intentType = imageReceivedIntent.type
-        <span class="hljs-keyword">
-            if
-        </span>
-        (Intent.ACTION_SEND == intentAction &amp;&amp; intentType !=
-        <span class="hljs-literal">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (intentType.startsWith(MIME_TYPE_IMAGE)) { selectedPhotoPath = imageReceivedIntent.getParcelableExtra&lt;Uri&gt;(Intent.EXTRA_STREAM)
-        setImageViewWithImage() } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkReceivedIntent</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">val</span> imageReceivedIntent = intent
+    <span class="hljs-keyword">val</span> intentAction = imageReceivedIntent.action
+    <span class="hljs-keyword">val</span> intentType = imageReceivedIntent.type
+
+    <span class="hljs-keyword">if</span> (Intent.ACTION_SEND == intentAction &amp;&amp; intentType != <span class="hljs-literal">null</span>) {
+      <span class="hljs-keyword">if</span> (intentType.startsWith(MIME_TYPE_IMAGE)) {
+        selectedPhotoPath = imageReceivedIntent.getParcelableExtra&lt;Uri&gt;(Intent.EXTRA_STREAM)
+        setImageViewWithImage()
+      }
+    }
+  }
+</pre>
     <p>
         Here you get the
         <code>
@@ -1855,9 +1430,8 @@
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        checkReceivedIntent()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">checkReceivedIntent()
+</pre>
     <p>
         The above code ensures that you will check if there is an intent every
         time the activity is created.
