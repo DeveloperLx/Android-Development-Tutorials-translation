@@ -174,13 +174,12 @@
     <pre lang="kotlin" class="language-kotlin hljs">const <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> TAKE_PHOTO_REQUEST_CODE = <span class="hljs-number">1</span>
 </pre>
     <p>
-        This will identify your intent when it returns — you’ll learn a bit more
-        about this later in the tutorial.
+        这将用来在intent返回时对它进行识别 - 之后你将在本教程中了解更多关于它的内容。
     </p>
     <div class="note">
         <p>
             <em>
-                Note
+                注意
             </em>
             : This tutorial assumes you are familiar with handling import warnings,
             and won’t explicitly state the imports to add. As a quick refresher, if
