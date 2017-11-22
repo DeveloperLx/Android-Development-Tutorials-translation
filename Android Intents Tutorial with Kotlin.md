@@ -224,18 +224,14 @@
   }
 </pre>
     <p>
-        There’s quite a bit going on in this method, so look at it step-by-step.
+        这个方法中有相当多的代码，我们一步一步来看。
     </p>
     <p>
-        The first block of code declares an
+        第一部分的代码声明了一个
         <code>
             Intent
         </code>
-        object. That’s all well and good, but what exactly
-        <i>
-            is
-        </i>
-        an intent?
+        对象。一切看起来都不错，但到底神马是intent？
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Intents-thinking-1.png"
@@ -243,45 +239,32 @@
         style="margin-bottom:0">
     </p>
     <p>
-        An intent is an abstract concept of work or functionality that can be
-        performed by your app sometime in the future. In short, it’s something
-        your app needs to
-        <i>
-            do
-        </i>
-        . The most basic intents are made up of the following:
+        intent是关于工作或功能的抽象概念，可以在将来的某个时候被你的app执行。总之就是你的app在某个时候需要去做的事。最基本的intent是由下列的部分构成的：
     </p>
     <ul>
         <li>
             <em>
-                Actions
+                Action
             </em>
-            : This is what the intent needs to accomplish, such as dialing a telephone
-            number, opening a URL, or editing some data. An action is simply a string
-            constant describing what is being accomplished.
+            ：就是intent需要去完成的事，诸如拨打电话号码，打开一个URL地址，或是编辑一些数据。实际上它就是一个描述要完成什么事的字符串常量。
         </li>
         <li>
             <em>
                 Data
             </em>
-            : This is the resource the intent operates on. It is expressed as a
+            ：它是支持intent执行操作的资源。在Android中，它是通过一个
             <em>
                 Uniform Resource Identifier
             </em>
-            or
+            或
             <code>
                 Uri
             </code>
-            object in Android — it’s a unique identifier for a particular resource.
-            The type of data required (if any) for the intent changes depending on
-            the action. You wouldn’t want your dial number intent trying to get a phone
-            number from an image! :]
+            对象来表示的 - 它是相应于一个特定资源的唯一标识符。intent所需的数据类型基于action的不同而不同。你不会去尝试一个拨打电话号码的intent 从图片中获取电话号码！:]
         </li>
     </ul>
     <p>
-        This ability to combine actions and data lets Android know exactly what
-        the intent is intending to do and what it has to work with. It’s as simple
-        as that!
+        这种将action和data结合起来的能力，就可以让Android准确地知道这个intent想要做什么，以及如何去做。就是这么得简单！
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/05/Intents-smile-1.png"
