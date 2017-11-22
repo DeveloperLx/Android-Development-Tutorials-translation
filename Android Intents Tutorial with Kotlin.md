@@ -623,37 +623,32 @@
         <code>
             BitmapResizer
         </code>
-        is a helper class bundled with the starter project to make sure the
+        是一个由初始项目提供的助手类，用来确保从相机中获取的
         <code>
             Bitmap
         </code>
-        you retrieve from the camera is scaled to the correct size for your device’s
-        screen. Although the device can scale the image for you, resizing it in
-        this way is more memory efficient.
+        ，尺寸符合你设备的屏幕。尽管设备可以为你缩放图片，但用这种方式来修饰图片可以更加节约内容。
     </p>
     <p>
-        With
         <code>
             setImageViewWithImage()
         </code>
-        now ready, uncomment this line that calls it, within
+        方法OK后，在 
         <code>
             onActivityResult()
         </code>
-        :
+        中取消这行代码的注释来调用它：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// setImageViewWithImage()</span></pre>
     <p>
-        Build and run. Select your favorite camera app – if prompted – and take
-        another photo.
+        运行项目。选在你最喜欢的相机app - 如果被提示的话 - 再拍一张照片。
     </p>
     <p>
-        This time, the photo should scale to the appropriate size given your display
-        and show up in the
+        这次，照片会被缩放到合适的尺寸，并展示在
         <code>
             ImageView
         </code>
-        :
+        上：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/memify-stage1-with-pic-2.png">
@@ -664,20 +659,18 @@
         </a>
     </p>
     <p>
-        You’ll also see a
+        你还会看到下面有一个
         <code>
             TextView
         </code>
-        underneath that compliments you on your excellent photography skills.
-        It’s always nice to be polite. :]
+        在称赞你杰出的摄影技巧。有礼貌总是很好的。:]
     </p>
     <h2>
-        Explicit Intents
+        显式意图
     </h2>
     <p>
-        It’s nearly time to build phase two of your meme generator, but first
-        you need to get your picture over to the next activity since you’re a little
-        strapped for screen real estate here.
+        It’s nearly time to build phase two of your meme generator, 
+        but first you need to get your picture over to the next activity since you’re a little strapped for screen real estate here.
     </p>
     <p>
         In the
@@ -691,8 +684,7 @@ const <span class="hljs-keyword">val</span> BITMAP_WIDTH = <span class="hljs-str
 const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-string">"BITMAP_HEIGHT"</span>
 </pre>
     <p>
-        These will be used as keys for the extras you’ll pass to an intent on
-        the next screen.
+        These will be used as keys for the extras you’ll pass to an intent on the next screen.
     </p>
     <p>
         Now, add the following method to the bottom of
@@ -708,7 +700,6 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         putExtra(BITMAP_WIDTH, pictureImageview.width)
         putExtra(BITMAP_HEIGHT, pictureImageview.height)
       }
-
       startActivity(nextScreenIntent)
     } <span class="hljs-keyword">else</span> {
       Toaster.show(<span class="hljs-keyword">this</span>, R.string.select_a_picture)
@@ -756,8 +747,9 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         <code>
             true
         </code>
-        then you create an intent for the next activity, and set up the necessary
-        extras, using the constants you just defined as the keys.
+        then you create an intent for the next activity,
+        and set up the necessary extras, 
+        using the constants you just defined as the keys.
     </p>
     <p>
         Next, in the
@@ -804,8 +796,7 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         <code>
             moveToNextScreen()
         </code>
-        proceeds to create an intent for the text entry activity. It also attaches
-        some
+        proceeds to create an intent for the text entry activity. It also attaches some
         <code>
             Extra
         </code>
@@ -821,8 +812,8 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         <code>
             Bitmap
         </code>
-        as it’s displayed on the screen. These will come in useful in the next
-        activity.
+        as it’s displayed on the screen. 
+        These will come in useful in the next activity.
     </p>
     <p>
         You’ve just created your first
