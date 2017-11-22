@@ -466,8 +466,7 @@
         隐式意图
     </h2>
     <p>
-        If you’re running the app on a physical device with a number of camera-centric
-        apps, you might have noticed something unexpected:
+        正如你在很多相机相关的app上见到的一样，出现了一些意料之外的情况：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/multipl-camera-select.png">
@@ -478,33 +477,24 @@
         </a>
     </p>
     <p>
-        You get prompted to choose which app should handle the intent.
+        系统会提示你选择用哪个app来处理这个intent。
     </p>
     <p>
-        When you create an intent, you can be as explicit or as implicit as you
-        like with what the intent should use to complete its action.
+        当你创建一个intent时，你可以在显式和隐式之间进行选择来完成这个action。
         <em>
             ACTION_IMAGE_CAPTURE
         </em>
-        is a perfect example of an
+        是一个
         <em>
-            Implicit Intent
+            隐式Intent
         </em>
-        .
+        的完美例子。
     </p>
     <p>
-        Implicit intents let Android developers give users the power of choice.
-        If they have a particular app they like to use to perform a certain task,
-        would it be so wrong to use some of its features for your own benefit?
-        At the very least, it definitely saves you from reinventing the wheel in
-        your own app.
+        隐式intent让Android开发者能够赋予用户进行选择的权力。他们希望使用特定的app来执行这个任务。为了自己的目的，去使用其它app的一些功能是错误的？至少，它绝对可以让你避免在自己的app中重新制造轮子。
     </p>
     <p>
-        An implicit Intent informs Android that it needs an app to handle the
-        intent’s action when it starts. The Android system then compares the given
-        intent against all apps installed on the device to see which ones can handle
-        that action, and therefore process that intent. If more than one can handle
-        the intent, the user is prompted to choose one:
+        一个隐式意图会在它启动的时候，通知Android需要通过一个app来处理它的action。之后，Android系统就会将给它和所有设备上已安装的app进行比对，找出哪个可以处理这个action，并进行处理。如果有多个app可以处理，就提示用户从中选择一个：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/05/intents_needcamera-500x500.jpg"
@@ -513,41 +503,32 @@
         sizes="(max-width: 500px) 100vw, 500px">
     </p>
     <p>
-        If only one app responds, the intent automatically takes the user to that
-        app to perform the action. If there are no apps to perform that action,
-        then Android will return nothing, leaving you with a null value that will
-        cause your app to crash! :[
+        如果只有一个app能响应，intent就会把用户带到这个app上来执行它的action。如果没有任何app可以响应，Android就无法返回任何内容，造成你app的崩溃！:[
     </p>
     <p>
-        You can prevent this by checking the result to ensure that at least one
-        app responded to the action before attempting to start it, or in this case
-        you can also state the app can only be installed on devices that have a
-        camera by declaring the necessary hardware requirements by adding the following
-        line to
+        你可以通过在尝试启动intent之前，检查至少有一个app可以响应这个action来避免崩溃的发生。或是通过在
         <em>
             AndroidManifest.xml
         </em>
-        :
+        中添加下列的代码，来将app声明为只能安装在带有相机硬件的设备上：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">uses-feature</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.hardware.camera"</span> /&gt;</span></pre>
     <p>
-        The starter project opts for the device restriction method.
+        这样项目就选择了设备受限制的方法。
     </p>
     <p>
-        So you have an implicit intent set up to take a photo, but you don’t yet
-        have a way to access that photo in your app. Your meme generator isn’t
-        going to get far without photos!
+        现在你有了一个隐式的intent来拍摄照片，但还没有办法在你的app中访问这张照片。你的meme生成器不会这样一直没照片下去！
     </p>
     <p>
-        Add the following new method just below
-        <code>
-            takePictureWithCamera()
-        </code>
-        in
+        在
         <code>
             TakePictureActivity
         </code>
-        :
+        中
+        <code>
+            takePictureWithCamera()
+        </code>
+        之下，添加下列的方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onActivityResult</span><span class="hljs-params">(requestCode: <span class="hljs-type">Int</span>, resultCode: <span class="hljs-type">Int</span>, <span class="hljs-keyword">data</span>: <span class="hljs-type">Intent</span>?)</span></span> {
     <span class="hljs-keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="hljs-keyword">data</span>)
@@ -557,73 +538,71 @@
   }
 </pre>
     <p>
-        The above method only executes when an activity started by
-        <code>
-            startActivityForResult()
-        </code>
-        in
+        当在
         <code>
             takePictureWithCamera()
         </code>
-        has finished and returns to your app.
+        中，通过调用
+        <code>
+            startActivityForResult()
+        </code>
+        执行任务，完成后回到你的app时，就会调用上面的方法。
     </p>
     <p>
-        The
+        上述的
         <code>
             if
         </code>
-        statement above matches the returned
+        语句，会将返回的
         <code>
             requestCode
         </code>
-        against the constant you passed in (
+        与你的常量（
         <code>
             TAKE_PHOTO_REQUEST_CODE
         </code>
-        ) to ensure this is your intent. You also check that the
+        ）进行比较，以确保这是你的intent。你还检查了
         <code>
             resultCode
         </code>
-        is
+        是否为
         <code>
             RESULT_OK
         </code>
-        ; this is simply an Android constant that indicates successful execution.
+        ，它是一个简单的Android常量，表示成功地执行了任务。
     </p>
     <p>
-        If everything does go well, then you can assume your image is ready for
-        use, so you call
+        如果一切顺利，就可以假定你的图片已准备好被使用了，因此调用
         <code>
             setImageViewWithImage()
         </code>
-        .
+        。
     </p>
     <p>
-        Time to define that method!
+        是时候来定义这个方法了！
     </p>
     <p>
-        First, at the top of
+        首先，在
         <code>
             TakePictureActivity
         </code>
-        , add the following
+        的顶部，添加下列的
         <code>
             boolean
         </code>
-        variable:
+        变量：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> pictureTaken: <span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span>
 </pre>
     <p>
-        This tracks whether you have taken a photo, which is useful in the event
-        you take more than one photo. You’ll use this variable shortly.
+        它会跟踪你是否拍摄了一张照片，在你拍摄超过了一张照片的时候，会非常得有用。你很快就会用到这个变量。
     </p>
     <p>
-        Next, add the following right after
+        接下来，在
         <code>
             onActivityResult()
         </code>
-        :
+        之后，添加下列的内容：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setImageViewWithImage</span><span class="hljs-params">()</span></span> {
     <span class="hljs-keyword">val</span> photoPath: Uri = selectedPhotoPath ?: <span class="hljs-keyword">return</span>
