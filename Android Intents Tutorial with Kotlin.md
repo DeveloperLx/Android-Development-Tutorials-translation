@@ -1030,103 +1030,89 @@ mediaScanIntent.<span class="hljs-keyword">data</span> = Uri.fromFile(imageFile)
 sendBroadcast(mediaScanIntent)
 </pre>
     <p>
-        This intent uses the
+        这个intent使用了
         <code>
             ACTION_MEDIA_SCANNER_SCAN_FILE
         </code>
-        action to ask the Android’s media database to add the image’s
+        action来请求Android的媒体库添加图片的
         <code>
             Uri
         </code>
-        . That way, any apps that access the media database can use the image
-        via its Uri.
+        。这样，任何访问媒体库的app都可以读取到这张图片了。
     </p>
     <p>
-        The
+        这个
         <code>
             ACTION_MEDIA_SCANNER_SCAN_FILE
         </code>
-        action also requires the intent to have some attached data in the form
-        of a
+        action还需要intent带有一些
         <code>
             Uri
         </code>
-        , which comes from the
-        <code>
-            File
-        </code>
-        object to which you save the
+        形式的附加数据，代表你保存到文件中的
         <code>
             Bitmap
         </code>
-        .
+        对象。
     </p>
     <p>
-        Finally, you broadcast the intent across Android so that any interested
-        parties — in this case, the media scanner — can act upon it. Since the
-        media scanner doesn’t have a user interface, you can’t start an activity
-        so you simply broadcast the intent instead.
+        最后，在Android上广播这个intent，这样任何对此感兴趣的部分 - 在本例中就是媒体扫描器 - 都可以执行相应的行动。由于媒体扫描器没有用户界面，因此你无需启动一个activity，只需广播这个intent即可。
     </p>
     <p>
-        Now, update the
-        <code>
-            R.id.save_image_button
-        </code>
-        branch condition in the
+        将在，将
         <code>
             onClick()
         </code>
-        function to the following:
+        方法中的
+        <code>
+            R.id.save_image_button
+        </code>
+        分支更新为如下的代码：
     </p>
     <pre lang="java" class="language-java hljs">R.id.saveImageButton -&gt; askForPermissions()
 </pre>
     <p>
-        When the user hits
+        当用户点击
         <em>
             SAVE IMAGE
         </em>
-        the above code checks for
+        时，上述的代码就会检查
         <code>
             WRITE_EXTERNAL_STORAGE
         </code>
-        permission. If it’s not granted on Android Marshmallow and above, the
-        method politely asks the user to grant it. Otherwise, if you are allowed
-        to write to the external storage, it simply passes control to
+        权限。如果在Android Marshmallow及以上的系统上未得到授权，这个方法会有礼貌地请求用户来授予。否则，如果系统允许你写入到外部存储，只需将控制权传递给
         <code>
             saveImageToGallery()
         </code>
-        .
+        。
     </p>
     <p>
-        The code in
         <code>
             saveImageToGallery()
         </code>
-        performs some error handling and, if everything checks out, kicks off
-        the intent.
+        中的代码会进行一些错误处理，如果没发现错误，就会启动intent。
     </p>
     <p>
-        Build and run. Take a photo, add some stunningly brilliant meme text,
-        tap
+        运行项目。拍一张照片，添加一些精美的meme文本，点击
         <em>
             LETS MEMEIFY!
         </em>
-        , and then tap
+        ，然后在照片准备好之后，点击
         <em>
             SAVE IMAGE
         </em>
-        once your image is ready.
+        。
     </p>
     <p>
-        Now close the app and open the
+        现在关闭app并打开
         <em>
             Photos
         </em>
-        app. If you’re using the emulator then open the
+        app。如果用的是模拟器，请打开
         <em>
             Gallery
         </em>
-        app. You should be able to see your new image in all its meme-ified glory:
+        app。你会看到刚保存的meme图片：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/photos-snap.png">
@@ -1137,12 +1123,10 @@ sendBroadcast(mediaScanIntent)
         </a>
     </p>
     <p>
-        Your memes can now escape the confines of your app and are available for
-        you to post to social media or share in any manner of your choosing. Your
-        meme generator is complete!
+        现在你的meme就可以摆脱app的限制，并发布到社交媒体上，或是以任何你选择的方式进行分享。你的meme生成器已经完成了！
     </p>
     <h2>
-        Intent Filtering
+        意图过滤器
     </h2>
     <p>
         By now you should have a good idea of how to use the right intent for
