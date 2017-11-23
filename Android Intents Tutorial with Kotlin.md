@@ -669,29 +669,28 @@
         显式意图
     </h2>
     <p>
-        It’s nearly time to build phase two of your meme generator, 
-        but first you need to get your picture over to the next activity since you’re a little strapped for screen real estate here.
+        现在基本已经到了构建meme生成器的第二阶段了，但首先你需要把照片传递给下一个activity，因为这里的屏幕空间有一定的限制。
     </p>
     <p>
-        In the
+        在
         <em>
             Constants.kt
         </em>
-        , add the following constants just below the comment line:
+        中，注释的下方添加如下的常量：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">const <span class="hljs-keyword">val</span> IMAGE_URI_KEY = <span class="hljs-string">"IMAGE_URI"</span>
 const <span class="hljs-keyword">val</span> BITMAP_WIDTH = <span class="hljs-string">"BITMAP_WIDTH"</span>
 const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-string">"BITMAP_HEIGHT"</span>
 </pre>
     <p>
-        These will be used as keys for the extras you’ll pass to an intent on the next screen.
+        这些将被当做你传递给下一页的intent的键。
     </p>
     <p>
-        Now, add the following method to the bottom of
+        现在，添加下列的方法到
         <code>
             TakePictureActivity
         </code>
-        , adding any imports as necessary:
+        底部，并添加相应的import：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">moveToNextScreen</span><span class="hljs-params">()</span></span> {
     <span class="hljs-keyword">if</span> (pictureTaken) {
