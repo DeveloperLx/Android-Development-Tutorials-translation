@@ -999,19 +999,18 @@ pictureUri?.let {
         </a>
     </p>
     <p>
-        You’ve just created your own meme generator! Don’t celebrate too long,
-        though — there are a few bits of polish that you need to add to the app.
+        你已创建了自己的meme生成器！不用庆祝太久，你还可以添加一些点缀到你的app上。
     </p>
     <h2>
-        Broadcast Intents
+        广播Intent
     </h2>
     <p>
-        It would be nice to save your shiny new meme so you can share it with
-        the world. It’s not going to go viral all on its own! :]
+        It would be nice to save your shiny new meme so you can share it with the world. 
+        It’s not going to go viral all on its own! :]
     </p>
     <p>
-        Fortunately the starter project has got it covered for you — you only
-        need to tie things together.
+        Fortunately the starter project has got it covered for you — 
+        you only need to tie things together.
     </p>
     <p>
         Add the following code to
