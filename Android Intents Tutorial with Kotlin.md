@@ -885,46 +885,41 @@ pictureUri?.let {
 }
 </pre>
     <p>
-        When you create the activity, you assign the
-        <code>
-            Uri
-        </code>
-        passed from the previous activity to
-        <code>
-            pictureUri
-        </code>
-        by accessing the
-        <code>
-            Intent
-        </code>
-        via
+        当你创建activity时，就将之前activity传递来的
         <code>
             intent
         </code>
-        . Once you have access to the intent, you can access its
+        中的
         <code>
-            Extra
+            pictureUri
         </code>
-        values.
-    </p>
-    <p>
-        Since variables and objects come in various forms, you have multiple methods
-        to access them from the intent. To access the
+        传递给
         <code>
             Uri
         </code>
-        object above, for example, you need to use
+        。当你可以访问到intent的时候，就可以访问它的
+        <code>
+            Extra
+        </code>
+        值。
+    </p>
+    <p>
+        由于变量和对象是以各种形式出现的，你会有各种各样的形式来从intent中访问到它们。例如，你要访问上面的
+        <code>
+            Uri
+        </code>
+        对象，就可以使用
         <code>
             getParcelableExtra
             <uri>
                 ()
             </uri>
         </code>
-        . Other
+        方法。
         <code>
             Extra
         </code>
-        methods exist for other variables such as strings and primitive data types.
+        中还有着用于访问其它类型变量的方法，如字符串和其它的基本类型等。
     </p>
     <p>
         <code>
