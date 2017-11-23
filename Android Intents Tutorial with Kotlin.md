@@ -1286,20 +1286,14 @@ sendBroadcast(mediaScanIntent)
     <pre lang="kotlin" class="language-kotlin hljs">checkReceivedIntent()
 </pre>
     <p>
-        The above code ensures that you will check if there is an intent every time the activity is created.
+        上述的代码会确保每次创建这个activity时，这里是否有intent。
     </p>
     <p>
-        Build and run. 
-        Then back out to the home screen, 
-        and go to the Photos app, 
-        or the Gallery app if you’re using the emulator. 
-        Choose any photo,
-        and tap the share button. 
-        You should see
+        运行项目。然后回到首页，再转到照片app（对于模拟器则是Gallery app）。选择任一照片，然后点击分享按钮。你应当会看到弹出的选项中已出现了
         <em>
             Memeify
         </em>
-        among the presented options:
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/share.png">
@@ -1310,22 +1304,21 @@ sendBroadcast(mediaScanIntent)
         </a>
     </p>
     <p>
-        Memeify is ready and waiting to receive your photo! Tap
+        Memeify已经准备好了，正等着接收你的照片！点击
         <em>
             Memeify
         </em>
-        and see what happens – 
-        Memeify launches with the selected photo already displayed in the
+        ，看看会发生什么 - Memeify会启动，刚选择的照片已显示在了
         <code>
             ImageView
         </code>
-        .
+        中。
     </p>
     <p>
-        Your app is now receiving intents like a boss!
+        你的app现在就像一个老板一样在接收intent！
     </p>
     <h2>
-        Where to Go From Here?
+        从这儿去向哪里？
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
