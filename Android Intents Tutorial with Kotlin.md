@@ -922,78 +922,73 @@ pictureUri?.let {
         中还有着用于访问其它类型变量的方法，如字符串和其它的基本类型等。
     </p>
     <p>
+        类似于其它返回基本类型的方法，
         <code>
             getIntExtra()
         </code>
-        , similarly to other methods that return primitives, also allows you to
-        define a default value. These are used when a value isn’t supplied, or
-        when the key is missing from the provided
+        也允许你定义一个默认的值。当
         <code>
             Extra
         </code>
-        s.
+        中没有这个值，或缺少这个key的时候，就会使用默认的值。
     </p>
     <p>
-        Once you’ve retrieved the necessary
+        获取到必须的
         <code>
             Extra
         </code>
-        s, create a
-        <code>
-            Bitmap
-        </code>
-        from the
+        后，就基于
         <code>
             Uri
         </code>
-        sized by the
+        创建一个
+        <code>
+            Bitmap
+        </code>
+        ，其长宽分别为你传递的
         <code>
             BITMAP_WIDTH
         </code>
-        and
+        和
         <code>
             BITMAP_HEIGHT
         </code>
-        values you passed. Finally, you set the
+        。最后，将
         <code>
             ImageView
         </code>
-        image source to the bitmap to display the photo.
+        的图片资源设置为这个bitmap，就能把照片展示出来了。
     </p>
     <p>
-        In addition to displaying the
+        除了展示
         <code>
             ImageView
         </code>
-        , this screen also contains two
+        外，此页还包含两个
         <code>
             EditText
         </code>
-        views where the user can enter their meme text. The starter project does
-        the heavy lifting for you by taking the text from those views and compositing
-        it onto the photo.
+        ，用来输入meme的文本。初始的项目承担了大量的工作，将其中的文本结合到你的照片上。
     </p>
     <p>
-        The only thing you need to do is to flesh out
+        现在你需要做的唯一一件事，就是完成
         <code>
             onClick()
         </code>
-        . Update the line to the
+        了。将它更新到
         <code>
             R.id.write_text_to_image_button
         </code>
-        branch condition:
+        分支中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">R.id.writeTextToImageButton -&gt; createMeme()
 </pre>
     <p>
-        Drumroll please. Build and Run. Repeat the usual steps to take a photo,
-        and then enter your incredibly witty meme text on the second screen and
-        tap
+        运行项目。再次拍摄一张照片，然后在第二页输入你超赞的meme文本，并点击
         <em>
             LETS MEMEIFY!
         </em>
-        :
+        ：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/memify-stage2-memed.png">
