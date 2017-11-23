@@ -1128,26 +1128,19 @@ sendBroadcast(mediaScanIntent)
     <h2>
         意图过滤器
     </h2>
-    <p>
-        By now you should have a good idea of how to use the right intent for the right job. 
-        However, 
-        there’s another side to the story of the faithful intent: 
-        how your app knows which intent requests to respond to when an implicit intent is sent.
+    <p> 
+        现在你应当对如何正确地使用intent有了自己的心得。然而，intent还有另一方面的内容：当隐式的intent被发送时，你的app如何知道是哪个intent请求相应。
     </p>
     <p>
-        Open
+        打开
         <em>
             AndroidManifest.xml
         </em>
-        found in
-        <em>
-            app/manifests
-        </em>
-        , and in the first
+        ，在第一个
         <code>
             activity
         </code>
-        element you should see the following:
+        元素中，你会看到如下的代码：
     </p>
     <pre code="xml" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span>
     <span class="hljs-attr">android:name</span>=<span class="hljs-string">".TakePictureActivity"</span>
@@ -1160,21 +1153,18 @@ sendBroadcast(mediaScanIntent)
 <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
 </pre>
     <p>
-        The key here is the
+        这里的关键就是
         <code>
             intent-filter
         </code>
-        element. An
+        元素。
         <em>
             Intent Filter
         </em>
-        enables parts of your app to respond to implicit intents.
+        可以让你app的一部分内容响应隐式intent。
     </p>
     <p>
-        These behave like a banner when Android tries to satisfy an implicit intent sent by another app. 
-        An app can have multiple intent filters, 
-        which it waves about wildly, 
-        hoping its intent filter satisfies what Android is looking for:
+        当Android尝试去满足从另一个app发送来的intent时，这些行为就像是一个条幅。一个app可以有多个intent过滤器，招揽着Android中其它的app正在寻找的意图实施者：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/04/app_intent.jpg">
@@ -1185,51 +1175,44 @@ sendBroadcast(mediaScanIntent)
         </a>
     </p>
     <p>
-        It’s kind of like online dating for intents and apps. :]
+        有点像是intent和app的在线约会。:]
     </p>
     <p>
-        To make sure it’s the right app for the intent, 
-        the intent filter provides three things:
+        为确保它是对intent正确的app，intent过滤器提供了三样东西：
     </p>
     <ol>
         <li>
             <em>
                 Intent Action
             </em>
-            : The action the app can fulfill; 
-            this is similar to the way the camera app fulfills the
+            ：app能够实现的action；类似于相机app可以为你的app实现
             <code>
                 ACTION_IMAGE_CAPTURE
             </code>
-            action for your app.
+            action。
         </li>
         <li>
             <em>
                 Intent Data
             </em>
-            : The type of data the intent can accept. 
-            This ranges from specific file paths, to ports, 
-            to MIME types such as images and video. 
-            You can set one or more attributes to control how strict or lenient you are with the data from an intent that your app can handle.
+            ：intent可以接受数据的类型。诸如文件路径，端口，图像和视频这样的MIME类型。你可以设置一个或多个的属性，来控制你的app可以处理的intent的数据类型。
         </li>
         <li>
             <em>
                 Intent Category
             </em>
-            : The categories of intents that are accepted; 
-            this is an additional way to specify which Actions can respond to an implicit Intent.
+            ：可以被接受的intent的类别。这是一个额外的方式来指定哪些Action可以响应隐式意图。
         </li>
     </ol>
     <p>
-        It would be AWESOME to offer Memeify as an implicit intent to interacting with images from other apps 
-        — and it’s surprisingly simple to do.
+        把Memeify作为一个隐式intent，与来自其它app的图片进行交互是一件超棒的事 - 而且做起来超级简单。
     </p>
     <p>
-        Add the following code directly underneath the first intent filter in your
+        在
         <em>
             AndroidManifest.xml
         </em>
-        file:
+        文件中第一个intent下添加下列的代码：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.SEND"</span> /&gt;</span>
@@ -1238,20 +1221,18 @@ sendBroadcast(mediaScanIntent)
 <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
 </pre>
     <p>
-        Your new intent filter specifies that your app will look for
+        新增的intent过滤器，指定了你的app将从隐式intent中查找
         <code>
             SEND
         </code>
-        action from an implicit intent. 
-        You use the default category as you don’t have any special use cases, 
-        and you’re looking only for image MIME data types.
+        action。由于没有特殊的情况，这里使用默认的类别，也就是你只寻找图片这种数据类型。
     </p>
     <p>
-        Now open
+        现在，打开
         <em>
             TakePictureActivity.kt
         </em>
-        and add the following to the end of the class:
+        并添加下列的代码到类的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">  <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkReceivedIntent</span><span class="hljs-params">()</span></span> {
     <span class="hljs-keyword">val</span> imageReceivedIntent = intent
@@ -1270,7 +1251,8 @@ sendBroadcast(mediaScanIntent)
         <code>
             Intent
         </code>
-        that started the activity and retrieve its action and type. Then you compare these to what you declared in your intent filter, 
+        that started the activity and retrieve its action and type. 
+        Then you compare these to what you declared in your intent filter, 
         which is a data source with the MIME type of an image.
     </p>
     <p>
