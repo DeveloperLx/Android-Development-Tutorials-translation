@@ -782,62 +782,49 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         </a>
     </p>
     <p>
-        If a photo
-        <i>
-            is
-        </i>
-        taken, then
+        如果已获取到了照片，之后
         <code>
             moveToNextScreen()
         </code>
-        proceeds to create an intent for the text entry activity. It also attaches some
+        就会创建一个新的intent，以进入用于文本输入的activity。同样它也附有一些
         <code>
             Extra
         </code>
-        s to the intent, such as the
+        ，诸如
+        <code>
+            Bitmap
+        </code>
+        的
         <code>
             Uri
         </code>
-        path for the
-        <code>
-            Bitmap
-        </code>
-        and the height and width of the
-        <code>
-            Bitmap
-        </code>
-        as it’s displayed on the screen. 
-        These will come in useful in the next activity.
+        路径及它展示在屏幕上时的高和宽。这些信息对于下一个activity都非常得有用。
     </p>
     <p>
-        You’ve just created your first
+        你已创建了第一个
         <em>
-            explicit Intent
+            显式Intent
         </em>
-        . Compared to implicit intents, explicit intents are a lot more conservative;
-        this is because they describe a specific component that will be created
-        and used when the intent starts. This could be another activity that is
-        a part of your app, or a specific
+        。相对于隐式intents，它更加得保守。这是因为它描述的是一个特定的组件，这个组件会在intent启动时被创建和使用。它可能是你app中的另一个activity或是
         <code>
             Service
         </code>
-        in your app, such as one that starts to download a file in the background.
+        ，诸如在后台启动下载一个文件。
     </p>
     <p>
-        This intent is constructed by providing the
+        这种intent需要
         <code>
             Context
         </code>
-        from which the intent was created (in this case,
+        ，即你创建intent时所在的类（本例中即为
         <code>
             this
         </code>
-        ) along with the class the intent needs to run (
+        ），以及需要运行intent的类（本例中即为
         <code>
             EnterTextActivity::class.java
         </code>
-        ). Since you’ve explicitly stated how the intent gets from A to B, Android
-        simply complies. The user has no control over how the intent is completed:
+        ）作为参数来创建。由于你已明确地说明了这个intent是从A到B，Android只需执行它即可。用户无法控制intent如何完成：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2015/05/intent_activity-500x500.jpg"
@@ -846,12 +833,11 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         sizes="(max-width: 500px) 100vw, 500px">
     </p>
     <p>
-        Build and run. Repeat the process of taking a photo, but this time tap
+        运行项目。再拍一张照片，但这次点击
         <em>
             LETS MEMEIFY!
         </em>
-        . Your explicit intent will kick into action and take you to the next
-        activity:
+        。你的显式intent就会将你带到下一个activity上：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/memify-stage2-no-pic.png">
@@ -862,15 +848,14 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         </a>
     </p>
     <p>
-        The starter project has already has this activity created and declared
-        in
+        初始项目中已创建过这个activity，并在
         <em>
             AndroidManifest.xml
         </em>
-        , so you don’t have to create it yourself.
+        中进行了声明，因此你无需自己创建。
     </p>
     <h2>
-        Handling Intents
+        处理Intent
     </h2>
     <p>
         Looks like that intent worked like a charm. But where are those
