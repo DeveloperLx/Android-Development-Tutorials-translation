@@ -1247,44 +1247,41 @@ sendBroadcast(mediaScanIntent)
   }
 </pre>
     <p>
-        Here you get the
+        这里获取到了启动activity的
         <code>
             Intent
         </code>
-        that started the activity and retrieve its action and type. 
-        Then you compare these to what you declared in your intent filter, 
-        which is a data source with the MIME type of an image.
+        ，并检索它的action和类型。然后与你在intent过滤器中所声明的进行比较，它是一个图片类型的数据源。
     </p>
     <p>
-        If it’s a match, then you get the image’s
+        如果匹配的话，就获取图片的
         <code>
             Uri
         </code>
-        , query the
-        <code>
-            Uri
-        </code>
-        for the
+        ，然后使用在初始项目中包含的助手方法查询
         <code>
             Bitmap
         </code>
-        using a helper method included with the starter project, 
-        and the finally ask the
+        的
+        <code>
+            Uri
+        </code>
+        ，最后请求
         <code>
             ImageView
         </code>
-        to display the retrieved
+        展示检索到的
         <code>
             Bitmap
         </code>
-        .
+        。
     </p>
     <p>
-        Next add the following line at the end of
+        接下来，添加下列的代码到
         <code>
             onCreate()
         </code>
-        :
+        的尾部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">checkReceivedIntent()
 </pre>
