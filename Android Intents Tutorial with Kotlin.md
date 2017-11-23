@@ -1330,10 +1330,11 @@ sendBroadcast(mediaScanIntent)
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1341,22 +1342,21 @@ sendBroadcast(mediaScanIntent)
         </div>
     </div>
     <p>
-        You can download the completed project
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/11/memeify-final.zip">
-            here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
-        Intents are one of the fundamental building blocks of Android. Much of the openness and intercommunication that Android takes pride in just wouldn’t be possible without them. 
-        Learn how to use intents well and you will have made a very powerful ally indeed.
+        Intent是Android最基本的构建模块之一。如果没有它们，Android自豪的开放性和互通性就不可能实现。学会如何使用intent，你就拥有了一个强有力的盟军。
     </p>
     <p>
-        If you want to learn more about intents and intent filters then check out Google’s
+        如果你想了解更多关于intent和intent过滤器的内容，请访问Google的
         <a href="http://developer.android.com/guide/components/intents-filters.html"
         target="_blank">
-            Intents
+            Intent文档
         </a>
-        documentation.
+        。
     </p>
 </div>
