@@ -1005,27 +1005,25 @@ pictureUri?.let {
         广播Intent
     </h2>
     <p>
-        It would be nice to save your shiny new meme so you can share it with the world. 
-        It’s not going to go viral all on its own! :]
+        现在项目可以很好地保存你漂亮的新memen，可以将它共享到全世界。但它无法只靠自己来执行！:]
     </p>
     <p>
-        Fortunately the starter project has got it covered for you — 
-        you only need to tie things together.
+        幸运的是，初始项目中已覆盖了这些 - 你只需要将它们联系在一起。
     </p>
     <p>
-        Add the following code to
+        添加下列的代码到
         <code>
             saveImageToGallery()
         </code>
-        , just below the
+        中，就在
         <code>
             try
         </code>
-        block before the second
+        代码块之后，第二个
         <code>
             Toaster.show()
         </code>
-        call:
+        的调用之前：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
 mediaScanIntent.<span class="hljs-keyword">data</span> = Uri.fromFile(imageFile)
@@ -1173,7 +1171,6 @@ sendBroadcast(mediaScanIntent)
     <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"portrait"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span> /&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
@@ -1277,7 +1274,6 @@ sendBroadcast(mediaScanIntent)
     <span class="hljs-keyword">val</span> imageReceivedIntent = intent
     <span class="hljs-keyword">val</span> intentAction = imageReceivedIntent.action
     <span class="hljs-keyword">val</span> intentType = imageReceivedIntent.type
-
     <span class="hljs-keyword">if</span> (Intent.ACTION_SEND == intentAction &amp;&amp; intentType != <span class="hljs-literal">null</span>) {
       <span class="hljs-keyword">if</span> (intentType.startsWith(MIME_TYPE_IMAGE)) {
         selectedPhotoPath = imageReceivedIntent.getParcelableExtra&lt;Uri&gt;(Intent.EXTRA_STREAM)
