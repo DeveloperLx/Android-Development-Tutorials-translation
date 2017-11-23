@@ -706,77 +706,72 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
   }
 </pre>
     <p>
-        Here you check
+        首先检查
         <code>
             pictureTaken
         </code>
-        to see if it’s
+        是否为
         <code>
             true
         </code>
-        , which indicates your
+        ，它表示你的
         <code>
             ImageView
         </code>
-        has a
+        是否含有来自相机的
         <code>
             Bitmap
         </code>
-        from the camera. If you don’t have a
-        <code>
-            Bitmap
-        </code>
-        , then your activity will briefly show a
+        。如果没有的话，就提示一个简短的
         <code>
             Toast
         </code>
-        message telling you to go take a photo – method
-        <code>
-            show
-        </code>
-        from the
+        消息请求拍一张照片 - 来自
         <code>
             Toaster
         </code>
-        class makes showing toasts just a tiny bit easier. If
+        类中的方法
+        <code>
+            show
+        </code>
+        可以方便地用来展示toast消息。
+        如果
         <code>
             pictureTaken
         </code>
-        is
+        为
         <code>
             true
         </code>
-        then you create an intent for the next activity,
-        and set up the necessary extras, 
-        using the constants you just defined as the keys.
+        的话，就为下个activity创建一个intent，并使用你刚设置的key来设置必要的extra。
     </p>
     <p>
-        Next, in the
+        接下来，在
         <code>
             onClick()
         </code>
-        function, replace the empty closure in the
-        <code>
-            when
-        </code>
-        statement for the
+        方法中，将
         <code>
             R.id.enter_text_button
         </code>
-        branch condition with a call to the
+        分支中的
+        <code>
+            when
+        </code>
+        语句替换为调用
         <code>
             moveToNextScreen()
         </code>
-        function. The resulting line of code should look like the following:
+        方法。完成后的代码如下所示：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">R.id.enterTextButton -&gt; moveToNextScreen()
 </pre>
     <p>
-        Build and run. Tap
+        运行项目。在没有拍照时点击
         <em>
             LETS MEMEIFY!
         </em>
-        without first taking a photo and you’ll see the toast appear:
+        ，你会看到如下的toast提示：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/memify-stage1-toast.png">
