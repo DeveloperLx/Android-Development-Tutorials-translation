@@ -1129,10 +1129,10 @@ sendBroadcast(mediaScanIntent)
         意图过滤器
     </h2>
     <p>
-        By now you should have a good idea of how to use the right intent for
-        the right job. However, there’s another side to the story of the faithful
-        intent: how your app knows which intent requests to respond to when an
-        implicit intent is sent.
+        By now you should have a good idea of how to use the right intent for the right job. 
+        However, 
+        there’s another side to the story of the faithful intent: 
+        how your app knows which intent requests to respond to when an implicit intent is sent.
     </p>
     <p>
         Open
@@ -1171,10 +1171,10 @@ sendBroadcast(mediaScanIntent)
         enables parts of your app to respond to implicit intents.
     </p>
     <p>
-        These behave like a banner when Android tries to satisfy an implicit intent
-        sent by another app. An app can have multiple intent filters, which it
-        waves about wildly, hoping its intent filter satisfies what Android is
-        looking for:
+        These behave like a banner when Android tries to satisfy an implicit intent sent by another app. 
+        An app can have multiple intent filters, 
+        which it waves about wildly, 
+        hoping its intent filter satisfies what Android is looking for:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/04/app_intent.jpg">
@@ -1188,16 +1188,16 @@ sendBroadcast(mediaScanIntent)
         It’s kind of like online dating for intents and apps. :]
     </p>
     <p>
-        To make sure it’s the right app for the intent, the intent filter provides
-        three things:
+        To make sure it’s the right app for the intent, 
+        the intent filter provides three things:
     </p>
     <ol>
         <li>
             <em>
                 Intent Action
             </em>
-            : The action the app can fulfill; this is similar to the way the camera
-            app fulfills the
+            : The action the app can fulfill; 
+            this is similar to the way the camera app fulfills the
             <code>
                 ACTION_IMAGE_CAPTURE
             </code>
@@ -1207,26 +1207,25 @@ sendBroadcast(mediaScanIntent)
             <em>
                 Intent Data
             </em>
-            : The type of data the intent can accept. This ranges from specific file
-            paths, to ports, to MIME types such as images and video. You can set one
-            or more attributes to control how strict or lenient you are with the data
-            from an intent that your app can handle.
+            : The type of data the intent can accept. 
+            This ranges from specific file paths, to ports, 
+            to MIME types such as images and video. 
+            You can set one or more attributes to control how strict or lenient you are with the data from an intent that your app can handle.
         </li>
         <li>
             <em>
                 Intent Category
             </em>
-            : The categories of intents that are accepted; this is an additional way
-            to specify which Actions can respond to an implicit Intent.
+            : The categories of intents that are accepted; 
+            this is an additional way to specify which Actions can respond to an implicit Intent.
         </li>
     </ol>
     <p>
-        It would be AWESOME to offer Memeify as an implicit intent to interacting
-        with images from other apps — and it’s surprisingly simple to do.
+        It would be AWESOME to offer Memeify as an implicit intent to interacting with images from other apps 
+        — and it’s surprisingly simple to do.
     </p>
     <p>
-        Add the following code directly underneath the first intent filter in
-        your
+        Add the following code directly underneath the first intent filter in your
         <em>
             AndroidManifest.xml
         </em>
@@ -1243,9 +1242,9 @@ sendBroadcast(mediaScanIntent)
         <code>
             SEND
         </code>
-        action from an implicit intent. You use the default category as you don’t
-        have any special use cases, and you’re looking only for image MIME data
-        types.
+        action from an implicit intent. 
+        You use the default category as you don’t have any special use cases, 
+        and you’re looking only for image MIME data types.
     </p>
     <p>
         Now open
@@ -1271,9 +1270,8 @@ sendBroadcast(mediaScanIntent)
         <code>
             Intent
         </code>
-        that started the activity and retrieve its action and type. Then you compare
-        these to what you declared in your intent filter, which is a data source
-        with the MIME type of an image.
+        that started the activity and retrieve its action and type. Then you compare these to what you declared in your intent filter, 
+        which is a data source with the MIME type of an image.
     </p>
     <p>
         If it’s a match, then you get the image’s
@@ -1288,8 +1286,8 @@ sendBroadcast(mediaScanIntent)
         <code>
             Bitmap
         </code>
-        using a helper method included with the starter project, and the finally
-        ask the
+        using a helper method included with the starter project, 
+        and the finally ask the
         <code>
             ImageView
         </code>
@@ -1309,13 +1307,16 @@ sendBroadcast(mediaScanIntent)
     <pre lang="kotlin" class="language-kotlin hljs">checkReceivedIntent()
 </pre>
     <p>
-        The above code ensures that you will check if there is an intent every
-        time the activity is created.
+        The above code ensures that you will check if there is an intent every time the activity is created.
     </p>
     <p>
-        Build and run. Then back out to the home screen, and go to the Photos
-        app, or the Gallery app if you’re using the emulator. Choose any photo,
-        and tap the share button. You should see
+        Build and run. 
+        Then back out to the home screen, 
+        and go to the Photos app, 
+        or the Gallery app if you’re using the emulator. 
+        Choose any photo,
+        and tap the share button. 
+        You should see
         <em>
             Memeify
         </em>
@@ -1334,8 +1335,8 @@ sendBroadcast(mediaScanIntent)
         <em>
             Memeify
         </em>
-        and see what happens – Memeify launches with the selected photo already
-        displayed in the
+        and see what happens – 
+        Memeify launches with the selected photo already displayed in the
         <code>
             ImageView
         </code>
@@ -1375,14 +1376,11 @@ sendBroadcast(mediaScanIntent)
         .
     </p>
     <p>
-        Intents are one of the fundamental building blocks of Android. Much of
-        the openness and intercommunication that Android takes pride in just wouldn’t
-        be possible without them. Learn how to use intents well and you will have
-        made a very powerful ally indeed.
+        Intents are one of the fundamental building blocks of Android. Much of the openness and intercommunication that Android takes pride in just wouldn’t be possible without them. 
+        Learn how to use intents well and you will have made a very powerful ally indeed.
     </p>
     <p>
-        If you want to learn more about intents and intent filters then check
-        out Google’s
+        If you want to learn more about intents and intent filters then check out Google’s
         <a href="http://developer.android.com/guide/components/intents-filters.html"
         target="_blank">
             Intents
