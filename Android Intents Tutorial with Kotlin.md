@@ -858,23 +858,22 @@ const <span class="hljs-keyword">val</span> BITMAP_HEIGHT = <span class="hljs-st
         处理Intent
     </h2>
     <p>
-        Looks like that intent worked like a charm. But where are those
+        看起来intent充满魅力。但这些
         <code>
             Extra
         </code>
-        s you sent across? Did they take a wrong turn at the last memory buffer?
-        Time to find them and put them to work.
+        你送到了哪里？它是在最后一个内存缓存区中出错了么？是时候把它们找出来，并进行使用了。
     </p>
     <p>
-        Add the following code at the end of
-        <code>
-            onCreate()
-        </code>
-        in the
+        在
         <em>
             EnterTextActivity
         </em>
-        :
+        中
+        <code>
+            onCreate()
+        </code>
+        方法的底部添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">pictureUri = intent.getParcelableExtra&lt;Uri&gt;(IMAGE_URI_KEY)
 <span class="hljs-keyword">val</span> bitmapWidth = intent.getIntExtra(BITMAP_WIDTH, <span class="hljs-number">100</span>)
