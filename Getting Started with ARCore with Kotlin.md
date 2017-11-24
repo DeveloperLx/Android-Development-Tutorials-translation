@@ -9,93 +9,81 @@
         class="alignright size-thumbnail bordered">
     </p>
     <p>
-        Did Vikings have cannons in reality? I’m not entirely sure, but there’s
-        no reason Vikings can’t have cannons in Augmented Reality! :]
+        维京人有现实中的大炮么？我不完全确定。但没有道理维京人不可以在AR中有大炮！:]
     </p>
     <p>
-        At WWDC 2017, Apple announced
+        在WWDC 2017，苹果发布了
         <em>
             ARKit
         </em>
-        , its foray into the world of AR development. Not to be outdone, just
-        last week Google
+        ，进军了AR开发的领域。Google同样也不甘示弱，就在上周，它
         <a href="https://www.blog.google/products/google-vr/arcore-augmented-reality-android-scale/"
         target="_blank">
-            announced
+            发布了
         </a>
         <em>
             ARCore
         </em>
-        , extracted from the
+        ，它是从
         <a href="https://get.google.com/tango/" target="_blank">
             Tango
         </a>
-        indoor mapping project. Tango requires using particular devices that have
-        a depth sensor, whereas ARCore will (eventually) be available on most Android
-        devices.
+        的室内地图项目中提取出来的。Tango需要使用带有深度传感器的特定设备，而ARCore最终将在大部分的Android设备上都可用。
     </p>
     <p>
-        The race to explore this new domain is on, with demo projects coming fast
-        and furious. You can check out some of the ARCore demos at the
+        对AR领域的比赛依然开始，演示的项目来得快速且猛烈。你可以在
         <a href="https://experiments.withgoogle.com/ar" target="_blank">
-            AR Experiments
+            AR实验的网站
         </a>
-        site.
+        上进行查看。
     </p>
     <p>
-        ARCore apps can be built using
+        ARCore app可以使用 can be built using
         <em>
             OpenGL
         </em>
-        ,
+        ，
         <em>
             Unity
         </em>
-        , and
-        <em>
-            Unreal
-        </em>
-        . In this tutorial, you’ll get started by building on top of a modified
-        version of the OpenGL sample app provided by Google, working entirely in
+        ，和进行构建。在本教程中，你将在被修改过的，由Google提供的OpenGL示例app之上进行入门，并全部使用
         <em>
             Kotlin
         </em>
-        ! And all within the comfort of Android Studio! :]
+        来进行编码！全部都在Android Studio的舒适环境中！:]
     </p>
     <p>
-        If you’re just getting started with Kotlin, please check out
-        <a href="https://www.raywenderlich.com/132381/kotlin-for-android-an-introduction"
+        如果你刚刚入门Kotlin，请学习
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
         target="_blank">
-            Kotlin For Android: An Introduction
+            用Kotlin编写Android：介绍
         </a>
-        .
+        。
     </p>
     <p>
-        ARCore does not work with the Android Emulator. As of this writing, you’ll
-        need a
+        ARCore不能在模拟器上使用。你可以选择
         <em>
             Samsung Galaxy S8
         </em>
-        or
+        或
         <em>
             Google Pixel/Pixel XL
         </em>
-        to fully follow along, ideally running Android Nougat (7.0) or later.
-        If you don’t have either of those devices, hopefully you’ll still get a
-        feel for working with the ARCore SDK.
+        的设备，以及Android Nougat（7.0）或更高的系统版本。如果你没有这些设备，希望你仍然可以对使用ARCore SDK有所体验。
     </p>
     <p>
-        Ready to explore this brave new (augmented) world? Let’s go!
+        准备好探索AR的世界了么？让我们开始吧！
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Begin by downloading the starter project
+        首先下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/targetpractice-starter-2.zip">
+            初始项目
             here
         </a>
-        . Open up the starter project in Android Studio 3.0 Beta 5 or later.
+        。并在Android Studio 3.0 Beta 5或更高的版本中打开它。
     </p>
     <p>
         You may also have luck if you’re using Android Studio 2.3.3 with the Kotlin
