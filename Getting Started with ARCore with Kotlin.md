@@ -81,42 +81,38 @@
         首先下载
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/targetpractice-starter-2.zip">
             初始项目
-            here
         </a>
         。并在Android Studio 3.0 Beta 5或更高的版本中打开它。
     </p>
     <p>
-        You may also have luck if you’re using Android Studio 2.3.3 with the Kotlin
-        plugin. :]
+        幸运的是，如果使用带有Kotlin插件的Android Studio 2.3.3也是可以的。:]
     </p>
     <p>
-        Next, make sure to
+        接下来，确保你的手机已打开了
         <a href="https://developer.android.com/studio/debug/dev-options.html#enable"
         target="_blank">
-            enable developer options
+            开发者选项
         </a>
-        on your device, and
+        以及
         <a href="https://developer.android.com/studio/debug/dev-options.html#debugging"
         target="_blank">
-            enable USB debugging
+            USB调试
         </a>
-        . Before running the starter project, you’ll also need to download and
-        install the
+        。在运行初始项目之前，你还需要下载并安装由Google提供的
         <a href="https://github.com/google-ar/arcore-android-sdk/releases/download/sdk-preview/arcore-preview.apk">
             ARCore Service
         </a>
-        provided by Google.
+        。
     </p>
     <p>
-        The ARCore Service can be installed using the following
+        ARCore Service可以使用下列的
         <em>
             adb
         </em>
-        command:
+        命令进行安装：
     </p>
-    <pre lang="bash">
-        $ adb install -r -d arcore-preview.apk
-    </pre>
+    <pre lang="bash" class="language-bash hljs">$ adb install -r -d arcore-preview.apk
+</pre>
     <p>
         Check out the adb
         <a href="https://developer.android.com/studio/command-line/adb.html">
@@ -314,10 +310,10 @@
         </em>
         , and add the following properties
     </p>
-    <pre lang="kotlin">
-        private val vikingObject = ObjectRenderer() private val cannonObject =
-        ObjectRenderer() private val targetObject = ObjectRenderer()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> vikingObject = ObjectRenderer()
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> cannonObject = ObjectRenderer()
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> targetObject = ObjectRenderer()
+</pre>
     <p>
         Each is defined as an
         <em>
@@ -332,11 +328,10 @@
         </em>
         properties just below the objects:
     </p>
-    <pre lang="kotlin">
-        private var vikingAttachment: PlaneAttachment? = null private var cannonAttachment:
-        PlaneAttachment? = null private var targetAttachment: PlaneAttachment?
-        = null
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> vikingAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> cannonAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> targetAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
+</pre>
     <p>
         These are Kotlin
         <em>
@@ -360,15 +355,18 @@
         </code>
         above it:
     </p>
-    <pre lang="kotlin">
-        // Prepare the other rendering objects. try { vikingObject.createOnGlThread(this,
-        "viking.obj", "viking.png") vikingObject.setMaterialProperties(0.0f, 3.5f,
-        1.0f, 6.0f) cannonObject.createOnGlThread(this, "cannon.obj", "cannon.png")
-        cannonObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f) targetObject.createOnGlThread(this,
-        "target.obj", "target.png") targetObject.setMaterialProperties(0.0f, 3.5f,
-        1.0f, 6.0f) } catch (e: IOException) { Log.e(TAG, "Failed to read obj file")
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// Prepare the other rendering objects.</span>
+<span class="hljs-keyword">try</span> {
+  vikingObject.createOnGlThread(<span class="hljs-keyword">this</span>, <span class="hljs-string">"viking.obj"</span>, <span class="hljs-string">"viking.png"</span>)
+  vikingObject.setMaterialProperties(<span class="hljs-number">0.0</span>f, <span class="hljs-number">3.5</span>f, <span class="hljs-number">1.0</span>f, <span class="hljs-number">6.0</span>f)
+  cannonObject.createOnGlThread(<span class="hljs-keyword">this</span>, <span class="hljs-string">"cannon.obj"</span>, <span class="hljs-string">"cannon.png"</span>)
+  cannonObject.setMaterialProperties(<span class="hljs-number">0.0</span>f, <span class="hljs-number">3.5</span>f, <span class="hljs-number">1.0</span>f, <span class="hljs-number">6.0</span>f)
+  targetObject.createOnGlThread(<span class="hljs-keyword">this</span>, <span class="hljs-string">"target.obj"</span>, <span class="hljs-string">"target.png"</span>)
+  targetObject.setMaterialProperties(<span class="hljs-number">0.0</span>f, <span class="hljs-number">3.5</span>f, <span class="hljs-number">1.0</span>f, <span class="hljs-number">6.0</span>f)
+} <span class="hljs-keyword">catch</span> (e: IOException) {
+  Log.e(TAG, <span class="hljs-string">"Failed to read obj file"</span>)
+}
+</pre>
     <p>
         You’re using the 3D model files provided in the starter app to setup each
         of the three objects, as well as setting some material properties on each.
@@ -395,12 +393,12 @@
         </code>
         statement:
     </p>
-    <pre lang="kotlin">
-        when (mode) { Mode.VIKING -&gt; vikingAttachment = addSessionAnchorFromAttachment(vikingAttachment,
-        hit) Mode.CANNON -&gt; cannonAttachment = addSessionAnchorFromAttachment(cannonAttachment,
-        hit) Mode.TARGET -&gt; targetAttachment = addSessionAnchorFromAttachment(targetAttachment,
-        hit) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">when</span> (mode) {
+  Mode.VIKING -&gt; vikingAttachment = addSessionAnchorFromAttachment(vikingAttachment, hit)
+  Mode.CANNON -&gt; cannonAttachment = addSessionAnchorFromAttachment(cannonAttachment, hit)
+  Mode.TARGET -&gt; targetAttachment = addSessionAnchorFromAttachment(targetAttachment, hit)
+}
+</pre>
     <p>
         The value of
         <code>
@@ -440,11 +438,14 @@
         </code>
         :
     </p>
-    <pre lang="kotlin">
-        private fun addSessionAnchorFromAttachment( previousAttachment: PlaneAttachment?,
-        hit: PlaneHitResult): PlaneAttachment { previousAttachment?.let { session.removeAnchors(Arrays.asList(previousAttachment.anchor))
-        } return PlaneAttachment(hit.plane, session.addAnchor(hit.hitPose)) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">addSessionAnchorFromAttachment</span><span class="hljs-params">(
+  previousAttachment: <span class="hljs-type">PlaneAttachment</span>?, hit: <span class="hljs-type">PlaneHitResult</span>)</span></span>: PlaneAttachment {
+  previousAttachment?.let {
+    session.removeAnchors(Arrays.asList(previousAttachment.anchor))
+  }
+  <span class="hljs-keyword">return</span> PlaneAttachment(hit.plane, session.addAnchor(hit.hitPose))
+}
+</pre>
     <p>
         If the
         <code>
@@ -486,13 +487,13 @@
         </code>
         block:
     </p>
-    <pre lang="kotlin">
-        drawObject(vikingObject, vikingAttachment, Mode.VIKING.scaleFactor, projectionMatrix,
-        viewMatrix, lightIntensity) drawObject(cannonObject, cannonAttachment,
-        Mode.CANNON.scaleFactor, projectionMatrix, viewMatrix, lightIntensity)
-        drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor, projectionMatrix,
-        viewMatrix, lightIntensity)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">drawObject(vikingObject, vikingAttachment, Mode.VIKING.scaleFactor,
+  projectionMatrix, viewMatrix, lightIntensity)
+drawObject(cannonObject, cannonAttachment, Mode.CANNON.scaleFactor,
+  projectionMatrix, viewMatrix, lightIntensity)
+drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
+  projectionMatrix, viewMatrix, lightIntensity)
+</pre>
     <p>
         You’re calling the pre-existing
         <code>
@@ -502,14 +503,20 @@
         its corresponding scale factor, as well as matrices and values needed for
         OpenGL to draw the object that are computed using these starter app helpers:
     </p>
-    <pre lang="kotlin">
-        private fun computeProjectionMatrix(): FloatArray { val projectionMatrix
-        = FloatArray(16) session.getProjectionMatrix(projectionMatrix, 0, 0.1f,
-        100.0f) return projectionMatrix } private fun computeViewMatrix(frame:
-        Frame): FloatArray { val viewMatrix = FloatArray(16) frame.getViewMatrix(viewMatrix,
-        0) return viewMatrix } private fun computeLightIntensity(frame: Frame)
-        = frame.lightEstimate.pixelIntensity
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeProjectionMatrix</span><span class="hljs-params">()</span></span>: FloatArray {
+  <span class="hljs-keyword">val</span> projectionMatrix = FloatArray(<span class="hljs-number">16</span>)
+  session.getProjectionMatrix(projectionMatrix, <span class="hljs-number">0</span>, <span class="hljs-number">0.1</span>f, <span class="hljs-number">100.0</span>f)
+  <span class="hljs-keyword">return</span> projectionMatrix
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeViewMatrix</span><span class="hljs-params">(frame: <span class="hljs-type">Frame</span>)</span></span>: FloatArray {
+  <span class="hljs-keyword">val</span> viewMatrix = FloatArray(<span class="hljs-number">16</span>)
+  frame.getViewMatrix(viewMatrix, <span class="hljs-number">0</span>)
+  <span class="hljs-keyword">return</span> viewMatrix
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeLightIntensity</span><span class="hljs-params">(frame: <span class="hljs-type">Frame</span>)</span></span> = frame.lightEstimate.pixelIntensity
+</pre>
     <p>
         The
         <code>
