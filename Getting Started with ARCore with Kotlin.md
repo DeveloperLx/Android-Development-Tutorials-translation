@@ -114,23 +114,21 @@
     <pre lang="bash" class="language-bash hljs">$ adb install -r -d arcore-preview.apk
 </pre>
     <p>
-        Check out the adb
+        如果你想了解更多的信息，请访问adb
         <a href="https://developer.android.com/studio/command-line/adb.html">
-            documentation
+            文档
         </a>
-        if you need more info.
+        。
     </p>
     <p>
-        Now you can hit
+        现在，按
         <em>
             Run/Run ‘app’
         </em>
-        or hit Ctrl-R, and the starter up should be up and running.
+        或Ctrl-R键运行初始项目。 
     </p>
     <p>
-        You’ll first get prompted to provide camera permissions, and on approving,
-        you’ll see a radio group at the top, which you’ll use later to select the
-        type of object to insert into the scene.
+        它会首先请求你给予相机权限，之后屏幕会出现一个选择器，你会用它来选择待插入到屏幕中的对象。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/device-2017-09-05-121813.png">
@@ -141,11 +139,10 @@
         </a>
     </p>
     <p>
-        You’ll see a snackbar at the bottom indicating “Searching for surfaces…”.
-        You may also see a few points highlighted, which are points being tracked.
+        你还会在底部看到一个snackbar提示“Searching for surfaces…”。同时可能还会看到一些被跟踪的点。
     </p>
     <p>
-        Aiming the device at a flat surface, a plane will be detected:
+        将设备瞄准一个平面，这个平面应当会被检测到：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/device-2017-09-05-122206.png">
@@ -156,17 +153,13 @@
         </a>
     </p>
     <p>
-        Once the first plane is detected, the snackbar disappears and the plane
-        is highlighted on the screen. Note that light-colored planes may have trouble
-        being detected.
+        当检测到第一个平面时，snackbar就会消失，这个平面则会被高亮展示。注意在检测浅色的平面时，可能会遇到问题。
     </p>
     <p>
-        At this point, the starter app doesn’t do a whole lot, but time to check
-        out some it’s code to get your bearings! Especially before you setup a
-        viking with a cannon!
+        此刻，初始app还没有做很多的事，但是时候来熟悉一下它的代码！尤其是你设置维京人和大炮之前！
     </p>
     <h2>
-        The ARCode SDK
+        ARCode SDK
     </h2>
     <p>
         The starter app has the 3D models we’ll be using in the
