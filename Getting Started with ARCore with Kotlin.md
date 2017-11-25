@@ -527,23 +527,22 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
         从这儿去向哪里？
     </h2>
     <p>
-        You’ve just scratched the surface of using ARCore with OpenGL in Android
-        Studio. For more information, check out the
+        你已经在Android Studio中初步地入门了ARCore和OpenGL。关于更多的内容，可以查看
         <a href="https://developers.google.com/ar/reference/java" target="_blank">
             ARCore API
         </a>
-        page and the
+        和
         <a href="https://developers.google.com/ar/discover/" target="_blank">
             ARCore Overview
         </a>
-        .
+        。
     </p>
     <p>
-        The final app for this tutorial can be downloaded
+        你可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/targetpractice-final-2.zip">
-            here
+            这里
         </a>
-        .
+        下载最终的项目。
     </p>
     <p>
         You can also use
