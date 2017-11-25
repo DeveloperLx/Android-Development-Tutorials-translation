@@ -162,94 +162,89 @@
         ARCode SDK
     </h2>
     <p>
-        The starter app has the 3D models we’ll be using in the
-        <em>
-            main/assets
-        </em>
-        folder in the
+        在初始项目中
         <em>
             Project
         </em>
-        view of Android Studio. There are models for a viking, a cannon, and a
-        target. The 3D model files were created in
+        视图下的
+        <em>
+            main/assets
+        </em>
+        文件中，包含了你将要使用的3D模型，分别为维京人，大炮和标靶。他们都是由
         <em>
             Blender
         </em>
-        using the instructions in
+        创建，参考
         <a href="https://www.raywenderlich.com/48293/how-to-export-blender-models-to-opengl-es-part-1"
         target="_blank">
             How To Export Blender Models to OpenGL ES: Part 1/3
         </a>
-        .
+        。
     </p>
     <p>
-        Inside of
+        在
         <em>
             res/raw
         </em>
-        , there are OpenGL shaders, all from the Google ARCore sample app.
+        目录中，还有一些OpenGL的着色器，它们全都来自ARCore的示例app。
     </p>
     <p>
-        You’ll see a package in the starter app named
+        你还会在初始项目中看到一个名叫
         <em>
             rendering
         </em>
-        , which contains some OpenGL renderers and utilities from the Google ARCore
-        sample app. There’s also a class named
+        的包，它包含了一些OpenGL的渲染器和来自ARCore示例app中的工具。还有一个叫做
         <em>
             PlaneAttachment
         </em>
-        that has been converted to Kotlin and that uses the ARCore SDK.
+        的使用ARCore SDK的Kotlin类。
     </p>
     <h3>
-        Planes, Anchors, and Poses
+        平面，锚点，和姿势
     </h3>
     <p>
-        The
         <em>
             PlaneAttachment
         </em>
-        class is constructed using a
+        类是通过一个
+        <em>
+            飞机
+        </em>
+        和一个
+        <em>
+            锚点
+        </em>
+        构成的，通过它们来生成一个
+        <em>
+            姿势
+        </em>
+        。这三样都来自于ARCore SDK。
+    </p>
+    <p>
         <em>
             Plane
         </em>
-        and an
+        描述了真实世界中的二维平面。 
         <em>
             Anchor
         </em>
-        , and can be used to construct a
+        则描述了在控件中的一个固定的位置和方向。而
         <em>
             Pose
         </em>
-        . All three are from the ARCore SDK.
+        则描述了从一个坐标系到另一个的转变，将一个对象的本地frame转变成
+        <em>
+            世界的坐标frame
+        </em>
+        。
     </p>
     <p>
-        A
-        <em>
-            Plane
-        </em>
-        describes a real-world planar surface. An
-        <em>
-            Anchor
-        </em>
-        descibes a fixed location and orientation in space. A
-        <em>
-            Pose
-        </em>
-        describes a coordinate transformation from one system to another, from
-        an object’s local frame to the
-        <em>
-            world coordinate frame
-        </em>
-        .
-    </p>
-    <p>
-        You can read more about each in the official
+        你可以在
         <a href="https://developers.google.com/ar/reference/java/com/google/ar/core/package-summary"
         target="_blank">
-            documentation
+            官方文档
         </a>
-        .
+        中阅读更多相关的内容。
     </p>
     <p>
         So,
