@@ -318,26 +318,22 @@
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> targetAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
 </pre>
     <p>
-        These are Kotlin
+        它们均为Kotlin
         <em>
             nullables
         </em>
-        initialized as null, and will be created later when the user taps the screen.
+        类型，且被初始化为null。它们将在之后用户点击屏幕时被创建。
     </p>
     <p>
-        You need to setup the objects, which you’ll do in
+        你需要在
         <code>
             onSurfaceCreated(...)
         </code>
-        . Find the existing
+        中设置对象。找到其中已存在的
         <code>
             try-catch
         </code>
-        block in that function add the following
-        <code>
-            try-catch
-        </code>
-        above it:
+        代码块，并在它的上面添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-comment">// Prepare the other rendering objects.</span>
 <span class="hljs-keyword">try</span> {
@@ -352,30 +348,29 @@
 }
 </pre>
     <p>
-        You’re using the 3D model files provided in the starter app to setup each of the three objects, 
-        as well as setting some material properties on each.
+        你将使用初始项目中提供的3D模型文件来设置这三个对象，并在这三个对象上添加一些material的property。
     </p>
     <h2>
-        Attaching Anchors to the Session
+        将锚点附加到这个Session上
     </h2>
     <p>
-        Find
-        <code>
-            handleTaps(...)
-        </code>
-        in
+        在
         <em>
             MainActivity
         </em>
-        . Add the following inside the innermost
+        中找到
+        <code>
+            handleTaps(...)
+        </code>
+        。添加下列的代码到最内部的
         <code>
             if
         </code>
-        statement, just above the comment before the
+        语句中，就在
         <code>
             break
         </code>
-        statement:
+        语句前的注释之上：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">when</span> (mode) {
   Mode.VIKING -&gt; vikingAttachment = addSessionAnchorFromAttachment(vikingAttachment, hit)
@@ -384,31 +379,32 @@
 }
 </pre>
     <p>
-        The value of
         <code>
             mode
         </code>
-        is controlled by the radio buttons at the top of the screen.
+        的值则是由屏幕顶部的radio按钮控制的。
         <code>
             Mode
         </code>
-        is a Kotlin
+        是一个Kotlin的
         <em>
-            enum class
+            枚举类
         </em>
-        that also includes a scale factor float value for each mode. 
-        The scale factor is used to tune the size of the corresponding 3D model in the scene.
+        ，它的每个mode值中还包含了一个缩放系数的浮点值，用来调整相应的3D模型在场景中的大小。
     </p>
     <p>
+        在
         In the
         <code>
             when
         </code>
+        语句中，对每个mode，你会为相应的
         statement, for each mode, 
         you’re setting a new value for the corresponding
         <em>
             PlaneAttachment
         </em>
+        设置新的值，使用
         , using the old attachment and the hit value for the tap, which is an ARCore
         <em>
             PlaneHitResult
@@ -416,11 +412,11 @@
         defining the intersection of the 3D ray for the tap and a plane.
     </p>
     <p>
-        You now need to add
+        现在，你需要添加一个
         <code>
             addSessionAnchorFromAttachment(...)
         </code>
-        :
+        方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">addSessionAnchorFromAttachment</span><span class="hljs-params">(
   previousAttachment: <span class="hljs-type">PlaneAttachment</span>?, hit: <span class="hljs-type">PlaneHitResult</span>)</span></span>: PlaneAttachment {
@@ -431,16 +427,15 @@
 }
 </pre>
     <p>
-        If the
+        如果
         <code>
             previousAttachment
         </code>
-        is not null, you’re first removing its anchor from the session, 
-        then adding in the new anchor to the session and returning a new value for the
+        不为空，你需要首先将锚点从session中移除掉，然后再给session添加一个新锚点，并基于来自PlaneHitResult平面和锚点，返回
         <em>
             PlaneAttachment
         </em>
-        , based on the PlaneHitResult plane and an anchor from the PlaneHitResult pose.
+        的新值。
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/vikingcannons.png">
@@ -449,26 +444,24 @@
         </a>
     </p>
     <p>
-        You’re almost ready to see your viking do some target practice! :]
+        你几乎已经能够看到维京人做打靶练习了！:]
     </p>
     <h2>
-        Drawing the Objects
+        绘制对象
     </h2>
     <p>
-        The last step you need to do is draw the objects on the screen. 
-        You’re creating plane attachments when the user taps, 
-        but now you need to draw the objects as part of the screen rendering.
+        你需要完成的最后一步就是把对象绘制到屏幕上。你会在用户点击的时候创建平面，但现在你需要在这是完成对象的绘制。
     </p>
     <p>
-        Look for the
+        找到
         <code>
             onDrawFrame(...)
         </code>
-        function. Add the following calls to the bottom of the
+        方法。添加下列的代码到
         <code>
             try
         </code>
-        block:
+        代码块的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">drawObject(vikingObject, vikingAttachment, Mode.VIKING.scaleFactor,
   projectionMatrix, viewMatrix, lightIntensity)
@@ -478,13 +471,11 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
   projectionMatrix, viewMatrix, lightIntensity)
 </pre>
     <p>
-        You’re calling the pre-existing
+        你调用了已有的
         <code>
             drawObject(...)
         </code>
-        helper function, which takes the object, its corresponding attachment,
-        its corresponding scale factor, 
-        as well as matrices and values needed for OpenGL to draw the object that are computed using these starter app helpers:
+        助手方法，它需要传参对象，相应的attachment，以及相应的缩放系数，还有OpenGL所需的相关的值来绘制对象。它们是通过初试项目中的助手方法计算出来的：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeProjectionMatrix</span><span class="hljs-params">()</span></span>: FloatArray {
   <span class="hljs-keyword">val</span> projectionMatrix = FloatArray(<span class="hljs-number">16</span>)
@@ -501,31 +492,25 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
 <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeLightIntensity</span><span class="hljs-params">(frame: <span class="hljs-type">Frame</span>)</span></span> = frame.lightEstimate.pixelIntensity
 </pre>
     <p>
-        The
         <code>
             projectionMatrix
         </code>
-        is calculated from the ARCore Session. The
+        是从ARCore的Session中计算出来的，而
         <code>
             viewMatrix
         </code>
-        is calculated from the ARCore
+        则是从ARCore的
         <em>
             Frame
         </em>
-        , which describes the AR state at a particular point in time. The
+        中计算出来的，它们描述了AR在特定时间下的状态。而
         <code>
             lightIntensity
         </code>
-        is also determined from the frame.
+        同样是有frame所决定的。
     </p>
     <p>
-        Go ahead and run the app. 
-        Select a radio button at the top to select an object mode. 
-        Then find a plane with your camera and tap to place an object.
-        Once you’ve placed all of the objects, 
-        if you rotate your phone, 
-        you’ll see a scene like this:
+        运行app。在屏幕顶部选择一个对象mode，然后你会发现在镜头中出现了一个平面，点击它就可以在上面添加一个对象。当添加好所有的对象之后，旋转手机，你就会看到：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/Screenshot_20170905-134115.png">
@@ -536,11 +521,10 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
         </a>
     </p>
     <p>
-        You can move around the scene and watch as your Viking prepares to fire.
-        There’s no stopping your Viking now! :]
+        你可以移动场景，观看维京人正准备开火。它不会被消失掉！:]
     </p>
     <h2>
-        Where to go from here?
+        从这儿去向哪里？
     </h2>
     <p>
         You’ve just scratched the surface of using ARCore with OpenGL in Android
