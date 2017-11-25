@@ -200,7 +200,7 @@
         的使用ARCore SDK的Kotlin类。
     </p>
     <h3>
-        平面，锚点，和姿势
+        Plane，Anchor，和Pose
     </h3>
     <p>
         <em>
@@ -208,11 +208,11 @@
         </em>
         类是通过一个
         <em>
-            飞机
+            Plane
         </em>
         和一个
         <em>
-            锚点
+            Anchor
         </em>
         构成的，通过它们来生成一个
         <em>
@@ -247,12 +247,11 @@
         中阅读更多相关的内容。
     </p>
     <p>
-        So,
+        因此，
         <em>
             PlaneAttachment
         </em>
-        let’s you attach an anchor to a plane, and retrieve the corresponding
-        pose, which is used by ARCore as you move about the anchor point.
+        可以让你把锚点附加到一个平面上，然后得到生成的pose，它会在你更改锚点位置的时候被ARCore所使用。
     </p>
     <h3>
         ARCore Session
