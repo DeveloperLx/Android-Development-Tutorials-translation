@@ -257,63 +257,61 @@
         ARCore Session
     </h3>
     <p>
-        The starter app includes an ARCore
+        初始项目在
+        <em>
+            MainActivity
+        </em>
+        中已包含了一个
         <em>
             Session
         </em>
-        object in
-        <em>
-            MainActivity
-        </em>
-        . The session describes the entire AR state, and you’ll use it to attach
-        anchors to planes when the user taps the screen.
+        对象。它描述了所有的AR状态，当用户点击屏幕的时候，就可以将锚点附加到平面上。
     </p>
     <p>
-        In
-        <code>
-            setupSession()
-        </code>
-        , called from
+        在
         <code>
             onCreate(...)
         </code>
-        , the starter app checks that the device supports ARCore. If not, a
+        中的
+        <code>
+            setupSession()
+        </code>
+        方法中，初始项目会检查这个设备是否支持ARCore。如果不支持的话，就会展示一个
         <em>
             Toast
         </em>
-        is displayed and the activity finishes.
+        并结束activity。
     </p>
     <p>
-        Assuming you have a supported device, it’s time to setup some objects
-        to render in the scene!
+        假设你有一个支持ARCore的设备，现在就可以将一些对象渲染到场景中了！
     </p>
-    <h2>
-        Adding Objects
+    <h2>   
+        添加对象
     </h2>
     <p>
-        Open up
+        打开
         <em>
             MainActivity
         </em>
-        , and add the following properties
+        ，并添加下列property
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> vikingObject = ObjectRenderer()
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> cannonObject = ObjectRenderer()
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> targetObject = ObjectRenderer()
 </pre>
     <p>
-        Each is defined as an
+        分别定义了三个来自ARCore示例app的
         <em>
             ObjectRenderer
         </em>
-        from the ARCore sample app.
+        。
     </p>
     <p>
-        Also, add three
+        然后，在它的下面添加三个
         <em>
             PlaneAttachment
         </em>
-        properties just below the objects:
+        property：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> vikingAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> cannonAttachment: PlaneAttachment? = <span class="hljs-literal">null</span>
@@ -324,8 +322,7 @@
         <em>
             nullables
         </em>
-        initialized as null, and will be created later when the user taps the
-        screen.
+        initialized as null, and will be created later when the user taps the screen.
     </p>
     <p>
         You need to setup the objects, which you’ll do in
@@ -355,8 +352,8 @@
 }
 </pre>
     <p>
-        You’re using the 3D model files provided in the starter app to setup each
-        of the three objects, as well as setting some material properties on each.
+        You’re using the 3D model files provided in the starter app to setup each of the three objects, 
+        as well as setting some material properties on each.
     </p>
     <h2>
         Attaching Anchors to the Session
@@ -399,20 +396,20 @@
         <em>
             enum class
         </em>
-        that also includes a scale factor float value for each mode. The scale
-        factor is used to tune the size of the corresponding 3D model in the scene.
+        that also includes a scale factor float value for each mode. 
+        The scale factor is used to tune the size of the corresponding 3D model in the scene.
     </p>
     <p>
         In the
         <code>
             when
         </code>
-        statement, for each mode, you’re setting a new value for the corresponding
+        statement, for each mode, 
+        you’re setting a new value for the corresponding
         <em>
             PlaneAttachment
         </em>
-        , using the old attachment and the hit value for the tap, which is an
-        ARCore
+        , using the old attachment and the hit value for the tap, which is an ARCore
         <em>
             PlaneHitResult
         </em>
@@ -438,13 +435,12 @@
         <code>
             previousAttachment
         </code>
-        is not null, you’re first removing its anchor from the session, then adding
-        in the new anchor to the session and returning a new value for the
+        is not null, you’re first removing its anchor from the session, 
+        then adding in the new anchor to the session and returning a new value for the
         <em>
             PlaneAttachment
         </em>
-        , based on the PlaneHitResult plane and an anchor from the PlaneHitResult
-        pose.
+        , based on the PlaneHitResult plane and an anchor from the PlaneHitResult pose.
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/vikingcannons.png">
@@ -459,9 +455,9 @@
         Drawing the Objects
     </h2>
     <p>
-        The last step you need to do is draw the objects on the screen. You’re
-        creating plane attachments when the user taps, but now you need to draw
-        the objects as part of the screen rendering.
+        The last step you need to do is draw the objects on the screen. 
+        You’re creating plane attachments when the user taps, 
+        but now you need to draw the objects as part of the screen rendering.
     </p>
     <p>
         Look for the
@@ -487,8 +483,8 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
             drawObject(...)
         </code>
         helper function, which takes the object, its corresponding attachment,
-        its corresponding scale factor, as well as matrices and values needed for
-        OpenGL to draw the object that are computed using these starter app helpers:
+        its corresponding scale factor, 
+        as well as matrices and values needed for OpenGL to draw the object that are computed using these starter app helpers:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">computeProjectionMatrix</span><span class="hljs-params">()</span></span>: FloatArray {
   <span class="hljs-keyword">val</span> projectionMatrix = FloatArray(<span class="hljs-number">16</span>)
@@ -524,10 +520,12 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
         is also determined from the frame.
     </p>
     <p>
-        Go ahead and run the app. Select a radio button at the top to select an
-        object mode. Then find a plane with your camera and tap to place an object.
-        Once you’ve placed all of the objects, if you rotate your phone, you’ll
-        see a scene like this:
+        Go ahead and run the app. 
+        Select a radio button at the top to select an object mode. 
+        Then find a plane with your camera and tap to place an object.
+        Once you’ve placed all of the objects, 
+        if you rotate your phone, 
+        you’ll see a scene like this:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/09/Screenshot_20170905-134115.png">
@@ -574,22 +572,21 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
         target="_blank">
             ARCore with Unreal
         </a>
-        . Since a good portion of the development with ARCore will likely rely
-        on Unity, I highly recommended you also take a look at our
+        . Since a good portion of the development with ARCore will likely rely on Unity, 
+        I highly recommended you also take a look at our
         <a href="https://www.raywenderlich.com/category/unity" target="_blank">
             Unity content
         </a>
         .
     </p>
     <p>
-        In addition to Android, ARCore targets the web, and you can find more
-        info
+        In addition to Android, ARCore targets the web, 
+        and you can find more info
         <a href="https://developers.google.com/ar/develop/web/getting-started"
         target="_blank">
             here
         </a>
-        . Finally, some cool demos made with ARCore (primarily with Unity) can
-        be found at the
+        . Finally, some cool demos made with ARCore (primarily with Unity) can be found at the
         <a href="https://experiments.withgoogle.com/ar" target="_blank">
             Google experiments site
         </a>
