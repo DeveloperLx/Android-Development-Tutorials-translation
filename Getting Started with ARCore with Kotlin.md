@@ -394,22 +394,18 @@
     </p>
     <p>
         在
-        In the
         <code>
             when
         </code>
-        语句中，对每个mode，你会为相应的
-        statement, for each mode, 
-        you’re setting a new value for the corresponding
+        声明中，对每个mode，你都要使用旧的attachment和点击的hit值，来为相应的
         <em>
             PlaneAttachment
         </em>
-        设置新的值，使用
-        , using the old attachment and the hit value for the tap, which is an ARCore
+        设置一个新值，它是一个ARCore的
         <em>
             PlaneHitResult
         </em>
-        defining the intersection of the 3D ray for the tap and a plane.
+        ，定义了点击和平面的3D的交点。
     </p>
     <p>
         现在，你需要添加一个
@@ -545,34 +541,32 @@ drawObject(targetObject, targetAttachment, Mode.TARGET.scaleFactor,
         下载最终的项目。
     </p>
     <p>
-        You can also use
+        你还可以使用
         <a href="https://developers.google.com/ar/develop/unity/getting-started"
         target="_blank">
             ARCore with Unity
         </a>
-        and
+        和
         <a href="https://developers.google.com/ar/develop/unreal/getting-started"
         target="_blank">
             ARCore with Unreal
         </a>
-        . Since a good portion of the development with ARCore will likely rely on Unity, 
-        I highly recommended you also take a look at our
+        。由于ARCore相当一大部分的开发都依赖于Unity，我强烈地建议你也看一看
         <a href="https://www.raywenderlich.com/category/unity" target="_blank">
-            Unity content
+            Unity相关的内容
         </a>
-        .
+        。
     </p>
     <p>
-        In addition to Android, ARCore targets the web, 
-        and you can find more info
+        除了Android，ARCore还面向网络，你可以在
         <a href="https://developers.google.com/ar/develop/web/getting-started"
         target="_blank">
-            here
+            这里
         </a>
-        . Finally, some cool demos made with ARCore (primarily with Unity) can be found at the
+        找到更多相关的信息。最后，你可以在
         <a href="https://experiments.withgoogle.com/ar" target="_blank">
-            Google experiments site
+            Google实验网站
         </a>
-        .
+        上，找到一些使用ARCore完成的非常酷的演示。
     </p>
 </div>
