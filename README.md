@@ -4,7 +4,7 @@
 
 <div class="content-wrapper taxonomy-description">
     <p>
-        你想学习如何使用Java和Kotlin来为Android系统开发app么？
+        想学习如何用Java和Kotlin为Android系统开发app么？
     </p>
     <p>
         欢迎访问我们超过25个的免费Android开发教程，覆盖了你入门Android开发所需要了解的所有事情！
@@ -56,12 +56,6 @@
             </a>
         </li>
         <li>
-            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
-            sl-processed="1">
-                用Kotlin编写Android：介绍
-            </a>
-        </li>
-        <li>
             <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20Two%20Using%20Android%20Studio.md"
             sl-processed="1">
                 开始Android开发教程第二部分：使用Android Studio
@@ -71,6 +65,12 @@
             <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Beginning%20Android%20Development%20Part%20One%20Installing%20Android%20Studio.md"
             sl-processed="1">
                 开始Android开发教程第一部分：安装Android Studio
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Kotlin%20For%20Android%20An%20Introduction.md"
+            sl-processed="1">
+                用Kotlin编写Android：介绍
             </a>
         </li>
     </ul>
@@ -84,18 +84,6 @@
     </p>
     <ul>
         <li>
-            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction%20with%20Kotlin.md"
-            sl-processed="1">
-                Android Fragment教程：介绍 - Kotlin
-            </a>
-        </li>
-        <li>
-            <a href="https://www.raywenderlich.com/160019/android-intents-tutorial-2"
-            sl-processed="1">
-                Android: Intents Tutorial
-            </a>
-        </li>
-        <li>
             <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Introduction%20to%20Android%20Activities%20with%20Kotlin.md"
             sl-processed="1">
                 Android Activity的介绍 - Kotlin
@@ -107,6 +95,18 @@
                 Android的常用设计模式 - Kotlin
             </a>
         </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Fragments%20Tutorial%20An%20Introduction%20with%20Kotlin.md"
+            sl-processed="1">
+                Android Fragment教程：介绍 - Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Intents%20Tutorial%20with%20Kotlin.md"
+            sl-processed="1">
+                Android Intent教程 - Kotlin
+            </a>
+        </li>        
     </ul>
     <h2 style="clear:both; padding-top: 20px;">
         用户交互界面
@@ -124,21 +124,9 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
-            sl-processed="1">
-                Android RecyclerView Tutorial
-            </a>
-        </li>
-        <li>
             <a href="https://www.raywenderlich.com/127544/android-gridview-getting-started"
             sl-processed="1">
                 Android GridView Tutorial
-            </a>
-        </li>
-        <li>
-            <a href="https://www.raywenderlich.com/128105/introduction-android-animations"
-            sl-processed="1">
-                Android Animation Tutorial
             </a>
         </li>
         <li>
@@ -151,6 +139,23 @@
             <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20An%20Introduction%20to%20Material%20Design%20with%20Kotlin.md"
             sl-processed="1">
                 Android：Material Design的介绍 - Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/ViewPager%20Tutorial%20Getting%20Started%20in%20Kotlin.md" sl-processed="1">
+                ViewPager教程：入门 - Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20RecyclerView%20Tutorial%20with%20Kotlin.md"
+            sl-processed="1">
+                Android RecyclerView教程 - Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20Animation%20Tutorial%20with%20Kotlin.md"
+            sl-processed="1">
+                Android动画教程 - Kotlin
             </a>
         </li>
     </ul>
@@ -167,12 +172,6 @@
             <a href="https://www.raywenderlich.com/103540/geofences-googleapiclient"
             sl-processed="1">
                 Geofences on Android with GoogleApiClient
-            </a>
-        </li>
-        <li>
-            <a href="https://www.raywenderlich.com/118966/android-sdk-versions-tutorial"
-            sl-processed="1">
-                Android SDK Versions Tutorial
             </a>
         </li>
         <li>
@@ -200,11 +199,6 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/141980/rxandroid-tutorial" sl-processed="1">
-                RxAndroid Tutorial
-            </a>
-        </li>
-        <li>
             <a href="https://www.raywenderlich.com/144066/introduction-google-maps-api-android"
             sl-processed="1">
                 Introduction to Google Maps API for Android
@@ -229,9 +223,20 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/170520/getting-started-arcore-kotlin"
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Reactive%20Programming%20with%20RxAndroid%20in%20Kotlin%20An%20Introduction.md" sl-processed="1">
+                用RxAndroid进行响应式编程 - Kotlin: 介绍
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Getting%20Started%20with%20ARCore%20with%20Kotlin.md"
             sl-processed="1">
-                Getting Started with ARCore with Kotlin
+                入门ARCore - Kotlin
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20SDK%20Versions%20Tutorial%20with%20Kotlin.md"
+            sl-processed="1">
+                Android SDK版本教程 - Kotlin
             </a>
         </li>
     </ul>
