@@ -1,4 +1,4 @@
-# Java在Android中的应用
+# 中级Recyclerview教程 - Kotlin
 ---
 #### [原文地址](https://www.raywenderlich.com/172711/intermediate-recyclerview) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
@@ -8,53 +8,46 @@
         alt="Android RW" width="250" height="250" class="alignright size-full wp-image-87100">
     </p>
     <p>
-        Have you ever wanted to go to Mars or just look out over Mars’ horizon?
-        We can’t send you there but we can give you the next best thing: 
-        an app with images from all the Mars rovers.
+        你有想过去趟火星，看一看它的地平线么？我们无法把你送到哪里，但可以送你一个很棒的东西：能够展示所有火星图片的app。
     </p>
-    <p>
-        To show those images, 
-        we’ll use one of Android’s most popular views: 
-        the
+    <p> 
+        为了展示这些图片，我们将会使用Android最流行的控件之一：
         <em>
             RecyclerView
         </em>
-        .
+        。
     </p>
     <p>
-        The
         <em>
             RecyclerView
         </em>
-        layout was introduced in the Lollipop support library and Android developers have been using it for awhile. 
-        It is one of the most useful layouts and
-        gives you more flexibility compared to a
+        布局是在Lollipop的支持库中被引入的，Android开发者已使用了它很长的时间。它是最流行的布局之一，可以给予你相对
         <em>
             ListView
         </em>
-        in a much more performant package.
+        更加灵活的方式。
     </p>
     <p>
-        However, you may not know all that you can do with it. In this tutorial,
-        you’ll see how to add sections, animations, dividers, and swipe gestures.
+        然而，你还尚未了解到它的全部。在本教程中，你会看到如何为它添加分组，动画，分割线和轻扫手势。
     </p>
     <p>
-        You should be familiar with the basics of using
+        你应当熟悉
         <em>
             ReyclerView
         </em>
-        . If not, you can read an introduction to using
+        的基本使用。若非如此，可以阅读
         <em>
             RecyclerView
         </em>
-        <a href="https://www.raywenderlich.com/126528/android-recyclerview-tutorial"
+        的
+        <a href="https://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Android%20RecyclerView%20Tutorial%20with%20Kotlin.md"
         target="_blank" sl-processed="1">
-            here
+            这个教程
         </a>
-        .
+        。
     </p>
     <p>
-        Here is a screenshot from the final version of our app:
+        下面是来自完成的app的一张截图：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/Screenshot_1507091574-281x500.png"
@@ -63,7 +56,7 @@
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        Checkout those amazing Mars landscapes! :]
+        感受这些令人惊奇的火星图片！:]
     </p>
     <p>
         You’re going to continue with the NASA site used in the previous
