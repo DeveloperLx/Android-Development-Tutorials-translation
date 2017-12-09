@@ -153,7 +153,7 @@
             </a>
         </li>
         <li>
-            <a href="https://www.raywenderlich.com/172711/intermediate-recyclerview" sl-processed="1">
+            <a href="hhttps://github.com/DeveloperLx/Android-Development-Tutorials-translation/blob/master/Intermediate%20Recyclerview%20Tutorial%20with%20Kotlin.md" sl-processed="1">
                 中级Recyclerview教程 - Kotlin
             </a>
         </li>
