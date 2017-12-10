@@ -191,21 +191,18 @@
     <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"10dp"</span>
     <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
     <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
       <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/roverLabel"</span>
       <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
       <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
       <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/rovers"</span>
       <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.AppCompatSpinner</span>
       <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/rovers"</span>
       <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
       <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
       <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
       <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
       <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/cameraLabel"</span>
       <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
@@ -213,7 +210,6 @@
       <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"4dp"</span>
       <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/cameras"</span>
       <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/roverLabel"</span> /&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.AppCompatSpinner</span>
       <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/cameras"</span>
       <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
