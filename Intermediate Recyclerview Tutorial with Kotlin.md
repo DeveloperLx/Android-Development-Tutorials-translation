@@ -59,44 +59,41 @@
         感受这些令人惊奇的火星图片！:]
     </p>
     <p>
-        You’re going to continue with the NASA site used in the previous
+        你将继续使用在上一篇
         <em>
             RecyclerView
         </em>
-        tutorial, but do things a bit differently. 
-        You’ll be using an API that will return a list of Mars rover photos. 
-        Along with the
+        教程中用到的NASA网址，但要做一些不同的事情。你会使用一个能够返回火星照片列表的API。配套于照片的
         <em>
             RecyclerView
         </em>
-        of photos, there are two spinners to change the list of photos: 
-        one for rovers and the other for cameras.
+        ，还有两个spinner可以用来更改照片列表：一个用于漫游者，另一个用于相机。
     </p>
     <h2>
-        Getting Started
+        入门
     </h2>
     <p>
-        Download the starter project
+        在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/12/marsrovers-starter-1.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        . Open it up in Android Studio 3.0.1 or later.
+        下载初始项目。在Android Studio 3.0.1或更高的版本中打开它。
     </p>
     <p>
-        Next, head to the NASA site (
+        接下来，找到NASA的网站（
         <a href="https://api.nasa.gov/index.html#apply-for-an-api-key" target="
         _blank"="" sl-processed="1">
             https://api.nasa.gov/index.html#apply-for-an-api-key
         </a>
-        ) and get an API key to use for the rover photos.
+        ），并获取一个可以使用rover照片的API key。
     </p>
     <p>
-        Build and run your app on an emulator or phone. You should see a default”Hello World!”
+        在模拟器或设备上运行项目。你可以在屏幕的中央看到一个默认的“Hello World!”
         <em>
             TextView
         </em>
-        in the center.
+        。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/09/Screenshot_20170925-222953-281x500.png” alt="" width="281" height="500" class="aligncenter size-large wp-image-172715” srcset="https://koenig-media.raywenderlich.com/uploads/2017/09/Screenshot_20170925-222953-281x500.png
@@ -108,28 +105,13 @@
         Manifest
     </h3>
     <p>
-        Add the following to your
+        添加下列的代码到
         <em>
             AndroidManifest.xml
         </em>
-        file before the application tag:
+        文件中，就在application的tag之前：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                uses-permission
-            </span>
-            <span class="hljs-attr">
-                android:name
-            </span>
-            =
-            <span class="hljs-string">
-                "android.permission.INTERNET"
-            </span>
-            /&gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.INTERNET"</span>/&gt;</span></pre>
     <p>
         This will allow you to get information from the NASA website. Note that
         this is not considered a “dangerous” permission and the user will not be
@@ -158,332 +140,28 @@
         </em>
         string:
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "api_error "
-            </span>
-            &gt;
-        </span>
-        Problems getting Photos
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "rovers "
-            </span>
-            &gt;
-        </span>
-        Rovers
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "cameras "
-            </span>
-            &gt;
-        </span>
-        Cameras
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string-array
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "rovers"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Curiosity
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Opportunity
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Spirit
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string-array
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string-array
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "camera_names"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Front Hazard
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Rear Hazard
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Navigation
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Panoramic
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        Mast
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string-array
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                string-array
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "camera_values"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        FHAZ
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        RHAZ
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        NAVCAM
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        PANCAM
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        MAST
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                item
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                string-array
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"api_error"</span>&gt;</span>Problems getting Photos<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rovers"</span>&gt;</span>Rovers<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cameras"</span>&gt;</span>Cameras<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string-array</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rovers"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Curiosity<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Opportunity<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Spirit<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">string-array</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string-array</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"camera_names"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Front Hazard<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Rear Hazard<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Navigation<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Panoramic<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>Mast<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">string-array</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">string-array</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"camera_values"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>FHAZ<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>RHAZ<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>NAVCAM<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>PANCAM<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">item</span>&gt;</span>MAST<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">string-array</span>&gt;</span></pre>
     <h2>
         Main Layout
     </h2>
@@ -498,422 +176,74 @@
         </em>
         file.
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0 " encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:app
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res-auto"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                tools:context
-            </span>
-            =
-            <span class="hljs-string">
-                "com.raywenderlich.marsrovers.MainActivity"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/control_layout"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toTopOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/roverLabel"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/rovers"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toTopOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.AppCompatSpinner
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/rovers"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toTopOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/cameraLabel"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_marginTop
-            </span>
-            =
-            <span class="hljs-string">
-                "4dp"
-            </span>
-            <span class="hljs-attr">
-                android:text
-            </span>
-            =
-            <span class="hljs-string">
-                "@string/cameras"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/roverLabel"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.AppCompatSpinner
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/cameras"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/rovers"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                android.support.v7.widget.RecyclerView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/recycler_view"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "0dp"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "0dp"
-            </span>
-            <span class="hljs-attr">
-                android:visibility
-            </span>
-            =
-            <span class="hljs-string">
-                "gone"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintBottom_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/control_layout"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ProgressBar
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/progress"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:indeterminate
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintBottom_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintLeft_toLeftOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintRight_toRightOf
-            </span>
-            =
-            <span class="hljs-string">
-                "parent"
-            </span>
-            <span class="hljs-attr">
-                app:layout_constraintTop_toBottomOf
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/control_layout"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                android.support.constraint.ConstraintLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>
+  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">tools:context</span>=<span class="hljs-string">"com.raywenderlich.marsrovers.MainActivity"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/control_layout"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"10dp"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/roverLabel"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/rovers"</span>
+      <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.AppCompatSpinner</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/rovers"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+      <span class="hljs-attr">app:layout_constraintTop_toTopOf</span>=<span class="hljs-string">"parent"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/cameraLabel"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"4dp"</span>
+      <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/cameras"</span>
+      <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/roverLabel"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.AppCompatSpinner</span>
+      <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/cameras"</span>
+      <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+      <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+      <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/rovers"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.RecyclerView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recycler_view"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"0dp"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0dp"</span>
+    <span class="hljs-attr">android:visibility</span>=<span class="hljs-string">"gone"</span>
+    <span class="hljs-attr">app:layout_constraintBottom_toBottomOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/control_layout"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ProgressBar</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/progress"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:indeterminate</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">app:layout_constraintBottom_toBottomOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintLeft_toLeftOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintRight_toRightOf</span>=<span class="hljs-string">"parent"</span>
+    <span class="hljs-attr">app:layout_constraintTop_toBottomOf</span>=<span class="hljs-string">"@+id/control_layout"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span>
+</pre>
     <p>
         This uses Android’s new
         <em>
@@ -949,13 +279,9 @@
         </code>
         , add the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        recycler_view.visibility = View.GONE recycler_view.layoutManager = LinearLayoutManager(
-        <span class="hljs-keyword">
-            this
-        </span>
-        )
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">recycler_view.visibility = View.GONE
+recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">this</span>)
+</pre>
     <p>
         When Android Studio gives you an error on
         <code>
