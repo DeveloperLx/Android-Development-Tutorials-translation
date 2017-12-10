@@ -113,32 +113,29 @@
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.INTERNET"</span>/&gt;</span></pre>
     <p>
-        This will allow you to get information from the NASA website. Note that
-        this is not considered a “dangerous” permission and the user will not be
-        asked to approve it.
+        这样你就可以从NASA网站上获取信息了。注意这并不是一个“危险”的许可，用户无需对它进行批准。
     </p>
     <h3>
-        String Data
+        字符串数据
     </h3>
     <p>
-        To populate the spinners on the main screen, you will need to add strings
-        for the spinners to the
+        为了完成主页面上的两个spinner，你需要在
         <em>
             strings.xml
         </em>
-        file. Open
-        <em>
-            strings.xml
-        </em>
-        in the
+        文件中添加一些字符串。打开
         <em>
             res/values
         </em>
-        folder and add the following after the
+        目录下的
+        <em>
+            strings.xml
+        </em>
+        文件，并在
         <em>
             app_name
         </em>
-        string:
+        字符串之后添加如下的内容：
     </p>
     <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"api_error"</span>&gt;</span>Problems getting Photos<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rovers"</span>&gt;</span>Rovers<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
@@ -166,15 +163,15 @@
         Main Layout
     </h2>
     <p>
-        You need to modify the main layout and add some code to the
+        你需要对主布局进行一些修改，并添加一些代码到
         <code>
             MainActivity
         </code>
-        class. Start out by replacing the layout in the
+        类中。首先是在
         <em>
             activity_main.xml
         </em>
-        file.
+        文件中的替换。
     </p>
     <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">android.support.constraint.ConstraintLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
@@ -241,73 +238,67 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.constraint.ConstraintLayout</span>&gt;</span>
 </pre>
     <p>
-        This uses Android’s new
+        上述代码使用了Android新的
         <em>
             ConstraintLayout
         </em>
-        to add two rows of spinners, one for the Rover and one for the camera.
-        There’s a
+        来添加两行的spinner，一行是Rover的，另一行则是camera的。在spinner的下方则是一个
         <em>
             RecyclerView
         </em>
-        below the spinners. Below the
-        <em>
-            RecyclerView
-        </em>
-        there is a
+        。RecyclerView的下方还有一个
         <em>
             ProgressBar
         </em>
-        that will spin while the data is loading.
+        ，它会在数据加载的时候旋转起来。
     </p>
     <p>
-        Now, time to modify
+        接下来修改
         <em>
             MainActivity.kt
         </em>
-        . In the
+        。在
         <code>
             onCreate()
         </code>
-        method, after the call to
+        方法中，调用
         <code>
             setContentView
         </code>
-        , add the following:
+        之后，添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">recycler_view.visibility = View.GONE
 recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">this</span>)
 </pre>
     <p>
-        When Android Studio gives you an error on
+        当Android Studio在
         <code>
             recycler_view
         </code>
-        , put your cursor on
+        上给你提示了一个错误的时候，将光标移到
         <code>
             recycler_view
         </code>
-        and hit
+        上并点击
         <em>
             option+return
         </em>
-        on Mac or
+        （在PC上是
         <em>
             Alt+Enter
         </em>
-        on PC and select “Import”. This uses the Kotlin Android Extensions to
-        turn the
+        ）并选择“Import”。这就会使用Kotlin的Android插件来讲
         <code>
             R.id.recycler_view id
         </code>
-        into a
+        转换为
         <code>
             recycler_view
         </code>
-        variable.
+        变量。
     </p>
     <p>
-        Now, run the app and you should see the following:
+        现在，运行app，你会看到如下的内容：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/Screenshot_1507085951-281x500.png"
