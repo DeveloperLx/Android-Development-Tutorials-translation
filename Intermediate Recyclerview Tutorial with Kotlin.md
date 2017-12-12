@@ -547,65 +547,54 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Camera</span></span>(<span class="hljs-keyword">val</span> id: <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> rover_id: <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> full_name: String)
 </pre>
     <p>
-        Notice that you are using the
+        注意你使用了
         <code>
             data
         </code>
-        keyword to have Kotlin create the getters and setters for you, and that
-        the class doesn’t need a beginning or ending brace as there are no methods.
-        The field names match the names of the fields in the JSON response returned
-        from the NASA API endpoint. You could make the names more readable, but
-        you’d have to add some annotations to do that. For now, just use the given
-        names.
+        关键字来让Kotlin帮助你创建getter和setter，因此这个类无需大括号来容纳需要实现的方法。这些字段的名称和从NASA API返回的JSON中相应的字段是相同的。你当然可以使这些名称更加地可读，但需要添加一些额外的annotation来实现。现在我们只需使用这里给出的名称。
     </p>
     <p>
-        Next, right-click on the
+        接下来，右击
         <code>
             models
         </code>
-        package and create a new Kotlin class named
+        包并创建一个Kotlin类，名为
         <code>
             Photo
         </code>
-        and replace with the following:
+        ，并将其中的内容替换为如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Photo</span></span>(<span class="hljs-keyword">val</span> id : <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> img_src : String, <span class="hljs-keyword">val</span> earth_date: String, <span class="hljs-keyword">val</span> camera: Camera)</pre>
     <p>
-        Create another Kotlin class named
+        创建另一个名为
         <code>
             PhotoList
         </code>
-        . The
-        <code>
-            PhotoList
-        </code>
-        class just holds a list of photos and is the root element of the JSON
-        data:
+        的Kotlin类。它持有了一个照片的列表，且为JSON数据的根元素：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoList</span></span>(<span class="hljs-keyword">val</span> photos: List&lt;Photo&gt;)</pre>
     <p>
-        Finally, create a
+        最后，创建一个
         <code>
             PhotoRow
         </code>
-        class that will be used to indicate that a row is either a photo or a
-        header. This way, you can just have a list of
+        类，用来指示某一行时照片还是header。这样，你就只需创建一个
         <code>
             PhotoRow
         </code>
-        objects and check which type to show based on the value of the
+        对象的列表，并基于
         <code>
             RowType
         </code>
-        enum. Create a new Kotlin file called
-        <code>
-            PhotoRow
-        </code>
-        in the
+        枚举值来确定展示何种类型。在
         <code>
             models
         </code>
-        package and add the following:
+        包下创建一个新的名为
+        <code>
+            PhotoRow
+        </code>
+        的Kotlin类，并添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">enum</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RowType</span> </span>{
    PHOTO,
@@ -614,87 +603,80 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 
 <span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoRow</span></span>(<span class="hljs-keyword">var</span> type: RowType, <span class="hljs-keyword">var</span> photo: Photo?, <span class="hljs-keyword">var</span> header: String?)</pre>
     <p>
-        The
         <code>
             type
         </code>
-        property will distinguish between photos and headers. The row will have
-        either a photo or a header string. Both the photo and header variables
-        are nullable.
+        property将用来区分照片和header。row必然是照片和header文本中的一种，且它们均可为空。
     </p>
     <h2>
         Adapter
     </h2>
     <p>
-        Your adapter will extend the
+        你的adapter将继承自
         <em>
             RecyclerView.Adapter
         </em>
-        class and use
+        类，并使用
         <em>
             DefaultViewHolder
         </em>
-        . Navigate to the
+        。找到
         <em>
             com.raywenderlich.marsrovers.recyclerview
         </em>
-        package and add a new Kotlin class called
+        包，并添加一个新的名为
         <em>
             PhotoAdapter
         </em>
-        .
+        的Kotlin类。
     </p>
     <p>
-        The class will start out like so:
+        这个类初始看起来就像下面这样：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> photoList: ArrayList&lt;PhotoRow&gt;) : RecyclerView.Adapter&lt;DefaultViewHolder&gt;() {</pre>
     <p>
-        Along with the passed in list of photos, create two more variables at
-        the beginning of the class:
+        为了传递照片列表，在这个类的开始创建两个变量：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> filteredPhotos = ArrayList&lt;PhotoRow&gt;()
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> filtering = <span class="hljs-literal">false</span>
 </pre>
     <p>
-        The
         <code>
             filterPhotos
         </code>
-        list is used to hold photos for a specific camera, and the
+        列表将用来持有一个特定相机的照片，而
         <code>
             filtering
         </code>
-        flag will be true when the user is filtering.
+        标记将在用户正在过滤时为true。
     </p>
     <p>
-        There are three abstract methods of
         <em>
             RecyclerView.Adapter
         </em>
-        that have to be implemented:
+        中有三个抽象方法必须要实现：
         <code>
             getItemCount
         </code>
-        ,
+        ，
         <code>
             onCreateViewHolder
         </code>
-        , and
+        ，和
         <code>
             onBindViewHolder
         </code>
-        . You will also override the
+        。你还需要重写
         <code>
             getItemViewType
         </code>
-        method to return different values for the header and photo row type.
+        方法来针对header和照片返回不同的值。
     </p>
     <p>
         <code>
             getItemCount
         </code>
-        returns the number of photos available. If filtering is on, return the
-        size from the filtered list:
+        返回了可用照片的数量。当过滤器被打开时，则返回被过滤后照片的数量：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> {
  <span class="hljs-keyword">if</span> (filtering) {
@@ -707,7 +689,7 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         <code>
             onBindViewHolder
         </code>
-        is where you load the photo or set the header text.
+        是你用来加载照片并设置header文案的地方。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">DefaultViewHolder</span>, position: <span class="hljs-type">Int</span>)</span></span> {
   <span class="hljs-keyword">val</span> photoRow : PhotoRow = <span class="hljs-keyword">if</span> (filtering) {
@@ -727,29 +709,29 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        You can see that you’re using
+        上述代码使用了
         <a href="https://github.com/bumptech/glide" sl-processed="1">
             Glide
         </a>
-        to load images into the
+        来加载图片到
         <em>
             ImageView
         </em>
-        . Glide seemed to work better for all of the Mars photos than
+        中。对于所有的火星照片，Glide看起来比
         <a href="http://square.github.io/picasso/" sl-processed="1">
             Picasso
         </a>
-        , which was only able to load some of the images.
+        更加得好，后者只可以加载其中部分的图片。
     </p>
     <p>
         <code>
             onCreateViewHolder
         </code>
-        is where you inflate the layout and return the
+        则是你inflate布局并返回
         <em>
             ViewHolder
         </em>
-        :
+        的方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: DefaultViewHolder {
   <span class="hljs-keyword">val</span> layoutInflater = LayoutInflater.from(parent.context)
