@@ -313,68 +313,64 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         ViewHolder
     </h2>
     <p>
-        The
         <em>
             ViewHolder
         </em>
-        class holds the inflated view, is created in a
+        类会持有item中的view，它在
         <em>
             RecyclerView.Adapter
         </em>
-        in
+        的
         <code>
             onCreateViewHolder
         </code>
-        and bound in
+        方法中被创建，并在
         <code>
             onBindViewHolder
         </code>
-        .
+        方法中被绑定。
     </p>
     <p>
-        Before
+        在
         <em>
             RecyclerView
         </em>
-        , Android developers used
+        之前，Android的开发者会使用
         <em>
             ListView
         </em>
-        to achieve similar behavior. As
+        来实现类型的功能。随着
         <em>
             ListView
         </em>
-        usage matured, developers started using the “view holder” pattern and
-        Google then made
+        用法的成熟，开发者开始使用“view holder”的模式。之后Google则把
         <em>
             ViewHolder
         </em>
-        a key part of the
+        作为了
         <em>
             RecyclerView
         </em>
-        API.
+        API的一个关键的部分。
     </p>
     <p>
-        You’ll be creating a special
+        你将创建一个特别的
         <code>
             ViewHolder
         </code>
-        class that will allow you to handle text and image views without using
+        类，让你能够在无需使用
         <code>
             findViewById
         </code>
-        . In this
+        的条件下处理文本和图片。在
         <code>
             DefaultViewHolder
         </code>
-        class, you’ll start by going through all of the child views and putting
-        them in a map so that you can easily retrieve the view later. See the starter
-        project for the full
+        类中，你将从遍历所有的子view开始，将它们放置到一个map中，这样你就可以在之后轻松地获取它们。请看初始项目中完整的
         <code>
             DefaultViewHolder
         </code>
-        class.
+        类。
     </p>
     <h2>
         Adapter Layouts
