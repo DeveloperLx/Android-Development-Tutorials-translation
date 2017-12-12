@@ -783,46 +783,44 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
   }
 </pre>
     <p>
-        Both
         <code>
             getItemCount
         </code>
-        and
+        和
         <code>
             getItemViewType
         </code>
-        need to take into account the filtering flags to use either the original
+        方法都需要基于过滤标记的不同而在
         <code>
             photoList
         </code>
-        or the
+        和
         <code>
             filteredPhotos
         </code>
-        list.
+        列表之间进行选择。
     </p>
     <p>
-        In
+        在
         <code>
             onCreateViewHolder
         </code>
-        , you load in a row\_item layout for photos and a head\_item layout for the header. The
+        方法中，你为照片加载了row\_item布局，为header加载了head\_item布局。而在
         <code>
             onBindViewHolder
         </code>
-        checks the type and binds the appropriate items to the
+        方法中，检查类型并绑定相应的item到
         <em>
             ViewHolder
         </em>
-        .
+        上。
     </p>
     <p>
-        Now run the app to make sure it builds. Since you haven’t added the adapter
-        to the
+        现在运行app来确认它可以构建成功。由于你还没有把adapter添加到
         <em>
             RecyclerView
         </em>
-        yet, you won’t see anything quite yet, only the spinning ProgressBar.
+        上，你还看不到任何内容，只有旋转的ProgressBar。
     </p>
     <h2>
         DiffUtil
@@ -831,177 +829,49 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         <em>
             DiffUtil
         </em>
-        is a utility class from the
+        是一个来自于 
         <em>
             RecyclerView
         </em>
-        support library used to calculate the difference between two lists and
-        create the operations that will morph one list into another. It will be
-        used by the
+        支持库的工具类，用来计算两个列表之间的差异，并创建将一个列表变换成另一个的操作。它将被
         <em>
             RecyclerView.Adapter
         </em>
-        to trigger the optimal data change notifications that are used to animate
-        the
+        用来触发最优的数据变化通知，为
         <em>
             RecyclerView
         </em>
-        ‘s rows.
+        的行添加动画。
     </p>
     <p>
-        To use this method, you need to implement the
+        为使用这个方法，你需要实现
         <em>
             DiffUtil.Callback
         </em>
-        . Add this to the end of the
+        。将它添加到
         <em>
             PhotoAdapter
         </em>
-        class:
+        类的尾部：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                PhotoRowDiffCallback
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        newRows : List&lt;PhotoRow&gt;,
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        oldRows : List&lt;PhotoRow&gt;) : DiffUtil.Callback() {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                areItemsTheSame
-            </span>
-            <span class="hljs-params">
-                (oldItemPosition:
-                <span class="hljs-type
-                ">
-                    Int
-                </span>
-                , newItemPosition:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        oldRow = oldRows[oldItemPosition]
-        <span class="hljs-keyword">
-            val
-        </span>
-        newRow = newRows[newItemPosition]
-        <span class="hljs-keyword">
-            return
-        </span>
-        oldRow.type == newRow.type }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getOldListSize
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        = oldRows.size
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getNewListSize
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        = newRows.size
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                areContentsTheSame
-            </span>
-            <span class="hljs-params">
-                (oldItemPosition:
-                <span class="hljs-type
-                ">
-                    Int
-                </span>
-                , newItemPosition:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        oldRow = oldRows[oldItemPosition]
-        <span class="hljs-keyword">
-            val
-        </span>
-        newRow = newRows[newItemPosition]
-        <span class="hljs-keyword">
-            return
-        </span>
-        oldRow == newRow } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoRowDiffCallback</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> newRows : List&lt;PhotoRow&gt;, <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> oldRows : List&lt;PhotoRow&gt;) : DiffUtil.Callback() {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">areItemsTheSame</span><span class="hljs-params">(oldItemPosition: <span class="hljs-type">Int</span>, newItemPosition: <span class="hljs-type">Int</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
+    <span class="hljs-keyword">val</span> oldRow = oldRows[oldItemPosition]
+    <span class="hljs-keyword">val</span> newRow = newRows[newItemPosition]
+    <span class="hljs-keyword">return</span> oldRow.type == newRow.type
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getOldListSize</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> = oldRows.size
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getNewListSize</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> = newRows.size
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">areContentsTheSame</span><span class="hljs-params">(oldItemPosition: <span class="hljs-type">Int</span>, newItemPosition: <span class="hljs-type">Int</span>)</span></span>: <span class="hljs-built_in">Boolean</span> {
+    <span class="hljs-keyword">val</span> oldRow = oldRows[oldItemPosition]
+    <span class="hljs-keyword">val</span> newRow = newRows[newItemPosition]
+    <span class="hljs-keyword">return</span> oldRow == newRow
+  }
+}
+</pre>
     <p>
         This class checks the items to see if they are the same type or have the
         same values. The
@@ -1038,80 +908,26 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </em>
         how to update the photo views, and remove rows:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                clearFilter
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { filtering =
-        <span class="hljs-literal">
-            false
-        </span>
-        filteredPhotos.clear() }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                updatePhotos
-            </span>
-            <span class="hljs-params">
-                (photos :
-                <span class="hljs-type">
-                    ArrayList
-                </span>
-                &lt;
-                <span class="hljs-type
-                ">
-                    PhotoRow
-                </span>
-                &gt;)
-            </span>
-        </span>
-        { DiffUtil.calculateDiff(PhotoRowDiffCallback(photos, photoList),
-        <span class="hljs-literal">
-            false
-        </span>
-        ).dispatchUpdatesTo(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) photoList = photos clearFilter() }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                removeRow
-            </span>
-            <span class="hljs-params">
-                (row :
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (filtering) { filteredPhotos.removeAt(row) }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { photoList.removeAt(row) } notifyItemRemoved(row) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">clearFilter</span><span class="hljs-params">()</span></span> {
+    filtering = <span class="hljs-literal">false</span>
+    filteredPhotos.clear()
+  }
+
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">updatePhotos</span><span class="hljs-params">(photos : <span class="hljs-type">ArrayList</span>&lt;<span class="hljs-type">PhotoRow</span>&gt;)</span></span> {
+   DiffUtil.calculateDiff(PhotoRowDiffCallback(photos, photoList), <span class="hljs-literal">false</span>).dispatchUpdatesTo(<span class="hljs-keyword">this</span>)
+   photoList = photos
+   clearFilter()
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">removeRow</span><span class="hljs-params">(row : <span class="hljs-type">Int</span>)</span></span> {
+   <span class="hljs-keyword">if</span> (filtering) {
+       filteredPhotos.removeAt(row)
+   } <span class="hljs-keyword">else</span> {
+       photoList.removeAt(row)
+   }
+   notifyItemRemoved(row)
+}
+</pre>
     <p>
         Notice the
         <code>
@@ -1158,49 +974,11 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </em>
         . Replace the code with the following:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                interface
-            </span>
-            <span class="hljs-title">
-                NasaApi
-            </span>
-        </span>
-        {
-        <span class="hljs-meta">
-            @GET(
-            <span class="hljs-meta-string">
-                "mars-photos/api/v1/rovers/{rover}/photos?sol=1000&amp;api_key=&lt;key&gt;"
-            </span>
-            )
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getPhotos
-            </span>
-            <span class="hljs-params">
-                (
-                <span class="hljs-meta
-                ">
-                    @Path(
-                    <span class="hljs-meta-string">
-                        "rover"
-                    </span>
-                    )
-                </span>
-                rover:
-                <span class="hljs-type">
-                    String
-                </span>
-                )
-            </span>
-        </span>
-        : Call&lt;PhotoList&gt; }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NasaApi</span> </span>{
+   <span class="hljs-meta">@GET(<span class="hljs-meta-string">"mars-photos/api/v1/rovers/{rover}/photos?sol=1000&amp;api_key=&lt;key&gt;"</span>)</span>
+   <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPhotos</span><span class="hljs-params">(<span class="hljs-meta">@Path(<span class="hljs-meta-string">"rover"</span>)</span> rover: <span class="hljs-type">String</span>)</span></span> : Call&lt;PhotoList&gt;
+}
+</pre>
     <p>
         Substitute your key from the NASA site for
         <em>
@@ -1258,19 +1036,9 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            object
-        </span>
-        NasaPhotos {
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        service : NasaApi
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">object</span> NasaPhotos {
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> service : NasaApi
+</pre>
     <p>
         And then add an
         <code>
@@ -1283,49 +1051,19 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </code>
         object:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        init {
-        <span class="hljs-keyword">
-            val
-        </span>
-        retrofit = Retrofit.Builder() .baseUrl(
-        <span class="hljs-string">“https://api.nasa.gov/"
-        </span>
-        ) .addConverterFactory(MoshiConverterFactory.create()) .build() service
-        = retrofit.create(NasaApi::
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            .
-            <span class="hljs-title">
-                java
-            </span>
-            )
-        </span>
-        }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">init {
+    <span class="hljs-keyword">val</span> retrofit = Retrofit.Builder()
+       .baseUrl(<span class="hljs-string">"https://api.nasa.gov/"</span>)
+       .addConverterFactory(MoshiConverterFactory.create())
+       .build()
+    service = retrofit.create(NasaApi::<span class="hljs-class"><span class="hljs-keyword">class</span>.<span class="hljs-title">java</span>)</span>
+}
+</pre>
     <p>
         Then, create a new method to make the call for the photos:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getPhotos
-            </span>
-            <span class="hljs-params">
-                (rover:
-                <span class="hljs-type">
-                    String
-                </span>
-                )
-            </span>
-        </span>
-        : Call&lt;PhotoList&gt; = service.getPhotos(rover)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPhotos</span><span class="hljs-params">(rover: <span class="hljs-type">String</span>)</span></span> : Call&lt;PhotoList&gt; = service.getPhotos(rover)
+</pre>
     <p>
         You’re almost there. You just need to setup the spinners and the
         <em>
@@ -1362,37 +1100,10 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
             MainActivity
         </code>
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        currentRover =
-        <span class="hljs-string">“curiosity"
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        currentRoverPosition =
-        <span class="hljs-number">
-            0
-        </span>
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        currentCameraPosition =
-        <span class="hljs-number">
-            0
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentRover = <span class="hljs-string">"curiosity"</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentRoverPosition = <span class="hljs-number">0</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentCameraPosition = <span class="hljs-number">0</span>
+</pre>
     <p>
         Above the
         <em>
@@ -1400,18 +1111,8 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </em>
         class declaration add:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        const
-        <span class="hljs-keyword">
-            val
-        </span>
-        TAG =
-        <span class="hljs-string">“MarsRover"
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> TAG = <span class="hljs-string">"MarsRover"</span>
+</pre>
     <p>
         The
         <code>
@@ -1426,202 +1127,47 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setupSpinners
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { setupRoverSpinner() setupCameraSpinner() }
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setupCameraSpinner
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // Camera spinner
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        cameraStrings = resources.getStringArray(R.array.camera_values)
-        <span class="hljs-keyword">
-            val
-        </span>
-        cameraAdapter = ArrayAdapter.createFromResource(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , R.array.camera_names, android.R.layout.simple_spinner_item) cameraAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        cameras.adapter = cameraAdapter cameras.onItemSelectedListener =
-        <span class="hljs-keyword">
-            object
-        </span>
-        : AdapterView.OnItemSelectedListener {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onNothingSelected
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type">
-                    AdapterView
-                </span>
-                &lt;*&gt;)
-            </span>
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onItemSelected
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type
-                ">
-                    AdapterView
-                </span>
-                &lt;*&gt;, view:
-                <span class="hljs-type">
-                    View
-                </span>
-                , position:
-                <span class="hljs-type
-                ">
-                    Int
-                </span>
-                , id:
-                <span class="hljs-type">
-                    Long
-                </span>
-                )
-            </span>
-        </span>
-        { currentCameraPosition = position } } }
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setupRoverSpinner
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        {
-        <span class="hljs-comment">
-            // Setup the spinners for selecting different rovers and cameras
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        roverStrings = resources.getStringArray(R.array.rovers)
-        <span class="hljs-keyword">
-            val
-        </span>
-        adapter = ArrayAdapter.createFromResource(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , R.array.rovers, android.R.layout.simple_spinner_item) adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        rovers.adapter = adapter rovers.onItemSelectedListener =
-        <span class="hljs-keyword">
-            object
-        </span>
-        : AdapterView.OnItemSelectedListener {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onNothingSelected
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type">
-                    AdapterView
-                </span>
-                &lt;*&gt;)
-            </span>
-        </span>
-        { }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onItemSelected
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type
-                ">
-                    AdapterView
-                </span>
-                &lt;*&gt;, view:
-                <span class="hljs-type">
-                    View
-                </span>
-                , position:
-                <span class="hljs-type
-                ">
-                    Int
-                </span>
-                , id:
-                <span class="hljs-type">
-                    Long
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (currentRoverPosition != position) { currentRover = roverStrings[position].toLowerCase()
-        loadPhotos() } currentRoverPosition = position } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setupSpinners</span><span class="hljs-params">()</span></span> {
+   setupRoverSpinner()
+   setupCameraSpinner()
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setupCameraSpinner</span><span class="hljs-params">()</span></span> {
+   <span class="hljs-comment">// Camera spinner</span>
+   <span class="hljs-keyword">val</span> cameraStrings = resources.getStringArray(R.array.camera_values)
+   <span class="hljs-keyword">val</span> cameraAdapter = ArrayAdapter.createFromResource(<span class="hljs-keyword">this</span>, R.array.camera_names, android.R.layout.simple_spinner_item)
+   cameraAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+   cameras.adapter = cameraAdapter
+   cameras.onItemSelectedListener = <span class="hljs-keyword">object</span> : AdapterView.OnItemSelectedListener {
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onNothingSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;)</span></span> {
+       }
+
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;, view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>, id: <span class="hljs-type">Long</span>)</span></span> {
+           currentCameraPosition = position
+       }
+   }
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setupRoverSpinner</span><span class="hljs-params">()</span></span> {
+   <span class="hljs-comment">// Setup the spinners for selecting different rovers and cameras</span>
+   <span class="hljs-keyword">val</span> roverStrings = resources.getStringArray(R.array.rovers)
+   <span class="hljs-keyword">val</span> adapter = ArrayAdapter.createFromResource(<span class="hljs-keyword">this</span>, R.array.rovers, android.R.layout.simple_spinner_item)
+   adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+   rovers.adapter = adapter
+   rovers.onItemSelectedListener = <span class="hljs-keyword">object</span> : AdapterView.OnItemSelectedListener {
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onNothingSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;)</span></span> {
+       }
+
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;, view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>, id: <span class="hljs-type">Long</span>)</span></span> {
+           <span class="hljs-keyword">if</span> (currentRoverPosition != position) {
+               currentRover = roverStrings[position].toLowerCase()
+               loadPhotos()
+           }
+           currentRoverPosition = position
+       }
+   }
+}
+</pre>
     <p>
         These setup the spinners to hold the corresponding string arrays.
     </p>
@@ -1633,9 +1179,9 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         method, add the following two lines that will setup the spinners and load
         the photos:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setupSpinners() loadPhotos()
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">setupSpinners()
+loadPhotos()
+</pre>
     <p>
         Next, you’ll load and sort our photos. Add the following after
         <code>
@@ -1647,201 +1193,55 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                loadPhotos
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        { progress.visibility = View.VISIBLE recycler_view.visibility = View.GONE
-        NasaPhotos.getPhotos(currentRover).enqueue(
-        <span class="hljs-keyword">
-            object
-        </span>
-        : Callback&lt;PhotoList&gt; {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onFailure
-            </span>
-            <span class="hljs-params">
-                (call:
-                <span class="hljs-type
-                ">
-                    Call
-                </span>
-                &lt;
-                <span class="hljs-type">
-                    PhotoList
-                </span>
-                &gt;?, t:
-                <span class="hljs-type">
-                    Throwable
-                </span>
-                ?)
-            </span>
-        </span>
-        { Snackbar.make(recycler_view, R.string.api_error, Snackbar.LENGTH_LONG)
-        Log.e(TAG,
-        <span class="hljs-string">“Problems getting Photos with error:
-            <span class="hljs-variable">
-                $t
-            </span>
-            .msg"
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onResponse
-            </span>
-            <span class="hljs-params">
-                (call:
-                <span class="hljs-type">
-                    Call
-                </span>
-                &lt;
-                <span class="hljs-type">
-                    PhotoList
-                </span>
-                &gt;?, response:
-                <span class="hljs-type">
-                    Response
-                </span>
-                &lt;
-                <span class="hljs-type">
-                    PhotoList
-                </span>
-                &gt;?)
-            </span>
-        </span>
-        { response?.let { photoResponse -&gt;
-        <span class="hljs-keyword">
-            if
-        </span>
-        (photoResponse.isSuccessful) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        body = photoResponse.body() body?.let { Log.d(TAG,
-        <span class="hljs-string">“Received
-            <span class="hljs-subst">
-                ${body.photos.size}
-            </span>
-            photos"
-        </span>
-        )
-        <span class="hljs-keyword">
-            if
-        </span>
-        (recycler_view.adapter ==
-        <span class="hljs-literal">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        adapter = PhotoAdapter(sortPhotos(body)) recycler_view.adapter = adapter
-        }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { (recycler_view.adapter
-        <span class="hljs-keyword">
-            as
-        </span>
-        PhotoAdapter).updatePhotos(sortPhotos(body)) } } recycler_view.scrollToPosition(
-        <span class="hljs-number">
-            0
-        </span>
-        ) recycler_view.visibility = View.VISIBLE progress.visibility = View.GONE
-        } } } }) }
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                sortPhotos
-            </span>
-            <span class="hljs-params">
-                (photoList:
-                <span class="hljs-type">
-                    PhotoList
-                </span>
-                )
-            </span>
-        </span>
-        : ArrayList&lt;PhotoRow&gt; {
-        <span class="hljs-keyword">
-            val
-        </span>
-        map = HashMap&lt;String, ArrayList&lt;Photo&gt;&gt;()
-        <span class="hljs-keyword">
-            for
-        </span>
-        (photo
-        <span class="hljs-keyword">
-            in
-        </span>
-        photoList.photos) {
-        <span class="hljs-keyword">
-            var
-        </span>
-        photos = map[photo.camera.full_name]
-        <span class="hljs-keyword">
-            if
-        </span>
-        (photos ==
-        <span class="hljs-literal">
-            null
-        </span>
-        ) { photos = ArrayList() map[photo.camera.full_name] = photos } photos.add(photo)
-        }
-        <span class="hljs-keyword">
-            val
-        </span>
-        newPhotos = ArrayList&lt;PhotoRow&gt;()
-        <span class="hljs-keyword">
-            for
-        </span>
-        ((key, value)
-        <span class="hljs-keyword">
-            in
-        </span>
-        map) { newPhotos.add(PhotoRow(RowType.HEADER,
-        <span class="hljs-literal">
-            null
-        </span>
-        , key)) value.mapTo(newPhotos) { PhotoRow(RowType.PHOTO, it,
-        <span class="hljs-literal">
-            null
-        </span>
-        ) } }
-        <span class="hljs-keyword">
-            return
-        </span>
-        newPhotos }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">loadPhotos</span><span class="hljs-params">()</span></span> {
+    progress.visibility = View.VISIBLE
+    recycler_view.visibility = View.GONE
+    NasaPhotos.getPhotos(currentRover).enqueue(<span class="hljs-keyword">object</span> : Callback&lt;PhotoList&gt; {
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(call: <span class="hljs-type">Call</span>&lt;<span class="hljs-type">PhotoList</span>&gt;?, t: <span class="hljs-type">Throwable</span>?)</span></span> {
+           Snackbar.make(recycler_view, R.string.api_error, Snackbar.LENGTH_LONG)
+           Log.e(TAG, <span class="hljs-string">"Problems getting Photos with error: <span class="hljs-variable">$t</span>.msg"</span>)
+       }
+
+       <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(call: <span class="hljs-type">Call</span>&lt;<span class="hljs-type">PhotoList</span>&gt;?, response: <span class="hljs-type">Response</span>&lt;<span class="hljs-type">PhotoList</span>&gt;?)</span></span> {
+           response?.let { photoResponse -&gt;
+               <span class="hljs-keyword">if</span> (photoResponse.isSuccessful) {
+                  <span class="hljs-keyword">val</span> body = photoResponse.body()
+                  body?.let {
+                     Log.d(TAG, <span class="hljs-string">"Received <span class="hljs-subst">${body.photos.size}</span> photos"</span>)
+                     <span class="hljs-keyword">if</span> (recycler_view.adapter == <span class="hljs-literal">null</span>) {
+                        <span class="hljs-keyword">val</span> adapter = PhotoAdapter(sortPhotos(body))
+                        recycler_view.adapter = adapter
+                     } <span class="hljs-keyword">else</span> {
+                        (recycler_view.adapter <span class="hljs-keyword">as</span> PhotoAdapter).updatePhotos(sortPhotos(body))
+                     }
+                   }
+                   recycler_view.scrollToPosition(<span class="hljs-number">0</span>)
+                   recycler_view.visibility = View.VISIBLE
+                   progress.visibility = View.GONE
+               }
+           }
+       }
+   })
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">sortPhotos</span><span class="hljs-params">(photoList: <span class="hljs-type">PhotoList</span>)</span></span> : ArrayList&lt;PhotoRow&gt; {
+   <span class="hljs-keyword">val</span> map = HashMap&lt;String, ArrayList&lt;Photo&gt;&gt;()
+   <span class="hljs-keyword">for</span> (photo <span class="hljs-keyword">in</span> photoList.photos) {
+       <span class="hljs-keyword">var</span> photos = map[photo.camera.full_name]
+       <span class="hljs-keyword">if</span> (photos == <span class="hljs-literal">null</span>) {
+           photos = ArrayList()
+           map[photo.camera.full_name] = photos
+       }
+       photos.add(photo)
+   }
+   <span class="hljs-keyword">val</span> newPhotos = ArrayList&lt;PhotoRow&gt;()
+   <span class="hljs-keyword">for</span> ((key, value) <span class="hljs-keyword">in</span> map) {
+       newPhotos.add(PhotoRow(RowType.HEADER, <span class="hljs-literal">null</span>, key))
+       value.mapTo(newPhotos) { PhotoRow(RowType.PHOTO, it, <span class="hljs-literal">null</span>) }
+   }
+   <span class="hljs-keyword">return</span> newPhotos
+}
+</pre>
     <p>
         You’ll have to import a few classes to get rid of the errors. Note that
         any of the imports that provide multiple options should use the ones in
