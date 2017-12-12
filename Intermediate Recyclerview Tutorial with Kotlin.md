@@ -376,910 +376,369 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         Adapter Layouts
     </h2>
     <p>
-        You need to create the two layouts that will be used in the adapter, one
-        for the section headers, and one for the rows themselves. First, you’ll
-        add the header style needed for the header item layout.
+        你需要创建两个用在adapter上的布局，一个用于section的header，另一个则为行本身。首先，添加header item布局所需的header风格。
     </p>
     <p>
         <em>
-            Header Style
+            Header风格
         </em>
     </p>
     <p>
-        Open the
+        在value资源目录下打开
         <em>
             styles.xml
         </em>
-        file in the values resource folder and add the following style that will
-        be used in the
+        文件，并添加下列的风格，它们将会在
         <em>
             header_item.xml
         </em>
-        file:
+        文件中被使用到：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                style
-            </span>
-            <span class="hljs-attr">
-                name
-            </span>
-            =
-            <span class="hljs-string">
-                "header"
-            </span>
-            &gt;
-        </span>
-        <span class="xml">
-            <span class="hljs-tag">
-                &lt;
-                <span class="hljs-name
-                ">
-                    item
-                </span>
-                <span class="hljs-attr">
-                    name
-                </span>
-                =
-                <span class="hljs-string">
-                    "android:textSize "
-                </span>
-                &gt;
-            </span>
-            16sp
-            <span class="hljs-tag">
-                &lt;/
-                <span class="hljs-name">
-                    item
-                </span>
-                &gt;
-            </span>
-            <span class="hljs-tag">
-                &lt;
-                <span class="hljs-name
-                ">
-                    item
-                </span>
-                <span class="hljs-attr">
-                    name
-                </span>
-                =
-                <span class="hljs-string">
-                    "android:textColor "
-                </span>
-                &gt;
-            </span>
-            @android:color/holo_red_dark
-            <span class="hljs-tag">
-                &lt;/
-                <span class="hljs-name">
-                    item
-                </span>
-                &gt;
-            </span>
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                style
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"header"</span>&gt;</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:textSize"</span>&gt;</span>16sp<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:textColor"</span>&gt;</span>@android:color/holo_red_dark<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</pre>
     <p>
-        You can use any color you’d like. To create the header, go to the
+        你可以使用任何你喜欢的颜色。为创建header，找到
         <em>
             res/layout
         </em>
-        folder. Right-click and choose
+        目录。右击它并选择
         <em>
             New/Layout resource file
         </em>
-        . Name the file
+        。将文件命名为
         <em>
             header_item.xml
         </em>
-        . You can leave the root element as suggested and then replace everything with the following:
+        。保留建议的根元素，然后将其替换为如下的内容：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0 " encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:orientation
-            </span>
-            =
-            <span class="hljs-string">
-                "vertical"
-            </span>
-            <span class="hljs-attr">
-                android:padding
-            </span>
-            =
-            <span class="hljs-string">
-                "10dp"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/header_text"
-            </span>
-            <span class="hljs-attr">
-                style
-            </span>
-            =
-            <span class="hljs-string">
-                "@style/header"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                tools:text
-            </span>
-            =
-            <span class="hljs-string">
-                "Front Hazard"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+  <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>
+  <span class="hljs-attr">android:padding</span>=<span class="hljs-string">"10dp"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/header_text"</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/header"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">tools:text</span>=<span class="hljs-string">"Front Hazard"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</pre>
     <p>
-        This is just a
+        这就是一个用来容纳header文本的
         <em>
             TextView
         </em>
-        for the header text.
+        。
     </p>
     <p>
-        Next, right-click on the layout folder and create a new layout named
+        接下来，右击布局目录，并创建一个名为
         <em>
             row_item.xml
         </em>
-        . Again, leave the root element and replace with:
+        的新布局。然后，再次将根元素替换为：
     </p>
-    <pre lang="xml" class="language-xml hljs">
-        &lt;?xml version="1.0 " encoding="utf-8"?&gt;
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            <span class="hljs-attr">
-                xmlns:android
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/apk/res/android"
-            </span>
-            <span class="hljs-attr">
-                xmlns:tools
-            </span>
-            =
-            <span class="hljs-string">
-                "http://schemas.android.com/tools"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:orientation
-            </span>
-            =
-            <span class="hljs-string">
-                "vertical"
-            </span>
-            &gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                ImageView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/camera_image"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "match_parent"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "80dp"
-            </span>
-            <span class="hljs-attr">
-                android:adjustViewBounds
-            </span>
-            =
-            <span class="hljs-string">
-                "true"
-            </span>
-            <span class="hljs-attr">
-                android:scaleType
-            </span>
-            =
-            <span class="hljs-string">
-                "fitXY"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;
-            <span class="hljs-name">
-                TextView
-            </span>
-            <span class="hljs-attr">
-                android:id
-            </span>
-            =
-            <span class="hljs-string">
-                "@+id/date"
-            </span>
-            <span class="hljs-attr">
-                android:layout_width
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                android:layout_height
-            </span>
-            =
-            <span class="hljs-string">
-                "wrap_content"
-            </span>
-            <span class="hljs-attr">
-                tools:text
-            </span>
-            =
-            <span class="hljs-string">
-                "10/07/2017"
-            </span>
-            /&gt;
-        </span>
-        <span class="hljs-tag">
-            &lt;/
-            <span class="hljs-name">
-                LinearLayout
-            </span>
-            &gt;
-        </span>
-    </pre>
+    <pre lang="xml" class="language-xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span>
+  <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+  <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+  <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ImageView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/camera_image"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"80dp"</span>
+    <span class="hljs-attr">android:adjustViewBounds</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">android:scaleType</span>=<span class="hljs-string">"fitXY"</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/date"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>
+    <span class="hljs-attr">tools:text</span>=<span class="hljs-string">"10/07/2017"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</pre>
     <p>
-        This has an
+        包含一个用来展示火星照片的
         <em>
             ImageView
         </em>
-        for the mars photo and a
+        ，以及一个用来展示图片日期的
         <em>
             TextView
         </em>
-        for the date of the image below it.
+        。
     </p>
     <h2>
         Data
     </h2>
     <p>
-        You’ll be populating the
-        <em>
-            RecyclerView.Adapter
-        </em>
-        using data from the NASA site:
+        你将使用来自NASA网站的
         <a href="https://api.nasa.gov/api.html#MarsPhotos" sl-processed="1">
             https://api.nasa.gov/api.html#MarsPhotos
         </a>
-        .
+        来填充
+        <em>
+            RecyclerView.Adapter
+        </em>
+        。
     </p>
     <p>
-        An easy way to test an API is to use the Postman Chrome extension or the Postman app (
+        测试API的一个简单的方法是使用Chrome的Postman插件，或Postman app (
         <a href="https://www.getpostman.com/" sl-processed="1">
             https://www.getpostman.com/
         </a>
-        ). Once you’ve installed it, take the url
+        )。安装完毕之后，请使用url
         <a href="https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&amp;api_key="
         sl-processed="
         1">
             https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&amp;api_key=
         </a>
-        and add your key to the end.
+        并将你的key添加到它的最后。
     </p>
     <p>
-        Hit the “Send” button in Postman and you’ll see the returned JSON in the
-        Response section. Notice how it returns an object that has 1 item named
-        photos, which is an array of objects. Now, you’ll create models to hold
-        the data that comes back.
+        点击Postman上的“Send”按钮，你就会在Response区域看到返回的JSON。注意它是如何返回带有一个名为photo的item的对象的，它是一个对象的数组。现在，你将创建model来持有返回的数据。
     </p>
     <p>
-        In Android Studio, navigate to the
+        在Android Studio中找到, navigate to the
         <code>
             com.raywenderlich.marsrovers
         </code>
-        package. Right click and select
+        包，右击并选择
         <em>
             New/Package
         </em>
-        to create a new package named
+        来创建一个新包，名为
         <code>
             models
         </code>
-        .
+        。
     </p>
     <p>
-        Next, right-click on the
+        接下来，右击
         <code>
             models
         </code>
-        package and select
+        包并选择
         <em>
             New/Kotlin File/Class
         </em>
-        . Name the file
+        。将文件命名为
         <code>
             Camera
         </code>
-        , choose
+        ，选择
         <em>
             Class
         </em>
-        as the “Kind” and replace the generated code with the following:
+        作为“Kind”，并将默认生成的代码替换为如下内容：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            data
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                Camera
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            val
-        </span>
-        id:
-        <span class="hljs-built_in">
-            Int
-        </span>
-        ,
-        <span class="hljs-keyword">
-            val
-        </span>
-        name: String,
-        <span class="hljs-keyword">
-            val
-        </span>
-        rover_id:
-        <span class="hljs-built_in">
-            Int
-        </span>
-        ,
-        <span class="hljs-keyword">
-            val
-        </span>
-        full_name: String)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Camera</span></span>(<span class="hljs-keyword">val</span> id: <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> rover_id: <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> full_name: String)
+</pre>
     <p>
-        Notice that you are using the
+        注意你使用了
         <code>
             data
         </code>
-        keyword to have Kotlin create the getters and setters for you, and that
-        the class doesn’t need a beginning or ending brace as there are no methods.
-        The field names match the names of the fields in the JSON response returned
-        from the NASA API endpoint. You could make the names more readable, but
-        you’d have to add some annotations to do that. For now, just use the given
-        names.
+        关键字来让Kotlin帮助你创建getter和setter，因此这个类无需大括号来容纳需要实现的方法。这些字段的名称和从NASA API返回的JSON中相应的字段是相同的。你当然可以使这些名称更加地可读，但需要添加一些额外的annotation来实现。现在我们只需使用这里给出的名称。
     </p>
     <p>
-        Next, right-click on the
+        接下来，右击
         <code>
             models
         </code>
-        package and create a new Kotlin class named
+        包并创建一个Kotlin类，名为
         <code>
             Photo
         </code>
-        and replace with the following:
+        ，并将其中的内容替换为如下的代码：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            data
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                Photo
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            val
-        </span>
-        id :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        ,
-        <span class="hljs-keyword">
-            val
-        </span>
-        img_src : String,
-        <span class="hljs-keyword">
-            val
-        </span>
-        earth_date: String,
-        <span class="hljs-keyword">
-            val
-        </span>
-        camera: Camera)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Photo</span></span>(<span class="hljs-keyword">val</span> id : <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> img_src : String, <span class="hljs-keyword">val</span> earth_date: String, <span class="hljs-keyword">val</span> camera: Camera)</pre>
     <p>
-        Create another Kotlin class named
+        创建另一个名为
         <code>
             PhotoList
         </code>
-        . The
-        <code>
-            PhotoList
-        </code>
-        class just holds a list of photos and is the root element of the JSON
-        data:
+        的Kotlin类。它持有了一个照片的列表，且为JSON数据的根元素：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            data
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                PhotoList
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            val
-        </span>
-        photos: List&lt;Photo&gt;)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoList</span></span>(<span class="hljs-keyword">val</span> photos: List&lt;Photo&gt;)</pre>
     <p>
-        Finally, create a
+        最后，创建一个
         <code>
             PhotoRow
         </code>
-        class that will be used to indicate that a row is either a photo or a
-        header. This way, you can just have a list of
+        类，用来指示某一行时照片还是header。这样，你就只需创建一个
         <code>
             PhotoRow
         </code>
-        objects and check which type to show based on the value of the
+        对象的列表，并基于
         <code>
             RowType
         </code>
-        enum. Create a new Kotlin file called
-        <code>
-            PhotoRow
-        </code>
-        in the
+        枚举值来确定展示何种类型。在
         <code>
             models
         </code>
-        package and add the following:
+        包下创建一个新的名为
+        <code>
+            PhotoRow
+        </code>
+        的Kotlin类，并添加如下的代码：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            enum
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                RowType
-            </span>
-        </span>
-        { PHOTO, HEADER }
-        <span class="hljs-keyword">
-            data
-        </span>
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                PhotoRow
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            var
-        </span>
-        type: RowType,
-        <span class="hljs-keyword">
-            var
-        </span>
-        photo: Photo?,
-        <span class="hljs-keyword">
-            var
-        </span>
-        header: String?)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">enum</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RowType</span> </span>{
+   PHOTO,
+   HEADER
+}
+
+<span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoRow</span></span>(<span class="hljs-keyword">var</span> type: RowType, <span class="hljs-keyword">var</span> photo: Photo?, <span class="hljs-keyword">var</span> header: String?)</pre>
     <p>
-        The
         <code>
             type
         </code>
-        property will distinguish between photos and headers. The row will have
-        either a photo or a header string. Both the photo and header variables
-        are nullable.
+        property将用来区分照片和header。row必然是照片和header文本中的一种，且它们均可为空。
     </p>
     <h2>
         Adapter
     </h2>
     <p>
-        Your adapter will extend the
+        你的adapter将继承自
         <em>
             RecyclerView.Adapter
         </em>
-        class and use
+        类，并使用
         <em>
             DefaultViewHolder
         </em>
-        . Navigate to the
+        。找到
         <em>
             com.raywenderlich.marsrovers.recyclerview
         </em>
-        package and add a new Kotlin class called
+        包，并添加一个新的名为
         <em>
             PhotoAdapter
         </em>
-        .
+        的Kotlin类。
     </p>
     <p>
-        The class will start out like so:
+        这个类初始看起来就像下面这样：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                PhotoAdapter
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        photoList: ArrayList&lt;PhotoRow&gt;) : RecyclerView.Adapter&lt;DefaultViewHolder&gt;()
-        {
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhotoAdapter</span></span>(<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> photoList: ArrayList&lt;PhotoRow&gt;) : RecyclerView.Adapter&lt;DefaultViewHolder&gt;() {</pre>
     <p>
-        Along with the passed in list of photos, create two more variables at
-        the beginning of the class:
+        为了传递照片列表，在这个类的开始创建两个变量：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        filteredPhotos = ArrayList&lt;PhotoRow&gt;()
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-keyword">
-            var
-        </span>
-        filtering =
-        <span class="hljs-literal">
-            false
-        </span>
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> filteredPhotos = ArrayList&lt;PhotoRow&gt;()
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> filtering = <span class="hljs-literal">false</span>
+</pre>
     <p>
-        The
         <code>
             filterPhotos
         </code>
-        list is used to hold photos for a specific camera, and the
+        列表将用来持有一个特定相机的照片，而
         <code>
             filtering
         </code>
-        flag will be true when the user is filtering.
+        标记将在用户正在过滤时为true。
     </p>
     <p>
-        There are three abstract methods of
         <em>
             RecyclerView.Adapter
         </em>
-        that have to be implemented:
+        中有三个抽象方法必须要实现：
         <code>
             getItemCount
         </code>
-        ,
+        ，
         <code>
             onCreateViewHolder
         </code>
-        , and
+        ，和
         <code>
             onBindViewHolder
         </code>
-        . You will also override the
+        。你还需要重写
         <code>
             getItemViewType
         </code>
-        method to return different values for the header and photo row type.
+        方法来针对header和照片返回不同的值。
     </p>
     <p>
         <code>
             getItemCount
         </code>
-        returns the number of photos available. If filtering is on, return the
-        size from the filtered list:
+        返回了可用照片的数量。当过滤器被打开时，则返回被过滤后照片的数量：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItemCount
-            </span>
-            <span class="hljs-params">
-                ()
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (filtering) {
-        <span class="hljs-keyword">
-            return
-        </span>
-        filteredPhotos.size }
-        <span class="hljs-keyword">
-            return
-        </span>
-        photoList.size }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> {
+ <span class="hljs-keyword">if</span> (filtering) {
+     <span class="hljs-keyword">return</span> filteredPhotos.size
+ }
+ <span class="hljs-keyword">return</span> photoList.size
+}
+</pre>
     <p>
         <code>
             onBindViewHolder
         </code>
-        is where you load the photo or set the header text.
+        是你用来加载照片并设置header文案的地方。
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onBindViewHolder
-            </span>
-            <span class="hljs-params">
-                (holder:
-                <span class="hljs-type
-                ">
-                    DefaultViewHolder
-                </span>
-                , position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            val
-        </span>
-        photoRow : PhotoRow =
-        <span class="hljs-keyword">
-            if
-        </span>
-        (filtering) { filteredPhotos[position] }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { photoList[position] }
-        <span class="hljs-keyword">
-            if
-        </span>
-        (photoRow.type == RowType.PHOTO) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        photo = photoRow.photo Glide.with(holder.itemView.context) .load(photo?.img_src)
-        .into(holder.getImage(R.id.camera_image)) photo?.earth_date?.let { holder.setText(R.id.date,
-        it) } }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { photoRow.header?.let { holder.setText(R.id.header_text, it) } } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(holder: <span class="hljs-type">DefaultViewHolder</span>, position: <span class="hljs-type">Int</span>)</span></span> {
+  <span class="hljs-keyword">val</span> photoRow : PhotoRow = <span class="hljs-keyword">if</span> (filtering) {
+    filteredPhotos[position]
+  } <span class="hljs-keyword">else</span> {
+    photoList[position]
+  }
+  <span class="hljs-keyword">if</span> (photoRow.type == RowType.PHOTO) {
+    <span class="hljs-keyword">val</span> photo = photoRow.photo
+    Glide.with(holder.itemView.context)
+        .load(photo?.img_src)
+        .into(holder.getImage(R.id.camera_image))
+    photo?.earth_date?.let { holder.setText(R.id.date, it) }
+  } <span class="hljs-keyword">else</span> {
+    photoRow.header?.let { holder.setText(R.id.header_text, it) }
+  }
+}
+</pre>
     <p>
-        You can see that you’re using
+        上述代码使用了
         <a href="https://github.com/bumptech/glide" sl-processed="1">
             Glide
         </a>
-        to load images into the
+        来加载图片到
         <em>
             ImageView
         </em>
-        . Glide seemed to work better for all of the Mars photos than
+        中。对于所有的火星照片，Glide看起来比
         <a href="http://square.github.io/picasso/" sl-processed="1">
             Picasso
         </a>
-        , which was only able to load some of the images.
+        更加得好，后者只可以加载其中部分的图片。
     </p>
     <p>
         <code>
             onCreateViewHolder
         </code>
-        is where you inflate the layout and return the
+        则是你inflate布局并返回
         <em>
             ViewHolder
         </em>
-        :
+        的方法：
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onCreateViewHolder
-            </span>
-            <span class="hljs-params">
-                (parent:
-                <span class="hljs-type
-                ">
-                    ViewGroup
-                </span>
-                , viewType:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        : DefaultViewHolder {
-        <span class="hljs-keyword">
-            val
-        </span>
-        layoutInflater = LayoutInflater.from(parent.context)
-        <span class="hljs-keyword">
-            val
-        </span>
-        inflatedView : View =
-        <span class="hljs-keyword">
-            when
-        </span>
-        (viewType) { RowType.PHOTO.ordinal -&gt; layoutInflater.inflate(R.layout.row_item,
-        parent,
-        <span class="hljs-literal">
-            false
-        </span>
-        )
-        <span class="hljs-keyword">
-            else
-        </span>
-        -&gt; layoutInflater.inflate(R.layout.header_item, parent,
-        <span class="hljs-literal">
-            false
-        </span>
-        ) }
-        <span class="hljs-keyword">
-            return
-        </span>
-        DefaultViewHolder(inflatedView) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(parent: <span class="hljs-type">ViewGroup</span>, viewType: <span class="hljs-type">Int</span>)</span></span>: DefaultViewHolder {
+  <span class="hljs-keyword">val</span> layoutInflater = LayoutInflater.from(parent.context)
+
+  <span class="hljs-keyword">val</span> inflatedView : View = <span class="hljs-keyword">when</span> (viewType) {
+    RowType.PHOTO.ordinal -&gt; layoutInflater.inflate(R.layout.row_item, parent,<span class="hljs-literal">false</span>)
+    <span class="hljs-keyword">else</span> -&gt; layoutInflater.inflate(R.layout.header_item, parent,<span class="hljs-literal">false</span>)
+  }
+  <span class="hljs-keyword">return</span> DefaultViewHolder(inflatedView)
+}
+</pre>
     <p>
         For the two methods
         <code>
@@ -1321,35 +780,13 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         </code>
         .
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                getItemViewType
-            </span>
-            <span class="hljs-params">
-                (position:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        =
-        <span class="hljs-keyword">
-            if
-        </span>
-        (filtering) { filteredPhotos[position].type.ordinal }
-        <span class="hljs-keyword">
-            else
-        </span>
-        { photoList[position].type.ordinal }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemViewType</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span> =
+  <span class="hljs-keyword">if</span> (filtering) {
+    filteredPhotos[position].type.ordinal
+  } <span class="hljs-keyword">else</span> {
+    photoList[position].type.ordinal
+  }
+</pre>
     <p>
         Both
         <code>
