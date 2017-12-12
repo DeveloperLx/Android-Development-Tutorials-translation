@@ -740,45 +740,40 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        For the two methods
+        对于
         <code>
             onCreateViewHolder
         </code>
-        and
+        和
         <code>
             onBindViewHolder
         </code>
-        , you need to distinguish between a header and photo row. You can do that
-        by checking the
+        这两个方法，你需要区分是header还是照片。你可以通过检查
         <em>
             PhotoRow
         </em>
-        ’s type, as you’ll see in the next section.
+        的类型来进行区分，正如你在下一节所看到的一样。
     </p>
     <h2>
-        Section Headers
+        节Header
     </h2>
     <p>
-        To provide headers for rows, you just need to have different row types.
-        This is done by letting the
+        为了给行提供header，你需要不同的行类型。这需要通过让
         <em>
             RecyclerView
         </em>
-        know what type to use for each row.
+        了解每行使用什么类型来完成。
     </p>
     <p>
-        Override the
+        重写
         <code>
             getItemViewType
         </code>
-        method and return a different integer for each type. You will be returning
-        two different types, one for the header and one for the photo. You can
-        use the ordinal of the enum (so the returned values will be 0 and 1). Add
-        the following method after
+        方法，并为每种类型返回不同的整数。你将返回两种不同的类型相应的整数，一种用于header，另一种用于照片。在本例中使用枚举相应的整数即可（因此返回值必然为0或1中的一个）。添加下列的方法到
         <code>
             onCreateViewHolder
         </code>
-        .
+        之后。
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getItemViewType</span><span class="hljs-params">(position: <span class="hljs-type">Int</span>)</span></span> =
   <span class="hljs-keyword">if</span> (filtering) {
@@ -811,8 +806,7 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         <code>
             onCreateViewHolder
         </code>
-        , you load in a row_item layout for photos and a head_item layout for
-        the header. The
+        , you load in a row\_item layout for photos and a head\_item layout for the header. The
         <code>
             onBindViewHolder
         </code>
