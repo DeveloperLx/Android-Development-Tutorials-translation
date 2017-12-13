@@ -873,40 +873,37 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        This class checks the items to see if they are the same type or have the
-        same values. The
+        这个类会检查item是否含有相同的类型或值。
         <code>
             areItemsTheSame
         </code>
-        method just checks the row type but the
+        方法只会检查行的类型，而
         <code>
             areContentsTheSame
         </code>
-        checks to see if the rows are equal.
+        则会检查行是否完全相同。
     </p>
     <h3>
-        Additional Methods
+        额外的方法
     </h3>
     <p>
-        To update the photo list, you need to pass in a new list, calculate the
-        difference between the two lists and clear the filter. Add the following
-        methods after
-        <code>
-            getItemViewType
-        </code>
-        in
+        为更新照片的列表，你需要传入一个新的列表，计算两个列表的不同之处，并清理过滤器。在
         <code>
             PhotoAdapter
         </code>
-        to support clearing the filter list, use
+        中        
+        <code>
+            getItemViewType
+        </code>
+        之后添加下列的方法，来支持清理过滤列表，使用
         <em>
             DiffUtil
         </em>
-        to tell the
+        来告知
         <em>
             Adapter
         </em>
-        how to update the photo views, and remove rows:
+        如何更新照片视图，并移除行：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">clearFilter</span><span class="hljs-params">()</span></span> {
     filtering = <span class="hljs-literal">false</span>
@@ -929,50 +926,48 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        Notice the
+        注意
         <code>
             notifyItemRemoved
         </code>
-        method. That method will allow animations to occur for the rows around
-        the deleted row because it tells
+        方法。这个方法将为被删除行及其附近的行上添加动画，因为它确切地告知了
         <em>
             RecyclerView
         </em>
-        exactly how the data in the adapter has changed. It’s best not to use
+        adapter是如何变化的。不使用
         <code>
             notifyDataSetChanged
         </code>
-        for this case, as that does not provide
+        是正确的，因为它无法准确地告知
         <em>
             RecyclerView
         </em>
-        with details about exactly what has changed.
+        数据变化的细节。
     </p>
     <h2>
         Retrofit
     </h2>
     <p>
-        To get the data from NASA, you’ll be using the
-        <a href="http://square.github.io/retrofit/” sl-processed="1">
+        为了从NASA获取数据，你需要使用
+        <a href="http://square.github.io/retrofit/" sl-processed="1">
             Retrofit
         </a>
-        and
-        <a href="https://github.com/square/moshi” sl-processed="1">
+        和
+        <a href="https://github.com/square/moshi" sl-processed="1">
             Moshi
         </a>
-        libraries. You’ll use Retrofit for downloading the data and Moshi for
-        converting it from JSON to our models.
+        库。你将使用Retrofit来下载数据，使用Moshi来将JSON转化为我们的model。
     </p>
     <p>
-        First, create a service interface. Create a new package named
+        首先，创建一个服务器接口。创建一个名为
         <em>
             service
         </em>
-        and then right click to create a new Kotlin interface named
+        的新包，右击它创建一个新的名为
         <em>
             NasaApi
         </em>
-        . Replace the code with the following:
+        的Kotlin interface。将其中的内容替换为如下代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NasaApi</span> </span>{
    <span class="hljs-meta">@GET(<span class="hljs-meta-string">"mars-photos/api/v1/rovers/{rover}/photos?sol=1000&amp;api_key=&lt;key&gt;"</span>)</span>
