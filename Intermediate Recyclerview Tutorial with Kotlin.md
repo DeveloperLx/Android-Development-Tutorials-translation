@@ -975,76 +975,73 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        Substitute your key from the NASA site for
+        用你从NASA网站中获取的key来替换这里的
         <em>
             &lt;key&gt;
         </em>
-        . This sets up the method to get the list of Photos. 
-        The passed in rover string will be substitued for {rover}.
+        。这样就设置好了获取照片列表的方法。传递给rover字符串的值将替换到{rover}处。
     </p>
     <p>
-        If you need to add an import for
+        如果你需要为
         <em>
             Call
         </em>
-        , be sure to use the one from the
+        添加一个import，请确保使用来自
         <em>
             retrofit2
         </em>
-        package.
+        包中的。
     </p>
     <p>
-        Next, you’ll need to create the actual service. Your service should be
-        a Singleton and in Kotlin, creating one is extremely easy.
+        接下来，就该创建实际的service了。它应当是一个单例。在Kotlin中，创建单例超级容易。
     </p>
     <p>
-        Right click on the
+        右击
         <em>
             service
         </em>
-        package and select
+        包并选择
         <em>
             New/Kotlin File/Class
         </em>
-        , name it
+        ，将其命名为
         <em>
             NasaPhotos
         </em>
-        , and change the
+        ，设置
         <em>
             Kind
         </em>
-        to
+        为
         <em>
             Object
         </em>
-        . That’s it! You now have a Kotlin Singleton.
+        。OK了！你已创建好了Kotlin单例。
     </p>
     <p>
-        Create a variable named
+        创建一个名为
         <code>
             service
         </code>
-        that is used in the
+        的变量，用于
         <code>
             getPhotos
         </code>
-        method:
+        方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">object</span> NasaPhotos {
   <span class="hljs-keyword">private</span> <span class="hljs-keyword">val</span> service : NasaApi
 </pre>
     <p>
-        And then add an
+        然后添加一个
         <code>
             init
         </code>
-        method. This will create the instance of Retrofit, set Moshi as the JSON
-        converter, and finally create the
+        方法。它将用来创建Retrofit的实例，设置Moshi为JSON转换器，最后创建
         <code>
             service
         </code>
-        object:
+        对象：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">init {
     <span class="hljs-keyword">val</span> retrofit = Retrofit.Builder()
@@ -1055,16 +1052,17 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
+        然后，穿件一个新法法来调用照片：
         Then, create a new method to make the call for the photos:
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPhotos</span><span class="hljs-params">(rover: <span class="hljs-type">String</span>)</span></span> : Call&lt;PhotoList&gt; = service.getPhotos(rover)
 </pre>
     <p>
-        You’re almost there. You just need to setup the spinners and the
+        你几乎已经完成，只需设置spinner和
         <em>
             RecyclerView
         </em>
-        adapter, which you’ll do next.
+        的adapter，这些将在下一节中完成。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png” alt="" width="320" height="320" class="aligncenter size-medium wp-image-179016” srcset="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png
@@ -1079,48 +1077,47 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         1000w" sizes="(max-width: 320px) 100vw, 320px">
     </p>
     <h2>
-        Updating the main UI
+        更新主UI
     </h2>
     <p>
-        It’s time to update
+        现在是时候来更新
         <em>
             MainActivity
         </em>
-        to setup the spinners and load some photos!
+        ，设置spinner并加载一些照片了！
     </p>
     <p>
-        Add a few variables to hold the current rover string and the spinner positions,
-        at the top of
+        添加一些变量来持有当前的rover字符串，以及spinner的位置，就在
         <code>
             MainActivity
         </code>
+        的顶部
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentRover = <span class="hljs-string">"curiosity"</span>
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentRoverPosition = <span class="hljs-number">0</span>
 <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentCameraPosition = <span class="hljs-number">0</span>
 </pre>
     <p>
-        Above the
+        在
         <em>
             MainActivity
         </em>
-        class declaration add:
+        类声明的上方添加：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> const <span class="hljs-keyword">val</span> TAG = <span class="hljs-string">"MarsRover"</span>
 </pre>
     <p>
-        The
         <code>
             TAG
         </code>
-        will be used for logging errors.
+        将被用于日志。
     </p>
     <p>
-        Add the following below the
+        在
         <code>
             onCreate
         </code>
-        method:
+        方法下添加如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setupSpinners</span><span class="hljs-params">()</span></span> {
    setupRoverSpinner()
@@ -1136,7 +1133,6 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
    cameras.onItemSelectedListener = <span class="hljs-keyword">object</span> : AdapterView.OnItemSelectedListener {
        <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onNothingSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;)</span></span> {
        }
-
        <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;, view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>, id: <span class="hljs-type">Long</span>)</span></span> {
            currentCameraPosition = position
        }
@@ -1152,7 +1148,6 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
    rovers.onItemSelectedListener = <span class="hljs-keyword">object</span> : AdapterView.OnItemSelectedListener {
        <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onNothingSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;)</span></span> {
        }
-
        <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onItemSelected</span><span class="hljs-params">(parent: <span class="hljs-type">AdapterView</span>&lt;*&gt;, view: <span class="hljs-type">View</span>, position: <span class="hljs-type">Int</span>, id: <span class="hljs-type">Long</span>)</span></span> {
            <span class="hljs-keyword">if</span> (currentRoverPosition != position) {
                currentRover = roverStrings[position].toLowerCase()
