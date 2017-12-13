@@ -1231,20 +1231,18 @@ loadPhotos()
 }
 </pre>
     <p>
-        You’ll have to import a few classes to get rid of the errors. Note that
-        any of the imports that provide multiple options should use the ones in
-        the
+        你需要导入一些类来解决出现的错误。注意，对于提供了多个导入选项的，你应当选择在
         <em>
             retrofit2
         </em>
-        package.
+        包中的那个。
     </p>
     <p>
-        In the
+        在
         <code>
             sortPhotos
         </code>
-        method, you put the photos into sections arranged by camera.
+        方法中，你将照片拆分到了不同相机的部分中。
     </p>
     <p>
         Now it’s time to try it out. Build and run the app, and within about 10
