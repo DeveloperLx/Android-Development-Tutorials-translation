@@ -1159,29 +1159,28 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        These setup the spinners to hold the corresponding string arrays.
+        这样就设置了spinner去持有相应的字符串数组。
     </p>
     <p>
-        At the end of the
+        在
         <code>
             onCreate
         </code>
-        method, add the following two lines that will setup the spinners and load
-        the photos:
+        方法的尾部，添加下列两行代码来设置spinner并加载照片：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">setupSpinners()
 loadPhotos()
 </pre>
     <p>
-        Next, you’ll load and sort our photos. Add the following after
-        <code>
-            setupRoverSpinner
-        </code>
-        in the
+        接下来，加载并排序我们的照片。在
         <code>
             MainActivity
         </code>
-        :
+        中的
+        <code>
+            setupRoverSpinner
+        </code>
+        后添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">loadPhotos</span><span class="hljs-params">()</span></span> {
     progress.visibility = View.VISIBLE
@@ -1191,7 +1190,6 @@ loadPhotos()
            Snackbar.make(recycler_view, R.string.api_error, Snackbar.LENGTH_LONG)
            Log.e(TAG, <span class="hljs-string">"Problems getting Photos with error: <span class="hljs-variable">$t</span>.msg"</span>)
        }
-
        <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(call: <span class="hljs-type">Call</span>&lt;<span class="hljs-type">PhotoList</span>&gt;?, response: <span class="hljs-type">Response</span>&lt;<span class="hljs-type">PhotoList</span>&gt;?)</span></span> {
            response?.let { photoResponse -&gt;
                <span class="hljs-keyword">if</span> (photoResponse.isSuccessful) {
