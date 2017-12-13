@@ -1245,8 +1245,7 @@ loadPhotos()
         方法中，你将照片拆分到了不同相机的部分中。
     </p>
     <p>
-        Now it’s time to try it out. Build and run the app, and within about 10
-        or 20 seconds, you should see something like:
+        现在是时候来试一把了。运行app，等待大概10秒20秒，你的app就会变成下面这个样子：
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/Screenshot_1507091574-281x500.png"
@@ -1255,32 +1254,28 @@ loadPhotos()
         sizes="(max-width: 281px) 100vw, 281px">
     </p>
     <p>
-        If you don’t see any images, make sure you have your personal key in the
-        Retrofit @GET annotation.
+        如果无法看到任何图像，请检查在Retrofit的@GET annotation中包含你私有的key。
     </p>
     <p>
-        You can choose different rovers from the spinner in the top right and
-        different cameras from the spinner below the rover spinner but they won’t
-        do anything until they are hooked up. Note also that not all rovers have
-        images from all cameras.
+        你可以从顶部右侧的spinner中选择不同的rover，和它下面的spinner中选择不同的相机。但在连接之前，它们并不能做任何的事。注意并非所有的rover都含有源自全部相机的图片。
     </p>
     <h2>
-        Filtering
+        过滤
     </h2>
     <p>
-        In order to filter the list, add the
-        <em>
-            filterCamera
-        </em>
-        method to
+        为过滤列表，在
         <em>
             PhotoAdapter
         </em>
-        below
+        中，
         <code>
             getItemViewType
         </code>
-        :
+        的下方添加
+        <em>
+            filterCamera
+        </em>
+        方法：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">filterCamera</span><span class="hljs-params">(camera: <span class="hljs-type">String</span>)</span></span> {
    filtering = <span class="hljs-literal">true</span>
@@ -1294,8 +1289,8 @@ loadPhotos()
         <em>
             MainActivity
         </em>
-        and hook up the camera filtering. Add the following code to the beginning
-        of the
+        and hook up the camera filtering. 
+        Add the following code to the beginning of the
         <code>
             OnItemSelectedListener.onItemSelected()
         </code>
@@ -1315,12 +1310,10 @@ loadPhotos()
         <code>
             filter
         </code>
-        function on the collection and return a list of photos and has the given
-        camera value.
+        function on the collection and return a list of photos and has the given camera value.
     </p>
     <p>
-        Now run the app and choose Opportunity as the new rover and you should
-        see something like:
+        Now run the app and choose Opportunity as the new rover and you should see something like:
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/12/opportunity.png"
@@ -1358,8 +1351,8 @@ loadPhotos()
         <em>
             DividerItemDecoration
         </em>
-        that can be used to put dividers between your rows. You can add a divider
-        with this one line, which you should add to
+        that can be used to put dividers between your rows. 
+        You can add a divider with this one line, which you should add to
         <code>
             onCreate()
         </code>
@@ -1399,8 +1392,7 @@ loadPhotos()
         <em>
             RecyclerView
         </em>
-        s allow animations for each row and provides built-in animations for adding
-        and removing rows.
+        s allow animations for each row and provides built-in animations for adding and removing rows.
     </p>
     <p>
         To show an animation for adding a row, make sure you use
@@ -1411,8 +1403,7 @@ loadPhotos()
         <code>
             notifyDataChanged()
         </code>
-        . This lets the view know that just one row has been added and can animate
-        that addition.
+        . This lets the view know that just one row has been added and can animate that addition.
     </p>
     <p>
         For deleting, call
@@ -1461,8 +1452,7 @@ loadPhotos()
         Swiping
     </h2>
     <p>
-        Swiping is great way to let your user delete rows. You’re going to implement
-        swiping in both the left and right direction to delete a row.
+        Swiping is great way to let your user delete rows. You’re going to implement swiping in both the left and right direction to delete a row.
     </p>
     <p>
         <em>
@@ -1472,8 +1462,8 @@ loadPhotos()
         <em>
             ItemTouchHelper
         </em>
-        class along with a swipe callback to handle the movement. The callback
-        is simple and you will just call your adapter’s
+        class along with a swipe callback to handle the movement. 
+        The callback is simple and you will just call your adapter’s
         <code>
             removeRow
         </code>
@@ -1537,8 +1527,7 @@ touchHandler.attachToRecyclerView(recycler_view)
         <em>
             RecyclerView
         </em>
-        . In another app you would likely delete the item from a database and/or
-        make an API call to delete the corresponding item on a server.
+        . In another app you would likely delete the item from a database and/or make an API call to delete the corresponding item on a server.
     </p>
     <h2>
         Where to go from here
@@ -1564,8 +1553,7 @@ touchHandler.attachToRecyclerView(recycler_view)
         </div>
     </div>
     <p>
-        You’ve done a lot of work and now you know how to add animations, provide
-        a swipe handler, add section headers, and use the
+        You’ve done a lot of work and now you know how to add animations, provide a swipe handler, add section headers, and use the
         <em>
             DiffUtil
         </em>
