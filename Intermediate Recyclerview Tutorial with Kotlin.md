@@ -1284,45 +1284,13 @@ loadPhotos()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                filterCamera
-            </span>
-            <span class="hljs-params">
-                (camera:
-                <span class="hljs-type">
-                    String
-                </span>
-                )
-            </span>
-        </span>
-        { filtering =
-        <span class="hljs-literal">
-            true
-        </span>
-        <span class="hljs-keyword">
-            val
-        </span>
-        newPhotos = photoList.filter { photo -&gt; photo.type == RowType.PHOTO
-        &amp;&amp; photo.photo?.camera?.name.equals(camera) }
-        <span class="hljs-keyword">
-            as
-        </span>
-        ArrayList&lt;PhotoRow&gt; DiffUtil.calculateDiff(PhotoRowDiffCallback(newPhotos,
-        photoList),
-        <span class="hljs-literal">
-            false
-        </span>
-        ).dispatchUpdatesTo(
-        <span class="hljs-keyword">
-            this
-        </span>
-        ) filteredPhotos = newPhotos }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">filterCamera</span><span class="hljs-params">(camera: <span class="hljs-type">String</span>)</span></span> {
+   filtering = <span class="hljs-literal">true</span>
+   <span class="hljs-keyword">val</span> newPhotos = photoList.filter { photo -&gt; photo.type == RowType.PHOTO &amp;&amp; photo.photo?.camera?.name.equals(camera) } <span class="hljs-keyword">as</span> ArrayList&lt;PhotoRow&gt;
+   DiffUtil.calculateDiff(PhotoRowDiffCallback(newPhotos, photoList), <span class="hljs-literal">false</span>).dispatchUpdatesTo(<span class="hljs-keyword">this</span>)
+   filteredPhotos = newPhotos
+}
+</pre>
     <p>
         Now go back to your
         <em>
@@ -1339,20 +1307,10 @@ loadPhotos()
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (recycler_view.adapter !=
-        <span class="hljs-literal">
-            null
-        </span>
-        &amp;&amp; currentCameraPosition != position) { (recycler_view.adapter
-        <span class="hljs-keyword">
-            as
-        </span>
-        PhotoAdapter).filterCamera(cameraStrings[position]) }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (recycler_view.adapter != <span class="hljs-literal">null</span> &amp;&amp; currentCameraPosition != position) {
+   (recycler_view.adapter <span class="hljs-keyword">as</span> PhotoAdapter).filterCamera(cameraStrings[position])
+}
+</pre>
     <p>
         You pass in the camera string to filter on and create a new list with
         just those photos. You use Kotlin’s
@@ -1417,13 +1375,7 @@ loadPhotos()
         </code>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        recycler_view.addItemDecoration(DividerItemDecoration(
-        <span class="hljs-keyword">
-            this
-        </span>
-        , DividerItemDecoration.VERTICAL))
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">recycler_view.addItemDecoration(DividerItemDecoration(<span class="hljs-keyword">this</span>, DividerItemDecoration.VERTICAL))</pre>
     <p>
         You can see the divider after the photo date on the last photo in a section.
     </p>
@@ -1478,49 +1430,21 @@ loadPhotos()
         </em>
         :
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            private
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                setAnimation
-            </span>
-            <span class="hljs-params">
-                (viewToAnimate:
-                <span class="hljs-type">
-                    View
-                </span>
-                )
-            </span>
-        </span>
-        {
-        <span class="hljs-keyword">
-            if
-        </span>
-        (viewToAnimate.animation ==
-        <span class="hljs-literal">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        animation = AnimationUtils.loadAnimation(viewToAnimate.context, android.R.anim.slide_in_left)
-        viewToAnimate.animation = animation } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setAnimation</span><span class="hljs-params">(viewToAnimate: <span class="hljs-type">View</span>)</span></span> {
+  <span class="hljs-keyword">if</span> (viewToAnimate.animation == <span class="hljs-literal">null</span>) {
+    <span class="hljs-keyword">val</span> animation = AnimationUtils.loadAnimation(viewToAnimate.context, android.R.anim.slide_in_left)
+    viewToAnimate.animation = animation
+  }
+}
+</pre>
     <p>
         This will provide an animation where the row slides in from the left.
     </p>
     <p>
         Then add:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        setAnimation(holder.itemView)
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs">setAnimation(holder.itemView)
+</pre>
     <p>
         as the last line in
         <code>
@@ -1568,102 +1492,16 @@ loadPhotos()
         </em>
         and add the following at the bottom of the class:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-class">
-            <span class="hljs-keyword">
-                class
-            </span>
-            <span class="hljs-title">
-                SwipeHandler
-            </span>
-        </span>
-        (
-        <span class="hljs-keyword">
-            val
-        </span>
-        adapter: PhotoAdapter, dragDirs :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        , swipeDirs :
-        <span class="hljs-built_in">
-            Int
-        </span>
-        ) : ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onMove
-            </span>
-            <span class="hljs-params">
-                (recyclerView:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                ?, viewHolder:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                ?, target:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                ?)
-            </span>
-        </span>
-        :
-        <span class="hljs-built_in">
-            Boolean
-        </span>
-        {
-        <span class="hljs-keyword">
-            return
-        </span>
-        <span class="hljs-literal">
-            false
-        </span>
-        }
-        <span class="hljs-keyword">
-            override
-        </span>
-        <span class="hljs-function">
-            <span class="hljs-keyword">
-                fun
-            </span>
-            <span class="hljs-title">
-                onSwiped
-            </span>
-            <span class="hljs-params">
-                (viewHolder:
-                <span class="hljs-type">
-                    RecyclerView
-                </span>
-                .
-                <span class="hljs-type">
-                    ViewHolder
-                </span>
-                , direction:
-                <span class="hljs-type">
-                    Int
-                </span>
-                )
-            </span>
-        </span>
-        { adapter.removeRow(viewHolder.adapterPosition) } }
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwipeHandler</span></span>(<span class="hljs-keyword">val</span> adapter: PhotoAdapter, dragDirs : <span class="hljs-built_in">Int</span>, swipeDirs : <span class="hljs-built_in">Int</span>) : ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onMove</span><span class="hljs-params">(recyclerView: <span class="hljs-type">RecyclerView</span>?, viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>?, target: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>?)</span></span>: <span class="hljs-built_in">Boolean</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onSwiped</span><span class="hljs-params">(viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>, direction: <span class="hljs-type">Int</span>)</span></span> {
+    adapter.removeRow(viewHolder.adapterPosition)
+  }
+}
+</pre>
     <p>
         In
         <code>
@@ -1675,20 +1513,10 @@ loadPhotos()
         </code>
         method:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            if
-        </span>
-        (recycler_view.adapter ==
-        <span class="hljs-literal">
-            null
-        </span>
-        ) {
-        <span class="hljs-keyword">
-            val
-        </span>
-        adapter = PhotoAdapter(sortPhotos(body)) recycler_view.adapter = adapter
-    </pre>
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (recycler_view.adapter == <span class="hljs-literal">null</span>) {
+  <span class="hljs-keyword">val</span> adapter = PhotoAdapter(sortPhotos(body))
+  recycler_view.adapter = adapter
+</pre>
     <p>
         Add the following after setting the
         <code>
@@ -1696,16 +1524,9 @@ loadPhotos()
         </code>
         value:
     </p>
-    <pre lang="kotlin" class="language-kotlin hljs">
-        <span class="hljs-keyword">
-            val
-        </span>
-        touchHandler = ItemTouchHelper(SwipeHandler(adapter,
-        <span class="hljs-number">
-            0
-        </span>
-        , (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT))) touchHandler.attachToRecyclerView(recycler_view)
-    </pre>
+    <<pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> touchHandler = ItemTouchHelper(SwipeHandler(adapter, <span class="hljs-number">0</span>, (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)))
+touchHandler.attachToRecyclerView(recycler_view)
+</pre>
     <p>
         Run the app and try swiping left or right to delete a row.
     </p>
