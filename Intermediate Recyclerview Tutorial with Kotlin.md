@@ -1285,35 +1285,33 @@ loadPhotos()
 }
 </pre>
     <p>
-        Now go back to your
+        现在回到
         <em>
             MainActivity
         </em>
-        and hook up the camera filtering. 
-        Add the following code to the beginning of the
-        <code>
-            OnItemSelectedListener.onItemSelected()
-        </code>
-        in the
+        中，并连接相机过滤。在
         <code>
             setupCameraSpinner
         </code>
-        method:
+        方法中，
+        <code>
+            OnItemSelectedListener.onItemSelected()
+        </code>
+        的开始处添加下列的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (recycler_view.adapter != <span class="hljs-literal">null</span> &amp;&amp; currentCameraPosition != position) {
    (recycler_view.adapter <span class="hljs-keyword">as</span> PhotoAdapter).filterCamera(cameraStrings[position])
 }
 </pre>
     <p>
-        You pass in the camera string to filter on and create a new list with
-        just those photos. You use Kotlin’s
+        你传递了一个相机字符串来进行过滤，并使用得到的照片创建了一个新的列表。你使用了Kotlin中集合类型的
         <code>
             filter
         </code>
-        function on the collection and return a list of photos and has the given camera value.
+        方法，返回了一个照片的列表。
     </p>
     <p>
-        Now run the app and choose Opportunity as the new rover and you should see something like:
+        现在运行app，并选择Opportunity作为新的rover，你就会看到如下的内容：
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/12/opportunity.png"
@@ -1352,7 +1350,8 @@ loadPhotos()
             DividerItemDecoration
         </em>
         that can be used to put dividers between your rows. 
-        You can add a divider with this one line, which you should add to
+        You can add a divider with this one line, 
+        which you should add to
         <code>
             onCreate()
         </code>
