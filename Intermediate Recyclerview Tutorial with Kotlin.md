@@ -1537,10 +1537,11 @@ touchHandler.attachToRecyclerView(recycler_view)
                     </div>
                     <div class="col large-col">
                         <span>
-                            Want to learn even faster? Save time with our
+                            想要学得更快？通过我们的
                             <span>
-                                video courses
+                                视频课程
                             </span>
+                            来节约时间吧
                         </span>
                     </div>
                 </div>
@@ -1548,46 +1549,45 @@ touchHandler.attachToRecyclerView(recycler_view)
         </div>
     </div>
     <p>
-        You’ve done a lot of work and now you know how to add animations, 
-        provide a swipe handler, add section headers, and use the
+        你已完成了很多的工作，现在你已了解了如何添加动画，提供swipe的处理，添加节header，并使用
         <em>
             DiffUtil
         </em>
-        class. Well done!
+        类。Well done！
     </p>
     <p>
-        A great next step would be to eliminate the
+        接下来的一个很棒的做法，是消除
         <em>
             PhotoRow
         </em>
-        model class and
+        模型类和
         <em>
             DefaultViewHolder
         </em>
-        and get the project working with separate Header and Photo model objects and a dedicated
+        ，并使项目与独立的Header，Photo模型对象，及一个专用的
         <em>
             ViewHolder
         </em>
-        for each.
+        进行工作。
     </p>
     <p>
-        The final project for this tutorial is available
+        本教程的最终项目可以在
         <a href="https://koenig-media.raywenderlich.com/uploads/2017/12/marsrovers-final-1.zip"
         sl-processed="1">
-            here
+            这里
         </a>
-        . In the final project, be sure to remember to set the API key in
+        被找到。记得在
         <em>
             NasaApi.kt
         </em>
-        .
+        中设置API的key。
     </p>
     <p>
-        If you need more information on
+        如果你需要关于
         <em>
             RecyclerView
         </em>
-        s, you can check out the following Android developer documentation:
+        上的更多信息，可以访问下列的Android开发者文档：
     </p>
     <ul>
         <li>
@@ -1610,11 +1610,11 @@ touchHandler.attachToRecyclerView(recycler_view)
         </li>
     </ul>
     <p>
-        Go forward and make great animated
+        前进，制作伟大的动画
         <em>
             RecyclerView
         </em>
-        s!
+        ！
     </p>
 </div>
 
