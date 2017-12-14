@@ -1326,63 +1326,60 @@ loadPhotos()
         ItemDecorators
     </h2>
     <p>
-        Unlike
+        与
         <em>
             ListView
         </em>
-        ,
+        不同，
         <em>
             RecyclerView
         </em>
-        does not come with any built-in dividers. Instead,
+        并未带有內建的分隔线。相反，
         <em>
             RecyclerView
         </em>
-        allows you to add your own decorators.
+        可以让你添加自己的装饰。
     </p>
     <p>
-        The
         <em>
             RecyclerView
         </em>
-        library comes with a
+        库伴随着一个
         <em>
             DividerItemDecoration
         </em>
-        that can be used to put dividers between your rows. 
-        You can add a divider with this one line, 
-        which you should add to
-        <code>
-            onCreate()
-        </code>
-        in
+        ，让你可以在行之间添加分割线。你可以借此用一行代码来添加分隔线，就添加到
         <code>
             MainActivity
         </code>
-        after the line:
+        中
+        <code>
+            onCreate()
+        </code>
+        方法的
         <code>
             recycler_view.visibility = View.GONE
         </code>
-        :
+        这句代码之后：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">recycler_view.addItemDecoration(DividerItemDecoration(<span class="hljs-keyword">this</span>, DividerItemDecoration.VERTICAL))</pre>
     <p>
-        You can see the divider after the photo date on the last photo in a section.
+        你可以看到在一个部分的最后一张照片之后出现的分隔线。
     </p>
     <p>
-        To create your own decorator, just subclass
+        要创建你自己的装饰器，只需继承
         <em>
             ItemDecoration
         </em>
-        and implement the
+        类并实现
         <code>
             onDraw
         </code>
-        and/or the
+        与
         <code>
             onDrawOver
         </code>
-        methods.
+        方法。
     </p>
     <h2>
         Animations
@@ -1391,32 +1388,32 @@ loadPhotos()
         <em>
             RecyclerView
         </em>
-        s allow animations for each row and provides built-in animations for adding and removing rows.
+        可以在每行上添加动画，并为添加和删除行提供內建的动画。
     </p>
     <p>
-        To show an animation for adding a row, make sure you use
+        为在添加行时展示动画，使用
         <code>
             notifyItemAdded(position)
         </code>
-        instead of calling
+        来代替调用
         <code>
             notifyDataChanged()
         </code>
-        . This lets the view know that just one row has been added and can animate that addition.
+        。这样recyclerView就可以得知只有一行被添加，并为其加入动画效果。
     </p>
     <p>
-        For deleting, call
+        对于删除，则调用
         <code>
             notifyItemRemoved(position)
         </code>
-        .
+        方法。
     </p>
     <p>
-        To animate the addition of each item, add the following method to
+        为加入添加的动画，添加下列的代码到
         <em>
             PhotoAdapter
         </em>
-        :
+        中：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">setAnimation</span><span class="hljs-params">(viewToAnimate: <span class="hljs-type">View</span>)</span></span> {
   <span class="hljs-keyword">if</span> (viewToAnimate.animation == <span class="hljs-literal">null</span>) {
@@ -1426,58 +1423,57 @@ loadPhotos()
 }
 </pre>
     <p>
-        This will provide an animation where the row slides in from the left.
+        这样就提供了一个从左侧滑入的动画。
     </p>
     <p>
-        Then add:
+        然后添加：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs">setAnimation(holder.itemView)
 </pre>
     <p>
-        as the last line in
+        到
         <code>
             onBindViewHolder
         </code>
-        . Now try running again.
+        方法的最后。现在尝试再次运行。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/mars4.gif"
         alt="mars rover screenshot" width="238" height="500" class="aligncenter size-large wp-image-173282">
     </p>
     <p>
-        The animation adds a nice dynamic effect to the presentation of the photos.
+        动画为照片的呈现提供了不错的动态效果。
     </p>
     <h2>
         Swiping
     </h2>
     <p>
-        Swiping is great way to let your user delete rows. You’re going to implement swiping in both the left and right direction to delete a row.
+        Swiping是一个用来删除行的很棒的方式。我们可以同时实现向左或向右swipe以删除行的交互方式。
     </p>
     <p>
         <em>
             RecyclerView
         </em>
-        uses an
+        使用一个
         <em>
             ItemTouchHelper
         </em>
-        class along with a swipe callback to handle the movement. 
-        The callback is simple and you will just call your adapter’s
-        <code>
-            removeRow
-        </code>
-        method in the
+        类，及一个swipe的回调来处理移动。这个回调非常的简单，你只需在
         <code>
             onSwiped
         </code>
-        callback.
+        的回调中调用adapter的
+        <code>
+            removeRow
+        </code>
+        方法即可。
     </p>
     <p>
-        Open
+        打开
         <em>
             MainActivity.kt
         </em>
-        and add the following at the bottom of the class:
+        ，并添加下列的代码到类的底部：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwipeHandler</span></span>(<span class="hljs-keyword">val</span> adapter: PhotoAdapter, dragDirs : <span class="hljs-built_in">Int</span>, swipeDirs : <span class="hljs-built_in">Int</span>) : ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
   <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onMove</span><span class="hljs-params">(recyclerView: <span class="hljs-type">RecyclerView</span>?, viewHolder: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>?, target: <span class="hljs-type">RecyclerView</span>.<span class="hljs-type">ViewHolder</span>?)</span></span>: <span class="hljs-built_in">Boolean</span> {
@@ -1490,46 +1486,46 @@ loadPhotos()
 }
 </pre>
     <p>
-        In
+        在
         <code>
             loadPhotos
         </code>
-        you will find the following in the
+        ，你会在
         <code>
             onResponse
         </code>
-        method:
+        方法中找到如下的代码：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">if</span> (recycler_view.adapter == <span class="hljs-literal">null</span>) {
   <span class="hljs-keyword">val</span> adapter = PhotoAdapter(sortPhotos(body))
   recycler_view.adapter = adapter
 </pre>
     <p>
-        Add the following after setting the
+        添加下列的代码，就在设置
         <code>
             adapter
         </code>
-        value:
+        的值之后：
     </p>
     <<pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> touchHandler = ItemTouchHelper(SwipeHandler(adapter, <span class="hljs-number">0</span>, (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)))
 touchHandler.attachToRecyclerView(recycler_view)
 </pre>
     <p>
-        Run the app and try swiping left or right to delete a row.
+        运行app，尝试向左或向右滑来删除行。
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/10/mars5.gif"
         alt="mars rover final screenshot" width="238" height="500" class="aligncenter size-large wp-image-173286">
     </p>
     <p>
-        Awesome! You’re just deleting the row from the display in the
+        Awesome！你成功地删除了展示在
         <em>
             RecyclerView
         </em>
-        . In another app you would likely delete the item from a database and/or make an API call to delete the corresponding item on a server.
+        中的行。在正式的app中，你需要从数据库中删除行，或是调用API来从服务器中删除相应的item。
     </p>
     <h2>
-        Where to go from here
+        从这儿去向哪里
     </h2>
     <div class="inline-video-ad" id="sub-banner-inline">
         <div class="inline-video-ad-wrapper">
@@ -1552,7 +1548,8 @@ touchHandler.attachToRecyclerView(recycler_view)
         </div>
     </div>
     <p>
-        You’ve done a lot of work and now you know how to add animations, provide a swipe handler, add section headers, and use the
+        You’ve done a lot of work and now you know how to add animations, 
+        provide a swipe handler, add section headers, and use the
         <em>
             DiffUtil
         </em>
