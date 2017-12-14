@@ -1052,8 +1052,7 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
 }
 </pre>
     <p>
-        然后，穿件一个新法法来调用照片：
-        Then, create a new method to make the call for the photos:
+        然后，创建一个新方法来调用照片：
     </p>
     <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getPhotos</span><span class="hljs-params">(rover: <span class="hljs-type">String</span>)</span></span> : Call&lt;PhotoList&gt; = service.getPhotos(rover)
 </pre>
