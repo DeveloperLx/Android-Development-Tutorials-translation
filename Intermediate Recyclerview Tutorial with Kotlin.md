@@ -1507,7 +1507,7 @@ loadPhotos()
         </code>
         的值之后：
     </p>
-    <<pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> touchHandler = ItemTouchHelper(SwipeHandler(adapter, <span class="hljs-number">0</span>, (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)))
+    <pre lang="kotlin" class="language-kotlin hljs"><span class="hljs-keyword">val</span> touchHandler = ItemTouchHelper(SwipeHandler(adapter, <span class="hljs-number">0</span>, (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)))
 touchHandler.attachToRecyclerView(recycler_view)
 </pre>
     <p>
