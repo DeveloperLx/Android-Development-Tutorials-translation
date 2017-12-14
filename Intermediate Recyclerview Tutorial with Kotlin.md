@@ -1065,7 +1065,7 @@ recycler_view.layoutManager = LinearLayoutManager(<span class="hljs-keyword">thi
         的adapter，这些将在下一节中完成。
     </p>
     <p>
-        <img src="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png” alt="" width="320" height="320" class="aligncenter size-medium wp-image-179016” srcset="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png
+        <img src="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png" alt="" width="320" height="320" class="aligncenter size-medium wp-image-179016" srcset="https://koenig-media.raywenderlich.com/uploads/2017/12/showme-320x320.png
         320w, https://koenig-media.raywenderlich.com/uploads/2017/12/showme-250x250.png
         250w, https://koenig-media.raywenderlich.com/uploads/2017/12/showme-500x500.png
         500w, https://koenig-media.raywenderlich.com/uploads/2017/12/showme-32x32.png
