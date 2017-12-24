@@ -8,9 +8,7 @@
             <em>
                 更新日志
             </em>
-            : This Dagger 2 tutorial is now up to date with the latest version of
-            Android Studio, version 3.0.1, and uses Kotlin for app development. Update
-            by Dario Coletto. Original tutorial by Joe Howard.
+            本Dagger 2教程已由Dario Coletto更新至最新版本的Android Studio（3.0.1版），并使用Kotlin作为开发语言。原教程是由Joe Howard编写的。
         </p>
     </div>
     <p>
@@ -20,12 +18,11 @@
             srcset="https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-250x250.png 250w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-320x320.png 320w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature.png 500w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-32x32.png 32w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-50x50.png 50w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-64x64.png 64w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-96x96.png 96w, https://koenig-media.raywenderlich.com/uploads/2016/11/Dagger-feature-128x128.png 128w"
             sizes="(max-width: 250px) 100vw, 250px">
         </a>
-        The cry of “You must do dependency injection!” is heard throughout modern
-        software development teams. With such an imposing name,
+        “你必须做依赖注入！”的声音一直广泛传播在现代的软件开发术语中。
         <em>
-            Dependency Injection
+            依赖注入
         </em>
-        (or DI for short) can put a fright into any software developer.
+        （或简称DI）这样的名字可以吓到任何的软件开发者。
     </p>
     <p>
         It turns out that Dependency Injection is nowhere near as complex as its
